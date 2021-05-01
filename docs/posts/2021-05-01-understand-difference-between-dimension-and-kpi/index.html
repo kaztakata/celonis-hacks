@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Understand Difference between Dimension and KPI - Celonis hacks</title>
+  <meta name="description" content="If you are beginner of creating Celonis Analysis, I believe you will first create OLAP table to understand how Celonis PQL works with data model. Points are,
+ Dimensions are grouping key to calculate KPI, normally they are string (character) columns KPIs are calculated figures based on specific numeric columns, or count of rows of any columns, it must be numeric value in either cases Columns used as dimensions and KPIs are inplicitly joined based on data model  Below screenshot is the quite simple example to show Dimension, KPI, and data model.">
+  <meta name="author" content="Kazuhiko Takata"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "Celonis hacks",
+    
+    "url": "https:\/\/kaztakata.github.io\/website"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/kaztakata.github.io\/website"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/kaztakata.github.io\/website",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/kaztakata.github.io\/website\/posts\/2021-05-01-understand-difference-between-dimension-and-kpi\/",
+          "name": "Understand difference between dimension and k p i"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Kazuhiko Takata"
+  },
+  "headline": "Understand Difference between Dimension and KPI",
+  "description" : "If you are beginner of creating Celonis Analysis, I believe you will first create OLAP table to understand how Celonis PQL works with data model. Points are,\n Dimensions are grouping key to calculate KPI, normally they are string (character) columns KPIs are calculated figures based on specific numeric columns, or count of rows of any columns, it must be numeric value in either cases Columns used as dimensions and KPIs are inplicitly joined based on data model  Below screenshot is the quite simple example to show Dimension, KPI, and data model.",
+  "inLanguage" : "en",
+  "wordCount":  462 ,
+  "datePublished" : "2021-05-01T15:25:08",
+  "dateModified" : "2021-05-01T15:25:08",
+  "image" : "https:\/\/kaztakata.github.io\/website",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/website\/posts\/2021-05-01-understand-difference-between-dimension-and-kpi\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/kaztakata.github.io\/website",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/kaztakata.github.io\/website",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="Understand Difference between Dimension and KPI" />
+<meta property="og:description" content="If you are beginner of creating Celonis Analysis, I believe you will first create OLAP table to understand how Celonis PQL works with data model. Points are,
+ Dimensions are grouping key to calculate KPI, normally they are string (character) columns KPIs are calculated figures based on specific numeric columns, or count of rows of any columns, it must be numeric value in either cases Columns used as dimensions and KPIs are inplicitly joined based on data model  Below screenshot is the quite simple example to show Dimension, KPI, and data model.">
+<meta property="og:url" content="https://kaztakata.github.io/website/posts/2021-05-01-understand-difference-between-dimension-and-kpi/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Celonis hacks" />
+
+  <meta name="twitter:title" content="Understand Difference between Dimension and KPI" />
+  <meta name="twitter:description" content="If you are beginner of creating Celonis Analysis, I believe you will first create OLAP table to understand how Celonis PQL works with data model. Points are,
+ Dimensions are grouping key to calculate …">
+  <meta name="twitter:card" content="summary" />
+  <meta name="generator" content="Hugo 0.68.3" />
+  <link rel="alternate" href="https://kaztakata.github.io/website/index.xml" type="application/rss+xml" title="Celonis hacks"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://kaztakata.github.io/website/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://kaztakata.github.io/website/css/highlight.min.css" /><link rel="stylesheet" href="https://kaztakata.github.io/website/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://kaztakata.github.io/website">Celonis hacks</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="https://kaztakata.github.io/website/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="https://kaztakata.github.io/website/tags">Tags</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="https://kaztakata.github.io/website/page/about/">About</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="posts-heading">
+              
+                <h1>Understand Difference between Dimension and KPI</h1>
+              
+              
+                <hr class="small">
+              
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>If you are beginner of creating Celonis Analysis, I believe you will first create OLAP table to understand how Celonis PQL works with data model. Points are,</p>
+<ul>
+<li>Dimensions are grouping key to calculate KPI, normally they are string (character) columns</li>
+<li>KPIs are calculated figures based on specific numeric columns, or count of rows of any columns, it must be numeric value in either cases</li>
+<li>Columns used as dimensions and KPIs are inplicitly joined based on data model</li>
+</ul>
+<p>Below screenshot is the quite simple example to show Dimension, KPI, and data model. Dimension is vendor code <code>LFA1.LIFNR</code> that is group key to calculate KPI <code>COUNT(EKKO.MANDT)</code> that is count of rows of Purchase order table (<code>MANDT</code> can be changed to any columns in <code>EKKO</code>). I just set up columns in different tables then you can see two tables (vendor master <code>LFA1</code> and purchase order <code>EKKO</code>) are joined automatically.</p>
+<p><img src="https://user-images.githubusercontent.com/67397583/116774171-b6e14e00-aa95-11eb-8506-9196c09ace4b.png" alt="image"></p>
+<p>Next screenshot is the proof of count KPI. I hide KPI then add one more dimension, purchase order number <code>EKKO.EBELN</code>. You can see first vendor code <code>0000000002</code> that has 4 rows of different purchase order number. Dimension is grouping key of KPI so <code>0000000002</code> that is seen in 4 rows are merged to 1 row if I set count KPI, instead when I do not display KPI then 4 rows are displayed as they are.</p>
+<p><img src="https://user-images.githubusercontent.com/67397583/116774364-1ee46400-aa97-11eb-8048-6ae6b4ebf111.png" alt="image"></p>
+<p>When I use functions to operate columns in data model, the idea is the same. In the next screenshot I will add one more KPI using deletion flag <code>EKKO.LOEKZ</code> that is originally string column and it is converted to numeric value by <code>CASE WHEN ... THEN 1.0 ELSE 0.0 END</code> function judging this column is NULL or not, finally use <code>SUM</code> to sum up numeric value by vendor. You can see vendor &lsquo;0000001000&rsquo; has 1528 active PO on the other hand PO count is 1530 (means there are 2 deleted PO).</p>
+<p><img src="https://user-images.githubusercontent.com/67397583/116775716-6d95fc00-aa9f-11eb-8e1e-d9f8f010fed5.png" alt="image"></p>
+<p>Similar to previous case, I hide two KPIs and add dimensions of <code>EKKO.LOEKZ</code> and column of judging resust whether PO is active or not. It is important that total count of rows (rows of joining <code>LFA1</code> and <code>EKKO</code>) is not changed after applying function to <code>EKKO.LOEKZ</code>. You can imagine one more numeric column &lsquo;Active PO&rsquo; is added to <code>EKKO</code> dynamically, so that each Purchase order has &lsquo;Active PO&rsquo; value (active is 1 and inactive is 0). When I write KPI that include data model columns, firstly result of function is expaneded to <code>EKKO</code> dynamically, then sum up value by dimension.</p>
+<p><img src="https://user-images.githubusercontent.com/67397583/116775990-39233f80-aaa1-11eb-92e4-294221dc6078.png" alt="image"></p>
+<p>Even when you use other component (charts and single KPI component), the idea is the same. So I recommend you to start from OLAP table to visualize each step of KPI calculation and test your PQL. Also this idea is applicable to all data model tables including activity tables.</p>
+<p>Kaz</p>
+
+
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fwebsite%2fposts%2f2021-05-01-understand-difference-between-dimension-and-kpi%2f&amp;text=Understand%20Difference%20between%20Dimension%20and%20KPI&amp;via=" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fwebsite%2fposts%2f2021-05-01-understand-difference-between-dimension-and-kpi%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fwebsite%2fposts%2f2021-05-01-understand-difference-between-dimension-and-kpi%2f&amp;title=Understand%20Difference%20between%20Dimension%20and%20KPI" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fwebsite%2fposts%2f2021-05-01-understand-difference-between-dimension-and-kpi%2f&amp;title=Understand%20Difference%20between%20Dimension%20and%20KPI" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fwebsite%2fposts%2f2021-05-01-understand-difference-between-dimension-and-kpi%2f&amp;title=Understand%20Difference%20between%20Dimension%20and%20KPI" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fwebsite%2fposts%2f2021-05-01-understand-difference-between-dimension-and-kpi%2f&amp;description=Understand%20Difference%20between%20Dimension%20and%20KPI" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+          
+        </ul>
+      
+
+
+      
+        
+        
+      
+
+    </div>
+  </div>
+</div>
+
+      
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="https://github.com/kaztakata" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/kazuhiko-takatabs" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              Kazuhiko Takata
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2021
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://kaztakata.github.io/website">Celonis hacks</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.68.3</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://kaztakata.github.io/website/js/main.js"></script>
+<script src="https://kaztakata.github.io/website/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://kaztakata.github.io/website/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+
