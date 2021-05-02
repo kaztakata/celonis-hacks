@@ -1,0 +1,9 @@
+/archetypes/
+/content/
+/data/
+/layouts/
+/resources/
+/static/
+/themes/
+config.toml
+hugo.sh
