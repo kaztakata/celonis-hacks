@@ -90,6 +90,8 @@
   <meta name="twitter:description" content="If you are beginner of creating Celonis Analysis, I believe you will first create OLAP table to understand how Celonis PQL works with data model. Points are,
  Dimensions are grouping key to calculate …">
   <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@kaz_takatabs" />
+  <meta name="twitter:creator" content="@kaz_takatabs" />
   <meta name="generator" content="Hugo 0.68.3" />
   <link rel="alternate" href="https://kaztakata.github.io/celonis-hacks/index.xml" type="application/rss+xml" title="Celonis hacks"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
@@ -259,9 +261,9 @@ if (!doNotTrack) {
 <p><img src="https://user-images.githubusercontent.com/67397583/116774171-b6e14e00-aa95-11eb-8506-9196c09ace4b.png" alt="image"></p>
 <p>Next screenshot is the proof of count KPI. I hide KPI then add one more dimension, purchase order number <code>EKKO.EBELN</code>. You can see first vendor code <code>0000000002</code> that has 4 rows of different purchase order number. Dimension is grouping key of KPI so <code>0000000002</code> that is seen in 4 rows are merged to 1 row if I set count KPI, instead when I do not display KPI then 4 rows are displayed as they are.</p>
 <p><img src="https://user-images.githubusercontent.com/67397583/116774364-1ee46400-aa97-11eb-8048-6ae6b4ebf111.png" alt="image"></p>
-<p>When I use functions to operate columns in data model, the idea is the same. In the next screenshot I will add one more KPI using deletion flag <code>EKKO.LOEKZ</code> that is originally string column and it is converted to numeric value by <code>CASE WHEN ... THEN 1.0 ELSE 0.0 END</code> function judging this column is NULL or not, finally use <code>SUM</code> to sum up numeric value by vendor. You can see vendor &lsquo;0000001000&rsquo; has 1528 active PO on the other hand PO count is 1530 (means there are 2 deleted PO).</p>
+<p>When I use functions to operate columns in data model, the idea is the same. In the next screenshot I will add one more KPI using deletion flag <code>EKKO.LOEKZ</code> that is originally string column and it is converted to numeric value by <code>CASE WHEN ... THEN 1.0 ELSE 0.0 END</code> function judging this column is NULL or not, finally use <code>SUM</code> to sum up numeric value by vendor. You can see vendor <code>0000001000</code> has 1528 active PO on the other hand PO count is 1530 (means there are 2 deleted PO).</p>
 <p><img src="https://user-images.githubusercontent.com/67397583/116775716-6d95fc00-aa9f-11eb-8e1e-d9f8f010fed5.png" alt="image"></p>
-<p>Similar to previous case, I hide two KPIs and add dimensions of <code>EKKO.LOEKZ</code> and column of judging resust whether PO is active or not. It is important that total count of rows (rows of joining <code>LFA1</code> and <code>EKKO</code>) is not changed after applying function to <code>EKKO.LOEKZ</code>. You can imagine one more numeric column &lsquo;Active PO&rsquo; is added to <code>EKKO</code> dynamically, so that each Purchase order has &lsquo;Active PO&rsquo; value (active is 1 and inactive is 0). When I write KPI that include data model columns, firstly result of function is expaneded to <code>EKKO</code> dynamically, then sum up value by dimension.</p>
+<p>Similar to previous case, I hide two KPIs and add dimensions of <code>EKKO.LOEKZ</code> and column of judging resust whether PO is active or not. It is important that total count of rows (rows of joining <code>LFA1</code> and <code>EKKO</code>) is not changed after applying function to <code>EKKO.LOEKZ</code>. You can imagine one more numeric column <code>Active PO</code> is added to <code>EKKO</code> dynamically, so that each Purchase order has <code>Active PO</code> value (active is 1 and inactive is 0). When I write KPI that include data model columns, firstly result of function is expaneded to <code>EKKO</code> dynamically, then sum up value by dimension.</p>
 <p><img src="https://user-images.githubusercontent.com/67397583/116775990-39233f80-aaa1-11eb-92e4-294221dc6078.png" alt="image"></p>
 <p>Even when you use other component (charts and single KPI component), the idea is the same. So I recommend you to start from OLAP table to visualize each step of KPI calculation and test your PQL. Also this idea is applicable to all data model tables including activity tables.</p>
 <p>Kaz</p>
@@ -279,7 +281,7 @@ if (!doNotTrack) {
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-05-01-understand-difference-between-dimension-and-kpi%2f&amp;text=Understand%20Difference%20between%20Dimension%20and%20KPI&amp;via=" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-05-01-understand-difference-between-dimension-and-kpi%2f&amp;text=Understand%20Difference%20between%20Dimension%20and%20KPI&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
@@ -337,6 +339,10 @@ if (!doNotTrack) {
         <ul class="pager blog-pager">
           
           
+            <li class="next">
+              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-05-08-customize-process-explorer/" data-toggle="tooltip" data-placement="top" title="Customize Process Explorer">Next Post &rarr;</a>
+            </li>
+          
         </ul>
       
 
@@ -362,6 +368,14 @@ if (!doNotTrack) {
                   <span class="fa-stack fa-lg">
                     <i class="fas fa-circle fa-stack-2x"></i>
                     <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/kaz_takatabs" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
                   </span>
                 </a>
               </li>
