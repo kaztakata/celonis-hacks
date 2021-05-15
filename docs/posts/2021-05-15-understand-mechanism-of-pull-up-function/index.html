@@ -7,10 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Customize Process Explorer - Celonis hacks</title>
-  <meta name="description" content="Process explorer in Celonis Analysis is default application to analyze process. First you can see main process pattern (called happy path), count of each step (activity) and count of path between two steps (connection). You can show minor activities and connections, or switch throughput time instead of count of connection.
-I think there are two ways to customize Process explorer.
- Change activity name Add more KPI against activity / connection  Change activity name If you want to add detail information to each activity, you can change activity dimension.">
+  <title>Understand mechanism of Pull up function - Celonis hacks</title>
+  <meta name="description" content="Pull up aggregation function, called PU function, like PU_COUNT, PU_SUM, PU_AVG, PU_MAX, PU_MIN looks similar to Standard aggregation function like COUNT, SUM, AVG, MAX, MIN. In Celonis, it is important to understand that output of PU function is not KPI but dimension. You can see Understand Difference between Dimension and KPI.
+If you know about SQL, you can imagine that PU function is similar to window function in SQL. As other functions, PU functions add dynamic column in grouping table.">
   <meta name="author" content="Kazuhiko Takata"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -46,8 +45,8 @@ I think there are two ways to customize Process explorer.
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-05-08-customize-process-explorer\/",
-          "name": "Customize process explorer"
+          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-05-15-understand-mechanism-of-pull-up-function\/",
+          "name": "Understand mechanism of pull up function"
         }
     }]
 }
@@ -58,15 +57,15 @@ I think there are two ways to customize Process explorer.
   "author": {
     "name" : "Kazuhiko Takata"
   },
-  "headline": "Customize Process Explorer",
-  "description" : "Process explorer in Celonis Analysis is default application to analyze process. First you can see main process pattern (called happy path), count of each step (activity) and count of path between two steps (connection). You can show minor activities and connections, or switch throughput time instead of count of connection.\nI think there are two ways to customize Process explorer.\n Change activity name Add more KPI against activity \/ connection  Change activity name If you want to add detail information to each activity, you can change activity dimension.",
+  "headline": "Understand mechanism of Pull up function",
+  "description" : "Pull up aggregation function, called PU function, like PU_COUNT, PU_SUM, PU_AVG, PU_MAX, PU_MIN looks similar to Standard aggregation function like COUNT, SUM, AVG, MAX, MIN. In Celonis, it is important to understand that output of PU function is not KPI but dimension. You can see Understand Difference between Dimension and KPI.\nIf you know about SQL, you can imagine that PU function is similar to window function in SQL. As other functions, PU functions add dynamic column in grouping table.",
   "inLanguage" : "en",
-  "wordCount":  457 ,
-  "datePublished" : "2021-05-08T09:15:03",
-  "dateModified" : "2021-05-08T09:15:03",
+  "wordCount":  334 ,
+  "datePublished" : "2021-05-15T10:00:14",
+  "dateModified" : "2021-05-15T10:00:14",
   "image" : "https:\/\/kaztakata.github.io\/celonis-hacks",
   "keywords" : [ "" ],
-  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-05-08-customize-process-explorer\/",
+  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-05-15-understand-mechanism-of-pull-up-function\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/kaztakata.github.io\/celonis-hacks",
@@ -80,16 +79,15 @@ I think there are two ways to customize Process explorer.
 }
 </script>
 
-<meta property="og:title" content="Customize Process Explorer" />
-<meta property="og:description" content="Process explorer in Celonis Analysis is default application to analyze process. First you can see main process pattern (called happy path), count of each step (activity) and count of path between two steps (connection). You can show minor activities and connections, or switch throughput time instead of count of connection.
-I think there are two ways to customize Process explorer.
- Change activity name Add more KPI against activity / connection  Change activity name If you want to add detail information to each activity, you can change activity dimension.">
-<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2021-05-08-customize-process-explorer/" />
+<meta property="og:title" content="Understand mechanism of Pull up function" />
+<meta property="og:description" content="Pull up aggregation function, called PU function, like PU_COUNT, PU_SUM, PU_AVG, PU_MAX, PU_MIN looks similar to Standard aggregation function like COUNT, SUM, AVG, MAX, MIN. In Celonis, it is important to understand that output of PU function is not KPI but dimension. You can see Understand Difference between Dimension and KPI.
+If you know about SQL, you can imagine that PU function is similar to window function in SQL. As other functions, PU functions add dynamic column in grouping table.">
+<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2021-05-15-understand-mechanism-of-pull-up-function/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Celonis hacks" />
 
-  <meta name="twitter:title" content="Customize Process Explorer" />
-  <meta name="twitter:description" content="Process explorer in Celonis Analysis is default application to analyze process. First you can see main process pattern (called happy path), count of each step (activity) and count of path between two …">
+  <meta name="twitter:title" content="Understand mechanism of Pull up function" />
+  <meta name="twitter:description" content="Pull up aggregation function, called PU function, like PU_COUNT, PU_SUM, PU_AVG, PU_MAX, PU_MIN looks similar to Standard aggregation function like COUNT, SUM, AVG, MAX, MIN. In Celonis, it is …">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
@@ -232,7 +230,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="posts-heading">
               
-                <h1>Customize Process Explorer</h1>
+                <h1>Understand mechanism of Pull up function</h1>
               
               
                 <hr class="small">
@@ -252,37 +250,21 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>Process explorer in Celonis Analysis is default application to analyze process. First you can see main process pattern (called happy path), count of each step (activity) and count of path between two steps (connection). You can show minor activities and connections, or switch throughput time instead of count of connection.</p>
-<p>I think there are two ways to customize Process explorer.</p>
-<ul>
-<li>Change activity name</li>
-<li>Add more KPI against activity / connection</li>
-</ul>
-<h3 id="change-activity-name">Change activity name</h3>
-<p>If you want to add detail information to each activity, you can change activity dimension. For example, if I would like to see activity name + user ID to see who is doing this activity in this process, I will change activity dimension to <code>_CEL_AP_ACTIVITIES.ACTIVITY_EN || ' : ' || _CEL_AP_ACTIVITIES.USER_NAME</code>. Function <code>||</code> is used to concatenate columns or fixed string like <code>:</code>.</p>
-<p><img src="https://user-images.githubusercontent.com/67397583/117003132-7137b600-ad1f-11eb-8afb-66cd11b10f42.png" alt="image"></p>
-<p>As demonstrated in <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-05-01-understand-difference-between-dimension-and-kpi/">Understand Difference between Dimension and KPI</a>, two (and more) tables in activity dimension PQL are inplicitly joined then concatenated string is set to activity dimension. You are careful to use additional column that may have NULL value. Concatenation with NULL returns NULL, and NULL activity is not displayed in Process Explorer. If I would like to prevent it, I will use <code>COALESCE(_CEL_AP_ACTIVITIES.USER_NAME,'')</code> instead, then NULL value will convert to zero byte string and activity name is displayed. Below screenshots are to test <code>COALESCE</code> funciton in OLAP table, and Process Explorer. Activity <code>Due Date passed</code> is displayed in Process Explorer, even it does not have user information.</p>
-<p><img src="https://user-images.githubusercontent.com/67397583/117004211-c88a5600-ad20-11eb-8eea-6a4a3e199a69.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/67397583/117003857-59acfd00-ad20-11eb-9d61-88024275fee4.png" alt="image"></p>
-<h3 id="add-more-kpi-against-activity--connection">Add more KPI against activity / connection</h3>
-<p>If I want to add activity KPI, for example automation ratio judged by user type (B is automation and others are manual), I will determine activity KPI as <code>AVG ( CASE WHEN &quot;_CEL_AP_ACTIVITIES&quot;.&quot;USER_TYPE&quot; = 'B' THEN 1.0 ELSE 0.0 END )</code> in Process Explorer KPIs. In below screenshot, automation / manual activities are also calculated as KPI to compare with OLAP table result.</p>
-<p><img src="https://user-images.githubusercontent.com/67397583/117014050-62ef9700-ad2b-11eb-9f9b-c4950225739c.png" alt="image"></p>
-<p>When I look at <code>Approve Invoice</code> activity, automation activity count is <code>95085</code> instead manual activity is <code>207401</code>, so automation ratio is <code>95085 / ( 95085 + 207401 ) = 31.43%</code></p>
-<p><img src="https://user-images.githubusercontent.com/67397583/117090813-55222c00-ad94-11eb-9e05-19573a400340.png" alt="image"></p>
-<p>On the other hand if I want to add connection KPI, for example same day ratio, based on throughput time between two activities is less than 1 day, I will determine connection KPI as below PQL.</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">AVG(
-   CASE 
-   WHEN DATEDIFF(
-        dd,
-        SOURCE(&#34;_CEL_AP_ACTIVITIES&#34;.&#34;EVENTTIME&#34;),
-        TARGET(&#34;_CEL_AP_ACTIVITIES&#34;.&#34;EVENTTIME&#34;)
-    ) &lt; 1.0 THEN 1.0 
-    ELSE 0.0 
-    END
-)
-</code></pre></div><p>This PQL, especially <code>SOURCE(&quot;_CEL_AP_ACTIVITIES&quot;.&quot;EVENTTIME&quot;)</code> and <code>TARGET(&quot;_CEL_AP_ACTIVITIES&quot;.&quot;EVENTTIME&quot;)</code> combination, will implicitly create temporary table grouped by neighboring two activities, like below OLAP table (Temporary table can be joined with case table to add another dimensions).</p>
-<p>For example, in both OLAP table and Process Explorer you can see same day ratio <code>3.41%</code> at connection between <code>Record Goods Receipt</code> and <code>Record Invoice Receipt</code>,</p>
-<p><img src="https://user-images.githubusercontent.com/67397583/117090514-7f271e80-ad93-11eb-816d-f26ff48c7bf0.png" alt="image"></p>
+        <p>Pull up aggregation function, called PU function, like <code>PU_COUNT</code>, <code>PU_SUM</code>, <code>PU_AVG</code>, <code>PU_MAX</code>, <code>PU_MIN</code> looks similar to Standard aggregation function like <code>COUNT</code>, <code>SUM</code>, <code>AVG</code>, <code>MAX</code>, <code>MIN</code>. In Celonis, it is important to understand that output of PU function is not KPI but dimension. You can see <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-05-01-understand-difference-between-dimension-and-kpi/">Understand Difference between Dimension and KPI</a>.</p>
+<p>If you know about SQL, you can imagine that PU function is similar to window function in SQL. As other functions, PU functions add dynamic column in grouping table. Output of PU function is representative column value in that group.</p>
+<p>Below screenshot is the example of <code>PU_MAX</code> function againt purchasing tables, Vendor <code>&quot;LFA1&quot;</code>, PO Document <code>&quot;EKKO&quot;</code>, PO item<code>&quot;EKPO&quot;</code>, also each PO item has Net Order Value <code>&quot;NETWR&quot;</code>. Column <code>Max Net Value by Doc</code> representing max value in PO Document has PQL <code>PU_MAX(&quot;EKKO&quot;,&quot;EKPO&quot;.&quot;NETWR&quot;)</code>.</p>
+<p><img src="https://user-images.githubusercontent.com/67397583/118344725-c74ff900-b56a-11eb-9641-1de8a36ea4c6.png" alt="image"></p>
+<p>Looking at screenshot, PO Document <code>0000005763</code> has max value <code>3,744.14</code> in item <code>00009</code>, then all other items in this PO also has representative max value <code>3,744.14</code>.</p>
+<p>When using <code>PU_MAX</code> function, 10 items are kept and add one more column representing max value. On the other hand, you can imagine when using standard <code>MAX</code> function, 10 items are aggregated to 1 record and show max value.</p>
+<p>In above PQL, by table name <code>&quot;EKKO&quot;</code> in first argument, PO item record is partitioned by join key between <code>&quot;EKKO&quot;</code> and <code>&quot;EKPO&quot;</code>. So that below three PQLs are equivalent (<code>DOMAIN_TABLE</code> function creates dynamic table of argument columns).</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">PU_MAX(&#34;EKKO&#34;,&#34;EKPO&#34;.&#34;NETWR&#34;) -- using table
+PU_MAX(DOMAIN_TABLE(&#34;EKKO&#34;.&#34;MANDT&#34;,&#34;EKKO&#34;.&#34;EBELN&#34;),&#34;EKPO&#34;.&#34;NETWR&#34;) -- using PO Doc columns
+PU_MAX(DOMAIN_TABLE(&#34;EKPO&#34;.&#34;MANDT&#34;,&#34;EKPO&#34;.&#34;EBELN&#34;),&#34;EKPO&#34;.&#34;NETWR&#34;) -- using PO item columns
+</code></pre></div><p>Back to screenshot above, column <code>Max Net Value by Vendor</code> has PQL <code>PU_MAX(&quot;LFA1&quot;,&quot;EKPO&quot;.&quot;NETWR&quot;)</code>. Vendor <code>0000002901</code> have 2 PO Document and 20 PO items, then max value <code>9,213.75</code> in the second PO is representing max value in this vendor.</p>
+<p>Also grouping by any columns in above 3 tables is possible like below.</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">PU_MAX(DOMAIN_TABLE(&#34;EKKO&#34;.&#34;MANDT&#34;,&#34;EKKO&#34;.&#34;BUKRS&#34;),&#34;EKPO&#34;.&#34;NETWR&#34;) -- grouped by column in PO Document 
+PU_MAX(DOMAIN_TABLE(&#34;EKPO&#34;.&#34;MANDT&#34;,&#34;EKPO&#34;.&#34;MATNR&#34;),&#34;EKPO&#34;.&#34;NETWR&#34;) -- grouped by column in PO item.
+</code></pre></div><p>In the next post, I will show you how to use output of PU function.</p>
 <p>Kaz</p>
 
 
@@ -298,42 +280,42 @@ if (!doNotTrack) {
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-05-08-customize-process-explorer%2f&amp;text=Customize%20Process%20Explorer&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-05-15-understand-mechanism-of-pull-up-function%2f&amp;text=Understand%20mechanism%20of%20Pull%20up%20function&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-05-08-customize-process-explorer%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-05-15-understand-mechanism-of-pull-up-function%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-05-08-customize-process-explorer%2f&amp;title=Customize%20Process%20Explorer" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-05-15-understand-mechanism-of-pull-up-function%2f&amp;title=Understand%20mechanism%20of%20Pull%20up%20function" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-05-08-customize-process-explorer%2f&amp;title=Customize%20Process%20Explorer" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-05-15-understand-mechanism-of-pull-up-function%2f&amp;title=Understand%20mechanism%20of%20Pull%20up%20function" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-05-08-customize-process-explorer%2f&amp;title=Customize%20Process%20Explorer" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-05-15-understand-mechanism-of-pull-up-function%2f&amp;title=Understand%20mechanism%20of%20Pull%20up%20function" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-05-08-customize-process-explorer%2f&amp;description=Customize%20Process%20Explorer" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-05-15-understand-mechanism-of-pull-up-function%2f&amp;description=Understand%20mechanism%20of%20Pull%20up%20function" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -356,13 +338,9 @@ if (!doNotTrack) {
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-05-01-understand-difference-between-dimension-and-kpi/" data-toggle="tooltip" data-placement="top" title="Understand Difference between Dimension and KPI">&larr; Previous Post</a>
+              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-05-08-customize-process-explorer/" data-toggle="tooltip" data-placement="top" title="Customize Process Explorer">&larr; Previous Post</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-05-15-understand-mechanism-of-pull-up-function/" data-toggle="tooltip" data-placement="top" title="Understand mechanism of Pull up function">Next Post &rarr;</a>
-            </li>
           
         </ul>
       
