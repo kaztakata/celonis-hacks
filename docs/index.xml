@@ -5,10 +5,21 @@
     <link>https://kaztakata.github.io/celonis-hacks/</link>
     <description>Recent content on Celonis hacks</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 15 May 2021 10:00:14 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 22 May 2021 16:31:16 +0900</lastBuildDate>
     
 	<atom:link href="https://kaztakata.github.io/celonis-hacks/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Determine First Time Right by Pull up function</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2021-05-22-determine-first-time-right-by-pull-up-function/</link>
+      <pubDate>Sat, 22 May 2021 16:31:16 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2021-05-22-determine-first-time-right-by-pull-up-function/</guid>
+      <description>As a first example of Pull up function, I will show you First Time Right (FTR) that means process without rework activities (link).
+To determine FTR, first I should determine rework activities, in this example I decided they are started from Change. PQL to judge such string is &amp;quot;_CEL_P2P_ACTIVITIES_EN&amp;quot;.&amp;quot;ACTIVITY_EN&amp;quot; LIKE &#39;Change %&#39;, using wildcard % after Change and use keyword LIKE for pattern matching.
+Next step is counting rework activities in each case (&amp;quot;EKPO&amp;quot;, Purchase Order item table in this example) by pull up function.</description>
+    </item>
     
     <item>
       <title>Understand mechanism of Pull up function</title>
