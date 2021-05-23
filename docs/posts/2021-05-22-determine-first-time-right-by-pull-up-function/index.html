@@ -263,7 +263,7 @@ if (!doNotTrack) {
 )
 </code></pre></div><p>As previous explanation of <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-05-15-understand-mechanism-of-pull-up-function/">Understand mechanism of Pull up function</a>, by first argument <code>&quot;EKPO&quot;</code>, Activity record is grouped by <code>&quot;EKPO&quot;</code> table key columns. Also by third argument Activity record is filtered by rework activities. In the end rework activities are counted in each case key.</p>
 <p>Below screenshot shows that <code>Change Price</code> and <code>Change Quantity</code> are recognized as rework activities, e.g. PO item <code>00001</code> has 2 rework record.</p>
-<p><img src="https://user-images.githubusercontent.com/67397583/119218995-090a1200-bb1e-11eb-9ad7-854206edffee.png" alt="image"></p>
+<p><a href="https://user-images.githubusercontent.com/67397583/119218995-090a1200-bb1e-11eb-9ad7-854206edffee.png"><img src="https://user-images.githubusercontent.com/67397583/119218995-090a1200-bb1e-11eb-9ad7-854206edffee.png" alt="image"></a></p>
 <p>Finally PQL to calculate FTR is determined as combination of <code>CASE</code> statement and previous rework activities count like below. In previous screenshot, PO item <code>00004</code> is FTR instead <code>00001</code> is not.</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">CASE 
     WHEN PU_COUNT(
@@ -274,7 +274,7 @@ if (!doNotTrack) {
     ELSE 0.0            -- non-zero rework activity
 END
 </code></pre></div><p>Normally you can use single KPI component to summarize FTR ratio (average of FTR cases) as below screenshot. Looking at the OLAP table (I hide Activity column compared with previous one), I can easily verify that FTR ratio is 70% (7 FTR case in total 10 cases). When you build complex PQL logic, I strongly recommend you to split parts as above and verify them by OLAP table.</p>
-<p><img src="https://user-images.githubusercontent.com/67397583/119220916-bafa0c00-bb27-11eb-9a01-1a932dfe350d.png" alt="image"></p>
+<p><a href="https://user-images.githubusercontent.com/67397583/119220916-bafa0c00-bb27-11eb-9a01-1a932dfe350d.png"><img src="https://user-images.githubusercontent.com/67397583/119220916-bafa0c00-bb27-11eb-9a01-1a932dfe350d.png" alt="image"></a></p>
 <p>Kaz</p>
 
 
