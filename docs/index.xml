@@ -5,10 +5,20 @@
     <link>https://kaztakata.github.io/celonis-hacks/</link>
     <description>Recent content on Celonis hacks</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 22 May 2021 16:31:16 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 29 May 2021 13:04:06 +0900</lastBuildDate>
     
 	<atom:link href="https://kaztakata.github.io/celonis-hacks/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Use Pull up function as Subquery</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2021-05-29-use-pull-up-function-as-subquery/</link>
+      <pubDate>Sat, 29 May 2021 13:04:06 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2021-05-29-use-pull-up-function-as-subquery/</guid>
+      <description>In the last post Determine First Time Right by Pull up function, I broke down PQL of FTR step by step. Today I will explain more complex KPI in similar way. By the way you may know Subquery that enables to pass result of SQL to parts of another SQL. PQL can also do similar things by Pull up function.
+In this post, for example I would like to calculate Average rework count after Delivery in Order to Cash process, and definition of rework is same as previous post.</description>
+    </item>
     
     <item>
       <title>Determine First Time Right by Pull up function</title>
