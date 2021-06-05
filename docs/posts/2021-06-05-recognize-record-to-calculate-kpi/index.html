@@ -7,9 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Use Pull up function as Subquery - Celonis hacks</title>
-  <meta name="description" content="In the last post Determine First Time Right by Pull up function, I broke down PQL of FTR step by step. Today I will explain more complex KPI in similar way. By the way you may know Subquery that enables to pass result of SQL to parts of another SQL. PQL can also do similar things by Pull up function.
-In this post, for example I would like to calculate Average rework count after Delivery in Order to Cash process, and definition of rework is same as previous post.">
+  <title>Recognize Record to Calculate KPI - Celonis hacks</title>
+  <meta name="description" content="Using Pull up function, you can calculate various kind of KPIs. I would like to tell in this post is taking care the record (dimensions) to calculate each KPI especially when you unite multiple KPIs to same component.
+In this example, I will use Order to Cash process again and first I would like to estiamate time of rework. Definition of rework Activity is same as previous post, and one more condition is it happens by manual user (USER_TYPE = &#39;A&#39;).">
   <meta name="author" content="Kazuhiko Takata"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -45,8 +45,8 @@ In this post, for example I would like to calculate Average rework count after D
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-05-29-use-pull-up-function-as-subquery\/",
-          "name": "Use pull up function as subquery"
+          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-06-05-recognize-record-to-calculate-kpi\/",
+          "name": "Recognize record to calculate k p i"
         }
     }]
 }
@@ -57,15 +57,15 @@ In this post, for example I would like to calculate Average rework count after D
   "author": {
     "name" : "Kazuhiko Takata"
   },
-  "headline": "Use Pull up function as Subquery",
-  "description" : "In the last post Determine First Time Right by Pull up function, I broke down PQL of FTR step by step. Today I will explain more complex KPI in similar way. By the way you may know Subquery that enables to pass result of SQL to parts of another SQL. PQL can also do similar things by Pull up function.\nIn this post, for example I would like to calculate Average rework count after Delivery in Order to Cash process, and definition of rework is same as previous post.",
+  "headline": "Recognize Record to Calculate KPI",
+  "description" : "Using Pull up function, you can calculate various kind of KPIs. I would like to tell in this post is taking care the record (dimensions) to calculate each KPI especially when you unite multiple KPIs to same component.\nIn this example, I will use Order to Cash process again and first I would like to estiamate time of rework. Definition of rework Activity is same as previous post, and one more condition is it happens by manual user (USER_TYPE = \x27A\x27).",
   "inLanguage" : "en",
-  "wordCount":  459 ,
-  "datePublished" : "2021-05-29T13:04:06",
-  "dateModified" : "2021-05-29T13:04:06",
+  "wordCount":  449 ,
+  "datePublished" : "2021-06-05T17:34:46",
+  "dateModified" : "2021-06-05T17:34:46",
   "image" : "https:\/\/kaztakata.github.io\/celonis-hacks",
   "keywords" : [ "" ],
-  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-05-29-use-pull-up-function-as-subquery\/",
+  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-06-05-recognize-record-to-calculate-kpi\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/kaztakata.github.io\/celonis-hacks",
@@ -79,15 +79,15 @@ In this post, for example I would like to calculate Average rework count after D
 }
 </script>
 
-<meta property="og:title" content="Use Pull up function as Subquery" />
-<meta property="og:description" content="In the last post Determine First Time Right by Pull up function, I broke down PQL of FTR step by step. Today I will explain more complex KPI in similar way. By the way you may know Subquery that enables to pass result of SQL to parts of another SQL. PQL can also do similar things by Pull up function.
-In this post, for example I would like to calculate Average rework count after Delivery in Order to Cash process, and definition of rework is same as previous post.">
-<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2021-05-29-use-pull-up-function-as-subquery/" />
+<meta property="og:title" content="Recognize Record to Calculate KPI" />
+<meta property="og:description" content="Using Pull up function, you can calculate various kind of KPIs. I would like to tell in this post is taking care the record (dimensions) to calculate each KPI especially when you unite multiple KPIs to same component.
+In this example, I will use Order to Cash process again and first I would like to estiamate time of rework. Definition of rework Activity is same as previous post, and one more condition is it happens by manual user (USER_TYPE = &#39;A&#39;).">
+<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2021-06-05-recognize-record-to-calculate-kpi/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Celonis hacks" />
 
-  <meta name="twitter:title" content="Use Pull up function as Subquery" />
-  <meta name="twitter:description" content="In the last post Determine First Time Right by Pull up function, I broke down PQL of FTR step by step. Today I will explain more complex KPI in similar way. By the way you may know Subquery that …">
+  <meta name="twitter:title" content="Recognize Record to Calculate KPI" />
+  <meta name="twitter:description" content="Using Pull up function, you can calculate various kind of KPIs. I would like to tell in this post is taking care the record (dimensions) to calculate each KPI especially when you unite multiple KPIs …">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
@@ -230,7 +230,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="posts-heading">
               
-                <h1>Use Pull up function as Subquery</h1>
+                <h1>Recognize Record to Calculate KPI</h1>
               
               
                 <hr class="small">
@@ -250,45 +250,46 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>In the last post <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-05-22-determine-first-time-right-by-pull-up-function/">Determine First Time Right by Pull up function</a>, I broke down PQL of FTR step by step. Today I will explain more complex KPI in similar way. By the way you may know Subquery that enables to pass result of SQL to parts of another SQL. PQL can also do similar things by Pull up function.</p>
-<p>In this post, for example I would like to calculate Average rework count after Delivery in Order to Cash process, and definition of rework is same as previous post. I imagine that rework operation after Delivery operation causes more time loss than rework before Delivery, so that I would like to visualize this KPI.</p>
-<p>First step is to determine when Delivery is started in each case key (sales order item), so I introduced Pull up function &lsquo;PU_FIRST&rsquo; as below. It returns first record by grouping key, with filter condition as option. Below function returns EVENTTIME column of first record of <code>Generate Delivery Document</code> activity by each sales order item.</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">PU_FIRST(
-    VBAP,                                                           -- grouping key (sales order item)
-    _CEL_O2C_ACTIVITIES.EVENTTIME,                                  -- returning column
-    _CEL_O2C_ACTIVITIES.ACTIVITY_EN = &#39;Generate Delivery Document&#39;, -- filter condition
-    ORDER BY _CEL_O2C_ACTIVITIES.EVENTTIME                          -- sorting column
+        <p>Using Pull up function, you can calculate various kind of KPIs. I would like to tell in this post is taking care the record (dimensions) to calculate each KPI especially when you unite multiple KPIs to same component.</p>
+<p>In this example, I will use Order to Cash process again and first I would like to estiamate time of rework. Definition of rework Activity is same as previous post, and one more condition is it happens by manual user (<code>USER_TYPE = 'A'</code>). If rework Activity is operated by manual user, this rework is estimated 1 minute for example. PQL of total estimated rework time is as below.</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">SUM(
+    CASE
+        WHEN _CEL_O2C_ACTIVITIES.USER_TYPE = &#39;A&#39; AND _CEL_O2C_ACTIVITIES.ACTIVITY_EN LIKE &#39;Change %&#39; THEN 1 -- 1 minute
+        ELSE 0
+    END
 )
-</code></pre></div><p>Second step is to determine rework activities after Delivery. It is decomposed to rework definition and comparison of timestamp. PQL using <code>CASE</code> statement is below. Point is using result of <code>PU_FIRST</code> as comparator of <code>&gt;=</code>. One more consideration is using <code>COALESCE</code> to set default value if Delivery is not happened yet.</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">CASE 
-    WHEN 1=1                                                    -- always true, just for formatting reason
-        AND _CEL_O2C_ACTIVITIES.ACTIVITY_EN LIKE &#39;Change %&#39;     -- rework definition 
-        AND _CEL_O2C_ACTIVITIES.EVENTTIME &gt;= COALESCE(PU_FIRST( -- after Delivery timestamp (result of PU_FIRST)
-            VBAP,
-            _CEL_O2C_ACTIVITIES.EVENTTIME,
-            _CEL_O2C_ACTIVITIES.ACTIVITY_EN = &#39;Generate Delivery Document&#39;,
-            ORDER BY _CEL_O2C_ACTIVITIES.EVENTTIME
-        ),{d &#39;9999-12-31&#39;})                                     -- default value if Delivery not found
-    THEN 1
-    ELSE 0
-END
-</code></pre></div><p>Below screenshot is the result of applying above two PQLs to sample case <code>1217437</code>. <code>Generate Delivery Document</code> is the third record so timestamp of third record is set to <code>Delivery EVENTTIME</code> column. After Delivery there are three activity record started from <code>Change</code> so these record have <code>1</code> in <code>Rework after Delivery</code> column.</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/120057779-ca75d980-c080-11eb-80ab-7fcdb6e15080.png"><img src="https://user-images.githubusercontent.com/67397583/120057779-ca75d980-c080-11eb-80ab-7fcdb6e15080.png" alt="image"></a></p>
-<p>The last step is counting Rework activity by <code>PU_COUNT</code> function, below is the PQL. I feel <code>PU_FIRST</code> function is similar to SQL Subquery applying to <code>WHERE</code> clause.</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">    PU_COUNT(
-        VBAP,                                                       -- grouping key (sales order item)
-        _CEL_O2C_ACTIVITIES.ACTIVITY_EN,                            -- counting column
-        1=1                                                         -- filter condition same as above CASE condition
-            AND _CEL_O2C_ACTIVITIES.ACTIVITY_EN LIKE &#39;Change %&#39;
-            AND _CEL_O2C_ACTIVITIES.EVENTTIME &gt;= COALESCE(PU_FIRST(
-                VBAP,
-                _CEL_O2C_ACTIVITIES.EVENTTIME,
-                _CEL_O2C_ACTIVITIES.ACTIVITY_EN = &#39;Generate Delivery Document&#39;,
-                ORDER BY _CEL_O2C_ACTIVITIES.EVENTTIME
-            ),{d &#39;9999-12-31&#39;})                         
-    )
-</code></pre></div><p>Final result screenshot is as below (hiding other columns except for case key). Above sample case <code>1217437</code> has 3 in rework count column. Single KPI value <code>0.03</code> is the result of <code>AVG</code> function of rework count.</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/120058113-7fa99100-c083-11eb-8fd3-b5a3578b39fb.png"><img src="https://user-images.githubusercontent.com/67397583/120058113-7fa99100-c083-11eb-8fd3-b5a3578b39fb.png" alt="image"></a></p>
+</code></pre></div><p>Next I would like to estimate time of writing reminder to customers. Reminder can be sent once per customer, even this customer have multiple order that should be paid. PQL of total reminder time as below. By using Pull up function, Activity record is grouped by customer master table <code>KNA1</code>. If <code>Send 1st Payment Reminder</code> activity is happened to specific cusotmer, it is estimated as 10 minutes.</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">SUM(
+    CASE
+        WHEN PU_COUNT(
+            KNA1,
+            _CEL_O2C_ACTIVITIES.ACTIVITY_EN,
+            _CEL_O2C_ACTIVITIES.ACTIVITY_EN = &#39;Send 1st Payment Reminder&#39;
+        ) &gt; 0 THEN 10 -- 10 minutes
+        ELSE 0
+    END
+)
+</code></pre></div><p>Finally I would like calculate sum of rework time and reminder time as total estimated time. When I just add two PQLs as below, the result <code>47,771,418 min</code> is apparently incorrect (manually calculating result is <code>214,798 min</code>). Why ?</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/120887993-f53bd100-c630-11eb-9b41-e56b519aeaaa.png"><img src="https://user-images.githubusercontent.com/67397583/120887993-f53bd100-c630-11eb-9b41-e56b519aeaaa.png" alt="image"></a></p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">SUM(
+    CASE
+        WHEN _CEL_O2C_ACTIVITIES.USER_TYPE = &#39;A&#39; AND _CEL_O2C_ACTIVITIES.ACTIVITY_EN LIKE &#39;Change %&#39; THEN 1
+        ELSE 0
+    END
+) + SUM(
+    CASE
+        WHEN PU_COUNT(
+            KNA1,
+            _CEL_O2C_ACTIVITIES.ACTIVITY_EN,
+            _CEL_O2C_ACTIVITIES.ACTIVITY_EN = &#39;Send 1st Payment Reminder&#39;
+        ) &gt; 0 THEN 10
+        ELSE 0
+    END
+)
+</code></pre></div><p>In the next screenshot below, I added OLAP table to verify combination of both calculation. To vefiry the resutl easily, I filtered by one specific USER_TYPE / actvitiy / customer. Important thing is there are two Activity record that has same customer code, and reminder time <code>10 min</code> is set twice. Due to Pull up function grouped by customer, all activity record with this customer has <code>10 min</code>. Finally, as a result of <code>SUM</code> function, two <code>1 min</code> record and two <code>10 min</code> record are summed up then total estimated time is <code>22 min</code>.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/120888302-8790a480-c632-11eb-811d-6b4f8b66705f.png"><img src="https://user-images.githubusercontent.com/67397583/120888302-8790a480-c632-11eb-811d-6b4f8b66705f.png" alt="image"></a></p>
+<p>In the original definition, rework time is calculated by activity record, instead reminder time is calculated by customer master record. Now customer master record is joined with activity record, so duplicated reminder time are counted unexpectedly due to multiple activity record.</p>
+<p>In the next post, I will tell how to calculate sum of two KPIs (total estimated time) correctly.</p>
 <p>Kaz</p>
 
 
@@ -304,42 +305,42 @@ END
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-05-29-use-pull-up-function-as-subquery%2f&amp;text=Use%20Pull%20up%20function%20as%20Subquery&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-06-05-recognize-record-to-calculate-kpi%2f&amp;text=Recognize%20Record%20to%20Calculate%20KPI&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-05-29-use-pull-up-function-as-subquery%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-06-05-recognize-record-to-calculate-kpi%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-05-29-use-pull-up-function-as-subquery%2f&amp;title=Use%20Pull%20up%20function%20as%20Subquery" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-06-05-recognize-record-to-calculate-kpi%2f&amp;title=Recognize%20Record%20to%20Calculate%20KPI" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-05-29-use-pull-up-function-as-subquery%2f&amp;title=Use%20Pull%20up%20function%20as%20Subquery" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-06-05-recognize-record-to-calculate-kpi%2f&amp;title=Recognize%20Record%20to%20Calculate%20KPI" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-05-29-use-pull-up-function-as-subquery%2f&amp;title=Use%20Pull%20up%20function%20as%20Subquery" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-06-05-recognize-record-to-calculate-kpi%2f&amp;title=Recognize%20Record%20to%20Calculate%20KPI" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-05-29-use-pull-up-function-as-subquery%2f&amp;description=Use%20Pull%20up%20function%20as%20Subquery" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-06-05-recognize-record-to-calculate-kpi%2f&amp;description=Recognize%20Record%20to%20Calculate%20KPI" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -362,13 +363,9 @@ END
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-05-22-determine-first-time-right-by-pull-up-function/" data-toggle="tooltip" data-placement="top" title="Determine First Time Right by Pull up function">&larr; Previous Post</a>
+              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-05-29-use-pull-up-function-as-subquery/" data-toggle="tooltip" data-placement="top" title="Use Pull up function as Subquery">&larr; Previous Post</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-06-05-recognize-record-to-calculate-kpi/" data-toggle="tooltip" data-placement="top" title="Recognize Record to Calculate KPI">Next Post &rarr;</a>
-            </li>
           
         </ul>
       
