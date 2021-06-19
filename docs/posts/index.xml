@@ -5,10 +5,20 @@
     <link>https://kaztakata.github.io/celonis-hacks/posts/</link>
     <description>Recent content in Posts on Celonis hacks</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 12 Jun 2021 13:20:53 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 19 Jun 2021 11:42:09 +0900</lastBuildDate>
     
 	<atom:link href="https://kaztakata.github.io/celonis-hacks/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Understand how Tables are joined in Data Model</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2021-06-19-understand-how-tables-are-joined-in-data-model/</link>
+      <pubDate>Sat, 19 Jun 2021 11:42:09 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2021-06-19-understand-how-tables-are-joined-in-data-model/</guid>
+      <description>In the Understand Difference between Dimension and KPI post, I mentioned that Columns used as dimensions and KPIs are inplicitly joined based on data model, but I did not mention how to join tables in data model. Today I would like to say about it.
+Celonis Data Model support snowflake schema that consists of multiple tables, each table pair join as 1:N relationship. Normally activity table is top of N side and dimension tables including case table are bottom of 1 side as pyramid hierarchy.</description>
+    </item>
     
     <item>
       <title>Calculate Multi Dimensional KPIs</title>
