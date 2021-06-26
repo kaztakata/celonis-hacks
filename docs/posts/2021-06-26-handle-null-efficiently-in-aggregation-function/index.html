@@ -7,9 +7,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Understand how Tables are joined in Data Model - Celonis hacks</title>
-  <meta name="description" content="In the Understand Difference between Dimension and KPI post, I mentioned that Columns used as dimensions and KPIs are inplicitly joined based on data model, but I did not mention how to join tables in data model. Today I would like to say about it.
-Celonis Data Model support snowflake schema that consists of multiple tables, each table pair join as 1:N relationship. Normally activity table is top of N side and dimension tables including case table are bottom of 1 side as pyramid hierarchy.">
+  <title>Handle NULL efficiently in Aggregation Function - Celonis hacks</title>
+  <meta name="description" content="I looked at many PQLs that can be simplified if they know about NULL handling well. Today I would like to tell how to handle NULL efficiently in Aggregation Functions (COUNT,SUM,AVG etc.).
+Today I would like to use O2C process to explain my case. I determined KPI Send Invoice within a day after Ship Goods, because sales company will Ship Goods then should Send Invoice immediately.
+Same as previous posts, first I would like to create OLAP table to look into the cases.">
   <meta name="author" content="Kazuhiko Takata"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -45,8 +46,8 @@ Celonis Data Model support snowflake schema that consists of multiple tables, ea
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-06-19-understand-how-tables-are-joined-in-data-model\/",
-          "name": "Understand how tables are joined in data model"
+          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-06-26-handle-null-efficiently-in-aggregation-function\/",
+          "name": "Handle n u l l efficiently in aggregation function"
         }
     }]
 }
@@ -57,15 +58,15 @@ Celonis Data Model support snowflake schema that consists of multiple tables, ea
   "author": {
     "name" : "Kazuhiko Takata"
   },
-  "headline": "Understand how Tables are joined in Data Model",
-  "description" : "In the Understand Difference between Dimension and KPI post, I mentioned that Columns used as dimensions and KPIs are inplicitly joined based on data model, but I did not mention how to join tables in data model. Today I would like to say about it.\nCelonis Data Model support snowflake schema that consists of multiple tables, each table pair join as 1:N relationship. Normally activity table is top of N side and dimension tables including case table are bottom of 1 side as pyramid hierarchy.",
+  "headline": "Handle NULL efficiently in Aggregation Function",
+  "description" : "I looked at many PQLs that can be simplified if they know about NULL handling well. Today I would like to tell how to handle NULL efficiently in Aggregation Functions (COUNT,SUM,AVG etc.).\nToday I would like to use O2C process to explain my case. I determined KPI Send Invoice within a day after Ship Goods, because sales company will Ship Goods then should Send Invoice immediately.\nSame as previous posts, first I would like to create OLAP table to look into the cases.",
   "inLanguage" : "en",
-  "wordCount":  552 ,
-  "datePublished" : "2021-06-19T11:42:09",
-  "dateModified" : "2021-06-19T11:42:09",
+  "wordCount":  538 ,
+  "datePublished" : "2021-06-26T09:37:59",
+  "dateModified" : "2021-06-26T09:37:59",
   "image" : "https:\/\/kaztakata.github.io\/celonis-hacks",
   "keywords" : [ "" ],
-  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-06-19-understand-how-tables-are-joined-in-data-model\/",
+  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-06-26-handle-null-efficiently-in-aggregation-function\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/kaztakata.github.io\/celonis-hacks",
@@ -79,15 +80,17 @@ Celonis Data Model support snowflake schema that consists of multiple tables, ea
 }
 </script>
 
-<meta property="og:title" content="Understand how Tables are joined in Data Model" />
-<meta property="og:description" content="In the Understand Difference between Dimension and KPI post, I mentioned that Columns used as dimensions and KPIs are inplicitly joined based on data model, but I did not mention how to join tables in data model. Today I would like to say about it.
-Celonis Data Model support snowflake schema that consists of multiple tables, each table pair join as 1:N relationship. Normally activity table is top of N side and dimension tables including case table are bottom of 1 side as pyramid hierarchy.">
-<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2021-06-19-understand-how-tables-are-joined-in-data-model/" />
+<meta property="og:title" content="Handle NULL efficiently in Aggregation Function" />
+<meta property="og:description" content="I looked at many PQLs that can be simplified if they know about NULL handling well. Today I would like to tell how to handle NULL efficiently in Aggregation Functions (COUNT,SUM,AVG etc.).
+Today I would like to use O2C process to explain my case. I determined KPI Send Invoice within a day after Ship Goods, because sales company will Ship Goods then should Send Invoice immediately.
+Same as previous posts, first I would like to create OLAP table to look into the cases.">
+<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2021-06-26-handle-null-efficiently-in-aggregation-function/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Celonis hacks" />
 
-  <meta name="twitter:title" content="Understand how Tables are joined in Data Model" />
-  <meta name="twitter:description" content="In the Understand Difference between Dimension and KPI post, I mentioned that Columns used as dimensions and KPIs are inplicitly joined based on data model, but I did not mention how to join tables in …">
+  <meta name="twitter:title" content="Handle NULL efficiently in Aggregation Function" />
+  <meta name="twitter:description" content="I looked at many PQLs that can be simplified if they know about NULL handling well. Today I would like to tell how to handle NULL efficiently in Aggregation Functions (COUNT,SUM,AVG etc.).
+Today I …">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
@@ -230,7 +233,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="posts-heading">
               
-                <h1>Understand how Tables are joined in Data Model</h1>
+                <h1>Handle NULL efficiently in Aggregation Function</h1>
               
               
                 <hr class="small">
@@ -250,26 +253,58 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>In the <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-05-01-understand-difference-between-dimension-and-kpi/">Understand Difference between Dimension and KPI</a> post, I mentioned that Columns used as dimensions and KPIs are inplicitly joined based on data model, but I did not mention how to join tables in data model. Today I would like to say about it.</p>
-<p>Celonis Data Model support snowflake schema that consists of multiple tables, each table pair join as 1:N relationship. Normally activity table is top of N side and dimension tables including case table are bottom of 1 side as pyramid hierarchy.</p>
-<p>From here, I used part of Account Payable data model. First I look at the relationship between Vendor Master table <code>LFA1</code> (1 side) and Accounting document item table <code>BSEG</code> (N side).</p>
-<p>When I used both <code>LFA1</code> and <code>BSEG</code> tables in PQL, <code>BSEG</code> (N side) tables is left joined with <code>LFA1</code> (1 side) by join key (Vendor code of two tables). Same as standard SQL function, left join keeps all record of <code>BSEG</code> and relevant <code>LFA1</code> record. This means Vendor that is not used in Accounting document are not displayed in the output of PQL. It is not possible to switch left side of table by PQL.</p>
-<p>Below screenshot shows comparison between PQL of single table <code>LFA1</code> (blue part) and that of join tables <code>LFA1</code>-<code>BSEG</code> (red part). I used filter by Vendor name to easily distinguish the difference. Even blue part shows <code>755</code> vendor count , red part only shows <code>6</code> vendor count because N side <code>BSEG</code> record only have <code>6</code> vendors. When I set up count of <code>BSEG</code> table, those value are always non-zero value. Because of above join functionality, e.g. it is not possible to display vendor <code>0000308885</code> has <code>0</code> count of <code>BSEG</code> table.</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/122629713-f7eef980-d0f9-11eb-8ab3-f7184295c8ff.png"><img src="https://user-images.githubusercontent.com/67397583/122629713-f7eef980-d0f9-11eb-8ab3-f7184295c8ff.png" alt="image"></a></p>
-<p>As second example, I looked at relationship between Purchase Order Item table <code>EKPO</code>, Vendor Invoice Item table <code>RSEG</code>, and Accounting document item table <code>BSEG</code> (<code>EKPO</code> is 1 side and <code>BSEG</code> is N side). Accounting document item may have Vendor Invoice number, and Vendor Invoice item may have Purchase Order number. Using these three tables in PQL, because <code>BSEG</code> is the N side, all record of <code>BSEG</code> are kept, but some of <code>BSEG</code> record does not have <code>RSEG</code> record. Also some of <code>RSEG</code> record does not have <code>EKPO</code> record.</p>
-<p>Below screenshot shows OLAP table to see <code>BSEG</code> count that can connect with <code>RSEG</code> and <code>EKPO</code> record respectively. As mentioned, all <code>BSEG</code> record can be seen in OLAP table (<code>600,941 = 312,293 + 127,869 + 160,779</code>).</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/122631506-1efff800-d107-11eb-8652-cfdcdee1ef7a.png"><img src="https://user-images.githubusercontent.com/67397583/122631506-1efff800-d107-11eb-8652-cfdcdee1ef7a.png" alt="image"></a></p>
-<p>By the way, first and second record of <code>EKPO.MANDT</code> value <code>-</code> is not <code>NULL</code> value like standard SQL left join result (it is ambiguous that <code>NULL</code> value is also displayed as <code>-</code>). As proof, this value cannot be used for filtering condition as below screenshot (total count is changed to <code>0</code> after filtering). This <code>-</code> means &ldquo;Not evaluated&rdquo; because no <code>EKPO</code> record exists in this case. Take care that PQL function using this record returns &ldquo;Not evaluated&rdquo; too (on the other hand <code>NULL</code> value can be handled by <code>ISNULL</code> function or <code>IS NULL</code> predicate).</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/122757589-bebdb180-d2d2-11eb-93c4-2f2ae58dd49b.gif"><img src="https://user-images.githubusercontent.com/67397583/122757589-bebdb180-d2d2-11eb-93c4-2f2ae58dd49b.gif" alt="2021-06-19-_-Process-Analytics-Google-Chrome-2021-06-21-20-49-08"></a></p>
-<p>To summarize, join behaviors in data model are</p>
+        <p>I looked at many PQLs that can be simplified if they know about NULL handling well. Today I would like to tell how to handle NULL efficiently in Aggregation Functions (<code>COUNT</code>,<code>SUM</code>,<code>AVG</code> etc.).</p>
+<p>Today I would like to use O2C process to explain my case. I determined KPI <code>Send Invoice within a day after Ship Goods</code>, because sales company will Ship Goods then should Send Invoice immediately.</p>
+<p>Same as previous posts, first I would like to create OLAP table to look into the cases. As below screenshot, I determined <code>_CASE_KEY</code> (sales order item), <code>Customer</code> for classifying cases later, timestamp of <code>Ship Goods</code> and <code>Send Inovice</code> activities at first. Timestamps are extracted by <code>PU_FIRST( VBAP, _CEL_O2C_ACTIVITIES.EVENTTIME, _CEL_O2C_ACTIVITIES.ACTIVITY_EN = 'Ship Goods')</code> etc. Timestamp columns are <code>NULL</code> (displayed as <code>-</code>) if there is no record fullfills Pull up filter condition, that means no specific activity in that case.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/123500299-11eb8780-d678-11eb-8476-fce5f2c635ef.png"><img src="https://user-images.githubusercontent.com/67397583/123500299-11eb8780-d678-11eb-8476-fce5f2c635ef.png" alt="image"></a></p>
+<p>Next column <code>days between Ship and Invoice</code> is time difference between two activities, as below PQL (This PQL is frequently used so I registered saved formula <code>days_between_ship_and_invoice</code>). Screenshot shows that if either of timestamps are <code>NULL</code> then time difference is also <code>NULL</code>. In other word, time difference value can only be calculated if both timestamps exists.</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">-- days_between_ship_and_invoice
+DATEDIFF(
+    dd,            -- calculate time difference as day
+    PU_FIRST(
+        VBAP,
+        _CEL_O2C_ACTIVITIES.EVENTTIME,
+        _CEL_O2C_ACTIVITIES.ACTIVITY_EN = &#39;Ship Goods&#39;
+    ),
+    PU_FIRST(
+        VBAP,
+        _CEL_O2C_ACTIVITIES.EVENTTIME,
+        _CEL_O2C_ACTIVITIES.ACTIVITY_EN = &#39;Send Invoice&#39;
+    )
+)
+</code></pre></div><p>The last column <code>Within a day</code> (it is also registered as <code>within_a_day</code> formula) is judging if time difference is less than 1 day by PQL <code>CASE WHEN KPI(days_between_ship_and_invoice) &lt; 1 THEN 1 ELSE 0 END</code>.  If <code>days_between_ship_and_invoice</code> is <code>NULL</code>, then comparing result between <code>days_between_ship_and_invoice</code> and <code>1</code> is also <code>NULL</code>.</p>
+<p>To summarize above discussion, <code>within_a_day</code> formula returns</p>
 <ul>
-<li>Always N side is the left side of left join
+<li><code>1</code> if both activities exists and time difference is less than 1 day</li>
+<li><code>0</code> if both actiivties exists and time difference is more than 1 day</li>
+<li><code>NULL</code> if either activity is not found</li>
+</ul>
+<p>Next step is to group <code>Within a day</code> column (dimension) by Customer using aggregation functions.</p>
 <ul>
-<li>If N side table record missing, 1 side table record are disappeared.</li>
-<li>If 1 side table record missing, N side table record remains and 1 side table record is &ldquo;Not evaluated&rdquo; (different from <code>NULL</code> value).</li>
+<li>Invoice Count : <code>COUNT(KPI(within_a_day))</code> ignores <code>NULL</code> record and count the rest of record.</li>
+<li>Within a day Count : <code>SUM(KPI(within_a_day))</code> ignores <code>NULL</code> record and sum up the rest of record.</li>
+<li>Within a day Ratio : <code>AVG(KPI(within_a_day))</code> is same as <code>SUM(KPI(within_a_day)) / COUNT(KPI(within_a_day))</code>, ignoring <code>NULL</code> record count from denominator (<code>COUNT</code>) and calculate avarage of the rest of record.</li>
 </ul>
-</li>
-</ul>
+<p>Especially for calculating ratio (<code>AVG</code>) you need to take care denominator (<code>COUNT</code>). Below screenshot shows example of one Customer that have 16 record including 6 <code>NULL</code> record, so denominator of ratio is 10.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/123502094-8debcc80-d684-11eb-91b1-20b6ae8be3eb.png"><img src="https://user-images.githubusercontent.com/67397583/123502094-8debcc80-d684-11eb-91b1-20b6ae8be3eb.png" alt="image"></a></p>
+<p>In this series of calculation I assume that I can ignore the case that does not have <code>Send Invoice</code>. If I think differently that no <code>Send Invoice</code> means forgetting to send invoice, of cource it takes more than 1 day and include Ratio calculation.</p>
+<p>To implement this considering NULL handling, I will minimumly change <code>days_between_ship_and_invoice</code> formula to set default value (today) instead of <code>NULL</code> as below PQL. Below screenshot is the result of this PQL change, changing denominator from 10 to 13.</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">DATEDIFF(
+    dd,
+    PU_FIRST(
+        VBAP,
+        _CEL_O2C_ACTIVITIES.EVENTTIME,
+        _CEL_O2C_ACTIVITIES.ACTIVITY_EN = &#39;Ship Goods&#39;
+    ),
+    COALESCE(       -- set default value if PU_FIRST result is NULL
+        PU_FIRST(
+            VBAP, 
+            _CEL_O2C_ACTIVITIES.EVENTTIME, 
+            _CEL_O2C_ACTIVITIES.ACTIVITY_EN = &#39;Send Invoice&#39;),
+        TODAY()     -- default value is today
+    )
+)
+</code></pre></div><p><a href="https://user-images.githubusercontent.com/67397583/123502482-bc1edb80-d687-11eb-8a33-04af851e1746.png"><img src="https://user-images.githubusercontent.com/67397583/123502482-bc1edb80-d687-11eb-8a33-04af851e1746.png" alt="image"></a></p>
 <p>Kaz</p>
 
 
@@ -285,42 +320,42 @@ if (!doNotTrack) {
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-06-19-understand-how-tables-are-joined-in-data-model%2f&amp;text=Understand%20how%20Tables%20are%20joined%20in%20Data%20Model&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-06-26-handle-null-efficiently-in-aggregation-function%2f&amp;text=Handle%20NULL%20efficiently%20in%20Aggregation%20Function&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-06-19-understand-how-tables-are-joined-in-data-model%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-06-26-handle-null-efficiently-in-aggregation-function%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-06-19-understand-how-tables-are-joined-in-data-model%2f&amp;title=Understand%20how%20Tables%20are%20joined%20in%20Data%20Model" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-06-26-handle-null-efficiently-in-aggregation-function%2f&amp;title=Handle%20NULL%20efficiently%20in%20Aggregation%20Function" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-06-19-understand-how-tables-are-joined-in-data-model%2f&amp;title=Understand%20how%20Tables%20are%20joined%20in%20Data%20Model" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-06-26-handle-null-efficiently-in-aggregation-function%2f&amp;title=Handle%20NULL%20efficiently%20in%20Aggregation%20Function" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-06-19-understand-how-tables-are-joined-in-data-model%2f&amp;title=Understand%20how%20Tables%20are%20joined%20in%20Data%20Model" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-06-26-handle-null-efficiently-in-aggregation-function%2f&amp;title=Handle%20NULL%20efficiently%20in%20Aggregation%20Function" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-06-19-understand-how-tables-are-joined-in-data-model%2f&amp;description=Understand%20how%20Tables%20are%20joined%20in%20Data%20Model" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-06-26-handle-null-efficiently-in-aggregation-function%2f&amp;description=Handle%20NULL%20efficiently%20in%20Aggregation%20Function" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -343,13 +378,9 @@ if (!doNotTrack) {
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-06-12-calculate-multi-dimentional-kpis/" data-toggle="tooltip" data-placement="top" title="Calculate Multi Dimensional KPIs">&larr; Previous Post</a>
+              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-06-19-understand-how-tables-are-joined-in-data-model/" data-toggle="tooltip" data-placement="top" title="Understand how Tables are joined in Data Model">&larr; Previous Post</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-06-26-handle-null-efficiently-in-aggregation-function/" data-toggle="tooltip" data-placement="top" title="Handle NULL efficiently in Aggregation Function">Next Post &rarr;</a>
-            </li>
           
         </ul>
       

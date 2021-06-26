@@ -5,10 +5,21 @@
     <link>https://kaztakata.github.io/celonis-hacks/posts/</link>
     <description>Recent content in Posts on Celonis hacks</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 19 Jun 2021 11:42:09 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 26 Jun 2021 09:37:59 +0900</lastBuildDate>
     
 	<atom:link href="https://kaztakata.github.io/celonis-hacks/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Handle NULL efficiently in Aggregation Function</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2021-06-26-handle-null-efficiently-in-aggregation-function/</link>
+      <pubDate>Sat, 26 Jun 2021 09:37:59 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2021-06-26-handle-null-efficiently-in-aggregation-function/</guid>
+      <description>I looked at many PQLs that can be simplified if they know about NULL handling well. Today I would like to tell how to handle NULL efficiently in Aggregation Functions (COUNT,SUM,AVG etc.).
+Today I would like to use O2C process to explain my case. I determined KPI Send Invoice within a day after Ship Goods, because sales company will Ship Goods then should Send Invoice immediately.
+Same as previous posts, first I would like to create OLAP table to look into the cases.</description>
+    </item>
     
     <item>
       <title>Understand how Tables are joined in Data Model</title>
