@@ -7,10 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Handle NULL efficiently in Aggregation Function - Celonis hacks</title>
-  <meta name="description" content="I looked at many PQLs that can be simplified if they know about NULL handling well. Today I would like to tell how to handle NULL efficiently in Aggregation Functions (COUNT,SUM,AVG etc.).
-Today I would like to use O2C process to explain my case. I determined KPI Send Invoice within a day after Ship Goods, because sales company will Ship Goods then should Send Invoice immediately.
-Same as previous posts, first I would like to create OLAP table to look into the cases.">
+  <title>Maintain Saved Formulas effectively - Celonis hacks</title>
+  <meta name="description" content="In the last post Handle NULL efficiently in Aggregation Function, I used saved formulas to split long and complex PQL to reusable components. Today I would like to share my best practice to use saved formulas.
+For example I would like to ananlyze throughput time between arbitrary two activities. As below screenshot I created three dropdown buttons, switching time unit (sec, min, hour, day etc.) and two activities (from / to).">
   <meta name="author" content="Kazuhiko Takata"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -46,8 +45,8 @@ Same as previous posts, first I would like to create OLAP table to look into the
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-06-26-handle-null-efficiently-in-aggregation-function\/",
-          "name": "Handle n u l l efficiently in aggregation function"
+          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-07-03-maintain-saved-formulas-effectively\/",
+          "name": "Maintain saved formulas effectively"
         }
     }]
 }
@@ -58,15 +57,15 @@ Same as previous posts, first I would like to create OLAP table to look into the
   "author": {
     "name" : "Kazuhiko Takata"
   },
-  "headline": "Handle NULL efficiently in Aggregation Function",
-  "description" : "I looked at many PQLs that can be simplified if they know about NULL handling well. Today I would like to tell how to handle NULL efficiently in Aggregation Functions (COUNT,SUM,AVG etc.).\nToday I would like to use O2C process to explain my case. I determined KPI Send Invoice within a day after Ship Goods, because sales company will Ship Goods then should Send Invoice immediately.\nSame as previous posts, first I would like to create OLAP table to look into the cases.",
+  "headline": "Maintain Saved Formulas effectively",
+  "description" : "In the last post Handle NULL efficiently in Aggregation Function, I used saved formulas to split long and complex PQL to reusable components. Today I would like to share my best practice to use saved formulas.\nFor example I would like to ananlyze throughput time between arbitrary two activities. As below screenshot I created three dropdown buttons, switching time unit (sec, min, hour, day etc.) and two activities (from \/ to).",
   "inLanguage" : "en",
-  "wordCount":  538 ,
-  "datePublished" : "2021-06-26T09:37:59",
-  "dateModified" : "2021-06-26T09:37:59",
+  "wordCount":  471 ,
+  "datePublished" : "2021-07-03T21:25:28",
+  "dateModified" : "2021-07-03T21:25:28",
   "image" : "https:\/\/kaztakata.github.io\/celonis-hacks",
   "keywords" : [ "" ],
-  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-06-26-handle-null-efficiently-in-aggregation-function\/",
+  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-07-03-maintain-saved-formulas-effectively\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/kaztakata.github.io\/celonis-hacks",
@@ -80,17 +79,15 @@ Same as previous posts, first I would like to create OLAP table to look into the
 }
 </script>
 
-<meta property="og:title" content="Handle NULL efficiently in Aggregation Function" />
-<meta property="og:description" content="I looked at many PQLs that can be simplified if they know about NULL handling well. Today I would like to tell how to handle NULL efficiently in Aggregation Functions (COUNT,SUM,AVG etc.).
-Today I would like to use O2C process to explain my case. I determined KPI Send Invoice within a day after Ship Goods, because sales company will Ship Goods then should Send Invoice immediately.
-Same as previous posts, first I would like to create OLAP table to look into the cases.">
-<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2021-06-26-handle-null-efficiently-in-aggregation-function/" />
+<meta property="og:title" content="Maintain Saved Formulas effectively" />
+<meta property="og:description" content="In the last post Handle NULL efficiently in Aggregation Function, I used saved formulas to split long and complex PQL to reusable components. Today I would like to share my best practice to use saved formulas.
+For example I would like to ananlyze throughput time between arbitrary two activities. As below screenshot I created three dropdown buttons, switching time unit (sec, min, hour, day etc.) and two activities (from / to).">
+<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2021-07-03-maintain-saved-formulas-effectively/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Celonis hacks" />
 
-  <meta name="twitter:title" content="Handle NULL efficiently in Aggregation Function" />
-  <meta name="twitter:description" content="I looked at many PQLs that can be simplified if they know about NULL handling well. Today I would like to tell how to handle NULL efficiently in Aggregation Functions (COUNT,SUM,AVG etc.).
-Today I …">
+  <meta name="twitter:title" content="Maintain Saved Formulas effectively" />
+  <meta name="twitter:description" content="In the last post Handle NULL efficiently in Aggregation Function, I used saved formulas to split long and complex PQL to reusable components. Today I would like to share my best practice to use saved …">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
@@ -233,7 +230,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="posts-heading">
               
-                <h1>Handle NULL efficiently in Aggregation Function</h1>
+                <h1>Maintain Saved Formulas effectively</h1>
               
               
                 <hr class="small">
@@ -253,58 +250,93 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>I looked at many PQLs that can be simplified if they know about NULL handling well. Today I would like to tell how to handle NULL efficiently in Aggregation Functions (<code>COUNT</code>,<code>SUM</code>,<code>AVG</code> etc.).</p>
-<p>Today I would like to use O2C process to explain my case. I determined KPI <code>Send Invoice within a day after Ship Goods</code>, because sales company will Ship Goods then should Send Invoice immediately.</p>
-<p>Same as previous posts, first I would like to create OLAP table to look into the cases. As below screenshot, I determined <code>_CASE_KEY</code> (sales order item), <code>Customer</code> for classifying cases later, timestamp of <code>Ship Goods</code> and <code>Send Inovice</code> activities at first. Timestamps are extracted by <code>PU_FIRST( VBAP, _CEL_O2C_ACTIVITIES.EVENTTIME, _CEL_O2C_ACTIVITIES.ACTIVITY_EN = 'Ship Goods')</code> etc. Timestamp columns are <code>NULL</code> (displayed as <code>-</code>) if there is no record fullfills Pull up filter condition, that means no specific activity in that case.</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/123500299-11eb8780-d678-11eb-8476-fce5f2c635ef.png"><img src="https://user-images.githubusercontent.com/67397583/123500299-11eb8780-d678-11eb-8476-fce5f2c635ef.png" alt="image"></a></p>
-<p>Next column <code>days between Ship and Invoice</code> is time difference between two activities, as below PQL (This PQL is frequently used so I registered saved formula <code>days_between_ship_and_invoice</code>). Screenshot shows that if either of timestamps are <code>NULL</code> then time difference is also <code>NULL</code>. In other word, time difference value can only be calculated if both timestamps exists.</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">-- days_between_ship_and_invoice
-DATEDIFF(
-    dd,            -- calculate time difference as day
-    PU_FIRST(
-        VBAP,
-        _CEL_O2C_ACTIVITIES.EVENTTIME,
-        _CEL_O2C_ACTIVITIES.ACTIVITY_EN = &#39;Ship Goods&#39;
-    ),
-    PU_FIRST(
-        VBAP,
-        _CEL_O2C_ACTIVITIES.EVENTTIME,
-        _CEL_O2C_ACTIVITIES.ACTIVITY_EN = &#39;Send Invoice&#39;
-    )
-)
-</code></pre></div><p>The last column <code>Within a day</code> (it is also registered as <code>within_a_day</code> formula) is judging if time difference is less than 1 day by PQL <code>CASE WHEN KPI(days_between_ship_and_invoice) &lt; 1 THEN 1 ELSE 0 END</code>.  If <code>days_between_ship_and_invoice</code> is <code>NULL</code>, then comparing result between <code>days_between_ship_and_invoice</code> and <code>1</code> is also <code>NULL</code>.</p>
-<p>To summarize above discussion, <code>within_a_day</code> formula returns</p>
-<ul>
-<li><code>1</code> if both activities exists and time difference is less than 1 day</li>
-<li><code>0</code> if both actiivties exists and time difference is more than 1 day</li>
-<li><code>NULL</code> if either activity is not found</li>
-</ul>
-<p>Next step is to group <code>Within a day</code> column (dimension) by Customer using aggregation functions.</p>
-<ul>
-<li>Invoice Count : <code>COUNT(KPI(within_a_day))</code> ignores <code>NULL</code> record and count the rest of record.</li>
-<li>Within a day Count : <code>SUM(KPI(within_a_day))</code> ignores <code>NULL</code> record and sum up the rest of record.</li>
-<li>Within a day Ratio : <code>AVG(KPI(within_a_day))</code> is same as <code>SUM(KPI(within_a_day)) / COUNT(KPI(within_a_day))</code>, ignoring <code>NULL</code> record count from denominator (<code>COUNT</code>) and calculate avarage of the rest of record.</li>
-</ul>
-<p>Especially for calculating ratio (<code>AVG</code>) you need to take care denominator (<code>COUNT</code>). Below screenshot shows example of one Customer that have 16 record including 6 <code>NULL</code> record, so denominator of ratio is 10.</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/123502094-8debcc80-d684-11eb-91b1-20b6ae8be3eb.png"><img src="https://user-images.githubusercontent.com/67397583/123502094-8debcc80-d684-11eb-91b1-20b6ae8be3eb.png" alt="image"></a></p>
-<p>In this series of calculation I assume that I can ignore the case that does not have <code>Send Invoice</code>. If I think differently that no <code>Send Invoice</code> means forgetting to send invoice, of cource it takes more than 1 day and include Ratio calculation.</p>
-<p>To implement this considering NULL handling, I will minimumly change <code>days_between_ship_and_invoice</code> formula to set default value (today) instead of <code>NULL</code> as below PQL. Below screenshot is the result of this PQL change, changing denominator from 10 to 13.</p>
+        <p>In the last post <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-06-26-handle-null-efficiently-in-aggregation-function/">Handle NULL efficiently in Aggregation Function</a>, I used saved formulas to split long and complex PQL to reusable components. Today I would like to share my best practice to use saved formulas.</p>
+<p>For example I would like to ananlyze throughput time between arbitrary two activities. As below screenshot I created three dropdown buttons, switching time unit (sec, min, hour, day etc.) and two activities (from / to). Variables (time_unit, from, to) are set by user action and passed to PQL for calculating other components relevant to throughtput time (single KPI, histogram, boxplot, drill down table, and fact table).</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/124353919-52cd3880-dc44-11eb-8516-effc7047db33.png"><img src="https://user-images.githubusercontent.com/67397583/124353919-52cd3880-dc44-11eb-8516-effc7047db33.png" alt="image"></a></p>
+<p>In each component it is possible to write down throughput time PQL like below. But if I need to change something in PQL, I need to open each component and maintain it multiple times. So I will try to create saved formulas and simplify each component.</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">DATEDIFF(
-    dd,
+    &lt;%=time_unit%&gt;,
     PU_FIRST(
-        VBAP,
-        _CEL_O2C_ACTIVITIES.EVENTTIME,
-        _CEL_O2C_ACTIVITIES.ACTIVITY_EN = &#39;Ship Goods&#39;
+        EKPO,
+        _CEL_P2P_ACTIVITIES_EN.EVENTTIME,
+        _CEL_P2P_ACTIVITIES_EN.ACTIVITY_EN = &lt;%=from%&gt;
     ),
-    COALESCE(       -- set default value if PU_FIRST result is NULL
-        PU_FIRST(
-            VBAP, 
-            _CEL_O2C_ACTIVITIES.EVENTTIME, 
-            _CEL_O2C_ACTIVITIES.ACTIVITY_EN = &#39;Send Invoice&#39;),
-        TODAY()     -- default value is today
+    PU_FIRST(
+        EKPO,
+        _CEL_P2P_ACTIVITIES_EN.EVENTTIME,
+        _CEL_P2P_ACTIVITIES_EN.ACTIVITY_EN = &lt;%=to%&gt;
     )
 )
-</code></pre></div><p><a href="https://user-images.githubusercontent.com/67397583/123502482-bc1edb80-d687-11eb-8a33-04af851e1746.png"><img src="https://user-images.githubusercontent.com/67397583/123502482-bc1edb80-d687-11eb-8a33-04af851e1746.png" alt="image"></a></p>
+</code></pre></div><p>First I focused on the <code>PU_FIRST</code> portion. These functions can be summarized to formula <code>first_time</code> as below.</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">--first_time
+PU_FIRST(
+    EKPO,
+    _CEL_P2P_ACTIVITIES_EN.EVENTTIME,
+    _CEL_P2P_ACTIVITIES_EN.ACTIVITY_EN = {p1}
+)
+</code></pre></div><p>Then original PQL is changed to below.</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">DATEDIFF(
+    &lt;%=time_unit%&gt;,
+    KPI(first_time,VARIABLE(&lt;%=from%&gt;)),    -- call first_time formula passing parameter &#39;from&#39;
+    KPI(first_time,VARIABLE(&lt;%=to%&gt;))       -- call first_time formula passing parameter &#39;to&#39;
+)
+</code></pre></div><p>This is something better than previous PQL, but let&rsquo;s encapsulate the <code>DATEDIFF</code> portion. I will create second formula <code>throughput_time</code> as below.</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">--throughput_time
+DATEDIFF(
+    {p1},
+    KPI(first_time,VARIABLE({p2})),
+    KPI(first_time,VARIABLE({p3}))
+)
+</code></pre></div><p>Finally original PQL is changed to <code>KPI(throughput_time, VARIABLE(&lt;%=time_unit%&gt;), VARIABLE(&lt;%=from%&gt;), VARIABLE(&lt;%=to%&gt;))</code>. It means each component is just call <code>throughput_time</code> with three parameters.</p>
+<p>By the way, single KPI and drill down table are aggregating throughput time by <code>AVG</code> and <code>COUNT</code> function. In my opinion it is not required to create one more formula of each aggregation function. My focus is replacement of complex &lsquo;dimension&rsquo; determination to formula (Exceptionally, I would like to create formula for adding multiple aggregation function case, like <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-06-12-calculate-multi-dimentional-kpis/">Calculate Multi Dimensional KPIs</a> post). In the end each component are determined like below.</p>
+<table>
+<thead>
+<tr>
+<th>Title</th>
+<th>Component</th>
+<th>PQL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Avg Throughput Time</td>
+<td>single KPI</td>
+<td><code>AVG(KPI(throughput_time, VARIABLE(&lt;%=time_unit%&gt;), VARIABLE(&lt;%=from%&gt;), VARIABLE(&lt;%=to%&gt;))) </code></td>
+</tr>
+<tr>
+<td>Case Count</td>
+<td>single KPI</td>
+<td><code>COUNT(KPI(throughput_time, VARIABLE(&lt;%=time_unit%&gt;), VARIABLE(&lt;%=from%&gt;), VARIABLE(&lt;%=to%&gt;)))</code></td>
+</tr>
+<tr>
+<td>Distribution</td>
+<td>histogram</td>
+<td><code>KPI(throughput_time, VARIABLE(&lt;%=time_unit%&gt;), VARIABLE(&lt;%=from%&gt;), VARIABLE(&lt;%=to%&gt;))</code></td>
+</tr>
+<tr>
+<td>Time Trend</td>
+<td>boxplot</td>
+<td>same as histogram</td>
+</tr>
+<tr>
+<td>Drill Down by vendor</td>
+<td>OLAP table</td>
+<td>same as single KPI</td>
+</tr>
+<tr>
+<td>Fact</td>
+<td>OLAP table</td>
+<td>same as histogram</td>
+</tr>
+</tbody>
+</table>
+<p>One more tips, I recommend to determine multi layered formualas as above because I can use interim result in verification purpose. In the right lower fact sheet, columns of from / to timestamp are displayed then <code>KPI(first_time,VARIABLE(&lt;%=from%&gt;))</code> and <code>KPI(first_time,VARIABLE(&lt;%=to%&gt;))</code> are assigned. So that it is easy to verify throughput time calculation of each case.</p>
+<p>To summarize today&rsquo;s discussion,</p>
+<ul>
+<li>decomposite complex dimensional PQL to multi layered formulas</li>
+<li>assign variable to formula&rsquo;s parameters (not directly assign variable in the formula)</li>
+<li>not required to create formula for simple aggregation</li>
+</ul>
 <p>Kaz</p>
 
 
@@ -320,42 +352,42 @@ DATEDIFF(
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-06-26-handle-null-efficiently-in-aggregation-function%2f&amp;text=Handle%20NULL%20efficiently%20in%20Aggregation%20Function&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-07-03-maintain-saved-formulas-effectively%2f&amp;text=Maintain%20Saved%20Formulas%20effectively&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-06-26-handle-null-efficiently-in-aggregation-function%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-07-03-maintain-saved-formulas-effectively%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-06-26-handle-null-efficiently-in-aggregation-function%2f&amp;title=Handle%20NULL%20efficiently%20in%20Aggregation%20Function" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-07-03-maintain-saved-formulas-effectively%2f&amp;title=Maintain%20Saved%20Formulas%20effectively" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-06-26-handle-null-efficiently-in-aggregation-function%2f&amp;title=Handle%20NULL%20efficiently%20in%20Aggregation%20Function" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-07-03-maintain-saved-formulas-effectively%2f&amp;title=Maintain%20Saved%20Formulas%20effectively" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-06-26-handle-null-efficiently-in-aggregation-function%2f&amp;title=Handle%20NULL%20efficiently%20in%20Aggregation%20Function" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-07-03-maintain-saved-formulas-effectively%2f&amp;title=Maintain%20Saved%20Formulas%20effectively" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-06-26-handle-null-efficiently-in-aggregation-function%2f&amp;description=Handle%20NULL%20efficiently%20in%20Aggregation%20Function" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-07-03-maintain-saved-formulas-effectively%2f&amp;description=Maintain%20Saved%20Formulas%20effectively" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -378,13 +410,9 @@ DATEDIFF(
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-06-19-understand-how-tables-are-joined-in-data-model/" data-toggle="tooltip" data-placement="top" title="Understand how Tables are joined in Data Model">&larr; Previous Post</a>
+              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-06-26-handle-null-efficiently-in-aggregation-function/" data-toggle="tooltip" data-placement="top" title="Handle NULL efficiently in Aggregation Function">&larr; Previous Post</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-07-03-maintain-saved-formulas-effectively/" data-toggle="tooltip" data-placement="top" title="Maintain Saved Formulas effectively">Next Post &rarr;</a>
-            </li>
           
         </ul>
       
