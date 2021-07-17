@@ -60,7 +60,7 @@ In case of SAP Order to Cash (O2C) scenario, case table is sales order item (VBA
   "headline": "Transform Source System Tables to Minimize Data Model Tables",
   "description" : "In the last past of previous post Utilize N-M relationship between Activity and Dimension Tables, I said just mimicing source system\x26rsquo;s table structure to data model is not useful for Celonis data model. Also I feel loading time to data model is exponentially long when one more table is added. So minimizing data model table is good practice especially for real time analytics.\nIn case of SAP Order to Cash (O2C) scenario, case table is sales order item (VBAP).",
   "inLanguage" : "en",
-  "wordCount":  337 ,
+  "wordCount":  338 ,
   "datePublished" : "2021-07-17T13:24:10",
   "dateModified" : "2021-07-17T13:24:10",
   "image" : "https:\/\/kaztakata.github.io\/celonis-hacks",
@@ -145,6 +145,12 @@ if (!doNotTrack) {
           
             <li>
               <a title="About" href="https://kaztakata.github.io/celonis-hacks/page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Search" href="https://kaztakata.github.io/celonis-hacks/search">Search</a>
             </li>
           
         
@@ -252,7 +258,7 @@ if (!doNotTrack) {
       <article role="main" class="blog-post">
         <p>In the last past of previous post <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-07-10-utilize-n-m-relationship-between-activity-and-dimension-tables/">Utilize N-M relationship between Activity and Dimension Tables</a>, I said just mimicing source system&rsquo;s table structure to data model is not useful for Celonis data model. Also I feel loading time to data model is exponentially long when one more table is added. So minimizing data model table is good practice especially for real time analytics.</p>
 <p>In case of SAP Order to Cash (O2C) scenario, case table is sales order item (<code>VBAP</code>). From <code>VBAP</code> perspective, sales order header <code>VBAK</code> can fully utilize as additional dimension table because <code>VBAK</code> is joined with <code>VBAP</code> as 1 side. In PQL, just choose <code>VBAK</code> column as dimension is same effect as choose <code>VBAP</code> column.</p>
-<p>On the other hand, schedule line <code>VBEP</code> table that is joined with <code>VBAP</code> as N side can not utilize like <code>VBAK</code>. As discussed in previous post, <code>VBEP</code> and Activity table are N-M relationship so <code>VBEP</code> table should be filtered (e.g. first row of <code>VBEP</code>). Schedule line is managing date / time of delivery, so I recommend to convert <code>VBEP</code> content to activity table. For example, first row of <code>VBEP</code> is normally original request from customer, so you will generate <code>Request delivery date</code> activity from <code>VBEP</code> table in Event Collection (Transformation). In the end <code>VBEP</code> table is not loaded to data model else activity table can be utilized. If you would like to handle order quantity with Request delivery date, quantity field is added to activity table then use it in PQL.</p>
+<p>On the other hand, schedule line <code>VBEP</code> table that is joined with <code>VBAP</code> as N side can not utilize like <code>VBAK</code>. As discussed in previous post, <code>VBEP</code> and Activity table are N-M relationship so <code>VBEP</code> table should be filtered (e.g. first row of <code>VBEP</code>). Schedule line is managing date / time of delivery, so I recommend to convert <code>VBEP</code> content to activity table. For example, first row of <code>VBEP</code> is normally original request from customer, so you will generate <code>Request delivery date</code> activity from <code>VBEP</code> table in Event Collection (Transformation). In the end <code>VBEP</code> table is not loaded to data model but you can utilize activity record. If you would like to handle order quantity with <code>Request delivery date</code> activity, quantity field is added to activity table then use it in PQL.</p>
 <p>One more example, partner <code>VBPA</code> table is joined with <code>VBAP</code> as N side. It contains sold-to party, ship-to party, bill-to party and payer rows against sales order item. Those are useful as dimension, so I recommend to convert these rows to additional columns of <code>VBAP</code> in Event Collection.</p>
 <p><a href="https://user-images.githubusercontent.com/67397583/126027089-d987f453-0434-421d-bc09-2442e55d4839.png"><img src="https://user-images.githubusercontent.com/67397583/126027089-d987f453-0434-421d-bc09-2442e55d4839.png" alt="image"></a></p>
 <p>As discussed above, transforming source system table structure to Celonis data model is quite important design topic. To do so, of cource you need to think about what KPI is measured then which tables / columns are required for analysis.</p>
