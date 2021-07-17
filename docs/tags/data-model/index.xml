@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Data Model on Celonis hacks</title>
+    <link>https://kaztakata.github.io/celonis-hacks/tags/data-model/</link>
+    <description>Recent content in Data Model on Celonis hacks</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 17 Jul 2021 13:24:10 +0900</lastBuildDate>
+    
+	<atom:link href="https://kaztakata.github.io/celonis-hacks/tags/data-model/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Transform Source System Tables to Minimize Data Model Tables</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2021-07-17-transform-source-system-tables-to-minimize-data-model-tables/</link>
+      <pubDate>Sat, 17 Jul 2021 13:24:10 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2021-07-17-transform-source-system-tables-to-minimize-data-model-tables/</guid>
+      <description>In the last past of previous post Utilize N-M relationship between Activity and Dimension Tables, I said just mimicing source system&amp;rsquo;s table structure to data model is not useful for Celonis data model. Also I feel loading time to data model is exponentially long when one more table is added. So minimizing data model table is good practice especially for real time analytics.
+In case of SAP Order to Cash (O2C) scenario, case table is sales order item (VBAP).</description>
+    </item>
+    
+    <item>
+      <title>Utilize N-M relationship between Activity and Dimension Tables</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2021-07-10-utilize-n-m-relationship-between-activity-and-dimension-tables/</link>
+      <pubDate>Sat, 10 Jul 2021 10:08:50 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2021-07-10-utilize-n-m-relationship-between-activity-and-dimension-tables/</guid>
+      <description>When you determine data model structure by yourself, basically you should follow snowflake schema writtern in Understand how Tables are joined in Data Model. From case table perspective, n side is case table, and 1 side is another dimension table. On the other hand, activity table is the first case that 1 side is case table. If you determine second dimension table that 1 side is case table, please note that you can not use both activity and that dimension table at once because those tables are N-M relationship via case table.</description>
+    </item>
+    
+    <item>
+      <title>Understand how Tables are joined in Data Model</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2021-06-19-understand-how-tables-are-joined-in-data-model/</link>
+      <pubDate>Sat, 19 Jun 2021 11:42:09 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2021-06-19-understand-how-tables-are-joined-in-data-model/</guid>
+      <description>In the Understand Difference between Dimension and KPI post, I mentioned that Columns used as dimensions and KPIs are inplicitly joined based on data model, but I did not mention how to join tables in data model. Today I would like to say about it.
+Celonis Data Model support snowflake schema that consists of multiple tables, each table pair join as 1:N relationship. Normally activity table is top of N side and dimension tables including case table are bottom of 1 side as pyramid hierarchy.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,24 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Celonis hacks</title>
-    <link>https://kaztakata.github.io/celonis-hacks/</link>
-    <description>Recent content on Celonis hacks</description>
+    <title>PQL on Celonis hacks</title>
+    <link>https://kaztakata.github.io/celonis-hacks/tags/pql/</link>
+    <description>Recent content in PQL on Celonis hacks</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 17 Jul 2021 13:24:10 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 10 Jul 2021 10:08:50 +0900</lastBuildDate>
     
-	<atom:link href="https://kaztakata.github.io/celonis-hacks/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://kaztakata.github.io/celonis-hacks/tags/pql/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Transform Source System Tables to Minimize Data Model Tables</title>
-      <link>https://kaztakata.github.io/celonis-hacks/posts/2021-07-17-transform-source-system-tables-to-minimize-data-model-tables/</link>
-      <pubDate>Sat, 17 Jul 2021 13:24:10 +0900</pubDate>
-      
-      <guid>https://kaztakata.github.io/celonis-hacks/posts/2021-07-17-transform-source-system-tables-to-minimize-data-model-tables/</guid>
-      <description>In the last past of previous post Utilize N-M relationship between Activity and Dimension Tables, I said just mimicing source system&amp;rsquo;s table structure to data model is not useful for Celonis data model. Also I feel loading time to data model is exponentially long when one more table is added. So minimizing data model table is good practice especially for real time analytics.
-In case of SAP Order to Cash (O2C) scenario, case table is sales order item (VBAP).</description>
-    </item>
     
     <item>
       <title>Utilize N-M relationship between Activity and Dimension Tables</title>
@@ -130,16 +120,6 @@ I think there are two ways to customize Process explorer.
       <guid>https://kaztakata.github.io/celonis-hacks/posts/2021-05-01-understand-difference-between-dimension-and-kpi/</guid>
       <description>If you are beginner of creating Celonis Analysis, I believe you will first create OLAP table to understand how Celonis PQL works with data model. Points are,
  Dimensions are grouping key to calculate KPI, normally they are string (character) columns KPIs are calculated figures based on specific numeric columns, or count of rows of any columns, it must be numeric value in either cases Columns used as dimensions and KPIs are inplicitly joined based on data model  Below screenshot is the quite simple example to show Dimension, KPI, and data model.</description>
-    </item>
-    
-    <item>
-      <title>About this site</title>
-      <link>https://kaztakata.github.io/celonis-hacks/page/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://kaztakata.github.io/celonis-hacks/page/about/</guid>
-      <description>Greeting Hello, I am Kazuhiko Takata, called Kaz. I am working as freelance consultant from 2005, especially technical expert of SAP and Celonis. Please see my LinkedIn profile if you are interested.
-Objective I would like to share what I learned to catch up latest Celonis technical topics and finally become Celonis Data Engineer. When I started Celonis career in 2019, I developed Celonis programs from scratch to analyze SAP process.</description>
     </item>
     
   </channel>

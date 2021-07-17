@@ -7,9 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Calculate Multi Dimensional KPIs - Celonis hacks</title>
-  <meta name="description" content="In the last post Recognize Record to Calculate KPI, I showed issue of count duplication when I merged two different dimentional KPIs. Today I will tell how to calculate it correctly.
-I will start from changing OLAP table to hide USER_TYPE and ACTIVITY_EN for calculating KPIs grouped by customer master. And I filtered by customer K1 as previous post. Finally I added SUM function to both Rework Time and Reminder Time.">
+  <title>Transform Source System Tables to Minimize Data Model Tables - Celonis hacks</title>
+  <meta name="description" content="In the last past of previous post Utilize N-M relationship between Activity and Dimension Tables, I said just mimicing source system&rsquo;s table structure to data model is not useful for Celonis data model. Also I feel loading time to data model is exponentially long when one more table is added. So minimizing data model table is good practice especially for real time analytics.
+In case of SAP Order to Cash (O2C) scenario, case table is sales order item (VBAP).">
   <meta name="author" content="Kazuhiko Takata"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -45,8 +45,8 @@ I will start from changing OLAP table to hide USER_TYPE and ACTIVITY_EN for calc
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-06-12-calculate-multi-dimentional-kpis\/",
-          "name": "Calculate multi dimensional k p is"
+          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-07-17-transform-source-system-tables-to-minimize-data-model-tables\/",
+          "name": "Transform source system tables to minimize data model tables"
         }
     }]
 }
@@ -57,15 +57,15 @@ I will start from changing OLAP table to hide USER_TYPE and ACTIVITY_EN for calc
   "author": {
     "name" : "Kazuhiko Takata"
   },
-  "headline": "Calculate Multi Dimensional KPIs",
-  "description" : "In the last post Recognize Record to Calculate KPI, I showed issue of count duplication when I merged two different dimentional KPIs. Today I will tell how to calculate it correctly.\nI will start from changing OLAP table to hide USER_TYPE and ACTIVITY_EN for calculating KPIs grouped by customer master. And I filtered by customer K1 as previous post. Finally I added SUM function to both Rework Time and Reminder Time.",
+  "headline": "Transform Source System Tables to Minimize Data Model Tables",
+  "description" : "In the last past of previous post Utilize N-M relationship between Activity and Dimension Tables, I said just mimicing source system\x26rsquo;s table structure to data model is not useful for Celonis data model. Also I feel loading time to data model is exponentially long when one more table is added. So minimizing data model table is good practice especially for real time analytics.\nIn case of SAP Order to Cash (O2C) scenario, case table is sales order item (VBAP).",
   "inLanguage" : "en",
-  "wordCount":  427 ,
-  "datePublished" : "2021-06-12T13:20:53",
-  "dateModified" : "2021-06-12T13:20:53",
+  "wordCount":  337 ,
+  "datePublished" : "2021-07-17T13:24:10",
+  "dateModified" : "2021-07-17T13:24:10",
   "image" : "https:\/\/kaztakata.github.io\/celonis-hacks",
-  "keywords" : [ "PQL, Process Analytics" ],
-  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-06-12-calculate-multi-dimentional-kpis\/",
+  "keywords" : [ "Data Model, Event Collection, Transformation" ],
+  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-07-17-transform-source-system-tables-to-minimize-data-model-tables\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/kaztakata.github.io\/celonis-hacks",
@@ -79,16 +79,15 @@ I will start from changing OLAP table to hide USER_TYPE and ACTIVITY_EN for calc
 }
 </script>
 
-<meta property="og:title" content="Calculate Multi Dimensional KPIs" />
-<meta property="og:description" content="In the last post Recognize Record to Calculate KPI, I showed issue of count duplication when I merged two different dimentional KPIs. Today I will tell how to calculate it correctly.
-I will start from changing OLAP table to hide USER_TYPE and ACTIVITY_EN for calculating KPIs grouped by customer master. And I filtered by customer K1 as previous post. Finally I added SUM function to both Rework Time and Reminder Time.">
-<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2021-06-12-calculate-multi-dimentional-kpis/" />
+<meta property="og:title" content="Transform Source System Tables to Minimize Data Model Tables" />
+<meta property="og:description" content="In the last past of previous post Utilize N-M relationship between Activity and Dimension Tables, I said just mimicing source system&rsquo;s table structure to data model is not useful for Celonis data model. Also I feel loading time to data model is exponentially long when one more table is added. So minimizing data model table is good practice especially for real time analytics.
+In case of SAP Order to Cash (O2C) scenario, case table is sales order item (VBAP).">
+<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2021-07-17-transform-source-system-tables-to-minimize-data-model-tables/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Celonis hacks" />
 
-  <meta name="twitter:title" content="Calculate Multi Dimensional KPIs" />
-  <meta name="twitter:description" content="In the last post Recognize Record to Calculate KPI, I showed issue of count duplication when I merged two different dimentional KPIs. Today I will tell how to calculate it correctly.
-I will start from …">
+  <meta name="twitter:title" content="Transform Source System Tables to Minimize Data Model Tables" />
+  <meta name="twitter:description" content="In the last past of previous post Utilize N-M relationship between Activity and Dimension Tables, I said just mimicing source system&rsquo;s table structure to data model is not useful for Celonis …">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
@@ -231,7 +230,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="posts-heading">
               
-                <h1>Calculate Multi Dimensional KPIs</h1>
+                <h1>Transform Source System Tables to Minimize Data Model Tables</h1>
               
               
                 <hr class="small">
@@ -251,65 +250,23 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>In the last post <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-06-05-recognize-record-to-calculate-kpi/">Recognize Record to Calculate KPI</a>, I showed issue of count duplication when I merged two different dimentional KPIs. Today I will tell how to calculate it correctly.</p>
-<p>I will start from changing OLAP table to hide <code>USER_TYPE</code> and <code>ACTIVITY_EN</code> for calculating KPIs grouped by customer master. And I filtered by customer <code>K1</code> as previous post. Finally I added SUM function to both <code>Rework Time</code> and <code>Reminder Time</code>. Below is the current result, calculation result is still incorrect.</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/121765300-d08daf00-cb84-11eb-8f27-4c7316cd74c6.png"><img src="https://user-images.githubusercontent.com/67397583/121765300-d08daf00-cb84-11eb-8f27-4c7316cd74c6.png" alt="image"></a></p>
-<p>Next I will modify OLAP table to recalculate <code>Reminder Time</code> correctly. As explained in previous post, current value <code>19,660 min</code> is decomposed to <code>(10 min as customer K1) x (1,966 Activity record assigned to customer K1)</code>. If I would like to get <code>10 min</code>, I need to divide summed value by <code>1,996</code>, count of activity. Activity count is calculated by <code>COUNT_TABLE(_CEL_O2C_ACTIVITIES)</code>, so correctly counted PQL is below.</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">SUM(
-    CASE
-        WHEN PU_COUNT(
-            KNA1,
-            _CEL_O2C_ACTIVITIES.ACTIVITY_EN,
-            _CEL_O2C_ACTIVITIES.ACTIVITY_EN = &#39;Send 1st Payment Reminder&#39;
-        ) &gt; 0 THEN 10
-        ELSE 0
-    END
-) / COUNT_TABLE(_CEL_O2C_ACTIVITIES) -- Activity count per customer
-</code></pre></div><p>Appling above PQL to OLAP table then the result <code>10 min</code> is correct.</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/121765924-5c093f00-cb89-11eb-9072-4a0b3e9eceb4.png"><img src="https://user-images.githubusercontent.com/67397583/121765924-5c093f00-cb89-11eb-9072-4a0b3e9eceb4.png" alt="image"></a></p>
-<p>Next I would like to modify <code>Total Estimated Time</code>, single KPI value to sum up all customer&rsquo;s result. Unfortunately just copying PQL of OLAP table as below is not working, especially when clearing filter and calculate all customer&rsquo;s value. The reason is both Reminder time and activity count are independently summed up among all customers, then Reminder time of all customers are divided by activity count of all customers.</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">SUM(
-    CASE
-        WHEN _CEL_O2C_ACTIVITIES.USER_TYPE = &#39;A&#39; AND _CEL_O2C_ACTIVITIES.ACTIVITY_EN LIKE &#39;Change %&#39; THEN 1
-        ELSE 0
-    END
-) + SUM(                                -- Sum up Reminder time of all customers
-    CASE
-        WHEN PU_COUNT(
-            KNA1,
-            _CEL_O2C_ACTIVITIES.ACTIVITY_EN,
-            _CEL_O2C_ACTIVITIES.ACTIVITY_EN = &#39;Send 1st Payment Reminder&#39;
-        ) &gt; 0 THEN 10
-        ELSE 0
-    END
-) / COUNT_TABLE(_CEL_O2C_ACTIVITIES)    -- Activity count of all customers
-</code></pre></div><p>The solution is actually quite simple, I will introduce <code>GLOBAL</code> for calculating Riminder time like below. This funciton is getting one global aggregation result, so it is not affected from other part of PQL. In below case, customer level calculation can be processed by passing <code>SUM</code> function result to <code>GLOBAL</code>.</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">SUM(
-    CASE
-        WHEN _CEL_O2C_ACTIVITIES.USER_TYPE = &#39;A&#39; AND _CEL_O2C_ACTIVITIES.ACTIVITY_EN LIKE &#39;Change %&#39; THEN 1
-        ELSE 0
-    END
-) + GLOBAL(SUM(   -- GLOBAL calculates an aggregation function independently as one group.
-    CASE
-        WHEN PU_COUNT(
-            KNA1,
-            _CEL_O2C_ACTIVITIES.ACTIVITY_EN,
-            _CEL_O2C_ACTIVITIES.ACTIVITY_EN = &#39;Send 1st Payment Reminder&#39;
-        ) &gt; 0 THEN 10
-        ELSE 0
-    END
-))
-</code></pre></div><p>Screenshot below is applying above PQL and getting Total Estimated Time <code>214,798 min</code> correctly.</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/121766598-169b4080-cb8e-11eb-8931-bf739fb08b28.png"><img src="https://user-images.githubusercontent.com/67397583/121766598-169b4080-cb8e-11eb-8931-bf739fb08b28.png" alt="image"></a></p>
+        <p>In the last past of previous post <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-07-10-utilize-n-m-relationship-between-activity-and-dimension-tables/">Utilize N-M relationship between Activity and Dimension Tables</a>, I said just mimicing source system&rsquo;s table structure to data model is not useful for Celonis data model. Also I feel loading time to data model is exponentially long when one more table is added. So minimizing data model table is good practice especially for real time analytics.</p>
+<p>In case of SAP Order to Cash (O2C) scenario, case table is sales order item (<code>VBAP</code>). From <code>VBAP</code> perspective, sales order header <code>VBAK</code> can fully utilize as additional dimension table because <code>VBAK</code> is joined with <code>VBAP</code> as 1 side. In PQL, just choose <code>VBAK</code> column as dimension is same effect as choose <code>VBAP</code> column.</p>
+<p>On the other hand, schedule line <code>VBEP</code> table that is joined with <code>VBAP</code> as N side can not utilize like <code>VBAK</code>. As discussed in previous post, <code>VBEP</code> and Activity table are N-M relationship so <code>VBEP</code> table should be filtered (e.g. first row of <code>VBEP</code>). Schedule line is managing date / time of delivery, so I recommend to convert <code>VBEP</code> content to activity table. For example, first row of <code>VBEP</code> is normally original request from customer, so you will generate <code>Request delivery date</code> activity from <code>VBEP</code> table in Event Collection (Transformation). In the end <code>VBEP</code> table is not loaded to data model else activity table can be utilized. If you would like to handle order quantity with Request delivery date, quantity field is added to activity table then use it in PQL.</p>
+<p>One more example, partner <code>VBPA</code> table is joined with <code>VBAP</code> as N side. It contains sold-to party, ship-to party, bill-to party and payer rows against sales order item. Those are useful as dimension, so I recommend to convert these rows to additional columns of <code>VBAP</code> in Event Collection.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/126027089-d987f453-0434-421d-bc09-2442e55d4839.png"><img src="https://user-images.githubusercontent.com/67397583/126027089-d987f453-0434-421d-bc09-2442e55d4839.png" alt="image"></a></p>
+<p>As discussed above, transforming source system table structure to Celonis data model is quite important design topic. To do so, of cource you need to think about what KPI is measured then which tables / columns are required for analysis.</p>
 <p>Kaz</p>
 
 
         
           <div class="blog-tags">
             
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/pql/">PQL</a>&nbsp;
+              <a href="https://kaztakata.github.io/celonis-hacks/tags/data-model/">Data Model</a>&nbsp;
             
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/process-analytics/">Process Analytics</a>&nbsp;
+              <a href="https://kaztakata.github.io/celonis-hacks/tags/event-collection/">Event Collection</a>&nbsp;
+            
+              <a href="https://kaztakata.github.io/celonis-hacks/tags/transformation/">Transformation</a>&nbsp;
             
           </div>
         
@@ -324,42 +281,42 @@ if (!doNotTrack) {
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-06-12-calculate-multi-dimentional-kpis%2f&amp;text=Calculate%20Multi%20Dimensional%20KPIs&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-07-17-transform-source-system-tables-to-minimize-data-model-tables%2f&amp;text=Transform%20Source%20System%20Tables%20to%20Minimize%20Data%20Model%20Tables&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-06-12-calculate-multi-dimentional-kpis%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-07-17-transform-source-system-tables-to-minimize-data-model-tables%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-06-12-calculate-multi-dimentional-kpis%2f&amp;title=Calculate%20Multi%20Dimensional%20KPIs" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-07-17-transform-source-system-tables-to-minimize-data-model-tables%2f&amp;title=Transform%20Source%20System%20Tables%20to%20Minimize%20Data%20Model%20Tables" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-06-12-calculate-multi-dimentional-kpis%2f&amp;title=Calculate%20Multi%20Dimensional%20KPIs" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-07-17-transform-source-system-tables-to-minimize-data-model-tables%2f&amp;title=Transform%20Source%20System%20Tables%20to%20Minimize%20Data%20Model%20Tables" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-06-12-calculate-multi-dimentional-kpis%2f&amp;title=Calculate%20Multi%20Dimensional%20KPIs" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-07-17-transform-source-system-tables-to-minimize-data-model-tables%2f&amp;title=Transform%20Source%20System%20Tables%20to%20Minimize%20Data%20Model%20Tables" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-06-12-calculate-multi-dimentional-kpis%2f&amp;description=Calculate%20Multi%20Dimensional%20KPIs" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-07-17-transform-source-system-tables-to-minimize-data-model-tables%2f&amp;description=Transform%20Source%20System%20Tables%20to%20Minimize%20Data%20Model%20Tables" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -383,13 +340,7 @@ if (!doNotTrack) {
                 
                     <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-07-10-utilize-n-m-relationship-between-activity-and-dimension-tables/">Utilize N-M relationship between Activity and Dimension Tables</a></li>
                 
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-07-03-maintain-saved-formulas-effectively/">Maintain Saved Formulas effectively</a></li>
-                
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-06-26-handle-null-efficiently-in-aggregation-function/">Handle NULL efficiently in Aggregation Function</a></li>
-                
                     <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-06-19-understand-how-tables-are-joined-in-data-model/">Understand how Tables are joined in Data Model</a></li>
-                
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-06-05-recognize-record-to-calculate-kpi/">Recognize Record to Calculate KPI</a></li>
                 
               </ul>
 
@@ -401,13 +352,9 @@ if (!doNotTrack) {
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-06-05-recognize-record-to-calculate-kpi/" data-toggle="tooltip" data-placement="top" title="Recognize Record to Calculate KPI">&larr; Previous Post</a>
+              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-07-10-utilize-n-m-relationship-between-activity-and-dimension-tables/" data-toggle="tooltip" data-placement="top" title="Utilize N-M relationship between Activity and Dimension Tables">&larr; Previous Post</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-06-19-understand-how-tables-are-joined-in-data-model/" data-toggle="tooltip" data-placement="top" title="Understand how Tables are joined in Data Model">Next Post &rarr;</a>
-            </li>
           
         </ul>
       
