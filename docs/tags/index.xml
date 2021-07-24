@@ -5,7 +5,7 @@
     <link>https://kaztakata.github.io/celonis-hacks/tags/</link>
     <description>Recent content in Tags on Celonis hacks</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 17 Jul 2021 13:24:10 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 24 Jul 2021 10:47:12 +0900</lastBuildDate>
     
 	<atom:link href="https://kaztakata.github.io/celonis-hacks/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -13,7 +13,7 @@
     <item>
       <title>Data Model</title>
       <link>https://kaztakata.github.io/celonis-hacks/tags/data-model/</link>
-      <pubDate>Sat, 17 Jul 2021 13:24:10 +0900</pubDate>
+      <pubDate>Sat, 24 Jul 2021 10:47:12 +0900</pubDate>
       
       <guid>https://kaztakata.github.io/celonis-hacks/tags/data-model/</guid>
       <description></description>
@@ -22,25 +22,16 @@
     <item>
       <title>Event Collection</title>
       <link>https://kaztakata.github.io/celonis-hacks/tags/event-collection/</link>
-      <pubDate>Sat, 17 Jul 2021 13:24:10 +0900</pubDate>
+      <pubDate>Sat, 24 Jul 2021 10:47:12 +0900</pubDate>
       
       <guid>https://kaztakata.github.io/celonis-hacks/tags/event-collection/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Transformation</title>
-      <link>https://kaztakata.github.io/celonis-hacks/tags/transformation/</link>
-      <pubDate>Sat, 17 Jul 2021 13:24:10 +0900</pubDate>
-      
-      <guid>https://kaztakata.github.io/celonis-hacks/tags/transformation/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>PQL</title>
       <link>https://kaztakata.github.io/celonis-hacks/tags/pql/</link>
-      <pubDate>Sat, 10 Jul 2021 10:08:50 +0900</pubDate>
+      <pubDate>Sat, 24 Jul 2021 10:47:12 +0900</pubDate>
       
       <guid>https://kaztakata.github.io/celonis-hacks/tags/pql/</guid>
       <description></description>
@@ -49,7 +40,7 @@
     <item>
       <title>Process Analytics</title>
       <link>https://kaztakata.github.io/celonis-hacks/tags/process-analytics/</link>
-      <pubDate>Sat, 10 Jul 2021 10:08:50 +0900</pubDate>
+      <pubDate>Sat, 24 Jul 2021 10:47:12 +0900</pubDate>
       
       <guid>https://kaztakata.github.io/celonis-hacks/tags/process-analytics/</guid>
       <description></description>
@@ -58,9 +49,18 @@
     <item>
       <title>Pull Up Function</title>
       <link>https://kaztakata.github.io/celonis-hacks/tags/pull-up-function/</link>
-      <pubDate>Sat, 03 Jul 2021 21:25:28 +0900</pubDate>
+      <pubDate>Sat, 24 Jul 2021 10:47:12 +0900</pubDate>
       
       <guid>https://kaztakata.github.io/celonis-hacks/tags/pull-up-function/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Transformation</title>
+      <link>https://kaztakata.github.io/celonis-hacks/tags/transformation/</link>
+      <pubDate>Sat, 24 Jul 2021 10:47:12 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/tags/transformation/</guid>
       <description></description>
     </item>
     

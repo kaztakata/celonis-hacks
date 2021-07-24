@@ -5,10 +5,20 @@
     <link>https://kaztakata.github.io/celonis-hacks/tags/transformation/</link>
     <description>Recent content in Transformation on Celonis hacks</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 17 Jul 2021 13:24:10 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 24 Jul 2021 10:47:12 +0900</lastBuildDate>
     
 	<atom:link href="https://kaztakata.github.io/celonis-hacks/tags/transformation/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Categorize and Name Activity</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2021-07-24-categorize-and-name-activity/</link>
+      <pubDate>Sat, 24 Jul 2021 10:47:12 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2021-07-24-categorize-and-name-activity/</guid>
+      <description>In the previous post Transform Source System Tables to Minimize Data Model Tables, I recommended to convert some kind of source system tables to Activity. Today I focus on Activity and would like to share my way how to categorize and name Activity.
+First point is to split Activity name to two parts, more general part and detail part. For example, in SAP ECC or S4HANA Order to Cash process, general Activity name is Create Sales Order when data committed in VA01 transaction.</description>
+    </item>
     
     <item>
       <title>Transform Source System Tables to Minimize Data Model Tables</title>
@@ -16,7 +26,7 @@
       <pubDate>Sat, 17 Jul 2021 13:24:10 +0900</pubDate>
       
       <guid>https://kaztakata.github.io/celonis-hacks/posts/2021-07-17-transform-source-system-tables-to-minimize-data-model-tables/</guid>
-      <description>In the last past of previous post Utilize N-M relationship between Activity and Dimension Tables, I said just mimicing source system&amp;rsquo;s table structure to data model is not useful for Celonis data model. Also I feel loading time to data model is exponentially long when one more table is added. So minimizing data model table is good practice especially for real time analytics.
+      <description>In the last part of previous post Utilize N-M relationship between Activity and Dimension Tables, I said just mimicing source system&amp;rsquo;s table structure to data model is not useful for Celonis data model. Also I feel loading time to data model is exponentially long when one more table is added. So minimizing data model table is good practice especially for real time analytics.
 In case of SAP Order to Cash (O2C) scenario, case table is sales order item (VBAP).</description>
     </item>
     

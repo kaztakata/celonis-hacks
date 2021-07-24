@@ -3,48 +3,58 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://kaztakata.github.io/celonis-hacks/posts/2021-07-24-categorize-and-name-activity/</loc>
+    <lastmod>2021-07-24T10:47:12+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://kaztakata.github.io/celonis-hacks/</loc>
-    <lastmod>2021-07-17T13:24:10+09:00</lastmod>
+    <lastmod>2021-07-24T10:47:12+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://kaztakata.github.io/celonis-hacks/tags/data-model/</loc>
-    <lastmod>2021-07-17T13:24:10+09:00</lastmod>
+    <lastmod>2021-07-24T10:47:12+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://kaztakata.github.io/celonis-hacks/tags/event-collection/</loc>
-    <lastmod>2021-07-17T13:24:10+09:00</lastmod>
+    <lastmod>2021-07-24T10:47:12+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://kaztakata.github.io/celonis-hacks/posts/</loc>
-    <lastmod>2021-07-17T13:24:10+09:00</lastmod>
+    <lastmod>2021-07-24T10:47:12+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kaztakata.github.io/celonis-hacks/tags/pql/</loc>
+    <lastmod>2021-07-24T10:47:12+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kaztakata.github.io/celonis-hacks/tags/process-analytics/</loc>
+    <lastmod>2021-07-24T10:47:12+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kaztakata.github.io/celonis-hacks/tags/pull-up-function/</loc>
+    <lastmod>2021-07-24T10:47:12+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://kaztakata.github.io/celonis-hacks/tags/</loc>
-    <lastmod>2021-07-17T13:24:10+09:00</lastmod>
+    <lastmod>2021-07-24T10:47:12+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kaztakata.github.io/celonis-hacks/tags/transformation/</loc>
+    <lastmod>2021-07-24T10:47:12+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://kaztakata.github.io/celonis-hacks/posts/2021-07-17-transform-source-system-tables-to-minimize-data-model-tables/</loc>
     <lastmod>2021-07-17T13:24:10+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kaztakata.github.io/celonis-hacks/tags/transformation/</loc>
-    <lastmod>2021-07-17T13:24:10+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kaztakata.github.io/celonis-hacks/tags/pql/</loc>
-    <lastmod>2021-07-10T10:08:50+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kaztakata.github.io/celonis-hacks/tags/process-analytics/</loc>
-    <lastmod>2021-07-10T10:08:50+09:00</lastmod>
   </url>
   
   <url>
@@ -54,11 +64,6 @@
   
   <url>
     <loc>https://kaztakata.github.io/celonis-hacks/posts/2021-07-03-maintain-saved-formulas-effectively/</loc>
-    <lastmod>2021-07-03T21:25:28+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kaztakata.github.io/celonis-hacks/tags/pull-up-function/</loc>
     <lastmod>2021-07-03T21:25:28+09:00</lastmod>
   </url>
   
