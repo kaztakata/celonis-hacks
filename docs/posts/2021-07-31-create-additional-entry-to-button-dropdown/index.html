@@ -7,9 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Maintain Saved Formulas effectively - Celonis hacks</title>
-  <meta name="description" content="In the last post Handle NULL efficiently in Aggregation Function, I used saved formulas to split long and complex PQL to reusable components. Today I would like to share my best practice to use saved formulas.
-For example I would like to ananlyze throughput time between arbitrary two activities. As below screenshot I created three dropdown buttons, switching time unit (sec, min, hour, day etc.) and two activities (from / to).">
+  <title>Create Additional Entry to Button Dropdown - Celonis hacks</title>
+  <meta name="description" content="I looked at the Celopeers post that had issue when variable input is blank (NULL) then PQL using this variable had error. Work around solution is to use &lt;% if(Target != &quot;&quot;) { %&gt; FILTER &quot;table&quot;.&quot;column&quot; IN (&lt;%=Target%&gt;); &lt;% } %&gt; (Target is variable) then skip FILTER execution if variable is null.
+I already used this work around but I also felt troublesome in two points. First is this is not officially documented so myself need to instruct to my colleagues.">
   <meta name="author" content="Kazuhiko Takata"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -45,8 +45,8 @@ For example I would like to ananlyze throughput time between arbitrary two activ
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-07-03-maintain-saved-formulas-effectively\/",
-          "name": "Maintain saved formulas effectively"
+          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-07-31-create-additional-entry-to-button-dropdown\/",
+          "name": "Create additional entry to button dropdown"
         }
     }]
 }
@@ -57,15 +57,15 @@ For example I would like to ananlyze throughput time between arbitrary two activ
   "author": {
     "name" : "Kazuhiko Takata"
   },
-  "headline": "Maintain Saved Formulas effectively",
-  "description" : "In the last post Handle NULL efficiently in Aggregation Function, I used saved formulas to split long and complex PQL to reusable components. Today I would like to share my best practice to use saved formulas.\nFor example I would like to ananlyze throughput time between arbitrary two activities. As below screenshot I created three dropdown buttons, switching time unit (sec, min, hour, day etc.) and two activities (from \/ to).",
+  "headline": "Create Additional Entry to Button Dropdown",
+  "description" : "I looked at the Celopeers post that had issue when variable input is blank (NULL) then PQL using this variable had error. Work around solution is to use \x26lt;% if(Target != \x26quot;\x26quot;) { %\x26gt; FILTER \x26quot;table\x26quot;.\x26quot;column\x26quot; IN (\x26lt;%=Target%\x26gt;); \x26lt;% } %\x26gt; (Target is variable) then skip FILTER execution if variable is null.\nI already used this work around but I also felt troublesome in two points. First is this is not officially documented so myself need to instruct to my colleagues.",
   "inLanguage" : "en",
-  "wordCount":  471 ,
-  "datePublished" : "2021-07-03T21:25:28",
-  "dateModified" : "2021-07-03T21:25:28",
+  "wordCount":  573 ,
+  "datePublished" : "2021-07-31T10:00:39",
+  "dateModified" : "2021-07-31T10:00:39",
   "image" : "https:\/\/kaztakata.github.io\/celonis-hacks",
-  "keywords" : [ "PQL, Process Analytics, Pull Up Function" ],
-  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-07-03-maintain-saved-formulas-effectively\/",
+  "keywords" : [ "PQL, Process Analytics" ],
+  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-07-31-create-additional-entry-to-button-dropdown\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/kaztakata.github.io\/celonis-hacks",
@@ -79,15 +79,15 @@ For example I would like to ananlyze throughput time between arbitrary two activ
 }
 </script>
 
-<meta property="og:title" content="Maintain Saved Formulas effectively" />
-<meta property="og:description" content="In the last post Handle NULL efficiently in Aggregation Function, I used saved formulas to split long and complex PQL to reusable components. Today I would like to share my best practice to use saved formulas.
-For example I would like to ananlyze throughput time between arbitrary two activities. As below screenshot I created three dropdown buttons, switching time unit (sec, min, hour, day etc.) and two activities (from / to).">
-<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2021-07-03-maintain-saved-formulas-effectively/" />
+<meta property="og:title" content="Create Additional Entry to Button Dropdown" />
+<meta property="og:description" content="I looked at the Celopeers post that had issue when variable input is blank (NULL) then PQL using this variable had error. Work around solution is to use &lt;% if(Target != &quot;&quot;) { %&gt; FILTER &quot;table&quot;.&quot;column&quot; IN (&lt;%=Target%&gt;); &lt;% } %&gt; (Target is variable) then skip FILTER execution if variable is null.
+I already used this work around but I also felt troublesome in two points. First is this is not officially documented so myself need to instruct to my colleagues.">
+<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2021-07-31-create-additional-entry-to-button-dropdown/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Celonis hacks" />
 
-  <meta name="twitter:title" content="Maintain Saved Formulas effectively" />
-  <meta name="twitter:description" content="In the last post Handle NULL efficiently in Aggregation Function, I used saved formulas to split long and complex PQL to reusable components. Today I would like to share my best practice to use saved …">
+  <meta name="twitter:title" content="Create Additional Entry to Button Dropdown" />
+  <meta name="twitter:description" content="I looked at the Celopeers post that had issue when variable input is blank (NULL) then PQL using this variable had error. Work around solution is to use &lt;% if(Target != &quot;&quot;) { %&gt; FILTER …">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
@@ -236,7 +236,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="posts-heading">
               
-                <h1>Maintain Saved Formulas effectively</h1>
+                <h1>Create Additional Entry to Button Dropdown</h1>
               
               
                 <hr class="small">
@@ -256,93 +256,48 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>In the last post <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-06-26-handle-null-efficiently-in-aggregation-function/">Handle NULL efficiently in Aggregation Function</a>, I used saved formulas to split long and complex PQL to reusable components. Today I would like to share my best practice to use saved formulas.</p>
-<p>For example I would like to ananlyze throughput time between arbitrary two activities. As below screenshot I created three dropdown buttons, switching time unit (sec, min, hour, day etc.) and two activities (from / to). Variables (time_unit, from, to) are set by user action and passed to PQL for calculating other components relevant to throughtput time (single KPI, histogram, boxplot, drill down table, and fact table).</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/124353919-52cd3880-dc44-11eb-8516-effc7047db33.png"><img src="https://user-images.githubusercontent.com/67397583/124353919-52cd3880-dc44-11eb-8516-effc7047db33.png" alt="image"></a></p>
-<p>In each component it is possible to write down throughput time PQL like below. But if I need to change something in PQL, I need to open each component and maintain it multiple times. So I will try to create saved formulas and simplify each component.</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">DATEDIFF(
-    &lt;%=time_unit%&gt;,
-    PU_FIRST(
-        EKPO,
-        _CEL_P2P_ACTIVITIES_EN.EVENTTIME,
-        _CEL_P2P_ACTIVITIES_EN.ACTIVITY_EN = &lt;%=from%&gt;
-    ),
-    PU_FIRST(
-        EKPO,
-        _CEL_P2P_ACTIVITIES_EN.EVENTTIME,
-        _CEL_P2P_ACTIVITIES_EN.ACTIVITY_EN = &lt;%=to%&gt;
-    )
-)
-</code></pre></div><p>First I focused on the <code>PU_FIRST</code> portion. These functions can be summarized to formula <code>first_time</code> as below.</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">--first_time
-PU_FIRST(
-    EKPO,
-    _CEL_P2P_ACTIVITIES_EN.EVENTTIME,
-    _CEL_P2P_ACTIVITIES_EN.ACTIVITY_EN = {p1}
-)
-</code></pre></div><p>Then original PQL is changed to below.</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">DATEDIFF(
-    &lt;%=time_unit%&gt;,
-    KPI(first_time,VARIABLE(&lt;%=from%&gt;)),    -- call first_time formula passing parameter &#39;from&#39;
-    KPI(first_time,VARIABLE(&lt;%=to%&gt;))       -- call first_time formula passing parameter &#39;to&#39;
-)
-</code></pre></div><p>This is something better than previous PQL, but let&rsquo;s encapsulate the <code>DATEDIFF</code> portion. I will create second formula <code>throughput_time</code> as below.</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">--throughput_time
-DATEDIFF(
-    {p1},
-    KPI(first_time,VARIABLE({p2})),
-    KPI(first_time,VARIABLE({p3}))
-)
-</code></pre></div><p>Finally original PQL is changed to <code>KPI(throughput_time, VARIABLE(&lt;%=time_unit%&gt;), VARIABLE(&lt;%=from%&gt;), VARIABLE(&lt;%=to%&gt;))</code>. It means each component is just call <code>throughput_time</code> with three parameters.</p>
-<p>By the way, single KPI and drill down table are aggregating throughput time by <code>AVG</code> and <code>COUNT</code> function. In my opinion it is not required to create one more formula of each aggregation function. My focus is replacement of complex &lsquo;dimension&rsquo; determination to formula (Exceptionally, I would like to create formula for adding multiple aggregation function case, like <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-06-12-calculate-multi-dimentional-kpis/">Calculate Multi Dimensional KPIs</a> post). In the end each component are determined like below.</p>
-<table>
-<thead>
-<tr>
-<th>Title</th>
-<th>Component</th>
-<th>PQL</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Avg Throughput Time</td>
-<td>single KPI</td>
-<td><code>AVG(KPI(throughput_time, VARIABLE(&lt;%=time_unit%&gt;), VARIABLE(&lt;%=from%&gt;), VARIABLE(&lt;%=to%&gt;))) </code></td>
-</tr>
-<tr>
-<td>Case Count</td>
-<td>single KPI</td>
-<td><code>COUNT(KPI(throughput_time, VARIABLE(&lt;%=time_unit%&gt;), VARIABLE(&lt;%=from%&gt;), VARIABLE(&lt;%=to%&gt;)))</code></td>
-</tr>
-<tr>
-<td>Distribution</td>
-<td>histogram</td>
-<td><code>KPI(throughput_time, VARIABLE(&lt;%=time_unit%&gt;), VARIABLE(&lt;%=from%&gt;), VARIABLE(&lt;%=to%&gt;))</code></td>
-</tr>
-<tr>
-<td>Time Trend</td>
-<td>boxplot</td>
-<td>same as histogram</td>
-</tr>
-<tr>
-<td>Drill Down by vendor</td>
-<td>OLAP table</td>
-<td>same as single KPI</td>
-</tr>
-<tr>
-<td>Fact</td>
-<td>OLAP table</td>
-<td>same as histogram</td>
-</tr>
-</tbody>
-</table>
-<p>One more tips, I recommend to determine multi layered formualas as above because I can use interim result in verification purpose. In the right lower fact sheet, columns of from / to timestamp are displayed then <code>KPI(first_time,VARIABLE(&lt;%=from%&gt;))</code> and <code>KPI(first_time,VARIABLE(&lt;%=to%&gt;))</code> are assigned. So that it is easy to verify throughput time calculation of each case.</p>
-<p>To summarize today&rsquo;s discussion,</p>
-<ul>
-<li>decomposite complex dimensional PQL to multi layered formulas</li>
-<li>assign variable to formula&rsquo;s parameters (not directly assign variable in the formula)</li>
-<li>not required to create formula for simple aggregation</li>
+        <p>I looked at the <a href="https://www.celopeers.com/s/question/0D50700000KZNLICA5/could-you-please-help-me-to-find-out-how-i-can-check-for-empty-variable-input-to-prevent-the-component-specifically-olat-table-from-running-into-an-error">Celopeers post</a> that had issue when variable input is blank (<code>NULL</code>) then PQL using this variable had error. Work around solution is to use <code>&lt;% if(Target != &quot;&quot;) { %&gt; FILTER &quot;table&quot;.&quot;column&quot; IN (&lt;%=Target%&gt;); &lt;% } %&gt;</code> (<code>Target</code> is variable) then skip FILTER execution if variable is null.</p>
+<p>I already used this work around but I also felt troublesome in two points. First is this is not officially documented so myself need to instruct to my colleagues. Second is more important, I would like to unfilter this selection if variable is not set, but there was no way to do it.</p>
+<p>Today I would like to share my alternative solution against second issue.</p>
+<p>First step is setup Button Dropdown. When you choose <code>Load Entries</code> option you can determine PQL, normally it is just column. But I set formula <code>dropdownEntries</code> as below.</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- dropdownEntries
+</span><span class="c1">-- {p1} is table.column
+</span><span class="c1"></span><span class="k">CASE</span>
+  <span class="k">WHEN</span> <span class="k">ISNULL</span><span class="p">(</span><span class="err">{</span><span class="n">p1</span><span class="err">}</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">THEN</span> <span class="s1">&#39;-&#39;</span>
+  <span class="k">WHEN</span> <span class="k">ISNULL</span><span class="p">(</span><span class="n">LEAD</span><span class="p">(</span><span class="err">{</span><span class="n">p1</span><span class="err">}</span><span class="p">,</span> <span class="n">PARTITION</span> <span class="k">BY</span> <span class="p">(</span><span class="err">{</span><span class="n">p1</span><span class="err">}</span><span class="p">)))</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">THEN</span> <span class="err">{</span><span class="n">p1</span><span class="err">}</span>
+  <span class="k">ELSE</span> <span class="s1">&#39; All of them&#39;</span>
+<span class="k">END</span>
+</code></pre></div><ul>
+<li>This formula have three WHEN / ELSE parts. First one is to handle <code>NULL</code> value in the column selected. As mentioned <code>NULL</code> can not be set as variable, so <code>NULL</code> is converted to hyphen (string).</li>
+<li>Second one is important but complex formula. <code>LEAD</code> function is looking at next row, and <code>PARTITOIN BY</code> is grouping key. So this looks at next row that has same column value. And <code>ISNULL(...) = 1</code> happens only when it is last entry of each value. Only last row of each value returns same value. Button Dropdown entries is displayed removing duplicated value, so doing this is no change to the output of entries.</li>
+<li>Third one, that is the rest of (duplicated) rows are conveted to fixed string <code> All of them</code>. This fixed string is passed to variable and behave as it said at receiver PQL. It is imporatant that this addtional entry is created by unnecessary (duplicated) rows.</li>
 </ul>
+<p>Next step to setup receiver side PQL. Main parts is standardized boolean formula <code>filterByDropdownEntries</code> that receives variable value and evaluate column value.</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- filterByDropdownEntries
+</span><span class="c1">-- {p1} is table.column
+</span><span class="c1">-- {p2} is variable
+</span><span class="c1"></span><span class="k">CASE</span>
+  <span class="k">WHEN</span> <span class="err">{</span><span class="n">p2</span><span class="err">}</span> <span class="o">=</span> <span class="s1">&#39; All of them&#39;</span> <span class="k">THEN</span> <span class="mi">1</span>
+  <span class="k">WHEN</span> <span class="err">{</span><span class="n">p2</span><span class="err">}</span> <span class="o">=</span> <span class="s1">&#39;-&#39;</span> <span class="k">THEN</span> <span class="k">CASE</span> <span class="k">WHEN</span> <span class="k">ISNULL</span><span class="p">(</span><span class="err">{</span><span class="n">p1</span><span class="err">}</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">THEN</span> <span class="mi">1</span> <span class="k">ELSE</span> <span class="mi">0</span> <span class="k">END</span>
+  <span class="k">ELSE</span> <span class="k">CASE</span> <span class="k">WHEN</span> <span class="err">{</span><span class="n">p1</span><span class="err">}</span> <span class="o">=</span> <span class="err">{</span><span class="n">p2</span><span class="err">}</span> <span class="k">THEN</span> <span class="mi">1</span> <span class="k">ELSE</span> <span class="mi">0</span> <span class="k">END</span>
+<span class="k">END</span>
+</code></pre></div><p>First <code>WHEN</code> returns 1 to all rows, second one returns 1 when column value is <code>NULL</code>, and third one is judging if variable value is same as column value then return 1.</p>
+<p>Finally I demonstrate demo using this function. I created two sets of Button Dropdown to choose entries of two different columns (document type without <code>NULL</code> value, and rejection reason that has <code>NULL</code> value). Receiver components are single KPI to count cases that matches column selection, and process explorer that is filtered same as single KPI. You can see videos (click screenshot) to confirm each dropdown selection works, especially additional entry <code>All of them</code> works as not filtered.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/127732217-d83284e4-4c5b-402d-8996-30d2ef89ab4a.mp4"><img src="https://user-images.githubusercontent.com/67397583/127732206-38f00f4b-c198-4dc9-95ef-bab8597d1d28.png" alt="thumb"></a></p>
+<p>PQL of receiver components are below.</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- single KPI to count cases that match Button Dropdown selection
+</span><span class="c1"></span><span class="k">COUNT</span><span class="p">(</span>
+  <span class="k">CASE</span> 
+    <span class="k">WHEN</span> <span class="n">KPI</span><span class="p">(</span><span class="n">filterByDropdownEntries</span><span class="p">,</span><span class="k">VARIABLE</span><span class="p">(</span><span class="n">VBAK</span><span class="p">.</span><span class="n">AUART</span><span class="p">),</span><span class="k">VARIABLE</span><span class="p">(</span><span class="o">&lt;%=</span> <span class="n">documentType</span> <span class="o">%&gt;</span><span class="p">))</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">THEN</span> <span class="n">VBAP</span><span class="p">.</span><span class="n">MANDT</span>
+    <span class="k">ELSE</span> <span class="k">NULL</span>
+  <span class="k">END</span>
+<span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- display process explorer that matches Button Dropdown selection
+</span><span class="c1"></span><span class="k">CASE</span>
+  <span class="k">WHEN</span> <span class="n">KPI</span><span class="p">(</span><span class="s2">&#34;filterByDropdownEntries&#34;</span><span class="p">,</span> <span class="k">VARIABLE</span><span class="p">(</span><span class="n">VBAK</span><span class="p">.</span><span class="n">AUART</span><span class="p">),</span> <span class="k">VARIABLE</span><span class="p">(</span><span class="o">&lt;%=</span><span class="n">documentType</span><span class="o">%&gt;</span><span class="p">))</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">THEN</span> <span class="n">_CEL_O2C_ACTIVITIES</span><span class="p">.</span><span class="n">ACTIVITY_EN</span>
+  <span class="k">ELSE</span> <span class="k">NULL</span>
+<span class="k">END</span>
+</code></pre></div><p>This example is simple case, so for example you can customize multiple conditions to one component.</p>
 <p>Kaz</p>
 
 
@@ -352,8 +307,6 @@ DATEDIFF(
               <a href="https://kaztakata.github.io/celonis-hacks/tags/pql/">PQL</a>&nbsp;
             
               <a href="https://kaztakata.github.io/celonis-hacks/tags/process-analytics/">Process Analytics</a>&nbsp;
-            
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/pull-up-function/">Pull Up Function</a>&nbsp;
             
           </div>
         
@@ -368,42 +321,42 @@ DATEDIFF(
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-07-03-maintain-saved-formulas-effectively%2f&amp;text=Maintain%20Saved%20Formulas%20effectively&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-07-31-create-additional-entry-to-button-dropdown%2f&amp;text=Create%20Additional%20Entry%20to%20Button%20Dropdown&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-07-03-maintain-saved-formulas-effectively%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-07-31-create-additional-entry-to-button-dropdown%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-07-03-maintain-saved-formulas-effectively%2f&amp;title=Maintain%20Saved%20Formulas%20effectively" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-07-31-create-additional-entry-to-button-dropdown%2f&amp;title=Create%20Additional%20Entry%20to%20Button%20Dropdown" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-07-03-maintain-saved-formulas-effectively%2f&amp;title=Maintain%20Saved%20Formulas%20effectively" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-07-31-create-additional-entry-to-button-dropdown%2f&amp;title=Create%20Additional%20Entry%20to%20Button%20Dropdown" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-07-03-maintain-saved-formulas-effectively%2f&amp;title=Maintain%20Saved%20Formulas%20effectively" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-07-31-create-additional-entry-to-button-dropdown%2f&amp;title=Create%20Additional%20Entry%20to%20Button%20Dropdown" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-07-03-maintain-saved-formulas-effectively%2f&amp;description=Maintain%20Saved%20Formulas%20effectively" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-07-31-create-additional-entry-to-button-dropdown%2f&amp;description=Create%20Additional%20Entry%20to%20Button%20Dropdown" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -425,11 +378,11 @@ DATEDIFF(
                   <ul>
                 
                 
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-07-31-create-additional-entry-to-button-dropdown/">Create Additional Entry to Button Dropdown</a></li>
-                
                     <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-07-24-categorize-and-name-activity/">Categorize and Name Activity</a></li>
                 
                     <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-07-10-utilize-n-m-relationship-between-activity-and-dimension-tables/">Utilize N-M relationship between Activity and Dimension Tables</a></li>
+                
+                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-07-03-maintain-saved-formulas-effectively/">Maintain Saved Formulas effectively</a></li>
                 
                     <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-06-26-handle-null-efficiently-in-aggregation-function/">Handle NULL efficiently in Aggregation Function</a></li>
                 
@@ -445,13 +398,9 @@ DATEDIFF(
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-06-26-handle-null-efficiently-in-aggregation-function/" data-toggle="tooltip" data-placement="top" title="Handle NULL efficiently in Aggregation Function">&larr; Previous Post</a>
+              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-07-24-categorize-and-name-activity/" data-toggle="tooltip" data-placement="top" title="Categorize and Name Activity">&larr; Previous Post</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-07-10-utilize-n-m-relationship-between-activity-and-dimension-tables/" data-toggle="tooltip" data-placement="top" title="Utilize N-M relationship between Activity and Dimension Tables">Next Post &rarr;</a>
-            </li>
           
         </ul>
       

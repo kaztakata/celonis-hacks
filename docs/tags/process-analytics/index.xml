@@ -5,10 +5,20 @@
     <link>https://kaztakata.github.io/celonis-hacks/tags/process-analytics/</link>
     <description>Recent content in Process Analytics on Celonis hacks</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 24 Jul 2021 10:47:12 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 31 Jul 2021 10:00:39 +0900</lastBuildDate>
     
 	<atom:link href="https://kaztakata.github.io/celonis-hacks/tags/process-analytics/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Create Additional Entry to Button Dropdown</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2021-07-31-create-additional-entry-to-button-dropdown/</link>
+      <pubDate>Sat, 31 Jul 2021 10:00:39 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2021-07-31-create-additional-entry-to-button-dropdown/</guid>
+      <description>I looked at the Celopeers post that had issue when variable input is blank (NULL) then PQL using this variable had error. Work around solution is to use &amp;lt;% if(Target != &amp;quot;&amp;quot;) { %&amp;gt; FILTER &amp;quot;table&amp;quot;.&amp;quot;column&amp;quot; IN (&amp;lt;%=Target%&amp;gt;); &amp;lt;% } %&amp;gt; (Target is variable) then skip FILTER execution if variable is null.
+I already used this work around but I also felt troublesome in two points. First is this is not officially documented so myself need to instruct to my colleagues.</description>
+    </item>
     
     <item>
       <title>Categorize and Name Activity</title>
