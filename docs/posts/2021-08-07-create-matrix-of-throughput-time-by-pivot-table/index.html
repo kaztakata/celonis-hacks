@@ -7,9 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Maintain Saved Formulas effectively - Celonis hacks</title>
-  <meta name="description" content="In the last post Handle NULL efficiently in Aggregation Function, I used saved formulas to split long and complex PQL to reusable components. Today I would like to share my best practice to use saved formulas.
-For example I would like to ananlyze throughput time between arbitrary two activities. As below screenshot I created three dropdown buttons, switching time unit (sec, min, hour, day etc.) and two activities (from / to).">
+  <title>Create Matrix of Throughput Time by Pivot Table - Celonis hacks</title>
+  <meta name="description" content="At the previous post of Customize Process Explorer, I showed how to determine throughput time between two activities. This KPI is visible when expanding Process Explorer, but font size of Process Explorer become smaller and smaller when expanding connections, so it is difficult to grasp overview of throughput time.
+Until previous post, I usually used OLAP table to show the list of KPI value. Of course it is good enough to grasp overview, but today I used different component &lsquo;Pivot Table&rsquo; to show KPI.">
   <meta name="author" content="Kazuhiko Takata"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -45,8 +45,8 @@ For example I would like to ananlyze throughput time between arbitrary two activ
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-07-03-maintain-saved-formulas-effectively\/",
-          "name": "Maintain saved formulas effectively"
+          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-08-07-create-matrix-of-throughput-time-by-pivot-table\/",
+          "name": "Create matrix of throughput time by pivot table"
         }
     }]
 }
@@ -57,15 +57,15 @@ For example I would like to ananlyze throughput time between arbitrary two activ
   "author": {
     "name" : "Kazuhiko Takata"
   },
-  "headline": "Maintain Saved Formulas effectively",
-  "description" : "In the last post Handle NULL efficiently in Aggregation Function, I used saved formulas to split long and complex PQL to reusable components. Today I would like to share my best practice to use saved formulas.\nFor example I would like to ananlyze throughput time between arbitrary two activities. As below screenshot I created three dropdown buttons, switching time unit (sec, min, hour, day etc.) and two activities (from \/ to).",
+  "headline": "Create Matrix of Throughput Time by Pivot Table",
+  "description" : "At the previous post of Customize Process Explorer, I showed how to determine throughput time between two activities. This KPI is visible when expanding Process Explorer, but font size of Process Explorer become smaller and smaller when expanding connections, so it is difficult to grasp overview of throughput time.\nUntil previous post, I usually used OLAP table to show the list of KPI value. Of course it is good enough to grasp overview, but today I used different component \x26lsquo;Pivot Table\x26rsquo; to show KPI.",
   "inLanguage" : "en",
-  "wordCount":  471 ,
-  "datePublished" : "2021-07-03T21:25:28",
-  "dateModified" : "2021-07-03T21:25:28",
+  "wordCount":  286 ,
+  "datePublished" : "2021-08-07T14:07:40",
+  "dateModified" : "2021-08-07T14:07:40",
   "image" : "https:\/\/kaztakata.github.io\/celonis-hacks",
-  "keywords" : [ "PQL, Process Analytics, Pull Up Function" ],
-  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-07-03-maintain-saved-formulas-effectively\/",
+  "keywords" : [ "PQL, Process Analytics" ],
+  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-08-07-create-matrix-of-throughput-time-by-pivot-table\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/kaztakata.github.io\/celonis-hacks",
@@ -79,15 +79,15 @@ For example I would like to ananlyze throughput time between arbitrary two activ
 }
 </script>
 
-<meta property="og:title" content="Maintain Saved Formulas effectively" />
-<meta property="og:description" content="In the last post Handle NULL efficiently in Aggregation Function, I used saved formulas to split long and complex PQL to reusable components. Today I would like to share my best practice to use saved formulas.
-For example I would like to ananlyze throughput time between arbitrary two activities. As below screenshot I created three dropdown buttons, switching time unit (sec, min, hour, day etc.) and two activities (from / to).">
-<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2021-07-03-maintain-saved-formulas-effectively/" />
+<meta property="og:title" content="Create Matrix of Throughput Time by Pivot Table" />
+<meta property="og:description" content="At the previous post of Customize Process Explorer, I showed how to determine throughput time between two activities. This KPI is visible when expanding Process Explorer, but font size of Process Explorer become smaller and smaller when expanding connections, so it is difficult to grasp overview of throughput time.
+Until previous post, I usually used OLAP table to show the list of KPI value. Of course it is good enough to grasp overview, but today I used different component &lsquo;Pivot Table&rsquo; to show KPI.">
+<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2021-08-07-create-matrix-of-throughput-time-by-pivot-table/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Celonis hacks" />
 
-  <meta name="twitter:title" content="Maintain Saved Formulas effectively" />
-  <meta name="twitter:description" content="In the last post Handle NULL efficiently in Aggregation Function, I used saved formulas to split long and complex PQL to reusable components. Today I would like to share my best practice to use saved …">
+  <meta name="twitter:title" content="Create Matrix of Throughput Time by Pivot Table" />
+  <meta name="twitter:description" content="At the previous post of Customize Process Explorer, I showed how to determine throughput time between two activities. This KPI is visible when expanding Process Explorer, but font size of Process …">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
@@ -236,7 +236,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="posts-heading">
               
-                <h1>Maintain Saved Formulas effectively</h1>
+                <h1>Create Matrix of Throughput Time by Pivot Table</h1>
               
               
                 <hr class="small">
@@ -256,93 +256,21 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>In the last post <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-06-26-handle-null-efficiently-in-aggregation-function/">Handle NULL efficiently in Aggregation Function</a>, I used saved formulas to split long and complex PQL to reusable components. Today I would like to share my best practice to use saved formulas.</p>
-<p>For example I would like to ananlyze throughput time between arbitrary two activities. As below screenshot I created three dropdown buttons, switching time unit (sec, min, hour, day etc.) and two activities (from / to). Variables (time_unit, from, to) are set by user action and passed to PQL for calculating other components relevant to throughtput time (single KPI, histogram, boxplot, drill down table, and fact table).</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/124353919-52cd3880-dc44-11eb-8516-effc7047db33.png"><img src="https://user-images.githubusercontent.com/67397583/124353919-52cd3880-dc44-11eb-8516-effc7047db33.png" alt="image"></a></p>
-<p>In each component it is possible to write down throughput time PQL like below. But if I need to change something in PQL, I need to open each component and maintain it multiple times. So I will try to create saved formulas and simplify each component.</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">DATEDIFF(
-    &lt;%=time_unit%&gt;,
-    PU_FIRST(
-        EKPO,
-        _CEL_P2P_ACTIVITIES_EN.EVENTTIME,
-        _CEL_P2P_ACTIVITIES_EN.ACTIVITY_EN = &lt;%=from%&gt;
-    ),
-    PU_FIRST(
-        EKPO,
-        _CEL_P2P_ACTIVITIES_EN.EVENTTIME,
-        _CEL_P2P_ACTIVITIES_EN.ACTIVITY_EN = &lt;%=to%&gt;
-    )
+        <p>At the previous post of <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-05-08-customize-process-explorer/">Customize Process Explorer</a>, I showed how to determine throughput time between two activities. This KPI is visible when expanding Process Explorer, but font size of Process Explorer become smaller and smaller when expanding connections, so it is difficult to grasp overview of throughput time.</p>
+<p>Until previous post, I usually used OLAP table to show the list of KPI value. Of course it is good enough to grasp overview, but today I used different component &lsquo;Pivot Table&rsquo; to show KPI.</p>
+<p>Pivot Table in Celonis is similar to that of other solution, like Microsoft Excel. Characteristics of Pivot Table is two dimensions located at row and column as matrix, and one KPI value like below image. Compared with OLAP table, Pivot Table can only see one KPI at once, but matrix of two dimensions are easy to point out KPI value at one cell and look around neighbor value.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/128601216-cd4d2d0e-8845-46ce-aba1-f71d4e29c061.png"><img src="https://user-images.githubusercontent.com/67397583/128601216-cd4d2d0e-8845-46ce-aba1-f71d4e29c061.png" alt="image"></a></p>
+<p>This time I created two dimensions as <code>SOURCE(_CEL_O2C_ACTIVITIES.ACTIVITY_EN)</code> and <code>TARGET(_CEL_O2C_ACTIVITIES.ACTIVITY_EN)</code> to determine connection between two activities. Then average of throughput time as KPI is determined as below. You can confirm <code>8 hours</code> from <code>Ship Goods</code> (column) to <code>Send Invoice</code> (row) in matrix, compared with Process Explorer.</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">AVG(
+  DATEDIFF(
+    hh, -- calculated as hours
+    SOURCE(_CEL_O2C_ACTIVITIES.EVENTTIME),
+    TARGET(_CEL_O2C_ACTIVITIES.EVENTTIME)
+  )
 )
-</code></pre></div><p>First I focused on the <code>PU_FIRST</code> portion. These functions can be summarized to formula <code>first_time</code> as below.</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">--first_time
-PU_FIRST(
-    EKPO,
-    _CEL_P2P_ACTIVITIES_EN.EVENTTIME,
-    _CEL_P2P_ACTIVITIES_EN.ACTIVITY_EN = {p1}
-)
-</code></pre></div><p>Then original PQL is changed to below.</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">DATEDIFF(
-    &lt;%=time_unit%&gt;,
-    KPI(first_time,VARIABLE(&lt;%=from%&gt;)),    -- call first_time formula passing parameter &#39;from&#39;
-    KPI(first_time,VARIABLE(&lt;%=to%&gt;))       -- call first_time formula passing parameter &#39;to&#39;
-)
-</code></pre></div><p>This is something better than previous PQL, but let&rsquo;s encapsulate the <code>DATEDIFF</code> portion. I will create second formula <code>throughput_time</code> as below.</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">--throughput_time
-DATEDIFF(
-    {p1},
-    KPI(first_time,VARIABLE({p2})),
-    KPI(first_time,VARIABLE({p3}))
-)
-</code></pre></div><p>Finally original PQL is changed to <code>KPI(throughput_time, VARIABLE(&lt;%=time_unit%&gt;), VARIABLE(&lt;%=from%&gt;), VARIABLE(&lt;%=to%&gt;))</code>. It means each component is just call <code>throughput_time</code> with three parameters.</p>
-<p>By the way, single KPI and drill down table are aggregating throughput time by <code>AVG</code> and <code>COUNT</code> function. In my opinion it is not required to create one more formula of each aggregation function. My focus is replacement of complex &lsquo;dimension&rsquo; determination to formula (Exceptionally, I would like to create formula for adding multiple aggregation function case, like <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-06-12-calculate-multi-dimentional-kpis/">Calculate Multi Dimensional KPIs</a> post). In the end each component are determined like below.</p>
-<table>
-<thead>
-<tr>
-<th>Title</th>
-<th>Component</th>
-<th>PQL</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Avg Throughput Time</td>
-<td>single KPI</td>
-<td><code>AVG(KPI(throughput_time, VARIABLE(&lt;%=time_unit%&gt;), VARIABLE(&lt;%=from%&gt;), VARIABLE(&lt;%=to%&gt;))) </code></td>
-</tr>
-<tr>
-<td>Case Count</td>
-<td>single KPI</td>
-<td><code>COUNT(KPI(throughput_time, VARIABLE(&lt;%=time_unit%&gt;), VARIABLE(&lt;%=from%&gt;), VARIABLE(&lt;%=to%&gt;)))</code></td>
-</tr>
-<tr>
-<td>Distribution</td>
-<td>histogram</td>
-<td><code>KPI(throughput_time, VARIABLE(&lt;%=time_unit%&gt;), VARIABLE(&lt;%=from%&gt;), VARIABLE(&lt;%=to%&gt;))</code></td>
-</tr>
-<tr>
-<td>Time Trend</td>
-<td>boxplot</td>
-<td>same as histogram</td>
-</tr>
-<tr>
-<td>Drill Down by vendor</td>
-<td>OLAP table</td>
-<td>same as single KPI</td>
-</tr>
-<tr>
-<td>Fact</td>
-<td>OLAP table</td>
-<td>same as histogram</td>
-</tr>
-</tbody>
-</table>
-<p>One more tips, I recommend to determine multi layered formualas as above because I can use interim result in verification purpose. In the right lower fact sheet, columns of from / to timestamp are displayed then <code>KPI(first_time,VARIABLE(&lt;%=from%&gt;))</code> and <code>KPI(first_time,VARIABLE(&lt;%=to%&gt;))</code> are assigned. So that it is easy to verify throughput time calculation of each case.</p>
-<p>To summarize today&rsquo;s discussion,</p>
-<ul>
-<li>decomposite complex dimensional PQL to multi layered formulas</li>
-<li>assign variable to formula&rsquo;s parameters (not directly assign variable in the formula)</li>
-<li>not required to create formula for simple aggregation</li>
-</ul>
+</code></pre></div><p>You can also setup another KPIs and switch KPI by &lsquo;Configure&rsquo; button. For example count Case <code>COUNT(VBAP.MANDT)</code> and count Activity <code>COUNT(SOURCE(_CEL_O2C_ACTIVITIES.ACTIVITY_EN))</code>.</p>
+<p>One more thing regarding Pivot Table is, row side dimension can be setup multi layer dimensions. For example, I used Project - milestone - task levels row dimensions to see sum of planned / actual work hours (column dimension is date).</p>
+<p>You can choose two types of tables (OLAP, Pivot) based on characteristics of them.</p>
 <p>Kaz</p>
 
 
@@ -352,8 +280,6 @@ DATEDIFF(
               <a href="https://kaztakata.github.io/celonis-hacks/tags/pql/">PQL</a>&nbsp;
             
               <a href="https://kaztakata.github.io/celonis-hacks/tags/process-analytics/">Process Analytics</a>&nbsp;
-            
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/pull-up-function/">Pull Up Function</a>&nbsp;
             
           </div>
         
@@ -368,42 +294,42 @@ DATEDIFF(
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-07-03-maintain-saved-formulas-effectively%2f&amp;text=Maintain%20Saved%20Formulas%20effectively&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-08-07-create-matrix-of-throughput-time-by-pivot-table%2f&amp;text=Create%20Matrix%20of%20Throughput%20Time%20by%20Pivot%20Table&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-07-03-maintain-saved-formulas-effectively%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-08-07-create-matrix-of-throughput-time-by-pivot-table%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-07-03-maintain-saved-formulas-effectively%2f&amp;title=Maintain%20Saved%20Formulas%20effectively" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-08-07-create-matrix-of-throughput-time-by-pivot-table%2f&amp;title=Create%20Matrix%20of%20Throughput%20Time%20by%20Pivot%20Table" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-07-03-maintain-saved-formulas-effectively%2f&amp;title=Maintain%20Saved%20Formulas%20effectively" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-08-07-create-matrix-of-throughput-time-by-pivot-table%2f&amp;title=Create%20Matrix%20of%20Throughput%20Time%20by%20Pivot%20Table" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-07-03-maintain-saved-formulas-effectively%2f&amp;title=Maintain%20Saved%20Formulas%20effectively" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-08-07-create-matrix-of-throughput-time-by-pivot-table%2f&amp;title=Create%20Matrix%20of%20Throughput%20Time%20by%20Pivot%20Table" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-07-03-maintain-saved-formulas-effectively%2f&amp;description=Maintain%20Saved%20Formulas%20effectively" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-08-07-create-matrix-of-throughput-time-by-pivot-table%2f&amp;description=Create%20Matrix%20of%20Throughput%20Time%20by%20Pivot%20Table" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -425,13 +351,13 @@ DATEDIFF(
                   <ul>
                 
                 
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-08-07-create-matrix-of-throughput-time-by-pivot-table/">Create Matrix of Throughput Time by Pivot Table</a></li>
-                
                     <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-07-31-create-additional-entry-to-button-dropdown/">Create Additional Entry to Button Dropdown</a></li>
                 
                     <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-07-24-categorize-and-name-activity/">Categorize and Name Activity</a></li>
                 
                     <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-07-10-utilize-n-m-relationship-between-activity-and-dimension-tables/">Utilize N-M relationship between Activity and Dimension Tables</a></li>
+                
+                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-07-03-maintain-saved-formulas-effectively/">Maintain Saved Formulas effectively</a></li>
                 
                     <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-06-26-handle-null-efficiently-in-aggregation-function/">Handle NULL efficiently in Aggregation Function</a></li>
                 
@@ -445,13 +371,9 @@ DATEDIFF(
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-06-26-handle-null-efficiently-in-aggregation-function/" data-toggle="tooltip" data-placement="top" title="Handle NULL efficiently in Aggregation Function">&larr; Previous Post</a>
+              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-07-31-create-additional-entry-to-button-dropdown/" data-toggle="tooltip" data-placement="top" title="Create Additional Entry to Button Dropdown">&larr; Previous Post</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-07-10-utilize-n-m-relationship-between-activity-and-dimension-tables/" data-toggle="tooltip" data-placement="top" title="Utilize N-M relationship between Activity and Dimension Tables">Next Post &rarr;</a>
-            </li>
           
         </ul>
       

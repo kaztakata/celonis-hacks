@@ -5,10 +5,20 @@
     <link>https://kaztakata.github.io/celonis-hacks/</link>
     <description>Recent content on Celonis hacks</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 31 Jul 2021 10:00:39 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 07 Aug 2021 14:07:40 +0900</lastBuildDate>
     
 	<atom:link href="https://kaztakata.github.io/celonis-hacks/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Create Matrix of Throughput Time by Pivot Table</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2021-08-07-create-matrix-of-throughput-time-by-pivot-table/</link>
+      <pubDate>Sat, 07 Aug 2021 14:07:40 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2021-08-07-create-matrix-of-throughput-time-by-pivot-table/</guid>
+      <description>At the previous post of Customize Process Explorer, I showed how to determine throughput time between two activities. This KPI is visible when expanding Process Explorer, but font size of Process Explorer become smaller and smaller when expanding connections, so it is difficult to grasp overview of throughput time.
+Until previous post, I usually used OLAP table to show the list of KPI value. Of course it is good enough to grasp overview, but today I used different component &amp;lsquo;Pivot Table&amp;rsquo; to show KPI.</description>
+    </item>
     
     <item>
       <title>Create Additional Entry to Button Dropdown</title>
