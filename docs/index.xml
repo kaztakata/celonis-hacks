@@ -5,10 +5,20 @@
     <link>https://kaztakata.github.io/celonis-hacks/</link>
     <description>Recent content on Celonis hacks</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 07 Aug 2021 14:07:40 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 14 Aug 2021 13:33:06 +0900</lastBuildDate>
     
 	<atom:link href="https://kaztakata.github.io/celonis-hacks/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Share my Analysis by Content-CLI</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2021-08-14-share-my-analysis-by-content-cli/</link>
+      <pubDate>Sat, 14 Aug 2021 13:33:06 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2021-08-14-share-my-analysis-by-content-cli/</guid>
+      <description>Recently I was thinking how to share my work with you not only blog post but experience by live environment. Today I would like to tell how to reproduce my Analysis to your environment by Content-CLI. Content-CLI is used to copy programs between Celonis environments via backup file. I created backup file and upload to public repository. So you can download it and reproduce my program in your environment.
+First you need to open your training environment if you do not.</description>
+    </item>
     
     <item>
       <title>Create Matrix of Throughput Time by Pivot Table</title>

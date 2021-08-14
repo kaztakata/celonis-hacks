@@ -60,7 +60,7 @@ I will start from changing OLAP table to hide USER_TYPE and ACTIVITY_EN for calc
   "headline": "Calculate Multi Dimensional KPIs",
   "description" : "In the last post Recognize Record to Calculate KPI, I showed issue of count duplication when I merged two different dimentional KPIs. Today I will tell how to calculate it correctly.\nI will start from changing OLAP table to hide USER_TYPE and ACTIVITY_EN for calculating KPIs grouped by customer master. And I filtered by customer K1 as previous post. Finally I added SUM function to both Rework Time and Reminder Time.",
   "inLanguage" : "en",
-  "wordCount":  427 ,
+  "wordCount":  441 ,
   "datePublished" : "2021-06-12T13:20:53",
   "dateModified" : "2021-06-12T13:20:53",
   "image" : "https:\/\/kaztakata.github.io\/celonis-hacks",
@@ -308,6 +308,9 @@ if (!doNotTrack) {
 </code></pre></div><p>Screenshot below is applying above PQL and getting Total Estimated Time <code>214,798 min</code> correctly.</p>
 <p><a href="https://user-images.githubusercontent.com/67397583/121766598-169b4080-cb8e-11eb-8931-bf739fb08b28.png"><img src="https://user-images.githubusercontent.com/67397583/121766598-169b4080-cb8e-11eb-8931-bf739fb08b28.png" alt="image"></a></p>
 <p>Kaz</p>
+<hr>
+<p>This post&rsquo;s program can be <a href="../../examples/o2c_analysis_20210612.json">downloeded here</a> then push to your environment by content-cli.</p>
+<hr>
 
 
         
@@ -387,6 +390,8 @@ if (!doNotTrack) {
                   <ul>
                 
                 
+                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-08-14-share-my-analysis-by-content-cli/">Share my Analysis by Content-CLI</a></li>
+                
                     <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-08-07-create-matrix-of-throughput-time-by-pivot-table/">Create Matrix of Throughput Time by Pivot Table</a></li>
                 
                     <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-07-31-create-additional-entry-to-button-dropdown/">Create Additional Entry to Button Dropdown</a></li>
@@ -394,8 +399,6 @@ if (!doNotTrack) {
                     <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-07-24-categorize-and-name-activity/">Categorize and Name Activity</a></li>
                 
                     <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-07-10-utilize-n-m-relationship-between-activity-and-dimension-tables/">Utilize N-M relationship between Activity and Dimension Tables</a></li>
-                
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-07-03-maintain-saved-formulas-effectively/">Maintain Saved Formulas effectively</a></li>
                 
               </ul>
 

@@ -7,9 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Understand mechanism of Pull up function - Celonis hacks</title>
-  <meta name="description" content="Pull up aggregation function, called PU function, like PU_COUNT, PU_SUM, PU_AVG, PU_MAX, PU_MIN looks similar to Standard aggregation function like COUNT, SUM, AVG, MAX, MIN. In Celonis, it is important to understand that output of PU function is not KPI but dimension. You can see Understand Difference between Dimension and KPI.
-If you know about SQL, you can imagine that PU function is similar to window function in SQL. As other functions, PU functions add dynamic column in grouping table.">
+  <title>Share my Analysis by Content-CLI - Celonis hacks</title>
+  <meta name="description" content="Recently I was thinking how to share my work with you not only blog post but experience by live environment. Today I would like to tell how to reproduce my Analysis to your environment by Content-CLI. Content-CLI is used to copy programs between Celonis environments via backup file. I created backup file and upload to public repository. So you can download it and reproduce my program in your environment.
+First you need to open your training environment if you do not.">
   <meta name="author" content="Kazuhiko Takata"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -45,8 +45,8 @@ If you know about SQL, you can imagine that PU function is similar to window fun
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-05-15-understand-mechanism-of-pull-up-function\/",
-          "name": "Understand mechanism of pull up function"
+          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-08-14-share-my-analysis-by-content-cli\/",
+          "name": "Share my analysis by content cli"
         }
     }]
 }
@@ -57,15 +57,15 @@ If you know about SQL, you can imagine that PU function is similar to window fun
   "author": {
     "name" : "Kazuhiko Takata"
   },
-  "headline": "Understand mechanism of Pull up function",
-  "description" : "Pull up aggregation function, called PU function, like PU_COUNT, PU_SUM, PU_AVG, PU_MAX, PU_MIN looks similar to Standard aggregation function like COUNT, SUM, AVG, MAX, MIN. In Celonis, it is important to understand that output of PU function is not KPI but dimension. You can see Understand Difference between Dimension and KPI.\nIf you know about SQL, you can imagine that PU function is similar to window function in SQL. As other functions, PU functions add dynamic column in grouping table.",
+  "headline": "Share my Analysis by Content-CLI",
+  "description" : "Recently I was thinking how to share my work with you not only blog post but experience by live environment. Today I would like to tell how to reproduce my Analysis to your environment by Content-CLI. Content-CLI is used to copy programs between Celonis environments via backup file. I created backup file and upload to public repository. So you can download it and reproduce my program in your environment.\nFirst you need to open your training environment if you do not.",
   "inLanguage" : "en",
-  "wordCount":  348 ,
-  "datePublished" : "2021-05-15T10:00:14",
-  "dateModified" : "2021-05-15T10:00:14",
+  "wordCount":  564 ,
+  "datePublished" : "2021-08-14T13:33:06",
+  "dateModified" : "2021-08-14T13:33:06",
   "image" : "https:\/\/kaztakata.github.io\/celonis-hacks",
-  "keywords" : [ "PQL, Process Analytics, Pull Up Function" ],
-  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-05-15-understand-mechanism-of-pull-up-function\/",
+  "keywords" : [ "Content-CLI, Machine Learning, Process Analytics" ],
+  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-08-14-share-my-analysis-by-content-cli\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/kaztakata.github.io\/celonis-hacks",
@@ -79,15 +79,15 @@ If you know about SQL, you can imagine that PU function is similar to window fun
 }
 </script>
 
-<meta property="og:title" content="Understand mechanism of Pull up function" />
-<meta property="og:description" content="Pull up aggregation function, called PU function, like PU_COUNT, PU_SUM, PU_AVG, PU_MAX, PU_MIN looks similar to Standard aggregation function like COUNT, SUM, AVG, MAX, MIN. In Celonis, it is important to understand that output of PU function is not KPI but dimension. You can see Understand Difference between Dimension and KPI.
-If you know about SQL, you can imagine that PU function is similar to window function in SQL. As other functions, PU functions add dynamic column in grouping table.">
-<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2021-05-15-understand-mechanism-of-pull-up-function/" />
+<meta property="og:title" content="Share my Analysis by Content-CLI" />
+<meta property="og:description" content="Recently I was thinking how to share my work with you not only blog post but experience by live environment. Today I would like to tell how to reproduce my Analysis to your environment by Content-CLI. Content-CLI is used to copy programs between Celonis environments via backup file. I created backup file and upload to public repository. So you can download it and reproduce my program in your environment.
+First you need to open your training environment if you do not.">
+<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2021-08-14-share-my-analysis-by-content-cli/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Celonis hacks" />
 
-  <meta name="twitter:title" content="Understand mechanism of Pull up function" />
-  <meta name="twitter:description" content="Pull up aggregation function, called PU function, like PU_COUNT, PU_SUM, PU_AVG, PU_MAX, PU_MIN looks similar to Standard aggregation function like COUNT, SUM, AVG, MAX, MIN. In Celonis, it is …">
+  <meta name="twitter:title" content="Share my Analysis by Content-CLI" />
+  <meta name="twitter:description" content="Recently I was thinking how to share my work with you not only blog post but experience by live environment. Today I would like to tell how to reproduce my Analysis to your environment by Content-CLI. …">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
@@ -236,7 +236,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="posts-heading">
               
-                <h1>Understand mechanism of Pull up function</h1>
+                <h1>Share my Analysis by Content-CLI</h1>
               
               
                 <hr class="small">
@@ -256,35 +256,62 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>Pull up aggregation function, called PU function, like <code>PU_COUNT</code>, <code>PU_SUM</code>, <code>PU_AVG</code>, <code>PU_MAX</code>, <code>PU_MIN</code> looks similar to Standard aggregation function like <code>COUNT</code>, <code>SUM</code>, <code>AVG</code>, <code>MAX</code>, <code>MIN</code>. In Celonis, it is important to understand that output of PU function is not KPI but dimension. You can see <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-05-01-understand-difference-between-dimension-and-kpi/">Understand Difference between Dimension and KPI</a>.</p>
-<p>If you know about SQL, you can imagine that PU function is similar to window function in SQL. As other functions, PU functions add dynamic column in grouping table. Output of PU function is representative column value in that group.</p>
-<p>Below screenshot is the example of <code>PU_MAX</code> function againt purchasing tables, Vendor <code>&quot;LFA1&quot;</code>, PO Document <code>&quot;EKKO&quot;</code>, PO item<code>&quot;EKPO&quot;</code>, also each PO item has Net Order Value <code>&quot;NETWR&quot;</code>. Column <code>Max Net Value by Doc</code> representing max value in PO Document has PQL <code>PU_MAX(&quot;EKKO&quot;,&quot;EKPO&quot;.&quot;NETWR&quot;)</code>.</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/118344725-c74ff900-b56a-11eb-9641-1de8a36ea4c6.png"><img src="https://user-images.githubusercontent.com/67397583/118344725-c74ff900-b56a-11eb-9641-1de8a36ea4c6.png" alt="image"></a></p>
-<p>Looking at screenshot, PO Document <code>0000005763</code> has max value <code>3,744.14</code> in item <code>00009</code>, then all other items in this PO also has representative max value <code>3,744.14</code>.</p>
-<p>When using <code>PU_MAX</code> function, 10 items are kept and add one more column representing max value. On the other hand, you can imagine when using standard <code>MAX</code> function, 10 items are aggregated to 1 record and show max value.</p>
-<p>In above PQL, by table name <code>&quot;EKKO&quot;</code> in first argument, PO item record is partitioned by join key between <code>&quot;EKKO&quot;</code> and <code>&quot;EKPO&quot;</code>. So that below three PQLs are equivalent (<code>DOMAIN_TABLE</code> function creates dynamic table of argument columns).</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">PU_MAX(&#34;EKKO&#34;,&#34;EKPO&#34;.&#34;NETWR&#34;) -- using table
-PU_MAX(DOMAIN_TABLE(&#34;EKKO&#34;.&#34;MANDT&#34;,&#34;EKKO&#34;.&#34;EBELN&#34;),&#34;EKPO&#34;.&#34;NETWR&#34;) -- using PO Doc columns
-PU_MAX(DOMAIN_TABLE(&#34;EKPO&#34;.&#34;MANDT&#34;,&#34;EKPO&#34;.&#34;EBELN&#34;),&#34;EKPO&#34;.&#34;NETWR&#34;) -- using PO item columns
-</code></pre></div><p>Back to screenshot above, column <code>Max Net Value by Vendor</code> has PQL <code>PU_MAX(&quot;LFA1&quot;,&quot;EKPO&quot;.&quot;NETWR&quot;)</code>. Vendor <code>0000002901</code> have 2 PO Document and 20 PO items, then max value <code>9,213.75</code> in the second PO is representing max value in this vendor.</p>
-<p>Also grouping by any columns in above 3 tables is possible like below.</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">PU_MAX(DOMAIN_TABLE(&#34;EKKO&#34;.&#34;MANDT&#34;,&#34;EKKO&#34;.&#34;BUKRS&#34;),&#34;EKPO&#34;.&#34;NETWR&#34;) -- grouped by column in PO Document 
-PU_MAX(DOMAIN_TABLE(&#34;EKPO&#34;.&#34;MANDT&#34;,&#34;EKPO&#34;.&#34;MATNR&#34;),&#34;EKPO&#34;.&#34;NETWR&#34;) -- grouped by column in PO item.
-</code></pre></div><p>In the next post, I will show you how to use output of PU function.</p>
+        <p>Recently I was thinking how to share my work with you not only blog post but experience by live environment. Today I would like to tell how to reproduce my Analysis to your environment by <a href="https://github.com/celonis/content-cli">Content-CLI</a>. Content-CLI is used to copy programs between Celonis environments via backup file. I created backup file and upload to public repository. So you can download it and reproduce my program in your environment.</p>
+<p>First you need to open your training environment if you do not. You will go to <a href="https://lms.celonis.com/">Celonis LMS</a> then sign up for your account. After that you enroll Process Discovery Basics cource then you will receive invitation mail of training envioronment. Training environment URL is like <a href="https://your-email-address.training.celonis.cloud/">https://your-email-address.training.celonis.cloud/</a> and your-email-address is based on your sign up email address to Celonis LMS.</p>
+<p>From now on, I would like to tell procedure to reproduce Analysis of last blog post <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-08-07-create-matrix-of-throughput-time-by-pivot-table/">Create Matrix of Throughput Time by Pivot Table</a>. In case of other Analysis, please change parameters accordingly.</p>
+<p>After you can login to your training environment, go to Process Analytics first. Click New button at left side (Workspaces), then select Data Model <code>CelonisCertificationExam_Order-to-Cash_DataModel</code> and name workspace as <code>celonis-hacks O2C</code> (please see below table for other Processes / Data Models). You should note workspace ID from URL of new workspace, like <code>workspaces=2056362c-0576-4356-82d2-2ce341db6fbf</code>, that is required to push Analysis later.</p>
+<table>
+<thead>
+<tr>
+<th>Process</th>
+<th>Data Model</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>O2C</td>
+<td>CelonisCertificationExam_Order-to-Cash_DataModel</td>
+</tr>
+<tr>
+<td>P2P</td>
+<td>Purchase-To-Pay_Training_EN</td>
+</tr>
+<tr>
+<td>AP</td>
+<td>CelonisCertificationExam_AnalysisBuilding_2020/2021</td>
+</tr>
+</tbody>
+</table>
+<p>Next you will create API-Key from your profile. Click your avatar on top right of screen, then click Edit Profile button. Then enter content-cli to New API Key name then click Create API Key button (below screen). You should note API Key that makes possible to login to this environment without UI.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/129434323-7ce72520-c163-46cc-932b-959926c01b46.png"><img src="https://user-images.githubusercontent.com/67397583/129434323-7ce72520-c163-46cc-932b-959926c01b46.png" alt="image"></a></p>
+<p>Next is the last step of preparation. You will go to Machine Learning then click New App. Like below screen, you can create Jupyter Workbench in Machine Learning. Click App you created, then you will go to Jupyter Workbench.
+<a href="https://user-images.githubusercontent.com/67397583/129434369-353cfa82-301b-499e-ae4b-c1d3e7de3401.png"><img src="https://user-images.githubusercontent.com/67397583/129434369-353cfa82-301b-499e-ae4b-c1d3e7de3401.png" alt="image"></a></p>
+<p>Jupyter Workbench is web based interactive development environment for Jupyter notebook, but today I do not touch Jupyter notebook but Content-CLI installed to this environment.</p>
+<p>First you need to copy my backup file. Easiest way to copy and sync file is using Git. In the Workbench select menu Git &gt; Clone a repository, then enter <a href="https://github.com/kaztakata/celonis-hacks">https://github.com/kaztakata/celonis-hacks</a>. You can see celonis-hacks folder at left side. If you would like to update it, then select Git &gt; Pull from Remote.</p>
+<p>Next you will start Content-CLI. In the Workbench select File &gt; New &gt; Terminal, then you can see terminal as below screen. Terminal is waiting for your command so you will input command after $ sign and input Enter key. If additional information
+is required, enter command and input Enter key too.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/129436118-acdbbe70-9b6c-485a-a4ea-5616f6cbe767.png"><img src="https://user-images.githubusercontent.com/67397583/129436118-acdbbe70-9b6c-485a-a4ea-5616f6cbe767.png" alt="image"></a></p>
+<p>First Content-CLI command is to create profile for login to training environment via Content-CLI. Please change your team and api token value accordingly.</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">(base) jovyan@workbench-6599f565c6-sr2f8:~$ content-cli profile create
+Name of the profile: mytraining
+Your team (please provide the full url): https://your-email-address.training.celonis.cloud/
+Your api token: your-api-token
+info:    Profile created successfully!
+</code></pre></div><p>Next command is to push my backup file to workspace you created. Please change Workspace ID to your O2C Process Workspace.</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">(base) jovyan@workbench-6599f565c6-sr2f8:~$ content-cli push analysis -p mytraining --workspaceId 2056362c-0576-4356-82d2-2ce341db6fbf -f celonis-hacks/docs/examples/o2c_analysis_20210807.json 
+info:    Analysis was pushed successfully. New ID: 2c1c370b-2a4b-4321-b3e7-9f3c27dbaf19
+</code></pre></div><p>Finally you can go back to Process Analytics then confirm new Analysis is created. Please enjoy my blog post with live environment.</p>
 <p>Kaz</p>
-<hr>
-<p>This post&rsquo;s program can be <a href="../../examples/p2p_analysis_20210515.json">downloeded here</a> then push to your environment by content-cli.</p>
-<hr>
 
 
         
           <div class="blog-tags">
             
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/pql/">PQL</a>&nbsp;
+              <a href="https://kaztakata.github.io/celonis-hacks/tags/content-cli/">Content-CLI</a>&nbsp;
+            
+              <a href="https://kaztakata.github.io/celonis-hacks/tags/machine-learning/">Machine Learning</a>&nbsp;
             
               <a href="https://kaztakata.github.io/celonis-hacks/tags/process-analytics/">Process Analytics</a>&nbsp;
-            
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/pull-up-function/">Pull Up Function</a>&nbsp;
             
           </div>
         
@@ -299,42 +326,42 @@ PU_MAX(DOMAIN_TABLE(&#34;EKPO&#34;.&#34;MANDT&#34;,&#34;EKPO&#34;.&#34;MATNR&#34
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-05-15-understand-mechanism-of-pull-up-function%2f&amp;text=Understand%20mechanism%20of%20Pull%20up%20function&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-08-14-share-my-analysis-by-content-cli%2f&amp;text=Share%20my%20Analysis%20by%20Content-CLI&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-05-15-understand-mechanism-of-pull-up-function%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-08-14-share-my-analysis-by-content-cli%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-05-15-understand-mechanism-of-pull-up-function%2f&amp;title=Understand%20mechanism%20of%20Pull%20up%20function" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-08-14-share-my-analysis-by-content-cli%2f&amp;title=Share%20my%20Analysis%20by%20Content-CLI" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-05-15-understand-mechanism-of-pull-up-function%2f&amp;title=Understand%20mechanism%20of%20Pull%20up%20function" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-08-14-share-my-analysis-by-content-cli%2f&amp;title=Share%20my%20Analysis%20by%20Content-CLI" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-05-15-understand-mechanism-of-pull-up-function%2f&amp;title=Understand%20mechanism%20of%20Pull%20up%20function" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-08-14-share-my-analysis-by-content-cli%2f&amp;title=Share%20my%20Analysis%20by%20Content-CLI" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-05-15-understand-mechanism-of-pull-up-function%2f&amp;description=Understand%20mechanism%20of%20Pull%20up%20function" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-08-14-share-my-analysis-by-content-cli%2f&amp;description=Share%20my%20Analysis%20by%20Content-CLI" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -356,8 +383,6 @@ PU_MAX(DOMAIN_TABLE(&#34;EKPO&#34;.&#34;MANDT&#34;,&#34;EKPO&#34;.&#34;MATNR&#34
                   <ul>
                 
                 
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-08-14-share-my-analysis-by-content-cli/">Share my Analysis by Content-CLI</a></li>
-                
                     <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-08-07-create-matrix-of-throughput-time-by-pivot-table/">Create Matrix of Throughput Time by Pivot Table</a></li>
                 
                     <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-07-31-create-additional-entry-to-button-dropdown/">Create Additional Entry to Button Dropdown</a></li>
@@ -365,6 +390,8 @@ PU_MAX(DOMAIN_TABLE(&#34;EKPO&#34;.&#34;MANDT&#34;,&#34;EKPO&#34;.&#34;MATNR&#34
                     <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-07-24-categorize-and-name-activity/">Categorize and Name Activity</a></li>
                 
                     <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-07-10-utilize-n-m-relationship-between-activity-and-dimension-tables/">Utilize N-M relationship between Activity and Dimension Tables</a></li>
+                
+                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-07-03-maintain-saved-formulas-effectively/">Maintain Saved Formulas effectively</a></li>
                 
               </ul>
 
@@ -376,13 +403,9 @@ PU_MAX(DOMAIN_TABLE(&#34;EKPO&#34;.&#34;MANDT&#34;,&#34;EKPO&#34;.&#34;MATNR&#34
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-05-08-customize-process-explorer/" data-toggle="tooltip" data-placement="top" title="Customize Process Explorer">&larr; Previous Post</a>
+              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-08-07-create-matrix-of-throughput-time-by-pivot-table/" data-toggle="tooltip" data-placement="top" title="Create Matrix of Throughput Time by Pivot Table">&larr; Previous Post</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-05-22-determine-first-time-right-by-pull-up-function/" data-toggle="tooltip" data-placement="top" title="Determine First Time Right by Pull up function">Next Post &rarr;</a>
-            </li>
           
         </ul>
       

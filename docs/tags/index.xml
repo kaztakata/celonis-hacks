@@ -5,10 +5,37 @@
     <link>https://kaztakata.github.io/celonis-hacks/tags/</link>
     <description>Recent content in Tags on Celonis hacks</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 07 Aug 2021 14:07:40 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 14 Aug 2021 13:33:06 +0900</lastBuildDate>
     
 	<atom:link href="https://kaztakata.github.io/celonis-hacks/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Content-CLI</title>
+      <link>https://kaztakata.github.io/celonis-hacks/tags/content-cli/</link>
+      <pubDate>Sat, 14 Aug 2021 13:33:06 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/tags/content-cli/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Machine Learning</title>
+      <link>https://kaztakata.github.io/celonis-hacks/tags/machine-learning/</link>
+      <pubDate>Sat, 14 Aug 2021 13:33:06 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Process Analytics</title>
+      <link>https://kaztakata.github.io/celonis-hacks/tags/process-analytics/</link>
+      <pubDate>Sat, 14 Aug 2021 13:33:06 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/tags/process-analytics/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>PQL</title>
@@ -16,15 +43,6 @@
       <pubDate>Sat, 07 Aug 2021 14:07:40 +0900</pubDate>
       
       <guid>https://kaztakata.github.io/celonis-hacks/tags/pql/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Process Analytics</title>
-      <link>https://kaztakata.github.io/celonis-hacks/tags/process-analytics/</link>
-      <pubDate>Sat, 07 Aug 2021 14:07:40 +0900</pubDate>
-      
-      <guid>https://kaztakata.github.io/celonis-hacks/tags/process-analytics/</guid>
       <description></description>
     </item>
     
