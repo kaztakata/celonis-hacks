@@ -5,10 +5,20 @@
     <link>https://kaztakata.github.io/celonis-hacks/</link>
     <description>Recent content on Celonis hacks</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 14 Aug 2021 13:33:06 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 21 Aug 2021 10:42:17 +0900</lastBuildDate>
     
 	<atom:link href="https://kaztakata.github.io/celonis-hacks/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Make Conditional Function to return 1 or NULL</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2021-08-21-make-conditional-function-to-return-1-or-null/</link>
+      <pubDate>Sat, 21 Aug 2021 10:42:17 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2021-08-21-make-conditional-function-to-return-1-or-null/</guid>
+      <description>Previously I posted Handle NULL efficiently in Aggregation Function and discussed how to unite formula of COUNT, SUM, AVG functions. Today I will create boolean function and use it for conditional aggregation.
+Imagine you would like to calculate net value of Sales Order (VBAP.NETWR_CONVERTED) in O2C process, but there are some conditons to calculate it. First condition is that sales order is active, means rejection reason column (VBAP.ABGRU) is not set.</description>
+    </item>
     
     <item>
       <title>Share my Analysis by Content-CLI</title>

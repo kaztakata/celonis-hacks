@@ -212,6 +212,56 @@ if (!doNotTrack) {
           
           
             <article class="post-preview">
+    <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-08-21-make-conditional-function-to-return-1-or-null/">
+        <h2 class="post-title">Make Conditional Function to return 1 or NULL</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on map[Count:August 21, 2021 Saturday]
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;minutes
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;427&nbsp;words
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kazuhiko Takata
+    
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        Previously I posted Handle NULL efficiently in Aggregation Function and discussed how to unite formula of COUNT, SUM, AVG functions. Today I will create boolean function and use it for conditional aggregation.
+Imagine you would like to calculate net value of Sales Order (VBAP.NETWR_CONVERTED) in O2C process, but there are some conditons to calculate it. First condition is that sales order is active, means rejection reason column (VBAP.ABGRU) is not set.
+        <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-08-21-make-conditional-function-to-return-1-or-null/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+        <a href="https://kaztakata.github.io/celonis-hacks/tags/pql/">PQL</a>&nbsp;
+        
+        <a href="https://kaztakata.github.io/celonis-hacks/tags/process-analytics/">Process Analytics</a>&nbsp;
+        
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
     <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-08-14-share-my-analysis-by-content-cli/">
         <h2 class="post-title">Share my Analysis by Content-CLI</h2>
         
@@ -675,56 +725,6 @@ Celonis Data Model support snowflake schema that consists of multiple tables, ea
         <a href="https://kaztakata.github.io/celonis-hacks/tags/process-analytics/">Process Analytics</a>&nbsp;
         
         <a href="https://kaztakata.github.io/celonis-hacks/tags/data-model/">Data Model</a>&nbsp;
-        
-    </div>
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-06-12-calculate-multi-dimentional-kpis/">
-        <h2 class="post-title">Calculate Multi Dimensional KPIs</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on map[Count:June 12, 2021 Saturday]
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;minutes
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;441&nbsp;words
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kazuhiko Takata
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        In the last post Recognize Record to Calculate KPI, I showed issue of count duplication when I merged two different dimentional KPIs. Today I will tell how to calculate it correctly.
-I will start from changing OLAP table to hide USER_TYPE and ACTIVITY_EN for calculating KPIs grouped by customer master. And I filtered by customer K1 as previous post. Finally I added SUM function to both Rework Time and Reminder Time.
-        <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-06-12-calculate-multi-dimentional-kpis/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/pql/">PQL</a>&nbsp;
-        
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/process-analytics/">Process Analytics</a>&nbsp;
         
     </div>
     
