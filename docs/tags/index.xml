@@ -5,7 +5,7 @@
     <link>https://kaztakata.github.io/celonis-hacks/tags/</link>
     <description>Recent content in Tags on Celonis hacks</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 21 Aug 2021 10:42:17 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 28 Aug 2021 11:11:45 +0900</lastBuildDate>
     
 	<atom:link href="https://kaztakata.github.io/celonis-hacks/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -13,7 +13,7 @@
     <item>
       <title>PQL</title>
       <link>https://kaztakata.github.io/celonis-hacks/tags/pql/</link>
-      <pubDate>Sat, 21 Aug 2021 10:42:17 +0900</pubDate>
+      <pubDate>Sat, 28 Aug 2021 11:11:45 +0900</pubDate>
       
       <guid>https://kaztakata.github.io/celonis-hacks/tags/pql/</guid>
       <description></description>
@@ -22,9 +22,18 @@
     <item>
       <title>Process Analytics</title>
       <link>https://kaztakata.github.io/celonis-hacks/tags/process-analytics/</link>
-      <pubDate>Sat, 21 Aug 2021 10:42:17 +0900</pubDate>
+      <pubDate>Sat, 28 Aug 2021 11:11:45 +0900</pubDate>
       
       <guid>https://kaztakata.github.io/celonis-hacks/tags/process-analytics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Pull Up Function</title>
+      <link>https://kaztakata.github.io/celonis-hacks/tags/pull-up-function/</link>
+      <pubDate>Sat, 28 Aug 2021 11:11:45 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/tags/pull-up-function/</guid>
       <description></description>
     </item>
     
@@ -61,15 +70,6 @@
       <pubDate>Sat, 24 Jul 2021 10:47:12 +0900</pubDate>
       
       <guid>https://kaztakata.github.io/celonis-hacks/tags/event-collection/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Pull Up Function</title>
-      <link>https://kaztakata.github.io/celonis-hacks/tags/pull-up-function/</link>
-      <pubDate>Sat, 24 Jul 2021 10:47:12 +0900</pubDate>
-      
-      <guid>https://kaztakata.github.io/celonis-hacks/tags/pull-up-function/</guid>
       <description></description>
     </item>
     

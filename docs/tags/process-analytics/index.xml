@@ -5,10 +5,20 @@
     <link>https://kaztakata.github.io/celonis-hacks/tags/process-analytics/</link>
     <description>Recent content in Process Analytics on Celonis hacks</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 21 Aug 2021 10:42:17 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 28 Aug 2021 11:11:45 +0900</lastBuildDate>
     
 	<atom:link href="https://kaztakata.github.io/celonis-hacks/tags/process-analytics/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Count rows of Tables in various way</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2021-08-28-count-rows-of-tables-in-various-way/</link>
+      <pubDate>Sat, 28 Aug 2021 11:11:45 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2021-08-28-count-rows-of-tables-in-various-way/</guid>
+      <description>Counting rows of tables is frequently used so we are not aware about how to do it. But sometimes I got stuck to do it so I would like to deep dive this topic today.
+For today&amp;rsquo;s demo case I use P2P data model and three tables, header EKKO (key columns are MANDT/EBELN), item EKPO (MANDT/EBELN/EBELP) and activity. Also I used sum of item Net value. Below screen is the result of today&amp;rsquo;s demo.</description>
+    </item>
     
     <item>
       <title>Make Conditional Function to return 1 or NULL</title>
