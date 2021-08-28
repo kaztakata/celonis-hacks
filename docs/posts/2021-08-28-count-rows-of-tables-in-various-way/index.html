@@ -7,9 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Make Conditional Function to return 1 or NULL - Celonis hacks</title>
-  <meta name="description" content="Previously I posted Handle NULL efficiently in Aggregation Function and discussed how to unite formula of COUNT, SUM, AVG functions. Today I will create boolean function and use it for conditional aggregation.
-Imagine you would like to calculate net value of Sales Order (VBAP.NETWR_CONVERTED) in O2C process, but there are some conditons to calculate it. First condition is that sales order is active, means rejection reason column (VBAP.ABGRU) is not set.">
+  <title>Count rows of Tables in various way - Celonis hacks</title>
+  <meta name="description" content="Counting rows of tables is frequently used so we are not aware about how to do it. But sometimes I got stuck to do it so I would like to deep dive this topic today.
+For today&rsquo;s demo case I use P2P data model and three tables, header EKKO (key columns are MANDT/EBELN), item EKPO (MANDT/EBELN/EBELP) and activity. Also I used sum of item Net value. Below screen is the result of today&rsquo;s demo.">
   <meta name="author" content="Kazuhiko Takata"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -45,8 +45,8 @@ Imagine you would like to calculate net value of Sales Order (VBAP.NETWR_CONVERT
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-08-21-make-conditional-function-to-return-1-or-null\/",
-          "name": "Make conditional function to return 1 or n u l l"
+          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-08-28-count-rows-of-tables-in-various-way\/",
+          "name": "Count rows of tables in various way"
         }
     }]
 }
@@ -57,15 +57,15 @@ Imagine you would like to calculate net value of Sales Order (VBAP.NETWR_CONVERT
   "author": {
     "name" : "Kazuhiko Takata"
   },
-  "headline": "Make Conditional Function to return 1 or NULL",
-  "description" : "Previously I posted Handle NULL efficiently in Aggregation Function and discussed how to unite formula of COUNT, SUM, AVG functions. Today I will create boolean function and use it for conditional aggregation.\nImagine you would like to calculate net value of Sales Order (VBAP.NETWR_CONVERTED) in O2C process, but there are some conditons to calculate it. First condition is that sales order is active, means rejection reason column (VBAP.ABGRU) is not set.",
+  "headline": "Count rows of Tables in various way",
+  "description" : "Counting rows of tables is frequently used so we are not aware about how to do it. But sometimes I got stuck to do it so I would like to deep dive this topic today.\nFor today\x26rsquo;s demo case I use P2P data model and three tables, header EKKO (key columns are MANDT\/EBELN), item EKPO (MANDT\/EBELN\/EBELP) and activity. Also I used sum of item Net value. Below screen is the result of today\x26rsquo;s demo.",
   "inLanguage" : "en",
-  "wordCount":  427 ,
-  "datePublished" : "2021-08-21T10:42:17",
-  "dateModified" : "2021-08-21T10:42:17",
+  "wordCount":  423 ,
+  "datePublished" : "2021-08-28T11:11:45",
+  "dateModified" : "2021-08-28T11:11:45",
   "image" : "https:\/\/kaztakata.github.io\/celonis-hacks",
-  "keywords" : [ "PQL, Process Analytics" ],
-  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-08-21-make-conditional-function-to-return-1-or-null\/",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-08-28-count-rows-of-tables-in-various-way\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/kaztakata.github.io\/celonis-hacks",
@@ -79,15 +79,16 @@ Imagine you would like to calculate net value of Sales Order (VBAP.NETWR_CONVERT
 }
 </script>
 
-<meta property="og:title" content="Make Conditional Function to return 1 or NULL" />
-<meta property="og:description" content="Previously I posted Handle NULL efficiently in Aggregation Function and discussed how to unite formula of COUNT, SUM, AVG functions. Today I will create boolean function and use it for conditional aggregation.
-Imagine you would like to calculate net value of Sales Order (VBAP.NETWR_CONVERTED) in O2C process, but there are some conditons to calculate it. First condition is that sales order is active, means rejection reason column (VBAP.ABGRU) is not set.">
-<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2021-08-21-make-conditional-function-to-return-1-or-null/" />
+<meta property="og:title" content="Count rows of Tables in various way" />
+<meta property="og:description" content="Counting rows of tables is frequently used so we are not aware about how to do it. But sometimes I got stuck to do it so I would like to deep dive this topic today.
+For today&rsquo;s demo case I use P2P data model and three tables, header EKKO (key columns are MANDT/EBELN), item EKPO (MANDT/EBELN/EBELP) and activity. Also I used sum of item Net value. Below screen is the result of today&rsquo;s demo.">
+<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2021-08-28-count-rows-of-tables-in-various-way/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Celonis hacks" />
 
-  <meta name="twitter:title" content="Make Conditional Function to return 1 or NULL" />
-  <meta name="twitter:description" content="Previously I posted Handle NULL efficiently in Aggregation Function and discussed how to unite formula of COUNT, SUM, AVG functions. Today I will create boolean function and use it for conditional …">
+  <meta name="twitter:title" content="Count rows of Tables in various way" />
+  <meta name="twitter:description" content="Counting rows of tables is frequently used so we are not aware about how to do it. But sometimes I got stuck to do it so I would like to deep dive this topic today.
+For today&rsquo;s demo case I use …">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
@@ -236,7 +237,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="posts-heading">
               
-                <h1>Make Conditional Function to return 1 or NULL</h1>
+                <h1>Count rows of Tables in various way</h1>
               
               
                 <hr class="small">
@@ -256,46 +257,21 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>Previously I posted  <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-06-26-handle-null-efficiently-in-aggregation-function/">Handle NULL efficiently in Aggregation Function</a> and discussed how to unite formula of COUNT, SUM, AVG functions. Today I will create boolean function and use it for conditional aggregation.</p>
-<p>Imagine you would like to calculate net value of Sales Order (<code>VBAP.NETWR_CONVERTED</code>) in O2C process, but there are some conditons to calculate it. First condition is that sales order is active, means rejection reason column (<code>VBAP.ABGRU</code>) is not set. Second condition is that Shipping has already done, means &lsquo;Ship Goods&rsquo; activity is included in the case.</p>
-<p>Of course it is possible to use component filter to exclude cases, but I do not select this way because I can not manage component filters spreaded to everywhere in the analysis sheet. Instead I will create boolean function to fullfill that condition and return 1 if true, and NULL if false.</p>
-<p>Regarding first condition, I will create formula <code>isActive</code> like below.</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">REMAP_INTS(ISNULL(VBAP.ABGRU),[0,NULL])
-</code></pre></div><p>I introduce <code>ISNULL</code> function that returns 1 if columns value is NULL otherwise returns 0. Then I introduce <code>REMAP_INTS</code> against return value of <code>ISNULL</code> function. Point is to replace 0 to NULL in this function, then finally I can get 1 if rejection reason is not set (active SO), and NULL if it is set (inactive).</p>
-<p>By the way <code>REMAP_INTS</code> is easier to read PQL than <code>CASE WHEN</code> statement. If I use same function by <code>CASE WHEN</code>, PQL is longer and redundant as below.</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">CASE 
-  WHEN ISNULL(VBAP.ABGRU) = 1 THEN 1 
-  WHEN ISNULL(VBAP.ABGRU) = 0 NULL 
-END 
-</code></pre></div><p>Let&rsquo;s go to second condtion named formula <code>isDelivered</code> as below, and <code>CASE WHEN</code> version too. Apparently first one is simpler.</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">REMAP_INTS(MATCH_ACTIVITIES(_CEL_O2C_ACTIVITIES.ACTIVITY_EN, NODE [&#39;Ship Goods&#39;]),[0,NULL])
-
-------
-
-CASE
-  WHEN MATCH_ACTIVITIES(_CEL_O2C_ACTIVITIES.ACTIVITY_EN, NODE [&#39;Ship Goods&#39;]) = 1 THEN 1
-  WHEN MATCH_ACTIVITIES(_CEL_O2C_ACTIVITIES.ACTIVITY_EN, NODE [&#39;Ship Goods&#39;]) = 0 THEN NULL
-END
-</code></pre></div><p>Regarding this formula I introduced <code>MATCH_ACTIVITIES</code> function that returns 1 if each case has activity &lsquo;Ship Goods&rsquo; otherwise returns 0. This function (and similar process functions) is calculated by each case, so it returns result by case key, like PU function against case table. See <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-05-15-understand-mechanism-of-pull-up-function/">Understand mechanism of Pull up function</a> for reference.</p>
-<p>Finally I would like to build up conditional net value of each case (named deliveredNetValue) by multiplying three terms. This function returns net value if following two functions return 1, otherwise return NULL.</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">VBAP.NETWR_CONVERTED  * KPI(isActive) * KPI(isDelivered)
-</code></pre></div><p>Using deliveredNetValue I can aggregate COUNT, SUM, AVG of this value as below screen.</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/130308160-d448caa9-7898-47ad-a5bd-69e180f6dd8f.png"><img src="https://user-images.githubusercontent.com/67397583/130308160-d448caa9-7898-47ad-a5bd-69e180f6dd8f.png" alt="image"></a></p>
-<p>For readability and maintenability perspective I believe conditinal function like above is best practice.</p>
+        <p>Counting rows of tables is frequently used so we are not aware about how to do it. But sometimes I got stuck to do it so I would like to deep dive this topic today.</p>
+<p>For today&rsquo;s demo case I use P2P data model and three tables, header <code>EKKO</code> (key columns are <code>MANDT</code>/<code>EBELN</code>), item <code>EKPO</code> (<code>MANDT</code>/<code>EBELN</code>/<code>EBELP</code>) and activity. Also I used sum of item Net value. Below screen is the result of today&rsquo;s demo.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/131204467-0fa76a98-929c-40a3-87e1-707c20613f04.png"><img src="https://user-images.githubusercontent.com/67397583/131204467-0fa76a98-929c-40a3-87e1-707c20613f04.png" alt="image"></a></p>
+<p>First test is using <code>COUNT</code> function in OLAP table. Counting result of <code>EKKO</code>/<code>EKPO</code> column is not good, but why ? Joining three tables affected to the result due to row duplication. In the end counting result of three tables are same, that is identical to count of Activity.</p>
+<p>Second test is using <code>COUNT_TABLE</code> funciton. In this case counting result of <code>EKKO</code>/<code>EKPO</code> column is good, even I joined three tables. I guess <code>COUNT_TABLE</code> delete duplicated record internally, so we are easy to use <code>COUNT_TABLE</code>. But last column that is sum of Net value is duplicated. Why ?</p>
+<p>Even <code>COUNT_TABLE</code> column is correctly working, but this OLAP table is actually used three tables. Compared with current result, I also created OLAP table without fourth column (<code>COUNT_TABLE</code> of Activity table). Result of Net value is correct in second case, so my guess is verified. Again, even using <code>COUNT_TABLE</code> target table is joined in PQL, so other columns are affected by counting table. You may read my previous post <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-06-12-calculate-multi-dimentional-kpis/">Calculate Multi Dimensional KPIs</a> for detail of row duplication.</p>
+<p>Third test is using <code>COUNT DISTINCT</code> function that calculates the number of distinct elements per group. So I concatenated table primary keys, <code>EKKO.MANDT||EKKO.EBELN</code> for header count, and <code>EKPO.MANDT||EKPO.EBELN||EKPO.EBELP</code> for item count. Counting result of three tables are good. Why ? Because I explicitly count distinct primary keys even rows of header and item tables are duplicated.</p>
+<p>Result of last column (Net value) is duplicated too, but it is predicted. Fourth column that is counting Activity column (<code>_CASE_KEY</code>) is affected to duplication of Net value. To prevent it, counting Activity without joining Activity table. To do so I can use Pull up function <code>SUM(PU_COUNT(EKPO,_CEL_P2P_ACTIVITIES_EN._CASE_KEY))</code> that is initially count rows of Activity table by each item, then sum up the result of each item.</p>
+<p>In the end either <code>COUNT_TABLE</code> or <code>COUNT DISTINCT</code> is possible to correctly count rows of tables, but especially for <code>COUNT_TABLE</code> please be careful that target table is internally joined and that may affect to result of other columns.</p>
 <p>Kaz</p>
 <hr>
-<p>This post&rsquo;s program can be <a href="../../examples/o2c_analysis_20210821.json">downloeded here</a> then push to your environment by content-cli.</p>
+<p>This post&rsquo;s program can be <a href="../../examples/p2p_analysis_20210828.json">downloeded here</a> then push to your environment by content-cli.</p>
 <hr>
 
 
-        
-          <div class="blog-tags">
-            
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/pql/">PQL</a>&nbsp;
-            
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/process-analytics/">Process Analytics</a>&nbsp;
-            
-          </div>
         
 
         
@@ -308,42 +284,42 @@ END
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-08-21-make-conditional-function-to-return-1-or-null%2f&amp;text=Make%20Conditional%20Function%20to%20return%201%20or%20NULL&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-08-28-count-rows-of-tables-in-various-way%2f&amp;text=Count%20rows%20of%20Tables%20in%20various%20way&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-08-21-make-conditional-function-to-return-1-or-null%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-08-28-count-rows-of-tables-in-various-way%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-08-21-make-conditional-function-to-return-1-or-null%2f&amp;title=Make%20Conditional%20Function%20to%20return%201%20or%20NULL" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-08-28-count-rows-of-tables-in-various-way%2f&amp;title=Count%20rows%20of%20Tables%20in%20various%20way" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-08-21-make-conditional-function-to-return-1-or-null%2f&amp;title=Make%20Conditional%20Function%20to%20return%201%20or%20NULL" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-08-28-count-rows-of-tables-in-various-way%2f&amp;title=Count%20rows%20of%20Tables%20in%20various%20way" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-08-21-make-conditional-function-to-return-1-or-null%2f&amp;title=Make%20Conditional%20Function%20to%20return%201%20or%20NULL" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-08-28-count-rows-of-tables-in-various-way%2f&amp;title=Count%20rows%20of%20Tables%20in%20various%20way" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-08-21-make-conditional-function-to-return-1-or-null%2f&amp;description=Make%20Conditional%20Function%20to%20return%201%20or%20NULL" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-08-28-count-rows-of-tables-in-various-way%2f&amp;description=Count%20rows%20of%20Tables%20in%20various%20way" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -357,25 +333,6 @@ END
 
         
           
-            
-          
-
-          
-                  <h4 class="see-also">See also</h4>
-                  <ul>
-                
-                
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-08-14-share-my-analysis-by-content-cli/">Share my Analysis by Content-CLI</a></li>
-                
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-08-07-create-matrix-of-throughput-time-by-pivot-table/">Create Matrix of Throughput Time by Pivot Table</a></li>
-                
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-07-31-create-additional-entry-to-button-dropdown/">Create Additional Entry to Button Dropdown</a></li>
-                
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-07-24-categorize-and-name-activity/">Categorize and Name Activity</a></li>
-                
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-07-10-utilize-n-m-relationship-between-activity-and-dimension-tables/">Utilize N-M relationship between Activity and Dimension Tables</a></li>
-                
-              </ul>
 
           
         
@@ -385,13 +342,9 @@ END
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-08-14-share-my-analysis-by-content-cli/" data-toggle="tooltip" data-placement="top" title="Share my Analysis by Content-CLI">&larr; Previous Post</a>
+              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-08-21-make-conditional-function-to-return-1-or-null/" data-toggle="tooltip" data-placement="top" title="Make Conditional Function to return 1 or NULL">&larr; Previous Post</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-08-28-count-rows-of-tables-in-various-way/" data-toggle="tooltip" data-placement="top" title="Count rows of Tables in various way">Next Post &rarr;</a>
-            </li>
           
         </ul>
       
