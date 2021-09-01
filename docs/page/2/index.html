@@ -433,7 +433,7 @@ In this post, for example I would like to calculate Average rework count after D
     &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;minutes
   
   
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;318&nbsp;words
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;337&nbsp;words
   
   
     
@@ -448,8 +448,7 @@ In this post, for example I would like to calculate Average rework count after D
     <div class="post-entry">
         
         As a first example of Pull up function, I will show you First Time Right (FTR) that means process without rework activities (link).
-To determine FTR, first I should determine rework activities, in this example I decided they are started from Change. PQL to judge such string is _CEL_P2P_ACTIVITIES_EN.ACTIVITY_EN LIKE 'Change %', using wildcard % after Change and use keyword LIKE for pattern matching.
-Next step is counting rework activities in each case (EKPO, Purchase Order item table in this example) by pull up function.
+To determine whether each case is FTR or not, first I should determine rework activities, then judge if each case has rework activities or not. In this example I determined that rework activity name is started from Change. PQL to find such a string pattern is Change %, using wildcard % after Change.
         <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-05-22-determine-first-time-right-by-pull-up-function/" class="post-read-more">[Read More]</a>
         
     </div>

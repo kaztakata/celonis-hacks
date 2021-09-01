@@ -9,8 +9,7 @@
 
   <title>Determine First Time Right by Pull up function - Celonis hacks</title>
   <meta name="description" content="As a first example of Pull up function, I will show you First Time Right (FTR) that means process without rework activities (link).
-To determine FTR, first I should determine rework activities, in this example I decided they are started from Change. PQL to judge such string is _CEL_P2P_ACTIVITIES_EN.ACTIVITY_EN LIKE &#39;Change %&#39;, using wildcard % after Change and use keyword LIKE for pattern matching.
-Next step is counting rework activities in each case (EKPO, Purchase Order item table in this example) by pull up function.">
+To determine whether each case is FTR or not, first I should determine rework activities, then judge if each case has rework activities or not. In this example I determined that rework activity name is started from Change. PQL to find such a string pattern is Change %, using wildcard % after Change.">
   <meta name="author" content="Kazuhiko Takata"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -59,9 +58,9 @@ Next step is counting rework activities in each case (EKPO, Purchase Order item 
     "name" : "Kazuhiko Takata"
   },
   "headline": "Determine First Time Right by Pull up function",
-  "description" : "As a first example of Pull up function, I will show you First Time Right (FTR) that means process without rework activities (link).\nTo determine FTR, first I should determine rework activities, in this example I decided they are started from Change. PQL to judge such string is _CEL_P2P_ACTIVITIES_EN.ACTIVITY_EN LIKE \x27Change %\x27, using wildcard % after Change and use keyword LIKE for pattern matching.\nNext step is counting rework activities in each case (EKPO, Purchase Order item table in this example) by pull up function.",
+  "description" : "As a first example of Pull up function, I will show you First Time Right (FTR) that means process without rework activities (link).\nTo determine whether each case is FTR or not, first I should determine rework activities, then judge if each case has rework activities or not. In this example I determined that rework activity name is started from Change. PQL to find such a string pattern is Change %, using wildcard % after Change.",
   "inLanguage" : "en",
-  "wordCount":  318 ,
+  "wordCount":  337 ,
   "datePublished" : "2021-05-22T16:31:16",
   "dateModified" : "2021-05-22T16:31:16",
   "image" : "https:\/\/kaztakata.github.io\/celonis-hacks",
@@ -82,15 +81,14 @@ Next step is counting rework activities in each case (EKPO, Purchase Order item 
 
 <meta property="og:title" content="Determine First Time Right by Pull up function" />
 <meta property="og:description" content="As a first example of Pull up function, I will show you First Time Right (FTR) that means process without rework activities (link).
-To determine FTR, first I should determine rework activities, in this example I decided they are started from Change. PQL to judge such string is _CEL_P2P_ACTIVITIES_EN.ACTIVITY_EN LIKE &#39;Change %&#39;, using wildcard % after Change and use keyword LIKE for pattern matching.
-Next step is counting rework activities in each case (EKPO, Purchase Order item table in this example) by pull up function.">
+To determine whether each case is FTR or not, first I should determine rework activities, then judge if each case has rework activities or not. In this example I determined that rework activity name is started from Change. PQL to find such a string pattern is Change %, using wildcard % after Change.">
 <meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2021-05-22-determine-first-time-right-by-pull-up-function/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Celonis hacks" />
 
   <meta name="twitter:title" content="Determine First Time Right by Pull up function" />
   <meta name="twitter:description" content="As a first example of Pull up function, I will show you First Time Right (FTR) that means process without rework activities (link).
-To determine FTR, first I should determine rework activities, in …">
+To determine whether each case is FTR or not, first I should …">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
@@ -260,7 +258,7 @@ if (!doNotTrack) {
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
         <p>As a first example of Pull up function, I will show you First Time Right (FTR) that means process without rework activities (<a href="https://dictionary.cambridge.org/dictionary/english/right-first-time">link</a>).</p>
-<p>To determine FTR, first I should determine rework activities, in this example I decided they are started from <code>Change</code>. PQL to judge such string is <code>_CEL_P2P_ACTIVITIES_EN.ACTIVITY_EN LIKE 'Change %'</code>, using wildcard <code>%</code> after <code>Change</code> and use keyword <code>LIKE</code> for pattern matching.</p>
+<p>To determine whether each case is FTR or not, first I should determine rework activities, then judge if each case has rework activities or not. In this example I determined that rework activity name is started from <code>Change</code>. PQL to find such a string pattern is <code>Change %</code>, using wildcard <code>%</code> after <code>Change</code>. Also use keyword <code>LIKE</code> with pattern string.</p>
 <p>Next step is counting rework activities in each case (<code>EKPO</code>, Purchase Order item table in this example) by pull up function. PQL of rework count is below.</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">PU_COUNT(
     EKPO,                                                 -- grouping key
