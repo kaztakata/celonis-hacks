@@ -9,8 +9,8 @@
 
   <title>Determine First Time Right by Pull up function - Celonis hacks</title>
   <meta name="description" content="As a first example of Pull up function, I will show you First Time Right (FTR) that means process without rework activities (link).
-To determine FTR, first I should determine rework activities, in this example I decided they are started from Change. PQL to judge such string is &quot;_CEL_P2P_ACTIVITIES_EN&quot;.&quot;ACTIVITY_EN&quot; LIKE &#39;Change %&#39;, using wildcard % after Change and use keyword LIKE for pattern matching.
-Next step is counting rework activities in each case (&quot;EKPO&quot;, Purchase Order item table in this example) by pull up function.">
+To determine FTR, first I should determine rework activities, in this example I decided they are started from Change. PQL to judge such string is _CEL_P2P_ACTIVITIES_EN.ACTIVITY_EN LIKE &#39;Change %&#39;, using wildcard % after Change and use keyword LIKE for pattern matching.
+Next step is counting rework activities in each case (EKPO, Purchase Order item table in this example) by pull up function.">
   <meta name="author" content="Kazuhiko Takata"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -59,7 +59,7 @@ Next step is counting rework activities in each case (&quot;EKPO&quot;, Purchase
     "name" : "Kazuhiko Takata"
   },
   "headline": "Determine First Time Right by Pull up function",
-  "description" : "As a first example of Pull up function, I will show you First Time Right (FTR) that means process without rework activities (link).\nTo determine FTR, first I should determine rework activities, in this example I decided they are started from Change. PQL to judge such string is \x26quot;_CEL_P2P_ACTIVITIES_EN\x26quot;.\x26quot;ACTIVITY_EN\x26quot; LIKE \x27Change %\x27, using wildcard % after Change and use keyword LIKE for pattern matching.\nNext step is counting rework activities in each case (\x26quot;EKPO\x26quot;, Purchase Order item table in this example) by pull up function.",
+  "description" : "As a first example of Pull up function, I will show you First Time Right (FTR) that means process without rework activities (link).\nTo determine FTR, first I should determine rework activities, in this example I decided they are started from Change. PQL to judge such string is _CEL_P2P_ACTIVITIES_EN.ACTIVITY_EN LIKE \x27Change %\x27, using wildcard % after Change and use keyword LIKE for pattern matching.\nNext step is counting rework activities in each case (EKPO, Purchase Order item table in this example) by pull up function.",
   "inLanguage" : "en",
   "wordCount":  318 ,
   "datePublished" : "2021-05-22T16:31:16",
@@ -82,8 +82,8 @@ Next step is counting rework activities in each case (&quot;EKPO&quot;, Purchase
 
 <meta property="og:title" content="Determine First Time Right by Pull up function" />
 <meta property="og:description" content="As a first example of Pull up function, I will show you First Time Right (FTR) that means process without rework activities (link).
-To determine FTR, first I should determine rework activities, in this example I decided they are started from Change. PQL to judge such string is &quot;_CEL_P2P_ACTIVITIES_EN&quot;.&quot;ACTIVITY_EN&quot; LIKE &#39;Change %&#39;, using wildcard % after Change and use keyword LIKE for pattern matching.
-Next step is counting rework activities in each case (&quot;EKPO&quot;, Purchase Order item table in this example) by pull up function.">
+To determine FTR, first I should determine rework activities, in this example I decided they are started from Change. PQL to judge such string is _CEL_P2P_ACTIVITIES_EN.ACTIVITY_EN LIKE &#39;Change %&#39;, using wildcard % after Change and use keyword LIKE for pattern matching.
+Next step is counting rework activities in each case (EKPO, Purchase Order item table in this example) by pull up function.">
 <meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2021-05-22-determine-first-time-right-by-pull-up-function/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Celonis hacks" />
@@ -260,22 +260,22 @@ if (!doNotTrack) {
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
         <p>As a first example of Pull up function, I will show you First Time Right (FTR) that means process without rework activities (<a href="https://dictionary.cambridge.org/dictionary/english/right-first-time">link</a>).</p>
-<p>To determine FTR, first I should determine rework activities, in this example I decided they are started from <code>Change</code>. PQL to judge such string is <code>&quot;_CEL_P2P_ACTIVITIES_EN&quot;.&quot;ACTIVITY_EN&quot; LIKE 'Change %'</code>, using wildcard <code>%</code> after <code>Change</code> and use keyword <code>LIKE</code> for pattern matching.</p>
-<p>Next step is counting rework activities in each case (<code>&quot;EKPO&quot;</code>, Purchase Order item table in this example) by pull up function. PQL of rework count is below.</p>
+<p>To determine FTR, first I should determine rework activities, in this example I decided they are started from <code>Change</code>. PQL to judge such string is <code>_CEL_P2P_ACTIVITIES_EN.ACTIVITY_EN LIKE 'Change %'</code>, using wildcard <code>%</code> after <code>Change</code> and use keyword <code>LIKE</code> for pattern matching.</p>
+<p>Next step is counting rework activities in each case (<code>EKPO</code>, Purchase Order item table in this example) by pull up function. PQL of rework count is below.</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">PU_COUNT(
-    &#34;EKPO&#34;,                                                 -- grouping key
-    &#34;_CEL_P2P_ACTIVITIES_EN&#34;.&#34;ACTIVITY_EN&#34;,                 -- column to be counted
-    &#34;_CEL_P2P_ACTIVITIES_EN&#34;.&#34;ACTIVITY_EN&#34; LIKE &#39;Change %&#39;  -- filter condition
+    EKPO,                                                 -- grouping key
+    _CEL_P2P_ACTIVITIES_EN.ACTIVITY_EN,                 -- column to be counted
+    _CEL_P2P_ACTIVITIES_EN.ACTIVITY_EN LIKE &#39;Change %&#39;  -- filter condition
 )
-</code></pre></div><p>As previous explanation of <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-05-15-understand-mechanism-of-pull-up-function/">Understand mechanism of Pull up function</a>, by first argument <code>&quot;EKPO&quot;</code>, Activity record is grouped by <code>&quot;EKPO&quot;</code> table key columns. Also by third argument Activity record is filtered by rework activities. In the end rework activities are counted in each case key.</p>
+</code></pre></div><p>As previous explanation of <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-05-15-understand-mechanism-of-pull-up-function/">Understand mechanism of Pull up function</a>, by first argument <code>EKPO</code>, Activity record is grouped by <code>EKPO</code> table key columns. Also by third argument Activity record is filtered by rework activities. In the end rework activities are counted in each case key.</p>
 <p>Below screenshot shows that <code>Change Price</code> and <code>Change Quantity</code> are recognized as rework activities, e.g. PO item <code>00001</code> has 2 rework record.</p>
 <p><a href="https://user-images.githubusercontent.com/67397583/119218995-090a1200-bb1e-11eb-9ad7-854206edffee.png"><img src="https://user-images.githubusercontent.com/67397583/119218995-090a1200-bb1e-11eb-9ad7-854206edffee.png" alt="image"></a></p>
 <p>Finally PQL to calculate FTR is determined as combination of <code>CASE</code> statement and previous rework activities count like below. In previous screenshot, PO item <code>00004</code> is FTR instead <code>00001</code> is not.</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">CASE 
     WHEN PU_COUNT(
-        &#34;EKPO&#34;,
-        &#34;_CEL_P2P_ACTIVITIES_EN&#34;.&#34;ACTIVITY_EN&#34;,
-        &#34;_CEL_P2P_ACTIVITIES_EN&#34;.&#34;ACTIVITY_EN&#34; LIKE &#39;Change %&#39;        
+        EKPO,
+        _CEL_P2P_ACTIVITIES_EN.ACTIVITY_EN,
+        _CEL_P2P_ACTIVITIES_EN.ACTIVITY_EN LIKE &#39;Change %&#39;        
     ) = 0 THEN 1.0      -- zero rework activity (= FTR)
     ELSE 0.0            -- non-zero rework activity
 END

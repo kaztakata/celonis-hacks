@@ -258,18 +258,18 @@ if (!doNotTrack) {
       <article role="main" class="blog-post">
         <p>Pull up aggregation function, called PU function, like <code>PU_COUNT</code>, <code>PU_SUM</code>, <code>PU_AVG</code>, <code>PU_MAX</code>, <code>PU_MIN</code> looks similar to Standard aggregation function like <code>COUNT</code>, <code>SUM</code>, <code>AVG</code>, <code>MAX</code>, <code>MIN</code>. In Celonis, it is important to understand that output of PU function is not KPI but dimension. You can see <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-05-01-understand-difference-between-dimension-and-kpi/">Understand Difference between Dimension and KPI</a>.</p>
 <p>If you know about SQL, you can imagine that PU function is similar to window function in SQL. As other functions, PU functions add dynamic column in grouping table. Output of PU function is representative column value in that group.</p>
-<p>Below screenshot is the example of <code>PU_MAX</code> function againt purchasing tables, Vendor <code>&quot;LFA1&quot;</code>, PO Document <code>&quot;EKKO&quot;</code>, PO item<code>&quot;EKPO&quot;</code>, also each PO item has Net Order Value <code>&quot;NETWR&quot;</code>. Column <code>Max Net Value by Doc</code> representing max value in PO Document has PQL <code>PU_MAX(&quot;EKKO&quot;,&quot;EKPO&quot;.&quot;NETWR&quot;)</code>.</p>
+<p>Below screenshot is the example of <code>PU_MAX</code> function againt purchasing tables, Vendor <code>LFA1</code>, PO Document <code>EKKO</code>, PO item<code>EKPO</code>, also each PO item has Net Order Value <code>NETWR</code>. Column <code>Max Net Value by Doc</code> representing max value in PO Document has PQL <code>PU_MAX(EKKO,EKPO.NETWR)</code>.</p>
 <p><a href="https://user-images.githubusercontent.com/67397583/118344725-c74ff900-b56a-11eb-9641-1de8a36ea4c6.png"><img src="https://user-images.githubusercontent.com/67397583/118344725-c74ff900-b56a-11eb-9641-1de8a36ea4c6.png" alt="image"></a></p>
 <p>Looking at screenshot, PO Document <code>0000005763</code> has max value <code>3,744.14</code> in item <code>00009</code>, then all other items in this PO also has representative max value <code>3,744.14</code>.</p>
 <p>When using <code>PU_MAX</code> function, 10 items are kept and add one more column representing max value. On the other hand, you can imagine when using standard <code>MAX</code> function, 10 items are aggregated to 1 record and show max value.</p>
-<p>In above PQL, by table name <code>&quot;EKKO&quot;</code> in first argument, PO item record is partitioned by join key between <code>&quot;EKKO&quot;</code> and <code>&quot;EKPO&quot;</code>. So that below three PQLs are equivalent (<code>DOMAIN_TABLE</code> function creates dynamic table of argument columns).</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">PU_MAX(&#34;EKKO&#34;,&#34;EKPO&#34;.&#34;NETWR&#34;) -- using table
-PU_MAX(DOMAIN_TABLE(&#34;EKKO&#34;.&#34;MANDT&#34;,&#34;EKKO&#34;.&#34;EBELN&#34;),&#34;EKPO&#34;.&#34;NETWR&#34;) -- using PO Doc columns
-PU_MAX(DOMAIN_TABLE(&#34;EKPO&#34;.&#34;MANDT&#34;,&#34;EKPO&#34;.&#34;EBELN&#34;),&#34;EKPO&#34;.&#34;NETWR&#34;) -- using PO item columns
-</code></pre></div><p>Back to screenshot above, column <code>Max Net Value by Vendor</code> has PQL <code>PU_MAX(&quot;LFA1&quot;,&quot;EKPO&quot;.&quot;NETWR&quot;)</code>. Vendor <code>0000002901</code> have 2 PO Document and 20 PO items, then max value <code>9,213.75</code> in the second PO is representing max value in this vendor.</p>
+<p>In above PQL, by table name <code>EKKO</code> in first argument, PO item record is partitioned by join key between <code>EKKO</code> and <code>EKPO</code>. So that below three PQLs are equivalent (<code>DOMAIN_TABLE</code> function creates dynamic table of argument columns).</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">PU_MAX(EKKO,EKPO.NETWR) -- using table
+PU_MAX(DOMAIN_TABLE(EKKO.MANDT,EKKO.EBELN),EKPO.NETWR) -- using PO Doc columns
+PU_MAX(DOMAIN_TABLE(EKPO.MANDT,EKPO.EBELN),EKPO.NETWR) -- using PO item columns
+</code></pre></div><p>Back to screenshot above, column <code>Max Net Value by Vendor</code> has PQL <code>PU_MAX(LFA1,EKPO.NETWR)</code>. Vendor <code>0000002901</code> have 2 PO Document and 20 PO items, then max value <code>9,213.75</code> in the second PO is representing max value in this vendor.</p>
 <p>Also grouping by any columns in above 3 tables is possible like below.</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">PU_MAX(DOMAIN_TABLE(&#34;EKKO&#34;.&#34;MANDT&#34;,&#34;EKKO&#34;.&#34;BUKRS&#34;),&#34;EKPO&#34;.&#34;NETWR&#34;) -- grouped by column in PO Document 
-PU_MAX(DOMAIN_TABLE(&#34;EKPO&#34;.&#34;MANDT&#34;,&#34;EKPO&#34;.&#34;MATNR&#34;),&#34;EKPO&#34;.&#34;NETWR&#34;) -- grouped by column in PO item.
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">PU_MAX(DOMAIN_TABLE(EKKO.MANDT,EKKO.BUKRS),EKPO.NETWR) -- grouped by column in PO Document 
+PU_MAX(DOMAIN_TABLE(EKPO.MANDT,EKPO.MATNR),EKPO.NETWR) -- grouped by column in PO item.
 </code></pre></div><p>In the next post, I will show you how to use output of PU function.</p>
 <p>Kaz</p>
 <hr>

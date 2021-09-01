@@ -271,7 +271,7 @@ if (!doNotTrack) {
 <p><a href="https://user-images.githubusercontent.com/67397583/117004211-c88a5600-ad20-11eb-8eea-6a4a3e199a69.png"><img src="https://user-images.githubusercontent.com/67397583/117004211-c88a5600-ad20-11eb-8eea-6a4a3e199a69.png" alt="image"></a></p>
 <p><a href="https://user-images.githubusercontent.com/67397583/117003857-59acfd00-ad20-11eb-9d61-88024275fee4.png"><img src="https://user-images.githubusercontent.com/67397583/117003857-59acfd00-ad20-11eb-9d61-88024275fee4.png" alt="image"></a></p>
 <h3 id="add-more-kpi-against-activity--connection">Add more KPI against activity / connection</h3>
-<p>If I want to add activity KPI, for example automation ratio judged by user type (B is automation and others are manual), I will determine activity KPI as <code>AVG ( CASE WHEN &quot;_CEL_AP_ACTIVITIES&quot;.&quot;USER_TYPE&quot; = 'B' THEN 1.0 ELSE 0.0 END )</code> in Process Explorer KPIs. In below screenshot, automation / manual activities are also calculated as KPI to compare with OLAP table result.</p>
+<p>If I want to add activity KPI, for example automation ratio judged by user type (B is automation and others are manual), I will determine activity KPI as <code>AVG ( CASE WHEN _CEL_AP_ACTIVITIES.USER_TYPE = 'B' THEN 1.0 ELSE 0.0 END )</code> in Process Explorer KPIs. In below screenshot, automation / manual activities are also calculated as KPI to compare with OLAP table result.</p>
 <p><a href="https://user-images.githubusercontent.com/67397583/117014050-62ef9700-ad2b-11eb-9f9b-c4950225739c.png"><img src="https://user-images.githubusercontent.com/67397583/117014050-62ef9700-ad2b-11eb-9f9b-c4950225739c.png" alt="image"></a></p>
 <p>When I look at <code>Approve Invoice</code> activity, automation activity count is <code>95085</code> instead manual activity is <code>207401</code>, so automation ratio is <code>95085 / ( 95085 + 207401 ) = 31.43%</code></p>
 <p><a href="https://user-images.githubusercontent.com/67397583/117090813-55222c00-ad94-11eb-9e05-19573a400340.png"><img src="https://user-images.githubusercontent.com/67397583/117090813-55222c00-ad94-11eb-9e05-19573a400340.png" alt="image"></a></p>
@@ -280,13 +280,13 @@ if (!doNotTrack) {
    CASE 
    WHEN DATEDIFF(
         dd,
-        SOURCE(&#34;_CEL_AP_ACTIVITIES&#34;.&#34;EVENTTIME&#34;),
-        TARGET(&#34;_CEL_AP_ACTIVITIES&#34;.&#34;EVENTTIME&#34;)
+        SOURCE(_CEL_AP_ACTIVITIES.EVENTTIME),
+        TARGET(_CEL_AP_ACTIVITIES.EVENTTIME)
     ) &lt; 1.0 THEN 1.0 
     ELSE 0.0 
     END
 )
-</code></pre></div><p>This PQL, especially <code>SOURCE(&quot;_CEL_AP_ACTIVITIES&quot;.&quot;EVENTTIME&quot;)</code> and <code>TARGET(&quot;_CEL_AP_ACTIVITIES&quot;.&quot;EVENTTIME&quot;)</code> combination, will implicitly create temporary table grouped by neighboring two activities, like below OLAP table (Temporary table can be joined with case table to add another dimensions).</p>
+</code></pre></div><p>This PQL, especially <code>SOURCE(_CEL_AP_ACTIVITIES.EVENTTIME)</code> and <code>TARGET(_CEL_AP_ACTIVITIES.EVENTTIME)</code> combination, will implicitly create temporary table grouped by neighboring two activities, like below OLAP table (Temporary table can be joined with case table to add another dimensions).</p>
 <p>For example, in both OLAP table and Process Explorer you can see same day ratio <code>3.41%</code> at connection between <code>Record Goods Receipt</code> and <code>Record Invoice Receipt</code>,</p>
 <p><a href="https://user-images.githubusercontent.com/67397583/117090514-7f271e80-ad93-11eb-816d-f26ff48c7bf0.png"><img src="https://user-images.githubusercontent.com/67397583/117090514-7f271e80-ad93-11eb-816d-f26ff48c7bf0.png" alt="image"></a></p>
 <p>Kaz</p>
