@@ -7,9 +7,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Categorize and Name Activity - Celonis hacks</title>
-  <meta name="description" content="In the previous post Transform Source System Tables to Minimize Data Model Tables, I recommended to convert some kind of source system tables to Activity. Today I focus on Activity and would like to share my way how to categorize and name Activity.
-First point is to split Activity name to two parts, more general part and detail part. For example, in SAP ECC or S4HANA Order to Cash process, general Activity name is Create Sales Order when data committed in VA01 transaction.">
+  <title>Convert count unit of KPI by COUNT DISTINCT - Celonis hacks</title>
+  <meta name="description" content="Last week I was asked to convert count unit of some KPI (that returns 1 or 0) from delivery item to delivery document (convert if all items in the document are 1 then document KPI is 1, else 0). In this case delivery document and item columns are stored at Activity table like this post&rsquo;s third topic. I already used DOMAIN_TABLE to group activity record by delivery item then calculate KPI.">
   <meta name="author" content="Kazuhiko Takata"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -45,8 +44,8 @@ First point is to split Activity name to two parts, more general part and detail
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-07-24-categorize-and-name-activity\/",
-          "name": "Categorize and name activity"
+          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-09-04-convert-count-unit-of-kpi-by-count-distinct\/",
+          "name": "Convert count unit of k p i by c o u n t d i s t i n c t"
         }
     }]
 }
@@ -57,15 +56,15 @@ First point is to split Activity name to two parts, more general part and detail
   "author": {
     "name" : "Kazuhiko Takata"
   },
-  "headline": "Categorize and Name Activity",
-  "description" : "In the previous post Transform Source System Tables to Minimize Data Model Tables, I recommended to convert some kind of source system tables to Activity. Today I focus on Activity and would like to share my way how to categorize and name Activity.\nFirst point is to split Activity name to two parts, more general part and detail part. For example, in SAP ECC or S4HANA Order to Cash process, general Activity name is Create Sales Order when data committed in VA01 transaction.",
+  "headline": "Convert count unit of KPI by COUNT DISTINCT",
+  "description" : "Last week I was asked to convert count unit of some KPI (that returns 1 or 0) from delivery item to delivery document (convert if all items in the document are 1 then document KPI is 1, else 0). In this case delivery document and item columns are stored at Activity table like this post\x26rsquo;s third topic. I already used DOMAIN_TABLE to group activity record by delivery item then calculate KPI.",
   "inLanguage" : "en",
-  "wordCount":  471 ,
-  "datePublished" : "2021-07-24T10:47:12",
-  "dateModified" : "2021-07-24T10:47:12",
+  "wordCount":  430 ,
+  "datePublished" : "2021-09-04T09:06:11",
+  "dateModified" : "2021-09-04T09:06:11",
   "image" : "https:\/\/kaztakata.github.io\/celonis-hacks",
-  "keywords" : [ "Data Model, Event Collection, Transformation, PQL, Process Analytics, Pull Up Function" ],
-  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-07-24-categorize-and-name-activity\/",
+  "keywords" : [ "PQL, Process Analytics, Pull Up Function" ],
+  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-09-04-convert-count-unit-of-kpi-by-count-distinct\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/kaztakata.github.io\/celonis-hacks",
@@ -79,15 +78,14 @@ First point is to split Activity name to two parts, more general part and detail
 }
 </script>
 
-<meta property="og:title" content="Categorize and Name Activity" />
-<meta property="og:description" content="In the previous post Transform Source System Tables to Minimize Data Model Tables, I recommended to convert some kind of source system tables to Activity. Today I focus on Activity and would like to share my way how to categorize and name Activity.
-First point is to split Activity name to two parts, more general part and detail part. For example, in SAP ECC or S4HANA Order to Cash process, general Activity name is Create Sales Order when data committed in VA01 transaction.">
-<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2021-07-24-categorize-and-name-activity/" />
+<meta property="og:title" content="Convert count unit of KPI by COUNT DISTINCT" />
+<meta property="og:description" content="Last week I was asked to convert count unit of some KPI (that returns 1 or 0) from delivery item to delivery document (convert if all items in the document are 1 then document KPI is 1, else 0). In this case delivery document and item columns are stored at Activity table like this post&rsquo;s third topic. I already used DOMAIN_TABLE to group activity record by delivery item then calculate KPI.">
+<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2021-09-04-convert-count-unit-of-kpi-by-count-distinct/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Celonis hacks" />
 
-  <meta name="twitter:title" content="Categorize and Name Activity" />
-  <meta name="twitter:description" content="In the previous post Transform Source System Tables to Minimize Data Model Tables, I recommended to convert some kind of source system tables to Activity. Today I focus on Activity and would like to …">
+  <meta name="twitter:title" content="Convert count unit of KPI by COUNT DISTINCT" />
+  <meta name="twitter:description" content="Last week I was asked to convert count unit of some KPI (that returns 1 or 0) from delivery item to delivery document (convert if all items in the document are 1 then document KPI is 1, else 0). In …">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
@@ -236,7 +234,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="posts-heading">
               
-                <h1>Categorize and Name Activity</h1>
+                <h1>Convert count unit of KPI by COUNT DISTINCT</h1>
               
               
                 <hr class="small">
@@ -256,51 +254,28 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>In the previous post <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-07-17-transform-source-system-tables-to-minimize-data-model-tables/">Transform Source System Tables to Minimize Data Model Tables</a>, I recommended to convert some kind of source system tables to Activity. Today I focus on Activity and would like to share my way how to categorize and name Activity.</p>
-<p>First point is to split Activity name to two parts, more general part and detail part. For example, in SAP ECC or S4HANA Order to Cash process, general Activity name is <code>Create Sales Order</code> when data committed in VA01 transaction. On the other hand detail Activity name is from sales document type (<code>Standard sales order</code>, <code>Cash sale</code> etc.).  General Activity name is used as default Activity name in process mining, more system perspective analysis purpose. Detail Activity name is used as optional analysis or busines perspective analysis.</p>
-<p>Detail Activity name can be used in Process Explorer (and Variant Explorer) in Custom dimension setting (refer to <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-05-08-customize-process-explorer/">Customize Process Explorer</a>). In my case <code>_CEL_O2C_ACTIVITIES.ACTIVITY_EN || ' : ' || COALESCE(_CEL_O2C_ACTIVITIES.ACTIVITY_DETAIL,'')</code> to concatenate General and Detail parts (consider converting <code>NULL</code> to zero byte string to prevent disappering General part).</p>
-<p>Second point is to use verb as Activity when it is direct user action to source system, instead use noun when it is just milestone to compare with some user action. One set of example is <code>Create Goods Issue Document</code> and <code>Planned Goods Issue Date</code>. For further programming purpose, norn Activity does not fill user name column to distinguish it is not direct user action. I do not want to count it for analysing automation Activity, rework Activity and throughuput between Activities, so I used <code>_CEL_O2C_ACTIVITIES.USER_NAME IS NOT NULL</code> to exclude norn Activity.</p>
-<p>Also you can exclude norn activity in Process Explorer by below PQL.</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">CASE 
-    WHEN _CEL_O2C_ACTIVITIES.USER_NAME IS NOT NULL THEN _CEL_O2C_ACTIVITIES.ACTIVITY_EN
-    ELSE NULl
-END
-</code></pre></div><p>After I found I can hide norn Activities as I like, I create new Activities without hesitation. Now I used hundred of Activities for multiple purposes. For example, create <code>Planned Goods Issue Date</code> for on time Delivery purpuse.</p>
-<p>Third point is to fill additional case key columns to Activity table. In case of on time Delivery analysis, I need to consider multiple (partial) delivery scenario against one sales order. I filled delivery number to delivery relevant Activity record to distinguish each record is first delivery, second delivery etc.</p>
-<p>After filling delivery number <code>VBELN_VL</code> and delivery item number <code>POSNR_VL</code>, I can use Pull Up Function to calculate each delivery is on time like below PQL. <code>DOMAIN_TABLE</code> is the way to group by delivery even activity main case key is sales order.</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">DATEDIFF(
-    dd,
-    PU_FIRST(
-        DOMAIN_TABLE(
-            _CEL_O2C_ACTIVITIES._CASE_KEY,
-            _CEL_O2C_ACTIVITIES.VBELN_VL,
-            _CEL_O2C_ACTIVITIES.POSNR_VL
-        ),
-        _CEL_O2C_ACTIVITIES.EVENTTIME,
-        _CEL_O2C_ACTIVITIES.ACTIVITY_EN = &#39;Create Goods Issue Document&#39;
-    ),
-    PU_FIRST(
-        DOMAIN_TABLE(
-            _CEL_O2C_ACTIVITIES._CASE_KEY,
-            _CEL_O2C_ACTIVITIES.VBELN_VL,
-            _CEL_O2C_ACTIVITIES.POSNR_VL
-        ),
-        _CEL_O2C_ACTIVITIES.EVENTTIME,
-        _CEL_O2C_ACTIVITIES.ACTIVITY_EN = &#39;Planned Goods Issue Date&#39;
-    )
-)
-</code></pre></div><p>Using above three points, I believe I can maximize process analysis with minimum dataset.</p>
+        <p>Last week I was asked to convert count unit of some KPI (that returns 1 or 0) from delivery item to delivery document (convert if all items in the document are 1 then document KPI is 1, else 0). In this case delivery document and item columns are stored at Activity table like <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-07-24-categorize-and-name-activity/">this post&rsquo;s third topic</a>. I already used <code>DOMAIN_TABLE</code> to group activity record by delivery item then calculate KPI.</p>
+<p>First I tried to group above KPI by <code>DOMAIN_TABLE</code> of delivery document but it failed. Error message said <code>DOMAIN_TABLE</code> of delivery item for KPI is connected with Activity table with 1-N relationship, and newly created <code>DOMAIN_TABLE</code> is also connected with Activity table with 1-M relationship. So two domain tables are N-M relationship that can not be used at once.</p>
+<p>Today&rsquo;s post is how to solve this issue by <code>COUNT DISTINCT</code> I explained last week (<a href="https://kaztakata.github.io/celonis-hacks/posts/2021-08-28-count-rows-of-tables-in-various-way/">Count rows of Tables in various way</a>). I cannot find exactly same dataset as my issue so I used P2P data model for explanation.</p>
+<p>At first I would like to show you the analysis that count document level KPI with item level KPI.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/132077281-5eaaf877-27b4-4900-a3b0-549add6c2548.png"><img src="https://user-images.githubusercontent.com/67397583/132077281-5eaaf877-27b4-4900-a3b0-549add6c2548.png" alt="image"></a></p>
+<p>Item level KPI (formula <code>withinThreshold</code>) is whether throughput time between Activity &lsquo;Book Invoice&rsquo; and &lsquo;Scan Invoice&rsquo; is within 14 days then 1 else 0. Also, to simulate issues I met above, I used <code>PU_FIRST( DOMAIN_TABLE( _CEL_P2P_ACTIVITIES_EN._CASE_KEY), _CEL_P2P_ACTIVITIES_EN._CASE_KEY)</code> as Purchase item.</p>
+<p>Next I created Purchase document <code>PU_FIRST( DOMAIN_TABLE( _CEL_P2P_ACTIVITIES_EN._CASE_KEY), LEFT(_CEL_P2P_ACTIVITIES_EN._CASE_KEY,13))</code> that removes item number part from case key.</p>
+<p>Then I prepared two types of value conversion of item level KPI, false (<code>withinThresholdFalse</code>)and all (<code>withinThresholdAll</code>). False is converting 1 to NULL and retunr  only false (<code>REMAP_INTS(KPI(withinThreshold),[1,NULL])</code>
+). All is converting 1 to 0 then show both true and false (<code>REMAP_INTS(KPI(withinThreshold),[1,0])</code>).</p>
+<p>Finally I created formula to sum up document level KPI by <code>COUNT DISTINCT</code> as below.</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">COUNT(DISTINCT KPI(purchaseDocument) || KPI(withinThresholdAll)) - 
+COUNT(DISTINCT KPI(purchaseDocument) || KPI(withinThresholdFalse))
+</code></pre></div><p>What&rsquo;s happend ? Concatenating purchase document and all flag 0 can create string the has same unique number as purchase document. Concatenating purchase docuemnt and false flag can also create unique number if item level KPI is false (0), but retun NULL value if true (1). If all items are true, concatenating with false flag is all NULL, so this purchase document is not appeared. In the end, counting distinct purchase document minus counting distinct false purchase document means counting distinct true purchase document.</p>
+<p>Doing this I can convert item level KPI to document level KPI even I used <code>DOMAIN_TABLE</code> for creating item level record.</p>
 <p>Kaz</p>
+<hr>
+<p>This post&rsquo;s program can be <a href="../../examples/p2p_analysis_20210904.json">downloeded here</a> then push to your environment by content-cli.</p>
+<hr>
 
 
         
           <div class="blog-tags">
-            
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/data-model/">Data Model</a>&nbsp;
-            
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/event-collection/">Event Collection</a>&nbsp;
-            
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/transformation/">Transformation</a>&nbsp;
             
               <a href="https://kaztakata.github.io/celonis-hacks/tags/pql/">PQL</a>&nbsp;
             
@@ -321,42 +296,42 @@ END
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-07-24-categorize-and-name-activity%2f&amp;text=Categorize%20and%20Name%20Activity&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-09-04-convert-count-unit-of-kpi-by-count-distinct%2f&amp;text=Convert%20count%20unit%20of%20KPI%20by%20COUNT%20DISTINCT&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-07-24-categorize-and-name-activity%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-09-04-convert-count-unit-of-kpi-by-count-distinct%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-07-24-categorize-and-name-activity%2f&amp;title=Categorize%20and%20Name%20Activity" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-09-04-convert-count-unit-of-kpi-by-count-distinct%2f&amp;title=Convert%20count%20unit%20of%20KPI%20by%20COUNT%20DISTINCT" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-07-24-categorize-and-name-activity%2f&amp;title=Categorize%20and%20Name%20Activity" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-09-04-convert-count-unit-of-kpi-by-count-distinct%2f&amp;title=Convert%20count%20unit%20of%20KPI%20by%20COUNT%20DISTINCT" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-07-24-categorize-and-name-activity%2f&amp;title=Categorize%20and%20Name%20Activity" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-09-04-convert-count-unit-of-kpi-by-count-distinct%2f&amp;title=Convert%20count%20unit%20of%20KPI%20by%20COUNT%20DISTINCT" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-07-24-categorize-and-name-activity%2f&amp;description=Categorize%20and%20Name%20Activity" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-09-04-convert-count-unit-of-kpi-by-count-distinct%2f&amp;description=Convert%20count%20unit%20of%20KPI%20by%20COUNT%20DISTINCT" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -378,8 +353,6 @@ END
                   <ul>
                 
                 
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-09-04-convert-count-unit-of-kpi-by-count-distinct/">Convert count unit of KPI by COUNT DISTINCT</a></li>
-                
                     <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-08-28-count-rows-of-tables-in-various-way/">Count rows of Tables in various way</a></li>
                 
                     <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-08-21-make-conditional-function-to-return-1-or-null/">Make Conditional Function to return 1 or NULL</a></li>
@@ -387,6 +360,8 @@ END
                     <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-08-14-share-my-analysis-by-content-cli/">Share my Analysis by Content-CLI</a></li>
                 
                     <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-08-07-create-matrix-of-throughput-time-by-pivot-table/">Create Matrix of Throughput Time by Pivot Table</a></li>
+                
+                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-07-31-create-additional-entry-to-button-dropdown/">Create Additional Entry to Button Dropdown</a></li>
                 
               </ul>
 
@@ -398,13 +373,9 @@ END
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-07-17-transform-source-system-tables-to-minimize-data-model-tables/" data-toggle="tooltip" data-placement="top" title="Transform Source System Tables to Minimize Data Model Tables">&larr; Previous Post</a>
+              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-08-28-count-rows-of-tables-in-various-way/" data-toggle="tooltip" data-placement="top" title="Count rows of Tables in various way">&larr; Previous Post</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-07-31-create-additional-entry-to-button-dropdown/" data-toggle="tooltip" data-placement="top" title="Create Additional Entry to Button Dropdown">Next Post &rarr;</a>
-            </li>
           
         </ul>
       

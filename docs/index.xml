@@ -5,10 +5,19 @@
     <link>https://kaztakata.github.io/celonis-hacks/</link>
     <description>Recent content on Celonis hacks</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 28 Aug 2021 11:11:45 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 04 Sep 2021 09:06:11 +0900</lastBuildDate>
     
 	<atom:link href="https://kaztakata.github.io/celonis-hacks/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Convert count unit of KPI by COUNT DISTINCT</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2021-09-04-convert-count-unit-of-kpi-by-count-distinct/</link>
+      <pubDate>Sat, 04 Sep 2021 09:06:11 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2021-09-04-convert-count-unit-of-kpi-by-count-distinct/</guid>
+      <description>Last week I was asked to convert count unit of some KPI (that returns 1 or 0) from delivery item to delivery document (convert if all items in the document are 1 then document KPI is 1, else 0). In this case delivery document and item columns are stored at Activity table like this post&amp;rsquo;s third topic. I already used DOMAIN_TABLE to group activity record by delivery item then calculate KPI.</description>
+    </item>
     
     <item>
       <title>Count rows of Tables in various way</title>
