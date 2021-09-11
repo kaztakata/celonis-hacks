@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Process Explorer on Celonis hacks</title>
+    <link>https://kaztakata.github.io/celonis-hacks/tags/process-explorer/</link>
+    <description>Recent content in Process Explorer on Celonis hacks</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 31 Jul 2021 10:00:39 +0900</lastBuildDate>
+    
+	<atom:link href="https://kaztakata.github.io/celonis-hacks/tags/process-explorer/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Create Additional Entry to Button Dropdown</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2021-07-31-create-additional-entry-to-button-dropdown/</link>
+      <pubDate>Sat, 31 Jul 2021 10:00:39 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2021-07-31-create-additional-entry-to-button-dropdown/</guid>
+      <description>I looked at the Celopeers post that had issue when variable input is blank (NULL) then PQL using this variable had error. Work around solution is to use &amp;lt;% if(Target != &amp;quot;&amp;quot;) { %&amp;gt; FILTER &amp;quot;table&amp;quot;.&amp;quot;column&amp;quot; IN (&amp;lt;%=Target%&amp;gt;); &amp;lt;% } %&amp;gt; (Target is variable) then skip FILTER execution if variable is null.
+I already used this work around but I also felt troublesome in two points. First is this is not officially documented so myself need to instruct to my colleagues.</description>
+    </item>
+    
+    <item>
+      <title>Categorize and Name Activity</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2021-07-24-categorize-and-name-activity/</link>
+      <pubDate>Sat, 24 Jul 2021 10:47:12 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2021-07-24-categorize-and-name-activity/</guid>
+      <description>In the previous post Transform Source System Tables to Minimize Data Model Tables, I recommended to convert some kind of source system tables to Activity. Today I focus on Activity and would like to share my way how to categorize and name Activity.
+First point is to split Activity name to two parts, more general part and detail part. For example, in SAP ECC or S4HANA Order to Cash process, general Activity name is Create Sales Order when data committed in VA01 transaction.</description>
+    </item>
+    
+    <item>
+      <title>Customize Process Explorer</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2021-05-08-customize-process-explorer/</link>
+      <pubDate>Sat, 08 May 2021 09:15:03 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2021-05-08-customize-process-explorer/</guid>
+      <description>Process explorer in Celonis Analysis is default application to analyze process. First you can see main process pattern (called happy path), count of each step (activity) and count of path between two steps (connection). You can show minor activities and connections, or switch throughput time instead of count of connection.
+I think there are two ways to customize Process explorer.
+ Change activity name Add more KPI against activity / connection  Change activity name If you want to add detail information to each activity, you can change activity dimension.</description>
+    </item>
+    
+  </channel>
+</rss>

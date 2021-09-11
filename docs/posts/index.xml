@@ -5,10 +5,19 @@
     <link>https://kaztakata.github.io/celonis-hacks/posts/</link>
     <description>Recent content in Posts on Celonis hacks</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 04 Sep 2021 09:06:11 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 11 Sep 2021 13:16:26 +0900</lastBuildDate>
     
 	<atom:link href="https://kaztakata.github.io/celonis-hacks/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Use BIND function to enable multiple DOMAIN_TABLE</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2021-09-11-use-bind-function-to-enable-multiple-domain-table/</link>
+      <pubDate>Sat, 11 Sep 2021 13:16:26 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2021-09-11-use-bind-function-to-enable-multiple-domain-table/</guid>
+      <description>Variant Explorer is the major Celonis Analytical view to find process pattern by GUI operation. Of course I used it many times and enjoyed it at first, and found that I had a lot of effort to filter on and off to observe process. Today I would like to create collective list of variant to see major process KPI&amp;rsquo;s. Also I would like to show you BIND function that is difficult to understand but quite convenient if you know it.</description>
+    </item>
     
     <item>
       <title>Convert count unit of KPI by COUNT DISTINCT</title>

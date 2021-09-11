@@ -7,8 +7,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Utilize N-M relationship between Activity and Dimension Tables - Celonis hacks</title>
-  <meta name="description" content="When you determine data model structure by yourself, basically you should follow snowflake schema writtern in Understand how Tables are joined in Data Model. From case table perspective, n side is case table, and 1 side is another dimension table. On the other hand, activity table is the first case that 1 side is case table. If you determine second dimension table that 1 side is case table, please note that you can not use both activity and that dimension table at once because those tables are N-M relationship via case table.">
+  <title>Use BIND function to enable multiple DOMAIN_TABLE - Celonis hacks</title>
+  <meta name="description" content="Variant Explorer is the major Celonis Analytical view to find process pattern by GUI operation. Of course I used it many times and enjoyed it at first, and found that I had a lot of effort to filter on and off to observe process. Today I would like to create collective list of variant to see major process KPI&rsquo;s. Also I would like to show you BIND function that is difficult to understand but quite convenient if you know it.">
   <meta name="author" content="Kazuhiko Takata"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -44,8 +44,8 @@
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-07-10-utilize-n-m-relationship-between-activity-and-dimension-tables\/",
-          "name": "Utilize n m relationship between activity and dimension tables"
+          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-09-11-use-bind-function-to-enable-multiple-domain-table\/",
+          "name": "Use b i n d function to enable multiple d o m a i n t a b l e"
         }
     }]
 }
@@ -56,15 +56,15 @@
   "author": {
     "name" : "Kazuhiko Takata"
   },
-  "headline": "Utilize N-M relationship between Activity and Dimension Tables",
-  "description" : "When you determine data model structure by yourself, basically you should follow snowflake schema writtern in Understand how Tables are joined in Data Model. From case table perspective, n side is case table, and 1 side is another dimension table. On the other hand, activity table is the first case that 1 side is case table. If you determine second dimension table that 1 side is case table, please note that you can not use both activity and that dimension table at once because those tables are N-M relationship via case table.",
+  "headline": "Use BIND function to enable multiple DOMAIN_TABLE",
+  "description" : "Variant Explorer is the major Celonis Analytical view to find process pattern by GUI operation. Of course I used it many times and enjoyed it at first, and found that I had a lot of effort to filter on and off to observe process. Today I would like to create collective list of variant to see major process KPI\x26rsquo;s. Also I would like to show you BIND function that is difficult to understand but quite convenient if you know it.",
   "inLanguage" : "en",
-  "wordCount":  313 ,
-  "datePublished" : "2021-07-10T10:08:50",
-  "dateModified" : "2021-07-10T10:08:50",
+  "wordCount":  520 ,
+  "datePublished" : "2021-09-11T13:16:26",
+  "dateModified" : "2021-09-11T13:16:26",
   "image" : "https:\/\/kaztakata.github.io\/celonis-hacks",
-  "keywords" : [ "PQL, Process Analytics, Data Model" ],
-  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-07-10-utilize-n-m-relationship-between-activity-and-dimension-tables\/",
+  "keywords" : [ "PQL, Process Analytics, Pull Up Function, Variant Explorer" ],
+  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-09-11-use-bind-function-to-enable-multiple-domain-table\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/kaztakata.github.io\/celonis-hacks",
@@ -78,14 +78,14 @@
 }
 </script>
 
-<meta property="og:title" content="Utilize N-M relationship between Activity and Dimension Tables" />
-<meta property="og:description" content="When you determine data model structure by yourself, basically you should follow snowflake schema writtern in Understand how Tables are joined in Data Model. From case table perspective, n side is case table, and 1 side is another dimension table. On the other hand, activity table is the first case that 1 side is case table. If you determine second dimension table that 1 side is case table, please note that you can not use both activity and that dimension table at once because those tables are N-M relationship via case table.">
-<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2021-07-10-utilize-n-m-relationship-between-activity-and-dimension-tables/" />
+<meta property="og:title" content="Use BIND function to enable multiple DOMAIN_TABLE" />
+<meta property="og:description" content="Variant Explorer is the major Celonis Analytical view to find process pattern by GUI operation. Of course I used it many times and enjoyed it at first, and found that I had a lot of effort to filter on and off to observe process. Today I would like to create collective list of variant to see major process KPI&rsquo;s. Also I would like to show you BIND function that is difficult to understand but quite convenient if you know it.">
+<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2021-09-11-use-bind-function-to-enable-multiple-domain-table/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Celonis hacks" />
 
-  <meta name="twitter:title" content="Utilize N-M relationship between Activity and Dimension Tables" />
-  <meta name="twitter:description" content="When you determine data model structure by yourself, basically you should follow snowflake schema writtern in Understand how Tables are joined in Data Model. From case table perspective, n side is …">
+  <meta name="twitter:title" content="Use BIND function to enable multiple DOMAIN_TABLE" />
+  <meta name="twitter:description" content="Variant Explorer is the major Celonis Analytical view to find process pattern by GUI operation. Of course I used it many times and enjoyed it at first, and found that I had a lot of effort to filter …">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
@@ -234,7 +234,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="posts-heading">
               
-                <h1>Utilize N-M relationship between Activity and Dimension Tables</h1>
+                <h1>Use BIND function to enable multiple DOMAIN_TABLE</h1>
               
               
                 <hr class="small">
@@ -254,27 +254,71 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>When you determine data model structure by yourself, basically you should follow snowflake schema writtern in <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-06-19-understand-how-tables-are-joined-in-data-model/">Understand how Tables are joined in Data Model</a>. From case table perspective, n side is case table, and 1 side is another dimension table. On the other hand, activity table is the first case that 1 side is case table.
-If you determine second dimension table that 1 side is case table, please note that you can not use both activity and that dimension table at once because those tables are N-M relationship via case table. But you can utilize these tables reducing (filtering) rows same as that of case table by Pull Up function.</p>
-<p>For example, I would like to sum up net value of sales order that is not <code>within a day</code> between Ship Goods and Send Invoice that is discussed in <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-06-26-handle-null-efficiently-in-aggregation-function/">Handle NULL efficiently in Aggregation Function</a>. Also I would like to show net value of selected currency by dropdown button.</p>
-<p>To do so, first I added new table <code>VBAP_NET_VALUE</code> to data model, that table have <code>_CASE_KEY</code> (sales order item), <code>CURRENCY</code> and <code>NET_VALUE</code> columns. Case table <code>VBAP</code> and <code>VBAP_NET_VALUE</code> are joind by <code>_CASE_KEY</code> with 1-N relationship. Below is the data model setting.</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/125154438-01b5cb00-e195-11eb-8e9a-8396cb259043.png"><img src="https://user-images.githubusercontent.com/67397583/125154438-01b5cb00-e195-11eb-8e9a-8396cb259043.png" alt="image"></a></p>
-<p>Then I create formula to filter <code>VBAP_NET_VALUE</code> table by <code>CURRENCY</code> column like below.</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">--net_value_by_currency
-PU_SUM(
-    VBAP,
-    VBAP_NET_VALUE.NET_VALUE,
-    VBAP_NET_VALUE.CURRENCY = {p1}
+        <p>Variant Explorer is the major Celonis Analytical view to find process pattern by GUI operation. Of course I used it many times and enjoyed it at first, and found that I had a lot of effort to filter on and off to observe process. Today I would like to create collective list of variant to see major process KPI&rsquo;s. Also I would like to show you <code>BIND</code> function that is difficult to understand but quite convenient if you know it.</p>
+<p>Today&rsquo;s output report image is below. My goal is to calculate case count of variant by vendor (<code>EKKO.LIFNR</code>) in P2P process. Also I would like to cacululate case coverage and ranking (index order) of variant by vendor as Variant Explorer. Finally I used it to find vendor list that does not use Purchase Requisition (starts from Purchase Order) in its major pattern (&gt; 20%).</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/132936310-2c1e9f17-d2ae-48d8-9044-57722c232e22.png"><img src="https://user-images.githubusercontent.com/67397583/132936310-2c1e9f17-d2ae-48d8-9044-57722c232e22.png" alt="image"></a></p>
+<p>First step is to determine two dimensions, vendor and variant. Later I need to create <code>DOMAIN_TABLE</code> from these two columns, so both columns should be derived from same table (this time it is <code>EKPO</code>). I need to introduce <code>BIND</code> for vendor column in header table <code>EKKO</code> to bind to item table <code>EKPO</code> as <code>BIND(EKPO,EKKO.LIFNR)</code> , then it looks like vendor columns is copied to <code>EKPO</code>. I determined two columns as formulas <code>vendorDomain</code> and <code>variantDomain</code> as below.</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">-- _vendor
+BIND(EKPO,EKKO.LIFNR)
+
+-- _variant
+VARIANT(_CEL_P2P_ACTIVITIES_EN.ACTIVITY_EN)
+
+-- vendorDomain
+PU_FIRST(
+  DOMAIN_TABLE(
+    KPI(_vendor),
+    KPI(_variant)
+  ),
+  KPI(_vendor)
 )
-</code></pre></div><p>Finally I created single KPI to calculate <code>net value more than a day</code> that sum up sales order net value that if filtered by <code>currency</code> from dropdown button.</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">SUM(
-    KPI(net_value_by_currency,VARIABLE(&lt;%=currency%&gt;)) * 
-    CASE WHEN KPI(within_a_day) = 1 THEN 0 ELSE 1 END   -- sum up net value only when within_a_day is false 
+
+-- variantDomain
+PU_FIRST(
+  DOMAIN_TABLE(
+    KPI(_vendor),
+    KPI(_variant)
+  ),
+  KPI(_variant)
 )
-</code></pre></div><p>Below video shows the behavior when switching currency from JPY to USD, then recalculate the net value.</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/125154254-13e33980-e194-11eb-9d37-a872b2b33b5d.gif"><img src="https://user-images.githubusercontent.com/67397583/125154254-13e33980-e194-11eb-9d37-a872b2b33b5d.gif" alt="2021-07-10-_-Process-Analytics-Google-Chrome-2021-07-10-15-30-02"></a></p>
-<p>Unlike this example, just mimicing source system&rsquo;s table structure to data model is not useful for Celonis data model I think.</p>
+</code></pre></div><p>From this I use above <code>DOMAIN_TABLE</code> with vendor and variant as baseline domain. Next step is to calculate case count for each domain, and it is simply count case key (formula <code>countCaseDomain</code>). Then I would like to count case by vendor, but it is not simple as previous column.</p>
+<p>To count case by vendor I need to use <code>DOMAIN_TABLE</code> of vendor. This is joined to <code>EKPO</code> table, not baseline domain. As discussed <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-09-04-convert-count-unit-of-kpi-by-count-distinct/">last week</a>, normally two <code>DOMAIN_TABLE</code>s are N-M relationship so it does not work. Today&rsquo;s breakthrough is to <code>BIND</code> case count by vendor to <code>EKPO</code> table, then used it from baseline domain (formula <code>countCaseVendor</code> as below).</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">-- countCaseDomain
+PU_COUNT(
+  DOMAIN_TABLE(
+    KPI(_vendor),
+    KPI(_variant)
+  ),
+  EKPO._CASE_KEY
+)
+
+-- countCaseVendor 
+PU_FIRST( -- 3. pick up EKPO first record by each baseline domain
+  DOMAIN_TABLE(
+    KPI(_vendor),
+    KPI(_variant)
+  ),
+  BIND( -- 2. bind case count by vendor to EKPO table
+    EKPO,
+    PU_COUNT( -- 1. case count by vendor
+      DOMAIN_TABLE(
+        KPI(_vendor)
+      ),
+      EKPO._CASE_KEY
+    )
+  )
+)
+</code></pre></div><p>Finally I created formula <code>caseCoverageVendor</code> as <code>KPI(countCaseDomain) / KPI(countCaseVendor)</code>, then using this I created <code>indexCoverageVendor</code> as below.</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">INDEX_ORDER(
+  KPI(caseCoverageVendor),
+  ORDER BY (KPI(caseCoverageVendor) DESC),
+  PARTITION BY (KPI(vendorDomain))
+)
+</code></pre></div><p>Everything works well, isn&rsquo;t it ? Actually this is not perfect. When I selected some other column filter (e.g. purchasing group), because all of above formula is using PU function that is not recaluculated by UI filter, so after filtering case count etc. are kept as it is. For the moment I do not have good answer to solve it, but adding condition term in PU function in some way may be work around.</p>
 <p>Kaz</p>
+<hr>
+<p>This post&rsquo;s program can be <a href="../../examples/p2p_analysis_20210911.json">downloeded here</a> then push to your environment by content-cli.</p>
+<hr>
 
 
         
@@ -284,7 +328,9 @@ PU_SUM(
             
               <a href="https://kaztakata.github.io/celonis-hacks/tags/process-analytics/">Process Analytics</a>&nbsp;
             
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/data-model/">Data Model</a>&nbsp;
+              <a href="https://kaztakata.github.io/celonis-hacks/tags/pull-up-function/">Pull Up Function</a>&nbsp;
+            
+              <a href="https://kaztakata.github.io/celonis-hacks/tags/variant-explorer/">Variant Explorer</a>&nbsp;
             
           </div>
         
@@ -299,42 +345,42 @@ PU_SUM(
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-07-10-utilize-n-m-relationship-between-activity-and-dimension-tables%2f&amp;text=Utilize%20N-M%20relationship%20between%20Activity%20and%20Dimension%20Tables&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-09-11-use-bind-function-to-enable-multiple-domain-table%2f&amp;text=Use%20BIND%20function%20to%20enable%20multiple%20DOMAIN_TABLE&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-07-10-utilize-n-m-relationship-between-activity-and-dimension-tables%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-09-11-use-bind-function-to-enable-multiple-domain-table%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-07-10-utilize-n-m-relationship-between-activity-and-dimension-tables%2f&amp;title=Utilize%20N-M%20relationship%20between%20Activity%20and%20Dimension%20Tables" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-09-11-use-bind-function-to-enable-multiple-domain-table%2f&amp;title=Use%20BIND%20function%20to%20enable%20multiple%20DOMAIN_TABLE" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-07-10-utilize-n-m-relationship-between-activity-and-dimension-tables%2f&amp;title=Utilize%20N-M%20relationship%20between%20Activity%20and%20Dimension%20Tables" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-09-11-use-bind-function-to-enable-multiple-domain-table%2f&amp;title=Use%20BIND%20function%20to%20enable%20multiple%20DOMAIN_TABLE" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-07-10-utilize-n-m-relationship-between-activity-and-dimension-tables%2f&amp;title=Utilize%20N-M%20relationship%20between%20Activity%20and%20Dimension%20Tables" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-09-11-use-bind-function-to-enable-multiple-domain-table%2f&amp;title=Use%20BIND%20function%20to%20enable%20multiple%20DOMAIN_TABLE" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-07-10-utilize-n-m-relationship-between-activity-and-dimension-tables%2f&amp;description=Utilize%20N-M%20relationship%20between%20Activity%20and%20Dimension%20Tables" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-09-11-use-bind-function-to-enable-multiple-domain-table%2f&amp;description=Use%20BIND%20function%20to%20enable%20multiple%20DOMAIN_TABLE" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -356,8 +402,6 @@ PU_SUM(
                   <ul>
                 
                 
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-09-11-use-bind-function-to-enable-multiple-domain-table/">Use BIND function to enable multiple DOMAIN_TABLE</a></li>
-                
                     <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-09-04-convert-count-unit-of-kpi-by-count-distinct/">Convert count unit of KPI by COUNT DISTINCT</a></li>
                 
                     <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-08-28-count-rows-of-tables-in-various-way/">Count rows of Tables in various way</a></li>
@@ -365,6 +409,8 @@ PU_SUM(
                     <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-08-21-make-conditional-function-to-return-1-or-null/">Make Conditional Function to return 1 or NULL</a></li>
                 
                     <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-08-14-share-my-analysis-by-content-cli/">Share my Analysis by Content-CLI</a></li>
+                
+                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-08-07-create-matrix-of-throughput-time-by-pivot-table/">Create Matrix of Throughput Time by Pivot Table</a></li>
                 
               </ul>
 
@@ -376,13 +422,9 @@ PU_SUM(
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-07-03-maintain-saved-formulas-effectively/" data-toggle="tooltip" data-placement="top" title="Maintain Saved Formulas effectively">&larr; Previous Post</a>
+              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-09-04-convert-count-unit-of-kpi-by-count-distinct/" data-toggle="tooltip" data-placement="top" title="Convert count unit of KPI by COUNT DISTINCT">&larr; Previous Post</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-07-17-transform-source-system-tables-to-minimize-data-model-tables/" data-toggle="tooltip" data-placement="top" title="Transform Source System Tables to Minimize Data Model Tables">Next Post &rarr;</a>
-            </li>
           
         </ul>
       

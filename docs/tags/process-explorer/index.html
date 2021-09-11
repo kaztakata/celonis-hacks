@@ -7,8 +7,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Overview of all pages with the tag #Transformation - Celonis hacks</title>
-  <meta name="description" content="Overview of all pages with the tag #Transformation, such as: Categorize and Name Activity">
+  <title>Overview of all pages with the tag #Process Explorer - Celonis hacks</title>
+  <meta name="description" content="Overview of all pages with the tag #Process Explorer, such as: Create Additional Entry to Button Dropdown">
   <meta name="author" content="Kazuhiko Takata"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -30,12 +30,12 @@
 }
 </script>
 
-<meta property="og:title" content="Transformation" />
-<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/tags/transformation/" />
+<meta property="og:title" content="Process Explorer" />
+<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/tags/process-explorer/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Celonis hacks" />
 
-  <meta name="twitter:title" content="Transformation" />
+  <meta name="twitter:title" content="Process Explorer" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
@@ -184,7 +184,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="tags-heading">
               
-                <h1>Transformation</h1>
+                <h1>Process Explorer</h1>
               
               
                 <hr class="small">
@@ -205,6 +205,58 @@ if (!doNotTrack) {
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         
         <div class="posts-list">
+          
+            <article class="post-preview">
+    <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-07-31-create-additional-entry-to-button-dropdown/">
+        <h2 class="post-title">Create Additional Entry to Button Dropdown</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on map[Count:July 31, 2021 Saturday]
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;minutes
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;587&nbsp;words
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kazuhiko Takata
+    
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        I looked at the Celopeers post that had issue when variable input is blank (NULL) then PQL using this variable had error. Work around solution is to use &lt;% if(Target != &quot;&quot;) { %&gt; FILTER &quot;table&quot;.&quot;column&quot; IN (&lt;%=Target%&gt;); &lt;% } %&gt; (Target is variable) then skip FILTER execution if variable is null.
+I already used this work around but I also felt troublesome in two points. First is this is not officially documented so myself need to instruct to my colleagues.
+        <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-07-31-create-additional-entry-to-button-dropdown/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+        <a href="https://kaztakata.github.io/celonis-hacks/tags/pql/">PQL</a>&nbsp;
+        
+        <a href="https://kaztakata.github.io/celonis-hacks/tags/process-analytics/">Process Analytics</a>&nbsp;
+        
+        <a href="https://kaztakata.github.io/celonis-hacks/tags/process-explorer/">Process Explorer</a>&nbsp;
+        
+    </div>
+    
+
+</article>
           
             <article class="post-preview">
     <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-07-24-categorize-and-name-activity/">
@@ -267,8 +319,8 @@ First point is to split Activity name to two parts, more general part and detail
 </article>
           
             <article class="post-preview">
-    <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-07-17-transform-source-system-tables-to-minimize-data-model-tables/">
-        <h2 class="post-title">Transform Source System Tables to Minimize Data Model Tables</h2>
+    <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-05-08-customize-process-explorer/">
+        <h2 class="post-title">Customize Process Explorer</h2>
         
         
         
@@ -278,13 +330,13 @@ First point is to split Activity name to two parts, more general part and detail
         <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;Posted on map[Count:July 17, 2021 Saturday]
+  <i class="fas fa-calendar"></i>&nbsp;Posted on map[Count:May 8, 2021 Saturday]
   
   
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;minutes
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;minutes
   
   
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;338&nbsp;words
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;471&nbsp;words
   
   
     
@@ -298,20 +350,21 @@ First point is to split Activity name to two parts, more general part and detail
     </p>
     <div class="post-entry">
         
-        In the last part of previous post Utilize N-M relationship between Activity and Dimension Tables, I said just mimicing source system&rsquo;s table structure to data model is not useful for Celonis data model. Also I feel loading time to data model is exponentially long when one more table is added. So minimizing data model table is good practice especially for real time analytics.
-In case of SAP Order to Cash (O2C) scenario, case table is sales order item (VBAP).
-        <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-07-17-transform-source-system-tables-to-minimize-data-model-tables/" class="post-read-more">[Read More]</a>
+        Process explorer in Celonis Analysis is default application to analyze process. First you can see main process pattern (called happy path), count of each step (activity) and count of path between two steps (connection). You can show minor activities and connections, or switch throughput time instead of count of connection.
+I think there are two ways to customize Process explorer.
+ Change activity name Add more KPI against activity / connection  Change activity name If you want to add detail information to each activity, you can change activity dimension.
+        <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-05-08-customize-process-explorer/" class="post-read-more">[Read More]</a>
         
     </div>
 
     
     <div class="blog-tags">
         
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/data-model/">Data Model</a>&nbsp;
+        <a href="https://kaztakata.github.io/celonis-hacks/tags/pql/">PQL</a>&nbsp;
         
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/event-collection/">Event Collection</a>&nbsp;
+        <a href="https://kaztakata.github.io/celonis-hacks/tags/process-analytics/">Process Analytics</a>&nbsp;
         
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/transformation/">Transformation</a>&nbsp;
+        <a href="https://kaztakata.github.io/celonis-hacks/tags/process-explorer/">Process Explorer</a>&nbsp;
         
     </div>
     
@@ -357,7 +410,7 @@ In case of SAP Order to Cash (O2C) scenario, case table is sales order item (VBA
               </li>
           
           <li>
-            <a href="https://kaztakata.github.io/celonis-hacks/tags/transformation/index.xml" title="RSS">
+            <a href="https://kaztakata.github.io/celonis-hacks/tags/process-explorer/index.xml" title="RSS">
               <span class="fa-stack fa-lg">
                 <i class="fas fa-circle fa-stack-2x"></i>
                 <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
