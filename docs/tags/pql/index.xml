@@ -5,10 +5,20 @@
     <link>https://kaztakata.github.io/celonis-hacks/tags/pql/</link>
     <description>Recent content in PQL on Celonis hacks</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 11 Sep 2021 13:16:26 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 18 Sep 2021 10:42:24 +0900</lastBuildDate>
     
 	<atom:link href="https://kaztakata.github.io/celonis-hacks/tags/pql/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Integrate Button Dropdown Entries to one Formula</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2021-09-18-integrate-button-dropdown-entries-to-one-formula/</link>
+      <pubDate>Sat, 18 Sep 2021 10:42:24 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2021-09-18-integrate-button-dropdown-entries-to-one-formula/</guid>
+      <description>I usually use two types of analysis components, time scale graph and drilldown table for my development projects. These compnents makes it possible to discover root cause of target KPIs by changing time scale or drilldown dimension.
+In the end, these components and attaching button dropdown were maintained many times, but I was annoyed to set variable value (especially long PQL) to each button entry (it was also cause of defects against my analysis sheet).</description>
+    </item>
     
     <item>
       <title>Use BIND function to enable multiple DOMAIN_TABLE</title>

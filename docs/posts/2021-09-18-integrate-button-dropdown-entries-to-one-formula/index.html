@@ -7,9 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Understand Difference between Dimension and KPI - Celonis hacks</title>
-  <meta name="description" content="If you are beginner of creating Celonis Analysis, I believe you will first create OLAP table to understand how Celonis PQL works with data model. Points are,
- Dimensions are grouping key to calculate KPI, normally they are string (character) columns KPIs are calculated figures based on specific numeric columns, or count of rows of any columns, it must be numeric value in either cases Columns used as dimensions and KPIs are inplicitly joined based on data model  Below screenshot is the quite simple example to show Dimension, KPI, and data model.">
+  <title>Integrate Button Dropdown Entries to one Formula - Celonis hacks</title>
+  <meta name="description" content="I usually use two types of analysis components, time scale graph and drilldown table for my development projects. These compnents makes it possible to discover root cause of target KPIs by changing time scale or drilldown dimension.
+In the end, these components and attaching button dropdown were maintained many times, but I was annoyed to set variable value (especially long PQL) to each button entry (it was also cause of defects against my analysis sheet).">
   <meta name="author" content="Kazuhiko Takata"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -45,8 +45,8 @@
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-05-01-understand-difference-between-dimension-and-kpi\/",
-          "name": "Understand difference between dimension and k p i"
+          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-09-18-integrate-button-dropdown-entries-to-one-formula\/",
+          "name": "Integrate button dropdown entries to one formula"
         }
     }]
 }
@@ -57,15 +57,15 @@
   "author": {
     "name" : "Kazuhiko Takata"
   },
-  "headline": "Understand Difference between Dimension and KPI",
-  "description" : "If you are beginner of creating Celonis Analysis, I believe you will first create OLAP table to understand how Celonis PQL works with data model. Points are,\n Dimensions are grouping key to calculate KPI, normally they are string (character) columns KPIs are calculated figures based on specific numeric columns, or count of rows of any columns, it must be numeric value in either cases Columns used as dimensions and KPIs are inplicitly joined based on data model  Below screenshot is the quite simple example to show Dimension, KPI, and data model.",
+  "headline": "Integrate Button Dropdown Entries to one Formula",
+  "description" : "I usually use two types of analysis components, time scale graph and drilldown table for my development projects. These compnents makes it possible to discover root cause of target KPIs by changing time scale or drilldown dimension.\nIn the end, these components and attaching button dropdown were maintained many times, but I was annoyed to set variable value (especially long PQL) to each button entry (it was also cause of defects against my analysis sheet).",
   "inLanguage" : "en",
-  "wordCount":  476 ,
-  "datePublished" : "2021-05-01T15:25:08",
-  "dateModified" : "2021-05-01T15:25:08",
+  "wordCount":  660 ,
+  "datePublished" : "2021-09-18T10:42:24",
+  "dateModified" : "2021-09-18T10:42:24",
   "image" : "https:\/\/kaztakata.github.io\/celonis-hacks",
   "keywords" : [ "PQL, Process Analytics" ],
-  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-05-01-understand-difference-between-dimension-and-kpi\/",
+  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-09-18-integrate-button-dropdown-entries-to-one-formula\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/kaztakata.github.io\/celonis-hacks",
@@ -79,16 +79,15 @@
 }
 </script>
 
-<meta property="og:title" content="Understand Difference between Dimension and KPI" />
-<meta property="og:description" content="If you are beginner of creating Celonis Analysis, I believe you will first create OLAP table to understand how Celonis PQL works with data model. Points are,
- Dimensions are grouping key to calculate KPI, normally they are string (character) columns KPIs are calculated figures based on specific numeric columns, or count of rows of any columns, it must be numeric value in either cases Columns used as dimensions and KPIs are inplicitly joined based on data model  Below screenshot is the quite simple example to show Dimension, KPI, and data model.">
-<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2021-05-01-understand-difference-between-dimension-and-kpi/" />
+<meta property="og:title" content="Integrate Button Dropdown Entries to one Formula" />
+<meta property="og:description" content="I usually use two types of analysis components, time scale graph and drilldown table for my development projects. These compnents makes it possible to discover root cause of target KPIs by changing time scale or drilldown dimension.
+In the end, these components and attaching button dropdown were maintained many times, but I was annoyed to set variable value (especially long PQL) to each button entry (it was also cause of defects against my analysis sheet).">
+<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2021-09-18-integrate-button-dropdown-entries-to-one-formula/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Celonis hacks" />
 
-  <meta name="twitter:title" content="Understand Difference between Dimension and KPI" />
-  <meta name="twitter:description" content="If you are beginner of creating Celonis Analysis, I believe you will first create OLAP table to understand how Celonis PQL works with data model. Points are,
- Dimensions are grouping key to calculate …">
+  <meta name="twitter:title" content="Integrate Button Dropdown Entries to one Formula" />
+  <meta name="twitter:description" content="I usually use two types of analysis components, time scale graph and drilldown table for my development projects. These compnents makes it possible to discover root cause of target KPIs by changing …">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
@@ -237,7 +236,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="posts-heading">
               
-                <h1>Understand Difference between Dimension and KPI</h1>
+                <h1>Integrate Button Dropdown Entries to one Formula</h1>
               
               
                 <hr class="small">
@@ -257,24 +256,59 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>If you are beginner of creating Celonis Analysis, I believe you will first create OLAP table to understand how Celonis PQL works with data model. Points are,</p>
-<ul>
-<li>Dimensions are grouping key to calculate KPI, normally they are string (character) columns</li>
-<li>KPIs are calculated figures based on specific numeric columns, or count of rows of any columns, it must be numeric value in either cases</li>
-<li>Columns used as dimensions and KPIs are inplicitly joined based on data model</li>
-</ul>
-<p>Below screenshot is the quite simple example to show Dimension, KPI, and data model. Dimension is vendor code <code>LFA1.LIFNR</code> that is group key to calculate KPI <code>COUNT(EKKO.MANDT)</code> that is count of rows of Purchase order table (<code>MANDT</code> can be changed to any columns in <code>EKKO</code>). I just set up columns in different tables then you can see two tables (vendor master <code>LFA1</code> and purchase order <code>EKKO</code>) are joined automatically.</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/116774171-b6e14e00-aa95-11eb-8506-9196c09ace4b.png"><img src="https://user-images.githubusercontent.com/67397583/116774171-b6e14e00-aa95-11eb-8506-9196c09ace4b.png" alt="image"></a></p>
-<p>Next screenshot is the proof of count KPI. I hide KPI then add one more dimension, purchase order number <code>EKKO.EBELN</code>. You can see first vendor code <code>0000000002</code> that has 4 rows of different purchase order number. Dimension is grouping key of KPI so <code>0000000002</code> that is seen in 4 rows are merged to 1 row if I set count KPI, instead when I do not display KPI then 4 rows are displayed as they are.</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/116774364-1ee46400-aa97-11eb-8048-6ae6b4ebf111.png"><img src="https://user-images.githubusercontent.com/67397583/116774364-1ee46400-aa97-11eb-8048-6ae6b4ebf111.png" alt="image"></a></p>
-<p>When I use functions to operate columns in data model, the idea is the same. In the next screenshot I will add one more KPI using deletion flag <code>EKKO.LOEKZ</code> that is originally string column and it is converted to numeric value by <code>CASE WHEN ... THEN 1.0 ELSE 0.0 END</code> function judging this column is NULL or not, finally use <code>SUM</code> to sum up numeric value by vendor. You can see vendor <code>0000001000</code> has 1528 active PO on the other hand PO count is 1530 (means there are 2 deleted PO).</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/116775716-6d95fc00-aa9f-11eb-8e1e-d9f8f010fed5.png"><img src="https://user-images.githubusercontent.com/67397583/116775716-6d95fc00-aa9f-11eb-8e1e-d9f8f010fed5.png" alt="image"></a></p>
-<p>Similar to previous case, I hide two KPIs and add dimensions of <code>EKKO.LOEKZ</code> and column of judging resust whether PO is active or not. It is important that total count of rows (rows of joining <code>LFA1</code> and <code>EKKO</code>) is not changed after applying function to <code>EKKO.LOEKZ</code>. You can imagine one more numeric column <code>Active PO</code> is added to <code>EKKO</code> dynamically, so that each Purchase order has <code>Active PO</code> value (active is 1 and inactive is 0). When I write KPI that include data model columns, firstly result of function is expaneded to <code>EKKO</code> dynamically, then sum up value by dimension.</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/116775990-39233f80-aaa1-11eb-92e4-294221dc6078.png"><img src="https://user-images.githubusercontent.com/67397583/116775990-39233f80-aaa1-11eb-92e4-294221dc6078.png" alt="image"></a></p>
-<p>Even when you use other component (charts and single KPI component), the idea is the same. So I recommend you to start from OLAP table to visualize each step of KPI calculation and test your PQL. Also this idea is applicable to all data model tables including activity tables.</p>
+        <p>I usually use two types of analysis components, time scale graph and drilldown table for my development projects. These compnents makes it possible to discover root cause of target KPIs by changing time scale or drilldown dimension.</p>
+<p>In the end, these components and attaching button dropdown were maintained many times, but I was annoyed to set variable value (especially long PQL) to each button entry (it was also cause of defects against my analysis sheet). After some version ups I reached to the way how to manage these dropdowns, so today I would like to share with you.</p>
+<p>Today&rsquo;s output report image is below. Today&rsquo;s KPIs are simple (case count and net value) to focus on the dimensions. I created button dropdown for time scale unit, and those for drilldown.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/133868792-062ee0fe-b18e-458d-840b-962f61ba1cde.png"><img src="https://user-images.githubusercontent.com/67397583/133868792-062ee0fe-b18e-458d-840b-962f61ba1cde.png" alt="image"></a></p>
+<p>Next image is button of time scale unit. Previously I assigned two variables (text and PQL) per button entry, but now one variable (<code>timeScaleUnit</code>) that is simply text of time scale unit. X axis of chart (time scale) is described as <code>KPI(timeScale,&lt;%=timeScaleUnit%&gt;,VARIABLE(poCreationTime))</code>, I will move time scale PQL from button to formula.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/133868855-33b22925-80bc-49e4-9479-d9e9de05a423.png"><img src="https://user-images.githubusercontent.com/67397583/133868855-33b22925-80bc-49e4-9479-d9e9de05a423.png" alt="image"></a></p>
+<p>Next, let&rsquo;s see the formula <code>timeScale</code>. It passes two parameters, first is unit name like &lsquo;Year&rsquo;, and second is the column to get eventtime (this time it is PO creation date).</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">-- timeScale
+CASE
+  WHEN {p1} = &#39;Year&#39; THEN 
+    YEAR(KPI({p2}))||&#39;&#39;
+  WHEN {p1} = &#39;Month&#39; THEN 
+    YEAR(KPI({p2}))||&#39;-&#39;||
+    RIGHT(0||MONTH(KPI({p2})), 2)
+  WHEN {p1} = &#39;Week&#39; THEN 
+    YEAR(ROUND_WEEK(KPI({p2})))||&#39;-&#39;||
+    RIGHT(0||MONTH(ROUND_WEEK(KPI({p2}))),2)||&#39;-&#39;||
+    RIGHT(0||DAY(ROUND_WEEK(KPI({p2}))),2)
+  WHEN {p1} = &#39;Date&#39; THEN 
+    YEAR(KPI({p2}))||&#39;-&#39;||
+    RIGHT(0||MONTH(KPI({p2})), 2)||&#39;-&#39;||
+    RIGHT(0||DAY(KPI({p2})), 2)
+  WHEN {p1} = &#39;Day of Week&#39; THEN
+    CASE 
+      WHEN DAY_OF_WEEK (KPI({p2})) = 1 THEN &#39;1-Monday&#39;
+      WHEN DAY_OF_WEEK (KPI({p2})) = 2 THEN &#39;2-Tuesday&#39;
+      WHEN DAY_OF_WEEK (KPI({p2})) = 3 THEN &#39;3-Wednesday&#39;
+      WHEN DAY_OF_WEEK (KPI({p2})) = 4 THEN &#39;4-Thursday&#39;
+      WHEN DAY_OF_WEEK (KPI({p2})) = 5 THEN &#39;5-Friday&#39;
+      WHEN DAY_OF_WEEK (KPI({p2})) = 6 THEN &#39;6-Saturday&#39;
+      WHEN DAY_OF_WEEK (KPI({p2})) = 0 THEN &#39;7-Sunday&#39;
+    END
+END
+</code></pre></div><p>I developed <code>CASE WHEN</code> statements against each time scale unit judging by unit text p1. You may be doubtful why I do not simply use <code>ROUND_YEAR</code>,<code>ROUND_MONTH</code> etc. Because these function returns timestamp value and it is not compatible to the result of &lsquo;Day of Week&rsquo; that returns string (<code>CASE WHEN</code> should return only one data type from all pattern). So that I converted to number of year, month, day of timestamp, then concatenate them to build string.</p>
+<p>Development of drilldown dimension is similar strategy. This formula requests one parameter that represents dimension text, and return string of concatenating value column and text column. This time you are careful which table column is used for drilldown dimension compared with table of KPIs, because all <code>CASE WHEN</code> statements are read in this PQL formula even if you choose one of the dimension. This time <code>LFA1</code>,<code>EKKO</code> and <code>EKPO</code> are good for dimension because KPIs are calculated based on case table <code>EKPO</code>. On the other hand, if you will add <code>_CEL_P2P_ACTIVITIES_EN._CASE_KEY</code> to drilldown dimension, I found net value is unintentionally duplicated from 539M (you will choose &lsquo;-&rsquo; entry from button, then you can compare single line value in OLAP table with that of left side single KPI).</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">-- drilldownDimension
+CASE
+  WHEN {p1} = &#39;-&#39; THEN &#39;-&#39;
+  WHEN {p1} = &#39;Company Code&#39; THEN EKKO.BUKRS||&#39; - &#39;||EKKO.&#34;Company Name (EKKO_BUTXT)&#34;
+  WHEN {p1} = &#39;Purchasing Organization&#39; THEN EKKO.EKORG||&#39; - &#39;||EKKO.&#34;Purchasing Organization Text (EKKO_EKORG)&#34;
+  WHEN {p1} = &#39;Purchasing Group&#39; THEN EKKO.EKGRP
+  WHEN {p1} = &#39;Document Category&#39; THEN EKKO.BSTYP||&#39; - &#39;||EKKO.&#34;Document Category Text (EKKO_BSTYP)&#34;
+  WHEN {p1} = &#39;Document Type&#39; THEN EKKO.BSART||&#39; - &#39;||EKKO.&#34;Document Type Text (EKKO_BSART)&#34;
+  WHEN {p1} = &#39;Vendor&#39; THEN EKKO.LIFNR||&#39; - &#39;||LFA1.NAME1
+  WHEN {p1} = &#39;Plant&#39; THEN EKPO.WERKS||&#39; - &#39;||EKPO.&#34;Plant Text (EKPO_WERKS)&#34;
+  WHEN {p1} = &#39;Item Category&#39; THEN EKPO.&#34;Item Category Text(EKPO_PSTYP)&#34;
+  WHEN {p1} = &#39;Material Group&#39; THEN EKPO.MATKL||&#39; - &#39;||EKPO.&#34;Material Group Text (MATKL_TEXT)&#34;
+  WHEN {p1} = &#39;Material&#39; THEN EKPO.MATNR||&#39; - &#39;||EKPO.&#34;Material Text (MAKT_MAKTX)&#34;
+END
+</code></pre></div><p>Even this strategy is not perfect but it reduces my effor of analysis sheet maintenance. I hope it will help your development.</p>
 <p>Kaz</p>
 <hr>
-<p>This post&rsquo;s program can be <a href="../../examples/p2p_analysis_20210501.json">downloeded here</a> then push to your environment by content-cli.</p>
+<p>This post&rsquo;s program can be <a href="../../examples/p2p_analysis_20210918.json">downloeded here</a> then push to your environment by content-cli.</p>
 <hr>
 
 
@@ -298,42 +332,42 @@ if (!doNotTrack) {
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-05-01-understand-difference-between-dimension-and-kpi%2f&amp;text=Understand%20Difference%20between%20Dimension%20and%20KPI&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-09-18-integrate-button-dropdown-entries-to-one-formula%2f&amp;text=Integrate%20Button%20Dropdown%20Entries%20to%20one%20Formula&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-05-01-understand-difference-between-dimension-and-kpi%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-09-18-integrate-button-dropdown-entries-to-one-formula%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-05-01-understand-difference-between-dimension-and-kpi%2f&amp;title=Understand%20Difference%20between%20Dimension%20and%20KPI" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-09-18-integrate-button-dropdown-entries-to-one-formula%2f&amp;title=Integrate%20Button%20Dropdown%20Entries%20to%20one%20Formula" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-05-01-understand-difference-between-dimension-and-kpi%2f&amp;title=Understand%20Difference%20between%20Dimension%20and%20KPI" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-09-18-integrate-button-dropdown-entries-to-one-formula%2f&amp;title=Integrate%20Button%20Dropdown%20Entries%20to%20one%20Formula" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-05-01-understand-difference-between-dimension-and-kpi%2f&amp;title=Understand%20Difference%20between%20Dimension%20and%20KPI" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-09-18-integrate-button-dropdown-entries-to-one-formula%2f&amp;title=Integrate%20Button%20Dropdown%20Entries%20to%20one%20Formula" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-05-01-understand-difference-between-dimension-and-kpi%2f&amp;description=Understand%20Difference%20between%20Dimension%20and%20KPI" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-09-18-integrate-button-dropdown-entries-to-one-formula%2f&amp;description=Integrate%20Button%20Dropdown%20Entries%20to%20one%20Formula" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -355,8 +389,6 @@ if (!doNotTrack) {
                   <ul>
                 
                 
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-09-18-integrate-button-dropdown-entries-to-one-formula/">Integrate Button Dropdown Entries to one Formula</a></li>
-                
                     <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-09-11-use-bind-function-to-enable-multiple-domain-table/">Use BIND function to enable multiple DOMAIN_TABLE</a></li>
                 
                     <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-09-04-convert-count-unit-of-kpi-by-count-distinct/">Convert count unit of KPI by COUNT DISTINCT</a></li>
@@ -364,6 +396,8 @@ if (!doNotTrack) {
                     <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-08-28-count-rows-of-tables-in-various-way/">Count rows of Tables in various way</a></li>
                 
                     <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-08-21-make-conditional-function-to-return-1-or-null/">Make Conditional Function to return 1 or NULL</a></li>
+                
+                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-08-14-share-my-analysis-by-content-cli/">Share my Analysis by Content-CLI</a></li>
                 
               </ul>
 
@@ -374,10 +408,10 @@ if (!doNotTrack) {
       
         <ul class="pager blog-pager">
           
-          
-            <li class="next">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-05-08-customize-process-explorer/" data-toggle="tooltip" data-placement="top" title="Customize Process Explorer">Next Post &rarr;</a>
+            <li class="previous">
+              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-09-11-use-bind-function-to-enable-multiple-domain-table/" data-toggle="tooltip" data-placement="top" title="Use BIND function to enable multiple DOMAIN_TABLE">&larr; Previous Post</a>
             </li>
+          
           
         </ul>
       
