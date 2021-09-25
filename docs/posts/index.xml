@@ -5,10 +5,19 @@
     <link>https://kaztakata.github.io/celonis-hacks/posts/</link>
     <description>Recent content in Posts on Celonis hacks</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 18 Sep 2021 10:42:24 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 25 Sep 2021 09:42:52 +0900</lastBuildDate>
     
 	<atom:link href="https://kaztakata.github.io/celonis-hacks/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Convert Quantitative value to Categorical one by Quantile Function</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2021-09-25-convert-quantitative-value-to-categorical-one-by-quantile-function/</link>
+      <pubDate>Sat, 25 Sep 2021 09:42:52 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2021-09-25-convert-quantitative-value-to-categorical-one-by-quantile-function/</guid>
+      <description>Last week I posted Integrate Button Dropdown Entries to one Formula and integrated multiple dimensions. At that time I used string column that enable you to categorize each case, that is called categorical variable. In contrast quantitative variable such as order quantity, net value is not normally possible to use for dimension. If you would like to use these column as dimension, you need to convert its value to categorical value.</description>
+    </item>
     
     <item>
       <title>Integrate Button Dropdown Entries to one Formula</title>

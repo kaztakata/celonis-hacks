@@ -7,9 +7,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Understand Difference between Dimension and KPI - Celonis hacks</title>
-  <meta name="description" content="If you are beginner of creating Celonis Analysis, I believe you will first create OLAP table to understand how Celonis PQL works with data model. Points are,
- Dimensions are grouping key to calculate KPI, normally they are string (character) columns KPIs are calculated figures based on specific numeric columns, or count of rows of any columns, it must be numeric value in either cases Columns used as dimensions and KPIs are inplicitly joined based on data model  Below screenshot is the quite simple example to show Dimension, KPI, and data model.">
+  <title>Convert Quantitative value to Categorical one by Quantile Function - Celonis hacks</title>
+  <meta name="description" content="Last week I posted Integrate Button Dropdown Entries to one Formula and integrated multiple dimensions. At that time I used string column that enable you to categorize each case, that is called categorical variable. In contrast quantitative variable such as order quantity, net value is not normally possible to use for dimension. If you would like to use these column as dimension, you need to convert its value to categorical value.">
   <meta name="author" content="Kazuhiko Takata"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -45,8 +44,8 @@
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-05-01-understand-difference-between-dimension-and-kpi\/",
-          "name": "Understand difference between dimension and k p i"
+          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-09-25-convert-quantitative-value-to-categorical-one-by-quantile-function\/",
+          "name": "Convert quantitative value to categorical one by quantile function"
         }
     }]
 }
@@ -57,15 +56,15 @@
   "author": {
     "name" : "Kazuhiko Takata"
   },
-  "headline": "Understand Difference between Dimension and KPI",
-  "description" : "If you are beginner of creating Celonis Analysis, I believe you will first create OLAP table to understand how Celonis PQL works with data model. Points are,\n Dimensions are grouping key to calculate KPI, normally they are string (character) columns KPIs are calculated figures based on specific numeric columns, or count of rows of any columns, it must be numeric value in either cases Columns used as dimensions and KPIs are inplicitly joined based on data model  Below screenshot is the quite simple example to show Dimension, KPI, and data model.",
+  "headline": "Convert Quantitative value to Categorical one by Quantile Function",
+  "description" : "Last week I posted Integrate Button Dropdown Entries to one Formula and integrated multiple dimensions. At that time I used string column that enable you to categorize each case, that is called categorical variable. In contrast quantitative variable such as order quantity, net value is not normally possible to use for dimension. If you would like to use these column as dimension, you need to convert its value to categorical value.",
   "inLanguage" : "en",
-  "wordCount":  476 ,
-  "datePublished" : "2021-05-01T15:25:08",
-  "dateModified" : "2021-05-01T15:25:08",
+  "wordCount":  429 ,
+  "datePublished" : "2021-09-25T09:42:52",
+  "dateModified" : "2021-09-25T09:42:52",
   "image" : "https:\/\/kaztakata.github.io\/celonis-hacks",
-  "keywords" : [ "PQL, Process Analytics" ],
-  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-05-01-understand-difference-between-dimension-and-kpi\/",
+  "keywords" : [ "PQL, Process Analytics, Pull Up Function" ],
+  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-09-25-convert-quantitative-value-to-categorical-one-by-quantile-function\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/kaztakata.github.io\/celonis-hacks",
@@ -79,16 +78,14 @@
 }
 </script>
 
-<meta property="og:title" content="Understand Difference between Dimension and KPI" />
-<meta property="og:description" content="If you are beginner of creating Celonis Analysis, I believe you will first create OLAP table to understand how Celonis PQL works with data model. Points are,
- Dimensions are grouping key to calculate KPI, normally they are string (character) columns KPIs are calculated figures based on specific numeric columns, or count of rows of any columns, it must be numeric value in either cases Columns used as dimensions and KPIs are inplicitly joined based on data model  Below screenshot is the quite simple example to show Dimension, KPI, and data model.">
-<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2021-05-01-understand-difference-between-dimension-and-kpi/" />
+<meta property="og:title" content="Convert Quantitative value to Categorical one by Quantile Function" />
+<meta property="og:description" content="Last week I posted Integrate Button Dropdown Entries to one Formula and integrated multiple dimensions. At that time I used string column that enable you to categorize each case, that is called categorical variable. In contrast quantitative variable such as order quantity, net value is not normally possible to use for dimension. If you would like to use these column as dimension, you need to convert its value to categorical value.">
+<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2021-09-25-convert-quantitative-value-to-categorical-one-by-quantile-function/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Celonis hacks" />
 
-  <meta name="twitter:title" content="Understand Difference between Dimension and KPI" />
-  <meta name="twitter:description" content="If you are beginner of creating Celonis Analysis, I believe you will first create OLAP table to understand how Celonis PQL works with data model. Points are,
- Dimensions are grouping key to calculate …">
+  <meta name="twitter:title" content="Convert Quantitative value to Categorical one by Quantile Function" />
+  <meta name="twitter:description" content="Last week I posted Integrate Button Dropdown Entries to one Formula and integrated multiple dimensions. At that time I used string column that enable you to categorize each case, that is called …">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
@@ -237,7 +234,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="posts-heading">
               
-                <h1>Understand Difference between Dimension and KPI</h1>
+                <h1>Convert Quantitative value to Categorical one by Quantile Function</h1>
               
               
                 <hr class="small">
@@ -257,24 +254,32 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>If you are beginner of creating Celonis Analysis, I believe you will first create OLAP table to understand how Celonis PQL works with data model. Points are,</p>
-<ul>
-<li>Dimensions are grouping key to calculate KPI, normally they are string (character) columns</li>
-<li>KPIs are calculated figures based on specific numeric columns, or count of rows of any columns, it must be numeric value in either cases</li>
-<li>Columns used as dimensions and KPIs are inplicitly joined based on data model</li>
-</ul>
-<p>Below screenshot is the quite simple example to show Dimension, KPI, and data model. Dimension is vendor code <code>LFA1.LIFNR</code> that is group key to calculate KPI <code>COUNT(EKKO.MANDT)</code> that is count of rows of Purchase order table (<code>MANDT</code> can be changed to any columns in <code>EKKO</code>). I just set up columns in different tables then you can see two tables (vendor master <code>LFA1</code> and purchase order <code>EKKO</code>) are joined automatically.</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/116774171-b6e14e00-aa95-11eb-8506-9196c09ace4b.png"><img src="https://user-images.githubusercontent.com/67397583/116774171-b6e14e00-aa95-11eb-8506-9196c09ace4b.png" alt="image"></a></p>
-<p>Next screenshot is the proof of count KPI. I hide KPI then add one more dimension, purchase order number <code>EKKO.EBELN</code>. You can see first vendor code <code>0000000002</code> that has 4 rows of different purchase order number. Dimension is grouping key of KPI so <code>0000000002</code> that is seen in 4 rows are merged to 1 row if I set count KPI, instead when I do not display KPI then 4 rows are displayed as they are.</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/116774364-1ee46400-aa97-11eb-8048-6ae6b4ebf111.png"><img src="https://user-images.githubusercontent.com/67397583/116774364-1ee46400-aa97-11eb-8048-6ae6b4ebf111.png" alt="image"></a></p>
-<p>When I use functions to operate columns in data model, the idea is the same. In the next screenshot I will add one more KPI using deletion flag <code>EKKO.LOEKZ</code> that is originally string column and it is converted to numeric value by <code>CASE WHEN ... THEN 1.0 ELSE 0.0 END</code> function judging this column is NULL or not, finally use <code>SUM</code> to sum up numeric value by vendor. You can see vendor <code>0000001000</code> has 1528 active PO on the other hand PO count is 1530 (means there are 2 deleted PO).</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/116775716-6d95fc00-aa9f-11eb-8e1e-d9f8f010fed5.png"><img src="https://user-images.githubusercontent.com/67397583/116775716-6d95fc00-aa9f-11eb-8e1e-d9f8f010fed5.png" alt="image"></a></p>
-<p>Similar to previous case, I hide two KPIs and add dimensions of <code>EKKO.LOEKZ</code> and column of judging resust whether PO is active or not. It is important that total count of rows (rows of joining <code>LFA1</code> and <code>EKKO</code>) is not changed after applying function to <code>EKKO.LOEKZ</code>. You can imagine one more numeric column <code>Active PO</code> is added to <code>EKKO</code> dynamically, so that each Purchase order has <code>Active PO</code> value (active is 1 and inactive is 0). When I write KPI that include data model columns, firstly result of function is expaneded to <code>EKKO</code> dynamically, then sum up value by dimension.</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/116775990-39233f80-aaa1-11eb-92e4-294221dc6078.png"><img src="https://user-images.githubusercontent.com/67397583/116775990-39233f80-aaa1-11eb-92e4-294221dc6078.png" alt="image"></a></p>
-<p>Even when you use other component (charts and single KPI component), the idea is the same. So I recommend you to start from OLAP table to visualize each step of KPI calculation and test your PQL. Also this idea is applicable to all data model tables including activity tables.</p>
+        <p>Last week I posted <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-09-18-integrate-button-dropdown-entries-to-one-formula/">Integrate Button Dropdown Entries to one Formula</a> and integrated multiple dimensions. At that time I used string column that enable you to categorize each case, that is called categorical variable. In contrast quantitative variable such as order quantity, net value is not normally possible to use for dimension. If you would like to use these column as dimension, you need to convert its value to categorical value. Today I would like to show you how to convert it by quantile function.</p>
+<p>Today&rsquo;s output image is as below. I copied last week&rsquo;s analysis then added one more entry &lsquo;Net Value Range&rsquo; to drilldown dimension. This number column is distributed from zero to millions, but these values are categorized to four ranges and used as dimension.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/134751598-813fae95-5d56-4c6f-a781-babaa67ac98a.png"><img src="https://user-images.githubusercontent.com/67397583/134751598-813fae95-5d56-4c6f-a781-babaa67ac98a.png" alt="image"></a></p>
+<p>To divide four categories, first I use <code>MEDIAN</code> funciton to divide to upper half cases and lower ones, then use <code>QUANTILE</code> function to determine boundory of 25% / 75% cases. Finally I compare each case with three boundories and categorize it to four ranges.</p>
+<p>By the way Celonis can not use <code>MEDIAN</code> or <code>QUANTILE</code> as comparator because these aggregation function can be used once (most outer function in PQL). Instead I use Pull Up function that can be used as comparator, because output of Pull Up function behaves as standard column (see <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-05-15-understand-mechanism-of-pull-up-function/">Understand mechanism of Pull up function</a>).</p>
+<p>One more points is how to determine the target table of Pull up function. Now I would like to see all cases globally and calculate median and quantiles, so I should set <code>CONSTANT()</code> function to target table.</p>
+<p>Finally extended formula to categorize net value is below. As output value I also use <code>PU_MIN</code> and <code>PU_MAX</code>, but it can be expresses by <code>PU_QUANTILE</code> with parameter 0% and 100% (<code>PU_MEDIAN</code> is 50% too). To distinguish boundary value easily, I rounded it to integer. So it is different from output of boxplot, and case number of four categories are slightly different.</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">--drilldownDimension
+
+CASE
+  -- ... same as last week
+  WHEN {p1} = &#39;Net Value Range&#39; THEN 
+    CASE
+      WHEN EKPO.&#34;Net Value(NETWR_EUR)&#34; &lt; ROUND(PU_QUANTILE(CONSTANT(),EKPO.&#34;Net Value(NETWR_EUR)&#34;,0.25))
+        THEN &#39;1.(&#39;||ROUND(PU_MIN(CONSTANT(),EKPO.&#34;Net Value(NETWR_EUR)&#34;))||&#39; - &#39;||ROUND(PU_QUANTILE(CONSTANT(),EKPO.&#34;Net Value(NETWR_EUR)&#34;,0.25))||&#39;)&#39;
+      WHEN EKPO.&#34;Net Value(NETWR_EUR)&#34; &lt; ROUND(PU_MEDIAN(CONSTANT(),EKPO.&#34;Net Value(NETWR_EUR)&#34;))
+        THEN &#39;2.(&#39;||ROUND(PU_QUANTILE(CONSTANT(),EKPO.&#34;Net Value(NETWR_EUR)&#34;,0.25))||&#39; - &#39;||ROUND(PU_MEDIAN(CONSTANT(),EKPO.&#34;Net Value(NETWR_EUR)&#34;))||&#39;)&#39;
+      WHEN EKPO.&#34;Net Value(NETWR_EUR)&#34; &lt; ROUND(PU_QUANTILE(CONSTANT(),EKPO.&#34;Net Value(NETWR_EUR)&#34;,0.75)) 
+        THEN &#39;3.(&#39;||ROUND(PU_MEDIAN(CONSTANT(),EKPO.&#34;Net Value(NETWR_EUR)&#34;))||&#39; - &#39;||ROUND(PU_QUANTILE(CONSTANT(),EKPO.&#34;Net Value(NETWR_EUR)&#34;,0.75))||&#39;)&#39;
+      ELSE &#39;4.(&#39;||ROUND(PU_QUANTILE(CONSTANT(),EKPO.&#34;Net Value(NETWR_EUR)&#34;,0.75))||&#39; - &#39;||ROUND(PU_MAX(CONSTANT(),EKPO.&#34;Net Value(NETWR_EUR)&#34;))||&#39;)&#39;
+    END
+END 
+</code></pre></div><p>Finally you should take care that result of Pull up function is not changed by filter, so it is not possible to dinamically change boundary by filtering like box plot.</p>
 <p>Kaz</p>
 <hr>
-<p>This post&rsquo;s program can be <a href="../../examples/p2p_analysis_20210501.json">downloeded here</a> then push to your environment by content-cli.</p>
+<p>This post&rsquo;s program can be <a href="../../examples/p2p_analysis_20210925.json">downloeded here</a> then push to your environment by content-cli.</p>
 <hr>
 
 
@@ -284,6 +289,8 @@ if (!doNotTrack) {
               <a href="https://kaztakata.github.io/celonis-hacks/tags/pql/">PQL</a>&nbsp;
             
               <a href="https://kaztakata.github.io/celonis-hacks/tags/process-analytics/">Process Analytics</a>&nbsp;
+            
+              <a href="https://kaztakata.github.io/celonis-hacks/tags/pull-up-function/">Pull Up Function</a>&nbsp;
             
           </div>
         
@@ -298,42 +305,42 @@ if (!doNotTrack) {
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-05-01-understand-difference-between-dimension-and-kpi%2f&amp;text=Understand%20Difference%20between%20Dimension%20and%20KPI&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-09-25-convert-quantitative-value-to-categorical-one-by-quantile-function%2f&amp;text=Convert%20Quantitative%20value%20to%20Categorical%20one%20by%20Quantile%20Function&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-05-01-understand-difference-between-dimension-and-kpi%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-09-25-convert-quantitative-value-to-categorical-one-by-quantile-function%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-05-01-understand-difference-between-dimension-and-kpi%2f&amp;title=Understand%20Difference%20between%20Dimension%20and%20KPI" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-09-25-convert-quantitative-value-to-categorical-one-by-quantile-function%2f&amp;title=Convert%20Quantitative%20value%20to%20Categorical%20one%20by%20Quantile%20Function" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-05-01-understand-difference-between-dimension-and-kpi%2f&amp;title=Understand%20Difference%20between%20Dimension%20and%20KPI" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-09-25-convert-quantitative-value-to-categorical-one-by-quantile-function%2f&amp;title=Convert%20Quantitative%20value%20to%20Categorical%20one%20by%20Quantile%20Function" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-05-01-understand-difference-between-dimension-and-kpi%2f&amp;title=Understand%20Difference%20between%20Dimension%20and%20KPI" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-09-25-convert-quantitative-value-to-categorical-one-by-quantile-function%2f&amp;title=Convert%20Quantitative%20value%20to%20Categorical%20one%20by%20Quantile%20Function" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-05-01-understand-difference-between-dimension-and-kpi%2f&amp;description=Understand%20Difference%20between%20Dimension%20and%20KPI" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-09-25-convert-quantitative-value-to-categorical-one-by-quantile-function%2f&amp;description=Convert%20Quantitative%20value%20to%20Categorical%20one%20by%20Quantile%20Function" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -355,8 +362,6 @@ if (!doNotTrack) {
                   <ul>
                 
                 
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-09-25-convert-quantitative-value-to-categorical-one-by-quantile-function/">Convert Quantitative value to Categorical one by Quantile Function</a></li>
-                
                     <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-09-18-integrate-button-dropdown-entries-to-one-formula/">Integrate Button Dropdown Entries to one Formula</a></li>
                 
                     <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-09-11-use-bind-function-to-enable-multiple-domain-table/">Use BIND function to enable multiple DOMAIN_TABLE</a></li>
@@ -364,6 +369,8 @@ if (!doNotTrack) {
                     <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-09-04-convert-count-unit-of-kpi-by-count-distinct/">Convert count unit of KPI by COUNT DISTINCT</a></li>
                 
                     <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-08-28-count-rows-of-tables-in-various-way/">Count rows of Tables in various way</a></li>
+                
+                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-08-21-make-conditional-function-to-return-1-or-null/">Make Conditional Function to return 1 or NULL</a></li>
                 
               </ul>
 
@@ -374,10 +381,10 @@ if (!doNotTrack) {
       
         <ul class="pager blog-pager">
           
-          
-            <li class="next">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-05-08-customize-process-explorer/" data-toggle="tooltip" data-placement="top" title="Customize Process Explorer">Next Post &rarr;</a>
+            <li class="previous">
+              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-09-18-integrate-button-dropdown-entries-to-one-formula/" data-toggle="tooltip" data-placement="top" title="Integrate Button Dropdown Entries to one Formula">&larr; Previous Post</a>
             </li>
+          
           
         </ul>
       
