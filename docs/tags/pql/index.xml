@@ -5,10 +5,21 @@
     <link>https://kaztakata.github.io/celonis-hacks/tags/pql/</link>
     <description>Recent content in PQL on Celonis hacks</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 25 Sep 2021 09:42:52 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 02 Oct 2021 10:56:43 +0900</lastBuildDate>
     
 	<atom:link href="https://kaztakata.github.io/celonis-hacks/tags/pql/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Group similar cases by Clustering</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2021-10-02-group-similar-cases-by-clustering/</link>
+      <pubDate>Sat, 02 Oct 2021 10:56:43 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2021-10-02-group-similar-cases-by-clustering/</guid>
+      <description>Last week I posted Convert Quantitative value to Categorical one by Quantile Function to create categorical dimension. Today I will create categorical dimension via different way, clustering.
+Clustering is one of the unsupervised learning method, to automatically group cases by their attributes. Celonis PQL has clustering funciton KMEANS, so you are ready to use clustering.
+Today I will use O2C process and would like to group customers by (1) their lead time from Invoice send to Clear Invoice and (2) net value.</description>
+    </item>
     
     <item>
       <title>Convert Quantitative value to Categorical one by Quantile Function</title>
