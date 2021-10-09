@@ -7,10 +7,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Group similar cases by Clustering - Celonis hacks</title>
-  <meta name="description" content="Last week I posted Convert Quantitative value to Categorical one by Quantile Function to create categorical dimension. Today I will create categorical dimension via different way, clustering.
-Clustering is one of the unsupervised learning method, to automatically group cases by their attributes. Celonis PQL has clustering funciton KMEANS, so you are ready to use clustering.
-Today I will use O2C process and would like to group customers by (1) their lead time from Invoice send to Clear Invoice and (2) net value.">
+  <title>Verify calculation result in OLAP table then convert to visual component - Celonis hacks</title>
+  <meta name="description" content="Today is 24th post of this blog series and I am suprised that I can continue to post blog every week. I got some reply from who loves Celonis in the world and it is my fun to continue posting. Celonis is releasing new functionarity year by year and I am interested in catching up them and thinking how these functions help my clients. After listening to next week&rsquo;s Celonis World Tour Webiner in Tokyo, I will get more inspiration to write blog.">
   <meta name="author" content="Kazuhiko Takata"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -46,8 +44,8 @@ Today I will use O2C process and would like to group customers by (1) their lead
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-10-02-group-similar-cases-by-clustering\/",
-          "name": "Group similar cases by clustering"
+          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-10-09-verify-calculation-result-in-olap-table-then-convert-to-visual-component\/",
+          "name": "Verify calculation result in o l a p table then convert to visual component"
         }
     }]
 }
@@ -58,15 +56,15 @@ Today I will use O2C process and would like to group customers by (1) their lead
   "author": {
     "name" : "Kazuhiko Takata"
   },
-  "headline": "Group similar cases by Clustering",
-  "description" : "Last week I posted Convert Quantitative value to Categorical one by Quantile Function to create categorical dimension. Today I will create categorical dimension via different way, clustering.\nClustering is one of the unsupervised learning method, to automatically group cases by their attributes. Celonis PQL has clustering funciton KMEANS, so you are ready to use clustering.\nToday I will use O2C process and would like to group customers by (1) their lead time from Invoice send to Clear Invoice and (2) net value.",
+  "headline": "Verify calculation result in OLAP table then convert to visual component",
+  "description" : "Today is 24th post of this blog series and I am suprised that I can continue to post blog every week. I got some reply from who loves Celonis in the world and it is my fun to continue posting. Celonis is releasing new functionarity year by year and I am interested in catching up them and thinking how these functions help my clients. After listening to next week\x26rsquo;s Celonis World Tour Webiner in Tokyo, I will get more inspiration to write blog.",
   "inLanguage" : "en",
-  "wordCount":  397 ,
-  "datePublished" : "2021-10-02T10:56:43",
-  "dateModified" : "2021-10-02T10:56:43",
+  "wordCount":  435 ,
+  "datePublished" : "2021-10-09T09:33:43",
+  "dateModified" : "2021-10-09T09:33:43",
   "image" : "https:\/\/kaztakata.github.io\/celonis-hacks",
-  "keywords" : [ "PQL, Process Analytics, Pull Up Function" ],
-  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-10-02-group-similar-cases-by-clustering\/",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-10-09-verify-calculation-result-in-olap-table-then-convert-to-visual-component\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/kaztakata.github.io\/celonis-hacks",
@@ -80,16 +78,14 @@ Today I will use O2C process and would like to group customers by (1) their lead
 }
 </script>
 
-<meta property="og:title" content="Group similar cases by Clustering" />
-<meta property="og:description" content="Last week I posted Convert Quantitative value to Categorical one by Quantile Function to create categorical dimension. Today I will create categorical dimension via different way, clustering.
-Clustering is one of the unsupervised learning method, to automatically group cases by their attributes. Celonis PQL has clustering funciton KMEANS, so you are ready to use clustering.
-Today I will use O2C process and would like to group customers by (1) their lead time from Invoice send to Clear Invoice and (2) net value.">
-<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2021-10-02-group-similar-cases-by-clustering/" />
+<meta property="og:title" content="Verify calculation result in OLAP table then convert to visual component" />
+<meta property="og:description" content="Today is 24th post of this blog series and I am suprised that I can continue to post blog every week. I got some reply from who loves Celonis in the world and it is my fun to continue posting. Celonis is releasing new functionarity year by year and I am interested in catching up them and thinking how these functions help my clients. After listening to next week&rsquo;s Celonis World Tour Webiner in Tokyo, I will get more inspiration to write blog.">
+<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2021-10-09-verify-calculation-result-in-olap-table-then-convert-to-visual-component/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Celonis hacks" />
 
-  <meta name="twitter:title" content="Group similar cases by Clustering" />
-  <meta name="twitter:description" content="Last week I posted Convert Quantitative value to Categorical one by Quantile Function to create categorical dimension. Today I will create categorical dimension via different way, clustering. …">
+  <meta name="twitter:title" content="Verify calculation result in OLAP table then convert to visual …" />
+  <meta name="twitter:description" content="Today is 24th post of this blog series and I am suprised that I can continue to post blog every week. I got some reply from who loves Celonis in the world and it is my fun to continue posting. Celonis …">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
@@ -238,7 +234,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="posts-heading">
               
-                <h1>Group similar cases by Clustering</h1>
+                <h1>Verify calculation result in OLAP table then convert to visual component</h1>
               
               
                 <hr class="small">
@@ -258,63 +254,23 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>Last week I posted <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-09-25-convert-quantitative-value-to-categorical-one-by-quantile-function/">Convert Quantitative value to Categorical one by Quantile Function</a> to create categorical dimension. Today I will create categorical dimension via different way, clustering.</p>
-<p>Clustering is one of the unsupervised learning method, to automatically group cases by their attributes. Celonis PQL has clustering funciton <code>KMEANS</code>, so you are ready to use clustering.</p>
-<p>Today I will use O2C process and would like to group customers by (1) their lead time from Invoice send to Clear Invoice and (2) net value. Imagine lower (Quicker) lead time and higher net value is high priority customer and vise versa.</p>
-<p>Today&rsquo;s output is below, I clusetered each dot (customer) by k-means. So group 1 is higher priority than group 0.</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/135702244-36a5125d-dfb2-4978-8dba-3965f6d33a61.png"><img src="https://user-images.githubusercontent.com/67397583/135702244-36a5125d-dfb2-4978-8dba-3965f6d33a61.png" alt="image"></a></p>
-<p>By the way, I found that current customer code is too much to plot in graph, so I would like to group customer by its name before starting k-means. To do this I used <code>CLUSTER_STRINGS</code> function and convert customer name to similar one.</p>
-<p>Below is check sheet of this function. I created <code>customerGroup</code> formula as <code>CLUSTER_STRINGS(KNA1.NAME1,EDIT_THRESHOLD({p1}))</code> then passed edit distance from 1 to 3 in each columns. You can see that result of edit distance 3 can create bigger group than 1, for example customer <code>K5392</code> belongs to one big group in case of 3, instead different group in case of 1 and 2.</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/135702356-4bd7a601-0887-42ba-b851-7720ffd97eba.png"><img src="https://user-images.githubusercontent.com/67397583/135702356-4bd7a601-0887-42ba-b851-7720ffd97eba.png" alt="image"></a></p>
-<p>Going back to k-means clustering, I created two dimensions mentioned above. I used edit distance 3 to group customer then defined <code>DOMAIN_TABLE</code>. I used Pull up funciton instead of aggregation function, so later I can filter customers by clicking group color dot in scatter plot.</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">-- avgDaysInvoiceClear
-PU_AVG(
-  DOMAIN_TABLE(KPI(customerGroup,3)),
-  DATEDIFF(
-    dd,
-    PU_FIRST(VBAP, _CEL_O2C_ACTIVITIES.EVENTTIME, _CEL_O2C_ACTIVITIES.ACTIVITY_EN = &#39;Send Invoice&#39;),
-    PU_FIRST(VBAP, _CEL_O2C_ACTIVITIES.EVENTTIME, _CEL_O2C_ACTIVITIES.ACTIVITY_EN = &#39;Clear Invoice&#39;)
-  )
-)
-
--- sumNetValue
-PU_SUM(
-  DOMAIN_TABLE(KPI(customerGroup,3)),
-  VBAP.NETWR_CONVERTED
-)
-</code></pre></div><p>Then I determined clustering using two formulas (input and cluster are same). By passing number to parameter, I can change number of clusters by button dropdown.</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">-- clusterByCustomer
-KMEANS (
-  TRAIN_KM (
-    INPUT (
-      KPI(avgDaysInvoiceClear),
-      KPI(sumNetValue)
-    ), {p1}
-  ),
-  CLUSTER (
-    KPI(avgDaysInvoiceClear),
-    KPI(sumNetValue)
-  ) 
-)
-</code></pre></div><p>In scatter plot you should use Grouping option and set k-means result, so each dot is colored based on cluster.</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/135702994-4526a63a-b625-421c-b4a1-f0b3eae8e32c.png"><img src="https://user-images.githubusercontent.com/67397583/135702994-4526a63a-b625-421c-b4a1-f0b3eae8e32c.png" alt="image"></a></p>
-<p>Finally, similar to last week topic, I chose Pull up function so filtering by other dimension (e.g. company code) does not affect this result.</p>
+        <p>Today is 24th post of this blog series and I am suprised that I can continue to post blog every week. I got some reply from who loves Celonis in the world and it is my fun to continue posting. Celonis is releasing new functionarity year by year and I am interested in catching up them and thinking how these functions help my clients. After listening to next week&rsquo;s Celonis World Tour Webiner in Tokyo, I will get more inspiration to write blog.</p>
+<p>Until this post I mainly shared how to calculate KPIs in PQL and not mentioned about visual components that is one of the characteristic of Celonis, because I believe correct calculation is basis of quality assurarance. After you can verify calculation result in OLAP table, it is easily convert to visual component then decorate it as you like. Today I would like to show how to do it, and tips of decoration.</p>
+<p>Today I try to visualize the result of days between Ship and Invoice in <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-06-26-handle-null-efficiently-in-aggregation-function/">Handle NULL efficiently in Aggregation Function</a> post. As mentioned before, first step is to create OLAP table for counting Invoice within a day etc. For visualization I determined month of Ship Goods as dimension. Below is the result of OLAP table.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/136639035-05639d01-256a-447c-8a6d-48c7a0002d81.png"><img src="https://user-images.githubusercontent.com/67397583/136639035-05639d01-256a-447c-8a6d-48c7a0002d81.png" alt="image"></a></p>
+<p>Second step is converting component type. After verifying OLAP table you will right click it and go to setting, then simply change <code>component type</code>. In this case I choose column chart.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/136639162-bb76469b-cfaa-445d-8e0c-23b3b5e4f946.png"><img src="https://user-images.githubusercontent.com/67397583/136639162-bb76469b-cfaa-445d-8e0c-23b3b5e4f946.png" alt="image"></a></p>
+<p>Resulting appearance is not good enough because three columns appear per one month. So as third step I would like to change it to stacked bar chart.</p>
+<p>Again go to settings and choose <code>Data series: within a day</code> at the top dropdown. Then scroll down to the buttom and tick <code>Stacked</code> button. Same operation is done against <code>Data series: over a day</code> then two columns are stacked successfully.</p>
+<p>How about <code>total</code> column ? I would like to use it to display total number but would not like to stack. Go to <code>Data series: total</code> then select Line chart in <code>Alternative type</code> dropdown, then height of node of line is same as that of stacked bar. Next change to transparent in <code>Series color</code> button and tick <code>Display data labels</code>. Finally line is disappeared and only total number is displayed like legend of stacked bar. Below is process of converting OLAP table to final appearance.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/136639637-90fff977-499c-48bf-9be4-3809666b75fb.png"><img src="https://user-images.githubusercontent.com/67397583/136639637-90fff977-499c-48bf-9be4-3809666b75fb.png" alt="image"></a></p>
+<p>Even if this process is not applied (e.g. histogram), you should first create OLAP table then manually copy PQL to visual component for keeping calculation quality.</p>
 <p>Kaz</p>
 <hr>
-<p>This post&rsquo;s program can be <a href="../../examples/o2c_analysis_20211002.json">downloeded here</a> then push to your environment by content-cli.</p>
+<p>This post&rsquo;s program can be <a href="../../examples/o2c_analysis_20211009.json">downloeded here</a> then push to your environment by content-cli.</p>
 <hr>
 
 
-        
-          <div class="blog-tags">
-            
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/pql/">PQL</a>&nbsp;
-            
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/process-analytics/">Process Analytics</a>&nbsp;
-            
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/pull-up-function/">Pull Up Function</a>&nbsp;
-            
-          </div>
         
 
         
@@ -327,42 +283,42 @@ KMEANS (
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-10-02-group-similar-cases-by-clustering%2f&amp;text=Group%20similar%20cases%20by%20Clustering&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-10-09-verify-calculation-result-in-olap-table-then-convert-to-visual-component%2f&amp;text=Verify%20calculation%20result%20in%20OLAP%20table%20then%20convert%20to%20visual%20component&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-10-02-group-similar-cases-by-clustering%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-10-09-verify-calculation-result-in-olap-table-then-convert-to-visual-component%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-10-02-group-similar-cases-by-clustering%2f&amp;title=Group%20similar%20cases%20by%20Clustering" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-10-09-verify-calculation-result-in-olap-table-then-convert-to-visual-component%2f&amp;title=Verify%20calculation%20result%20in%20OLAP%20table%20then%20convert%20to%20visual%20component" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-10-02-group-similar-cases-by-clustering%2f&amp;title=Group%20similar%20cases%20by%20Clustering" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-10-09-verify-calculation-result-in-olap-table-then-convert-to-visual-component%2f&amp;title=Verify%20calculation%20result%20in%20OLAP%20table%20then%20convert%20to%20visual%20component" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-10-02-group-similar-cases-by-clustering%2f&amp;title=Group%20similar%20cases%20by%20Clustering" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-10-09-verify-calculation-result-in-olap-table-then-convert-to-visual-component%2f&amp;title=Verify%20calculation%20result%20in%20OLAP%20table%20then%20convert%20to%20visual%20component" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-10-02-group-similar-cases-by-clustering%2f&amp;description=Group%20similar%20cases%20by%20Clustering" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-10-09-verify-calculation-result-in-olap-table-then-convert-to-visual-component%2f&amp;description=Verify%20calculation%20result%20in%20OLAP%20table%20then%20convert%20to%20visual%20component" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -376,25 +332,6 @@ KMEANS (
 
         
           
-            
-          
-
-          
-                  <h4 class="see-also">See also</h4>
-                  <ul>
-                
-                
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-09-25-convert-quantitative-value-to-categorical-one-by-quantile-function/">Convert Quantitative value to Categorical one by Quantile Function</a></li>
-                
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-09-18-integrate-button-dropdown-entries-to-one-formula/">Integrate Button Dropdown Entries to one Formula</a></li>
-                
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-09-11-use-bind-function-to-enable-multiple-domain-table/">Use BIND function to enable multiple DOMAIN_TABLE</a></li>
-                
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-09-04-convert-count-unit-of-kpi-by-count-distinct/">Convert count unit of KPI by COUNT DISTINCT</a></li>
-                
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-08-28-count-rows-of-tables-in-various-way/">Count rows of Tables in various way</a></li>
-                
-              </ul>
 
           
         
@@ -404,13 +341,9 @@ KMEANS (
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-09-25-convert-quantitative-value-to-categorical-one-by-quantile-function/" data-toggle="tooltip" data-placement="top" title="Convert Quantitative value to Categorical one by Quantile Function">&larr; Previous Post</a>
+              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-10-02-group-similar-cases-by-clustering/" data-toggle="tooltip" data-placement="top" title="Group similar cases by Clustering">&larr; Previous Post</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-10-09-verify-calculation-result-in-olap-table-then-convert-to-visual-component/" data-toggle="tooltip" data-placement="top" title="Verify calculation result in OLAP table then convert to visual component">Next Post &rarr;</a>
-            </li>
           
         </ul>
       
