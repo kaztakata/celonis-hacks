@@ -5,10 +5,29 @@
     <link>https://kaztakata.github.io/celonis-hacks/tags/process-analytics/</link>
     <description>Recent content in Process Analytics on Celonis hacks</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 02 Oct 2021 10:56:43 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 16 Oct 2021 10:12:18 +0900</lastBuildDate>
     
 	<atom:link href="https://kaztakata.github.io/celonis-hacks/tags/process-analytics/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Investigate Workload Trend of Cropped Subprocess</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2021-10-16-investigate-workload-trend-of-cropped-subprocess/</link>
+      <pubDate>Sat, 16 Oct 2021 10:12:18 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2021-10-16-investigate-workload-trend-of-cropped-subprocess/</guid>
+      <description>Celonis Activity record is good to investigate user workload, so you may already implement analysis to do this. Today I would like to crop activities to minimum subprocess then investigate workload against subprocess.
+Today&amp;rsquo;s output image is below. I set filter button of company code, also set three buttons to point out activities to crop subprocess pass through these activities. Right side Process Explorer is to check subprocess, in this case it is starting from &amp;lsquo;Approve Credit Check&amp;rsquo; until &amp;lsquo;Cancel Order&amp;rsquo; via &amp;lsquo;Deny Credit Check&amp;rsquo;.</description>
+    </item>
+    
+    <item>
+      <title>Verify calculation result in OLAP table then convert to visual component</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2021-10-09-verify-calculation-result-in-olap-table-then-convert-to-visual-component/</link>
+      <pubDate>Sat, 09 Oct 2021 09:33:43 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2021-10-09-verify-calculation-result-in-olap-table-then-convert-to-visual-component/</guid>
+      <description>Today is 24th post of this blog series and I am suprised that I can continue to post blog every week. I got some reply from who loves Celonis in the world and it is my fun to continue posting. Celonis is releasing new functionarity year by year and I am interested in catching up them and thinking how these functions help my clients. After listening to next week&amp;rsquo;s Celonis World Tour Webiner in Tokyo, I will get more inspiration to write blog.</description>
+    </item>
     
     <item>
       <title>Group similar cases by Clustering</title>

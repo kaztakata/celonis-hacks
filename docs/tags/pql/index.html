@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
   <title>Overview of all pages with the tag #PQL - Celonis hacks</title>
-  <meta name="description" content="Overview of all pages with the tag #PQL, such as: Group similar cases by Clustering">
+  <meta name="description" content="Overview of all pages with the tag #PQL, such as: Investigate Workload Trend of Cropped Subprocess">
   <meta name="author" content="Kazuhiko Takata"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -205,6 +205,58 @@ if (!doNotTrack) {
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         
         <div class="posts-list">
+          
+            <article class="post-preview">
+    <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-10-16-investigate-workload-trend-of-cropped-subprocess/">
+        <h2 class="post-title">Investigate Workload Trend of Cropped Subprocess</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on map[Count:October 16, 2021 Saturday]
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;minutes
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;401&nbsp;words
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kazuhiko Takata
+    
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        Celonis Activity record is good to investigate user workload, so you may already implement analysis to do this. Today I would like to crop activities to minimum subprocess then investigate workload against subprocess.
+Today&rsquo;s output image is below. I set filter button of company code, also set three buttons to point out activities to crop subprocess pass through these activities. Right side Process Explorer is to check subprocess, in this case it is starting from &lsquo;Approve Credit Check&rsquo; until &lsquo;Cancel Order&rsquo; via &lsquo;Deny Credit Check&rsquo;.
+        <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-10-16-investigate-workload-trend-of-cropped-subprocess/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+        <a href="https://kaztakata.github.io/celonis-hacks/tags/pql/">PQL</a>&nbsp;
+        
+        <a href="https://kaztakata.github.io/celonis-hacks/tags/process-analytics/">Process Analytics</a>&nbsp;
+        
+        <a href="https://kaztakata.github.io/celonis-hacks/tags/process-explorer/">Process Explorer</a>&nbsp;
+        
+    </div>
+    
+
+</article>
           
             <article class="post-preview">
     <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-10-02-group-similar-cases-by-clustering/">
@@ -660,66 +712,6 @@ I already used this work around but I also felt troublesome in two points. First
         <a href="https://kaztakata.github.io/celonis-hacks/tags/pql/">PQL</a>&nbsp;
         
         <a href="https://kaztakata.github.io/celonis-hacks/tags/process-analytics/">Process Analytics</a>&nbsp;
-        
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/process-explorer/">Process Explorer</a>&nbsp;
-        
-    </div>
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-07-24-categorize-and-name-activity/">
-        <h2 class="post-title">Categorize and Name Activity</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on map[Count:July 24, 2021 Saturday]
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;minutes
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;471&nbsp;words
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kazuhiko Takata
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        In the previous post Transform Source System Tables to Minimize Data Model Tables, I recommended to convert some kind of source system tables to Activity. Today I focus on Activity and would like to share my way how to categorize and name Activity.
-First point is to split Activity name to two parts, more general part and detail part. For example, in SAP ECC or S4HANA Order to Cash process, general Activity name is Create Sales Order when data committed in VA01 transaction.
-        <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-07-24-categorize-and-name-activity/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/data-model/">Data Model</a>&nbsp;
-        
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/event-collection/">Event Collection</a>&nbsp;
-        
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/transformation/">Transformation</a>&nbsp;
-        
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/pql/">PQL</a>&nbsp;
-        
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/process-analytics/">Process Analytics</a>&nbsp;
-        
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/pull-up-function/">Pull Up Function</a>&nbsp;
         
         <a href="https://kaztakata.github.io/celonis-hacks/tags/process-explorer/">Process Explorer</a>&nbsp;
         
