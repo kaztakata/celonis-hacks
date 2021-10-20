@@ -98,7 +98,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
 
 
-
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
@@ -130,25 +129,19 @@ if (!doNotTrack) {
         
           
             <li>
-              <a title="Blog" href="https://kaztakata.github.io/celonis-hacks/">Blog</a>
+              <a title="Blog" href="/celonis-hacks">Blog</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="https://kaztakata.github.io/celonis-hacks/tags">Tags</a>
+              <a title="Tags" href="/celonis-hacks/tags">Tags</a>
             </li>
           
         
           
             <li>
-              <a title="About" href="https://kaztakata.github.io/celonis-hacks/page/about/">About</a>
-            </li>
-          
-        
-          
-            <li>
-              <a title="Search" href="https://kaztakata.github.io/celonis-hacks/search">Search</a>
+              <a title="About" href="/celonis-hacks/page/about/">About</a>
             </li>
           
         
@@ -254,11 +247,11 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>Last week I posted <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-09-18-integrate-button-dropdown-entries-to-one-formula/">Integrate Button Dropdown Entries to one Formula</a> and integrated multiple dimensions. At that time I used string column that enable you to categorize each case, that is called categorical variable. In contrast quantitative variable such as order quantity, net value is not normally possible to use for dimension. If you would like to use these column as dimension, you need to convert its value to categorical value. Today I would like to show you how to convert it by quantile function.</p>
+        <p>Last week I posted <a href="../2021-09-18-integrate-button-dropdown-entries-to-one-formula/">Integrate Button Dropdown Entries to one Formula</a> and integrated multiple dimensions. At that time I used string column that enable you to categorize each case, that is called categorical variable. In contrast quantitative variable such as order quantity, net value is not normally possible to use for dimension. If you would like to use these column as dimension, you need to convert its value to categorical value. Today I would like to show you how to convert it by quantile function.</p>
 <p>Today&rsquo;s output image is as below. I copied last week&rsquo;s analysis then added one more entry &lsquo;Net Value Range&rsquo; to drilldown dimension. This number column is distributed from zero to millions, but these values are categorized to four ranges and used as dimension.</p>
 <p><a href="https://user-images.githubusercontent.com/67397583/134751598-813fae95-5d56-4c6f-a781-babaa67ac98a.png"><img src="https://user-images.githubusercontent.com/67397583/134751598-813fae95-5d56-4c6f-a781-babaa67ac98a.png" alt="image"></a></p>
 <p>To divide four categories, first I use <code>MEDIAN</code> funciton to divide to upper half cases and lower ones, then use <code>QUANTILE</code> function to determine boundory of 25% / 75% cases. Finally I compare each case with three boundories and categorize it to four ranges.</p>
-<p>By the way Celonis can not use <code>MEDIAN</code> or <code>QUANTILE</code> as comparator because these aggregation function can be used once (most outer function in PQL). Instead I use Pull Up function that can be used as comparator, because output of Pull Up function behaves as standard column (see <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-05-15-understand-mechanism-of-pull-up-function/">Understand mechanism of Pull up function</a>).</p>
+<p>By the way Celonis can not use <code>MEDIAN</code> or <code>QUANTILE</code> as comparator because these aggregation function can be used once (most outer function in PQL). Instead I use Pull Up function that can be used as comparator, because output of Pull Up function behaves as standard column (see <a href="../2021-05-15-understand-mechanism-of-pull-up-function/">Understand mechanism of Pull up function</a>).</p>
 <p>One more points is how to determine the target table of Pull up function. Now I would like to see all cases globally and calculate median and quantiles, so I should set <code>CONSTANT()</code> function to target table.</p>
 <p>Finally extended formula to categorize net value is below. As output value I also use <code>PU_MIN</code> and <code>PU_MAX</code>, but it can be expresses by <code>PU_QUANTILE</code> with parameter 0% and 100% (<code>PU_MEDIAN</code> is 50% too). To distinguish boundary value easily, I rounded it to integer. So it is different from output of boxplot, and case number of four categories are slightly different.</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">--drilldownDimension
@@ -362,15 +355,15 @@ END
                   <ul>
                 
                 
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-10-16-investigate-workload-trend-of-cropped-subprocess/">Investigate Workload Trend of Cropped Subprocess</a></li>
+                    <li><a href="/celonis-hacks/posts/2021-10-16-investigate-workload-trend-of-cropped-subprocess/">Investigate Workload Trend of Cropped Subprocess</a></li>
                 
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-10-09-verify-calculation-result-in-olap-table-then-convert-to-visual-component/">Verify calculation result in OLAP table then convert to visual component</a></li>
+                    <li><a href="/celonis-hacks/posts/2021-10-09-verify-calculation-result-in-olap-table-then-convert-to-visual-component/">Verify calculation result in OLAP table then convert to visual component</a></li>
                 
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-10-02-group-similar-cases-by-clustering/">Group similar cases by Clustering</a></li>
+                    <li><a href="/celonis-hacks/posts/2021-10-02-group-similar-cases-by-clustering/">Group similar cases by Clustering</a></li>
                 
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-09-18-integrate-button-dropdown-entries-to-one-formula/">Integrate Button Dropdown Entries to one Formula</a></li>
+                    <li><a href="/celonis-hacks/posts/2021-09-18-integrate-button-dropdown-entries-to-one-formula/">Integrate Button Dropdown Entries to one Formula</a></li>
                 
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-09-11-use-bind-function-to-enable-multiple-domain-table/">Use BIND function to enable multiple DOMAIN_TABLE</a></li>
+                    <li><a href="/celonis-hacks/posts/2021-09-11-use-bind-function-to-enable-multiple-domain-table/">Use BIND function to enable multiple DOMAIN_TABLE</a></li>
                 
               </ul>
 

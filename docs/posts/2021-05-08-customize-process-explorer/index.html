@@ -102,7 +102,6 @@ I think there are two ways to customize Process explorer.
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
 
 
-
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
@@ -134,25 +133,19 @@ if (!doNotTrack) {
         
           
             <li>
-              <a title="Blog" href="https://kaztakata.github.io/celonis-hacks/">Blog</a>
+              <a title="Blog" href="/celonis-hacks">Blog</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="https://kaztakata.github.io/celonis-hacks/tags">Tags</a>
+              <a title="Tags" href="/celonis-hacks/tags">Tags</a>
             </li>
           
         
           
             <li>
-              <a title="About" href="https://kaztakata.github.io/celonis-hacks/page/about/">About</a>
-            </li>
-          
-        
-          
-            <li>
-              <a title="Search" href="https://kaztakata.github.io/celonis-hacks/search">Search</a>
+              <a title="About" href="/celonis-hacks/page/about/">About</a>
             </li>
           
         
@@ -267,7 +260,7 @@ if (!doNotTrack) {
 <h3 id="change-activity-name">Change activity name</h3>
 <p>If you want to add detail information to each activity, you can change activity dimension. For example, if I would like to see activity name + user ID to see who is doing this activity in this process, I will change activity dimension to <code>_CEL_AP_ACTIVITIES.ACTIVITY_EN || ' : ' || _CEL_AP_ACTIVITIES.USER_NAME</code>. Function <code>||</code> is used to concatenate columns or fixed string like <code>:</code>.</p>
 <p><a href="https://user-images.githubusercontent.com/67397583/117003132-7137b600-ad1f-11eb-8afb-66cd11b10f42.png"><img src="https://user-images.githubusercontent.com/67397583/117003132-7137b600-ad1f-11eb-8afb-66cd11b10f42.png" alt="image"></a></p>
-<p>As demonstrated in <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-05-01-understand-difference-between-dimension-and-kpi/">Understand Difference between Dimension and KPI</a>, two (and more) tables in activity dimension PQL are inplicitly joined then concatenated string is set to activity dimension. You are careful to use additional column that may have NULL value. Concatenation with NULL returns NULL, and NULL activity is not displayed in Process Explorer. If I would like to prevent it, I will use <code>COALESCE(_CEL_AP_ACTIVITIES.USER_NAME,'')</code> instead, then NULL value will convert to zero byte string and activity name is displayed. Below screenshots are to test <code>COALESCE</code> funciton in OLAP table, and Process Explorer. Activity <code>Due Date passed</code> is displayed in Process Explorer, even it does not have user information.</p>
+<p>As demonstrated in <a href="../2021-05-01-understand-difference-between-dimension-and-kpi/">Understand Difference between Dimension and KPI</a>, two (and more) tables in activity dimension PQL are inplicitly joined then concatenated string is set to activity dimension. You are careful to use additional column that may have NULL value. Concatenation with NULL returns NULL, and NULL activity is not displayed in Process Explorer. If I would like to prevent it, I will use <code>COALESCE(_CEL_AP_ACTIVITIES.USER_NAME,'')</code> instead, then NULL value will convert to zero byte string and activity name is displayed. Below screenshots are to test <code>COALESCE</code> funciton in OLAP table, and Process Explorer. Activity <code>Due Date passed</code> is displayed in Process Explorer, even it does not have user information.</p>
 <p><a href="https://user-images.githubusercontent.com/67397583/117004211-c88a5600-ad20-11eb-8eea-6a4a3e199a69.png"><img src="https://user-images.githubusercontent.com/67397583/117004211-c88a5600-ad20-11eb-8eea-6a4a3e199a69.png" alt="image"></a></p>
 <p><a href="https://user-images.githubusercontent.com/67397583/117003857-59acfd00-ad20-11eb-9d61-88024275fee4.png"><img src="https://user-images.githubusercontent.com/67397583/117003857-59acfd00-ad20-11eb-9d61-88024275fee4.png" alt="image"></a></p>
 <h3 id="add-more-kpi-against-activity--connection">Add more KPI against activity / connection</h3>
@@ -374,15 +367,15 @@ if (!doNotTrack) {
                   <ul>
                 
                 
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-10-16-investigate-workload-trend-of-cropped-subprocess/">Investigate Workload Trend of Cropped Subprocess</a></li>
+                    <li><a href="/celonis-hacks/posts/2021-10-16-investigate-workload-trend-of-cropped-subprocess/">Investigate Workload Trend of Cropped Subprocess</a></li>
                 
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-10-09-verify-calculation-result-in-olap-table-then-convert-to-visual-component/">Verify calculation result in OLAP table then convert to visual component</a></li>
+                    <li><a href="/celonis-hacks/posts/2021-10-09-verify-calculation-result-in-olap-table-then-convert-to-visual-component/">Verify calculation result in OLAP table then convert to visual component</a></li>
                 
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-10-02-group-similar-cases-by-clustering/">Group similar cases by Clustering</a></li>
+                    <li><a href="/celonis-hacks/posts/2021-10-02-group-similar-cases-by-clustering/">Group similar cases by Clustering</a></li>
                 
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-09-25-convert-quantitative-value-to-categorical-one-by-quantile-function/">Convert Quantitative value to Categorical one by Quantile Function</a></li>
+                    <li><a href="/celonis-hacks/posts/2021-09-25-convert-quantitative-value-to-categorical-one-by-quantile-function/">Convert Quantitative value to Categorical one by Quantile Function</a></li>
                 
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-09-18-integrate-button-dropdown-entries-to-one-formula/">Integrate Button Dropdown Entries to one Formula</a></li>
+                    <li><a href="/celonis-hacks/posts/2021-09-18-integrate-button-dropdown-entries-to-one-formula/">Integrate Button Dropdown Entries to one Formula</a></li>
                 
               </ul>
 

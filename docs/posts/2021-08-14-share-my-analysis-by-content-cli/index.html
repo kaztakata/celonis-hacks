@@ -100,7 +100,6 @@ First you need to open your training environment if you do not.">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
 
 
-
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
@@ -132,25 +131,19 @@ if (!doNotTrack) {
         
           
             <li>
-              <a title="Blog" href="https://kaztakata.github.io/celonis-hacks/">Blog</a>
+              <a title="Blog" href="/celonis-hacks">Blog</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="https://kaztakata.github.io/celonis-hacks/tags">Tags</a>
+              <a title="Tags" href="/celonis-hacks/tags">Tags</a>
             </li>
           
         
           
             <li>
-              <a title="About" href="https://kaztakata.github.io/celonis-hacks/page/about/">About</a>
-            </li>
-          
-        
-          
-            <li>
-              <a title="Search" href="https://kaztakata.github.io/celonis-hacks/search">Search</a>
+              <a title="About" href="/celonis-hacks/page/about/">About</a>
             </li>
           
         
@@ -258,7 +251,7 @@ if (!doNotTrack) {
       <article role="main" class="blog-post">
         <p>Recently I was thinking how to share my work with you not only blog post but experience by live environment. Today I would like to tell how to reproduce my Analysis to your environment by <a href="https://github.com/celonis/content-cli">Content-CLI</a>. Content-CLI is used to copy programs between Celonis environments via backup file. I created backup file and upload to public repository. So you can download it and reproduce my program in your environment.</p>
 <p>First you need to open your training environment if you do not. You will go to <a href="https://lms.celonis.com/">Celonis LMS</a> then sign up for your account. After that you enroll Process Discovery Basics cource then you will receive invitation mail of training envioronment. Training environment URL is like <a href="https://your-email-address.training.celonis.cloud/">https://your-email-address.training.celonis.cloud/</a> and your-email-address is based on your sign up email address to Celonis LMS.</p>
-<p>From now on, I would like to tell procedure to reproduce Analysis of last blog post <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-08-07-create-matrix-of-throughput-time-by-pivot-table/">Create Matrix of Throughput Time by Pivot Table</a>. In case of other Analysis, please change parameters accordingly.</p>
+<p>From now on, I would like to tell procedure to reproduce Analysis of last blog post <a href="../2021-08-07-create-matrix-of-throughput-time-by-pivot-table/">Create Matrix of Throughput Time by Pivot Table</a>. In case of other Analysis, please change parameters accordingly.</p>
 <p>After you can login to your training environment, go to Process Analytics first. Click New button at left side (Workspaces), then select Data Model <code>CelonisCertificationExam_Order-to-Cash_DataModel</code> and name workspace as <code>celonis-hacks O2C</code> (please see below table for other Processes / Data Models). You should note workspace ID from URL of new workspace, like <code>workspaces=2056362c-0576-4356-82d2-2ce341db6fbf</code>, that is required to push Analysis later.</p>
 <table>
 <thead>
@@ -284,12 +277,11 @@ if (!doNotTrack) {
 </table>
 <p>Next you will create API-Key from your profile. Click your avatar on top right of screen, then click Edit Profile button. Then enter content-cli to New API Key name then click Create API Key button (below screen). You should note API Key that makes possible to login to this environment without UI.</p>
 <p><a href="https://user-images.githubusercontent.com/67397583/129434323-7ce72520-c163-46cc-932b-959926c01b46.png"><img src="https://user-images.githubusercontent.com/67397583/129434323-7ce72520-c163-46cc-932b-959926c01b46.png" alt="image"></a></p>
-<p>Next is the last step of preparation. You will go to Machine Learning then click New App. Like below screen, you can create Jupyter Workbench in Machine Learning. Click App you created, then you will go to Jupyter Workbench.
-<a href="https://user-images.githubusercontent.com/67397583/129434369-353cfa82-301b-499e-ae4b-c1d3e7de3401.png"><img src="https://user-images.githubusercontent.com/67397583/129434369-353cfa82-301b-499e-ae4b-c1d3e7de3401.png" alt="image"></a></p>
+<p>Next is the last step of preparation. You will go to Machine Learning then click New App. Like below screen, you can create Jupyter Workbench in Machine Learning. Click App you created, then you will go to Jupyter Workbench.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/129434369-353cfa82-301b-499e-ae4b-c1d3e7de3401.png"><img src="https://user-images.githubusercontent.com/67397583/129434369-353cfa82-301b-499e-ae4b-c1d3e7de3401.png" alt="image"></a></p>
 <p>Jupyter Workbench is web based interactive development environment for Jupyter notebook, but today I do not touch Jupyter notebook but Content-CLI installed to this environment.</p>
 <p>First you need to copy my backup file. Easiest way to copy and sync file is using Git. In the Workbench select menu Git &gt; Clone a repository, then enter <a href="https://github.com/kaztakata/celonis-hacks">https://github.com/kaztakata/celonis-hacks</a>. You can see celonis-hacks folder at left side. If you would like to update it, then go to celonis-hacks folder and select Git &gt; Pull from Remote.</p>
-<p>Next you will start Content-CLI. In the Workbench select File &gt; New &gt; Terminal, then you can see terminal as below screen. Terminal is waiting for your command so you will input command after $ sign and input Enter key. If additional information
-is required, enter command and input Enter key too.</p>
+<p>Next you will start Content-CLI. In the Workbench select File &gt; New &gt; Terminal, then you can see terminal as below screen. Terminal is waiting for your command so you will input command after $ sign and input Enter key. If additional information is required, enter command and input Enter key too.</p>
 <p><a href="https://user-images.githubusercontent.com/67397583/129436118-acdbbe70-9b6c-485a-a4ea-5616f6cbe767.png"><img src="https://user-images.githubusercontent.com/67397583/129436118-acdbbe70-9b6c-485a-a4ea-5616f6cbe767.png" alt="image"></a></p>
 <p>First Content-CLI command is to create profile for login to training environment via Content-CLI. Please change your team and api token value accordingly.</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">(base) jovyan@workbench-6599f565c6-sr2f8:~$ content-cli profile create
@@ -383,15 +375,15 @@ info:    Analysis was pushed successfully. New ID: 2c1c370b-2a4b-4321-b3e7-9f3c2
                   <ul>
                 
                 
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-10-16-investigate-workload-trend-of-cropped-subprocess/">Investigate Workload Trend of Cropped Subprocess</a></li>
+                    <li><a href="/celonis-hacks/posts/2021-10-16-investigate-workload-trend-of-cropped-subprocess/">Investigate Workload Trend of Cropped Subprocess</a></li>
                 
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-10-09-verify-calculation-result-in-olap-table-then-convert-to-visual-component/">Verify calculation result in OLAP table then convert to visual component</a></li>
+                    <li><a href="/celonis-hacks/posts/2021-10-09-verify-calculation-result-in-olap-table-then-convert-to-visual-component/">Verify calculation result in OLAP table then convert to visual component</a></li>
                 
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-10-02-group-similar-cases-by-clustering/">Group similar cases by Clustering</a></li>
+                    <li><a href="/celonis-hacks/posts/2021-10-02-group-similar-cases-by-clustering/">Group similar cases by Clustering</a></li>
                 
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-09-25-convert-quantitative-value-to-categorical-one-by-quantile-function/">Convert Quantitative value to Categorical one by Quantile Function</a></li>
+                    <li><a href="/celonis-hacks/posts/2021-09-25-convert-quantitative-value-to-categorical-one-by-quantile-function/">Convert Quantitative value to Categorical one by Quantile Function</a></li>
                 
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-09-18-integrate-button-dropdown-entries-to-one-formula/">Integrate Button Dropdown Entries to one Formula</a></li>
+                    <li><a href="/celonis-hacks/posts/2021-09-18-integrate-button-dropdown-entries-to-one-formula/">Integrate Button Dropdown Entries to one Formula</a></li>
                 
               </ul>
 

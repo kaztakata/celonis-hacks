@@ -101,7 +101,6 @@ For today&rsquo;s demo case I use …">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
 
 
-
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
@@ -133,25 +132,19 @@ if (!doNotTrack) {
         
           
             <li>
-              <a title="Blog" href="https://kaztakata.github.io/celonis-hacks/">Blog</a>
+              <a title="Blog" href="/celonis-hacks">Blog</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="https://kaztakata.github.io/celonis-hacks/tags">Tags</a>
+              <a title="Tags" href="/celonis-hacks/tags">Tags</a>
             </li>
           
         
           
             <li>
-              <a title="About" href="https://kaztakata.github.io/celonis-hacks/page/about/">About</a>
-            </li>
-          
-        
-          
-            <li>
-              <a title="Search" href="https://kaztakata.github.io/celonis-hacks/search">Search</a>
+              <a title="About" href="/celonis-hacks/page/about/">About</a>
             </li>
           
         
@@ -262,9 +255,9 @@ if (!doNotTrack) {
 <p><a href="https://user-images.githubusercontent.com/67397583/131204467-0fa76a98-929c-40a3-87e1-707c20613f04.png"><img src="https://user-images.githubusercontent.com/67397583/131204467-0fa76a98-929c-40a3-87e1-707c20613f04.png" alt="image"></a></p>
 <p>First test is using <code>COUNT</code> function in OLAP table. Counting result of <code>EKKO</code>/<code>EKPO</code> column is not good, but why ? Joining three tables affected to the result due to row duplication. In the end counting result of three tables are same, that is identical to count of Activity.</p>
 <p>Second test is using <code>COUNT_TABLE</code> funciton. In this case counting result of <code>EKKO</code>/<code>EKPO</code> column is good, even I joined three tables. I guess <code>COUNT_TABLE</code> delete duplicated record internally, so we are easy to use <code>COUNT_TABLE</code>. But last column that is sum of Net value is duplicated. Why ?</p>
-<p>Even <code>COUNT_TABLE</code> column is correctly working, but this OLAP table is actually used three tables. Compared with current result, I also created OLAP table without fourth column (<code>COUNT_TABLE</code> of Activity table). Result of Net value is correct in second case, so my guess is verified. Again, even using <code>COUNT_TABLE</code> target table is joined in PQL, so other columns are affected by counting table. You may read my previous post <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-06-12-calculate-multi-dimentional-kpis/">Calculate Multi Dimensional KPIs</a> for detail of row duplication.</p>
+<p>Even <code>COUNT_TABLE</code> column is correctly working, but this OLAP table is actually used three tables. Compared with current result, I also created OLAP table without fourth column (<code>COUNT_TABLE</code> of Activity table). Result of Net value is correct in second case, so my guess is verified. Again, even using <code>COUNT_TABLE</code> target table is joined in PQL, so other columns are affected by counting table. You may read my previous post <a href="../2021-06-12-calculate-multi-dimentional-kpis/">Calculate Multi Dimensional KPIs</a> for detail of row duplication.</p>
 <p>Third test is using <code>COUNT DISTINCT</code> function that calculates the number of distinct elements per group. So I concatenated table primary keys, <code>EKKO.MANDT||EKKO.EBELN</code> for header count, and <code>EKPO.MANDT||EKPO.EBELN||EKPO.EBELP</code> for item count. Counting result of three tables are good. Why ? Because I explicitly count distinct primary keys even rows of header and item tables are duplicated.</p>
-<p>Result of last column (Net value) is duplicated too, but it is predicted. Fourth column that is counting Activity column (<code>_CASE_KEY</code>) is affected to duplication of Net value. To prevent it, counting Activity without joining Activity table. To do so I can use Pull up function <code>SUM(PU_COUNT(EKPO,_CEL_P2P_ACTIVITIES_EN._CASE_KEY))</code> that is initially count rows of Activity table by each item, then sum up the result of each item.</p>
+<p>Result of last column (Net value) is duplicated too, but it is predicted. Fourth column that is counting Activity column (_CASE_KEY) is affected to duplication of Net value. To prevent it, counting Activity without joining Activity table. To do so I can use Pull up function <code>SUM(PU_COUNT(EKPO,_CEL_P2P_ACTIVITIES_EN._CASE_KEY))</code> that is initially count rows of Activity table by each item, then sum up the result of each item.</p>
 <p>In the end either <code>COUNT_TABLE</code> or <code>COUNT DISTINCT</code> is possible to correctly count rows of tables, but especially for <code>COUNT_TABLE</code> please be careful that target table is internally joined and that may affect to result of other columns.</p>
 <p>Kaz</p>
 <hr>
@@ -351,15 +344,15 @@ if (!doNotTrack) {
                   <ul>
                 
                 
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-10-16-investigate-workload-trend-of-cropped-subprocess/">Investigate Workload Trend of Cropped Subprocess</a></li>
+                    <li><a href="/celonis-hacks/posts/2021-10-16-investigate-workload-trend-of-cropped-subprocess/">Investigate Workload Trend of Cropped Subprocess</a></li>
                 
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-10-09-verify-calculation-result-in-olap-table-then-convert-to-visual-component/">Verify calculation result in OLAP table then convert to visual component</a></li>
+                    <li><a href="/celonis-hacks/posts/2021-10-09-verify-calculation-result-in-olap-table-then-convert-to-visual-component/">Verify calculation result in OLAP table then convert to visual component</a></li>
                 
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-10-02-group-similar-cases-by-clustering/">Group similar cases by Clustering</a></li>
+                    <li><a href="/celonis-hacks/posts/2021-10-02-group-similar-cases-by-clustering/">Group similar cases by Clustering</a></li>
                 
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-09-25-convert-quantitative-value-to-categorical-one-by-quantile-function/">Convert Quantitative value to Categorical one by Quantile Function</a></li>
+                    <li><a href="/celonis-hacks/posts/2021-09-25-convert-quantitative-value-to-categorical-one-by-quantile-function/">Convert Quantitative value to Categorical one by Quantile Function</a></li>
                 
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-09-18-integrate-button-dropdown-entries-to-one-formula/">Integrate Button Dropdown Entries to one Formula</a></li>
+                    <li><a href="/celonis-hacks/posts/2021-09-18-integrate-button-dropdown-entries-to-one-formula/">Integrate Button Dropdown Entries to one Formula</a></li>
                 
               </ul>
 

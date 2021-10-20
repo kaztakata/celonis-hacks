@@ -100,7 +100,6 @@ Today&rsquo;s output image is below. I set filter button of company code, also s
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
 
 
-
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
@@ -132,25 +131,19 @@ if (!doNotTrack) {
         
           
             <li>
-              <a title="Blog" href="https://kaztakata.github.io/celonis-hacks/">Blog</a>
+              <a title="Blog" href="/celonis-hacks">Blog</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="https://kaztakata.github.io/celonis-hacks/tags">Tags</a>
+              <a title="Tags" href="/celonis-hacks/tags">Tags</a>
             </li>
           
         
           
             <li>
-              <a title="About" href="https://kaztakata.github.io/celonis-hacks/page/about/">About</a>
-            </li>
-          
-        
-          
-            <li>
-              <a title="Search" href="https://kaztakata.github.io/celonis-hacks/search">Search</a>
+              <a title="About" href="/celonis-hacks/page/about/">About</a>
             </li>
           
         
@@ -260,7 +253,7 @@ if (!doNotTrack) {
 <p>Today&rsquo;s output image is below. I set filter button of company code, also set three buttons to point out activities to crop subprocess pass through these activities. Right side Process Explorer is to check subprocess, in this case it is starting from &lsquo;Approve Credit Check&rsquo; until &lsquo;Cancel Order&rsquo; via &lsquo;Deny Credit Check&rsquo;. Left side bar charts are to count activities in this subprocess by Hour, Day, and Month.</p>
 <p><a href="https://user-images.githubusercontent.com/67397583/137567852-34a663d2-21f1-41ec-bde4-7f68276c787c.png"><img src="https://user-images.githubusercontent.com/67397583/137567852-34a663d2-21f1-41ec-bde4-7f68276c787c.png" alt="image"></a></p>
 <p>First I would like to determine subprocess. Cropping to subprocess between two activities is done by <code>CALC_CROP_TO_NULL</code> function, so I create OR condition of two cropped subprocess by <code>COALESCE</code> function as below.</p>
-<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- cropTrinityActivity 
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- cropTrinityActivity
 </span><span class="c1"></span><span class="n">COALESCE</span><span class="p">(</span>
   <span class="n">CALC_CROP_TO_NULL</span><span class="p">(</span>
     <span class="n">FIRST_OCCURRENCE</span> <span class="p">[</span><span class="err">{</span><span class="n">p1</span><span class="err">}</span><span class="p">]</span> <span class="k">TO</span> <span class="n">LAST_OCCURRENCE</span> <span class="p">[</span><span class="err">{</span><span class="n">p2</span><span class="err">}</span><span class="p">],</span>
@@ -271,10 +264,9 @@ if (!doNotTrack) {
     <span class="n">_CEL_O2C_ACTIVITIES</span><span class="p">.</span><span class="n">ACTIVITY_EN</span>
   <span class="p">)</span>
 <span class="p">)</span>
-</code></pre></div><p>It converts Activity name to NULL except for cropped area. So dimension of Process Explorer is determined as <code>KPI(cropTrinityActivity, &lt;%=cropFromActivity%&gt;, &lt;%=cropViaActivity%&gt;, &lt;%=cropToActivity%&gt;)</code> to see cropped subprocess (see <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-05-08-customize-process-explorer/">Customize Process Explorer</a> for detail).</p>
-<p>Regarding bar charts, time scale dimension (x axis) is extracted from timestamp column only when Activity name is not NULL.
-Y axis is just counting non NULL actiivty name by <code>COUNT</code> aggregation.</p>
-<p>By the way, if you look at x axis precisely, there are blank (zero) area e.g. 8:00 and 5 to 7 day. Normally Celonis do not show blank dimension value but I use <code>RANGE_APPEND</code> to fill blank value to solve this. Below is the PQL of Hours case,  generating 0 to 23 consecutive values even if there are no case from timestamp. Showing zero value in visual graph is good to understand trend which part is happened and not.</p>
+</code></pre></div><p>It converts Activity name to NULL except for cropped area. So dimension of Process Explorer is determined as <code>KPI(cropTrinityActivity, &lt;%=cropFromActivity%&gt;, &lt;%=cropViaActivity%&gt;, &lt;%=cropToActivity%&gt;)</code> to see cropped subprocess (see <a href="../2021-05-08-customize-process-explorer/">Customize Process Explorer</a> for detail).</p>
+<p>Regarding bar charts, time scale dimension (x axis) is extracted from timestamp column only when Activity name is not NULL. Y axis is just counting non NULL actiivty name by <code>COUNT</code> aggregation.</p>
+<p>By the way, if you look at x axis precisely, there are blank (zero) area e.g. 8:00 and 5 to 7 day. Normally Celonis do not show blank dimension value but I use <code>RANGE_APPEND</code> to fill blank value to solve this. Below is the PQL of Hours case, generating 0 to 23 consecutive values even if there are no case from timestamp. Showing zero value in visual graph is good to understand trend which part is happened and not.</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">RANGE_APPEND(
   CASE 
     WHEN ISNULL(KPI(cropTrinityActivity,&lt;%=cropFromActivity%&gt;,&lt;%=cropViaActivity%&gt;,&lt;%=cropToActivity%&gt;)) = 0 
@@ -292,7 +284,7 @@ Y axis is just counting non NULL actiivty name by <code>COUNT</code> aggregation
   END,
   &#39;1M&#39;
 )
-</code></pre></div><p>In this sample case, subprocess of &ldquo;Approve Credit but Deny later then cancel order&rdquo; is happend per half year, and at second half of that month. Due to blank value I feel it is easy to understand time series trend.</p>
+</code></pre></div><p>In this sample case, subprocess of “Approve Credit but Deny later then cancel order” is happend per half year, and at second half of that month. Due to blank value I feel it is easy to understand time series trend.</p>
 <p>Kaz</p>
 <hr>
 <p>This post&rsquo;s program can be <a href="../../examples/o2c_analysis_20211016.json">downloeded here</a> then push to your environment by content-cli.</p>
@@ -378,15 +370,15 @@ Y axis is just counting non NULL actiivty name by <code>COUNT</code> aggregation
                   <ul>
                 
                 
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-10-09-verify-calculation-result-in-olap-table-then-convert-to-visual-component/">Verify calculation result in OLAP table then convert to visual component</a></li>
+                    <li><a href="/celonis-hacks/posts/2021-10-09-verify-calculation-result-in-olap-table-then-convert-to-visual-component/">Verify calculation result in OLAP table then convert to visual component</a></li>
                 
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-10-02-group-similar-cases-by-clustering/">Group similar cases by Clustering</a></li>
+                    <li><a href="/celonis-hacks/posts/2021-10-02-group-similar-cases-by-clustering/">Group similar cases by Clustering</a></li>
                 
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-09-25-convert-quantitative-value-to-categorical-one-by-quantile-function/">Convert Quantitative value to Categorical one by Quantile Function</a></li>
+                    <li><a href="/celonis-hacks/posts/2021-09-25-convert-quantitative-value-to-categorical-one-by-quantile-function/">Convert Quantitative value to Categorical one by Quantile Function</a></li>
                 
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-09-18-integrate-button-dropdown-entries-to-one-formula/">Integrate Button Dropdown Entries to one Formula</a></li>
+                    <li><a href="/celonis-hacks/posts/2021-09-18-integrate-button-dropdown-entries-to-one-formula/">Integrate Button Dropdown Entries to one Formula</a></li>
                 
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-09-11-use-bind-function-to-enable-multiple-domain-table/">Use BIND function to enable multiple DOMAIN_TABLE</a></li>
+                    <li><a href="/celonis-hacks/posts/2021-09-11-use-bind-function-to-enable-multiple-domain-table/">Use BIND function to enable multiple DOMAIN_TABLE</a></li>
                 
               </ul>
 

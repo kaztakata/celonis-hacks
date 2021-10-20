@@ -100,7 +100,6 @@ For example I would like to ananlyze throughput time between arbitrary two activ
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
 
 
-
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
@@ -132,25 +131,19 @@ if (!doNotTrack) {
         
           
             <li>
-              <a title="Blog" href="https://kaztakata.github.io/celonis-hacks/">Blog</a>
+              <a title="Blog" href="/celonis-hacks">Blog</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="https://kaztakata.github.io/celonis-hacks/tags">Tags</a>
+              <a title="Tags" href="/celonis-hacks/tags">Tags</a>
             </li>
           
         
           
             <li>
-              <a title="About" href="https://kaztakata.github.io/celonis-hacks/page/about/">About</a>
-            </li>
-          
-        
-          
-            <li>
-              <a title="Search" href="https://kaztakata.github.io/celonis-hacks/search">Search</a>
+              <a title="About" href="/celonis-hacks/page/about/">About</a>
             </li>
           
         
@@ -256,7 +249,7 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>In the last post <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-06-26-handle-null-efficiently-in-aggregation-function/">Handle NULL efficiently in Aggregation Function</a>, I used saved formulas to split long and complex PQL to reusable components. Today I would like to share my best practice to use saved formulas.</p>
+        <p>In the last post <a href="../2021-06-26-handle-null-efficiently-in-aggregation-function/">Handle NULL efficiently in Aggregation Function</a>, I used saved formulas to split long and complex PQL to reusable components. Today I would like to share my best practice to use saved formulas.</p>
 <p>For example I would like to ananlyze throughput time between arbitrary two activities. As below screenshot I created three dropdown buttons, switching time unit (sec, min, hour, day etc.) and two activities (from / to). Variables (time_unit, from, to) are set by user action and passed to PQL for calculating other components relevant to throughtput time (single KPI, histogram, boxplot, drill down table, and fact table).</p>
 <p><a href="https://user-images.githubusercontent.com/67397583/124353919-52cd3880-dc44-11eb-8516-effc7047db33.png"><img src="https://user-images.githubusercontent.com/67397583/124353919-52cd3880-dc44-11eb-8516-effc7047db33.png" alt="image"></a></p>
 <p>In each component it is possible to write down throughput time PQL like below. But if I need to change something in PQL, I need to open each component and maintain it multiple times. So I will try to create saved formulas and simplify each component.</p>
@@ -294,7 +287,7 @@ DATEDIFF(
     KPI(first_time,VARIABLE({p3}))
 )
 </code></pre></div><p>Finally original PQL is changed to <code>KPI(throughput_time, VARIABLE(&lt;%=time_unit%&gt;), VARIABLE(&lt;%=from%&gt;), VARIABLE(&lt;%=to%&gt;))</code>. It means each component is just call <code>throughput_time</code> with three parameters.</p>
-<p>By the way, single KPI and drill down table are aggregating throughput time by <code>AVG</code> and <code>COUNT</code> function. In my opinion it is not required to create one more formula of each aggregation function. My focus is replacement of complex &lsquo;dimension&rsquo; determination to formula (Exceptionally, I would like to create formula for adding multiple aggregation function case, like <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-06-12-calculate-multi-dimentional-kpis/">Calculate Multi Dimensional KPIs</a> post). In the end each component are determined like below.</p>
+<p>By the way, single KPI and drill down table are aggregating throughput time by <code>AVG</code> and <code>COUNT</code> function. In my opinion it is not required to create one more formula of each aggregation function. My focus is replacement of complex &lsquo;dimension&rsquo; determination to formula (Exceptionally, I would like to create formula for adding multiple aggregation function case, like <a href="../2021-06-12-calculate-multi-dimentional-kpis/">Calculate Multi Dimensional KPIs</a> post). In the end each component are determined like below.</p>
 <table>
 <thead>
 <tr>
@@ -307,7 +300,7 @@ DATEDIFF(
 <tr>
 <td>Avg Throughput Time</td>
 <td>single KPI</td>
-<td><code>AVG(KPI(throughput_time, VARIABLE(&lt;%=time_unit%&gt;), VARIABLE(&lt;%=from%&gt;), VARIABLE(&lt;%=to%&gt;))) </code></td>
+<td><code>AVG(KPI(throughput_time, VARIABLE(&lt;%=time_unit%&gt;), VARIABLE(&lt;%=from%&gt;), VARIABLE(&lt;%=to%&gt;)))</code></td>
 </tr>
 <tr>
 <td>Case Count</td>
@@ -428,15 +421,15 @@ DATEDIFF(
                   <ul>
                 
                 
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-10-16-investigate-workload-trend-of-cropped-subprocess/">Investigate Workload Trend of Cropped Subprocess</a></li>
+                    <li><a href="/celonis-hacks/posts/2021-10-16-investigate-workload-trend-of-cropped-subprocess/">Investigate Workload Trend of Cropped Subprocess</a></li>
                 
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-10-09-verify-calculation-result-in-olap-table-then-convert-to-visual-component/">Verify calculation result in OLAP table then convert to visual component</a></li>
+                    <li><a href="/celonis-hacks/posts/2021-10-09-verify-calculation-result-in-olap-table-then-convert-to-visual-component/">Verify calculation result in OLAP table then convert to visual component</a></li>
                 
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-10-02-group-similar-cases-by-clustering/">Group similar cases by Clustering</a></li>
+                    <li><a href="/celonis-hacks/posts/2021-10-02-group-similar-cases-by-clustering/">Group similar cases by Clustering</a></li>
                 
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-09-25-convert-quantitative-value-to-categorical-one-by-quantile-function/">Convert Quantitative value to Categorical one by Quantile Function</a></li>
+                    <li><a href="/celonis-hacks/posts/2021-09-25-convert-quantitative-value-to-categorical-one-by-quantile-function/">Convert Quantitative value to Categorical one by Quantile Function</a></li>
                 
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-09-18-integrate-button-dropdown-entries-to-one-formula/">Integrate Button Dropdown Entries to one Formula</a></li>
+                    <li><a href="/celonis-hacks/posts/2021-09-18-integrate-button-dropdown-entries-to-one-formula/">Integrate Button Dropdown Entries to one Formula</a></li>
                 
               </ul>
 

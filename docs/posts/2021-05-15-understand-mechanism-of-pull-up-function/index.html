@@ -60,7 +60,7 @@ If you know about SQL, you can imagine that PU function is similar to window fun
   "headline": "Understand mechanism of Pull up function",
   "description" : "Pull up aggregation function, called PU function, like PU_COUNT, PU_SUM, PU_AVG, PU_MAX, PU_MIN looks similar to Standard aggregation function like COUNT, SUM, AVG, MAX, MIN. In Celonis, it is important to understand that output of PU function is not KPI but dimension. You can see Understand Difference between Dimension and KPI.\nIf you know about SQL, you can imagine that PU function is similar to window function in SQL. As other functions, PU functions add dynamic column in grouping table.",
   "inLanguage" : "en",
-  "wordCount":  348 ,
+  "wordCount":  349 ,
   "datePublished" : "2021-05-15T10:00:14",
   "dateModified" : "2021-05-15T10:00:14",
   "image" : "https:\/\/kaztakata.github.io\/celonis-hacks",
@@ -100,7 +100,6 @@ If you know about SQL, you can imagine that PU function is similar to window fun
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
 
 
-
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
@@ -132,25 +131,19 @@ if (!doNotTrack) {
         
           
             <li>
-              <a title="Blog" href="https://kaztakata.github.io/celonis-hacks/">Blog</a>
+              <a title="Blog" href="/celonis-hacks">Blog</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="https://kaztakata.github.io/celonis-hacks/tags">Tags</a>
+              <a title="Tags" href="/celonis-hacks/tags">Tags</a>
             </li>
           
         
           
             <li>
-              <a title="About" href="https://kaztakata.github.io/celonis-hacks/page/about/">About</a>
-            </li>
-          
-        
-          
-            <li>
-              <a title="Search" href="https://kaztakata.github.io/celonis-hacks/search">Search</a>
+              <a title="About" href="/celonis-hacks/page/about/">About</a>
             </li>
           
         
@@ -256,9 +249,9 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>Pull up aggregation function, called PU function, like <code>PU_COUNT</code>, <code>PU_SUM</code>, <code>PU_AVG</code>, <code>PU_MAX</code>, <code>PU_MIN</code> looks similar to Standard aggregation function like <code>COUNT</code>, <code>SUM</code>, <code>AVG</code>, <code>MAX</code>, <code>MIN</code>. In Celonis, it is important to understand that output of PU function is not KPI but dimension. You can see <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-05-01-understand-difference-between-dimension-and-kpi/">Understand Difference between Dimension and KPI</a>.</p>
+        <p>Pull up aggregation function, called PU function, like <code>PU_COUNT</code>, <code>PU_SUM</code>, <code>PU_AVG</code>, <code>PU_MAX</code>, <code>PU_MIN</code> looks similar to Standard aggregation function like <code>COUNT</code>, <code>SUM</code>, <code>AVG</code>, <code>MAX</code>, <code>MIN</code>. In Celonis, it is important to understand that output of PU function is not KPI but dimension. You can see <a href="../2021-05-01-understand-difference-between-dimension-and-kpi/">Understand Difference between Dimension and KPI</a>.</p>
 <p>If you know about SQL, you can imagine that PU function is similar to window function in SQL. As other functions, PU functions add dynamic column in grouping table. Output of PU function is representative column value in that group.</p>
-<p>Below screenshot is the example of <code>PU_MAX</code> function againt purchasing tables, Vendor <code>LFA1</code>, PO Document <code>EKKO</code>, PO item<code>EKPO</code>, also each PO item has Net Order Value <code>NETWR</code>. Column <code>Max Net Value by Doc</code> representing max value in PO Document has PQL <code>PU_MAX(EKKO,EKPO.NETWR)</code>.</p>
+<p>Below screenshot is the example of <code>PU_MAX</code> function againt purchasing tables, Vendor <code>LFA1</code>, PO Document <code>EKKO</code>, PO item <code>EKPO</code>, also each PO item has Net Order Value <code>NETWR</code>. Column <code>Max Net Value by Doc</code> representing max value in PO Document has PQL <code>PU_MAX(EKKO,EKPO.NETWR)</code>.</p>
 <p><a href="https://user-images.githubusercontent.com/67397583/118344725-c74ff900-b56a-11eb-9641-1de8a36ea4c6.png"><img src="https://user-images.githubusercontent.com/67397583/118344725-c74ff900-b56a-11eb-9641-1de8a36ea4c6.png" alt="image"></a></p>
 <p>Looking at screenshot, PO Document <code>0000005763</code> has max value <code>3,744.14</code> in item <code>00009</code>, then all other items in this PO also has representative max value <code>3,744.14</code>.</p>
 <p>When using <code>PU_MAX</code> function, 10 items are kept and add one more column representing max value. On the other hand, you can imagine when using standard <code>MAX</code> function, 10 items are aggregated to 1 record and show max value.</p>
@@ -356,15 +349,15 @@ PU_MAX(DOMAIN_TABLE(EKPO.MANDT,EKPO.MATNR),EKPO.NETWR) -- grouped by column in P
                   <ul>
                 
                 
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-10-16-investigate-workload-trend-of-cropped-subprocess/">Investigate Workload Trend of Cropped Subprocess</a></li>
+                    <li><a href="/celonis-hacks/posts/2021-10-16-investigate-workload-trend-of-cropped-subprocess/">Investigate Workload Trend of Cropped Subprocess</a></li>
                 
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-10-09-verify-calculation-result-in-olap-table-then-convert-to-visual-component/">Verify calculation result in OLAP table then convert to visual component</a></li>
+                    <li><a href="/celonis-hacks/posts/2021-10-09-verify-calculation-result-in-olap-table-then-convert-to-visual-component/">Verify calculation result in OLAP table then convert to visual component</a></li>
                 
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-10-02-group-similar-cases-by-clustering/">Group similar cases by Clustering</a></li>
+                    <li><a href="/celonis-hacks/posts/2021-10-02-group-similar-cases-by-clustering/">Group similar cases by Clustering</a></li>
                 
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-09-25-convert-quantitative-value-to-categorical-one-by-quantile-function/">Convert Quantitative value to Categorical one by Quantile Function</a></li>
+                    <li><a href="/celonis-hacks/posts/2021-09-25-convert-quantitative-value-to-categorical-one-by-quantile-function/">Convert Quantitative value to Categorical one by Quantile Function</a></li>
                 
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-09-18-integrate-button-dropdown-entries-to-one-formula/">Integrate Button Dropdown Entries to one Formula</a></li>
+                    <li><a href="/celonis-hacks/posts/2021-09-18-integrate-button-dropdown-entries-to-one-formula/">Integrate Button Dropdown Entries to one Formula</a></li>
                 
               </ul>
 

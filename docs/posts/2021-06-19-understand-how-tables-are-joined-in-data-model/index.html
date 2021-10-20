@@ -100,7 +100,6 @@ Celonis Data Model support snowflake schema that consists of multiple tables, ea
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
 
 
-
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
@@ -132,25 +131,19 @@ if (!doNotTrack) {
         
           
             <li>
-              <a title="Blog" href="https://kaztakata.github.io/celonis-hacks/">Blog</a>
+              <a title="Blog" href="/celonis-hacks">Blog</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="https://kaztakata.github.io/celonis-hacks/tags">Tags</a>
+              <a title="Tags" href="/celonis-hacks/tags">Tags</a>
             </li>
           
         
           
             <li>
-              <a title="About" href="https://kaztakata.github.io/celonis-hacks/page/about/">About</a>
-            </li>
-          
-        
-          
-            <li>
-              <a title="Search" href="https://kaztakata.github.io/celonis-hacks/search">Search</a>
+              <a title="About" href="/celonis-hacks/page/about/">About</a>
             </li>
           
         
@@ -256,7 +249,7 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>In the <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-05-01-understand-difference-between-dimension-and-kpi/">Understand Difference between Dimension and KPI</a> post, I mentioned that Columns used as dimensions and KPIs are inplicitly joined based on data model, but I did not mention how to join tables in data model. Today I would like to say about it.</p>
+        <p>In the <a href="../2021-05-01-understand-difference-between-dimension-and-kpi/">Understand Difference between Dimension and KPI</a> post, I mentioned that Columns used as dimensions and KPIs are inplicitly joined based on data model, but I did not mention how to join tables in data model. Today I would like to say about it.</p>
 <p>Celonis Data Model support snowflake schema that consists of multiple tables, each table pair join as 1:N relationship. Normally activity table is top of N side and dimension tables including case table are bottom of 1 side as pyramid hierarchy.</p>
 <p>From here, I used part of Account Payable data model. First I look at the relationship between Vendor Master table <code>LFA1</code> (1 side) and Accounting document item table <code>BSEG</code> (N side).</p>
 <p>When I used both <code>LFA1</code> and <code>BSEG</code> tables in PQL, <code>BSEG</code> (N side) tables is left joined with <code>LFA1</code> (1 side) by join key (Vendor code of two tables). Same as standard SQL function, left join keeps all record of <code>BSEG</code> and relevant <code>LFA1</code> record. This means Vendor that is not used in Accounting document are not displayed in the output of PQL. It is not possible to switch left side of table by PQL.</p>
@@ -265,14 +258,14 @@ if (!doNotTrack) {
 <p>As second example, I looked at relationship between Purchase Order Item table <code>EKPO</code>, Vendor Invoice Item table <code>RSEG</code>, and Accounting document item table <code>BSEG</code> (<code>EKPO</code> is 1 side and <code>BSEG</code> is N side). Accounting document item may have Vendor Invoice number, and Vendor Invoice item may have Purchase Order number. Using these three tables in PQL, because <code>BSEG</code> is the N side, all record of <code>BSEG</code> are kept, but some of <code>BSEG</code> record does not have <code>RSEG</code> record. Also some of <code>RSEG</code> record does not have <code>EKPO</code> record.</p>
 <p>Below screenshot shows OLAP table to see <code>BSEG</code> count that can connect with <code>RSEG</code> and <code>EKPO</code> record respectively. As mentioned, all <code>BSEG</code> record can be seen in OLAP table (<code>600,941 = 312,293 + 127,869 + 160,779</code>).</p>
 <p><a href="https://user-images.githubusercontent.com/67397583/122631506-1efff800-d107-11eb-8652-cfdcdee1ef7a.png"><img src="https://user-images.githubusercontent.com/67397583/122631506-1efff800-d107-11eb-8652-cfdcdee1ef7a.png" alt="image"></a></p>
-<p>By the way, first and second record of <code>EKPO.MANDT</code> value <code>-</code> is not <code>NULL</code> value like standard SQL left join result (it is ambiguous that <code>NULL</code> value is also displayed as <code>-</code>). As proof, this value cannot be used for filtering condition as below screenshot (total count is changed to <code>0</code> after filtering). This <code>-</code> means &ldquo;Not evaluated&rdquo; because no <code>EKPO</code> record exists in this case. Take care that PQL function using this record returns &ldquo;Not evaluated&rdquo; too (on the other hand <code>NULL</code> value can be handled by <code>ISNULL</code> function or <code>IS NULL</code> predicate).</p>
+<p>By the way, first and second record of <code>EKPO.MANDT</code> value <code>-</code> is not <code>NULL</code> value like standard SQL left join result (it is ambiguous that <code>NULL</code> value is also displayed as <code>-</code>). As proof, this value cannot be used for filtering condition as below screenshot (total count is changed to <code>0</code> after filtering). This <code>-</code> means “Not evaluated” because no <code>EKPO</code> record exists in this case. Take care that PQL function using this record returns “Not evaluated” too (on the other hand <code>NULL</code> value can be handled by <code>ISNULL</code> function or <code>IS NULL</code> predicate).</p>
 <p><a href="https://user-images.githubusercontent.com/67397583/122757589-bebdb180-d2d2-11eb-93c4-2f2ae58dd49b.gif"><img src="https://user-images.githubusercontent.com/67397583/122757589-bebdb180-d2d2-11eb-93c4-2f2ae58dd49b.gif" alt="2021-06-19-_-Process-Analytics-Google-Chrome-2021-06-21-20-49-08"></a></p>
 <p>To summarize, join behaviors in data model are</p>
 <ul>
 <li>Always N side is the left side of left join
 <ul>
 <li>If N side table record missing, 1 side table record are disappeared.</li>
-<li>If 1 side table record missing, N side table record remains and 1 side table record is &ldquo;Not evaluated&rdquo; (different from <code>NULL</code> value).</li>
+<li>If 1 side table record missing, N side table record remains and 1 side table record is “Not evaluated” (different from <code>NULL</code> value).</li>
 </ul>
 </li>
 </ul>
@@ -361,15 +354,15 @@ if (!doNotTrack) {
                   <ul>
                 
                 
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-10-16-investigate-workload-trend-of-cropped-subprocess/">Investigate Workload Trend of Cropped Subprocess</a></li>
+                    <li><a href="/celonis-hacks/posts/2021-10-16-investigate-workload-trend-of-cropped-subprocess/">Investigate Workload Trend of Cropped Subprocess</a></li>
                 
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-10-09-verify-calculation-result-in-olap-table-then-convert-to-visual-component/">Verify calculation result in OLAP table then convert to visual component</a></li>
+                    <li><a href="/celonis-hacks/posts/2021-10-09-verify-calculation-result-in-olap-table-then-convert-to-visual-component/">Verify calculation result in OLAP table then convert to visual component</a></li>
                 
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-10-02-group-similar-cases-by-clustering/">Group similar cases by Clustering</a></li>
+                    <li><a href="/celonis-hacks/posts/2021-10-02-group-similar-cases-by-clustering/">Group similar cases by Clustering</a></li>
                 
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-09-25-convert-quantitative-value-to-categorical-one-by-quantile-function/">Convert Quantitative value to Categorical one by Quantile Function</a></li>
+                    <li><a href="/celonis-hacks/posts/2021-09-25-convert-quantitative-value-to-categorical-one-by-quantile-function/">Convert Quantitative value to Categorical one by Quantile Function</a></li>
                 
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-09-18-integrate-button-dropdown-entries-to-one-formula/">Integrate Button Dropdown Entries to one Formula</a></li>
+                    <li><a href="/celonis-hacks/posts/2021-09-18-integrate-button-dropdown-entries-to-one-formula/">Integrate Button Dropdown Entries to one Formula</a></li>
                 
               </ul>
 

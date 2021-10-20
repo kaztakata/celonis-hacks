@@ -98,7 +98,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
 
 
-
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
@@ -130,25 +129,19 @@ if (!doNotTrack) {
         
           
             <li>
-              <a title="Blog" href="https://kaztakata.github.io/celonis-hacks/">Blog</a>
+              <a title="Blog" href="/celonis-hacks">Blog</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="https://kaztakata.github.io/celonis-hacks/tags">Tags</a>
+              <a title="Tags" href="/celonis-hacks/tags">Tags</a>
             </li>
           
         
           
             <li>
-              <a title="About" href="https://kaztakata.github.io/celonis-hacks/page/about/">About</a>
-            </li>
-          
-        
-          
-            <li>
-              <a title="Search" href="https://kaztakata.github.io/celonis-hacks/search">Search</a>
+              <a title="About" href="/celonis-hacks/page/about/">About</a>
             </li>
           
         
@@ -254,15 +247,14 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>Last week I was asked to convert count unit of some KPI (that returns 1 or 0) from delivery item to delivery document (convert if all items in the document are 1 then document KPI is 1, else 0). In this case delivery document and item columns are stored at Activity table like <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-07-24-categorize-and-name-activity/">this post&rsquo;s third topic</a>. I already used <code>DOMAIN_TABLE</code> to group activity record by delivery item then calculate KPI.</p>
+        <p>Last week I was asked to convert count unit of some KPI (that returns 1 or 0) from delivery item to delivery document (convert if all items in the document are 1 then document KPI is 1, else 0). In this case delivery document and item columns are stored at Activity table like <a href="../2021-07-24-categorize-and-name-activity/">this post&rsquo;s third topic</a>. I already used <code>DOMAIN_TABLE</code> to group activity record by delivery item then calculate KPI.</p>
 <p>First I tried to group above KPI by <code>DOMAIN_TABLE</code> of delivery document but it failed. Error message said <code>DOMAIN_TABLE</code> of delivery item for KPI is connected with Activity table with 1-N relationship, and newly created <code>DOMAIN_TABLE</code> is also connected with Activity table with 1-M relationship. So two domain tables are N-M relationship that can not be used at once.</p>
-<p>Today&rsquo;s post is how to solve this issue by <code>COUNT DISTINCT</code> I explained last week (<a href="https://kaztakata.github.io/celonis-hacks/posts/2021-08-28-count-rows-of-tables-in-various-way/">Count rows of Tables in various way</a>). I cannot find exactly same dataset as my issue so I used P2P data model for explanation.</p>
+<p>Today&rsquo;s post is how to solve this issue by <code>COUNT DISTINCT</code> I explained last week (<a href="../2021-08-28-count-rows-of-tables-in-various-way/">Count rows of Tables in various way</a>). I cannot find exactly same dataset as my issue so I used P2P data model for explanation.</p>
 <p>At first I would like to show you the analysis that count document level KPI with item level KPI.</p>
 <p><a href="https://user-images.githubusercontent.com/67397583/132077281-5eaaf877-27b4-4900-a3b0-549add6c2548.png"><img src="https://user-images.githubusercontent.com/67397583/132077281-5eaaf877-27b4-4900-a3b0-549add6c2548.png" alt="image"></a></p>
 <p>Item level KPI (formula <code>withinThreshold</code>) is whether throughput time between Activity &lsquo;Book Invoice&rsquo; and &lsquo;Scan Invoice&rsquo; is within 14 days then 1 else 0. Also, to simulate issues I met above, I used <code>PU_FIRST( DOMAIN_TABLE( _CEL_P2P_ACTIVITIES_EN._CASE_KEY), _CEL_P2P_ACTIVITIES_EN._CASE_KEY)</code> as Purchase item.</p>
 <p>Next I created Purchase document <code>PU_FIRST( DOMAIN_TABLE( _CEL_P2P_ACTIVITIES_EN._CASE_KEY), LEFT(_CEL_P2P_ACTIVITIES_EN._CASE_KEY,13))</code> that removes item number part from case key.</p>
-<p>Then I prepared two types of value conversion of item level KPI, false (<code>withinThresholdFalse</code>)and all (<code>withinThresholdAll</code>). False is converting 1 to NULL and retunr  only false (<code>REMAP_INTS(KPI(withinThreshold),[1,NULL])</code>
-). All is converting 1 to 0 then show both true and false (<code>REMAP_INTS(KPI(withinThreshold),[1,0])</code>).</p>
+<p>Then I prepared two types of value conversion of item level KPI, false (<code>withinThresholdFalse</code>)and all (<code>withinThresholdAll</code>). False is converting 1 to NULL and retunr only false (<code>REMAP_INTS(KPI(withinThreshold),[1,NULL])</code> ). All is converting 1 to 0 then show both true and false (<code>REMAP_INTS(KPI(withinThreshold),[1,0])</code>).</p>
 <p>Finally I created formula to sum up document level KPI by <code>COUNT DISTINCT</code> as below.</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">COUNT(DISTINCT KPI(purchaseDocument) || KPI(withinThresholdAll)) - 
 COUNT(DISTINCT KPI(purchaseDocument) || KPI(withinThresholdFalse))
@@ -353,15 +345,15 @@ COUNT(DISTINCT KPI(purchaseDocument) || KPI(withinThresholdFalse))
                   <ul>
                 
                 
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-10-16-investigate-workload-trend-of-cropped-subprocess/">Investigate Workload Trend of Cropped Subprocess</a></li>
+                    <li><a href="/celonis-hacks/posts/2021-10-16-investigate-workload-trend-of-cropped-subprocess/">Investigate Workload Trend of Cropped Subprocess</a></li>
                 
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-10-09-verify-calculation-result-in-olap-table-then-convert-to-visual-component/">Verify calculation result in OLAP table then convert to visual component</a></li>
+                    <li><a href="/celonis-hacks/posts/2021-10-09-verify-calculation-result-in-olap-table-then-convert-to-visual-component/">Verify calculation result in OLAP table then convert to visual component</a></li>
                 
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-10-02-group-similar-cases-by-clustering/">Group similar cases by Clustering</a></li>
+                    <li><a href="/celonis-hacks/posts/2021-10-02-group-similar-cases-by-clustering/">Group similar cases by Clustering</a></li>
                 
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-09-25-convert-quantitative-value-to-categorical-one-by-quantile-function/">Convert Quantitative value to Categorical one by Quantile Function</a></li>
+                    <li><a href="/celonis-hacks/posts/2021-09-25-convert-quantitative-value-to-categorical-one-by-quantile-function/">Convert Quantitative value to Categorical one by Quantile Function</a></li>
                 
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-09-18-integrate-button-dropdown-entries-to-one-formula/">Integrate Button Dropdown Entries to one Formula</a></li>
+                    <li><a href="/celonis-hacks/posts/2021-09-18-integrate-button-dropdown-entries-to-one-formula/">Integrate Button Dropdown Entries to one Formula</a></li>
                 
               </ul>
 

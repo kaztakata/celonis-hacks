@@ -98,7 +98,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
 
 
-
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
@@ -130,25 +129,19 @@ if (!doNotTrack) {
         
           
             <li>
-              <a title="Blog" href="https://kaztakata.github.io/celonis-hacks/">Blog</a>
+              <a title="Blog" href="/celonis-hacks">Blog</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="https://kaztakata.github.io/celonis-hacks/tags">Tags</a>
+              <a title="Tags" href="/celonis-hacks/tags">Tags</a>
             </li>
           
         
           
             <li>
-              <a title="About" href="https://kaztakata.github.io/celonis-hacks/page/about/">About</a>
-            </li>
-          
-        
-          
-            <li>
-              <a title="Search" href="https://kaztakata.github.io/celonis-hacks/search">Search</a>
+              <a title="About" href="/celonis-hacks/page/about/">About</a>
             </li>
           
         
@@ -282,7 +275,7 @@ PU_FIRST(
   KPI(_variant)
 )
 </code></pre></div><p>From this I use above <code>DOMAIN_TABLE</code> with vendor and variant as baseline domain. Next step is to calculate case count for each domain, and it is simply count case key (formula <code>countCaseDomain</code>). Then I would like to count case by vendor, but it is not simple as previous column.</p>
-<p>To count case by vendor I need to use <code>DOMAIN_TABLE</code> of vendor. This is joined to <code>EKPO</code> table, not baseline domain. As discussed <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-09-04-convert-count-unit-of-kpi-by-count-distinct/">last week</a>, normally two <code>DOMAIN_TABLE</code>s are N-M relationship so it does not work. Today&rsquo;s breakthrough is to <code>BIND</code> case count by vendor to <code>EKPO</code> table, then used it from baseline domain (formula <code>countCaseVendor</code> as below).</p>
+<p>To count case by vendor I need to use <code>DOMAIN_TABLE</code> of vendor. This is joined to <code>EKPO</code> table, not baseline domain. As discussed <a href="../2021-09-04-convert-count-unit-of-kpi-by-count-distinct/">last week</a>, normally two <code>DOMAIN_TABLE</code>s are N-M relationship so it does not work. Today&rsquo;s breakthrough is to <code>BIND</code> case count by vendor to <code>EKPO</code> table, then used it from baseline domain (formula <code>countCaseVendor</code> as below).</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">-- countCaseDomain
 PU_COUNT(
   DOMAIN_TABLE(
@@ -402,15 +395,15 @@ PU_FIRST( -- 3. pick up EKPO first record by each baseline domain
                   <ul>
                 
                 
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-10-16-investigate-workload-trend-of-cropped-subprocess/">Investigate Workload Trend of Cropped Subprocess</a></li>
+                    <li><a href="/celonis-hacks/posts/2021-10-16-investigate-workload-trend-of-cropped-subprocess/">Investigate Workload Trend of Cropped Subprocess</a></li>
                 
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-10-09-verify-calculation-result-in-olap-table-then-convert-to-visual-component/">Verify calculation result in OLAP table then convert to visual component</a></li>
+                    <li><a href="/celonis-hacks/posts/2021-10-09-verify-calculation-result-in-olap-table-then-convert-to-visual-component/">Verify calculation result in OLAP table then convert to visual component</a></li>
                 
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-10-02-group-similar-cases-by-clustering/">Group similar cases by Clustering</a></li>
+                    <li><a href="/celonis-hacks/posts/2021-10-02-group-similar-cases-by-clustering/">Group similar cases by Clustering</a></li>
                 
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-09-25-convert-quantitative-value-to-categorical-one-by-quantile-function/">Convert Quantitative value to Categorical one by Quantile Function</a></li>
+                    <li><a href="/celonis-hacks/posts/2021-09-25-convert-quantitative-value-to-categorical-one-by-quantile-function/">Convert Quantitative value to Categorical one by Quantile Function</a></li>
                 
-                    <li><a href="https://kaztakata.github.io/celonis-hacks/posts/2021-09-18-integrate-button-dropdown-entries-to-one-formula/">Integrate Button Dropdown Entries to one Formula</a></li>
+                    <li><a href="/celonis-hacks/posts/2021-09-18-integrate-button-dropdown-entries-to-one-formula/">Integrate Button Dropdown Entries to one Formula</a></li>
                 
               </ul>
 
