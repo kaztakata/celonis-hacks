@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Create Key Column of Activity Table - Celonis hacks</title>
+  <meta name="description" content="Celonis Data Model always require unique key in case tabel (case key) to group activities belong to each case. How about activity table ? Activity table do not have explicit key column, instead combination of case key, activity name, timestamp, and sorting number are similar to activity key (those four columns are configured in Data Model).
+This week I was asked to create activity table key column due to duplication check purpose.">
+  <meta name="author" content="Kazuhiko Takata"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "Celonis hacks",
+    
+    "url": "https:\/\/kaztakata.github.io\/celonis-hacks"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/kaztakata.github.io\/celonis-hacks"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-10-23-create-key-column-of-activity-table\/",
+          "name": "Create key column of activity table"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Kazuhiko Takata"
+  },
+  "headline": "Create Key Column of Activity Table",
+  "description" : "Celonis Data Model always require unique key in case tabel (case key) to group activities belong to each case. How about activity table ? Activity table do not have explicit key column, instead combination of case key, activity name, timestamp, and sorting number are similar to activity key (those four columns are configured in Data Model).\nThis week I was asked to create activity table key column due to duplication check purpose.",
+  "inLanguage" : "en",
+  "wordCount":  460 ,
+  "datePublished" : "2021-10-23T08:02:29",
+  "dateModified" : "2021-10-23T08:02:29",
+  "image" : "https:\/\/kaztakata.github.io\/celonis-hacks",
+  "keywords" : [ "PQL, Process Analytics, Data Model" ],
+  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-10-23-create-key-column-of-activity-table\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/kaztakata.github.io\/celonis-hacks",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/kaztakata.github.io\/celonis-hacks",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="Create Key Column of Activity Table" />
+<meta property="og:description" content="Celonis Data Model always require unique key in case tabel (case key) to group activities belong to each case. How about activity table ? Activity table do not have explicit key column, instead combination of case key, activity name, timestamp, and sorting number are similar to activity key (those four columns are configured in Data Model).
+This week I was asked to create activity table key column due to duplication check purpose.">
+<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2021-10-23-create-key-column-of-activity-table/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Celonis hacks" />
+
+  <meta name="twitter:title" content="Create Key Column of Activity Table" />
+  <meta name="twitter:description" content="Celonis Data Model always require unique key in case tabel (case key) to group activities belong to each case. How about activity table ? Activity table do not have explicit key column, instead …">
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@kaz_takatabs" />
+  <meta name="twitter:creator" content="@kaz_takatabs" />
+  <meta name="generator" content="Hugo 0.68.3" />
+  <link rel="alternate" href="https://kaztakata.github.io/celonis-hacks/index.xml" type="application/rss+xml" title="Celonis hacks"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://kaztakata.github.io/celonis-hacks/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://kaztakata.github.io/celonis-hacks/css/highlight.min.css" /><link rel="stylesheet" href="https://kaztakata.github.io/celonis-hacks/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-125786864-2', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://kaztakata.github.io/celonis-hacks">Celonis hacks</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/celonis-hacks">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/celonis-hacks/tags">Tags</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/celonis-hacks/page/about/">About</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="posts-heading">
+              
+                <h1>Create Key Column of Activity Table</h1>
+              
+              
+                <hr class="small">
+              
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>Celonis Data Model always require unique key in case tabel (case key) to group activities belong to each case. How about activity table ? Activity table do not have explicit key column, instead combination of case key, activity name, timestamp, and sorting number are similar to activity key (those four columns are configured in Data Model).</p>
+<p>This week I was asked to create activity table key column due to duplication check purpose. So today I would like to share how to create key column. For analysis purpose it is not so important, but if you will go to next stage such as notification, automation etc., it may be important topic.</p>
+<p>Below screen is the result of creating activity key column. I showed key column and four columns relevant to uniqueness, then counted activity table. The last column told me that key column is unique because maximum count is one.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/138547491-5ff2a9dc-45c1-4d2f-ac8f-903bb0582079.png"><img src="https://user-images.githubusercontent.com/67397583/138547491-5ff2a9dc-45c1-4d2f-ac8f-903bb0582079.png" alt="image"></a></p>
+<p>First step to create key column is to concatenate (<code>||</code>) four columns, that I already used it many times in this blog. Point to use <code>||</code> is columns to be concatenated are always string and not <code>NULL</code> value.</p>
+<p>Reviewing four columns, timestamp column is not string column, and sorting column include <code>NULL</code> value. Timestamp is not easily converted to string in PQL, so I use <code>REMAP_TIMESTAMPS</code> function to convert to counts of the seconds for timestamp since the epoch year (1970-01-01 00:00:00.000). After <code>REMAP_TIMESTAMPS</code> it is still number, but it is automatically converted to string before the concatenation is executed. Sorting column is wrapped with <code>COALESCE</code> function and set default value 0 (any number is fine).</p>
+<p>Concatenated value has already uniqueness in this case but its length differs because e.g. activity name has different length. So I use <code>STRINGHASH</code> function against concatenated value to generate hashed and fixed length value. It computes a cryptographic hash of a string, encoded using base64 encoding, so output value is combination of numbers, alphabets, and two special characters (+, /). Concluding above points, below PQL is for activity key column.</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">STRINGHASH(
+  _CEL_P2P_ACTIVITIES_EN._CASE_KEY ||
+  _CEL_P2P_ACTIVITIES_EN.ACTIVITY_EN ||
+  REMAP_TIMESTAMPS(_CEL_P2P_ACTIVITIES_EN.EVENTTIME,SECONDS) ||
+  COALESCE(_CEL_P2P_ACTIVITIES_EN._SORTING,0)
+)
+</code></pre></div><p>By the way, generally I should keep uniqueness by four columns in Data Model load, but even if I violate that uniqueness I just return warning message and succeeded data load. So I need to check count of activity table, then add more columns to create uniqueness if required. Hashed function is good because it shortened to 39 characters, even if concatenated value is longer than.</p>
+<p>Finally if you can design activity table, it may be more beneficial to create activity key column in Event Collection. This point I would like to discuss later when I will start Event Collection series.</p>
+<p>Kaz</p>
+<hr>
+<p>This post&rsquo;s program can be <a href="../../examples/p2p_analysis_20211023.json">downloaded here</a> then push to your environment by content-cli.</p>
+<hr>
+
+
+        
+          <div class="blog-tags">
+            
+              <a href="https://kaztakata.github.io/celonis-hacks/tags/pql/">PQL</a>&nbsp;
+            
+              <a href="https://kaztakata.github.io/celonis-hacks/tags/process-analytics/">Process Analytics</a>&nbsp;
+            
+              <a href="https://kaztakata.github.io/celonis-hacks/tags/data-model/">Data Model</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-10-23-create-key-column-of-activity-table%2f&amp;text=Create%20Key%20Column%20of%20Activity%20Table&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-10-23-create-key-column-of-activity-table%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-10-23-create-key-column-of-activity-table%2f&amp;title=Create%20Key%20Column%20of%20Activity%20Table" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-10-23-create-key-column-of-activity-table%2f&amp;title=Create%20Key%20Column%20of%20Activity%20Table" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-10-23-create-key-column-of-activity-table%2f&amp;title=Create%20Key%20Column%20of%20Activity%20Table" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-10-23-create-key-column-of-activity-table%2f&amp;description=Create%20Key%20Column%20of%20Activity%20Table" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+            
+          
+
+          
+                  <h4 class="see-also">See also</h4>
+                  <ul>
+                
+                
+                    <li><a href="/celonis-hacks/posts/2021-10-16-investigate-workload-trend-of-cropped-subprocess/">Investigate Workload Trend of Cropped Subprocess</a></li>
+                
+                    <li><a href="/celonis-hacks/posts/2021-10-09-verify-calculation-result-in-olap-table-then-convert-to-visual-component/">Verify calculation result in OLAP table then convert to visual component</a></li>
+                
+                    <li><a href="/celonis-hacks/posts/2021-10-02-group-similar-cases-by-clustering/">Group similar cases by Clustering</a></li>
+                
+                    <li><a href="/celonis-hacks/posts/2021-09-25-convert-quantitative-value-to-categorical-one-by-quantile-function/">Convert Quantitative value to Categorical one by Quantile Function</a></li>
+                
+                    <li><a href="/celonis-hacks/posts/2021-09-18-integrate-button-dropdown-entries-to-one-formula/">Integrate Button Dropdown Entries to one Formula</a></li>
+                
+              </ul>
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-10-16-investigate-workload-trend-of-cropped-subprocess/" data-toggle="tooltip" data-placement="top" title="Investigate Workload Trend of Cropped Subprocess">&larr; Previous Post</a>
+            </li>
+          
+          
+        </ul>
+      
+
+
+      
+        
+        
+      
+
+    </div>
+  </div>
+</div>
+
+      
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="https://github.com/kaztakata" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/kaz_takatabs" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/kazuhiko-takatabs" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              Kazuhiko Takata
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2021
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://kaztakata.github.io/celonis-hacks">Celonis hacks</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.68.3</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://kaztakata.github.io/celonis-hacks/js/main.js"></script>
+<script src="https://kaztakata.github.io/celonis-hacks/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://kaztakata.github.io/celonis-hacks/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+
