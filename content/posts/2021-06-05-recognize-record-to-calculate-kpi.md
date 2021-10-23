@@ -67,6 +67,6 @@ Kaz
 
 ---
 
-This post's program can be [downloeded here](../../examples/o2c_analysis_20210605.json) then push to your environment by content-cli.
+This post's program can be [downloaded here](../../examples/o2c_analysis_20210605.json) then push to your environment by content-cli.
 
 ---

@@ -5,10 +5,20 @@
     <link>https://kaztakata.github.io/celonis-hacks/posts/</link>
     <description>Recent content in Posts on Celonis hacks</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 16 Oct 2021 10:12:18 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 23 Oct 2021 08:02:29 +0900</lastBuildDate>
     
 	<atom:link href="https://kaztakata.github.io/celonis-hacks/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Create Key Column of Activity Table</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2021-10-23-create-key-column-of-activity-table/</link>
+      <pubDate>Sat, 23 Oct 2021 08:02:29 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2021-10-23-create-key-column-of-activity-table/</guid>
+      <description>Celonis Data Model always require unique key in case tabel (case key) to group activities belong to each case. How about activity table ? Activity table do not have explicit key column, instead combination of case key, activity name, timestamp, and sorting number are similar to activity key (those four columns are configured in Data Model).
+This week I was asked to create activity table key column due to duplication check purpose.</description>
+    </item>
     
     <item>
       <title>Investigate Workload Trend of Cropped Subprocess</title>

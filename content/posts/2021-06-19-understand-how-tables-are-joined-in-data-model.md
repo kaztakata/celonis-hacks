@@ -37,7 +37,7 @@ Kaz
 
 ---
 
-This post's program can be [downloeded here](../../examples/ap_analysis_20210619.json) then push to your environment by content-cli.
+This post's program can be [downloaded here](../../examples/ap_analysis_20210619.json) then push to your environment by content-cli.
 
 ---
 

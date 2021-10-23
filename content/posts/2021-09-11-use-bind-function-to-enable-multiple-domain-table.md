@@ -87,6 +87,6 @@ Kaz
 
 ---
 
-This post's program can be [downloeded here](../../examples/p2p_analysis_20210911.json) then push to your environment by content-cli.
+This post's program can be [downloaded here](../../examples/p2p_analysis_20210911.json) then push to your environment by content-cli.
 
 ---
