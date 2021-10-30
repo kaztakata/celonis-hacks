@@ -5,10 +5,20 @@
     <link>https://kaztakata.github.io/celonis-hacks/tags/pql/</link>
     <description>Recent content in PQL on Celonis hacks</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 23 Oct 2021 08:02:29 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 30 Oct 2021 09:17:48 +0900</lastBuildDate>
     
 	<atom:link href="https://kaztakata.github.io/celonis-hacks/tags/pql/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Copy Previous Value to Blank Period by RUNNING_SUM and RANGE_APPEND functions</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2021-10-30-copy-previous-value-to-blank-period-by-running-sum-and-range-append-functions/</link>
+      <pubDate>Sat, 30 Oct 2021 09:17:48 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2021-10-30-copy-previous-value-to-blank-period-by-running-sum-and-range-append-functions/</guid>
+      <description>At Investigate Workload Trend of Cropped Subprocess I showed trend of activity count, and at that time I used RANGE_APPEND to fill zero count in trend graph. Today I would like to use different aggregation RUNNING_SUM and fill value to blank period.
+Imagine you would like to check weekly trend of credit amount regarding some customer. Credit amount is increased by the amount of net value when &amp;lsquo;Receive Order&amp;rsquo; happened, and it is decreased when &amp;lsquo;Clear Invoice&amp;rsquo; happened.</description>
+    </item>
     
     <item>
       <title>Create Key Column of Activity Table</title>
