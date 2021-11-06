@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Extractor on Celonis hacks</title>
+    <link>https://kaztakata.github.io/celonis-hacks/tags/extractor/</link>
+    <description>Recent content in Extractor on Celonis hacks</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 06 Nov 2021 09:59:30 +0900</lastBuildDate>
+    
+	<atom:link href="https://kaztakata.github.io/celonis-hacks/tags/extractor/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Run Extractor on Your Local Machine</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2021-11-06-run-extractor-on-your-local-machine/</link>
+      <pubDate>Sat, 06 Nov 2021 09:59:30 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2021-11-06-run-extractor-on-your-local-machine/</guid>
+      <description>From this week I would like to explain my experience regarding Event Collection functions (Extraction, Transformation, Load etc.). To do this, I try to create sample source systems and build code in Celonis training environment.
+As first topic, I would like to explain on premise Extractor, that is in the middle between your source systems (SAP, Oracle etc.) and Celonis EMS and support transferring data. By the way, because I do not want to pay licence of source systems for this blog, I would like to use open source Postgres database.</description>
+    </item>
+    
+  </channel>
+</rss>
