@@ -7,9 +7,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Transform Source System Tables to Minimize Data Model Tables - Celonis hacks</title>
-  <meta name="description" content="In the last part of previous post Utilize N-M relationship between Activity and Dimension Tables, I said just mimicing source system&rsquo;s table structure to data model is not useful for Celonis data model. Also I feel loading time to data model is exponentially long when one more table is added. So minimizing data model table is good practice especially for real time analytics.
-In case of SAP Order to Cash (O2C) scenario, case table is sales order item (VBAP).">
+  <title>Connect to Celonis and Bring Back Instruction - Celonis hacks</title>
+  <meta name="description" content="From last week I started Event Collection series and posted Run Extractor on Your Local Machine to prepare for my Extractor and Postgres database. Today I will start using Extractor and show you the mechanism to extract data safely.
+From this week I will start Extractor and Postgres by next two steps (same as last week).
+ Open VS code and open terminal at celonis-postgres folder. Enter docker-compose up in VS code terminal.">
   <meta name="author" content="Kazuhiko Takata"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -45,8 +46,8 @@ In case of SAP Order to Cash (O2C) scenario, case table is sales order item (VBA
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-07-17-transform-source-system-tables-to-minimize-data-model-tables\/",
-          "name": "Transform source system tables to minimize data model tables"
+          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-11-13-connect-to-celonis-and-bring-back-instruction\/",
+          "name": "Connect to celonis and bring back instruction"
         }
     }]
 }
@@ -57,15 +58,15 @@ In case of SAP Order to Cash (O2C) scenario, case table is sales order item (VBA
   "author": {
     "name" : "Kazuhiko Takata"
   },
-  "headline": "Transform Source System Tables to Minimize Data Model Tables",
-  "description" : "In the last part of previous post Utilize N-M relationship between Activity and Dimension Tables, I said just mimicing source system\x26rsquo;s table structure to data model is not useful for Celonis data model. Also I feel loading time to data model is exponentially long when one more table is added. So minimizing data model table is good practice especially for real time analytics.\nIn case of SAP Order to Cash (O2C) scenario, case table is sales order item (VBAP).",
+  "headline": "Connect to Celonis and Bring Back Instruction",
+  "description" : "From last week I started Event Collection series and posted Run Extractor on Your Local Machine to prepare for my Extractor and Postgres database. Today I will start using Extractor and show you the mechanism to extract data safely.\nFrom this week I will start Extractor and Postgres by next two steps (same as last week).\n Open VS code and open terminal at celonis-postgres folder. Enter docker-compose up in VS code terminal.",
   "inLanguage" : "en",
-  "wordCount":  338 ,
-  "datePublished" : "2021-07-17T13:24:10",
-  "dateModified" : "2021-07-17T13:24:10",
+  "wordCount":  433 ,
+  "datePublished" : "2021-11-13T10:19:49",
+  "dateModified" : "2021-11-13T10:19:49",
   "image" : "https:\/\/kaztakata.github.io\/celonis-hacks",
-  "keywords" : [ "Data Model, Event Collection, Transformation" ],
-  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-07-17-transform-source-system-tables-to-minimize-data-model-tables\/",
+  "keywords" : [ "Event Collection, Extractor" ],
+  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-11-13-connect-to-celonis-and-bring-back-instruction\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/kaztakata.github.io\/celonis-hacks",
@@ -79,15 +80,16 @@ In case of SAP Order to Cash (O2C) scenario, case table is sales order item (VBA
 }
 </script>
 
-<meta property="og:title" content="Transform Source System Tables to Minimize Data Model Tables" />
-<meta property="og:description" content="In the last part of previous post Utilize N-M relationship between Activity and Dimension Tables, I said just mimicing source system&rsquo;s table structure to data model is not useful for Celonis data model. Also I feel loading time to data model is exponentially long when one more table is added. So minimizing data model table is good practice especially for real time analytics.
-In case of SAP Order to Cash (O2C) scenario, case table is sales order item (VBAP).">
-<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2021-07-17-transform-source-system-tables-to-minimize-data-model-tables/" />
+<meta property="og:title" content="Connect to Celonis and Bring Back Instruction" />
+<meta property="og:description" content="From last week I started Event Collection series and posted Run Extractor on Your Local Machine to prepare for my Extractor and Postgres database. Today I will start using Extractor and show you the mechanism to extract data safely.
+From this week I will start Extractor and Postgres by next two steps (same as last week).
+ Open VS code and open terminal at celonis-postgres folder. Enter docker-compose up in VS code terminal.">
+<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2021-11-13-connect-to-celonis-and-bring-back-instruction/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Celonis hacks" />
 
-  <meta name="twitter:title" content="Transform Source System Tables to Minimize Data Model Tables" />
-  <meta name="twitter:description" content="In the last part of previous post Utilize N-M relationship between Activity and Dimension Tables, I said just mimicing source system&rsquo;s table structure to data model is not useful for Celonis …">
+  <meta name="twitter:title" content="Connect to Celonis and Bring Back Instruction" />
+  <meta name="twitter:description" content="From last week I started Event Collection series and posted Run Extractor on Your Local Machine to prepare for my Extractor and Postgres database. Today I will start using Extractor and show you the …">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
@@ -229,7 +231,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="posts-heading">
               
-                <h1>Transform Source System Tables to Minimize Data Model Tables</h1>
+                <h1>Connect to Celonis and Bring Back Instruction</h1>
               
               
                 <hr class="small">
@@ -249,23 +251,46 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>In the last part of previous post <a href="../2021-07-10-utilize-n-m-relationship-between-activity-and-dimension-tables/">Utilize N-M relationship between Activity and Dimension Tables</a>, I said just mimicing source system&rsquo;s table structure to data model is not useful for Celonis data model. Also I feel loading time to data model is exponentially long when one more table is added. So minimizing data model table is good practice especially for real time analytics.</p>
-<p>In case of SAP Order to Cash (O2C) scenario, case table is sales order item (<code>VBAP</code>). From <code>VBAP</code> perspective, sales order header <code>VBAK</code> can fully utilize as additional dimension table because <code>VBAK</code> is joined with <code>VBAP</code> as 1 side. In PQL, just choose <code>VBAK</code> column as dimension is same effect as choose <code>VBAP</code> column.</p>
-<p>On the other hand, schedule line <code>VBEP</code> table that is joined with <code>VBAP</code> as N side can not utilize like <code>VBAK</code>. As discussed in previous post, <code>VBEP</code> and Activity table are N-M relationship so <code>VBEP</code> table should be filtered (e.g. first row of <code>VBEP</code>). Schedule line is managing date / time of delivery, so I recommend to convert <code>VBEP</code> content to activity table. For example, first row of <code>VBEP</code> is normally original request from customer, so you will generate <code>Request delivery date</code> activity from <code>VBEP</code> table in Event Collection (Transformation). In the end <code>VBEP</code> table is not loaded to data model but you can utilize activity record. If you would like to handle order quantity with <code>Request delivery date</code> activity, quantity field is added to activity table then use it in PQL.</p>
-<p>One more example, partner VBPA table is joined with <code>VBAP</code> as N side. It contains sold-to party, ship-to party, bill-to party and payer rows against sales order item. Those are useful as dimension, so I recommend to convert these rows to additional columns of <code>VBAP</code> in Event Collection.</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/126027089-d987f453-0434-421d-bc09-2442e55d4839.png"><img src="https://user-images.githubusercontent.com/67397583/126027089-d987f453-0434-421d-bc09-2442e55d4839.png" alt="image"></a></p>
-<p>As discussed above, transforming source system table structure to Celonis data model is quite important design topic. To do so, of cource you need to think about what KPI is measured then which tables / columns are required for analysis.</p>
+        <p>From last week I started Event Collection series and posted <a href="../2021-11-06-run-extractor-on-your-local-machine">Run Extractor on Your Local Machine</a> to prepare for my Extractor and Postgres database. Today I will start using Extractor and show you the mechanism to extract data safely.</p>
+<p>From this week I will start Extractor and Postgres by next two steps (same as last week).</p>
+<ol>
+<li>Open VS code and open terminal at celonis-postgres folder.</li>
+<li>Enter <code>docker-compose up</code> in VS code terminal.</li>
+</ol>
+<p>Next, I will login to Celonis training environment and go to Event Collection, then create new Data Pool. Then go to Data Connection and click New Data Connection button. Choose Database at next screen, then parameter setting screen is appeared as below screenshot.</p>
+<p>Input parameters as below and click Test Connection. Normally it is successful.</p>
+<ul>
+<li>Uplink connection : choose one you created last week</li>
+<li>Database type : PostgreSQL (not PostgreSQL encrypted!!)</li>
+<li>Host : postgres</li>
+<li>Database Name : postgres,</li>
+<li>Username : celonis</li>
+<li>Password : Celonis123!</li>
+</ul>
+<p><a href="https://user-images.githubusercontent.com/67397583/141601188-6fd71779-f5ae-4be7-bae8-67c74cd56a3e.png"><img src="https://user-images.githubusercontent.com/67397583/141601188-6fd71779-f5ae-4be7-bae8-67c74cd56a3e.png" alt="image"></a></p>
+<p>I will go back to VS code terminal that ran Extractor, then I can find extractor log like below (shortened ID and remove unnecessary portion).</p>
+<ul>
+<li>2021-11-13 01:46:58.215 Request with ID Dt4i&hellip;. received</li>
+<li>2021-11-13 01:46:58.304 Request with ID Dt4i&hellip;. is processed</li>
+<li>2021-11-13 01:46:59.162 Response for request Dt4i&hellip;. is sent, finished. Stopping keep alive requests</li>
+</ul>
+<p>First log said instruction to test connection (get zero byte data from Postgres), including host information from Extractor perspective and login information to Postgres, is passed from Celonis EMS to Extractor.</p>
+<p>Point is this instruction is not sent from EMS but Extractor periodically (per few seconds) access to EMS and if Extractor finds instruction then bring back it to Extractor. Extractor always use HTTPS request to EMS, and EMS do not use HTTPS to Extractor. If EMS needs to access to Extractor, this opening port is risk of invalid access to on-premise network. Normally enterprise customer do not want to open port considering this risk, but Extracor works well in that situation.</p>
+<p>Second and third log said Extractor is executing extraction task instead of EMS, and return response (zero byte in this case) to EMS.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/141602382-ae8f0127-dd35-496c-8792-c1913f90301d.png"><img src="https://user-images.githubusercontent.com/67397583/141602382-ae8f0127-dd35-496c-8792-c1913f90301d.png" alt="image"></a></p>
+<p>I will go back to EMS and click Save button then saved data connection is used for future data extraction.</p>
+<p>In the Data Connection screen you can click three dots button and find Extractor Logs menu. It returns log text file that is same as VS code terminal output. If you can not access to Extractor (normally yes), but you can find log from here (This time it does not work due to my incorrect configuration of Docker).</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/141602837-971e0582-5421-44c1-87c9-b8c209508de4.png"><img src="https://user-images.githubusercontent.com/67397583/141602837-971e0582-5421-44c1-87c9-b8c209508de4.png" alt="image"></a></p>
+<p>Next week I will connect to Postgres and extract data.</p>
 <p>Kaz</p>
 
 
         
           <div class="blog-tags">
             
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/data-model/">Data Model</a>&nbsp;
-            
               <a href="https://kaztakata.github.io/celonis-hacks/tags/event-collection/">Event Collection</a>&nbsp;
             
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/transformation/">Transformation</a>&nbsp;
+              <a href="https://kaztakata.github.io/celonis-hacks/tags/extractor/">Extractor</a>&nbsp;
             
           </div>
         
@@ -280,42 +305,42 @@ if (!doNotTrack) {
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-07-17-transform-source-system-tables-to-minimize-data-model-tables%2f&amp;text=Transform%20Source%20System%20Tables%20to%20Minimize%20Data%20Model%20Tables&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-11-13-connect-to-celonis-and-bring-back-instruction%2f&amp;text=Connect%20to%20Celonis%20and%20Bring%20Back%20Instruction&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-07-17-transform-source-system-tables-to-minimize-data-model-tables%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-11-13-connect-to-celonis-and-bring-back-instruction%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-07-17-transform-source-system-tables-to-minimize-data-model-tables%2f&amp;title=Transform%20Source%20System%20Tables%20to%20Minimize%20Data%20Model%20Tables" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-11-13-connect-to-celonis-and-bring-back-instruction%2f&amp;title=Connect%20to%20Celonis%20and%20Bring%20Back%20Instruction" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-07-17-transform-source-system-tables-to-minimize-data-model-tables%2f&amp;title=Transform%20Source%20System%20Tables%20to%20Minimize%20Data%20Model%20Tables" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-11-13-connect-to-celonis-and-bring-back-instruction%2f&amp;title=Connect%20to%20Celonis%20and%20Bring%20Back%20Instruction" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-07-17-transform-source-system-tables-to-minimize-data-model-tables%2f&amp;title=Transform%20Source%20System%20Tables%20to%20Minimize%20Data%20Model%20Tables" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-11-13-connect-to-celonis-and-bring-back-instruction%2f&amp;title=Connect%20to%20Celonis%20and%20Bring%20Back%20Instruction" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-07-17-transform-source-system-tables-to-minimize-data-model-tables%2f&amp;description=Transform%20Source%20System%20Tables%20to%20Minimize%20Data%20Model%20Tables" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-11-13-connect-to-celonis-and-bring-back-instruction%2f&amp;description=Connect%20to%20Celonis%20and%20Bring%20Back%20Instruction" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -337,15 +362,11 @@ if (!doNotTrack) {
                   <ul>
                 
                 
-                    <li><a href="/celonis-hacks/posts/2021-11-13-connect-to-celonis-and-bring-back-instruction/">Connect to Celonis and Bring Back Instruction</a></li>
-                
                     <li><a href="/celonis-hacks/posts/2021-11-06-run-extractor-on-your-local-machine/">Run Extractor on Your Local Machine</a></li>
-                
-                    <li><a href="/celonis-hacks/posts/2021-10-23-create-key-column-of-activity-table/">Create Key Column of Activity Table</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2021-07-24-categorize-and-name-activity/">Categorize and Name Activity</a></li>
                 
-                    <li><a href="/celonis-hacks/posts/2021-07-10-utilize-n-m-relationship-between-activity-and-dimension-tables/">Utilize N-M relationship between Activity and Dimension Tables</a></li>
+                    <li><a href="/celonis-hacks/posts/2021-07-17-transform-source-system-tables-to-minimize-data-model-tables/">Transform Source System Tables to Minimize Data Model Tables</a></li>
                 
               </ul>
 
@@ -357,13 +378,9 @@ if (!doNotTrack) {
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-07-10-utilize-n-m-relationship-between-activity-and-dimension-tables/" data-toggle="tooltip" data-placement="top" title="Utilize N-M relationship between Activity and Dimension Tables">&larr; Previous Post</a>
+              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-11-06-run-extractor-on-your-local-machine/" data-toggle="tooltip" data-placement="top" title="Run Extractor on Your Local Machine">&larr; Previous Post</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-07-24-categorize-and-name-activity/" data-toggle="tooltip" data-placement="top" title="Categorize and Name Activity">Next Post &rarr;</a>
-            </li>
           
         </ul>
       

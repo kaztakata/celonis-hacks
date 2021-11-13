@@ -5,10 +5,21 @@
     <link>https://kaztakata.github.io/celonis-hacks/tags/event-collection/</link>
     <description>Recent content in Event Collection on Celonis hacks</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 06 Nov 2021 09:59:30 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 13 Nov 2021 10:19:49 +0900</lastBuildDate>
     
 	<atom:link href="https://kaztakata.github.io/celonis-hacks/tags/event-collection/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Connect to Celonis and Bring Back Instruction</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2021-11-13-connect-to-celonis-and-bring-back-instruction/</link>
+      <pubDate>Sat, 13 Nov 2021 10:19:49 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2021-11-13-connect-to-celonis-and-bring-back-instruction/</guid>
+      <description>From last week I started Event Collection series and posted Run Extractor on Your Local Machine to prepare for my Extractor and Postgres database. Today I will start using Extractor and show you the mechanism to extract data safely.
+From this week I will start Extractor and Postgres by next two steps (same as last week).
+ Open VS code and open terminal at celonis-postgres folder. Enter docker-compose up in VS code terminal.</description>
+    </item>
     
     <item>
       <title>Run Extractor on Your Local Machine</title>
