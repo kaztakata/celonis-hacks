@@ -164,8 +164,8 @@ Until previous post, I usually used OLAP table to show the list of KPI value. Of
       <pubDate>Sat, 31 Jul 2021 10:00:39 +0900</pubDate>
       
       <guid>https://kaztakata.github.io/celonis-hacks/posts/2021-07-31-create-additional-entry-to-button-dropdown/</guid>
-      <description>I looked at the Celopeers post that had issue when variable input is blank (NULL) then PQL using this variable had error. Work around solution is to use &amp;lt;% if(Target != &amp;quot;&amp;quot;) { %&amp;gt; FILTER &amp;quot;table&amp;quot;.&amp;quot;column&amp;quot; IN (&amp;lt;%=Target%&amp;gt;); &amp;lt;% } %&amp;gt; (Target is variable) then skip FILTER execution if variable is null.
-I already used this work around but I also felt troublesome in two points. First is this is not officially documented so myself need to instruct to my colleagues.</description>
+      <description>I looked at the Celopeers post that had issue when variable input is blank (NULL) then PQL using this variable had error.
+I already used work around below to skip FILTER execution if variable is null. But I also felt troublesome in two points. First is this is not officially documented so myself need to instruct to my colleagues. Second is more important, I would like to unfilter this selection if variable is not set, but there was no way to do it.</description>
     </item>
     
     <item>

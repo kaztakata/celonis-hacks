@@ -477,7 +477,7 @@ Until previous post, I usually used OLAP table to show the list of KPI value. Of
     &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;minutes
   
   
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;587&nbsp;words
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;578&nbsp;words
   
   
     
@@ -491,8 +491,8 @@ Until previous post, I usually used OLAP table to show the list of KPI value. Of
     </p>
     <div class="post-entry">
         
-        I looked at the Celopeers post that had issue when variable input is blank (NULL) then PQL using this variable had error. Work around solution is to use &lt;% if(Target != &quot;&quot;) { %&gt; FILTER &quot;table&quot;.&quot;column&quot; IN (&lt;%=Target%&gt;); &lt;% } %&gt; (Target is variable) then skip FILTER execution if variable is null.
-I already used this work around but I also felt troublesome in two points. First is this is not officially documented so myself need to instruct to my colleagues.
+        I looked at the Celopeers post that had issue when variable input is blank (NULL) then PQL using this variable had error.
+I already used work around below to skip FILTER execution if variable is null. But I also felt troublesome in two points. First is this is not officially documented so myself need to instruct to my colleagues. Second is more important, I would like to unfilter this selection if variable is not set, but there was no way to do it.
         <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-07-31-create-additional-entry-to-button-dropdown/" class="post-read-more">[Read More]</a>
         
     </div>

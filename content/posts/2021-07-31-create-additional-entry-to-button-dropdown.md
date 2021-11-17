@@ -5,9 +5,13 @@ draft: false
 tags: ['PQL','Process Analytics','Process Explorer']
 ---
 
-I looked at the [Celopeers post](https://www.celopeers.com/s/question/0D50700000KZNLICA5/could-you-please-help-me-to-find-out-how-i-can-check-for-empty-variable-input-to-prevent-the-component-specifically-olat-table-from-running-into-an-error) that had issue when variable input is blank (`NULL`) then PQL using this variable had error. Work around solution is to use `<% if(Target != "") { %> FILTER "table"."column" IN (<%=Target%>); <% } %>` (`Target` is variable) then skip FILTER execution if variable is null.
+I looked at the [Celopeers post](https://www.celopeers.com/s/question/0D50700000KZNLICA5/could-you-please-help-me-to-find-out-how-i-can-check-for-empty-variable-input-to-prevent-the-component-specifically-olat-table-from-running-into-an-error) that had issue when variable input is blank (`NULL`) then PQL using this variable had error. 
 
-I already used this work around but I also felt troublesome in two points. First is this is not officially documented so myself need to instruct to my colleagues. Second is more important, I would like to unfilter this selection if variable is not set, but there was no way to do it.
+I already used work around below to skip FILTER execution if variable is null. But I also felt troublesome in two points. First is this is not officially documented so myself need to instruct to my colleagues. Second is more important, I would like to unfilter this selection if variable is not set, but there was no way to do it.
+
+```
+<% if(targetVariable != "") { %> FILTER "table"."column" IN (<%=targetVariable%>); <% } %>
+``` 
 
 Today I would like to share my alternative solution against second issue.
 
