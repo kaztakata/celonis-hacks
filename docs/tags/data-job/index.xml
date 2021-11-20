@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Data Job on Celonis hacks</title>
+    <link>https://kaztakata.github.io/celonis-hacks/tags/data-job/</link>
+    <description>Recent content in Data Job on Celonis hacks</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 20 Nov 2021 08:39:24 +0900</lastBuildDate>
+    
+	<atom:link href="https://kaztakata.github.io/celonis-hacks/tags/data-job/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Look at Data Transfer Process by Data Job Log</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2021-11-20-look-at-data-transfer-process-by-data-job-log/</link>
+      <pubDate>Sat, 20 Nov 2021 08:39:24 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2021-11-20-look-at-data-transfer-process-by-data-job-log/</guid>
+      <description>Last week I posted Connect to Celonis and Bring Back Instruction to look at how Extractor works to connect between Celonis and Postgres. This week I would like to extract data from Postgres and look at data transfer process by data job log.
+In the Event Collection, I create new Data Job with Data Connection I created last week, then create new extraction task. In the next screen I add new table public.</description>
+    </item>
+    
+  </channel>
+</rss>

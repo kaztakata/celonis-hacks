@@ -2,7 +2,7 @@
 title: "Look at Data Transfer Process by Data Job Log"
 date: 2021-11-20T08:39:24+09:00
 draft: false
-tags: ['Event Collection','Extractor']
+tags: ['Event Collection','Extractor','Extraction','Data Job']
 ---
 
 Last week I posted [Connect to Celonis and Bring Back Instruction](../2021-11-13-connect-to-celonis-and-bring-back-instruction) to look at how Extractor works to connect between Celonis and Postgres. This week I would like to extract data from Postgres and look at data transfer process by data job log.
