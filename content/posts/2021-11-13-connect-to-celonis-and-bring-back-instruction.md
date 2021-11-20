@@ -24,11 +24,13 @@ Input parameters as below and click Test Connection. Normally it is successful.
 
 [![image](https://user-images.githubusercontent.com/67397583/141601188-6fd71779-f5ae-4be7-bae8-67c74cd56a3e.png)](https://user-images.githubusercontent.com/67397583/141601188-6fd71779-f5ae-4be7-bae8-67c74cd56a3e.png)
 
-I will go back to VS code terminal that ran Extractor, then I can find extractor log like below (shortened ID and remove unnecessary portion).
+I will go back to VS code terminal that ran Extractor, then I can find Extractor log like below (shortened ID and remove unnecessary portion).
 
-- 2021-11-13 01:46:58.215 Request with ID Dt4i.... received  
-- 2021-11-13 01:46:58.304 Request with ID Dt4i.... is processed 
-- 2021-11-13 01:46:59.162 Response for request Dt4i.... is sent, finished. Stopping keep alive requests 
+```
+2021-11-13 01:46:58.215 Request with ID Dt4i.... received  
+2021-11-13 01:46:58.304 Request with ID Dt4i.... is processed 
+2021-11-13 01:46:59.162 Response for request Dt4i.... is sent, finished. Stopping keep alive requests 
+```
 
 First log said instruction to test connection (get zero byte data from Postgres), including host information from Extractor perspective and login information to Postgres, is passed from Celonis EMS to Extractor. 
 

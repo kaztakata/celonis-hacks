@@ -7,10 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Connect to Celonis and Bring Back Instruction - Celonis hacks</title>
-  <meta name="description" content="From last week I started Event Collection series and posted Run Extractor on Your Local Machine to prepare for my Extractor and Postgres database. Today I will start using Extractor and show you the mechanism to extract data safely.
-From this week I will start Extractor and Postgres by next two steps (same as last week).
- Open VS code and open terminal at celonis-postgres folder. Enter docker-compose up in VS code terminal.">
+  <title>Look at Data Transfer Process by Data Job Log - Celonis hacks</title>
+  <meta name="description" content="Last week I posted Connect to Celonis and Bring Back Instruction to look at how Extractor works to connect between Celonis and Postgres. This week I would like to extract data from Postgres and look at data transfer process by data job log.
+In the Event Collection, I create new Data Job with Data Connection I created last week, then create new extraction task. In the next screen I add new table public.">
   <meta name="author" content="Kazuhiko Takata"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -46,8 +45,8 @@ From this week I will start Extractor and Postgres by next two steps (same as la
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-11-13-connect-to-celonis-and-bring-back-instruction\/",
-          "name": "Connect to celonis and bring back instruction"
+          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-11-20-look-at-data-transfer-process-by-data-job-log\/",
+          "name": "Look at data transfer process by data job log"
         }
     }]
 }
@@ -58,15 +57,15 @@ From this week I will start Extractor and Postgres by next two steps (same as la
   "author": {
     "name" : "Kazuhiko Takata"
   },
-  "headline": "Connect to Celonis and Bring Back Instruction",
-  "description" : "From last week I started Event Collection series and posted Run Extractor on Your Local Machine to prepare for my Extractor and Postgres database. Today I will start using Extractor and show you the mechanism to extract data safely.\nFrom this week I will start Extractor and Postgres by next two steps (same as last week).\n Open VS code and open terminal at celonis-postgres folder. Enter docker-compose up in VS code terminal.",
+  "headline": "Look at Data Transfer Process by Data Job Log",
+  "description" : "Last week I posted Connect to Celonis and Bring Back Instruction to look at how Extractor works to connect between Celonis and Postgres. This week I would like to extract data from Postgres and look at data transfer process by data job log.\nIn the Event Collection, I create new Data Job with Data Connection I created last week, then create new extraction task. In the next screen I add new table public.",
   "inLanguage" : "en",
-  "wordCount":  433 ,
-  "datePublished" : "2021-11-13T10:19:49",
-  "dateModified" : "2021-11-13T10:19:49",
+  "wordCount":  607 ,
+  "datePublished" : "2021-11-20T08:39:24",
+  "dateModified" : "2021-11-20T08:39:24",
   "image" : "https:\/\/kaztakata.github.io\/celonis-hacks",
   "keywords" : [ "Event Collection, Extractor" ],
-  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-11-13-connect-to-celonis-and-bring-back-instruction\/",
+  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-11-20-look-at-data-transfer-process-by-data-job-log\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/kaztakata.github.io\/celonis-hacks",
@@ -80,16 +79,15 @@ From this week I will start Extractor and Postgres by next two steps (same as la
 }
 </script>
 
-<meta property="og:title" content="Connect to Celonis and Bring Back Instruction" />
-<meta property="og:description" content="From last week I started Event Collection series and posted Run Extractor on Your Local Machine to prepare for my Extractor and Postgres database. Today I will start using Extractor and show you the mechanism to extract data safely.
-From this week I will start Extractor and Postgres by next two steps (same as last week).
- Open VS code and open terminal at celonis-postgres folder. Enter docker-compose up in VS code terminal.">
-<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2021-11-13-connect-to-celonis-and-bring-back-instruction/" />
+<meta property="og:title" content="Look at Data Transfer Process by Data Job Log" />
+<meta property="og:description" content="Last week I posted Connect to Celonis and Bring Back Instruction to look at how Extractor works to connect between Celonis and Postgres. This week I would like to extract data from Postgres and look at data transfer process by data job log.
+In the Event Collection, I create new Data Job with Data Connection I created last week, then create new extraction task. In the next screen I add new table public.">
+<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2021-11-20-look-at-data-transfer-process-by-data-job-log/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Celonis hacks" />
 
-  <meta name="twitter:title" content="Connect to Celonis and Bring Back Instruction" />
-  <meta name="twitter:description" content="From last week I started Event Collection series and posted Run Extractor on Your Local Machine to prepare for my Extractor and Postgres database. Today I will start using Extractor and show you the …">
+  <meta name="twitter:title" content="Look at Data Transfer Process by Data Job Log" />
+  <meta name="twitter:description" content="Last week I posted Connect to Celonis and Bring Back Instruction to look at how Extractor works to connect between Celonis and Postgres. This week I would like to extract data from Postgres and look …">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
@@ -231,7 +229,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="posts-heading">
               
-                <h1>Connect to Celonis and Bring Back Instruction</h1>
+                <h1>Look at Data Transfer Process by Data Job Log</h1>
               
               
                 <hr class="small">
@@ -251,35 +249,51 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>From last week I started Event Collection series and posted <a href="../2021-11-06-run-extractor-on-your-local-machine">Run Extractor on Your Local Machine</a> to prepare for my Extractor and Postgres database. Today I will start using Extractor and show you the mechanism to extract data safely.</p>
-<p>From this week I will start Extractor and Postgres by next two steps (same as last week).</p>
-<ol>
-<li>Open VS code and open terminal at celonis-postgres folder.</li>
-<li>Enter <code>docker-compose up</code> in VS code terminal.</li>
+        <p>Last week I posted <a href="../2021-11-13-connect-to-celonis-and-bring-back-instruction">Connect to Celonis and Bring Back Instruction</a> to look at how Extractor works to connect between Celonis and Postgres. This week I would like to extract data from Postgres and look at data transfer process by data job log.</p>
+<p>In the Event Collection, I create new Data Job with Data Connection I created last week, then create new extraction task. In the next screen I add new table <code>public.app_users</code> that is pre-installed in Postgres when I deployed it (You can see detail by <code>sample.sql</code> in celonis-postgres folder). Going back to table configuration screen, I should touch somewhere in screen and redo it, then save button is enabled. Then click save it.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/142714726-6d35f478-a2d8-4c5f-8004-07b33dabbafa.png"><img src="https://user-images.githubusercontent.com/67397583/142714726-6d35f478-a2d8-4c5f-8004-07b33dabbafa.png" alt="image"></a></p>
+<p>Then I start Data Job (Full Load) and look at the log in Extractor (in VS code terminal). Extractor log (shortened and commented) is below, with three parts.</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">-- first part : Extract data from Postgres and create file --
+2021-11-19 23:53:26.292 Request with ID pDmB.... received  
+2021-11-19 23:53:32.257 Starting extraction for resource: app_users  
+2021-11-19 23:53:32.309 Executing query: SELECT * FROM &#34;public&#34;.&#34;app_users&#34;  
+2021-11-19 23:53:33.007 Response for request i3UZ.... is sent, finished. Stopping keep alive requests  
+2021-11-19 23:53:34.170 Loading 100,000 records for table app_users. Total extracted records 100,000  
+2021-11-19 23:53:34.432 Loading 54,821 records for table app_users. Total extracted records 154,821  
+2021-11-19 23:53:34.433 Total 154,821 records loaded for table app_users  
+
+-- second part : Transfer file to Celonis --
+2021-11-19 23:53:34.439 Uploading result files  
+2021-11-19 23:53:35.342 Called upload file 98b7856c-c685-4b28-ad33-e86b72483a9f, app_users  
+2021-11-19 23:53:35.342 Called upload file 98b7856c-c685-4b28-ad33-e86b72483a9f, app_users  
+2021-11-19 23:53:35.343 Called upload file 98b7856c-c685-4b28-ad33-e86b72483a9f, app_users  
+2021-11-19 23:53:35.343 Called upload file 98b7856c-c685-4b28-ad33-e86b72483a9f, app_users  
+2021-11-19 23:53:35.343 Called upload file 98b7856c-c685-4b28-ad33-e86b72483a9f, app_users  
+2021-11-19 23:53:35.344 Called upload file 98b7856c-c685-4b28-ad33-e86b72483a9f, app_users  
+2021-11-19 23:53:35.344 Called upload file 98b7856c-c685-4b28-ad33-e86b72483a9f, app_users  
+2021-11-19 23:53:35.443 Pushing upsert for table app_users and id 98b7856c-c685-4b28-ad33-e86b72483a9f  
+2021-11-19 23:53:37.342 Pushing upsert for table app_users and id 98b7856c-c685-4b28-ad33-e86b72483a9f  
+2021-11-19 23:53:38.310 Pushing upsert for table app_users and id 98b7856c-c685-4b28-ad33-e86b72483a9f  
+2021-11-19 23:53:38.806 Pushing upsert for table app_users and id 98b7856c-c685-4b28-ad33-e86b72483a9f  
+2021-11-19 23:53:39.345 Pushing upsert for table app_users and id 98b7856c-c685-4b28-ad33-e86b72483a9f  
+2021-11-19 23:53:39.890 Pushing upsert for table app_users and id 98b7856c-c685-4b28-ad33-e86b72483a9f  
+2021-11-19 23:53:40.519 Pushing upsert for table app_users and id 98b7856c-c685-4b28-ad33-e86b72483a9f  
+2021-11-19 23:53:41.283 called onSuccess for table app_users with id 98b7856c-c685-4b28-ad33-e86b72483a9f  
+
+-- third part : Insert file content into table in Celonis --
+2021-11-19 23:53:41.287 Starting load app_users to target ...  
+2021-11-19 23:53:41.641 Waiting for success state ...  
+2021-11-19 23:54:00.760 Table app_users loaded ..  
+2021-11-19 23:54:00.760 Extraction successful  
+</code></pre></div><ol>
+<li>Extractor bring back Extraction Job instruction (connection, table etc.) from Celonis then execute SELECT statement in Postgres to create file. SELECT execution is split to chunks (per 100K record) to minimize resource usage of local machine.</li>
+<li>Files stored at my local machine are 7 chunks (seems ~25K record). Those are transferred to Celonis via HTTPS. To control network resource usage, smaller size of files are better, so each files are compressed as parquet file.</li>
+<li>After 7 files are moved to Celonis, then start INSERT statement to Celonis table. It takes most of time in total Extraction task.</li>
 </ol>
-<p>Next, I will login to Celonis training environment and go to Event Collection, then create new Data Pool. Then go to Data Connection and click New Data Connection button. Choose Database at next screen, then parameter setting screen is appeared as below screenshot.</p>
-<p>Input parameters as below and click Test Connection. Normally it is successful.</p>
-<ul>
-<li>Uplink connection : choose one you created last week</li>
-<li>Database type : PostgreSQL (not PostgreSQL encrypted!!)</li>
-<li>Host : postgres</li>
-<li>Database Name : postgres,</li>
-<li>Username : celonis</li>
-<li>Password : Celonis123!</li>
-</ul>
-<p><a href="https://user-images.githubusercontent.com/67397583/141601188-6fd71779-f5ae-4be7-bae8-67c74cd56a3e.png"><img src="https://user-images.githubusercontent.com/67397583/141601188-6fd71779-f5ae-4be7-bae8-67c74cd56a3e.png" alt="image"></a></p>
-<p>I will go back to VS code terminal that ran Extractor, then I can find Extractor log like below (shortened ID and remove unnecessary portion).</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">2021-11-13 01:46:58.215 Request with ID Dt4i.... received  
-2021-11-13 01:46:58.304 Request with ID Dt4i.... is processed 
-2021-11-13 01:46:59.162 Response for request Dt4i.... is sent, finished. Stopping keep alive requests 
-</code></pre></div><p>First log said instruction to test connection (get zero byte data from Postgres), including host information from Extractor perspective and login information to Postgres, is passed from Celonis EMS to Extractor.</p>
-<p>Point is this instruction is not sent from EMS but Extractor periodically (per few seconds) access to EMS and if Extractor finds instruction then bring back it to Extractor. Extractor always use HTTPS request to EMS, and EMS do not use HTTPS to Extractor. If EMS needs to access to Extractor, this opening port is risk of invalid access to on-premise network. Normally enterprise customer do not want to open port considering this risk, but Extracor works well in that situation.</p>
-<p>Second and third log said Extractor is executing extraction task instead of EMS, and return response (zero byte in this case) to EMS.</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/141602382-ae8f0127-dd35-496c-8792-c1913f90301d.png"><img src="https://user-images.githubusercontent.com/67397583/141602382-ae8f0127-dd35-496c-8792-c1913f90301d.png" alt="image"></a></p>
-<p>I will go back to EMS and click Save button then saved data connection is used for future data extraction.</p>
-<p>In the Data Connection screen you can click three dots button and find Extractor Logs menu. It returns log text file that is same as VS code terminal output. If you can not access to Extractor (normally yes), but you can find log from here (This time it does not work due to my incorrect configuration of Docker).</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/141602837-971e0582-5421-44c1-87c9-b8c209508de4.png"><img src="https://user-images.githubusercontent.com/67397583/141602837-971e0582-5421-44c1-87c9-b8c209508de4.png" alt="image"></a></p>
-<p>Next week I will connect to Postgres and extract data.</p>
+<p>When I looked at job log in Celonis, it is similar to that of Extractor so, it has also three parts as below.</p>
+<p>In the second part of log is only one message <code>Uploading result files</code>, so you should patiently wait until next message if you need to do 1 day long full load to transfer huge volume of data.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/142714091-f1e3a6c6-5c99-4bb2-97a0-7220f24c931e.png"><img src="https://user-images.githubusercontent.com/67397583/142714091-f1e3a6c6-5c99-4bb2-97a0-7220f24c931e.png" alt="image"></a></p>
+<p>By the way, most of staff managing source system said that they were worried about performance down of their source system and thier network, but at least I did not experience such a trouble, even when I extracted ~100M record of SAP FI Documnet (BSEG) etc.</p>
 <p>Kaz</p>
 
 
@@ -303,42 +317,42 @@ if (!doNotTrack) {
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-11-13-connect-to-celonis-and-bring-back-instruction%2f&amp;text=Connect%20to%20Celonis%20and%20Bring%20Back%20Instruction&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-11-20-look-at-data-transfer-process-by-data-job-log%2f&amp;text=Look%20at%20Data%20Transfer%20Process%20by%20Data%20Job%20Log&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-11-13-connect-to-celonis-and-bring-back-instruction%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-11-20-look-at-data-transfer-process-by-data-job-log%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-11-13-connect-to-celonis-and-bring-back-instruction%2f&amp;title=Connect%20to%20Celonis%20and%20Bring%20Back%20Instruction" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-11-20-look-at-data-transfer-process-by-data-job-log%2f&amp;title=Look%20at%20Data%20Transfer%20Process%20by%20Data%20Job%20Log" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-11-13-connect-to-celonis-and-bring-back-instruction%2f&amp;title=Connect%20to%20Celonis%20and%20Bring%20Back%20Instruction" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-11-20-look-at-data-transfer-process-by-data-job-log%2f&amp;title=Look%20at%20Data%20Transfer%20Process%20by%20Data%20Job%20Log" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-11-13-connect-to-celonis-and-bring-back-instruction%2f&amp;title=Connect%20to%20Celonis%20and%20Bring%20Back%20Instruction" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-11-20-look-at-data-transfer-process-by-data-job-log%2f&amp;title=Look%20at%20Data%20Transfer%20Process%20by%20Data%20Job%20Log" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-11-13-connect-to-celonis-and-bring-back-instruction%2f&amp;description=Connect%20to%20Celonis%20and%20Bring%20Back%20Instruction" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-11-20-look-at-data-transfer-process-by-data-job-log%2f&amp;description=Look%20at%20Data%20Transfer%20Process%20by%20Data%20Job%20Log" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -360,7 +374,7 @@ if (!doNotTrack) {
                   <ul>
                 
                 
-                    <li><a href="/celonis-hacks/posts/2021-11-20-look-at-data-transfer-process-by-data-job-log/">Look at Data Transfer Process by Data Job Log</a></li>
+                    <li><a href="/celonis-hacks/posts/2021-11-13-connect-to-celonis-and-bring-back-instruction/">Connect to Celonis and Bring Back Instruction</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2021-11-06-run-extractor-on-your-local-machine/">Run Extractor on Your Local Machine</a></li>
                 
@@ -378,13 +392,9 @@ if (!doNotTrack) {
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-11-06-run-extractor-on-your-local-machine/" data-toggle="tooltip" data-placement="top" title="Run Extractor on Your Local Machine">&larr; Previous Post</a>
+              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-11-13-connect-to-celonis-and-bring-back-instruction/" data-toggle="tooltip" data-placement="top" title="Connect to Celonis and Bring Back Instruction">&larr; Previous Post</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-11-20-look-at-data-transfer-process-by-data-job-log/" data-toggle="tooltip" data-placement="top" title="Look at Data Transfer Process by Data Job Log">Next Post &rarr;</a>
-            </li>
           
         </ul>
       
