@@ -205,6 +205,61 @@ if (!doNotTrack) {
           
           
             <article class="post-preview">
+    <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-11-27-minimize-extraction-time-by-delta-load-option/">
+        <h2 class="post-title">Minimize Extraction Time by Delta Load Option</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on map[Count:2021-11-27]
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;minutes
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;454&nbsp;words
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kazuhiko Takata
+    
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        Last week I extracted Postgres table and looked at the log to understand mechanism of data transfer. At that time I used Full Load option to extract data, that is to replace all table contents and schema to latest version. That is easiest way to synchronize tables between source system (Postgres) and Celonis, but it takes a lot of time to complete this task. So that I should also use second option Delta Load to minimize extraction time.
+        <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-11-27-minimize-extraction-time-by-delta-load-option/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+        <a href="https://kaztakata.github.io/celonis-hacks/tags/event-collection/">Event Collection</a>&nbsp;
+        
+        <a href="https://kaztakata.github.io/celonis-hacks/tags/extractor/">Extractor</a>&nbsp;
+        
+        <a href="https://kaztakata.github.io/celonis-hacks/tags/extraction/">Extraction</a>&nbsp;
+        
+        <a href="https://kaztakata.github.io/celonis-hacks/tags/transformation/">Transformation</a>&nbsp;
+        
+        <a href="https://kaztakata.github.io/celonis-hacks/tags/data-job/">Data Job</a>&nbsp;
+        
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
     <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-11-20-look-at-data-transfer-process-by-data-job-log/">
         <h2 class="post-title">Look at Data Transfer Process by Data Job Log</h2>
         
@@ -658,56 +713,6 @@ Today I will use O2C process and would like to group customers by (1) their lead
         <a href="https://kaztakata.github.io/celonis-hacks/tags/process-analytics/">Process Analytics</a>&nbsp;
         
         <a href="https://kaztakata.github.io/celonis-hacks/tags/pull-up-function/">Pull Up Function</a>&nbsp;
-        
-    </div>
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-09-18-integrate-button-dropdown-entries-to-one-formula/">
-        <h2 class="post-title">Integrate Button Dropdown Entries to one Formula</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on map[Count:2021-09-18]
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;4&nbsp;minutes
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;660&nbsp;words
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kazuhiko Takata
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        I usually use two types of analysis components, time scale graph and drilldown table for my development projects. These compnents makes it possible to discover root cause of target KPIs by changing time scale or drilldown dimension.
-In the end, these components and attaching button dropdown were maintained many times, but I was annoyed to set variable value (especially long PQL) to each button entry (it was also cause of defects against my analysis sheet).
-        <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-09-18-integrate-button-dropdown-entries-to-one-formula/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/pql/">PQL</a>&nbsp;
-        
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/process-analytics/">Process Analytics</a>&nbsp;
         
     </div>
     

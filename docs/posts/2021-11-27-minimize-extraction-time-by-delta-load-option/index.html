@@ -7,9 +7,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Run Extractor on Your Local Machine - Celonis hacks</title>
-  <meta name="description" content="From this week I would like to explain my experience regarding Event Collection functions (Extraction, Transformation, Load etc.). To do this, I try to create sample source systems and build code in Celonis training environment.
-As first topic, I would like to explain on premise Extractor, that is in the middle between your source systems (SAP, Oracle etc.) and Celonis EMS and support transferring data. By the way, because I do not want to pay licence of source systems for this blog, I would like to use open source Postgres database.">
+  <title>Minimize Extraction Time by Delta Load Option - Celonis hacks</title>
+  <meta name="description" content="Last week I extracted Postgres table and looked at the log to understand mechanism of data transfer. At that time I used Full Load option to extract data, that is to replace all table contents and schema to latest version. That is easiest way to synchronize tables between source system (Postgres) and Celonis, but it takes a lot of time to complete this task. So that I should also use second option Delta Load to minimize extraction time.">
   <meta name="author" content="Kazuhiko Takata"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -45,8 +44,8 @@ As first topic, I would like to explain on premise Extractor, that is in the mid
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-11-06-run-extractor-on-your-local-machine\/",
-          "name": "Run extractor on your local machine"
+          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-11-27-minimize-extraction-time-by-delta-load-option\/",
+          "name": "Minimize extraction time by delta load option"
         }
     }]
 }
@@ -57,15 +56,15 @@ As first topic, I would like to explain on premise Extractor, that is in the mid
   "author": {
     "name" : "Kazuhiko Takata"
   },
-  "headline": "Run Extractor on Your Local Machine",
-  "description" : "From this week I would like to explain my experience regarding Event Collection functions (Extraction, Transformation, Load etc.). To do this, I try to create sample source systems and build code in Celonis training environment.\nAs first topic, I would like to explain on premise Extractor, that is in the middle between your source systems (SAP, Oracle etc.) and Celonis EMS and support transferring data. By the way, because I do not want to pay licence of source systems for this blog, I would like to use open source Postgres database.",
+  "headline": "Minimize Extraction Time by Delta Load Option",
+  "description" : "Last week I extracted Postgres table and looked at the log to understand mechanism of data transfer. At that time I used Full Load option to extract data, that is to replace all table contents and schema to latest version. That is easiest way to synchronize tables between source system (Postgres) and Celonis, but it takes a lot of time to complete this task. So that I should also use second option Delta Load to minimize extraction time.",
   "inLanguage" : "en",
-  "wordCount":  457 ,
-  "datePublished" : "2021-11-06T09:59:30",
-  "dateModified" : "2021-11-06T09:59:30",
+  "wordCount":  454 ,
+  "datePublished" : "2021-11-27T09:51:19",
+  "dateModified" : "2021-11-27T09:51:19",
   "image" : "https:\/\/kaztakata.github.io\/celonis-hacks",
-  "keywords" : [ "Event Collection, Extractor" ],
-  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-11-06-run-extractor-on-your-local-machine\/",
+  "keywords" : [ "Event Collection, Extractor, Extraction, Transformation, Data Job" ],
+  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-11-27-minimize-extraction-time-by-delta-load-option\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/kaztakata.github.io\/celonis-hacks",
@@ -79,15 +78,14 @@ As first topic, I would like to explain on premise Extractor, that is in the mid
 }
 </script>
 
-<meta property="og:title" content="Run Extractor on Your Local Machine" />
-<meta property="og:description" content="From this week I would like to explain my experience regarding Event Collection functions (Extraction, Transformation, Load etc.). To do this, I try to create sample source systems and build code in Celonis training environment.
-As first topic, I would like to explain on premise Extractor, that is in the middle between your source systems (SAP, Oracle etc.) and Celonis EMS and support transferring data. By the way, because I do not want to pay licence of source systems for this blog, I would like to use open source Postgres database.">
-<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2021-11-06-run-extractor-on-your-local-machine/" />
+<meta property="og:title" content="Minimize Extraction Time by Delta Load Option" />
+<meta property="og:description" content="Last week I extracted Postgres table and looked at the log to understand mechanism of data transfer. At that time I used Full Load option to extract data, that is to replace all table contents and schema to latest version. That is easiest way to synchronize tables between source system (Postgres) and Celonis, but it takes a lot of time to complete this task. So that I should also use second option Delta Load to minimize extraction time.">
+<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2021-11-27-minimize-extraction-time-by-delta-load-option/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Celonis hacks" />
 
-  <meta name="twitter:title" content="Run Extractor on Your Local Machine" />
-  <meta name="twitter:description" content="From this week I would like to explain my experience regarding Event Collection functions (Extraction, Transformation, Load etc.). To do this, I try to create sample source systems and build code in …">
+  <meta name="twitter:title" content="Minimize Extraction Time by Delta Load Option" />
+  <meta name="twitter:description" content="Last week I extracted Postgres table and looked at the log to understand mechanism of data transfer. At that time I used Full Load option to extract data, that is to replace all table contents and …">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
@@ -229,7 +227,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="posts-heading">
               
-                <h1>Run Extractor on Your Local Machine</h1>
+                <h1>Minimize Extraction Time by Delta Load Option</h1>
               
               
                 <hr class="small">
@@ -249,29 +247,64 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>From this week I would like to explain my experience regarding Event Collection functions (Extraction, Transformation, Load etc.). To do this, I try to create sample source systems and build code in Celonis training environment.</p>
-<p>As first topic, I would like to explain on premise Extractor, that is in the middle between your source systems (SAP, Oracle etc.) and Celonis EMS and support transferring data. By the way, because I do not want to pay licence of source systems for this blog, I would like to use open source Postgres database. Also I do not want to pay subscription of cloud server, I use my local machine instead.</p>
-<p>I use Docker enviornment that can easily start and stop my sample source system and Extractor, and does not affect to other portion of my local machine. If you are using Windows 11, installing Docker environment is quite simple as below.</p>
-<ol>
-<li>Install Windows Subsystem for Linux Preview and Ubuntu via Microsoft Store referring to <a href="https://devblogs.microsoft.com/commandline/a-preview-of-wsl-in-the-microsoft-store-is-now-available/">this</a></li>
-<li>Install Docker Desktop via <a href="https://www.docker.com/products/docker-desktop">website</a></li>
-<li>(To operate Docker and edit configuration files in WSL) Install Visual Studio Code via <a href="https://azure.microsoft.com/en-us/products/visual-studio-code/">website</a></li>
-</ol>
-<p>Open Visual Studio Code (VS code) and press F1, select <code>Remote-WSL: New WSL Window</code>. At the new screen select Open Folder button and input your home directory as below.</p>
-<p><img src="https://microsoft.github.io/vscode-remote-release/images/remote-wsl-new-window.png" alt="From Microsoft website"></p>
-<p>Next open terminal by pressing Ctrl+Shift+@, then input <code>git clone https://github.com/kaztakata/celonis-postgres</code>. Then <code>cd celonis-postgres</code> to move to newly created folder.</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/140595660-5647157c-bb02-4332-ab87-e0d67d8d4857.png"><img src="https://user-images.githubusercontent.com/67397583/140595660-5647157c-bb02-4332-ab87-e0d67d8d4857.png" alt="image"></a></p>
-<p>From here you need to configure both Extractor and Celonis EMS.</p>
-<ol>
-<li>(In Celonis EMS) go to help page. Search &lsquo;Downloads and Version History&rsquo; then download &lsquo;Dockerized JDBC Extractor Package&rsquo; file (currently it is 2020-11-05_JDBC_Extractor_Package_Docker.tar.gz). Drug and drop this file to VS code folder celonis-postgres.</li>
-<li>(In VS code terminal) enter <code>docker load -i 2020-11-05_JDBC_Extractor_Package_Docker.tar.gz</code>.</li>
-<li>(In Celonis EMS) go to Team Setting from right top avatar. Go to Uplink integrations. Push Connect new system button, then type Connector, note client ID and Secret for next step then save it.</li>
-<li>(In VS code terminal) open <code>uplink.env</code> file then replace URL(<code>your-email-address</code>), client ID (<code>yourClientId</code>) and Secret (<code>yourClientSecret</code>).</li>
-</ol>
-<p>Finally enter <code>docker-compose up</code> in VS code terminal. You can see flowing logs in the initiation step and it is stopped soon . If log does not stop and see <code>Uplink could not connect</code> in the log, you can stop running docker by entering Ctrl+C in VS code terminal, then check configuration and try <code>docker-compose up</code> again.</p>
-<p>Again go to Celonis EMS, Team Setting, Uplink integrations. Check if your uplink status is green, then your Extractor in local machine can successfully access to IBC. After checking connection, enter Ctrl+C in VS code terminal, then Extractor and Postgres are stopped. You can close VS code afterward.</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/140595109-d9f644ff-d1e2-4644-bd24-89a627ee7171.png"><img src="https://user-images.githubusercontent.com/67397583/140595109-d9f644ff-d1e2-4644-bd24-89a627ee7171.png" alt="image"></a></p>
-<p>Next week I would like to extact data form Postgres and explain detail of Extractor mechanism.</p>
+        <p>Last week I extracted Postgres table and looked at the log to understand mechanism of data transfer. At that time I used Full Load option to extract data, that is to replace all table contents and schema to latest version. That is easiest way to synchronize tables between source system (Postgres) and Celonis, but it takes a lot of time to complete this task. So that I should also use second option Delta Load to minimize extraction time.</p>
+<p>I already have <code>app_users</code> table in Celonis, so I will continue to execute Delta Load today.</p>
+<p>First step is to find columns that is sorted by the time of insert record. Let&rsquo;s create new (temporary) transformation task in Celonis then look at the table, then type <code>SELECT * FROM app_users LIMIT 5;</code> and execute that SQL. I can see SQL result like below.</p>
+<p>It seems value of column <code>id</code> is incremental number from 1. To proof this I also execute two SQLs, <code>SELECT MAX(id) FROM app_users;</code> and <code>SELECT COUNT(*) FROM app_users;</code>. Both result are same <code>154821</code>, so <code>id</code> is the column I would like to use for Delta Load.</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>firstname</th>
+<th>lastname</th>
+<th>_CELONIS_CHANGE_DATE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>849b&hellip;.</td>
+<td>21cb&hellip;.</td>
+<td>2021-11-27 01:49:48</td>
+</tr>
+<tr>
+<td>2</td>
+<td>02eb&hellip;.</td>
+<td>944e&hellip;.</td>
+<td>2021-11-27 01:49:48</td>
+</tr>
+<tr>
+<td>3</td>
+<td>df57&hellip;.</td>
+<td>c182&hellip;.</td>
+<td>2021-11-27 01:49:48</td>
+</tr>
+<tr>
+<td>4</td>
+<td>1bf9&hellip;.</td>
+<td>294f&hellip;.</td>
+<td>2021-11-27 01:49:48</td>
+</tr>
+<tr>
+<td>5</td>
+<td>b9f3&hellip;.</td>
+<td>6546&hellip;.</td>
+<td>2021-11-27 01:49:48</td>
+</tr>
+</tbody>
+</table>
+<p>Second step is to change extraction settings I used last week. If I minimize extraction effort, I should not extract already extracted record again and should extract newly created record only. To recognize boundary between those, I create parameter <code>max_id</code> that will return value same as <code>SELECT MAX(id) FROM app_users;</code> SQL. Setting value is as below screen.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/143665240-981482ba-0647-499f-ba49-e1a1ea5449ff.png"><img src="https://user-images.githubusercontent.com/67397583/143665240-981482ba-0647-499f-ba49-e1a1ea5449ff.png" alt="image"></a></p>
+<p>After creating parameter, it is set to Delta Filter Statement at Table Configuration. Statement (WHERE clause of SQL) is <code>id &gt; &lt;%=max_id%&gt;</code> as below screen.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/143665352-c940e7cf-b346-4ddd-9f74-71d01bba8fb6.png"><img src="https://user-images.githubusercontent.com/67397583/143665352-c940e7cf-b346-4ddd-9f74-71d01bba8fb6.png" alt="image"></a></p>
+<p>To check the Delta Filter, I execute extraction job with Delta Load option. Looking at the log in Celonis, I can find below messages. Parameter <code>max_id</code> works well so I do not extract duplicated record, also execution time is 10 seconds, compared with 40 seconds of Full Load last week.</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">2021-11-27 11:28:59 Extraction successful
+2021-11-27 11:28:59 Uploading result files
+2021-11-27 11:28:59 Total 0 records loaded for table app_users
+2021-11-27 11:28:58 Setting filter to: id &gt; 154821
+2021-11-27 11:28:58 Starting extraction for resource: app_users
+</code></pre></div><p>By the way, in case of <code>app_users</code> table, I use integer number column for Delta Load, but best thing is to find timestamp column at each table. But in my experience, such a column is not always found. If so, you may think about second best option (integer column) as I did.</p>
+<p>Next week I would like to insert new record to Postgres table then try Delta Load again to extract it.</p>
 <p>Kaz</p>
 
 
@@ -281,6 +314,12 @@ if (!doNotTrack) {
               <a href="https://kaztakata.github.io/celonis-hacks/tags/event-collection/">Event Collection</a>&nbsp;
             
               <a href="https://kaztakata.github.io/celonis-hacks/tags/extractor/">Extractor</a>&nbsp;
+            
+              <a href="https://kaztakata.github.io/celonis-hacks/tags/extraction/">Extraction</a>&nbsp;
+            
+              <a href="https://kaztakata.github.io/celonis-hacks/tags/transformation/">Transformation</a>&nbsp;
+            
+              <a href="https://kaztakata.github.io/celonis-hacks/tags/data-job/">Data Job</a>&nbsp;
             
           </div>
         
@@ -295,42 +334,42 @@ if (!doNotTrack) {
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-11-06-run-extractor-on-your-local-machine%2f&amp;text=Run%20Extractor%20on%20Your%20Local%20Machine&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-11-27-minimize-extraction-time-by-delta-load-option%2f&amp;text=Minimize%20Extraction%20Time%20by%20Delta%20Load%20Option&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-11-06-run-extractor-on-your-local-machine%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-11-27-minimize-extraction-time-by-delta-load-option%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-11-06-run-extractor-on-your-local-machine%2f&amp;title=Run%20Extractor%20on%20Your%20Local%20Machine" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-11-27-minimize-extraction-time-by-delta-load-option%2f&amp;title=Minimize%20Extraction%20Time%20by%20Delta%20Load%20Option" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-11-06-run-extractor-on-your-local-machine%2f&amp;title=Run%20Extractor%20on%20Your%20Local%20Machine" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-11-27-minimize-extraction-time-by-delta-load-option%2f&amp;title=Minimize%20Extraction%20Time%20by%20Delta%20Load%20Option" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-11-06-run-extractor-on-your-local-machine%2f&amp;title=Run%20Extractor%20on%20Your%20Local%20Machine" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-11-27-minimize-extraction-time-by-delta-load-option%2f&amp;title=Minimize%20Extraction%20Time%20by%20Delta%20Load%20Option" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-11-06-run-extractor-on-your-local-machine%2f&amp;description=Run%20Extractor%20on%20Your%20Local%20Machine" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-11-27-minimize-extraction-time-by-delta-load-option%2f&amp;description=Minimize%20Extraction%20Time%20by%20Delta%20Load%20Option" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -352,11 +391,11 @@ if (!doNotTrack) {
                   <ul>
                 
                 
-                    <li><a href="/celonis-hacks/posts/2021-11-27-minimize-extraction-time-by-delta-load-option/">Minimize Extraction Time by Delta Load Option</a></li>
-                
                     <li><a href="/celonis-hacks/posts/2021-11-20-look-at-data-transfer-process-by-data-job-log/">Look at Data Transfer Process by Data Job Log</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2021-11-13-connect-to-celonis-and-bring-back-instruction/">Connect to Celonis and Bring Back Instruction</a></li>
+                
+                    <li><a href="/celonis-hacks/posts/2021-11-06-run-extractor-on-your-local-machine/">Run Extractor on Your Local Machine</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2021-07-24-categorize-and-name-activity/">Categorize and Name Activity</a></li>
                 
@@ -372,13 +411,9 @@ if (!doNotTrack) {
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-10-30-copy-previous-value-to-blank-period-by-running-sum-and-range-append-functions/" data-toggle="tooltip" data-placement="top" title="Copy Previous Value to Blank Period by RUNNING_SUM and RANGE_APPEND functions">&larr; Previous Post</a>
+              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-11-20-look-at-data-transfer-process-by-data-job-log/" data-toggle="tooltip" data-placement="top" title="Look at Data Transfer Process by Data Job Log">&larr; Previous Post</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-11-13-connect-to-celonis-and-bring-back-instruction/" data-toggle="tooltip" data-placement="top" title="Connect to Celonis and Bring Back Instruction">Next Post &rarr;</a>
-            </li>
           
         </ul>
       
