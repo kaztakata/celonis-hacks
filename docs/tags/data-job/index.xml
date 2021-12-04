@@ -5,10 +5,20 @@
     <link>https://kaztakata.github.io/celonis-hacks/tags/data-job/</link>
     <description>Recent content in Data Job on Celonis hacks</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 27 Nov 2021 09:51:19 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 04 Dec 2021 12:49:44 +0900</lastBuildDate>
     
 	<atom:link href="https://kaztakata.github.io/celonis-hacks/tags/data-job/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Verify Cloning Table Contents via Delta Load</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2021-12-04-verify-cloning-table-contents-via-delta-load/</link>
+      <pubDate>Sat, 04 Dec 2021 12:49:44 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2021-12-04-verify-cloning-table-contents-via-delta-load/</guid>
+      <description>Following last week&amp;rsquo;s Minimize Extraction Time by Delta Load Option, today I would like to insert new record to Postgres table then try Delta Load again to extract it. To do this, I will start from operating pgAdmin, that is already ready for my loal machine after docker-compose.
+First step is to enter localhost:5050 to my browser, then at the login screen enter pgadmin@celonis.cloud as email and pgadmin as password then click login button.</description>
+    </item>
     
     <item>
       <title>Minimize Extraction Time by Delta Load Option</title>

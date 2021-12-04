@@ -7,10 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Connect to Celonis and Bring Back Instruction - Celonis hacks</title>
-  <meta name="description" content="From last week I started Event Collection series and posted Run Extractor on Your Local Machine to prepare for my Extractor and Postgres database. Today I will start using Extractor and show you the mechanism to extract data safely.
-From this week I will start Extractor and Postgres by next two steps (same as last week).
- Open VS code and open terminal at celonis-postgres folder. Enter docker-compose up in VS code terminal.">
+  <title>Verify Cloning Table Contents via Delta Load - Celonis hacks</title>
+  <meta name="description" content="Following last week&rsquo;s Minimize Extraction Time by Delta Load Option, today I would like to insert new record to Postgres table then try Delta Load again to extract it. To do this, I will start from operating pgAdmin, that is already ready for my loal machine after docker-compose.
+First step is to enter localhost:5050 to my browser, then at the login screen enter pgadmin@celonis.cloud as email and pgadmin as password then click login button.">
   <meta name="author" content="Kazuhiko Takata"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -46,8 +45,8 @@ From this week I will start Extractor and Postgres by next two steps (same as la
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-11-13-connect-to-celonis-and-bring-back-instruction\/",
-          "name": "Connect to celonis and bring back instruction"
+          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-12-04-verify-cloning-table-contents-via-delta-load\/",
+          "name": "Verify cloning table contents via delta load"
         }
     }]
 }
@@ -58,15 +57,15 @@ From this week I will start Extractor and Postgres by next two steps (same as la
   "author": {
     "name" : "Kazuhiko Takata"
   },
-  "headline": "Connect to Celonis and Bring Back Instruction",
-  "description" : "From last week I started Event Collection series and posted Run Extractor on Your Local Machine to prepare for my Extractor and Postgres database. Today I will start using Extractor and show you the mechanism to extract data safely.\nFrom this week I will start Extractor and Postgres by next two steps (same as last week).\n Open VS code and open terminal at celonis-postgres folder. Enter docker-compose up in VS code terminal.",
+  "headline": "Verify Cloning Table Contents via Delta Load",
+  "description" : "Following last week\x26rsquo;s Minimize Extraction Time by Delta Load Option, today I would like to insert new record to Postgres table then try Delta Load again to extract it. To do this, I will start from operating pgAdmin, that is already ready for my loal machine after docker-compose.\nFirst step is to enter localhost:5050 to my browser, then at the login screen enter pgadmin@celonis.cloud as email and pgadmin as password then click login button.",
   "inLanguage" : "en",
-  "wordCount":  433 ,
-  "datePublished" : "2021-11-13T10:19:49",
-  "dateModified" : "2021-11-13T10:19:49",
+  "wordCount":  457 ,
+  "datePublished" : "2021-12-04T12:49:44",
+  "dateModified" : "2021-12-04T12:49:44",
   "image" : "https:\/\/kaztakata.github.io\/celonis-hacks",
-  "keywords" : [ "Event Collection, Extractor" ],
-  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-11-13-connect-to-celonis-and-bring-back-instruction\/",
+  "keywords" : [ "Event Collection, Extractor, Extraction, Transformation, Data Job" ],
+  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-12-04-verify-cloning-table-contents-via-delta-load\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/kaztakata.github.io\/celonis-hacks",
@@ -80,16 +79,15 @@ From this week I will start Extractor and Postgres by next two steps (same as la
 }
 </script>
 
-<meta property="og:title" content="Connect to Celonis and Bring Back Instruction" />
-<meta property="og:description" content="From last week I started Event Collection series and posted Run Extractor on Your Local Machine to prepare for my Extractor and Postgres database. Today I will start using Extractor and show you the mechanism to extract data safely.
-From this week I will start Extractor and Postgres by next two steps (same as last week).
- Open VS code and open terminal at celonis-postgres folder. Enter docker-compose up in VS code terminal.">
-<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2021-11-13-connect-to-celonis-and-bring-back-instruction/" />
+<meta property="og:title" content="Verify Cloning Table Contents via Delta Load" />
+<meta property="og:description" content="Following last week&rsquo;s Minimize Extraction Time by Delta Load Option, today I would like to insert new record to Postgres table then try Delta Load again to extract it. To do this, I will start from operating pgAdmin, that is already ready for my loal machine after docker-compose.
+First step is to enter localhost:5050 to my browser, then at the login screen enter pgadmin@celonis.cloud as email and pgadmin as password then click login button.">
+<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2021-12-04-verify-cloning-table-contents-via-delta-load/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Celonis hacks" />
 
-  <meta name="twitter:title" content="Connect to Celonis and Bring Back Instruction" />
-  <meta name="twitter:description" content="From last week I started Event Collection series and posted Run Extractor on Your Local Machine to prepare for my Extractor and Postgres database. Today I will start using Extractor and show you the …">
+  <meta name="twitter:title" content="Verify Cloning Table Contents via Delta Load" />
+  <meta name="twitter:description" content="Following last week&rsquo;s Minimize Extraction Time by Delta Load Option, today I would like to insert new record to Postgres table then try Delta Load again to extract it. To do this, I will start …">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
@@ -231,7 +229,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="posts-heading">
               
-                <h1>Connect to Celonis and Bring Back Instruction</h1>
+                <h1>Verify Cloning Table Contents via Delta Load</h1>
               
               
                 <hr class="small">
@@ -251,35 +249,27 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>From last week I started Event Collection series and posted <a href="../2021-11-06-run-extractor-on-your-local-machine">Run Extractor on Your Local Machine</a> to prepare for my Extractor and Postgres database. Today I will start using Extractor and show you the mechanism to extract data safely.</p>
-<p>From this week I will start Extractor and Postgres by next two steps (same as last week).</p>
-<ol>
-<li>Open VS code and open terminal at celonis-postgres folder.</li>
-<li>Enter <code>docker-compose up</code> in VS code terminal.</li>
-</ol>
-<p>Next, I will login to Celonis training environment and go to Event Collection, then create new Data Pool. Then go to Data Connection and click New Data Connection button. Choose Database at next screen, then parameter setting screen is appeared as below screenshot.</p>
-<p>Input parameters as below and click Test Connection. Normally it is successful.</p>
-<ul>
-<li>Uplink connection : choose one you created last week</li>
-<li>Database type : PostgreSQL (not PostgreSQL encrypted!!)</li>
-<li>Host : postgres</li>
-<li>Database Name : postgres,</li>
-<li>Username : celonis</li>
-<li>Password : Celonis123!</li>
-</ul>
-<p><a href="https://user-images.githubusercontent.com/67397583/141601188-6fd71779-f5ae-4be7-bae8-67c74cd56a3e.png"><img src="https://user-images.githubusercontent.com/67397583/141601188-6fd71779-f5ae-4be7-bae8-67c74cd56a3e.png" alt="image"></a></p>
-<p>I will go back to VS code terminal that ran Extractor, then I can find Extractor log like below (shortened ID and remove unnecessary portion).</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">2021-11-13 01:46:58.215 Request with ID Dt4i.... received  
-2021-11-13 01:46:58.304 Request with ID Dt4i.... is processed 
-2021-11-13 01:46:59.162 Response for request Dt4i.... is sent, finished. Stopping keep alive requests 
-</code></pre></div><p>First log said instruction to test connection (get zero byte data from Postgres), including host information from Extractor perspective and login information to Postgres, is passed from Celonis EMS to Extractor.</p>
-<p>Point is this instruction is not sent from EMS but Extractor periodically (per few seconds) access to EMS and if Extractor finds instruction then bring back it to Extractor. Extractor always use HTTPS request to EMS, and EMS do not use HTTPS to Extractor. If EMS needs to access to Extractor, this opening port is risk of invalid access to on-premise network. Normally enterprise customer do not want to open port considering this risk, but Extracor works well in that situation.</p>
-<p>Second and third log said Extractor is executing extraction task instead of EMS, and return response (zero byte in this case) to EMS.</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/141602382-ae8f0127-dd35-496c-8792-c1913f90301d.png"><img src="https://user-images.githubusercontent.com/67397583/141602382-ae8f0127-dd35-496c-8792-c1913f90301d.png" alt="image"></a></p>
-<p>I will go back to EMS and click Save button then saved data connection is used for future data extraction.</p>
-<p>In the Data Connection screen you can click three dots button and find Extractor Logs menu. It returns log text file that is same as VS code terminal output. If you can not access to Extractor (normally yes), but you can find log from here (This time it does not work due to my incorrect configuration of Docker).</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/141602837-971e0582-5421-44c1-87c9-b8c209508de4.png"><img src="https://user-images.githubusercontent.com/67397583/141602837-971e0582-5421-44c1-87c9-b8c209508de4.png" alt="image"></a></p>
-<p>Next week I will connect to Postgres and extract data.</p>
+        <p>Following last week&rsquo;s <a href="../2021-11-27-minimize-extraction-time-by-delta-load-option">Minimize Extraction Time by Delta Load Option</a>, today I would like to insert new record to Postgres table then try Delta Load again to extract it. To do this, I will start from operating <a href="https://www.pgadmin.org/">pgAdmin</a>, that is already ready for my loal machine after <code>docker-compose</code>.</p>
+<p>First step is to enter <a href="http://localhost:5050">localhost:5050</a> to my browser, then at the login screen enter <code>pgadmin@celonis.cloud</code> as email and <code>pgadmin</code> as password then click login button.</p>
+<p>In the welcome screen, click Add New Server button and enter Postgres connection information as below screenshot (same information for Celonis to connect to Postgres database, see <a href="../2021-11-13-connect-to-celonis-and-bring-back-instruction">Connect to Celonis and Bring Back Instruction</a>), then save it.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/144696270-28c5595d-2e81-4750-b724-879ce35a66b9.png"><img src="https://user-images.githubusercontent.com/67397583/144696270-28c5595d-2e81-4750-b724-879ce35a66b9.png" alt="image"></a></p>
+<p>After saving server information, Postgres can be operated via pgAdmin. In the left panel, go to Servers &gt; postgres &gt; Databases &gt; postgres &gt; Schemas &gt; public &gt; tables. Then right click Tools &gt; Query Tool, then Query Editor is opened. I can verify this database is same as what I extracted data from Celonis, by entering <code>SELECT COUNT(*) FROM app_users;</code> then get value 154821.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/144696601-b2585927-f89b-4e65-8f4f-810ed2b1026e.png"><img src="https://user-images.githubusercontent.com/67397583/144696601-b2585927-f89b-4e65-8f4f-810ed2b1026e.png" alt="image"></a></p>
+<p>Now I am ready for inserting new record. Let&rsquo;s enter <code>INSERT INTO app_users (firstname, lastname) VALUES ('Celonis','Hacks');</code> then execute SQL. To confirm new record, enter <code>SELECT * FROM app_users ORDER BY id DESC LIMIT 5;</code> then I can see new id <code>154822</code> at first row.</p>
+<p>Finally I will go to Celonis to execute extraction job with Delta Load option, then only new record is extracted from Postgres as I expected. Below is the job logs.</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">2021-12-04 13:34:47 Extraction successful
+2021-12-04 13:34:46 Table app_users loaded ..
+2021-12-04 13:34:24 Inserting extracted data into the Data Pool (this may take a while)
+2021-12-04 13:34:24 Starting load app_users to target ...
+2021-12-04 13:34:24 Uploading result files
+2021-12-04 13:34:23 Total 1 records loaded for table app_users
+2021-12-04 13:34:23 Loading 1 records for table app_users. Total extracted records 1
+2021-12-04 13:34:23 Setting filter to: id &gt; 154821
+2021-12-04 13:34:22 Starting extraction for resource: app_users
+</code></pre></div><p>To confirm new record I executed <code>SELECT</code> statement in Celonis transformation as below screen. The difference between Postgres and Celonis is the last column <code>_CELONIS_CHANGE_DATE</code>, that is UTC timestamp when this record is cloned (extracted) to Celonis (not relevant to when this record is inserted in Postgres). <code>_CELONIS_CHANGE_DATE</code> column is automatically generated at extraction timing.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/144697298-d3924858-3498-4a1c-a5d4-6c1f827e999e.png"><img src="https://user-images.githubusercontent.com/67397583/144697298-d3924858-3498-4a1c-a5d4-6c1f827e999e.png" alt="image"></a></p>
+<p>In real situation, not only inserting record but updating and deleting record should be considered. If there is some sorting column to use for updating scenario (e.g. last updated timestamp column) it is possible to use Delta Load. Only Full Load is available to synchronize table contents if not such a update column or if record is deleted.</p>
+<p>One more case to consider for extraction is adding or deleting table column. This topic is discussed next week.</p>
 <p>Kaz</p>
 
 
@@ -289,6 +279,12 @@ if (!doNotTrack) {
               <a href="https://kaztakata.github.io/celonis-hacks/tags/event-collection/">Event Collection</a>&nbsp;
             
               <a href="https://kaztakata.github.io/celonis-hacks/tags/extractor/">Extractor</a>&nbsp;
+            
+              <a href="https://kaztakata.github.io/celonis-hacks/tags/extraction/">Extraction</a>&nbsp;
+            
+              <a href="https://kaztakata.github.io/celonis-hacks/tags/transformation/">Transformation</a>&nbsp;
+            
+              <a href="https://kaztakata.github.io/celonis-hacks/tags/data-job/">Data Job</a>&nbsp;
             
           </div>
         
@@ -303,42 +299,42 @@ if (!doNotTrack) {
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-11-13-connect-to-celonis-and-bring-back-instruction%2f&amp;text=Connect%20to%20Celonis%20and%20Bring%20Back%20Instruction&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-12-04-verify-cloning-table-contents-via-delta-load%2f&amp;text=Verify%20Cloning%20Table%20Contents%20via%20Delta%20Load&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-11-13-connect-to-celonis-and-bring-back-instruction%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-12-04-verify-cloning-table-contents-via-delta-load%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-11-13-connect-to-celonis-and-bring-back-instruction%2f&amp;title=Connect%20to%20Celonis%20and%20Bring%20Back%20Instruction" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-12-04-verify-cloning-table-contents-via-delta-load%2f&amp;title=Verify%20Cloning%20Table%20Contents%20via%20Delta%20Load" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-11-13-connect-to-celonis-and-bring-back-instruction%2f&amp;title=Connect%20to%20Celonis%20and%20Bring%20Back%20Instruction" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-12-04-verify-cloning-table-contents-via-delta-load%2f&amp;title=Verify%20Cloning%20Table%20Contents%20via%20Delta%20Load" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-11-13-connect-to-celonis-and-bring-back-instruction%2f&amp;title=Connect%20to%20Celonis%20and%20Bring%20Back%20Instruction" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-12-04-verify-cloning-table-contents-via-delta-load%2f&amp;title=Verify%20Cloning%20Table%20Contents%20via%20Delta%20Load" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-11-13-connect-to-celonis-and-bring-back-instruction%2f&amp;description=Connect%20to%20Celonis%20and%20Bring%20Back%20Instruction" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-12-04-verify-cloning-table-contents-via-delta-load%2f&amp;description=Verify%20Cloning%20Table%20Contents%20via%20Delta%20Load" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -360,11 +356,11 @@ if (!doNotTrack) {
                   <ul>
                 
                 
-                    <li><a href="/celonis-hacks/posts/2021-12-04-verify-cloning-table-contents-via-delta-load/">Verify Cloning Table Contents via Delta Load</a></li>
-                
                     <li><a href="/celonis-hacks/posts/2021-11-27-minimize-extraction-time-by-delta-load-option/">Minimize Extraction Time by Delta Load Option</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2021-11-20-look-at-data-transfer-process-by-data-job-log/">Look at Data Transfer Process by Data Job Log</a></li>
+                
+                    <li><a href="/celonis-hacks/posts/2021-11-13-connect-to-celonis-and-bring-back-instruction/">Connect to Celonis and Bring Back Instruction</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2021-11-06-run-extractor-on-your-local-machine/">Run Extractor on Your Local Machine</a></li>
                 
@@ -380,13 +376,9 @@ if (!doNotTrack) {
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-11-06-run-extractor-on-your-local-machine/" data-toggle="tooltip" data-placement="top" title="Run Extractor on Your Local Machine">&larr; Previous Post</a>
+              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-11-27-minimize-extraction-time-by-delta-load-option/" data-toggle="tooltip" data-placement="top" title="Minimize Extraction Time by Delta Load Option">&larr; Previous Post</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-11-20-look-at-data-transfer-process-by-data-job-log/" data-toggle="tooltip" data-placement="top" title="Look at Data Transfer Process by Data Job Log">Next Post &rarr;</a>
-            </li>
           
         </ul>
       
