@@ -5,10 +5,20 @@
     <link>https://kaztakata.github.io/celonis-hacks/tags/event-collection/</link>
     <description>Recent content in Event Collection on Celonis hacks</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 04 Dec 2021 12:49:44 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 11 Dec 2021 21:54:02 +0900</lastBuildDate>
     
 	<atom:link href="https://kaztakata.github.io/celonis-hacks/tags/event-collection/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Understand Delta Load Configuration Difference in Adding Column Scenario</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2021-12-11-understand-delta-load-configuration-difference-in-adding-column-scenario/</link>
+      <pubDate>Sat, 11 Dec 2021 21:54:02 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2021-12-11-understand-delta-load-configuration-difference-in-adding-column-scenario/</guid>
+      <description>Last time I showed behavior when I added new record then extracted that record by Delta Load (Verify Cloning Table Contents via Delta Load). Delta Load is effective way to minimize extraction effort, but it is not always applied. Today, it is continued from previous post, I would like to add column to cloned table and observe behavior of extraction task.
+After starting system operation including database, normally system is changing its requirement and extend function and database etc.</description>
+    </item>
     
     <item>
       <title>Verify Cloning Table Contents via Delta Load</title>
