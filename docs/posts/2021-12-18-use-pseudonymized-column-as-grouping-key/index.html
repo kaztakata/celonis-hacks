@@ -7,9 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Categorize and Name Activity - Celonis hacks</title>
-  <meta name="description" content="In the previous post Transform Source System Tables to Minimize Data Model Tables, I recommended to convert some kind of source system tables to Activity. Today I focus on Activity and would like to share my way how to categorize and name Activity.
-First point is to split Activity name to two parts, more general part and detail part. For example, in SAP ECC or S4HANA Order to Cash process, general Activity name is Create Sales Order when data committed in VA01 transaction.">
+  <title>Use Pseudonymized Column as Grouping Key - Celonis hacks</title>
+  <meta name="description" content="One of the biggest headache for data engineer like me is how to assure data security when extracting data. Especially personal information should be dealt sensitively, otherwise I may be punished by each region&rsquo;s law (e.g. GDPR).
+When I operate Celonis EMS, I try not to extract sensitive information from the beginning, for example I do not extract table of customer address (ADRC table in SAP etc.). But this information is sometimes effective for grouping key of counting case etc.">
   <meta name="author" content="Kazuhiko Takata"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -45,8 +45,8 @@ First point is to split Activity name to two parts, more general part and detail
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-07-24-categorize-and-name-activity\/",
-          "name": "Categorize and name activity"
+          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-12-18-use-pseudonymized-column-as-grouping-key\/",
+          "name": "Use pseudonymized column as grouping key"
         }
     }]
 }
@@ -57,15 +57,15 @@ First point is to split Activity name to two parts, more general part and detail
   "author": {
     "name" : "Kazuhiko Takata"
   },
-  "headline": "Categorize and Name Activity",
-  "description" : "In the previous post Transform Source System Tables to Minimize Data Model Tables, I recommended to convert some kind of source system tables to Activity. Today I focus on Activity and would like to share my way how to categorize and name Activity.\nFirst point is to split Activity name to two parts, more general part and detail part. For example, in SAP ECC or S4HANA Order to Cash process, general Activity name is Create Sales Order when data committed in VA01 transaction.",
+  "headline": "Use Pseudonymized Column as Grouping Key",
+  "description" : "One of the biggest headache for data engineer like me is how to assure data security when extracting data. Especially personal information should be dealt sensitively, otherwise I may be punished by each region\x26rsquo;s law (e.g. GDPR).\nWhen I operate Celonis EMS, I try not to extract sensitive information from the beginning, for example I do not extract table of customer address (ADRC table in SAP etc.). But this information is sometimes effective for grouping key of counting case etc.",
   "inLanguage" : "en",
-  "wordCount":  471 ,
-  "datePublished" : "2021-07-24T10:47:12",
-  "dateModified" : "2021-07-24T10:47:12",
+  "wordCount":  469 ,
+  "datePublished" : "2021-12-18T09:22:56",
+  "dateModified" : "2021-12-18T09:22:56",
   "image" : "https:\/\/kaztakata.github.io\/celonis-hacks",
-  "keywords" : [ "Data Model, Event Collection, Transformation, PQL, Process Analytics, Pull Up Function, Process Explorer" ],
-  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-07-24-categorize-and-name-activity\/",
+  "keywords" : [ "Event Collection, Extractor, Extraction, Transformation, Data Job" ],
+  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-12-18-use-pseudonymized-column-as-grouping-key\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/kaztakata.github.io\/celonis-hacks",
@@ -79,15 +79,15 @@ First point is to split Activity name to two parts, more general part and detail
 }
 </script>
 
-<meta property="og:title" content="Categorize and Name Activity" />
-<meta property="og:description" content="In the previous post Transform Source System Tables to Minimize Data Model Tables, I recommended to convert some kind of source system tables to Activity. Today I focus on Activity and would like to share my way how to categorize and name Activity.
-First point is to split Activity name to two parts, more general part and detail part. For example, in SAP ECC or S4HANA Order to Cash process, general Activity name is Create Sales Order when data committed in VA01 transaction.">
-<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2021-07-24-categorize-and-name-activity/" />
+<meta property="og:title" content="Use Pseudonymized Column as Grouping Key" />
+<meta property="og:description" content="One of the biggest headache for data engineer like me is how to assure data security when extracting data. Especially personal information should be dealt sensitively, otherwise I may be punished by each region&rsquo;s law (e.g. GDPR).
+When I operate Celonis EMS, I try not to extract sensitive information from the beginning, for example I do not extract table of customer address (ADRC table in SAP etc.). But this information is sometimes effective for grouping key of counting case etc.">
+<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2021-12-18-use-pseudonymized-column-as-grouping-key/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Celonis hacks" />
 
-  <meta name="twitter:title" content="Categorize and Name Activity" />
-  <meta name="twitter:description" content="In the previous post Transform Source System Tables to Minimize Data Model Tables, I recommended to convert some kind of source system tables to Activity. Today I focus on Activity and would like to …">
+  <meta name="twitter:title" content="Use Pseudonymized Column as Grouping Key" />
+  <meta name="twitter:description" content="One of the biggest headache for data engineer like me is how to assure data security when extracting data. Especially personal information should be dealt sensitively, otherwise I may be punished by …">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
@@ -229,7 +229,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="posts-heading">
               
-                <h1>Categorize and Name Activity</h1>
+                <h1>Use Pseudonymized Column as Grouping Key</h1>
               
               
                 <hr class="small">
@@ -249,59 +249,67 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>In the previous post <a href="../2021-07-17-transform-source-system-tables-to-minimize-data-model-tables/">Transform Source System Tables to Minimize Data Model Tables</a>, I recommended to convert some kind of source system tables to Activity. Today I focus on Activity and would like to share my way how to categorize and name Activity.</p>
-<p>First point is to split Activity name to two parts, more general part and detail part. For example, in SAP ECC or S4HANA Order to Cash process, general Activity name is <code>Create Sales Order</code> when data committed in VA01 transaction. On the other hand detail Activity name is from sales document type (<code>Standard sales order</code>, <code>Cash sale</code> etc.). General Activity name is used as default Activity name in process mining, more system perspective analysis purpose. Detail Activity name is used as optional analysis or busines perspective analysis.</p>
-<p>Detail Activity name can be used in Process Explorer (and Variant Explorer) in Custom dimension setting (refer to <a href="../2021-05-08-customize-process-explorer/">Customize Process Explorer</a>). In my case <code>_CEL_O2C_ACTIVITIES.ACTIVITY_EN || ' : ' || COALESCE(_CEL_O2C_ACTIVITIES.ACTIVITY_DETAIL,'')</code> to concatenate General and Detail parts (consider converting <code>NULL</code> to zero byte string to prevent disappering General part).</p>
-<p>Second point is to use verb as Activity when it is direct user action to source system, instead use noun when it is just milestone to compare with some user action. One set of example is <code>Create Goods Issue Document</code> and <code>Planned Goods Issue Date</code>. For further programming purpose, norn Activity does not fill user name column to distinguish it is not direct user action. I do not want to count it for analysing automation Activity, rework Activity and throughuput between Activities, so I used <code>_CEL_O2C_ACTIVITIES.USER_NAME</code> IS NOT NULL to exclude norn Activity.</p>
-<p>Also you can exclude norn activity in Process Explorer by below PQL.</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">CASE 
-    WHEN _CEL_O2C_ACTIVITIES.USER_NAME IS NOT NULL THEN _CEL_O2C_ACTIVITIES.ACTIVITY_EN
-    ELSE NULl
-END
-</code></pre></div><p>After I found I can hide norn Activities as I like, I create new Activities without hesitation. Now I used hundred of Activities for multiple purposes. For example, create <code>Planned Goods Issue Date</code> for on time Delivery purpuse.</p>
-<p>Third point is to fill additional case key columns to Activity table. In case of on time Delivery analysis, I need to consider multiple (partial) delivery scenario against one sales order. I filled delivery number to delivery relevant Activity record to distinguish each record is first delivery, second delivery etc.</p>
-<p>After filling delivery number <code>VBELN_VL</code> and delivery item number <code>POSNR_VL</code>, I can use Pull Up Function to calculate each delivery is on time like below PQL. <code>DOMAIN_TABLE</code> is the way to group by delivery even activity main case key is sales order.</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">DATEDIFF(
-    dd,
-    PU_FIRST(
-        DOMAIN_TABLE(
-            _CEL_O2C_ACTIVITIES._CASE_KEY,
-            _CEL_O2C_ACTIVITIES.VBELN_VL,
-            _CEL_O2C_ACTIVITIES.POSNR_VL
-        ),
-        _CEL_O2C_ACTIVITIES.EVENTTIME,
-        _CEL_O2C_ACTIVITIES.ACTIVITY_EN = &#39;Create Goods Issue Document&#39;
-    ),
-    PU_FIRST(
-        DOMAIN_TABLE(
-            _CEL_O2C_ACTIVITIES._CASE_KEY,
-            _CEL_O2C_ACTIVITIES.VBELN_VL,
-            _CEL_O2C_ACTIVITIES.POSNR_VL
-        ),
-        _CEL_O2C_ACTIVITIES.EVENTTIME,
-        _CEL_O2C_ACTIVITIES.ACTIVITY_EN = &#39;Planned Goods Issue Date&#39;
-    )
-)
-</code></pre></div><p>Using above three points, I believe I can maximize process analysis with minimum dataset.</p>
+        <p>One of the biggest headache for data engineer like me is how to assure data security when extracting data. Especially personal information should be dealt sensitively, otherwise I may be punished by each region&rsquo;s law (e.g. GDPR).</p>
+<p>When I operate Celonis EMS, I try not to extract sensitive information from the beginning, for example I do not extract table of customer address (<code>ADRC</code> table in SAP etc.). But this information is sometimes effective for grouping key of counting case etc., so I should mitigate this dilemma. Today I would like to introduce pseudonymization technique to solve this dilemma.</p>
+<p>Pseudonymization is processed by hash algorithm, that maps data of an arbitrary size to a bit array of a fixed size (called digest or hash value). The point is converting from original data to hash value is possible but hashed value to original data is quite difficult (not feasible in realistic time). Also if one pair of original data is same value, one pair of hash value is also same. These characteristic is suitable for pseudonymization.</p>
+<p>For today&rsquo;s post, first I introduce new table <code>orders</code> to store customer, material (ordered item), who created this data (employee) and when it is created. In pgAdmin I execute below SQL to insert four record to <code>orders</code>.</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">orders</span> <span class="p">(</span>
+    <span class="n">id</span> <span class="nb">BIGINT</span> <span class="k">GENERATED</span> <span class="n">ALWAYS</span> <span class="k">AS</span> <span class="k">IDENTITY</span><span class="p">,</span>
+    <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">(</span><span class="n">id</span><span class="p">),</span>
+    <span class="n">customer</span> <span class="nb">TEXT</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="n">material</span> <span class="nb">TEXT</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+	<span class="n">createdBy</span> <span class="nb">TEXT</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+	<span class="n">createdAt</span> <span class="k">TIMESTAMP</span> <span class="k">NOT</span> <span class="k">NULL</span>
+<span class="p">);</span>
+
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">orders</span> <span class="p">(</span><span class="n">customer</span><span class="p">,</span><span class="n">material</span><span class="p">,</span><span class="n">createdBy</span><span class="p">,</span><span class="n">createdAt</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="s1">&#39;Oda Nobunaga&#39;</span><span class="p">,</span><span class="s1">&#39;Gold Plan&#39;</span><span class="p">,</span><span class="s1">&#39;Kazuhiko Takata&#39;</span><span class="p">,</span><span class="n">NOW</span><span class="p">());</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">orders</span> <span class="p">(</span><span class="n">customer</span><span class="p">,</span><span class="n">material</span><span class="p">,</span><span class="n">createdBy</span><span class="p">,</span><span class="n">createdAt</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="s1">&#39;Toyotomi Hideyoshi&#39;</span><span class="p">,</span><span class="s1">&#39;Diamond Plan&#39;</span><span class="p">,</span><span class="s1">&#39;Kazuhiko Takata&#39;</span><span class="p">,</span><span class="n">NOW</span><span class="p">());</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">orders</span> <span class="p">(</span><span class="n">customer</span><span class="p">,</span><span class="n">material</span><span class="p">,</span><span class="n">createdBy</span><span class="p">,</span><span class="n">createdAt</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="s1">&#39;Tokugawa Ieyasu&#39;</span><span class="p">,</span><span class="s1">&#39;Platinum Plan&#39;</span><span class="p">,</span><span class="s1">&#39;Kazuhiko Takata&#39;</span><span class="p">,</span><span class="n">NOW</span><span class="p">());</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">orders</span> <span class="p">(</span><span class="n">customer</span><span class="p">,</span><span class="n">material</span><span class="p">,</span><span class="n">createdBy</span><span class="p">,</span><span class="n">createdAt</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="s1">&#39;Oda Nobunaga&#39;</span><span class="p">,</span><span class="s1">&#39;Platinum Plan&#39;</span><span class="p">,</span><span class="s1">&#39;Kazuhiko Takata&#39;</span><span class="p">,</span><span class="n">NOW</span><span class="p">());</span>
+</code></pre></div><p>Assuming this <code>orders</code> table is located inside my company&rsquo;s local network (on-premise) and I do not want to expose customer name and employee name to outside of my network, but I would like to analyze process of my orders.</p>
+<p>When I setup extraction task in Celonis Event Collection, I will click Configure button to set pseudonymized columns (customer and createdBy) as below.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/146629365-85ea409a-d274-42db-8456-193da230fdd0.png"><img src="https://user-images.githubusercontent.com/67397583/146629365-85ea409a-d274-42db-8456-193da230fdd0.png" alt="image"></a></p>
+<p>After that I will scroll down to Extraction Preview section and confirm it is not possible to recoginize customer and employee name. Also I can see id 1 and 4 has same value in customer column, these are originally same person.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/146629557-be532241-2248-4062-8979-a02b11ddbd09.png"><img src="https://user-images.githubusercontent.com/67397583/146629557-be532241-2248-4062-8979-a02b11ddbd09.png" alt="image"></a></p>
+<p>If I would like to count orders group by customer, it is possible by pseudonymized customer name. Let&rsquo;s do it in transformation. After extraction has done, execute <code>SELECT customer,COUNT(*) FROM orders GROUP BY customer;</code>. Then actually count order by customer has done succesfully.</p>
+<table>
+<thead>
+<tr>
+<th>customer</th>
+<th>COUNT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>072643ff50ba49ea26cfcb3ca83978ecdbf74032</td>
+<td>2</td>
+</tr>
+<tr>
+<td>3b47fb949d9d0e0a90e281043a7d7271eadd8e52</td>
+<td>1</td>
+</tr>
+<tr>
+<td>739782f3b4abc2b1a880c84eab0386f6858c64fe</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>Additionaly I can see how many customers are repeatedly ordered by <code>SELECT COUNT(*) FROM (SELECT customer,COUNT(*) FROM orders GROUP BY customer) AS a WHERE count &gt; 1;</code>, not identifying customer name. Grouping key is useful in such case.</p>
 <p>Kaz</p>
 
 
         
           <div class="blog-tags">
             
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/data-model/">Data Model</a>&nbsp;
-            
               <a href="https://kaztakata.github.io/celonis-hacks/tags/event-collection/">Event Collection</a>&nbsp;
+            
+              <a href="https://kaztakata.github.io/celonis-hacks/tags/extractor/">Extractor</a>&nbsp;
+            
+              <a href="https://kaztakata.github.io/celonis-hacks/tags/extraction/">Extraction</a>&nbsp;
             
               <a href="https://kaztakata.github.io/celonis-hacks/tags/transformation/">Transformation</a>&nbsp;
             
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/pql/">PQL</a>&nbsp;
-            
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/process-analytics/">Process Analytics</a>&nbsp;
-            
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/pull-up-function/">Pull Up Function</a>&nbsp;
-            
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/process-explorer/">Process Explorer</a>&nbsp;
+              <a href="https://kaztakata.github.io/celonis-hacks/tags/data-job/">Data Job</a>&nbsp;
             
           </div>
         
@@ -316,42 +324,42 @@ END
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-07-24-categorize-and-name-activity%2f&amp;text=Categorize%20and%20Name%20Activity&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-12-18-use-pseudonymized-column-as-grouping-key%2f&amp;text=Use%20Pseudonymized%20Column%20as%20Grouping%20Key&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-07-24-categorize-and-name-activity%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-12-18-use-pseudonymized-column-as-grouping-key%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-07-24-categorize-and-name-activity%2f&amp;title=Categorize%20and%20Name%20Activity" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-12-18-use-pseudonymized-column-as-grouping-key%2f&amp;title=Use%20Pseudonymized%20Column%20as%20Grouping%20Key" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-07-24-categorize-and-name-activity%2f&amp;title=Categorize%20and%20Name%20Activity" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-12-18-use-pseudonymized-column-as-grouping-key%2f&amp;title=Use%20Pseudonymized%20Column%20as%20Grouping%20Key" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-07-24-categorize-and-name-activity%2f&amp;title=Categorize%20and%20Name%20Activity" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-12-18-use-pseudonymized-column-as-grouping-key%2f&amp;title=Use%20Pseudonymized%20Column%20as%20Grouping%20Key" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-07-24-categorize-and-name-activity%2f&amp;description=Categorize%20and%20Name%20Activity" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-12-18-use-pseudonymized-column-as-grouping-key%2f&amp;description=Use%20Pseudonymized%20Column%20as%20Grouping%20Key" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -373,8 +381,6 @@ END
                   <ul>
                 
                 
-                    <li><a href="/celonis-hacks/posts/2021-12-18-use-pseudonymized-column-as-grouping-key/">Use Pseudonymized Column as Grouping Key</a></li>
-                
                     <li><a href="/celonis-hacks/posts/2021-12-11-understand-delta-load-configuration-difference-in-adding-column-scenario/">Understand Delta Load Configuration Difference in Adding Column Scenario</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2021-12-04-verify-cloning-table-contents-via-delta-load/">Verify Cloning Table Contents via Delta Load</a></li>
@@ -382,6 +388,8 @@ END
                     <li><a href="/celonis-hacks/posts/2021-11-27-minimize-extraction-time-by-delta-load-option/">Minimize Extraction Time by Delta Load Option</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2021-11-20-look-at-data-transfer-process-by-data-job-log/">Look at Data Transfer Process by Data Job Log</a></li>
+                
+                    <li><a href="/celonis-hacks/posts/2021-11-13-connect-to-celonis-and-bring-back-instruction/">Connect to Celonis and Bring Back Instruction</a></li>
                 
               </ul>
 
@@ -393,13 +401,9 @@ END
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-07-17-transform-source-system-tables-to-minimize-data-model-tables/" data-toggle="tooltip" data-placement="top" title="Transform Source System Tables to Minimize Data Model Tables">&larr; Previous Post</a>
+              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-12-11-understand-delta-load-configuration-difference-in-adding-column-scenario/" data-toggle="tooltip" data-placement="top" title="Understand Delta Load Configuration Difference in Adding Column Scenario">&larr; Previous Post</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-07-31-create-additional-entry-to-button-dropdown/" data-toggle="tooltip" data-placement="top" title="Create Additional Entry to Button Dropdown">Next Post &rarr;</a>
-            </li>
           
         </ul>
       

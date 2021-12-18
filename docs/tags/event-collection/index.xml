@@ -5,10 +5,20 @@
     <link>https://kaztakata.github.io/celonis-hacks/tags/event-collection/</link>
     <description>Recent content in Event Collection on Celonis hacks</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 11 Dec 2021 21:54:02 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 18 Dec 2021 09:22:56 +0900</lastBuildDate>
     
 	<atom:link href="https://kaztakata.github.io/celonis-hacks/tags/event-collection/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Use Pseudonymized Column as Grouping Key</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2021-12-18-use-pseudonymized-column-as-grouping-key/</link>
+      <pubDate>Sat, 18 Dec 2021 09:22:56 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2021-12-18-use-pseudonymized-column-as-grouping-key/</guid>
+      <description>One of the biggest headache for data engineer like me is how to assure data security when extracting data. Especially personal information should be dealt sensitively, otherwise I may be punished by each region&amp;rsquo;s law (e.g. GDPR).
+When I operate Celonis EMS, I try not to extract sensitive information from the beginning, for example I do not extract table of customer address (ADRC table in SAP etc.). But this information is sometimes effective for grouping key of counting case etc.</description>
+    </item>
     
     <item>
       <title>Understand Delta Load Configuration Difference in Adding Column Scenario</title>
