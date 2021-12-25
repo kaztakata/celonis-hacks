@@ -5,10 +5,20 @@
     <link>https://kaztakata.github.io/celonis-hacks/tags/event-collection/</link>
     <description>Recent content in Event Collection on Celonis hacks</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 18 Dec 2021 09:22:56 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 25 Dec 2021 08:53:48 +0900</lastBuildDate>
     
 	<atom:link href="https://kaztakata.github.io/celonis-hacks/tags/event-collection/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Pay attention to Extract SAP Tables</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2021-12-25-pay-attention-to-extract-sap-tables/</link>
+      <pubDate>Sat, 25 Dec 2021 08:53:48 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2021-12-25-pay-attention-to-extract-sap-tables/</guid>
+      <description>Until last post I explained general topics of extraction task, adapted to all kind of source systems. Today I would like to focus on SAP ECC or S4HANA as source system and would like to tell you the SAP specific issues.
+First issue is regarding source system itself. We would like to guarantee source system&amp;rsquo;s availability even if I connect Celonis EMS to that. So we may choose testing environment that is snapshot of production system, as source system that connect to Celonis EMS.</description>
+    </item>
     
     <item>
       <title>Use Pseudonymized Column as Grouping Key</title>
