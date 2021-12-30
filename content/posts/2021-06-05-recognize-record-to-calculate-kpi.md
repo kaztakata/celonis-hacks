@@ -7,7 +7,7 @@ tags: ['PQL','Process Analytics']
 
 Using Pull up function, you can calculate various kind of KPIs. I would like to tell in this post is taking care the record (dimensions) to calculate each KPI especially when you unite multiple KPIs to same component.
 
-In this example, I will use Order to Cash process again and first I would like to estiamate time of rework. Definition of rework Activity is same as previous post, and one more condition is it happens by manual user (`USER_TYPE = 'A'`). If rework Activity is operated by manual user, this rework is estimated 1 minute for example. PQL of total estimated rework time is as below.
+In this example, I will use Order to Cash process again and first I would like to estiamate time of rework. If rework Activity is operated by manual user, this rework is estimated 1 minute for example. Definition of rework Activity is same as previous post, and one more condition is it happens by manual user (`USER_TYPE = 'A'`). PQL of total estimated rework time is as below.
 
 ```
 SUM(
