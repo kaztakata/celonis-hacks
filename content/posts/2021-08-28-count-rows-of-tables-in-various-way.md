@@ -7,7 +7,7 @@ tags: ['PQL','Process Analytics','Pull Up Function']
 
 Counting rows of tables is frequently used so we are not aware about how to do it. But sometimes I got stuck to do it so I would like to deep dive this topic today.
 
-For today's demo case I use P2P data model and three tables, header `EKKO` (key columns are `MANDT`/`EBELN`), item `EKPO` (`MANDT`/`EBELN`/`EBELP`) and activity. Also I used sum of item Net value. Below screen is the result of today's demo.
+For this demo case I use P2P data model and three tables, header `EKKO` (key columns are `MANDT`/`EBELN`), item `EKPO` (`MANDT`/`EBELN`/`EBELP`) and activity. Also I used sum of item Net value. Below screen is the result of this demo.
 
 [![image](https://user-images.githubusercontent.com/67397583/131204467-0fa76a98-929c-40a3-87e1-707c20613f04.png)](https://user-images.githubusercontent.com/67397583/131204467-0fa76a98-929c-40a3-87e1-707c20613f04.png)
 
