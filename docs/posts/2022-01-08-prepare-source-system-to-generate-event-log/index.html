@@ -7,8 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Minimize Extraction Time by Delta Load Option - Celonis hacks</title>
-  <meta name="description" content="Last week I extracted Postgres table and looked at the log to understand mechanism of data transfer. At that time I used Full Load option to extract data, that is to replace all table contents and schema to latest version. That is easiest way to synchronize tables between source system (Postgres) and Celonis, but it takes a lot of time to complete this task. So that I should also use second option Delta Load to minimize extraction time.">
+  <title>Prepare Source System to Generate Event Log - Celonis hacks</title>
+  <meta name="description" content="Until last post I explained extraction topics using own Postgres database. I think it is better to test extraction functions with changing database by yourself. But it is hard to manually input data record that is meaningful as event log.
+From now on I will move to transformation topic. To explain this, I think it is required to prepare source system that has user interface, database and API to connect to Celonis EMS, to easily generate event log and extract it.">
   <meta name="author" content="Kazuhiko Takata"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -44,8 +45,8 @@
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-11-27-minimize-extraction-time-by-delta-load-option\/",
-          "name": "Minimize extraction time by delta load option"
+          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-01-08-prepare-source-system-to-generate-event-log\/",
+          "name": "Prepare source system to generate event log"
         }
     }]
 }
@@ -56,15 +57,15 @@
   "author": {
     "name" : "Kazuhiko Takata"
   },
-  "headline": "Minimize Extraction Time by Delta Load Option",
-  "description" : "Last week I extracted Postgres table and looked at the log to understand mechanism of data transfer. At that time I used Full Load option to extract data, that is to replace all table contents and schema to latest version. That is easiest way to synchronize tables between source system (Postgres) and Celonis, but it takes a lot of time to complete this task. So that I should also use second option Delta Load to minimize extraction time.",
+  "headline": "Prepare Source System to Generate Event Log",
+  "description" : "Until last post I explained extraction topics using own Postgres database. I think it is better to test extraction functions with changing database by yourself. But it is hard to manually input data record that is meaningful as event log.\nFrom now on I will move to transformation topic. To explain this, I think it is required to prepare source system that has user interface, database and API to connect to Celonis EMS, to easily generate event log and extract it.",
   "inLanguage" : "en",
-  "wordCount":  454 ,
-  "datePublished" : "2021-11-27T09:51:19",
-  "dateModified" : "2021-11-27T09:51:19",
+  "wordCount":  319 ,
+  "datePublished" : "2022-01-08T16:35:30",
+  "dateModified" : "2022-01-08T16:35:30",
   "image" : "https:\/\/kaztakata.github.io\/celonis-hacks",
-  "keywords" : [ "Event Collection, Extractor, Extraction, Transformation, Data Job" ],
-  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-11-27-minimize-extraction-time-by-delta-load-option\/",
+  "keywords" : [ "Event Collection, Transformation" ],
+  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-01-08-prepare-source-system-to-generate-event-log\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/kaztakata.github.io\/celonis-hacks",
@@ -78,14 +79,15 @@
 }
 </script>
 
-<meta property="og:title" content="Minimize Extraction Time by Delta Load Option" />
-<meta property="og:description" content="Last week I extracted Postgres table and looked at the log to understand mechanism of data transfer. At that time I used Full Load option to extract data, that is to replace all table contents and schema to latest version. That is easiest way to synchronize tables between source system (Postgres) and Celonis, but it takes a lot of time to complete this task. So that I should also use second option Delta Load to minimize extraction time.">
-<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2021-11-27-minimize-extraction-time-by-delta-load-option/" />
+<meta property="og:title" content="Prepare Source System to Generate Event Log" />
+<meta property="og:description" content="Until last post I explained extraction topics using own Postgres database. I think it is better to test extraction functions with changing database by yourself. But it is hard to manually input data record that is meaningful as event log.
+From now on I will move to transformation topic. To explain this, I think it is required to prepare source system that has user interface, database and API to connect to Celonis EMS, to easily generate event log and extract it.">
+<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2022-01-08-prepare-source-system-to-generate-event-log/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Celonis hacks" />
 
-  <meta name="twitter:title" content="Minimize Extraction Time by Delta Load Option" />
-  <meta name="twitter:description" content="Last week I extracted Postgres table and looked at the log to understand mechanism of data transfer. At that time I used Full Load option to extract data, that is to replace all table contents and …">
+  <meta name="twitter:title" content="Prepare Source System to Generate Event Log" />
+  <meta name="twitter:description" content="Until last post I explained extraction topics using own Postgres database. I think it is better to test extraction functions with changing database by yourself. But it is hard to manually input data …">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
@@ -227,7 +229,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="posts-heading">
               
-                <h1>Minimize Extraction Time by Delta Load Option</h1>
+                <h1>Prepare Source System to Generate Event Log</h1>
               
               
                 <hr class="small">
@@ -247,64 +249,18 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>Last week I extracted Postgres table and looked at the log to understand mechanism of data transfer. At that time I used Full Load option to extract data, that is to replace all table contents and schema to latest version. That is easiest way to synchronize tables between source system (Postgres) and Celonis, but it takes a lot of time to complete this task. So that I should also use second option Delta Load to minimize extraction time.</p>
-<p>I already have <code>app_users</code> table in Celonis, so I will continue to execute Delta Load today.</p>
-<p>First step is to find columns that is sorted by the time of insert record. Let&rsquo;s create new (temporary) transformation task in Celonis then look at the table, then type <code>SELECT * FROM app_users LIMIT 5;</code> and execute that SQL. I can see SQL result like below.</p>
-<p>It seems value of column <code>id</code> is incremental number from 1. To proof this I also execute two SQLs, <code>SELECT MAX(id) FROM app_users;</code> and <code>SELECT COUNT(*) FROM app_users;</code>. Both result are same <code>154821</code>, so <code>id</code> is the column I would like to use for Delta Load.</p>
-<table>
-<thead>
-<tr>
-<th>id</th>
-<th>firstname</th>
-<th>lastname</th>
-<th>_CELONIS_CHANGE_DATE</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>849b&hellip;.</td>
-<td>21cb&hellip;.</td>
-<td>2021-11-27 01:49:48</td>
-</tr>
-<tr>
-<td>2</td>
-<td>02eb&hellip;.</td>
-<td>944e&hellip;.</td>
-<td>2021-11-27 01:49:48</td>
-</tr>
-<tr>
-<td>3</td>
-<td>df57&hellip;.</td>
-<td>c182&hellip;.</td>
-<td>2021-11-27 01:49:48</td>
-</tr>
-<tr>
-<td>4</td>
-<td>1bf9&hellip;.</td>
-<td>294f&hellip;.</td>
-<td>2021-11-27 01:49:48</td>
-</tr>
-<tr>
-<td>5</td>
-<td>b9f3&hellip;.</td>
-<td>6546&hellip;.</td>
-<td>2021-11-27 01:49:48</td>
-</tr>
-</tbody>
-</table>
-<p>Second step is to change extraction settings I used last week. If I minimize extraction effort, I should not extract already extracted record again and should extract newly created record only. To recognize boundary between those, I create parameter <code>max_id</code> that will return value same as <code>SELECT MAX(id) FROM app_users;</code> SQL. Setting value is as below screen.</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/143665240-981482ba-0647-499f-ba49-e1a1ea5449ff.png"><img src="https://user-images.githubusercontent.com/67397583/143665240-981482ba-0647-499f-ba49-e1a1ea5449ff.png" alt="image"></a></p>
-<p>After creating parameter, it is set to Delta Filter Statement at Table Configuration. Statement (WHERE clause of SQL) is <code>id &gt; &lt;%=max_id%&gt;</code> as below screen.</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/143665352-c940e7cf-b346-4ddd-9f74-71d01bba8fb6.png"><img src="https://user-images.githubusercontent.com/67397583/143665352-c940e7cf-b346-4ddd-9f74-71d01bba8fb6.png" alt="image"></a></p>
-<p>To check the Delta Filter, I execute extraction job with Delta Load option. Looking at the log in Celonis, I can find below messages. Parameter <code>max_id</code> works well so I do not extract duplicated record, also execution time is 10 seconds, compared with 40 seconds of Full Load last week.</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">2021-11-27 11:28:59 Extraction successful
-2021-11-27 11:28:59 Uploading result files
-2021-11-27 11:28:59 Total 0 records loaded for table app_users
-2021-11-27 11:28:58 Setting filter to: id &gt; 154821
-2021-11-27 11:28:58 Starting extraction for resource: app_users
-</code></pre></div><p>By the way, in case of <code>app_users</code> table, I use integer number column for Delta Load, but best thing is to find timestamp column at each table. But in my experience, such a column is not always found. If so, you may think about second best option (integer column) as I did.</p>
-<p>Next week I would like to insert new record to Postgres table then try Delta Load again to extract it.</p>
+        <p>Until last post I explained extraction topics using own Postgres database. I think it is better to test extraction functions with changing database by yourself. But it is hard to manually input data record that is meaningful as event log.</p>
+<p>From now on I will move to transformation topic. To explain this, I think it is required to prepare source system that has user interface, database and API to connect to Celonis EMS, to easily generate event log and extract it.</p>
+<p>I would like to introduce <a href="https://plan.io/">Planio</a> as source system. This is cloud hosting system using <a href="https://www.redmine.org/">Redmine</a>, that is open source project management web application. I already used Planio for some months and I feel it is sinple and powerful solution to manage my team.</p>
+<p>At the top page of <a href="https://plan.io/">Planio</a> you can create your environment by clicking <code>Start your free trial</code> button, that has no charge if you change to <a href="https://plan.io/pricing/">Bronze (free) plan</a> after initiation of environment. If you successfully create your enviornment, you can see below screen as me (I can see Japanese text but you may see different language).</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/148636749-46d1adc5-1ea2-4b81-b49e-852f031760bb.png"><img src="https://user-images.githubusercontent.com/67397583/148636749-46d1adc5-1ea2-4b81-b49e-852f031760bb.png" alt="image"></a></p>
+<p>To generate your event log with free license restriction (only one project), first I should delete existing project <code>website-redesign</code>. I click tile at the home page to move to project top page, then click trash button.</p>
+<p>After that I can create new project. From top left <code>+</code> button, I can create new project. I named <code>Prototype production of XYZ</code> project.</p>
+<p>Next I would like to create issue. From <code>+</code> button, I can create new issue too. This time simply enter Subject <code>Prepare Kick off</code> then create issue. Then new issue number (in my case 8) is registered.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/148637709-e01ec65f-92f5-4650-8901-9eabefa34f00.png"><img src="https://user-images.githubusercontent.com/67397583/148637709-e01ec65f-92f5-4650-8901-9eabefa34f00.png" alt="image"></a></p>
+<p>Finally to create change log, click <code>Edit</code> button and change status then submit change. Change history is displayed as note #1.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/148637845-ac6e9d63-ea89-4716-859a-a9297a1db342.png"><img src="https://user-images.githubusercontent.com/67397583/148637844-46a670d0-c074-4047-9da4-d6cdf6c8963b.png" alt="image"></a></p>
+<p>Next time I would like to setup Extractor Builder in Celonis EMS to extract event log from Planio.</p>
 <p>Kaz</p>
 
 
@@ -313,13 +269,7 @@ if (!doNotTrack) {
             
               <a href="https://kaztakata.github.io/celonis-hacks/tags/event-collection/">Event Collection</a>&nbsp;
             
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/extractor/">Extractor</a>&nbsp;
-            
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/extraction/">Extraction</a>&nbsp;
-            
               <a href="https://kaztakata.github.io/celonis-hacks/tags/transformation/">Transformation</a>&nbsp;
-            
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/data-job/">Data Job</a>&nbsp;
             
           </div>
         
@@ -334,42 +284,42 @@ if (!doNotTrack) {
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-11-27-minimize-extraction-time-by-delta-load-option%2f&amp;text=Minimize%20Extraction%20Time%20by%20Delta%20Load%20Option&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-01-08-prepare-source-system-to-generate-event-log%2f&amp;text=Prepare%20Source%20System%20to%20Generate%20Event%20Log&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-11-27-minimize-extraction-time-by-delta-load-option%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-01-08-prepare-source-system-to-generate-event-log%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-11-27-minimize-extraction-time-by-delta-load-option%2f&amp;title=Minimize%20Extraction%20Time%20by%20Delta%20Load%20Option" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-01-08-prepare-source-system-to-generate-event-log%2f&amp;title=Prepare%20Source%20System%20to%20Generate%20Event%20Log" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-11-27-minimize-extraction-time-by-delta-load-option%2f&amp;title=Minimize%20Extraction%20Time%20by%20Delta%20Load%20Option" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-01-08-prepare-source-system-to-generate-event-log%2f&amp;title=Prepare%20Source%20System%20to%20Generate%20Event%20Log" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-11-27-minimize-extraction-time-by-delta-load-option%2f&amp;title=Minimize%20Extraction%20Time%20by%20Delta%20Load%20Option" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-01-08-prepare-source-system-to-generate-event-log%2f&amp;title=Prepare%20Source%20System%20to%20Generate%20Event%20Log" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-11-27-minimize-extraction-time-by-delta-load-option%2f&amp;description=Minimize%20Extraction%20Time%20by%20Delta%20Load%20Option" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-01-08-prepare-source-system-to-generate-event-log%2f&amp;description=Prepare%20Source%20System%20to%20Generate%20Event%20Log" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -391,8 +341,6 @@ if (!doNotTrack) {
                   <ul>
                 
                 
-                    <li><a href="/celonis-hacks/posts/2022-01-08-prepare-source-system-to-generate-event-log/">Prepare Source System to Generate Event Log</a></li>
-                
                     <li><a href="/celonis-hacks/posts/2021-12-25-pay-attention-to-extract-sap-tables/">Pay attention to Extract SAP Tables</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2021-12-18-use-pseudonymized-column-as-grouping-key/">Use Pseudonymized Column as Grouping Key</a></li>
@@ -400,6 +348,8 @@ if (!doNotTrack) {
                     <li><a href="/celonis-hacks/posts/2021-12-11-understand-delta-load-configuration-difference-in-adding-column-scenario/">Understand Delta Load Configuration Difference in Adding Column Scenario</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2021-12-04-verify-cloning-table-contents-via-delta-load/">Verify Cloning Table Contents via Delta Load</a></li>
+                
+                    <li><a href="/celonis-hacks/posts/2021-11-27-minimize-extraction-time-by-delta-load-option/">Minimize Extraction Time by Delta Load Option</a></li>
                 
               </ul>
 
@@ -411,13 +361,9 @@ if (!doNotTrack) {
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-11-20-look-at-data-transfer-process-by-data-job-log/" data-toggle="tooltip" data-placement="top" title="Look at Data Transfer Process by Data Job Log">&larr; Previous Post</a>
+              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-12-25-pay-attention-to-extract-sap-tables/" data-toggle="tooltip" data-placement="top" title="Pay attention to Extract SAP Tables">&larr; Previous Post</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-12-04-verify-cloning-table-contents-via-delta-load/" data-toggle="tooltip" data-placement="top" title="Verify Cloning Table Contents via Delta Load">Next Post &rarr;</a>
-            </li>
           
         </ul>
       

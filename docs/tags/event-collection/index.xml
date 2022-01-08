@@ -5,10 +5,20 @@
     <link>https://kaztakata.github.io/celonis-hacks/tags/event-collection/</link>
     <description>Recent content in Event Collection on Celonis hacks</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 25 Dec 2021 08:53:48 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 08 Jan 2022 16:35:30 +0900</lastBuildDate>
     
 	<atom:link href="https://kaztakata.github.io/celonis-hacks/tags/event-collection/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Prepare Source System to Generate Event Log</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2022-01-08-prepare-source-system-to-generate-event-log/</link>
+      <pubDate>Sat, 08 Jan 2022 16:35:30 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2022-01-08-prepare-source-system-to-generate-event-log/</guid>
+      <description>Until last post I explained extraction topics using own Postgres database. I think it is better to test extraction functions with changing database by yourself. But it is hard to manually input data record that is meaningful as event log.
+From now on I will move to transformation topic. To explain this, I think it is required to prepare source system that has user interface, database and API to connect to Celonis EMS, to easily generate event log and extract it.</description>
+    </item>
     
     <item>
       <title>Pay attention to Extract SAP Tables</title>
