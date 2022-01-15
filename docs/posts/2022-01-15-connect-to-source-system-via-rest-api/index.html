@@ -7,9 +7,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Categorize and Name Activity - Celonis hacks</title>
-  <meta name="description" content="In the previous post Transform Source System Tables to Minimize Data Model Tables, I recommended to convert some kind of source system tables to Activity. Today I focus on Activity and would like to share my way how to categorize and name Activity.
-First point is to split Activity name to two parts, more general part and detail part. For example, in SAP ECC or S4HANA Order to Cash process, general Activity name is Create Sales Order when data committed in VA01 transaction.">
+  <title>Connect to Source System via REST API - Celonis hacks</title>
+  <meta name="description" content="At previous post Prepare Source System to Generate Event Log, I prepared Planio as source system for this blog, and entered few events (create Issue, update Issue Status) to it. Now it is time to extract event log from Planio. As other SaaS solution do, Planio also has REST API to extract data from outside. Currently Celonis EMS has ability to extract from arbitrary system that has REST API, Extractor Builder.">
   <meta name="author" content="Kazuhiko Takata"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -45,8 +44,8 @@ First point is to split Activity name to two parts, more general part and detail
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-07-24-categorize-and-name-activity\/",
-          "name": "Categorize and name activity"
+          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-01-15-connect-to-source-system-via-rest-api\/",
+          "name": "Connect to source system via r e s t api"
         }
     }]
 }
@@ -57,15 +56,15 @@ First point is to split Activity name to two parts, more general part and detail
   "author": {
     "name" : "Kazuhiko Takata"
   },
-  "headline": "Categorize and Name Activity",
-  "description" : "In the previous post Transform Source System Tables to Minimize Data Model Tables, I recommended to convert some kind of source system tables to Activity. Today I focus on Activity and would like to share my way how to categorize and name Activity.\nFirst point is to split Activity name to two parts, more general part and detail part. For example, in SAP ECC or S4HANA Order to Cash process, general Activity name is Create Sales Order when data committed in VA01 transaction.",
+  "headline": "Connect to Source System via REST API",
+  "description" : "At previous post Prepare Source System to Generate Event Log, I prepared Planio as source system for this blog, and entered few events (create Issue, update Issue Status) to it. Now it is time to extract event log from Planio. As other SaaS solution do, Planio also has REST API to extract data from outside. Currently Celonis EMS has ability to extract from arbitrary system that has REST API, Extractor Builder.",
   "inLanguage" : "en",
-  "wordCount":  471 ,
-  "datePublished" : "2021-07-24T10:47:12",
-  "dateModified" : "2021-07-24T10:47:12",
+  "wordCount":  506 ,
+  "datePublished" : "2022-01-15T10:27:09",
+  "dateModified" : "2022-01-15T10:27:09",
   "image" : "https:\/\/kaztakata.github.io\/celonis-hacks",
-  "keywords" : [ "Data Model, Event Collection, Transformation, PQL, Process Analytics, Pull Up Function, Process Explorer" ],
-  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-07-24-categorize-and-name-activity\/",
+  "keywords" : [ "Event Collection, Extractor Builder" ],
+  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-01-15-connect-to-source-system-via-rest-api\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/kaztakata.github.io\/celonis-hacks",
@@ -79,15 +78,14 @@ First point is to split Activity name to two parts, more general part and detail
 }
 </script>
 
-<meta property="og:title" content="Categorize and Name Activity" />
-<meta property="og:description" content="In the previous post Transform Source System Tables to Minimize Data Model Tables, I recommended to convert some kind of source system tables to Activity. Today I focus on Activity and would like to share my way how to categorize and name Activity.
-First point is to split Activity name to two parts, more general part and detail part. For example, in SAP ECC or S4HANA Order to Cash process, general Activity name is Create Sales Order when data committed in VA01 transaction.">
-<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2021-07-24-categorize-and-name-activity/" />
+<meta property="og:title" content="Connect to Source System via REST API" />
+<meta property="og:description" content="At previous post Prepare Source System to Generate Event Log, I prepared Planio as source system for this blog, and entered few events (create Issue, update Issue Status) to it. Now it is time to extract event log from Planio. As other SaaS solution do, Planio also has REST API to extract data from outside. Currently Celonis EMS has ability to extract from arbitrary system that has REST API, Extractor Builder.">
+<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2022-01-15-connect-to-source-system-via-rest-api/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Celonis hacks" />
 
-  <meta name="twitter:title" content="Categorize and Name Activity" />
-  <meta name="twitter:description" content="In the previous post Transform Source System Tables to Minimize Data Model Tables, I recommended to convert some kind of source system tables to Activity. Today I focus on Activity and would like to …">
+  <meta name="twitter:title" content="Connect to Source System via REST API" />
+  <meta name="twitter:description" content="At previous post Prepare Source System to Generate Event Log, I prepared Planio as source system for this blog, and entered few events (create Issue, update Issue Status) to it. Now it is time to …">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
@@ -229,7 +227,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="posts-heading">
               
-                <h1>Categorize and Name Activity</h1>
+                <h1>Connect to Source System via REST API</h1>
               
               
                 <hr class="small">
@@ -249,59 +247,32 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>In the previous post <a href="../2021-07-17-transform-source-system-tables-to-minimize-data-model-tables/">Transform Source System Tables to Minimize Data Model Tables</a>, I recommended to convert some kind of source system tables to Activity. Today I focus on Activity and would like to share my way how to categorize and name Activity.</p>
-<p>First point is to split Activity name to two parts, more general part and detail part. For example, in SAP ECC or S4HANA Order to Cash process, general Activity name is <code>Create Sales Order</code> when data committed in VA01 transaction. On the other hand detail Activity name is from sales document type (<code>Standard sales order</code>, <code>Cash sale</code> etc.). General Activity name is used as default Activity name in process mining, more system perspective analysis purpose. Detail Activity name is used as optional analysis or busines perspective analysis.</p>
-<p>Detail Activity name can be used in Process Explorer (and Variant Explorer) in Custom dimension setting (refer to <a href="../2021-05-08-customize-process-explorer/">Customize Process Explorer</a>). In my case <code>_CEL_O2C_ACTIVITIES.ACTIVITY_EN || ' : ' || COALESCE(_CEL_O2C_ACTIVITIES.ACTIVITY_DETAIL,'')</code> to concatenate General and Detail parts (consider converting <code>NULL</code> to zero byte string to prevent disappering General part).</p>
-<p>Second point is to use verb as Activity when it is direct user action to source system, instead use noun when it is just milestone to compare with some user action. One set of example is <code>Create Goods Issue Document</code> and <code>Planned Goods Issue Date</code>. For further programming purpose, norn Activity does not fill user name column to distinguish it is not direct user action. I do not want to count it for analysing automation Activity, rework Activity and throughuput between Activities, so I used <code>_CEL_O2C_ACTIVITIES.USER_NAME</code> IS NOT NULL to exclude norn Activity.</p>
-<p>Also you can exclude norn activity in Process Explorer by below PQL.</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">CASE 
-    WHEN _CEL_O2C_ACTIVITIES.USER_NAME IS NOT NULL THEN _CEL_O2C_ACTIVITIES.ACTIVITY_EN
-    ELSE NULl
-END
-</code></pre></div><p>After I found I can hide norn Activities as I like, I create new Activities without hesitation. Now I used hundred of Activities for multiple purposes. For example, create <code>Planned Goods Issue Date</code> for on time Delivery purpuse.</p>
-<p>Third point is to fill additional case key columns to Activity table. In case of on time Delivery analysis, I need to consider multiple (partial) delivery scenario against one sales order. I filled delivery number to delivery relevant Activity record to distinguish each record is first delivery, second delivery etc.</p>
-<p>After filling delivery number <code>VBELN_VL</code> and delivery item number <code>POSNR_VL</code>, I can use Pull Up Function to calculate each delivery is on time like below PQL. <code>DOMAIN_TABLE</code> is the way to group by delivery even activity main case key is sales order.</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">DATEDIFF(
-    dd,
-    PU_FIRST(
-        DOMAIN_TABLE(
-            _CEL_O2C_ACTIVITIES._CASE_KEY,
-            _CEL_O2C_ACTIVITIES.VBELN_VL,
-            _CEL_O2C_ACTIVITIES.POSNR_VL
-        ),
-        _CEL_O2C_ACTIVITIES.EVENTTIME,
-        _CEL_O2C_ACTIVITIES.ACTIVITY_EN = &#39;Create Goods Issue Document&#39;
-    ),
-    PU_FIRST(
-        DOMAIN_TABLE(
-            _CEL_O2C_ACTIVITIES._CASE_KEY,
-            _CEL_O2C_ACTIVITIES.VBELN_VL,
-            _CEL_O2C_ACTIVITIES.POSNR_VL
-        ),
-        _CEL_O2C_ACTIVITIES.EVENTTIME,
-        _CEL_O2C_ACTIVITIES.ACTIVITY_EN = &#39;Planned Goods Issue Date&#39;
-    )
-)
-</code></pre></div><p>Using above three points, I believe I can maximize process analysis with minimum dataset.</p>
+        <p>At previous post <a href="../2022-01-08-prepare-source-system-to-generate-event-log">Prepare Source System to Generate Event Log</a>, I prepared Planio as source system for this blog, and entered few events (create Issue, update Issue Status) to it. Now it is time to extract event log from Planio. As other SaaS solution do, Planio also has <a href="https://plan.io/api/">REST API</a> to extract data from outside. Currently Celonis EMS has ability to extract from arbitrary system that has REST API, Extractor Builder. Today I would like to setup Extractor Builder and try to extract Issue from Planio.</p>
+<p>First step is to get Planio API key to access from Celonis EMS to Planio. After sign in to Planio, I will go to My Account page from Avatar menu at top right of screen. Next click show button at API Access Key menu in the right pane, then I can see API key (this is credential information so it is possible to reset key any time).</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/149604286-0db72830-d36e-49eb-a2a5-78ad614e3f05.png"><img src="https://user-images.githubusercontent.com/67397583/149604286-0db72830-d36e-49eb-a2a5-78ad614e3f05.png" alt="image"></a></p>
+<p>Even using API key is deprecated solution as <a href="https://plan.io/api/#deprecated-authentication-methods">documentation</a> said, OAuth2.0 authentication is not feasible to Extractor Builder when I tried before. So I should go with API key for the moment.</p>
+<p>Next step is Extractor setup in the Event Collection of Celonis EMS. I will go to Extractor Builder then click Build a New Extractor button. After determining Extractor name, I will setup Authentication Methods as below screen. As I got API key from Planio, I will select API Key Authentication. Header key is changed from x-api-key to X-Redmine-API-Key referring to documentation.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/149615062-e239c258-6d2a-4cc0-be88-53a2e5707181.png"><img src="https://user-images.githubusercontent.com/67397583/149615062-e239c258-6d2a-4cc0-be88-53a2e5707181.png" alt="image"></a></p>
+<p>Then skip the Connection parameters and move to Define Endpoints. Endpoint is the address to access to resources in source systems, similar to table name in case of previous Postgres database. This is something complex part but at first I would like to create quite simple Endpoint, so click Add New Endpoint.</p>
+<p>Looking at <a href="https://plan.io/api/#resources">Planio resources</a>, I found that I can access to Issues that I entered before. I would like to get all entries of Issues, so I focus on <code>GET /issues.[json|xml]</code>. So endpoint name is determined as <code>issues</code>, then enter <code>{Connection.API_URL}/issues.json}</code> to Request URL. <code>{Connection.API_URL}</code> is automatically replaced with my URL later. <code>json</code> is the response format acceptable for Extractor Builder.</p>
+<p>Let&rsquo;s verify this endpoint URL at configuring Response section. As below screen I will click Create Data Source button. Then enter connection name, my Planio URL and API key. Finally test connection to check previous steps, then save connection.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/149615914-dd7866b2-0b2f-4c2d-930a-e39dc4bf0877.png"><img src="https://user-images.githubusercontent.com/67397583/149615914-dd7866b2-0b2f-4c2d-930a-e39dc4bf0877.png" alt="image"></a></p>
+<p><a href="https://user-images.githubusercontent.com/67397583/149615988-e5fec6ff-b9b0-4b6c-ab0a-497e0e5e6d71.png"><img src="https://user-images.githubusercontent.com/67397583/149615988-e5fec6ff-b9b0-4b6c-ab0a-497e0e5e6d71.png" alt="image"></a></p>
+<p>Above operation enable me to access to issues so click Build Response button then I can get sample structure of Issue response (if you can not see it, go back to Planio and enter new issue then try again). From this structure I can configure extraction tables. But this is first draft of issue endpoint, so finish setting as default.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/149616422-b003eaa6-a480-49d1-852c-f9e63b061866.png"><img src="https://user-images.githubusercontent.com/67397583/149616422-b003eaa6-a480-49d1-852c-f9e63b061866.png" alt="image"></a></p>
+<p>Finally test end to end extraction by creating new data job like previous Postgres Database. By default I can get two tables, one is statistics of issues, and others is list of issues.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/149616647-d1b107a5-4a19-4437-91d9-d63e524d20f6.png"><img src="https://user-images.githubusercontent.com/67397583/149616647-d1b107a5-4a19-4437-91d9-d63e524d20f6.png" alt="image"></a></p>
+<p><a href="https://user-images.githubusercontent.com/67397583/149616688-a06d611c-8844-449c-b1ec-1e2761b804ce.png"><img src="https://user-images.githubusercontent.com/67397583/149616688-a06d611c-8844-449c-b1ec-1e2761b804ce.png" alt="image"></a></p>
+<p>Next time I will configure endpoints to get more suitable output for following transformations.</p>
 <p>Kaz</p>
 
 
         
           <div class="blog-tags">
             
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/data-model/">Data Model</a>&nbsp;
-            
               <a href="https://kaztakata.github.io/celonis-hacks/tags/event-collection/">Event Collection</a>&nbsp;
             
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/transformation/">Transformation</a>&nbsp;
-            
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/pql/">PQL</a>&nbsp;
-            
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/process-analytics/">Process Analytics</a>&nbsp;
-            
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/pull-up-function/">Pull Up Function</a>&nbsp;
-            
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/process-explorer/">Process Explorer</a>&nbsp;
+              <a href="https://kaztakata.github.io/celonis-hacks/tags/extractor-builder/">Extractor Builder</a>&nbsp;
             
           </div>
         
@@ -316,42 +287,42 @@ END
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-07-24-categorize-and-name-activity%2f&amp;text=Categorize%20and%20Name%20Activity&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-01-15-connect-to-source-system-via-rest-api%2f&amp;text=Connect%20to%20Source%20System%20via%20REST%20API&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-07-24-categorize-and-name-activity%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-01-15-connect-to-source-system-via-rest-api%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-07-24-categorize-and-name-activity%2f&amp;title=Categorize%20and%20Name%20Activity" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-01-15-connect-to-source-system-via-rest-api%2f&amp;title=Connect%20to%20Source%20System%20via%20REST%20API" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-07-24-categorize-and-name-activity%2f&amp;title=Categorize%20and%20Name%20Activity" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-01-15-connect-to-source-system-via-rest-api%2f&amp;title=Connect%20to%20Source%20System%20via%20REST%20API" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-07-24-categorize-and-name-activity%2f&amp;title=Categorize%20and%20Name%20Activity" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-01-15-connect-to-source-system-via-rest-api%2f&amp;title=Connect%20to%20Source%20System%20via%20REST%20API" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-07-24-categorize-and-name-activity%2f&amp;description=Categorize%20and%20Name%20Activity" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-01-15-connect-to-source-system-via-rest-api%2f&amp;description=Connect%20to%20Source%20System%20via%20REST%20API" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -373,8 +344,6 @@ END
                   <ul>
                 
                 
-                    <li><a href="/celonis-hacks/posts/2022-01-15-connect-to-source-system-via-rest-api/">Connect to Source System via REST API</a></li>
-                
                     <li><a href="/celonis-hacks/posts/2022-01-08-prepare-source-system-to-generate-event-log/">Prepare Source System to Generate Event Log</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2021-12-25-pay-attention-to-extract-sap-tables/">Pay attention to Extract SAP Tables</a></li>
@@ -382,6 +351,8 @@ END
                     <li><a href="/celonis-hacks/posts/2021-12-18-use-pseudonymized-column-as-grouping-key/">Use Pseudonymized Column as Grouping Key</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2021-12-11-understand-delta-load-configuration-difference-in-adding-column-scenario/">Understand Delta Load Configuration Difference in Adding Column Scenario</a></li>
+                
+                    <li><a href="/celonis-hacks/posts/2021-12-04-verify-cloning-table-contents-via-delta-load/">Verify Cloning Table Contents via Delta Load</a></li>
                 
               </ul>
 
@@ -393,13 +364,9 @@ END
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-07-17-transform-source-system-tables-to-minimize-data-model-tables/" data-toggle="tooltip" data-placement="top" title="Transform Source System Tables to Minimize Data Model Tables">&larr; Previous Post</a>
+              <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-01-08-prepare-source-system-to-generate-event-log/" data-toggle="tooltip" data-placement="top" title="Prepare Source System to Generate Event Log">&larr; Previous Post</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-07-31-create-additional-entry-to-button-dropdown/" data-toggle="tooltip" data-placement="top" title="Create Additional Entry to Button Dropdown">Next Post &rarr;</a>
-            </li>
           
         </ul>
       

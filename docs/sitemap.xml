@@ -4,26 +4,41 @@
   
   <url>
     <loc>https://kaztakata.github.io/celonis-hacks/</loc>
-    <lastmod>2022-01-08T16:35:30+09:00</lastmod>
+    <lastmod>2022-01-15T10:27:09+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kaztakata.github.io/celonis-hacks/posts/2022-01-15-connect-to-source-system-via-rest-api/</loc>
+    <lastmod>2022-01-15T10:27:09+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://kaztakata.github.io/celonis-hacks/tags/event-collection/</loc>
-    <lastmod>2022-01-08T16:35:30+09:00</lastmod>
+    <lastmod>2022-01-15T10:27:09+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kaztakata.github.io/celonis-hacks/tags/extractor/</loc>
+    <lastmod>2022-01-15T10:27:09+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kaztakata.github.io/celonis-hacks/tags/extractor-builder/</loc>
+    <lastmod>2022-01-15T10:27:09+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://kaztakata.github.io/celonis-hacks/posts/</loc>
-    <lastmod>2022-01-08T16:35:30+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kaztakata.github.io/celonis-hacks/posts/2022-01-08-prepare-source-system-to-generate-event-log/</loc>
-    <lastmod>2022-01-08T16:35:30+09:00</lastmod>
+    <lastmod>2022-01-15T10:27:09+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://kaztakata.github.io/celonis-hacks/tags/</loc>
+    <lastmod>2022-01-15T10:27:09+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kaztakata.github.io/celonis-hacks/posts/2022-01-08-prepare-source-system-to-generate-event-log/</loc>
     <lastmod>2022-01-08T16:35:30+09:00</lastmod>
   </url>
   
@@ -44,11 +59,6 @@
   
   <url>
     <loc>https://kaztakata.github.io/celonis-hacks/tags/data-job/</loc>
-    <lastmod>2021-12-18T09:22:56+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kaztakata.github.io/celonis-hacks/tags/extractor/</loc>
     <lastmod>2021-12-18T09:22:56+09:00</lastmod>
   </url>
   

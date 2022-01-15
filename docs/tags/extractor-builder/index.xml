@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Extractor Builder on Celonis hacks</title>
+    <link>https://kaztakata.github.io/celonis-hacks/tags/extractor-builder/</link>
+    <description>Recent content in Extractor Builder on Celonis hacks</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 15 Jan 2022 10:27:09 +0900</lastBuildDate>
+    
+	<atom:link href="https://kaztakata.github.io/celonis-hacks/tags/extractor-builder/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Connect to Source System via REST API</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2022-01-15-connect-to-source-system-via-rest-api/</link>
+      <pubDate>Sat, 15 Jan 2022 10:27:09 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2022-01-15-connect-to-source-system-via-rest-api/</guid>
+      <description>At previous post Prepare Source System to Generate Event Log, I prepared Planio as source system for this blog, and entered few events (create Issue, update Issue Status) to it. Now it is time to extract event log from Planio. As other SaaS solution do, Planio also has REST API to extract data from outside. Currently Celonis EMS has ability to extract from arbitrary system that has REST API, Extractor Builder.</description>
+    </item>
+    
+  </channel>
+</rss>
