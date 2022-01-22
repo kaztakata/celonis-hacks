@@ -7,8 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Minimize Extraction Time by Delta Load Option - Celonis hacks</title>
-  <meta name="description" content="Last week I extracted Postgres table and looked at the log to understand mechanism of data transfer. At that time I used Full Load option to extract data, that is to replace all table contents and schema to latest version. That is easiest way to synchronize tables between source system (Postgres) and Celonis, but it takes a lot of time to complete this task. So that I should also use second option Delta Load to minimize extraction time.">
+  <title>Configure Endpoint for Suitable Extraction - Celonis hacks</title>
+  <meta name="description" content="In the last post Connect to Source System via REST API, I shared how to set up Extractor Builder and extracted Issue from Planio. It was shortest path to be avaiable for extraction job, so it is not enough for production job. Today I would like to configure Endpoint in Extractor Builder to resolve problems I experienced.
+First problem I faced is upper limit of extraction data. Some day I found that I could not get issue record until 25.">
   <meta name="author" content="Kazuhiko Takata"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -44,8 +45,8 @@
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-11-27-minimize-extraction-time-by-delta-load-option\/",
-          "name": "Minimize extraction time by delta load option"
+          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-01-22-configure-endpoint-for-suitable-extraction\/",
+          "name": "Configure endpoint for suitable extraction"
         }
     }]
 }
@@ -56,15 +57,15 @@
   "author": {
     "name" : "Kazuhiko Takata"
   },
-  "headline": "Minimize Extraction Time by Delta Load Option",
-  "description" : "Last week I extracted Postgres table and looked at the log to understand mechanism of data transfer. At that time I used Full Load option to extract data, that is to replace all table contents and schema to latest version. That is easiest way to synchronize tables between source system (Postgres) and Celonis, but it takes a lot of time to complete this task. So that I should also use second option Delta Load to minimize extraction time.",
+  "headline": "Configure Endpoint for Suitable Extraction",
+  "description" : "In the last post Connect to Source System via REST API, I shared how to set up Extractor Builder and extracted Issue from Planio. It was shortest path to be avaiable for extraction job, so it is not enough for production job. Today I would like to configure Endpoint in Extractor Builder to resolve problems I experienced.\nFirst problem I faced is upper limit of extraction data. Some day I found that I could not get issue record until 25.",
   "inLanguage" : "en",
-  "wordCount":  454 ,
-  "datePublished" : "2021-11-27T09:51:19",
-  "dateModified" : "2021-11-27T09:51:19",
+  "wordCount":  468 ,
+  "datePublished" : "2022-01-22T08:08:39",
+  "dateModified" : "2022-01-22T08:08:39",
   "image" : "https:\/\/kaztakata.github.io\/celonis-hacks",
-  "keywords" : [ "Event Collection, Extractor, Extraction, Transformation, Data Job" ],
-  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-11-27-minimize-extraction-time-by-delta-load-option\/",
+  "keywords" : [ "Event Collection, Extractor Builder" ],
+  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-01-22-configure-endpoint-for-suitable-extraction\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/kaztakata.github.io\/celonis-hacks",
@@ -78,14 +79,15 @@
 }
 </script>
 
-<meta property="og:title" content="Minimize Extraction Time by Delta Load Option" />
-<meta property="og:description" content="Last week I extracted Postgres table and looked at the log to understand mechanism of data transfer. At that time I used Full Load option to extract data, that is to replace all table contents and schema to latest version. That is easiest way to synchronize tables between source system (Postgres) and Celonis, but it takes a lot of time to complete this task. So that I should also use second option Delta Load to minimize extraction time.">
-<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2021-11-27-minimize-extraction-time-by-delta-load-option/" />
+<meta property="og:title" content="Configure Endpoint for Suitable Extraction" />
+<meta property="og:description" content="In the last post Connect to Source System via REST API, I shared how to set up Extractor Builder and extracted Issue from Planio. It was shortest path to be avaiable for extraction job, so it is not enough for production job. Today I would like to configure Endpoint in Extractor Builder to resolve problems I experienced.
+First problem I faced is upper limit of extraction data. Some day I found that I could not get issue record until 25.">
+<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2022-01-22-configure-endpoint-for-suitable-extraction/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Celonis hacks" />
 
-  <meta name="twitter:title" content="Minimize Extraction Time by Delta Load Option" />
-  <meta name="twitter:description" content="Last week I extracted Postgres table and looked at the log to understand mechanism of data transfer. At that time I used Full Load option to extract data, that is to replace all table contents and …">
+  <meta name="twitter:title" content="Configure Endpoint for Suitable Extraction" />
+  <meta name="twitter:description" content="In the last post Connect to Source System via REST API, I shared how to set up Extractor Builder and extracted Issue from Planio. It was shortest path to be avaiable for extraction job, so it is not …">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
@@ -227,7 +229,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="posts-heading">
               
-                <h1>Minimize Extraction Time by Delta Load Option</h1>
+                <h1>Configure Endpoint for Suitable Extraction</h1>
               
               
                 <hr class="small">
@@ -247,64 +249,20 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>Last week I extracted Postgres table and looked at the log to understand mechanism of data transfer. At that time I used Full Load option to extract data, that is to replace all table contents and schema to latest version. That is easiest way to synchronize tables between source system (Postgres) and Celonis, but it takes a lot of time to complete this task. So that I should also use second option Delta Load to minimize extraction time.</p>
-<p>I already have <code>app_users</code> table in Celonis, so I will continue to execute Delta Load today.</p>
-<p>First step is to find columns that is sorted by the time of insert record. Let&rsquo;s create new (temporary) transformation task in Celonis then look at the table, then type <code>SELECT * FROM app_users LIMIT 5;</code> and execute that SQL. I can see SQL result like below.</p>
-<p>It seems value of column <code>id</code> is incremental number from 1. To proof this I also execute two SQLs, <code>SELECT MAX(id) FROM app_users;</code> and <code>SELECT COUNT(*) FROM app_users;</code>. Both result are same <code>154821</code>, so <code>id</code> is the column I would like to use for Delta Load.</p>
-<table>
-<thead>
-<tr>
-<th>id</th>
-<th>firstname</th>
-<th>lastname</th>
-<th>_CELONIS_CHANGE_DATE</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>849b&hellip;.</td>
-<td>21cb&hellip;.</td>
-<td>2021-11-27 01:49:48</td>
-</tr>
-<tr>
-<td>2</td>
-<td>02eb&hellip;.</td>
-<td>944e&hellip;.</td>
-<td>2021-11-27 01:49:48</td>
-</tr>
-<tr>
-<td>3</td>
-<td>df57&hellip;.</td>
-<td>c182&hellip;.</td>
-<td>2021-11-27 01:49:48</td>
-</tr>
-<tr>
-<td>4</td>
-<td>1bf9&hellip;.</td>
-<td>294f&hellip;.</td>
-<td>2021-11-27 01:49:48</td>
-</tr>
-<tr>
-<td>5</td>
-<td>b9f3&hellip;.</td>
-<td>6546&hellip;.</td>
-<td>2021-11-27 01:49:48</td>
-</tr>
-</tbody>
-</table>
-<p>Second step is to change extraction settings I used last week. If I minimize extraction effort, I should not extract already extracted record again and should extract newly created record only. To recognize boundary between those, I create parameter <code>max_id</code> that will return value same as <code>SELECT MAX(id) FROM app_users;</code> SQL. Setting value is as below screen.</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/143665240-981482ba-0647-499f-ba49-e1a1ea5449ff.png"><img src="https://user-images.githubusercontent.com/67397583/143665240-981482ba-0647-499f-ba49-e1a1ea5449ff.png" alt="image"></a></p>
-<p>After creating parameter, it is set to Delta Filter Statement at Table Configuration. Statement (WHERE clause of SQL) is <code>id &gt; &lt;%=max_id%&gt;</code> as below screen.</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/143665352-c940e7cf-b346-4ddd-9f74-71d01bba8fb6.png"><img src="https://user-images.githubusercontent.com/67397583/143665352-c940e7cf-b346-4ddd-9f74-71d01bba8fb6.png" alt="image"></a></p>
-<p>To check the Delta Filter, I execute extraction job with Delta Load option. Looking at the log in Celonis, I can find below messages. Parameter <code>max_id</code> works well so I do not extract duplicated record, also execution time is 10 seconds, compared with 40 seconds of Full Load last week.</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">2021-11-27 11:28:59 Extraction successful
-2021-11-27 11:28:59 Uploading result files
-2021-11-27 11:28:59 Total 0 records loaded for table app_users
-2021-11-27 11:28:58 Setting filter to: id &gt; 154821
-2021-11-27 11:28:58 Starting extraction for resource: app_users
-</code></pre></div><p>By the way, in case of <code>app_users</code> table, I use integer number column for Delta Load, but best thing is to find timestamp column at each table. But in my experience, such a column is not always found. If so, you may think about second best option (integer column) as I did.</p>
-<p>Next week I would like to insert new record to Postgres table then try Delta Load again to extract it.</p>
+        <p>In the last post <a href="../2022-01-15-connect-to-source-system-via-rest-api">Connect to Source System via REST API</a>, I shared how to set up Extractor Builder and extracted Issue from Planio. It was shortest path to be avaiable for extraction job, so it is not enough for production job. Today I would like to configure Endpoint in Extractor Builder to resolve problems I experienced.</p>
+<p>First problem I faced is upper limit of extraction data. Some day I found that I could not get issue record until 25. This is described at <a href="https://plan.io/api/#collections-and-pagination">Collections and Pagination in Planio API documentation</a>, that said I need to setup Pagination to extract 1-25th record at first, then 26-50th record. Endpoint example is written as <code>https://example.plan.io/users.xml?limit=10&amp;offset=20</code> to get 10 users starting at the 21st. So I would like to setup this to my Endpoint setting.</p>
+<p>Open Celonis Extractor builder then go to 4 Define Endpoints. Move to 2 Configure Request and click Pagination Method. As below screen I choose Limit and Offset Pagination then fill in parameters as below. I can review my setting by looking at PAGINATION PREVIEW. In my result <code>offset</code> and <code>limit</code> are opposite to eample above, but it works correctly.</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">1.Request:{Connection.API_URL}/issues.json?offset=0&amp;limit=25
+2.Request:{Connection.API_URL}/issues.json?offset=25&amp;limit=25
+3.Request:{Connection.API_URL}/issues.json?offset=50&amp;limit=25
+</code></pre></div><p><a href="https://user-images.githubusercontent.com/67397583/150613164-64b8533f-34ba-44e8-a6c8-abd73f2c2ddc.png"><img src="https://user-images.githubusercontent.com/67397583/150613164-64b8533f-34ba-44e8-a6c8-abd73f2c2ddc.png" alt="image"></a></p>
+<p>Second problem is status of issues. I found I could only extract open issues by default, but I am required to extract closed ones too for analysis purpose. Looking at <a href="https://plan.io/api/#issues">Listing issues section in Documentation</a>, there are possible parameters to filter issues including <code>status_id</code>. I should use <code>*</code> (means both open and closed).</p>
+<p>In the 2 Configure Request section click Request Parameters, then click New Request Parameter button. As below screen I setup <code>status_id</code> parameter as <code>*</code>, then save it.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/150616324-dca64e78-986f-411f-a190-1be0046e62b8.png"><img src="https://user-images.githubusercontent.com/67397583/150616324-dca64e78-986f-411f-a190-1be0046e62b8.png" alt="image"></a></p>
+<p>Third one is not problem, but I am not required to get statistics table. To review the sample response structure at 3 Configure Response, I just require from line 5 <code>&quot;issues&quot; : [</code> to line 40 <code>]</code> (that is described at NESTED TABLES in right side). To filter the part of response structure, I choose Response Root to <code>&quot;issues&quot;</code> as below screen (additionally I change Target Table name to simply issues).</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/150617221-568dc7fb-6d5a-418a-a83c-abd3fc1002b7.png"><img src="https://user-images.githubusercontent.com/67397583/150617221-568dc7fb-6d5a-418a-a83c-abd3fc1002b7.png" alt="image"></a></p>
+<p>Let&rsquo;s check my change of Endpoint. I will go to data job then create new extraction, then first I found that table name is changed to <code>issues</code>. After extraction job completion, I checked count of record in table <code>issues</code> and it is more than 25 (if you need to upload multiple issues to Planio at once, you can use <a href="https://plan.io/import-issues/">Import Issues</a>). Finally I checked <code>status$name</code> column and see both open and closed status exist.</p>
+<p>Actually there are two more challenges. one is to extract change history of issues, the others is to extract data by Delta Load option based on <code>updated_on</code> column to minimize extraction effort (refer to <a href="../2021-11-27-minimize-extraction-time-by-delta-load-option">Minimize Extraction Time by Delta Load Option</a>). There are discussed in the next posts.</p>
 <p>Kaz</p>
 
 
@@ -313,13 +271,7 @@ if (!doNotTrack) {
             
               <a href="https://kaztakata.github.io/celonis-hacks/tags/event-collection/">Event Collection</a>&nbsp;
             
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/extractor/">Extractor</a>&nbsp;
-            
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/extraction/">Extraction</a>&nbsp;
-            
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/transformation/">Transformation</a>&nbsp;
-            
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/data-job/">Data Job</a>&nbsp;
+              <a href="https://kaztakata.github.io/celonis-hacks/tags/extractor-builder/">Extractor Builder</a>&nbsp;
             
           </div>
         
@@ -334,42 +286,42 @@ if (!doNotTrack) {
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-11-27-minimize-extraction-time-by-delta-load-option%2f&amp;text=Minimize%20Extraction%20Time%20by%20Delta%20Load%20Option&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-01-22-configure-endpoint-for-suitable-extraction%2f&amp;text=Configure%20Endpoint%20for%20Suitable%20Extraction&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-11-27-minimize-extraction-time-by-delta-load-option%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-01-22-configure-endpoint-for-suitable-extraction%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-11-27-minimize-extraction-time-by-delta-load-option%2f&amp;title=Minimize%20Extraction%20Time%20by%20Delta%20Load%20Option" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-01-22-configure-endpoint-for-suitable-extraction%2f&amp;title=Configure%20Endpoint%20for%20Suitable%20Extraction" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-11-27-minimize-extraction-time-by-delta-load-option%2f&amp;title=Minimize%20Extraction%20Time%20by%20Delta%20Load%20Option" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-01-22-configure-endpoint-for-suitable-extraction%2f&amp;title=Configure%20Endpoint%20for%20Suitable%20Extraction" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-11-27-minimize-extraction-time-by-delta-load-option%2f&amp;title=Minimize%20Extraction%20Time%20by%20Delta%20Load%20Option" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-01-22-configure-endpoint-for-suitable-extraction%2f&amp;title=Configure%20Endpoint%20for%20Suitable%20Extraction" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-11-27-minimize-extraction-time-by-delta-load-option%2f&amp;description=Minimize%20Extraction%20Time%20by%20Delta%20Load%20Option" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-01-22-configure-endpoint-for-suitable-extraction%2f&amp;description=Configure%20Endpoint%20for%20Suitable%20Extraction" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -391,8 +343,6 @@ if (!doNotTrack) {
                   <ul>
                 
                 
-                    <li><a href="/celonis-hacks/posts/2022-01-22-configure-endpoint-for-suitable-extraction/">Configure Endpoint for Suitable Extraction</a></li>
-                
                     <li><a href="/celonis-hacks/posts/2022-01-15-connect-to-source-system-via-rest-api/">Connect to Source System via REST API</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2022-01-08-prepare-source-system-to-generate-event-log/">Prepare Source System to Generate Event Log</a></li>
@@ -400,6 +350,8 @@ if (!doNotTrack) {
                     <li><a href="/celonis-hacks/posts/2021-12-25-pay-attention-to-extract-sap-tables/">Pay attention to Extract SAP Tables</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2021-12-18-use-pseudonymized-column-as-grouping-key/">Use Pseudonymized Column as Grouping Key</a></li>
+                
+                    <li><a href="/celonis-hacks/posts/2021-12-11-understand-delta-load-configuration-difference-in-adding-column-scenario/">Understand Delta Load Configuration Difference in Adding Column Scenario</a></li>
                 
               </ul>
 
@@ -411,13 +363,9 @@ if (!doNotTrack) {
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-11-20-look-at-data-transfer-process-by-data-job-log/" data-toggle="tooltip" data-placement="top" title="Look at Data Transfer Process by Data Job Log">&larr; Previous Post</a>
+              <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-01-15-connect-to-source-system-via-rest-api/" data-toggle="tooltip" data-placement="top" title="Connect to Source System via REST API">&larr; Previous Post</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-12-04-verify-cloning-table-contents-via-delta-load/" data-toggle="tooltip" data-placement="top" title="Verify Cloning Table Contents via Delta Load">Next Post &rarr;</a>
-            </li>
           
         </ul>
       

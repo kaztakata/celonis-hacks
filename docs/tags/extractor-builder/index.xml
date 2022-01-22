@@ -5,10 +5,20 @@
     <link>https://kaztakata.github.io/celonis-hacks/tags/extractor-builder/</link>
     <description>Recent content in Extractor Builder on Celonis hacks</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 15 Jan 2022 10:27:09 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 22 Jan 2022 08:08:39 +0900</lastBuildDate>
     
 	<atom:link href="https://kaztakata.github.io/celonis-hacks/tags/extractor-builder/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Configure Endpoint for Suitable Extraction</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2022-01-22-configure-endpoint-for-suitable-extraction/</link>
+      <pubDate>Sat, 22 Jan 2022 08:08:39 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2022-01-22-configure-endpoint-for-suitable-extraction/</guid>
+      <description>In the last post Connect to Source System via REST API, I shared how to set up Extractor Builder and extracted Issue from Planio. It was shortest path to be avaiable for extraction job, so it is not enough for production job. Today I would like to configure Endpoint in Extractor Builder to resolve problems I experienced.
+First problem I faced is upper limit of extraction data. Some day I found that I could not get issue record until 25.</description>
+    </item>
     
     <item>
       <title>Connect to Source System via REST API</title>
