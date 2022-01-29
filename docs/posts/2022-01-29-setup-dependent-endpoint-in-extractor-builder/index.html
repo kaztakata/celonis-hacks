@@ -8,8 +8,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
   <title>Setup Dependent Endpoint in Extractor Builder - Celonis hacks</title>
-  <meta name="description" content="In the last post Configure Endpoint for Suitable Extraction, I configured Endpoint in Extractor Builder to suit my business requirements, and still there are points to extract change history of issues, and to extract data by Delta Load option. Today I would like to setup regarding change history.
-At first how do I extract change history of Planio Issue ? Again I looked at Planio Documentation and found I can get single issue with journals (change history) by GET /issues/123.">
+  <meta name="description" content="In the last post Configure Endpoint for Suitable Extraction, I configured Endpoint in Extractor Builder to suit my business requirements, and still there are points to extract change history of issues, and to extract data by Delta Load option. Today I would like to setup regarding change history using Dependent Endpoint in Extractor Builder.
+At first how do I extract change history of Planio Issue ? Again I looked at Planio Documentation and found I can get single issue with journals (meaning change history in Planio).">
   <meta name="author" content="Kazuhiko Takata"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -58,9 +58,9 @@ At first how do I extract change history of Planio Issue ? Again I looked at Pla
     "name" : "Kazuhiko Takata"
   },
   "headline": "Setup Dependent Endpoint in Extractor Builder",
-  "description" : "In the last post Configure Endpoint for Suitable Extraction, I configured Endpoint in Extractor Builder to suit my business requirements, and still there are points to extract change history of issues, and to extract data by Delta Load option. Today I would like to setup regarding change history.\nAt first how do I extract change history of Planio Issue ? Again I looked at Planio Documentation and found I can get single issue with journals (change history) by GET \/issues\/123.",
+  "description" : "In the last post Configure Endpoint for Suitable Extraction, I configured Endpoint in Extractor Builder to suit my business requirements, and still there are points to extract change history of issues, and to extract data by Delta Load option. Today I would like to setup regarding change history using Dependent Endpoint in Extractor Builder.\nAt first how do I extract change history of Planio Issue ? Again I looked at Planio Documentation and found I can get single issue with journals (meaning change history in Planio).",
   "inLanguage" : "en",
-  "wordCount":  360 ,
+  "wordCount":  372 ,
   "datePublished" : "2022-01-29T09:17:16",
   "dateModified" : "2022-01-29T09:17:16",
   "image" : "https:\/\/kaztakata.github.io\/celonis-hacks",
@@ -80,8 +80,8 @@ At first how do I extract change history of Planio Issue ? Again I looked at Pla
 </script>
 
 <meta property="og:title" content="Setup Dependent Endpoint in Extractor Builder" />
-<meta property="og:description" content="In the last post Configure Endpoint for Suitable Extraction, I configured Endpoint in Extractor Builder to suit my business requirements, and still there are points to extract change history of issues, and to extract data by Delta Load option. Today I would like to setup regarding change history.
-At first how do I extract change history of Planio Issue ? Again I looked at Planio Documentation and found I can get single issue with journals (change history) by GET /issues/123.">
+<meta property="og:description" content="In the last post Configure Endpoint for Suitable Extraction, I configured Endpoint in Extractor Builder to suit my business requirements, and still there are points to extract change history of issues, and to extract data by Delta Load option. Today I would like to setup regarding change history using Dependent Endpoint in Extractor Builder.
+At first how do I extract change history of Planio Issue ? Again I looked at Planio Documentation and found I can get single issue with journals (meaning change history in Planio).">
 <meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2022-01-29-setup-dependent-endpoint-in-extractor-builder/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Celonis hacks" />
@@ -249,8 +249,8 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>In the last post <a href="../2022-01-22-configure-endpoint-for-suitable-extraction">Configure Endpoint for Suitable Extraction</a>, I configured Endpoint in Extractor Builder to suit my business requirements, and still there are points to extract change history of issues, and to extract data by Delta Load option. Today I would like to setup regarding change history.</p>
-<p>At first how do I extract change history of Planio Issue ? Again I looked at <a href="https://plan.io/api/#issues">Planio Documentation</a> and found I can get single issue with journals (change history) by <code>GET /issues/123.[json|xml]</code> with <code>journals</code> to <code>include</code> parameter. To identify issue ID (<code>123</code> part at above URI), issue list I created before is required as prerequisite. So I should at first get issue list then iterate to get journals by each issue ID.</p>
+        <p>In the last post <a href="../2022-01-22-configure-endpoint-for-suitable-extraction">Configure Endpoint for Suitable Extraction</a>, I configured Endpoint in Extractor Builder to suit my business requirements, and still there are points to extract change history of issues, and to extract data by Delta Load option. Today I would like to setup regarding change history using Dependent Endpoint in Extractor Builder.</p>
+<p>At first how do I extract change history of Planio Issue ? Again I looked at <a href="https://plan.io/api/#issues">Planio Documentation</a> and found I can get single issue with journals (meaning change history in Planio). To do this, request <code>GET /issues/123.[json|xml]</code> with <code>journals</code> to <code>include</code> parameter. To identify issue ID (<code>123</code> part at above URI), issue list I created before is required as prerequisite. So I should at first get issue list then iterate to get journals by each issue ID.</p>
 <p>In Celonis Extractor Builder it is possible to fullfill above by adding Dependent Endpoint. At 4 Define Endpoints screen click three dots of Endpoint <code>issues</code> I created before and cilck add Dependent Endpoint.</p>
 <p>In the first step I named new Endpoint as <code>journals</code>. In the second step Configure Dependency, I choose <code>id</code> as Depends on Column. In the third step Configure Request, set <code>{Connection.API_URL}/issues/{Dependency.id}.json</code> to URL, to iterate by <code>id</code> of each issue. Then I add New Request Parameter <code>include</code> with value <code>journals</code>.</p>
 <p><a href="https://user-images.githubusercontent.com/67397583/151640026-d5a98c58-bc9e-4aff-957e-dbd212852e5a.png"><img src="https://user-images.githubusercontent.com/67397583/151640026-d5a98c58-bc9e-4aff-957e-dbd212852e5a.png" alt="image"></a></p>
