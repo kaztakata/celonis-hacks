@@ -5,10 +5,20 @@
     <link>https://kaztakata.github.io/celonis-hacks/tags/extractor-builder/</link>
     <description>Recent content in Extractor Builder on Celonis hacks</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 22 Jan 2022 08:08:39 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 29 Jan 2022 09:17:16 +0900</lastBuildDate>
     
 	<atom:link href="https://kaztakata.github.io/celonis-hacks/tags/extractor-builder/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Setup Dependent Endpoint in Extractor Builder</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2022-01-29-setup-dependent-endpoint-in-extractor-builder/</link>
+      <pubDate>Sat, 29 Jan 2022 09:17:16 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2022-01-29-setup-dependent-endpoint-in-extractor-builder/</guid>
+      <description>In the last post Configure Endpoint for Suitable Extraction, I configured Endpoint in Extractor Builder to suit my business requirements, and still there are points to extract change history of issues, and to extract data by Delta Load option. Today I would like to setup regarding change history.
+At first how do I extract change history of Planio Issue ? Again I looked at Planio Documentation and found I can get single issue with journals (change history) by GET /issues/123.</description>
+    </item>
     
     <item>
       <title>Configure Endpoint for Suitable Extraction</title>
