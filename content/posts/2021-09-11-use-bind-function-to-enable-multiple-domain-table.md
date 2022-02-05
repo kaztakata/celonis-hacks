@@ -5,7 +5,7 @@ draft: false
 tags: ['PQL','Process Analytics','Pull Up Function','Variant Explorer']
 ---
 
-Variant Explorer is the major Celonis Analytical view to find process pattern by GUI operation. Of course I used it many times and enjoyed it at first, and found that I had a lot of effort to filter on and off to observe process. Today I would like to create collective list of variant to see major process KPI's. Also I would like to show you `BIND` function that is difficult to understand but quite convenient if you know it.
+Variant Explorer is the major Celonis Analytical view to find process pattern by GUI operation. Of course I used it many times and enjoyed it at first, and found that I had a lot of effort to filter on and off to observe process. Today I would like to create collective list of variant to see major process KPI. Also I would like to show you `BIND` function that is difficult to understand but quite convenient if you know it.
 
 Today's output report image is below. My goal is to calculate case count of variant by vendor (`EKKO.LIFNR`) in P2P process. Also I would like to cacululate case coverage and ranking (index order) of variant by vendor as Variant Explorer. Finally I used it to find vendor list that does not use Purchase Requisition (starts from Purchase Order) in its major pattern (> 20%).
 
