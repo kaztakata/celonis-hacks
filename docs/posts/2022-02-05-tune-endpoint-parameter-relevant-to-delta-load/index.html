@@ -7,9 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Look at Data Transfer Process by Data Job Log - Celonis hacks</title>
-  <meta name="description" content="Last week I posted Connect to Celonis and Bring Back Instruction to look at how Extractor works to connect between Celonis and Postgres. This week I would like to extract data from Postgres and look at data transfer process by data job log.
-In the Event Collection, I create new Data Job with Data Connection I created last week, then create new extraction task. In the next screen I add new table public.">
+  <title>Tune Endpoint Parameter Relevant to Delta Load - Celonis hacks</title>
+  <meta name="description" content="Until last post Setup Dependent Endpoint in Extractor Builder, I prepared endpoints of both Planio Issues and their journals. Today I would like to tackle final setup of extractor to deal with Delta Load option.
+Referring to the Planio Documentation, updated_on column exists for filtering Issues. This timestamp column is updated when creating and updating relevant issue, so it is appropriate column for Delta Load. Open Celonis Extractor builder then go to 4 Define Endpoints.">
   <meta name="author" content="Kazuhiko Takata"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -45,8 +45,8 @@ In the Event Collection, I create new Data Job with Data Connection I created la
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-11-20-look-at-data-transfer-process-by-data-job-log\/",
-          "name": "Look at data transfer process by data job log"
+          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-02-05-tune-endpoint-parameter-relevant-to-delta-load\/",
+          "name": "Tune endpoint parameter relevant to delta load"
         }
     }]
 }
@@ -57,15 +57,15 @@ In the Event Collection, I create new Data Job with Data Connection I created la
   "author": {
     "name" : "Kazuhiko Takata"
   },
-  "headline": "Look at Data Transfer Process by Data Job Log",
-  "description" : "Last week I posted Connect to Celonis and Bring Back Instruction to look at how Extractor works to connect between Celonis and Postgres. This week I would like to extract data from Postgres and look at data transfer process by data job log.\nIn the Event Collection, I create new Data Job with Data Connection I created last week, then create new extraction task. In the next screen I add new table public.",
+  "headline": "Tune Endpoint Parameter Relevant to Delta Load",
+  "description" : "Until last post Setup Dependent Endpoint in Extractor Builder, I prepared endpoints of both Planio Issues and their journals. Today I would like to tackle final setup of extractor to deal with Delta Load option.\nReferring to the Planio Documentation, updated_on column exists for filtering Issues. This timestamp column is updated when creating and updating relevant issue, so it is appropriate column for Delta Load. Open Celonis Extractor builder then go to 4 Define Endpoints.",
   "inLanguage" : "en",
-  "wordCount":  607 ,
-  "datePublished" : "2021-11-20T08:39:24",
-  "dateModified" : "2021-11-20T08:39:24",
+  "wordCount":  434 ,
+  "datePublished" : "2022-02-05T10:05:51",
+  "dateModified" : "2022-02-05T10:05:51",
   "image" : "https:\/\/kaztakata.github.io\/celonis-hacks",
-  "keywords" : [ "Event Collection, Extractor, Extraction, Data Job" ],
-  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-11-20-look-at-data-transfer-process-by-data-job-log\/",
+  "keywords" : [ "Event Collection, Extractor Builder" ],
+  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-02-05-tune-endpoint-parameter-relevant-to-delta-load\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/kaztakata.github.io\/celonis-hacks",
@@ -79,15 +79,15 @@ In the Event Collection, I create new Data Job with Data Connection I created la
 }
 </script>
 
-<meta property="og:title" content="Look at Data Transfer Process by Data Job Log" />
-<meta property="og:description" content="Last week I posted Connect to Celonis and Bring Back Instruction to look at how Extractor works to connect between Celonis and Postgres. This week I would like to extract data from Postgres and look at data transfer process by data job log.
-In the Event Collection, I create new Data Job with Data Connection I created last week, then create new extraction task. In the next screen I add new table public.">
-<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2021-11-20-look-at-data-transfer-process-by-data-job-log/" />
+<meta property="og:title" content="Tune Endpoint Parameter Relevant to Delta Load" />
+<meta property="og:description" content="Until last post Setup Dependent Endpoint in Extractor Builder, I prepared endpoints of both Planio Issues and their journals. Today I would like to tackle final setup of extractor to deal with Delta Load option.
+Referring to the Planio Documentation, updated_on column exists for filtering Issues. This timestamp column is updated when creating and updating relevant issue, so it is appropriate column for Delta Load. Open Celonis Extractor builder then go to 4 Define Endpoints.">
+<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2022-02-05-tune-endpoint-parameter-relevant-to-delta-load/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Celonis hacks" />
 
-  <meta name="twitter:title" content="Look at Data Transfer Process by Data Job Log" />
-  <meta name="twitter:description" content="Last week I posted Connect to Celonis and Bring Back Instruction to look at how Extractor works to connect between Celonis and Postgres. This week I would like to extract data from Postgres and look …">
+  <meta name="twitter:title" content="Tune Endpoint Parameter Relevant to Delta Load" />
+  <meta name="twitter:description" content="Until last post Setup Dependent Endpoint in Extractor Builder, I prepared endpoints of both Planio Issues and their journals. Today I would like to tackle final setup of extractor to deal with Delta …">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
@@ -229,7 +229,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="posts-heading">
               
-                <h1>Look at Data Transfer Process by Data Job Log</h1>
+                <h1>Tune Endpoint Parameter Relevant to Delta Load</h1>
               
               
                 <hr class="small">
@@ -249,52 +249,22 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>Last week I posted <a href="../2021-11-13-connect-to-celonis-and-bring-back-instruction">Connect to Celonis and Bring Back Instruction</a> to look at how Extractor works to connect between Celonis and Postgres. This week I would like to extract data from Postgres and look at data transfer process by data job log.</p>
-<p>In the Event Collection, I create new Data Job with Data Connection I created last week, then create new extraction task. In the next screen I add new table <code>public.app_users</code> that is pre-installed in Postgres when I deployed it (You can see detail by <code>sample.sql</code> in celonis-postgres folder). Going back to table configuration screen, I should touch somewhere in screen and redo it, then save button is enabled. Then click save it.</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/142714726-6d35f478-a2d8-4c5f-8004-07b33dabbafa.png"><img src="https://user-images.githubusercontent.com/67397583/142714726-6d35f478-a2d8-4c5f-8004-07b33dabbafa.png" alt="image"></a></p>
-<p>Then I start Data Job (Full Load) and look at the log in Extractor (in VS code terminal). Extractor log (shortened and commented) is below, with three parts.</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">-- first part : Extract data from Postgres and create file --
-2021-11-19 23:53:26.292 Request with ID pDmB.... received  
-2021-11-19 23:53:32.257 Starting extraction for resource: app_users  
-2021-11-19 23:53:32.309 Executing query: SELECT * FROM &#34;public&#34;.&#34;app_users&#34;  
-2021-11-19 23:53:33.007 Response for request i3UZ.... is sent, finished. Stopping keep alive requests  
-2021-11-19 23:53:34.170 Loading 100,000 records for table app_users. Total extracted records 100,000  
-2021-11-19 23:53:34.432 Loading 54,821 records for table app_users. Total extracted records 154,821  
-2021-11-19 23:53:34.433 Total 154,821 records loaded for table app_users  
-
--- second part : Transfer file to Celonis --
-2021-11-19 23:53:34.439 Uploading result files  
-2021-11-19 23:53:35.342 Called upload file 98b7856c-c685-4b28-ad33-e86b72483a9f, app_users  
-2021-11-19 23:53:35.342 Called upload file 98b7856c-c685-4b28-ad33-e86b72483a9f, app_users  
-2021-11-19 23:53:35.343 Called upload file 98b7856c-c685-4b28-ad33-e86b72483a9f, app_users  
-2021-11-19 23:53:35.343 Called upload file 98b7856c-c685-4b28-ad33-e86b72483a9f, app_users  
-2021-11-19 23:53:35.343 Called upload file 98b7856c-c685-4b28-ad33-e86b72483a9f, app_users  
-2021-11-19 23:53:35.344 Called upload file 98b7856c-c685-4b28-ad33-e86b72483a9f, app_users  
-2021-11-19 23:53:35.344 Called upload file 98b7856c-c685-4b28-ad33-e86b72483a9f, app_users  
-2021-11-19 23:53:35.443 Pushing upsert for table app_users and id 98b7856c-c685-4b28-ad33-e86b72483a9f  
-2021-11-19 23:53:37.342 Pushing upsert for table app_users and id 98b7856c-c685-4b28-ad33-e86b72483a9f  
-2021-11-19 23:53:38.310 Pushing upsert for table app_users and id 98b7856c-c685-4b28-ad33-e86b72483a9f  
-2021-11-19 23:53:38.806 Pushing upsert for table app_users and id 98b7856c-c685-4b28-ad33-e86b72483a9f  
-2021-11-19 23:53:39.345 Pushing upsert for table app_users and id 98b7856c-c685-4b28-ad33-e86b72483a9f  
-2021-11-19 23:53:39.890 Pushing upsert for table app_users and id 98b7856c-c685-4b28-ad33-e86b72483a9f  
-2021-11-19 23:53:40.519 Pushing upsert for table app_users and id 98b7856c-c685-4b28-ad33-e86b72483a9f  
-2021-11-19 23:53:41.283 called onSuccess for table app_users with id 98b7856c-c685-4b28-ad33-e86b72483a9f  
-
--- third part : Insert file content into table in Celonis --
-2021-11-19 23:53:41.287 Starting load app_users to target ...  
-2021-11-19 23:53:41.641 Waiting for success state ...  
-2021-11-19 23:54:00.760 Table app_users loaded ..  
-2021-11-19 23:54:00.760 Extraction successful  
-</code></pre></div><ol>
-<li>Extractor bring back Extraction Job instruction (connection, table etc.) from Celonis then execute SELECT statement in Postgres to create file. SELECT execution is split to chunks (per 100K record) to minimize resource usage of local machine.</li>
-<li>Files stored at my local machine are 7 chunks (seems ~25K record). Those are transferred to Celonis via HTTPS. To control network resource usage, smaller size of files are better, so each files are compressed as parquet file.</li>
-<li>After 7 files are moved to Celonis, then start INSERT statement to Celonis table. It takes most of time in total Extraction task.</li>
-</ol>
-<p>When I looked at job log in Celonis, it is similar to that of Extractor so, it has also three parts as below.</p>
-<p>In the second part of log is only one message <code>Uploading result files</code>, so you should patiently wait until next message if you need to do 1 day long full load to transfer huge volume of data.</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/142714091-f1e3a6c6-5c99-4bb2-97a0-7220f24c931e.png"><img src="https://user-images.githubusercontent.com/67397583/142714091-f1e3a6c6-5c99-4bb2-97a0-7220f24c931e.png" alt="image"></a></p>
-<p>By the way, most of staff managing source system said that they were worried about performance down of their source system and thier network, but at least I did not experience such a trouble, even when I extracted ~100M record of SAP FI Documnet (BSEG) etc.</p>
+        <p>Until last post <a href="../2022-01-29-setup-dependent-endpoint-in-extractor-builder">Setup Dependent Endpoint in Extractor Builder</a>, I prepared endpoints of both Planio Issues and their journals. Today I would like to tackle final setup of extractor to deal with Delta Load option.</p>
+<p>Referring to the <a href="https://plan.io/api/#issues">Planio Documentation</a>, <code>updated_on</code> column exists for filtering Issues. This timestamp column is updated when creating and updating relevant issue, so it is appropriate column for Delta Load. Open Celonis Extractor builder then go to 4 Define Endpoints. In the 2 Configure Request section click Request Parameters, then click New Request Parameter button. As below screen I setup <code>updated_on</code> parameter. This time filtering value is provided from already extracted data, so I clicked second radio button. Finish Endpoint setting then move to extraction setting.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/152627750-d567e1ff-d94f-4ca1-b133-828d860b6cf5.png"><img src="https://user-images.githubusercontent.com/67397583/152627750-d567e1ff-d94f-4ca1-b133-828d860b6cf5.png" alt="image"></a></p>
+<p>In the extraction setting, I created new parameter <code>today</code> and set today&rsquo;s date (this parameter will be updated from what triggers data job, in my case ML workbench). Then write Delta Filter Statement as <code>updated_on = &lt;%=today%&gt;</code>. You may think the best way is to get maximum date of <code>updated_on</code> and compare as <code>updated_on &gt; &lt;%=maximum date of updated on%&gt;</code>, but for the moment I could not do that. I hope this function will work later.</p>
+<p>I updated one of issue in Planio and started data job, then I can extract only this issue as expected. OK, delta load seems to work correctly, but if I plan to kick data job many times per day (e.g. hourly), I will extract same issues and journals many times. Below screen shows that same journal <code>32</code> is extracted twice by two extraction jobs respectively. I expect to overwrite first record by second one, but how to do it ?</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/152629985-29f6542a-0b38-46c6-86a2-e1b297aec775.png"><img src="https://user-images.githubusercontent.com/67397583/152629985-29f6542a-0b38-46c6-86a2-e1b297aec775.png" alt="image"></a></p>
+<p>I should go back to extractor builder and setup Table Configuration in Configure Response. In this setting I will tick primary key button against <code>id</code> column of <code>journals</code> table as below. After that <code>id</code> behaved as primary key at extraction data job then update existing record based on <code>id</code>.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/152630192-4dc01927-e88d-49bc-aaa2-585441c65eb0.png"><img src="https://user-images.githubusercontent.com/67397583/152630192-4dc01927-e88d-49bc-aaa2-585441c65eb0.png" alt="image"></a></p>
+<p>Same setting is required for <code>journals$details</code> table, and this time not only <code>id</code> but <code>property</code> and <code>name</code> are also primary keys (this record is created per changed column of each journal).</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/152630287-e61ddbc3-aab3-4764-be8c-db50e624fac8.png"><img src="https://user-images.githubusercontent.com/67397583/152630287-e61ddbc3-aab3-4764-be8c-db50e624fac8.png" alt="image"></a></p>
+<p>I reset record by Full Load then tried Delta Load again. This time journal <code>32</code> is overwritten by delta load correctly.</p>
+<p>It is long to explain extraction setting, but I intended to explain next step, transformation. From next post I will do that.</p>
 <p>Kaz</p>
+<hr>
+<p>I would like to share my <a href="../../examples/planio_extractor_20220205.json">configuration file</a> to you. If you would like to just use this, you will click New Extractor menu and Import from file, then use my json file.</p>
+<hr>
 
 
         
@@ -302,11 +272,7 @@ if (!doNotTrack) {
             
               <a href="https://kaztakata.github.io/celonis-hacks/tags/event-collection/">Event Collection</a>&nbsp;
             
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/extractor/">Extractor</a>&nbsp;
-            
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/extraction/">Extraction</a>&nbsp;
-            
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/data-job/">Data Job</a>&nbsp;
+              <a href="https://kaztakata.github.io/celonis-hacks/tags/extractor-builder/">Extractor Builder</a>&nbsp;
             
           </div>
         
@@ -321,42 +287,42 @@ if (!doNotTrack) {
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-11-20-look-at-data-transfer-process-by-data-job-log%2f&amp;text=Look%20at%20Data%20Transfer%20Process%20by%20Data%20Job%20Log&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-02-05-tune-endpoint-parameter-relevant-to-delta-load%2f&amp;text=Tune%20Endpoint%20Parameter%20Relevant%20to%20Delta%20Load&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-11-20-look-at-data-transfer-process-by-data-job-log%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-02-05-tune-endpoint-parameter-relevant-to-delta-load%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-11-20-look-at-data-transfer-process-by-data-job-log%2f&amp;title=Look%20at%20Data%20Transfer%20Process%20by%20Data%20Job%20Log" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-02-05-tune-endpoint-parameter-relevant-to-delta-load%2f&amp;title=Tune%20Endpoint%20Parameter%20Relevant%20to%20Delta%20Load" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-11-20-look-at-data-transfer-process-by-data-job-log%2f&amp;title=Look%20at%20Data%20Transfer%20Process%20by%20Data%20Job%20Log" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-02-05-tune-endpoint-parameter-relevant-to-delta-load%2f&amp;title=Tune%20Endpoint%20Parameter%20Relevant%20to%20Delta%20Load" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-11-20-look-at-data-transfer-process-by-data-job-log%2f&amp;title=Look%20at%20Data%20Transfer%20Process%20by%20Data%20Job%20Log" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-02-05-tune-endpoint-parameter-relevant-to-delta-load%2f&amp;title=Tune%20Endpoint%20Parameter%20Relevant%20to%20Delta%20Load" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-11-20-look-at-data-transfer-process-by-data-job-log%2f&amp;description=Look%20at%20Data%20Transfer%20Process%20by%20Data%20Job%20Log" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-02-05-tune-endpoint-parameter-relevant-to-delta-load%2f&amp;description=Tune%20Endpoint%20Parameter%20Relevant%20to%20Delta%20Load" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -378,8 +344,6 @@ if (!doNotTrack) {
                   <ul>
                 
                 
-                    <li><a href="/celonis-hacks/posts/2022-02-05-tune-endpoint-parameter-relevant-to-delta-load/">Tune Endpoint Parameter Relevant to Delta Load</a></li>
-                
                     <li><a href="/celonis-hacks/posts/2022-01-29-setup-dependent-endpoint-in-extractor-builder/">Setup Dependent Endpoint in Extractor Builder</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2022-01-22-configure-endpoint-for-suitable-extraction/">Configure Endpoint for Suitable Extraction</a></li>
@@ -387,6 +351,8 @@ if (!doNotTrack) {
                     <li><a href="/celonis-hacks/posts/2022-01-15-connect-to-source-system-via-rest-api/">Connect to Source System via REST API</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2022-01-08-prepare-source-system-to-generate-event-log/">Prepare Source System to Generate Event Log</a></li>
+                
+                    <li><a href="/celonis-hacks/posts/2021-12-25-pay-attention-to-extract-sap-tables/">Pay attention to Extract SAP Tables</a></li>
                 
               </ul>
 
@@ -398,13 +364,9 @@ if (!doNotTrack) {
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-11-13-connect-to-celonis-and-bring-back-instruction/" data-toggle="tooltip" data-placement="top" title="Connect to Celonis and Bring Back Instruction">&larr; Previous Post</a>
+              <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-01-29-setup-dependent-endpoint-in-extractor-builder/" data-toggle="tooltip" data-placement="top" title="Setup Dependent Endpoint in Extractor Builder">&larr; Previous Post</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-11-27-minimize-extraction-time-by-delta-load-option/" data-toggle="tooltip" data-placement="top" title="Minimize Extraction Time by Delta Load Option">Next Post &rarr;</a>
-            </li>
           
         </ul>
       

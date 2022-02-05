@@ -4,36 +4,41 @@
   
   <url>
     <loc>https://kaztakata.github.io/celonis-hacks/</loc>
-    <lastmod>2022-01-29T09:17:16+09:00</lastmod>
+    <lastmod>2022-02-05T10:05:51+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://kaztakata.github.io/celonis-hacks/tags/event-collection/</loc>
-    <lastmod>2022-01-29T09:17:16+09:00</lastmod>
+    <lastmod>2022-02-05T10:05:51+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://kaztakata.github.io/celonis-hacks/tags/extractor/</loc>
-    <lastmod>2022-01-29T09:17:16+09:00</lastmod>
+    <lastmod>2022-02-05T10:05:51+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://kaztakata.github.io/celonis-hacks/tags/extractor-builder/</loc>
-    <lastmod>2022-01-29T09:17:16+09:00</lastmod>
+    <lastmod>2022-02-05T10:05:51+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://kaztakata.github.io/celonis-hacks/posts/</loc>
-    <lastmod>2022-01-29T09:17:16+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kaztakata.github.io/celonis-hacks/posts/2022-01-29-setup-dependent-endpoint-in-extractor-builder/</loc>
-    <lastmod>2022-01-29T09:17:16+09:00</lastmod>
+    <lastmod>2022-02-05T10:05:51+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://kaztakata.github.io/celonis-hacks/tags/</loc>
+    <lastmod>2022-02-05T10:05:51+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kaztakata.github.io/celonis-hacks/posts/2022-02-05-tune-endpoint-parameter-relevant-to-delta-load/</loc>
+    <lastmod>2022-02-05T10:05:51+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kaztakata.github.io/celonis-hacks/posts/2022-01-29-setup-dependent-endpoint-in-extractor-builder/</loc>
     <lastmod>2022-01-29T09:17:16+09:00</lastmod>
   </url>
   

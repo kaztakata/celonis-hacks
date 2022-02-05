@@ -5,10 +5,20 @@
     <link>https://kaztakata.github.io/celonis-hacks/</link>
     <description>Recent content on Celonis hacks</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 29 Jan 2022 09:17:16 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 05 Feb 2022 10:05:51 +0900</lastBuildDate>
     
 	<atom:link href="https://kaztakata.github.io/celonis-hacks/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Tune Endpoint Parameter Relevant to Delta Load</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2022-02-05-tune-endpoint-parameter-relevant-to-delta-load/</link>
+      <pubDate>Sat, 05 Feb 2022 10:05:51 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2022-02-05-tune-endpoint-parameter-relevant-to-delta-load/</guid>
+      <description>Until last post Setup Dependent Endpoint in Extractor Builder, I prepared endpoints of both Planio Issues and their journals. Today I would like to tackle final setup of extractor to deal with Delta Load option.
+Referring to the Planio Documentation, updated_on column exists for filtering Issues. This timestamp column is updated when creating and updating relevant issue, so it is appropriate column for Delta Load. Open Celonis Extractor builder then go to 4 Define Endpoints.</description>
+    </item>
     
     <item>
       <title>Setup Dependent Endpoint in Extractor Builder</title>

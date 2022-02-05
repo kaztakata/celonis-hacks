@@ -1,0 +1,309 @@
+{
+  "supportedAuthenticationConfigurations" : [
+    {
+      "apiKeyHeader" : "X-Redmine-API-Key",
+      "authenticationMethod" : "API_KEY_AUTHENTICATION",
+      "grantType" : "",
+      "audienceLabel" : "Audience",
+      "subjectLabel" : "Subject Label",
+      "issuerLabel" : "Issuer",
+      "useBodyForOAuth" : false,
+      "enableCustomField" : false,
+      "customFields" : [ ]
+    }
+  ],
+  "connectionParameters" : [
+    {
+      "name" : "API URL",
+      "placeholder" : "API_URL",
+      "mandatory" : true
+    }
+  ],
+  "supportedFilteringSyntaxes" : [ ],
+  "endpoints" : [
+    {
+      "id" : "79a7b4ff-2dfb-429b-b8e5-0c2edc8c4958",
+      "dependsOn" : "",
+      "name" : "issues",
+      "url" : "{Connection.API_URL}/issues.json",
+      "requestParameters" : [
+        {
+          "name" : "status_id",
+          "useAsFilter" : false,
+          "value" : "*"
+        },
+        {
+          "name" : "updated_on",
+          "useAsFilter" : true,
+          "filterType" : "DATE",
+          "dateFormat" : "yyyy-MM-dd"
+        }
+      ],
+      "headers" : { },
+      "pagination" : {
+        "paginationMethod" : "LIMIT_AND_OFFSET_PAGINATION",
+        "paginationData" : {
+          "defaultFirstPageIndex" : 0,
+          "limit" : "limit",
+          "offset" : "offset",
+          "defaultLimit" : 25
+        }
+      },
+      "response" : {
+        "tableName" : "issues",
+        "responseRoot" : [
+          "issues"
+        ],
+        "responseType" : "JSON",
+        "columns" : [
+          {
+            "name" : "id",
+            "type" : "INTEGER",
+            "primaryKey" : true
+          },
+          {
+            "name" : "subject",
+            "type" : "STRING"
+          },
+          {
+            "name" : "description",
+            "type" : "STRING"
+          },
+          {
+            "name" : "start_date",
+            "type" : "DATE",
+            "dateFormat" : "yyyy-MM-dd"
+          },
+          {
+            "name" : "done_ratio",
+            "type" : "INTEGER"
+          },
+          {
+            "name" : "is_private",
+            "type" : "BOOLEAN"
+          },
+          {
+            "name" : "spent_hours",
+            "type" : "FLOAT"
+          },
+          {
+            "name" : "total_spent_hours",
+            "type" : "FLOAT"
+          },
+          {
+            "name" : "created_on",
+            "type" : "DATETIME",
+            "dateFormat" : "yyyy-MM-dd'T'HH:mm:ssZZ"
+          },
+          {
+            "name" : "updated_on",
+            "type" : "DATETIME",
+            "dateFormat" : "yyyy-MM-dd'T'HH:mm:ssZZ"
+          },
+          {
+            "name" : "reply_token",
+            "type" : "STRING"
+          },
+          {
+            "name" : "tracking_uri",
+            "type" : "STRING"
+          },
+          {
+            "name" : "project$id",
+            "path" : [
+              "project",
+              "id"
+            ],
+            "type" : "INTEGER"
+          },
+          {
+            "name" : "project$name",
+            "path" : [
+              "project",
+              "name"
+            ],
+            "type" : "STRING"
+          },
+          {
+            "name" : "tracker$id",
+            "path" : [
+              "tracker",
+              "id"
+            ],
+            "type" : "INTEGER"
+          },
+          {
+            "name" : "tracker$name",
+            "path" : [
+              "tracker",
+              "name"
+            ],
+            "type" : "STRING"
+          },
+          {
+            "name" : "status$id",
+            "path" : [
+              "status",
+              "id"
+            ],
+            "type" : "INTEGER"
+          },
+          {
+            "name" : "status$name",
+            "path" : [
+              "status",
+              "name"
+            ],
+            "type" : "STRING"
+          },
+          {
+            "name" : "priority$id",
+            "path" : [
+              "priority",
+              "id"
+            ],
+            "type" : "INTEGER"
+          },
+          {
+            "name" : "priority$name",
+            "path" : [
+              "priority",
+              "name"
+            ],
+            "type" : "STRING"
+          },
+          {
+            "name" : "author$id",
+            "path" : [
+              "author",
+              "id"
+            ],
+            "type" : "INTEGER"
+          },
+          {
+            "name" : "author$name",
+            "path" : [
+              "author",
+              "name"
+            ],
+            "type" : "STRING"
+          }
+        ],
+        "nestedTables" : [ ]
+      },
+      "errorHandlingRules" : [ ],
+      "useForConnectionTest" : true
+    },
+    {
+      "id" : "8972bd48-eeb8-4016-9393-e6c0bd1a8495",
+      "dependsOn" : "79a7b4ff-2dfb-429b-b8e5-0c2edc8c4958",
+      "dependsOnColumn" : "id",
+      "name" : "journals",
+      "url" : "{Connection.API_URL}/issues/{Dependency.id}.json",
+      "requestParameters" : [
+        {
+          "name" : "include",
+          "useAsFilter" : false,
+          "value" : "journals"
+        }
+      ],
+      "headers" : { },
+      "pagination" : {
+        "paginationData" : {
+          "defaultFirstPageIndex" : 0
+        }
+      },
+      "response" : {
+        "tableName" : "journals",
+        "responseRoot" : [
+          "issue",
+          "journals"
+        ],
+        "responseType" : "JSON",
+        "columns" : [
+          {
+            "name" : "id",
+            "type" : "INTEGER",
+            "primaryKey" : true
+          },
+          {
+            "name" : "notes",
+            "type" : "STRING"
+          },
+          {
+            "name" : "created_on",
+            "type" : "DATETIME",
+            "dateFormat" : "yyyy-MM-dd'T'HH:mm:ssZZ"
+          },
+          {
+            "name" : "private_notes",
+            "type" : "BOOLEAN"
+          },
+          {
+            "name" : "visible_by_customer",
+            "type" : "BOOLEAN"
+          },
+          {
+            "name" : "user$id",
+            "path" : [
+              "user",
+              "id"
+            ],
+            "type" : "INTEGER"
+          },
+          {
+            "name" : "user$name",
+            "path" : [
+              "user",
+              "name"
+            ],
+            "type" : "STRING"
+          },
+          {
+            "name" : "issues$id",
+            "type" : "STRING",
+            "primaryKey" : false,
+            "foreignKey" : true
+          }
+        ],
+        "nestedTables" : [
+          {
+            "name" : "journals$details",
+            "path" : [
+              "details"
+            ],
+            "columns" : [
+              {
+                "name" : "property",
+                "type" : "STRING",
+                "primaryKey" : true
+              },
+              {
+                "name" : "name",
+                "type" : "STRING",
+                "primaryKey" : true
+              },
+              {
+                "name" : "old_value",
+                "type" : "STRING"
+              },
+              {
+                "name" : "new_value",
+                "type" : "STRING"
+              },
+              {
+                "name" : "journals_id",
+                "type" : "INTEGER",
+                "primaryKey" : true,
+                "foreignKey" : true
+              }
+            ],
+            "nestedTables" : [ ]
+          }
+        ]
+      },
+      "errorHandlingRules" : [ ],
+      "useForConnectionTest" : true
+    }
+  ]
+}
