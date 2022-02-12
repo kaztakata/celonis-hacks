@@ -7,9 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Prepare Source System to Generate Event Log - Celonis hacks</title>
-  <meta name="description" content="Until last post I explained extraction topics using own Postgres database. I think it is better to test extraction functions with changing database by yourself. But it is hard to manually input data record that is meaningful as event log.
-From now on I will move to transformation topic. To explain this, I think it is required to prepare source system that has user interface, database and API to connect to Celonis EMS, to easily generate event log and extract it.">
+  <title>Consider Case ID before Starting Transformation - Celonis hacks</title>
+  <meta name="description" content="After long explanation of Extractor Builder, I can move to Transformation Topic from now, using Planio issue and change history. But before starting detail discussion, I would like to discuss general issues at first.
+In process mining context, Transformation is procedure to generate event log table from source tables. Event Log or Event Data is the collection of case and its event (activity) with timestamp. Case ID can be associated with multiple activities in source system, in other word it is not possible to generate event log without case ID.">
   <meta name="author" content="Kazuhiko Takata"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -45,8 +45,8 @@ From now on I will move to transformation topic. To explain this, I think it is 
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-01-08-prepare-source-system-to-generate-event-log\/",
-          "name": "Prepare source system to generate event log"
+          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-02-12-consider-case-id-before-starting-transformation\/",
+          "name": "Consider case id before starting transformation"
         }
     }]
 }
@@ -57,15 +57,15 @@ From now on I will move to transformation topic. To explain this, I think it is 
   "author": {
     "name" : "Kazuhiko Takata"
   },
-  "headline": "Prepare Source System to Generate Event Log",
-  "description" : "Until last post I explained extraction topics using own Postgres database. I think it is better to test extraction functions with changing database by yourself. But it is hard to manually input data record that is meaningful as event log.\nFrom now on I will move to transformation topic. To explain this, I think it is required to prepare source system that has user interface, database and API to connect to Celonis EMS, to easily generate event log and extract it.",
+  "headline": "Consider Case ID before Starting Transformation",
+  "description" : "After long explanation of Extractor Builder, I can move to Transformation Topic from now, using Planio issue and change history. But before starting detail discussion, I would like to discuss general issues at first.\nIn process mining context, Transformation is procedure to generate event log table from source tables. Event Log or Event Data is the collection of case and its event (activity) with timestamp. Case ID can be associated with multiple activities in source system, in other word it is not possible to generate event log without case ID.",
   "inLanguage" : "en",
-  "wordCount":  319 ,
-  "datePublished" : "2022-01-08T16:35:30",
-  "dateModified" : "2022-01-08T16:35:30",
+  "wordCount":  380 ,
+  "datePublished" : "2022-02-12T13:03:00",
+  "dateModified" : "2022-02-12T13:03:00",
   "image" : "https:\/\/kaztakata.github.io\/celonis-hacks",
   "keywords" : [ "Event Collection, Transformation" ],
-  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-01-08-prepare-source-system-to-generate-event-log\/",
+  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-02-12-consider-case-id-before-starting-transformation\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/kaztakata.github.io\/celonis-hacks",
@@ -79,15 +79,15 @@ From now on I will move to transformation topic. To explain this, I think it is 
 }
 </script>
 
-<meta property="og:title" content="Prepare Source System to Generate Event Log" />
-<meta property="og:description" content="Until last post I explained extraction topics using own Postgres database. I think it is better to test extraction functions with changing database by yourself. But it is hard to manually input data record that is meaningful as event log.
-From now on I will move to transformation topic. To explain this, I think it is required to prepare source system that has user interface, database and API to connect to Celonis EMS, to easily generate event log and extract it.">
-<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2022-01-08-prepare-source-system-to-generate-event-log/" />
+<meta property="og:title" content="Consider Case ID before Starting Transformation" />
+<meta property="og:description" content="After long explanation of Extractor Builder, I can move to Transformation Topic from now, using Planio issue and change history. But before starting detail discussion, I would like to discuss general issues at first.
+In process mining context, Transformation is procedure to generate event log table from source tables. Event Log or Event Data is the collection of case and its event (activity) with timestamp. Case ID can be associated with multiple activities in source system, in other word it is not possible to generate event log without case ID.">
+<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2022-02-12-consider-case-id-before-starting-transformation/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Celonis hacks" />
 
-  <meta name="twitter:title" content="Prepare Source System to Generate Event Log" />
-  <meta name="twitter:description" content="Until last post I explained extraction topics using own Postgres database. I think it is better to test extraction functions with changing database by yourself. But it is hard to manually input data …">
+  <meta name="twitter:title" content="Consider Case ID before Starting Transformation" />
+  <meta name="twitter:description" content="After long explanation of Extractor Builder, I can move to Transformation Topic from now, using Planio issue and change history. But before starting detail discussion, I would like to discuss general …">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
@@ -229,7 +229,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="posts-heading">
               
-                <h1>Prepare Source System to Generate Event Log</h1>
+                <h1>Consider Case ID before Starting Transformation</h1>
               
               
                 <hr class="small">
@@ -249,18 +249,13 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>Until last post I explained extraction topics using own Postgres database. I think it is better to test extraction functions with changing database by yourself. But it is hard to manually input data record that is meaningful as event log.</p>
-<p>From now on I will move to transformation topic. To explain this, I think it is required to prepare source system that has user interface, database and API to connect to Celonis EMS, to easily generate event log and extract it.</p>
-<p>I would like to introduce <a href="https://plan.io/">Planio</a> as source system. This is cloud hosting system using <a href="https://www.redmine.org/">Redmine</a>, that is open source project management web application. I already used Planio for some months and I feel it is sinple and powerful solution to manage my team.</p>
-<p>At the top page of <a href="https://plan.io/">Planio</a> you can create your environment by clicking <code>Start your free trial</code> button, that has no charge if you change to <a href="https://plan.io/pricing/">Bronze (free) plan</a> after initiation of environment. If you successfully create your enviornment, you can see below screen as me (I can see Japanese text but you may see different language).</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/148636749-46d1adc5-1ea2-4b81-b49e-852f031760bb.png"><img src="https://user-images.githubusercontent.com/67397583/148636749-46d1adc5-1ea2-4b81-b49e-852f031760bb.png" alt="image"></a></p>
-<p>To generate your event log with free license restriction (only one project), first I should delete existing project <code>website-redesign</code>. I click tile at the home page to move to project top page, then click trash button.</p>
-<p>After that I can create new project. From top left <code>+</code> button, I can create new project. I named <code>Prototype production of XYZ</code> project.</p>
-<p>Next I would like to create issue. From <code>+</code> button, I can create new issue too. This time simply enter Subject <code>Prepare Kick off</code> then create issue. Then new issue number (in my case 8) is registered.</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/148637709-e01ec65f-92f5-4650-8901-9eabefa34f00.png"><img src="https://user-images.githubusercontent.com/67397583/148637709-e01ec65f-92f5-4650-8901-9eabefa34f00.png" alt="image"></a></p>
-<p>Finally to create change log, click <code>Edit</code> button and change status then submit change. Change history is displayed as note #1.</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/148637845-ac6e9d63-ea89-4716-859a-a9297a1db342.png"><img src="https://user-images.githubusercontent.com/67397583/148637844-46a670d0-c074-4047-9da4-d6cdf6c8963b.png" alt="image"></a></p>
-<p>Next time I would like to setup Extractor Builder in Celonis EMS to extract event log from Planio.</p>
+        <p>After long explanation of Extractor Builder, I can move to Transformation Topic from now, using Planio issue and change history. But before starting detail discussion, I would like to discuss general issues at first.</p>
+<p>In process mining context, Transformation is procedure to generate event log table from source tables. <a href="http://www.processmining.org/event-data.html#data">Event Log or Event Data</a> is the collection of case and its event (activity) with timestamp. Case ID can be associated with multiple activities in source system, in other word it is not possible to generate event log without case ID.</p>
+<p>When I tried to design Event Log before, I referred Business Process Flow (Diagram) but this flow was normally written in perspective of how business staff (or role) and resources (system, form etc.) are ordered, without taking care of case ID, so I was stucked how to assign case ID to some of activities. For the moment my answer is all activities can not perfectlly be mapped to one (integrated) process.</p>
+<p>For example, I was requested to design event log of supply chain management of a company, that include sales, production, and purchasing activities. What is the case ID of this supply chain ? Of cource I know that for example production has its ID like order number, but in transition from productoin to sales, its ID are not transferred if production purpose is to make stock.</p>
+<p>How about if I behave stock as case ID ? Stock may have its batch number and it seems to be case ID. But if I go back to upstream (purchasing side) there may be powder bag that is not easy to identify by each.</p>
+<p>In another example, some of monthly closing tasks in finance area are operated once per month, and I do not know how to create case ID of these tasks. In this case year and month itself may be case ID, but how to integrate with other tasks that are operated many times per month ?</p>
+<p>Going back to Business Proces Flow, I should think about how many operation is done in each box (activity) and is it possible to transfer case ID of previous activity to next one. After that I should split business process to small processes that can be trasnformed to process mining event log.</p>
 <p>Kaz</p>
 
 
@@ -284,42 +279,42 @@ if (!doNotTrack) {
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-01-08-prepare-source-system-to-generate-event-log%2f&amp;text=Prepare%20Source%20System%20to%20Generate%20Event%20Log&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-02-12-consider-case-id-before-starting-transformation%2f&amp;text=Consider%20Case%20ID%20before%20Starting%20Transformation&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-01-08-prepare-source-system-to-generate-event-log%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-02-12-consider-case-id-before-starting-transformation%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-01-08-prepare-source-system-to-generate-event-log%2f&amp;title=Prepare%20Source%20System%20to%20Generate%20Event%20Log" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-02-12-consider-case-id-before-starting-transformation%2f&amp;title=Consider%20Case%20ID%20before%20Starting%20Transformation" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-01-08-prepare-source-system-to-generate-event-log%2f&amp;title=Prepare%20Source%20System%20to%20Generate%20Event%20Log" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-02-12-consider-case-id-before-starting-transformation%2f&amp;title=Consider%20Case%20ID%20before%20Starting%20Transformation" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-01-08-prepare-source-system-to-generate-event-log%2f&amp;title=Prepare%20Source%20System%20to%20Generate%20Event%20Log" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-02-12-consider-case-id-before-starting-transformation%2f&amp;title=Consider%20Case%20ID%20before%20Starting%20Transformation" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-01-08-prepare-source-system-to-generate-event-log%2f&amp;description=Prepare%20Source%20System%20to%20Generate%20Event%20Log" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-02-12-consider-case-id-before-starting-transformation%2f&amp;description=Consider%20Case%20ID%20before%20Starting%20Transformation" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -341,8 +336,6 @@ if (!doNotTrack) {
                   <ul>
                 
                 
-                    <li><a href="/celonis-hacks/posts/2022-02-12-consider-case-id-before-starting-transformation/">Consider Case ID before Starting Transformation</a></li>
-                
                     <li><a href="/celonis-hacks/posts/2022-02-05-tune-endpoint-parameter-relevant-to-delta-load/">Tune Endpoint Parameter Relevant to Delta Load</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2022-01-29-setup-dependent-endpoint-in-extractor-builder/">Setup Dependent Endpoint in Extractor Builder</a></li>
@@ -350,6 +343,8 @@ if (!doNotTrack) {
                     <li><a href="/celonis-hacks/posts/2022-01-22-configure-endpoint-for-suitable-extraction/">Configure Endpoint for Suitable Extraction</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2022-01-15-connect-to-source-system-via-rest-api/">Connect to Source System via REST API</a></li>
+                
+                    <li><a href="/celonis-hacks/posts/2022-01-08-prepare-source-system-to-generate-event-log/">Prepare Source System to Generate Event Log</a></li>
                 
               </ul>
 
@@ -361,13 +356,9 @@ if (!doNotTrack) {
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-12-25-pay-attention-to-extract-sap-tables/" data-toggle="tooltip" data-placement="top" title="Pay attention to Extract SAP Tables">&larr; Previous Post</a>
+              <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-02-05-tune-endpoint-parameter-relevant-to-delta-load/" data-toggle="tooltip" data-placement="top" title="Tune Endpoint Parameter Relevant to Delta Load">&larr; Previous Post</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-01-15-connect-to-source-system-via-rest-api/" data-toggle="tooltip" data-placement="top" title="Connect to Source System via REST API">Next Post &rarr;</a>
-            </li>
           
         </ul>
       

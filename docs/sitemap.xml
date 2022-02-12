@@ -4,12 +4,32 @@
   
   <url>
     <loc>https://kaztakata.github.io/celonis-hacks/</loc>
-    <lastmod>2022-02-05T10:05:51+09:00</lastmod>
+    <lastmod>2022-02-12T13:03:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kaztakata.github.io/celonis-hacks/posts/2022-02-12-consider-case-id-before-starting-transformation/</loc>
+    <lastmod>2022-02-12T13:03:00+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://kaztakata.github.io/celonis-hacks/tags/event-collection/</loc>
-    <lastmod>2022-02-05T10:05:51+09:00</lastmod>
+    <lastmod>2022-02-12T13:03:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kaztakata.github.io/celonis-hacks/posts/</loc>
+    <lastmod>2022-02-12T13:03:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kaztakata.github.io/celonis-hacks/tags/</loc>
+    <lastmod>2022-02-12T13:03:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kaztakata.github.io/celonis-hacks/tags/transformation/</loc>
+    <lastmod>2022-02-12T13:03:00+09:00</lastmod>
   </url>
   
   <url>
@@ -19,16 +39,6 @@
   
   <url>
     <loc>https://kaztakata.github.io/celonis-hacks/tags/extractor-builder/</loc>
-    <lastmod>2022-02-05T10:05:51+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kaztakata.github.io/celonis-hacks/posts/</loc>
-    <lastmod>2022-02-05T10:05:51+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kaztakata.github.io/celonis-hacks/tags/</loc>
     <lastmod>2022-02-05T10:05:51+09:00</lastmod>
   </url>
   
@@ -54,11 +64,6 @@
   
   <url>
     <loc>https://kaztakata.github.io/celonis-hacks/posts/2022-01-08-prepare-source-system-to-generate-event-log/</loc>
-    <lastmod>2022-01-08T16:35:30+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kaztakata.github.io/celonis-hacks/tags/transformation/</loc>
     <lastmod>2022-01-08T16:35:30+09:00</lastmod>
   </url>
   

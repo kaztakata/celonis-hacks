@@ -5,10 +5,20 @@
     <link>https://kaztakata.github.io/celonis-hacks/tags/event-collection/</link>
     <description>Recent content in Event Collection on Celonis hacks</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 05 Feb 2022 10:05:51 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 12 Feb 2022 13:03:00 +0900</lastBuildDate>
     
 	<atom:link href="https://kaztakata.github.io/celonis-hacks/tags/event-collection/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Consider Case ID before Starting Transformation</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2022-02-12-consider-case-id-before-starting-transformation/</link>
+      <pubDate>Sat, 12 Feb 2022 13:03:00 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2022-02-12-consider-case-id-before-starting-transformation/</guid>
+      <description>After long explanation of Extractor Builder, I can move to Transformation Topic from now, using Planio issue and change history. But before starting detail discussion, I would like to discuss general issues at first.
+In process mining context, Transformation is procedure to generate event log table from source tables. Event Log or Event Data is the collection of case and its event (activity) with timestamp. Case ID can be associated with multiple activities in source system, in other word it is not possible to generate event log without case ID.</description>
+    </item>
     
     <item>
       <title>Tune Endpoint Parameter Relevant to Delta Load</title>
