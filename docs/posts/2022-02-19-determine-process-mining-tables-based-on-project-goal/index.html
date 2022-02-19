@@ -7,9 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Use Pseudonymized Column as Grouping Key - Celonis hacks</title>
-  <meta name="description" content="One of the biggest headache for data engineer like me is how to assure data security when extracting data. Especially personal information should be dealt sensitively, otherwise I may be punished by each region&rsquo;s law (e.g. GDPR).
-When I operate Celonis EMS, I try not to extract sensitive information from the beginning, for example I do not extract table of customer address (ADRC table in SAP etc.). But this information is sometimes effective for grouping key of counting case etc.">
+  <title>Determine Process Mining Tables based on Project Goal - Celonis hacks</title>
+  <meta name="description" content="I talked about how to consider Case ID in advance in last post. That is same as goal setting of process mining project, it means what would like to be measured in process mining and why. Case is the unit of measuring performance and grouping activities.
+Considering my case of Planio, for example I would like to measure 1) Throughput time from raising issue to closing it, 2) How many users are involved until closing issue.">
   <meta name="author" content="Kazuhiko Takata"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -45,8 +45,8 @@ When I operate Celonis EMS, I try not to extract sensitive information from the 
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-12-18-use-pseudonymized-column-as-grouping-key\/",
-          "name": "Use pseudonymized column as grouping key"
+          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-02-19-determine-process-mining-tables-based-on-project-goal\/",
+          "name": "Determine process mining tables based on project goal"
         }
     }]
 }
@@ -57,15 +57,15 @@ When I operate Celonis EMS, I try not to extract sensitive information from the 
   "author": {
     "name" : "Kazuhiko Takata"
   },
-  "headline": "Use Pseudonymized Column as Grouping Key",
-  "description" : "One of the biggest headache for data engineer like me is how to assure data security when extracting data. Especially personal information should be dealt sensitively, otherwise I may be punished by each region\x26rsquo;s law (e.g. GDPR).\nWhen I operate Celonis EMS, I try not to extract sensitive information from the beginning, for example I do not extract table of customer address (ADRC table in SAP etc.). But this information is sometimes effective for grouping key of counting case etc.",
+  "headline": "Determine Process Mining Tables based on Project Goal",
+  "description" : "I talked about how to consider Case ID in advance in last post. That is same as goal setting of process mining project, it means what would like to be measured in process mining and why. Case is the unit of measuring performance and grouping activities.\nConsidering my case of Planio, for example I would like to measure 1) Throughput time from raising issue to closing it, 2) How many users are involved until closing issue.",
   "inLanguage" : "en",
-  "wordCount":  469 ,
-  "datePublished" : "2021-12-18T09:22:56",
-  "dateModified" : "2021-12-18T09:22:56",
+  "wordCount":  446 ,
+  "datePublished" : "2022-02-19T13:43:41",
+  "dateModified" : "2022-02-19T13:43:41",
   "image" : "https:\/\/kaztakata.github.io\/celonis-hacks",
-  "keywords" : [ "Event Collection, Extractor, Extraction, Transformation, Data Job" ],
-  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-12-18-use-pseudonymized-column-as-grouping-key\/",
+  "keywords" : [ "Event Collection, Transformation, Data Model" ],
+  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-02-19-determine-process-mining-tables-based-on-project-goal\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/kaztakata.github.io\/celonis-hacks",
@@ -79,15 +79,15 @@ When I operate Celonis EMS, I try not to extract sensitive information from the 
 }
 </script>
 
-<meta property="og:title" content="Use Pseudonymized Column as Grouping Key" />
-<meta property="og:description" content="One of the biggest headache for data engineer like me is how to assure data security when extracting data. Especially personal information should be dealt sensitively, otherwise I may be punished by each region&rsquo;s law (e.g. GDPR).
-When I operate Celonis EMS, I try not to extract sensitive information from the beginning, for example I do not extract table of customer address (ADRC table in SAP etc.). But this information is sometimes effective for grouping key of counting case etc.">
-<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2021-12-18-use-pseudonymized-column-as-grouping-key/" />
+<meta property="og:title" content="Determine Process Mining Tables based on Project Goal" />
+<meta property="og:description" content="I talked about how to consider Case ID in advance in last post. That is same as goal setting of process mining project, it means what would like to be measured in process mining and why. Case is the unit of measuring performance and grouping activities.
+Considering my case of Planio, for example I would like to measure 1) Throughput time from raising issue to closing it, 2) How many users are involved until closing issue.">
+<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2022-02-19-determine-process-mining-tables-based-on-project-goal/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Celonis hacks" />
 
-  <meta name="twitter:title" content="Use Pseudonymized Column as Grouping Key" />
-  <meta name="twitter:description" content="One of the biggest headache for data engineer like me is how to assure data security when extracting data. Especially personal information should be dealt sensitively, otherwise I may be punished by …">
+  <meta name="twitter:title" content="Determine Process Mining Tables based on Project Goal" />
+  <meta name="twitter:description" content="I talked about how to consider Case ID in advance in last post. That is same as goal setting of process mining project, it means what would like to be measured in process mining and why. Case is the …">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
@@ -229,7 +229,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="posts-heading">
               
-                <h1>Use Pseudonymized Column as Grouping Key</h1>
+                <h1>Determine Process Mining Tables based on Project Goal</h1>
               
               
                 <hr class="small">
@@ -249,52 +249,33 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>One of the biggest headache for data engineer like me is how to assure data security when extracting data. Especially personal information should be dealt sensitively, otherwise I may be punished by each region&rsquo;s law (e.g. GDPR).</p>
-<p>When I operate Celonis EMS, I try not to extract sensitive information from the beginning, for example I do not extract table of customer address (<code>ADRC</code> table in SAP etc.). But this information is sometimes effective for grouping key of counting case etc., so I should mitigate this dilemma. Today I would like to introduce pseudonymization technique to solve this dilemma.</p>
-<p>Pseudonymization is processed by hash algorithm, that maps data of an arbitrary size to a bit array of a fixed size (called digest or hash value). The point is converting from original data to hash value is possible but hashed value to original data is quite difficult (not feasible in realistic time). Also if one pair of original data is same value, one pair of hash value is also same. These characteristic is suitable for pseudonymization.</p>
-<p>For today&rsquo;s post, first I introduce new table <code>orders</code> to store customer, material (ordered item), who created this data (employee) and when it is created. In pgAdmin I execute below SQL to insert four record to <code>orders</code>.</p>
-<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">orders</span> <span class="p">(</span>
-    <span class="n">id</span> <span class="nb">BIGINT</span> <span class="k">GENERATED</span> <span class="n">ALWAYS</span> <span class="k">AS</span> <span class="k">IDENTITY</span><span class="p">,</span>
-    <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">(</span><span class="n">id</span><span class="p">),</span>
-    <span class="n">customer</span> <span class="nb">TEXT</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
-    <span class="n">material</span> <span class="nb">TEXT</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
-	<span class="n">createdBy</span> <span class="nb">TEXT</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
-	<span class="n">createdAt</span> <span class="k">TIMESTAMP</span> <span class="k">NOT</span> <span class="k">NULL</span>
-<span class="p">);</span>
+        <p>I talked about how to consider Case ID in advance in <a href="../2022-02-12-consider-case-id-before-starting-transformation">last post</a>. That is same as goal setting of process mining project, it means what would like to be measured in process mining and why. Case is the unit of measuring performance and grouping activities.</p>
+<p>Considering my case of Planio, for example I would like to measure 1) Throughput time from raising issue to closing it, 2) How many users are involved until closing issue. From now on I assume my goal is that both performance are measured by each case, then aggregate to some of statistic value (average, median etc.). So that my case ID should be issue ID.</p>
+<p>OK, next step is how to store event log. As you may already know, Celonis process mining data model has two major tables, one is activity table and other is case table. Going back to definition of <a href="http://www.processmining.org/event-data.html#data">event log</a>, it is only one table, but Celonis enable us to split it to two parts, one has different field value especially event time, another has same field value in one case ID (case attribute). Two tables are joined in data model and there are same role as event log, also this strategy can reduce duplication of case attribute record.</p>
+<p>Going back to my project, first (activity) table should store at least case ID, activity, event time, and user ID those are different value in each record. Second (case) table should store at lease case ID (equals issue ID) and other attributes stored at Planio issue (project ID, Priority, Milestone etc.) to grouping issues. Normally case table is quite similar to source system table that has case ID as primary key, so today I just use issue table that extracted before and do not touch any more.</p>
+<p>Of course first activity table is not in source system, so I would like to create table at first transformation. By the way,Celonis EMS transformation is over Vertica Database, so I can see SQL syntax following <a href="https://www.vertica.com/docs/">Vertica documentation</a>.</p>
+<p>I will write below SQL to new transformation then execute it to create activity table <code>_cel_pl_activities</code>. There are no case attribute fields those are in <code>issues</code> table.</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">DROP</span> <span class="k">TABLE</span> <span class="k">IF</span> <span class="k">EXISTS</span> <span class="n">_cel_pl_activities</span><span class="p">;</span>
 
-<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">orders</span> <span class="p">(</span><span class="n">customer</span><span class="p">,</span><span class="n">material</span><span class="p">,</span><span class="n">createdBy</span><span class="p">,</span><span class="n">createdAt</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="s1">&#39;Oda Nobunaga&#39;</span><span class="p">,</span><span class="s1">&#39;Gold Plan&#39;</span><span class="p">,</span><span class="s1">&#39;Kazuhiko Takata&#39;</span><span class="p">,</span><span class="n">NOW</span><span class="p">());</span>
-<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">orders</span> <span class="p">(</span><span class="n">customer</span><span class="p">,</span><span class="n">material</span><span class="p">,</span><span class="n">createdBy</span><span class="p">,</span><span class="n">createdAt</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="s1">&#39;Toyotomi Hideyoshi&#39;</span><span class="p">,</span><span class="s1">&#39;Diamond Plan&#39;</span><span class="p">,</span><span class="s1">&#39;Kazuhiko Takata&#39;</span><span class="p">,</span><span class="n">NOW</span><span class="p">());</span>
-<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">orders</span> <span class="p">(</span><span class="n">customer</span><span class="p">,</span><span class="n">material</span><span class="p">,</span><span class="n">createdBy</span><span class="p">,</span><span class="n">createdAt</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="s1">&#39;Tokugawa Ieyasu&#39;</span><span class="p">,</span><span class="s1">&#39;Platinum Plan&#39;</span><span class="p">,</span><span class="s1">&#39;Kazuhiko Takata&#39;</span><span class="p">,</span><span class="n">NOW</span><span class="p">());</span>
-<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">orders</span> <span class="p">(</span><span class="n">customer</span><span class="p">,</span><span class="n">material</span><span class="p">,</span><span class="n">createdBy</span><span class="p">,</span><span class="n">createdAt</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="s1">&#39;Oda Nobunaga&#39;</span><span class="p">,</span><span class="s1">&#39;Platinum Plan&#39;</span><span class="p">,</span><span class="s1">&#39;Kazuhiko Takata&#39;</span><span class="p">,</span><span class="n">NOW</span><span class="p">());</span>
-</code></pre></div><p>Assuming this <code>orders</code> table is located inside my company&rsquo;s local network (on-premise) and I do not want to expose customer name and employee name to outside of my network, but I would like to analyze process of my orders.</p>
-<p>When I setup extraction task in Celonis Event Collection, I will click Configure button to set pseudonymized columns (customer and createdBy) as below.</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/146629365-85ea409a-d274-42db-8456-193da230fdd0.png"><img src="https://user-images.githubusercontent.com/67397583/146629365-85ea409a-d274-42db-8456-193da230fdd0.png" alt="image"></a></p>
-<p>After that I will scroll down to Extraction Preview section and confirm it is not possible to recoginize customer and employee name. Also I can see id 1 and 4 has same value in customer column, these are originally same person.</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/146629557-be532241-2248-4062-8979-a02b11ddbd09.png"><img src="https://user-images.githubusercontent.com/67397583/146629557-be532241-2248-4062-8979-a02b11ddbd09.png" alt="image"></a></p>
-<p>If I would like to count orders group by customer, it is possible by pseudonymized customer name. Let&rsquo;s do it in transformation. After extraction has done, execute <code>SELECT customer,COUNT(*) FROM orders GROUP BY customer;</code>. Then actually count order by customer has done succesfully.</p>
-<table>
-<thead>
-<tr>
-<th>customer</th>
-<th>COUNT</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>072643ff50ba49ea26cfcb3ca83978ecdbf74032</td>
-<td>2</td>
-</tr>
-<tr>
-<td>3b47fb949d9d0e0a90e281043a7d7271eadd8e52</td>
-<td>1</td>
-</tr>
-<tr>
-<td>739782f3b4abc2b1a880c84eab0386f6858c64fe</td>
-<td>1</td>
-</tr>
-</tbody>
-</table>
-<p>Additionaly I can see how many customers are repeatedly ordered by <code>SELECT COUNT(*) FROM (SELECT customer,COUNT(*) FROM orders GROUP BY customer) AS a WHERE count &gt; 1;</code>, not identifying customer name. Grouping key is useful in such case.</p>
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="k">IF</span> <span class="k">NOT</span> <span class="k">EXISTS</span> <span class="n">_cel_pl_activities</span> <span class="p">(</span>
+     <span class="n">_CASE_KEY</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span> <span class="c1">-- case ID
+</span><span class="c1"></span>    <span class="p">,</span><span class="n">_ACTIVITY_MAIN_TABLE</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+    <span class="p">,</span><span class="n">_ACTIVITY_KEY</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+    <span class="p">,</span><span class="n">ACTIVITY_EN</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span> <span class="c1">-- activity 
+</span><span class="c1"></span>    <span class="p">,</span><span class="n">EVENTTIME</span> <span class="n">DATETIME</span> <span class="c1">-- event time
+</span><span class="c1"></span>    <span class="p">,</span><span class="n">_SORTING</span> <span class="nb">INT</span>
+    <span class="p">,</span><span class="n">changed_by</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span> <span class="c1">-- user
+</span><span class="c1"></span>    <span class="p">,</span><span class="n">changed_email</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span>
+    <span class="p">,</span><span class="n">changed_attr</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+    <span class="p">,</span><span class="n">changed_from</span> <span class="nb">VARCHAR</span> <span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+    <span class="p">,</span><span class="n">changed_to</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+    <span class="p">,</span><span class="n">changed_from_float</span> <span class="nb">FLOAT</span>
+    <span class="p">,</span><span class="n">changed_to_float</span> <span class="nb">FLOAT</span>
+    <span class="p">,</span><span class="n">changed_from_date</span> <span class="nb">DATE</span>
+    <span class="p">,</span><span class="n">changed_to_date</span> <span class="nb">DATE</span>
+    <span class="p">,</span><span class="n">_CELONIS_CHANGE_DATE</span> <span class="n">DATETIME</span>
+<span class="p">);</span>
+</code></pre></div><p>This is just creating table and there are no activity record now, so from next post I would like to insert activity record based on my project goal.</p>
 <p>Kaz</p>
 
 
@@ -303,13 +284,9 @@ if (!doNotTrack) {
             
               <a href="https://kaztakata.github.io/celonis-hacks/tags/event-collection/">Event Collection</a>&nbsp;
             
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/extractor/">Extractor</a>&nbsp;
-            
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/extraction/">Extraction</a>&nbsp;
-            
               <a href="https://kaztakata.github.io/celonis-hacks/tags/transformation/">Transformation</a>&nbsp;
             
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/data-job/">Data Job</a>&nbsp;
+              <a href="https://kaztakata.github.io/celonis-hacks/tags/data-model/">Data Model</a>&nbsp;
             
           </div>
         
@@ -324,42 +301,42 @@ if (!doNotTrack) {
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-12-18-use-pseudonymized-column-as-grouping-key%2f&amp;text=Use%20Pseudonymized%20Column%20as%20Grouping%20Key&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-02-19-determine-process-mining-tables-based-on-project-goal%2f&amp;text=Determine%20Process%20Mining%20Tables%20based%20on%20Project%20Goal&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-12-18-use-pseudonymized-column-as-grouping-key%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-02-19-determine-process-mining-tables-based-on-project-goal%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-12-18-use-pseudonymized-column-as-grouping-key%2f&amp;title=Use%20Pseudonymized%20Column%20as%20Grouping%20Key" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-02-19-determine-process-mining-tables-based-on-project-goal%2f&amp;title=Determine%20Process%20Mining%20Tables%20based%20on%20Project%20Goal" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-12-18-use-pseudonymized-column-as-grouping-key%2f&amp;title=Use%20Pseudonymized%20Column%20as%20Grouping%20Key" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-02-19-determine-process-mining-tables-based-on-project-goal%2f&amp;title=Determine%20Process%20Mining%20Tables%20based%20on%20Project%20Goal" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-12-18-use-pseudonymized-column-as-grouping-key%2f&amp;title=Use%20Pseudonymized%20Column%20as%20Grouping%20Key" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-02-19-determine-process-mining-tables-based-on-project-goal%2f&amp;title=Determine%20Process%20Mining%20Tables%20based%20on%20Project%20Goal" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-12-18-use-pseudonymized-column-as-grouping-key%2f&amp;description=Use%20Pseudonymized%20Column%20as%20Grouping%20Key" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-02-19-determine-process-mining-tables-based-on-project-goal%2f&amp;description=Determine%20Process%20Mining%20Tables%20based%20on%20Project%20Goal" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -381,8 +358,6 @@ if (!doNotTrack) {
                   <ul>
                 
                 
-                    <li><a href="/celonis-hacks/posts/2022-02-19-determine-process-mining-tables-based-on-project-goal/">Determine Process Mining Tables based on Project Goal</a></li>
-                
                     <li><a href="/celonis-hacks/posts/2022-02-12-consider-case-id-before-starting-transformation/">Consider Case ID before Starting Transformation</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2022-02-05-tune-endpoint-parameter-relevant-to-delta-load/">Tune Endpoint Parameter Relevant to Delta Load</a></li>
@@ -390,6 +365,8 @@ if (!doNotTrack) {
                     <li><a href="/celonis-hacks/posts/2022-01-29-setup-dependent-endpoint-in-extractor-builder/">Setup Dependent Endpoint in Extractor Builder</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2022-01-22-configure-endpoint-for-suitable-extraction/">Configure Endpoint for Suitable Extraction</a></li>
+                
+                    <li><a href="/celonis-hacks/posts/2022-01-15-connect-to-source-system-via-rest-api/">Connect to Source System via REST API</a></li>
                 
               </ul>
 
@@ -401,13 +378,9 @@ if (!doNotTrack) {
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-12-11-understand-delta-load-configuration-difference-in-adding-column-scenario/" data-toggle="tooltip" data-placement="top" title="Understand Delta Load Configuration Difference in Adding Column Scenario">&larr; Previous Post</a>
+              <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-02-12-consider-case-id-before-starting-transformation/" data-toggle="tooltip" data-placement="top" title="Consider Case ID before Starting Transformation">&larr; Previous Post</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-12-25-pay-attention-to-extract-sap-tables/" data-toggle="tooltip" data-placement="top" title="Pay attention to Extract SAP Tables">Next Post &rarr;</a>
-            </li>
           
         </ul>
       

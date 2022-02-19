@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
   <title>Overview of all pages with the tag #Event Collection - Celonis hacks</title>
-  <meta name="description" content="Overview of all pages with the tag #Event Collection, such as: Consider Case ID before Starting Transformation">
+  <meta name="description" content="Overview of all pages with the tag #Event Collection, such as: Determine Process Mining Tables based on Project Goal">
   <meta name="author" content="Kazuhiko Takata"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -198,6 +198,58 @@ if (!doNotTrack) {
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         
         <div class="posts-list">
+          
+            <article class="post-preview">
+    <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-02-19-determine-process-mining-tables-based-on-project-goal/">
+        <h2 class="post-title">Determine Process Mining Tables based on Project Goal</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on map[Count:2022-02-19]
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;minutes
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;446&nbsp;words
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kazuhiko Takata
+    
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        I talked about how to consider Case ID in advance in last post. That is same as goal setting of process mining project, it means what would like to be measured in process mining and why. Case is the unit of measuring performance and grouping activities.
+Considering my case of Planio, for example I would like to measure 1) Throughput time from raising issue to closing it, 2) How many users are involved until closing issue.
+        <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-02-19-determine-process-mining-tables-based-on-project-goal/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+        <a href="https://kaztakata.github.io/celonis-hacks/tags/event-collection/">Event Collection</a>&nbsp;
+        
+        <a href="https://kaztakata.github.io/celonis-hacks/tags/transformation/">Transformation</a>&nbsp;
+        
+        <a href="https://kaztakata.github.io/celonis-hacks/tags/data-model/">Data Model</a>&nbsp;
+        
+    </div>
+    
+
+</article>
           
             <article class="post-preview">
     <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-02-12-consider-case-id-before-starting-transformation/">
@@ -639,62 +691,6 @@ When I operate Celonis EMS, I try not to extract sensitive information from the 
         Last time I showed behavior when I added new record then extracted that record by Delta Load (Verify Cloning Table Contents via Delta Load). Delta Load is effective way to minimize extraction effort, but it is not always applied. Today, it is continued from previous post, I would like to add column to cloned table and observe behavior of extraction task.
 After starting system operation including database, normally system is changing its requirement and extend function and database etc.
         <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-12-11-understand-delta-load-configuration-difference-in-adding-column-scenario/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/event-collection/">Event Collection</a>&nbsp;
-        
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/extractor/">Extractor</a>&nbsp;
-        
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/extraction/">Extraction</a>&nbsp;
-        
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/transformation/">Transformation</a>&nbsp;
-        
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/data-job/">Data Job</a>&nbsp;
-        
-    </div>
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-12-04-verify-cloning-table-contents-via-delta-load/">
-        <h2 class="post-title">Verify Cloning Table Contents via Delta Load</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on map[Count:2021-12-04]
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;minutes
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;457&nbsp;words
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kazuhiko Takata
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        Following last week&rsquo;s Minimize Extraction Time by Delta Load Option, today I would like to insert new record to Postgres table then try Delta Load again to extract it. To do this, I will start from operating pgAdmin, that is already ready for my loal machine after docker-compose.
-First step is to enter localhost:5050 to my browser, then at the login screen enter pgadmin@celonis.cloud as email and pgadmin as password then click login button.
-        <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-12-04-verify-cloning-table-contents-via-delta-load/" class="post-read-more">[Read More]</a>
         
     </div>
 
