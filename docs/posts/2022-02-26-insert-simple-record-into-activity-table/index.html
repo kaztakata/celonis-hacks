@@ -7,9 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Determine Process Mining Tables based on Project Goal - Celonis hacks</title>
-  <meta name="description" content="I talked about how to consider Case ID in advance in last post. That is same as goal setting of process mining project, it means what would like to be measured in process mining and why. Case is the unit of measuring performance and grouping activities.
-Considering my case of Planio, for example I would like to measure 1) Throughput time from raising issue to closing it, 2) How many users are involved until closing issue.">
+  <title>Insert Simple Record into Activity Table - Celonis hacks</title>
+  <meta name="description" content="In the last post of Determine Process Mining Tables based on Project Goal, I talked strategy of transforming Planio data to event log. Then I wrote SQL to create activity table.
+From now I would like to insert activity record to that table. Based on the discussion of last post, at least I need two activities Raise Issue and Close Issue to measure throughput time between them. That is the next step to achieve my goal.">
   <meta name="author" content="Kazuhiko Takata"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -45,8 +45,8 @@ Considering my case of Planio, for example I would like to measure 1) Throughput
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-02-19-determine-process-mining-tables-based-on-project-goal\/",
-          "name": "Determine process mining tables based on project goal"
+          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-02-26-insert-simple-record-into-activity-table\/",
+          "name": "Insert simple record into activity table"
         }
     }]
 }
@@ -57,15 +57,15 @@ Considering my case of Planio, for example I would like to measure 1) Throughput
   "author": {
     "name" : "Kazuhiko Takata"
   },
-  "headline": "Determine Process Mining Tables based on Project Goal",
-  "description" : "I talked about how to consider Case ID in advance in last post. That is same as goal setting of process mining project, it means what would like to be measured in process mining and why. Case is the unit of measuring performance and grouping activities.\nConsidering my case of Planio, for example I would like to measure 1) Throughput time from raising issue to closing it, 2) How many users are involved until closing issue.",
+  "headline": "Insert Simple Record into Activity Table",
+  "description" : "In the last post of Determine Process Mining Tables based on Project Goal, I talked strategy of transforming Planio data to event log. Then I wrote SQL to create activity table.\nFrom now I would like to insert activity record to that table. Based on the discussion of last post, at least I need two activities Raise Issue and Close Issue to measure throughput time between them. That is the next step to achieve my goal.",
   "inLanguage" : "en",
-  "wordCount":  446 ,
-  "datePublished" : "2022-02-19T13:43:41",
-  "dateModified" : "2022-02-19T13:43:41",
+  "wordCount":  492 ,
+  "datePublished" : "2022-02-26T09:14:12",
+  "dateModified" : "2022-02-26T09:14:12",
   "image" : "https:\/\/kaztakata.github.io\/celonis-hacks",
   "keywords" : [ "Event Collection, Transformation, Data Model" ],
-  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-02-19-determine-process-mining-tables-based-on-project-goal\/",
+  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-02-26-insert-simple-record-into-activity-table\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/kaztakata.github.io\/celonis-hacks",
@@ -79,15 +79,16 @@ Considering my case of Planio, for example I would like to measure 1) Throughput
 }
 </script>
 
-<meta property="og:title" content="Determine Process Mining Tables based on Project Goal" />
-<meta property="og:description" content="I talked about how to consider Case ID in advance in last post. That is same as goal setting of process mining project, it means what would like to be measured in process mining and why. Case is the unit of measuring performance and grouping activities.
-Considering my case of Planio, for example I would like to measure 1) Throughput time from raising issue to closing it, 2) How many users are involved until closing issue.">
-<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2022-02-19-determine-process-mining-tables-based-on-project-goal/" />
+<meta property="og:title" content="Insert Simple Record into Activity Table" />
+<meta property="og:description" content="In the last post of Determine Process Mining Tables based on Project Goal, I talked strategy of transforming Planio data to event log. Then I wrote SQL to create activity table.
+From now I would like to insert activity record to that table. Based on the discussion of last post, at least I need two activities Raise Issue and Close Issue to measure throughput time between them. That is the next step to achieve my goal.">
+<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2022-02-26-insert-simple-record-into-activity-table/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Celonis hacks" />
 
-  <meta name="twitter:title" content="Determine Process Mining Tables based on Project Goal" />
-  <meta name="twitter:description" content="I talked about how to consider Case ID in advance in last post. That is same as goal setting of process mining project, it means what would like to be measured in process mining and why. Case is the …">
+  <meta name="twitter:title" content="Insert Simple Record into Activity Table" />
+  <meta name="twitter:description" content="In the last post of Determine Process Mining Tables based on Project Goal, I talked strategy of transforming Planio data to event log. Then I wrote SQL to create activity table.
+From now I would like …">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
@@ -229,7 +230,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="posts-heading">
               
-                <h1>Determine Process Mining Tables based on Project Goal</h1>
+                <h1>Insert Simple Record into Activity Table</h1>
               
               
                 <hr class="small">
@@ -249,33 +250,46 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>I talked about how to consider Case ID in advance in <a href="../2022-02-12-consider-case-id-before-starting-transformation">last post</a>. That is same as goal setting of process mining project, it means what would like to be measured in process mining and why. Case is the unit of measuring performance and grouping activities.</p>
-<p>Considering my case of Planio, for example I would like to measure 1) Throughput time from raising issue to closing it, 2) How many users are involved until closing issue. From now on I assume my goal is that both performance are measured by each case, then aggregate to some of statistic value (average, median etc.). So that my case ID should be issue ID.</p>
-<p>OK, next step is how to store event log. As you may already know, Celonis process mining data model has two major tables, one is activity table and other is case table. Going back to definition of <a href="http://www.processmining.org/event-data.html#data">event log</a>, it is only one table, but Celonis enable us to split it to two parts, one has different field value especially event time, another has same field value in one case ID (case attribute). Two tables are joined in data model and there are same role as event log, also this strategy can reduce duplication of case attribute record.</p>
-<p>Going back to my project, first (activity) table should store at least case ID, activity, event time, and user ID those are different value in each record. Second (case) table should store at lease case ID (equals issue ID) and other attributes stored at Planio issue (project ID, Priority, Milestone etc.) to grouping issues. Normally case table is quite similar to source system table that has case ID as primary key, so today I just use issue table that extracted before and do not touch any more.</p>
-<p>Of course first activity table is not in source system, so I would like to create table at first transformation. By the way,Celonis EMS transformation is over Vertica Database, so I can see SQL syntax following <a href="https://www.vertica.com/docs/">Vertica documentation</a>.</p>
-<p>I will write below SQL to new transformation then execute it to create activity table <code>_cel_pl_activities</code>. There are no case attribute fields those are in <code>issues</code> table.</p>
-<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">DROP</span> <span class="k">TABLE</span> <span class="k">IF</span> <span class="k">EXISTS</span> <span class="n">_cel_pl_activities</span><span class="p">;</span>
-
-<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="k">IF</span> <span class="k">NOT</span> <span class="k">EXISTS</span> <span class="n">_cel_pl_activities</span> <span class="p">(</span>
-     <span class="n">_CASE_KEY</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span> <span class="c1">-- case ID
-</span><span class="c1"></span>    <span class="p">,</span><span class="n">_ACTIVITY_MAIN_TABLE</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
-    <span class="p">,</span><span class="n">_ACTIVITY_KEY</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
-    <span class="p">,</span><span class="n">ACTIVITY_EN</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span> <span class="c1">-- activity 
-</span><span class="c1"></span>    <span class="p">,</span><span class="n">EVENTTIME</span> <span class="n">DATETIME</span> <span class="c1">-- event time
-</span><span class="c1"></span>    <span class="p">,</span><span class="n">_SORTING</span> <span class="nb">INT</span>
-    <span class="p">,</span><span class="n">changed_by</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span> <span class="c1">-- user
-</span><span class="c1"></span>    <span class="p">,</span><span class="n">changed_email</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span>
-    <span class="p">,</span><span class="n">changed_attr</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
-    <span class="p">,</span><span class="n">changed_from</span> <span class="nb">VARCHAR</span> <span class="p">(</span><span class="mi">200</span><span class="p">)</span>
-    <span class="p">,</span><span class="n">changed_to</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
-    <span class="p">,</span><span class="n">changed_from_float</span> <span class="nb">FLOAT</span>
-    <span class="p">,</span><span class="n">changed_to_float</span> <span class="nb">FLOAT</span>
-    <span class="p">,</span><span class="n">changed_from_date</span> <span class="nb">DATE</span>
-    <span class="p">,</span><span class="n">changed_to_date</span> <span class="nb">DATE</span>
-    <span class="p">,</span><span class="n">_CELONIS_CHANGE_DATE</span> <span class="n">DATETIME</span>
-<span class="p">);</span>
-</code></pre></div><p>This is just creating table and there are no activity record now, so from next post I would like to insert activity record based on my project goal.</p>
+        <p>In the last post of <a href="../2022-02-19-determine-process-mining-tables-based-on-project-goal">Determine Process Mining Tables based on Project Goal</a>, I talked strategy of transforming Planio data to event log. Then I wrote SQL to create activity table.</p>
+<p>From now I would like to insert activity record to that table. Based on the discussion of last post, at least I need two activities <code>Raise Issue</code> and <code>Close Issue</code> to measure throughput time between them. That is the next step to achieve my goal.</p>
+<p>First, <code>Raise Issue</code> activity is happened when Planio issue record is created. As I already looked at <a href="../2022-01-22-configure-endpoint-for-suitable-extraction">Configure Endpoint for Suitable Extraction</a>, when new issue record is created, it is transferred to <code>issues</code> table in Celonis EMS. I can see <code>created_on</code> column as <code>EVENTTIME</code> and <code>author$id</code> column as <code>changed_by</code> in issue table, and of course <code>issues</code> table has its primary key column <code>id</code>, it is enough to use only <code>issues</code> table to create <code>Raise Issue</code> activity. Simply I can write draft SQL as below.</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">_cel_pl_activities</span> <span class="p">(</span>
+     <span class="n">_CASE_KEY</span>
+    <span class="p">,</span><span class="n">ACTIVITY_EN</span>
+    <span class="p">,</span><span class="n">EVENTTIME</span>
+    <span class="p">,</span><span class="n">changed_by</span>
+<span class="p">)</span>
+<span class="k">SELECT</span> <span class="k">DISTINCT</span>
+     <span class="n">id</span> <span class="k">AS</span> <span class="n">_CASE_KEY</span>
+    <span class="p">,</span><span class="s1">&#39;Raise Issue&#39;</span> <span class="k">AS</span> <span class="n">ACTIVITY_EN</span>
+    <span class="p">,</span><span class="n">created_on</span> <span class="k">AS</span> <span class="n">EVENTTIME</span>
+    <span class="p">,</span><span class="n">author$id</span> <span class="k">AS</span> <span class="n">changed_by</span>
+<span class="k">FROM</span> <span class="n">issues</span>
+<span class="p">;</span>
+</code></pre></div><p>Before executing all <code>INSERT</code> statement, I recommend to execute <code>SELECT</code> part of this SQL beforehand (as below), to validate table or column name and expected result. If you execute <code>INSERT</code> statement many times, duplicated record are inserted to <code>issues</code> table and it is difficult to validate <code>SELECT</code> result.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/155821647-e23209a3-f9a1-4c21-b5a3-532e18acf679.png"><img src="https://user-images.githubusercontent.com/67397583/155821647-e23209a3-f9a1-4c21-b5a3-532e18acf679.png" alt="image"></a></p>
+<p>For example, in this case I was not sure whether <code>author$id</code> is appropriate value for operating user ID, so I tried <code>&quot;author$id&quot;||&quot;author$name&quot;</code> instead at <code>SELECT</code> statement and confirmed this is actually user ID (by the way, I decide not to include <code>author$name</code> because it is not required for further analysis. If <code>author$id</code> is not there and it is required to hide personal information, then I use pseudonymization. see <a href="../2021-12-18-use-pseudonymized-column-as-grouping-key">Use Pseudonymized Column as Grouping Key</a>).</p>
+<p>To complete first SQL, I need two more columns <code>_SORTING</code> and <code>_CELONIS_CHANGE_DATE</code>. <code>_SORTING</code> is the integer value to prioritize activity order if two or more activities are same <code>EVENTTIME</code>. It is sometimes happened if I changed many fields and save data at once e.g. I assume there is no activity that happened same timing as <code>Raise Issue</code>, so any value is fine. This time I set <code>0</code>. Regarding <code>_CELONIS_CHANGE_DATE</code>, I already saw this column at <a href="../2021-12-04-verify-cloning-table-contents-via-delta-load">Verify Cloning Table Contents via Delta Load</a>. This column is automatically inserted timing of extraction.
+It is effective for future debug, so I decide same strategy to my activity table too. I can use <code>NOW()</code> function to insert timinig of <code>INSERT</code> execution.</p>
+<p>Final version of SQL to insert <code>Raise Issue</code> is below.</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">_cel_pl_activities</span> <span class="p">(</span>
+     <span class="n">_CASE_KEY</span>
+    <span class="p">,</span><span class="n">ACTIVITY_EN</span>
+    <span class="p">,</span><span class="n">EVENTTIME</span>
+    <span class="p">,</span><span class="n">_SORTING</span> 
+    <span class="p">,</span><span class="n">changed_by</span>
+    <span class="p">,</span><span class="n">_CELONIS_CHANGE_DATE</span>
+<span class="p">)</span>
+<span class="k">SELECT</span> <span class="k">DISTINCT</span>
+     <span class="n">id</span> <span class="k">AS</span> <span class="n">_CASE_KEY</span>
+    <span class="p">,</span><span class="s1">&#39;Raise Issue&#39;</span> <span class="k">AS</span> <span class="n">ACTIVITY_EN</span>
+    <span class="p">,</span><span class="n">created_on</span> <span class="k">AS</span> <span class="n">EVENTTIME</span>
+    <span class="p">,</span><span class="mi">0</span> <span class="k">AS</span> <span class="n">_SORTING</span> 
+    <span class="p">,</span><span class="n">author$id</span> <span class="k">AS</span> <span class="n">changed_by</span>
+    <span class="p">,</span><span class="n">NOW</span><span class="p">()</span> <span class="k">AS</span> <span class="n">_CELONIS_CHANGE_DATE</span>
+<span class="k">FROM</span> <span class="n">issues</span>
+<span class="p">;</span>
+</code></pre></div><p>Today is simplest transformation case in process mining. Next time I would like to show another case of joining tables.</p>
 <p>Kaz</p>
 
 
@@ -301,42 +315,42 @@ if (!doNotTrack) {
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-02-19-determine-process-mining-tables-based-on-project-goal%2f&amp;text=Determine%20Process%20Mining%20Tables%20based%20on%20Project%20Goal&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-02-26-insert-simple-record-into-activity-table%2f&amp;text=Insert%20Simple%20Record%20into%20Activity%20Table&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-02-19-determine-process-mining-tables-based-on-project-goal%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-02-26-insert-simple-record-into-activity-table%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-02-19-determine-process-mining-tables-based-on-project-goal%2f&amp;title=Determine%20Process%20Mining%20Tables%20based%20on%20Project%20Goal" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-02-26-insert-simple-record-into-activity-table%2f&amp;title=Insert%20Simple%20Record%20into%20Activity%20Table" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-02-19-determine-process-mining-tables-based-on-project-goal%2f&amp;title=Determine%20Process%20Mining%20Tables%20based%20on%20Project%20Goal" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-02-26-insert-simple-record-into-activity-table%2f&amp;title=Insert%20Simple%20Record%20into%20Activity%20Table" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-02-19-determine-process-mining-tables-based-on-project-goal%2f&amp;title=Determine%20Process%20Mining%20Tables%20based%20on%20Project%20Goal" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-02-26-insert-simple-record-into-activity-table%2f&amp;title=Insert%20Simple%20Record%20into%20Activity%20Table" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-02-19-determine-process-mining-tables-based-on-project-goal%2f&amp;description=Determine%20Process%20Mining%20Tables%20based%20on%20Project%20Goal" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-02-26-insert-simple-record-into-activity-table%2f&amp;description=Insert%20Simple%20Record%20into%20Activity%20Table" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -358,7 +372,7 @@ if (!doNotTrack) {
                   <ul>
                 
                 
-                    <li><a href="/celonis-hacks/posts/2022-02-26-insert-simple-record-into-activity-table/">Insert Simple Record into Activity Table</a></li>
+                    <li><a href="/celonis-hacks/posts/2022-02-19-determine-process-mining-tables-based-on-project-goal/">Determine Process Mining Tables based on Project Goal</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2022-02-12-consider-case-id-before-starting-transformation/">Consider Case ID before Starting Transformation</a></li>
                 
@@ -378,13 +392,9 @@ if (!doNotTrack) {
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-02-12-consider-case-id-before-starting-transformation/" data-toggle="tooltip" data-placement="top" title="Consider Case ID before Starting Transformation">&larr; Previous Post</a>
+              <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-02-19-determine-process-mining-tables-based-on-project-goal/" data-toggle="tooltip" data-placement="top" title="Determine Process Mining Tables based on Project Goal">&larr; Previous Post</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-02-26-insert-simple-record-into-activity-table/" data-toggle="tooltip" data-placement="top" title="Insert Simple Record into Activity Table">Next Post &rarr;</a>
-            </li>
           
         </ul>
       

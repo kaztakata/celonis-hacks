@@ -5,10 +5,20 @@
     <link>https://kaztakata.github.io/celonis-hacks/tags/data-model/</link>
     <description>Recent content in Data Model on Celonis hacks</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 19 Feb 2022 13:43:41 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 26 Feb 2022 09:14:12 +0900</lastBuildDate>
     
 	<atom:link href="https://kaztakata.github.io/celonis-hacks/tags/data-model/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Insert Simple Record into Activity Table</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2022-02-26-insert-simple-record-into-activity-table/</link>
+      <pubDate>Sat, 26 Feb 2022 09:14:12 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2022-02-26-insert-simple-record-into-activity-table/</guid>
+      <description>In the last post of Determine Process Mining Tables based on Project Goal, I talked strategy of transforming Planio data to event log. Then I wrote SQL to create activity table.
+From now I would like to insert activity record to that table. Based on the discussion of last post, at least I need two activities Raise Issue and Close Issue to measure throughput time between them. That is the next step to achieve my goal.</description>
+    </item>
     
     <item>
       <title>Determine Process Mining Tables based on Project Goal</title>
