@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
   <title>Overview of all pages with the tag #Transformation - Celonis hacks</title>
-  <meta name="description" content="Overview of all pages with the tag #Transformation, such as: Insert Simple Record into Activity Table">
+  <meta name="description" content="Overview of all pages with the tag #Transformation, such as: Compose Activity from Joining Multiple Tables">
   <meta name="author" content="Kazuhiko Takata"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -200,6 +200,56 @@ if (!doNotTrack) {
         <div class="posts-list">
           
             <article class="post-preview">
+    <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-03-05-compose-activity-from-joining-multiple-tables/">
+        <h2 class="post-title">Compose Activity from Joining Multiple Tables</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on map[Count:2022-03-05]
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;minutes
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;567&nbsp;words
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kazuhiko Takata
+    
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        In the last post of Insert Simple Record into Activity Table, I created SQL to insert Raise Issue activity. That SQL was simple because only one table issues are used as data source. Today I will create SQL of Close Issue activity that requires multiple tables.
+Same as previous post, first I should analyze columns to compose Close Issue activity. This is happend when I change Status column in each issue, so I need change history.
+        <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-03-05-compose-activity-from-joining-multiple-tables/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+        <a href="https://kaztakata.github.io/celonis-hacks/tags/event-collection/">Event Collection</a>&nbsp;
+        
+        <a href="https://kaztakata.github.io/celonis-hacks/tags/transformation/">Transformation</a>&nbsp;
+        
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
     <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-02-26-insert-simple-record-into-activity-table/">
         <h2 class="post-title">Insert Simple Record into Activity Table</h2>
         
@@ -217,7 +267,7 @@ if (!doNotTrack) {
     &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;minutes
   
   
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;492&nbsp;words
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;499&nbsp;words
   
   
     
@@ -243,8 +293,6 @@ From now I would like to insert activity record to that table. Based on the disc
         <a href="https://kaztakata.github.io/celonis-hacks/tags/event-collection/">Event Collection</a>&nbsp;
         
         <a href="https://kaztakata.github.io/celonis-hacks/tags/transformation/">Transformation</a>&nbsp;
-        
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/data-model/">Data Model</a>&nbsp;
         
     </div>
     
@@ -686,59 +734,16 @@ First point is to split Activity name to two parts, more general part and detail
 
 </article>
           
-            <article class="post-preview">
-    <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-07-17-transform-source-system-tables-to-minimize-data-model-tables/">
-        <h2 class="post-title">Transform Source System Tables to Minimize Data Model Tables</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on map[Count:2021-07-17]
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;minutes
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;338&nbsp;words
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kazuhiko Takata
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        In the last part of previous post Utilize N-M relationship between Activity and Dimension Tables, I said just mimicing source system&rsquo;s table structure to data model is not useful for Celonis data model. Also I feel loading time to data model is exponentially long when one more table is added. So minimizing data model table is good practice especially for real time analytics.
-In case of SAP Order to Cash (O2C) scenario, case table is sales order item (VBAP).
-        <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-07-17-transform-source-system-tables-to-minimize-data-model-tables/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/data-model/">Data Model</a>&nbsp;
-        
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/event-collection/">Event Collection</a>&nbsp;
-        
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/transformation/">Transformation</a>&nbsp;
-        
-    </div>
-    
-
-</article>
-          
         </div>
+        
+          <ul class="pager main-pager">
+            
+            
+              <li class="next">
+                <a href="https://kaztakata.github.io/celonis-hacks/tags/transformation/page/2/">Older Posts &rarr;</a>
+              </li>
+            
+          </ul>
         
       </div>
     </div>

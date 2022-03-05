@@ -60,11 +60,11 @@ From now I would like to insert activity record to that table. Based on the disc
   "headline": "Insert Simple Record into Activity Table",
   "description" : "In the last post of Determine Process Mining Tables based on Project Goal, I talked strategy of transforming Planio data to event log. Then I wrote SQL to create activity table.\nFrom now I would like to insert activity record to that table. Based on the discussion of last post, at least I need two activities Raise Issue and Close Issue to measure throughput time between them. That is the next step to achieve my goal.",
   "inLanguage" : "en",
-  "wordCount":  492 ,
+  "wordCount":  499 ,
   "datePublished" : "2022-02-26T09:14:12",
   "dateModified" : "2022-02-26T09:14:12",
   "image" : "https:\/\/kaztakata.github.io\/celonis-hacks",
-  "keywords" : [ "Event Collection, Transformation, Data Model" ],
+  "keywords" : [ "Event Collection, Transformation" ],
   "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-02-26-insert-simple-record-into-activity-table\/",
   "publisher" : {
     "@type": "Organization",
@@ -253,7 +253,8 @@ if (!doNotTrack) {
         <p>In the last post of <a href="../2022-02-19-determine-process-mining-tables-based-on-project-goal">Determine Process Mining Tables based on Project Goal</a>, I talked strategy of transforming Planio data to event log. Then I wrote SQL to create activity table.</p>
 <p>From now I would like to insert activity record to that table. Based on the discussion of last post, at least I need two activities <code>Raise Issue</code> and <code>Close Issue</code> to measure throughput time between them. That is the next step to achieve my goal.</p>
 <p>First, <code>Raise Issue</code> activity is happened when Planio issue record is created. As I already looked at <a href="../2022-01-22-configure-endpoint-for-suitable-extraction">Configure Endpoint for Suitable Extraction</a>, when new issue record is created, it is transferred to <code>issues</code> table in Celonis EMS. I can see <code>created_on</code> column as <code>EVENTTIME</code> and <code>author$id</code> column as <code>changed_by</code> in issue table, and of course <code>issues</code> table has its primary key column <code>id</code>, it is enough to use only <code>issues</code> table to create <code>Raise Issue</code> activity. Simply I can write draft SQL as below.</p>
-<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">_cel_pl_activities</span> <span class="p">(</span>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- draft --
+</span><span class="c1"></span><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">_cel_pl_activities</span> <span class="p">(</span>
      <span class="n">_CASE_KEY</span>
     <span class="p">,</span><span class="n">ACTIVITY_EN</span>
     <span class="p">,</span><span class="n">EVENTTIME</span>
@@ -272,7 +273,8 @@ if (!doNotTrack) {
 <p>To complete first SQL, I need two more columns <code>_SORTING</code> and <code>_CELONIS_CHANGE_DATE</code>. <code>_SORTING</code> is the integer value to prioritize activity order if two or more activities are same <code>EVENTTIME</code>. It is sometimes happened if I changed many fields and save data at once e.g. I assume there is no activity that happened same timing as <code>Raise Issue</code>, so any value is fine. This time I set <code>0</code>. Regarding <code>_CELONIS_CHANGE_DATE</code>, I already saw this column at <a href="../2021-12-04-verify-cloning-table-contents-via-delta-load">Verify Cloning Table Contents via Delta Load</a>. This column is automatically inserted timing of extraction.
 It is effective for future debug, so I decide same strategy to my activity table too. I can use <code>NOW()</code> function to insert timinig of <code>INSERT</code> execution.</p>
 <p>Final version of SQL to insert <code>Raise Issue</code> is below.</p>
-<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">_cel_pl_activities</span> <span class="p">(</span>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- final --
+</span><span class="c1"></span><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">_cel_pl_activities</span> <span class="p">(</span>
      <span class="n">_CASE_KEY</span>
     <span class="p">,</span><span class="n">ACTIVITY_EN</span>
     <span class="p">,</span><span class="n">EVENTTIME</span>
@@ -289,7 +291,7 @@ It is effective for future debug, so I decide same strategy to my activity table
     <span class="p">,</span><span class="n">NOW</span><span class="p">()</span> <span class="k">AS</span> <span class="n">_CELONIS_CHANGE_DATE</span>
 <span class="k">FROM</span> <span class="n">issues</span>
 <span class="p">;</span>
-</code></pre></div><p>Today is simplest transformation case in process mining. Next time I would like to show another case of joining tables.</p>
+</code></pre></div><p>Today is the simplest transformation case in process mining. Next time I would like to show another case of joining tables.</p>
 <p>Kaz</p>
 
 
@@ -299,8 +301,6 @@ It is effective for future debug, so I decide same strategy to my activity table
               <a href="https://kaztakata.github.io/celonis-hacks/tags/event-collection/">Event Collection</a>&nbsp;
             
               <a href="https://kaztakata.github.io/celonis-hacks/tags/transformation/">Transformation</a>&nbsp;
-            
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/data-model/">Data Model</a>&nbsp;
             
           </div>
         
@@ -372,6 +372,8 @@ It is effective for future debug, so I decide same strategy to my activity table
                   <ul>
                 
                 
+                    <li><a href="/celonis-hacks/posts/2022-03-05-compose-activity-from-joining-multiple-tables/">Compose Activity from Joining Multiple Tables</a></li>
+                
                     <li><a href="/celonis-hacks/posts/2022-02-19-determine-process-mining-tables-based-on-project-goal/">Determine Process Mining Tables based on Project Goal</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2022-02-12-consider-case-id-before-starting-transformation/">Consider Case ID before Starting Transformation</a></li>
@@ -379,8 +381,6 @@ It is effective for future debug, so I decide same strategy to my activity table
                     <li><a href="/celonis-hacks/posts/2022-02-05-tune-endpoint-parameter-relevant-to-delta-load/">Tune Endpoint Parameter Relevant to Delta Load</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2022-01-29-setup-dependent-endpoint-in-extractor-builder/">Setup Dependent Endpoint in Extractor Builder</a></li>
-                
-                    <li><a href="/celonis-hacks/posts/2022-01-22-configure-endpoint-for-suitable-extraction/">Configure Endpoint for Suitable Extraction</a></li>
                 
               </ul>
 
@@ -395,6 +395,10 @@ It is effective for future debug, so I decide same strategy to my activity table
               <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-02-19-determine-process-mining-tables-based-on-project-goal/" data-toggle="tooltip" data-placement="top" title="Determine Process Mining Tables based on Project Goal">&larr; Previous Post</a>
             </li>
           
+          
+            <li class="next">
+              <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-03-05-compose-activity-from-joining-multiple-tables/" data-toggle="tooltip" data-placement="top" title="Compose Activity from Joining Multiple Tables">Next Post &rarr;</a>
+            </li>
           
         </ul>
       

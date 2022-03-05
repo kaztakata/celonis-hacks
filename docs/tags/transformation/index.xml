@@ -5,10 +5,20 @@
     <link>https://kaztakata.github.io/celonis-hacks/tags/transformation/</link>
     <description>Recent content in Transformation on Celonis hacks</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 26 Feb 2022 09:14:12 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 05 Mar 2022 08:30:59 +0900</lastBuildDate>
     
 	<atom:link href="https://kaztakata.github.io/celonis-hacks/tags/transformation/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Compose Activity from Joining Multiple Tables</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2022-03-05-compose-activity-from-joining-multiple-tables/</link>
+      <pubDate>Sat, 05 Mar 2022 08:30:59 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2022-03-05-compose-activity-from-joining-multiple-tables/</guid>
+      <description>In the last post of Insert Simple Record into Activity Table, I created SQL to insert Raise Issue activity. That SQL was simple because only one table issues are used as data source. Today I will create SQL of Close Issue activity that requires multiple tables.
+Same as previous post, first I should analyze columns to compose Close Issue activity. This is happend when I change Status column in each issue, so I need change history.</description>
+    </item>
     
     <item>
       <title>Insert Simple Record into Activity Table</title>

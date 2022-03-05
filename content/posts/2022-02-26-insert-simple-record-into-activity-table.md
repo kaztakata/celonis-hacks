@@ -2,7 +2,7 @@
 title: "Insert Simple Record into Activity Table"
 date: 2022-02-26T09:14:12+09:00
 draft: false
-tags: ['Event Collection','Transformation','Data Model']
+tags: ['Event Collection','Transformation']
 ---
 
 In the last post of [Determine Process Mining Tables based on Project Goal](../2022-02-19-determine-process-mining-tables-based-on-project-goal), I talked strategy of transforming Planio data to event log. Then I wrote SQL to create activity table. 
@@ -12,6 +12,7 @@ From now I would like to insert activity record to that table. Based on the disc
 First, `Raise Issue` activity is happened when Planio issue record is created. As I already looked at [Configure Endpoint for Suitable Extraction](../2022-01-22-configure-endpoint-for-suitable-extraction), when new issue record is created, it is transferred to `issues` table in Celonis EMS. I can see `created_on` column as `EVENTTIME` and `author$id` column as `changed_by` in issue table, and of course `issues` table has its primary key column `id`, it is enough to use only `issues` table to create `Raise Issue` activity. Simply I can write draft SQL as below.
 
 ```sql
+-- draft --
 INSERT INTO _cel_pl_activities (
      _CASE_KEY
     ,ACTIVITY_EN
@@ -39,6 +40,7 @@ It is effective for future debug, so I decide same strategy to my activity table
 Final version of SQL to insert `Raise Issue` is below.
 
 ```sql
+-- final --
 INSERT INTO _cel_pl_activities (
      _CASE_KEY
     ,ACTIVITY_EN
@@ -58,6 +60,6 @@ FROM issues
 ;
 ```
 
-Today is simplest transformation case in process mining. Next time I would like to show another case of joining tables.
+Today is the simplest transformation case in process mining. Next time I would like to show another case of joining tables.
 
 Kaz

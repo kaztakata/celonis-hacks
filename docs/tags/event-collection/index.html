@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
   <title>Overview of all pages with the tag #Event Collection - Celonis hacks</title>
-  <meta name="description" content="Overview of all pages with the tag #Event Collection, such as: Insert Simple Record into Activity Table">
+  <meta name="description" content="Overview of all pages with the tag #Event Collection, such as: Compose Activity from Joining Multiple Tables">
   <meta name="author" content="Kazuhiko Takata"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -200,6 +200,56 @@ if (!doNotTrack) {
         <div class="posts-list">
           
             <article class="post-preview">
+    <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-03-05-compose-activity-from-joining-multiple-tables/">
+        <h2 class="post-title">Compose Activity from Joining Multiple Tables</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on map[Count:2022-03-05]
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;minutes
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;567&nbsp;words
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kazuhiko Takata
+    
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        In the last post of Insert Simple Record into Activity Table, I created SQL to insert Raise Issue activity. That SQL was simple because only one table issues are used as data source. Today I will create SQL of Close Issue activity that requires multiple tables.
+Same as previous post, first I should analyze columns to compose Close Issue activity. This is happend when I change Status column in each issue, so I need change history.
+        <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-03-05-compose-activity-from-joining-multiple-tables/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+        <a href="https://kaztakata.github.io/celonis-hacks/tags/event-collection/">Event Collection</a>&nbsp;
+        
+        <a href="https://kaztakata.github.io/celonis-hacks/tags/transformation/">Transformation</a>&nbsp;
+        
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
     <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-02-26-insert-simple-record-into-activity-table/">
         <h2 class="post-title">Insert Simple Record into Activity Table</h2>
         
@@ -217,7 +267,7 @@ if (!doNotTrack) {
     &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;minutes
   
   
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;492&nbsp;words
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;499&nbsp;words
   
   
     
@@ -243,8 +293,6 @@ From now I would like to insert activity record to that table. Based on the disc
         <a href="https://kaztakata.github.io/celonis-hacks/tags/event-collection/">Event Collection</a>&nbsp;
         
         <a href="https://kaztakata.github.io/celonis-hacks/tags/transformation/">Transformation</a>&nbsp;
-        
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/data-model/">Data Model</a>&nbsp;
         
     </div>
     
@@ -646,62 +694,6 @@ First issue is regarding source system itself. We would like to guarantee source
         <a href="https://kaztakata.github.io/celonis-hacks/tags/event-collection/">Event Collection</a>&nbsp;
         
         <a href="https://kaztakata.github.io/celonis-hacks/tags/extraction/">Extraction</a>&nbsp;
-        
-    </div>
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-12-18-use-pseudonymized-column-as-grouping-key/">
-        <h2 class="post-title">Use Pseudonymized Column as Grouping Key</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on map[Count:2021-12-18]
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;minutes
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;469&nbsp;words
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kazuhiko Takata
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        One of the biggest headache for data engineer like me is how to assure data security when extracting data. Especially personal information should be dealt sensitively, otherwise I may be punished by each region&rsquo;s law (e.g. GDPR).
-When I operate Celonis EMS, I try not to extract sensitive information from the beginning, for example I do not extract table of customer address (ADRC table in SAP etc.). But this information is sometimes effective for grouping key of counting case etc.
-        <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-12-18-use-pseudonymized-column-as-grouping-key/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/event-collection/">Event Collection</a>&nbsp;
-        
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/extractor/">Extractor</a>&nbsp;
-        
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/extraction/">Extraction</a>&nbsp;
-        
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/transformation/">Transformation</a>&nbsp;
-        
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/data-job/">Data Job</a>&nbsp;
         
     </div>
     
