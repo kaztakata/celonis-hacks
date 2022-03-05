@@ -7,7 +7,7 @@ tags: ['PQL','Process Analytics']
 
 At the previous post of [Customize Process Explorer](../2021-05-08-customize-process-explorer/), I showed how to determine throughput time between two activities. This KPI is visible when expanding Process Explorer, but font size of Process Explorer become smaller and smaller when expanding connections, so it is difficult to grasp overview of throughput time.
 
-Until previous post, I usually used OLAP table to show the list of KPI value. Of course it is good enough to grasp overview, but today I used different component 'Pivot Table' to show KPI.
+Until previous post, I usually used OLAP table to show the list of KPI value. Of course it is good enough to grasp overview, but today I used different component Pivot Table to show KPI.
 
 Pivot Table in Celonis is similar to that of other solution, like Microsoft Excel. Characteristics of Pivot Table is two dimensions located at row and column as matrix, and one KPI value like below image. Compared with OLAP table, Pivot Table can only see one KPI at once, but matrix of two dimensions are easy to point out KPI value at one cell and look around neighbor value.
 
