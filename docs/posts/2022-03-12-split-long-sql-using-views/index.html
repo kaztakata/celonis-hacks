@@ -7,9 +7,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Compose Activity from Joining Multiple Tables - Celonis hacks</title>
-  <meta name="description" content="In the last post of Insert Simple Record into Activity Table, I created SQL to insert Raise Issue activity. That SQL was simple because only one table issues are used as data source. Today I will create SQL of Close Issue activity that requires multiple tables.
-Same as previous post, first I should analyze columns to compose Close Issue activity. This is happend when I change Status column in each issue, so I need change history.">
+  <title>Split Long SQL Using Views - Celonis hacks</title>
+  <meta name="description" content="At last post I wrote Compose Activity from Joining Multiple Tables to create second activity Close Issue. Final version of SQL statement was long even I just used three tables. In real process mining project I handled hundred of tables and wrote quite long SQLs. At that time I faced same patterns of SQL in multiple activities. So I introduces VIEW in my SQLs for grouping same pattern of SELECT SQL, similar to create function (method) in programming.">
   <meta name="author" content="Kazuhiko Takata"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -45,8 +44,8 @@ Same as previous post, first I should analyze columns to compose Close Issue act
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-03-05-compose-activity-from-joining-multiple-tables\/",
-          "name": "Compose activity from joining multiple tables"
+          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-03-12-split-long-sql-using-views\/",
+          "name": "Split long sql using views"
         }
     }]
 }
@@ -57,15 +56,15 @@ Same as previous post, first I should analyze columns to compose Close Issue act
   "author": {
     "name" : "Kazuhiko Takata"
   },
-  "headline": "Compose Activity from Joining Multiple Tables",
-  "description" : "In the last post of Insert Simple Record into Activity Table, I created SQL to insert Raise Issue activity. That SQL was simple because only one table issues are used as data source. Today I will create SQL of Close Issue activity that requires multiple tables.\nSame as previous post, first I should analyze columns to compose Close Issue activity. This is happend when I change Status column in each issue, so I need change history.",
+  "headline": "Split Long SQL Using Views",
+  "description" : "At last post I wrote Compose Activity from Joining Multiple Tables to create second activity Close Issue. Final version of SQL statement was long even I just used three tables. In real process mining project I handled hundred of tables and wrote quite long SQLs. At that time I faced same patterns of SQL in multiple activities. So I introduces VIEW in my SQLs for grouping same pattern of SELECT SQL, similar to create function (method) in programming.",
   "inLanguage" : "en",
-  "wordCount":  570 ,
-  "datePublished" : "2022-03-05T08:30:59",
-  "dateModified" : "2022-03-05T08:30:59",
+  "wordCount":  564 ,
+  "datePublished" : "2022-03-12T16:28:51",
+  "dateModified" : "2022-03-12T16:28:51",
   "image" : "https:\/\/kaztakata.github.io\/celonis-hacks",
   "keywords" : [ "Event Collection, Transformation" ],
-  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-03-05-compose-activity-from-joining-multiple-tables\/",
+  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-03-12-split-long-sql-using-views\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/kaztakata.github.io\/celonis-hacks",
@@ -79,15 +78,14 @@ Same as previous post, first I should analyze columns to compose Close Issue act
 }
 </script>
 
-<meta property="og:title" content="Compose Activity from Joining Multiple Tables" />
-<meta property="og:description" content="In the last post of Insert Simple Record into Activity Table, I created SQL to insert Raise Issue activity. That SQL was simple because only one table issues are used as data source. Today I will create SQL of Close Issue activity that requires multiple tables.
-Same as previous post, first I should analyze columns to compose Close Issue activity. This is happend when I change Status column in each issue, so I need change history.">
-<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2022-03-05-compose-activity-from-joining-multiple-tables/" />
+<meta property="og:title" content="Split Long SQL Using Views" />
+<meta property="og:description" content="At last post I wrote Compose Activity from Joining Multiple Tables to create second activity Close Issue. Final version of SQL statement was long even I just used three tables. In real process mining project I handled hundred of tables and wrote quite long SQLs. At that time I faced same patterns of SQL in multiple activities. So I introduces VIEW in my SQLs for grouping same pattern of SELECT SQL, similar to create function (method) in programming.">
+<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2022-03-12-split-long-sql-using-views/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Celonis hacks" />
 
-  <meta name="twitter:title" content="Compose Activity from Joining Multiple Tables" />
-  <meta name="twitter:description" content="In the last post of Insert Simple Record into Activity Table, I created SQL to insert Raise Issue activity. That SQL was simple because only one table issues are used as data source. Today I will …">
+  <meta name="twitter:title" content="Split Long SQL Using Views" />
+  <meta name="twitter:description" content="At last post I wrote Compose Activity from Joining Multiple Tables to create second activity Close Issue. Final version of SQL statement was long even I just used three tables. In real process mining …">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
@@ -229,7 +227,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="posts-heading">
               
-                <h1>Compose Activity from Joining Multiple Tables</h1>
+                <h1>Split Long SQL Using Views</h1>
               
               
                 <hr class="small">
@@ -249,74 +247,58 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>In the last post of <a href="../2022-02-26-insert-simple-record-into-activity-table">Insert Simple Record into Activity Table</a>, I created SQL to insert <code>Raise Issue</code> activity. That SQL was simple because only one table <code>issues</code> are used as data source. Today I will create SQL of <code>Close Issue</code> activity that requires multiple tables.</p>
-<p>Same as previous post, first I should analyze columns to compose <code>Close Issue</code> activity. This is happend when I change Status column in each issue, so I need change history. I already looked at where is change hisory table, that is <code>journals</code> table and <code>journals$details</code> table (see <a href="../2022-01-29-setup-dependent-endpoint-in-extractor-builder">Setup Dependent Endpoint in Extractor Builder</a>). As discussed these two tables are recorded at same timing.</p>
-<p>This time case key is provided by <code>issues</code> table, but other columns are provided by change history tables. Looking at columns (you can browse columns by Schema Explorer in transformation screen), <code>journals.created_on</code> is <code>EVENTTIME</code> and <code>journals.&quot;user$id&quot;</code> is <code>changed_by</code> column respectively. I created draft SQL (only <code>SELECT</code> statement) as below.</p>
-<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- draft 1 --
-</span><span class="c1"></span><span class="k">SELECT</span> <span class="k">DISTINCT</span>
-     <span class="n">i</span><span class="p">.</span><span class="n">id</span> <span class="k">AS</span> <span class="n">_CASE_KEY</span>
-    <span class="p">,</span><span class="s1">&#39;Close Issue&#39;</span> <span class="k">AS</span> <span class="n">ACTIVITY_EN</span> 
-    <span class="p">,</span><span class="n">j</span><span class="p">.</span><span class="n">created_on</span> <span class="k">AS</span> <span class="n">EVENTTIME</span>
-    <span class="p">,</span><span class="n">j</span><span class="p">.</span><span class="s2">&#34;user$id&#34;</span> <span class="k">AS</span> <span class="n">changed_by</span>
-<span class="k">FROM</span> <span class="n">issues</span> <span class="k">AS</span> <span class="n">i</span>            <span class="c1">-- i is alias of issues
-</span><span class="c1"></span><span class="k">JOIN</span> <span class="n">journals</span> <span class="k">AS</span> <span class="n">j</span> <span class="k">ON</span> <span class="mi">1</span><span class="o">=</span><span class="mi">1</span>   <span class="c1">-- j is alias of journals
-</span><span class="c1"></span>    <span class="k">AND</span> <span class="n">i</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">j</span><span class="p">.</span><span class="s2">&#34;issues$id&#34;</span>
+        <p>At last post I wrote <a href="../2022-03-05-compose-activity-from-joining-multiple-tables">Compose Activity from Joining Multiple Tables</a> to create second activity <code>Close Issue</code>. Final version of SQL statement was long even I just used three tables. In real process mining project I handled hundred of tables and wrote quite long SQLs. At that time I faced same patterns of SQL in multiple activities. So I introduces <code>VIEW</code> in my SQLs for grouping same pattern of <code>SELECT</code> SQL, similar to create function (method) in programming. I would like to try it using current project.</p>
+<p>Going back to my goal 2) How many users are involved until closing issue written in <a href="../2022-02-19-determine-process-mining-tables-based-on-project-goal">Determine Process Mining Tables based on Project Goal</a>, I would like to create few activities in the middle of on-going issues. For example I would like to add <code>Take Note</code> and <code>Update Progress</code> activities those are relevant to second and third updates in below screen.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/158009616-821663ae-b12f-4e4e-a8fa-90addfea1380.png"><img src="https://user-images.githubusercontent.com/67397583/158009616-821663ae-b12f-4e4e-a8fa-90addfea1380.png" alt="image"></a></p>
+<p>Because these are Planio issue changes appending to change history (journals), necessary fields for activity record are same as <code>Close Issue</code> but filtering conditons are different. So I executed Delta Load and see the data by transformation. I found <code>Update Progress</code> is similar to <code>Close Issue</code> pattern, changing from <code>status_id</code> to <code>done_ratio</code> in the filter condition of <code>&quot;journals$details&quot;.name</code>. On the other hand <code>Take Note</code> does not have <code>&quot;journals$details&quot;</code> record but <code>journals.notes</code> column is filled by what I wrote in Planio.</p>
+<p>Until above observation, I feel there is pattern to join <code>journals</code> and <code>journals$details</code>. Considering <code>Take Note</code> (no <code>journals$details</code> record) case, it is better to use <code>LEFT JOIN</code> than <code>JOIN</code>. So I write below SQL to create <code>tmp_pl_journals VIEW</code>.</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">CREATE</span> <span class="k">VIEW</span> <span class="n">tmp_pl_journals</span> <span class="k">AS</span>
+<span class="k">SELECT</span>
+     <span class="n">j</span><span class="p">.</span><span class="n">id</span> <span class="k">AS</span> <span class="n">id</span>
+    <span class="p">,</span><span class="n">j</span><span class="p">.</span><span class="n">notes</span> <span class="k">AS</span> <span class="n">notes</span>
+    <span class="p">,</span><span class="n">j</span><span class="p">.</span><span class="n">created_on</span> <span class="k">AS</span> <span class="n">created_on</span>
+    <span class="p">,</span><span class="n">j</span><span class="p">.</span><span class="s2">&#34;issues$id&#34;</span> <span class="k">AS</span> <span class="s2">&#34;issues$id&#34;</span>
+    <span class="p">,</span><span class="n">j</span><span class="p">.</span><span class="s2">&#34;user$id&#34;</span> <span class="k">AS</span> <span class="s2">&#34;user$id&#34;</span>
+    <span class="p">,</span><span class="n">d</span><span class="p">.</span><span class="n">name</span> <span class="k">AS</span> <span class="n">name</span>
+    <span class="p">,</span><span class="n">d</span><span class="p">.</span><span class="n">old_value</span> <span class="k">AS</span> <span class="n">old_value</span>
+    <span class="p">,</span><span class="n">d</span><span class="p">.</span><span class="n">new_value</span> <span class="k">AS</span> <span class="n">new_value</span>
+<span class="k">FROM</span> <span class="n">journals</span> <span class="k">AS</span> <span class="n">j</span>
+<span class="k">LEFT</span> <span class="k">JOIN</span> <span class="s2">&#34;journals$details&#34;</span> <span class="k">AS</span> <span class="n">d</span> <span class="k">ON</span> <span class="mi">1</span><span class="o">=</span><span class="mi">1</span>
+    <span class="k">AND</span> <span class="n">j</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">d</span><span class="p">.</span><span class="n">journals_id</span>
 <span class="p">;</span>
-</code></pre></div><p>Is it enough ? No, I should restrict record of <code>journals</code> to only status change to closed one. To do this I need to check <code>journals$details</code> table additionally.</p>
-<p>Change column is stored at <code>&quot;journals$details&quot;.name</code> column, and in case of status column it is <code>status_id</code>. Also changed to value is stored at <code>&quot;journals$details&quot;.new_value</code> column, and closed status in my enviornment is <code>8</code>. I use <code>JOIN</code> to get these columns and use <code>WHERE</code> clause to restrict journal record as below.</p>
-<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- draft 2 --
+</code></pre></div><p>Using view <code>tmp_pl_journals</code> skips to write JOIN between <code>journals</code> and <code>journals$details</code>. In case of <code>Close Issue</code>, final version SQL of last post is changed to,</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- only SELECT statement --
 </span><span class="c1"></span><span class="k">SELECT</span> <span class="k">DISTINCT</span>
-     <span class="n">i</span><span class="p">.</span><span class="n">id</span> <span class="k">AS</span> <span class="n">_CASE_KEY</span>
-    <span class="p">,</span><span class="s1">&#39;Close Issue&#39;</span> <span class="k">AS</span> <span class="n">ACTIVITY_EN</span> 
-    <span class="p">,</span><span class="n">j</span><span class="p">.</span><span class="n">created_on</span> <span class="k">AS</span> <span class="n">EVENTTIME</span>
-    <span class="p">,</span><span class="n">j</span><span class="p">.</span><span class="s2">&#34;user$id&#34;</span> <span class="k">AS</span> <span class="n">changed_by</span>
-<span class="k">FROM</span> <span class="n">issues</span> <span class="k">AS</span> <span class="n">i</span>
-<span class="k">JOIN</span> <span class="n">journals</span> <span class="k">AS</span> <span class="n">j</span> <span class="k">ON</span> <span class="mi">1</span><span class="o">=</span><span class="mi">1</span>
-    <span class="k">AND</span> <span class="n">i</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">j</span><span class="p">.</span><span class="s2">&#34;issues$id&#34;</span>
-<span class="k">JOIN</span> <span class="s2">&#34;journals$details&#34;</span> <span class="k">AS</span> <span class="n">d</span> <span class="k">ON</span> <span class="mi">1</span><span class="o">=</span><span class="mi">1</span> <span class="c1">-- d is alias of journals$details
-</span><span class="c1"></span>    <span class="k">AND</span> <span class="n">j</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">d</span><span class="p">.</span><span class="n">journals_id</span>
-<span class="k">WHERE</span> <span class="mi">1</span><span class="o">=</span><span class="mi">1</span>
-    <span class="k">AND</span> <span class="n">d</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;status_id&#39;</span>        <span class="c1">-- only column of status
-</span><span class="c1"></span>    <span class="k">AND</span> <span class="n">d</span><span class="p">.</span><span class="n">new_value</span> <span class="o">=</span> <span class="mi">8</span>             <span class="c1">-- only closed status (value 8 is dependent on my enviornment)
-</span><span class="c1"></span><span class="p">;</span>
-</code></pre></div><p>To complete SQL, I should add <code>_SORTING</code> and <code>_CELONIS_CHANGE_DATE</code> columns same as previous post. Also for future tracking purpose, I added few information columns from <code>journals</code> and <code>journals$details</code>. Finally I add <code>INSERT</code> statement and final version is as below. In my environment, I ran SQL successfully.</p>
-<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- final version --
-</span><span class="c1"></span><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">_cel_pl_activities</span> <span class="p">(</span>
-     <span class="n">_CASE_KEY</span>
-    <span class="p">,</span><span class="n">_ACTIVITY_MAIN_TABLE</span>
-    <span class="p">,</span><span class="n">_ACTIVITY_KEY</span>
-    <span class="p">,</span><span class="n">ACTIVITY_EN</span>
-    <span class="p">,</span><span class="n">EVENTTIME</span>
-    <span class="p">,</span><span class="n">_SORTING</span> 
-    <span class="p">,</span><span class="n">changed_by</span>
-    <span class="p">,</span><span class="n">changed_attr</span>
-    <span class="p">,</span><span class="n">changed_from</span>
-    <span class="p">,</span><span class="n">changed_to</span>
-    <span class="p">,</span><span class="n">_CELONIS_CHANGE_DATE</span>
-<span class="p">)</span>
-<span class="k">SELECT</span> <span class="k">DISTINCT</span>
      <span class="n">i</span><span class="p">.</span><span class="n">id</span> <span class="k">AS</span> <span class="n">_CASE_KEY</span>
     <span class="p">,</span><span class="s1">&#39;journals&#39;</span> <span class="k">AS</span> <span class="n">_ACTIVITY_MAIN_TABLE</span> <span class="c1">-- which table I mainly get event log 
-</span><span class="c1"></span>    <span class="p">,</span><span class="n">j</span><span class="p">.</span><span class="n">id</span><span class="o">||</span><span class="s1">&#39;:&#39;</span><span class="o">||</span><span class="n">d</span><span class="p">.</span><span class="n">name</span> <span class="k">AS</span> <span class="n">_ACTIVITY_KEY</span> <span class="c1">-- ID to find record of journals and journals$details
+</span><span class="c1"></span>    <span class="p">,</span><span class="n">j</span><span class="p">.</span><span class="n">id</span><span class="o">||</span><span class="s1">&#39;:&#39;</span><span class="o">||</span><span class="n">j</span><span class="p">.</span><span class="n">name</span> <span class="k">AS</span> <span class="n">_ACTIVITY_KEY</span> <span class="c1">-- ID to find record of journals and journals$details
 </span><span class="c1"></span>    <span class="p">,</span><span class="s1">&#39;Close Issue&#39;</span> <span class="k">AS</span> <span class="n">ACTIVITY_EN</span> 
     <span class="p">,</span><span class="n">j</span><span class="p">.</span><span class="n">created_on</span> <span class="k">AS</span> <span class="n">EVENTTIME</span>
     <span class="p">,</span><span class="mi">1000</span> <span class="k">AS</span> <span class="n">_SORTING</span>
     <span class="p">,</span><span class="n">j</span><span class="p">.</span><span class="s2">&#34;user$id&#34;</span> <span class="k">AS</span> <span class="n">changed_by</span>
-    <span class="p">,</span><span class="n">d</span><span class="p">.</span><span class="n">name</span> <span class="k">AS</span> <span class="n">changed_attr</span>             <span class="c1">-- changed column name
-</span><span class="c1"></span>    <span class="p">,</span><span class="n">d</span><span class="p">.</span><span class="n">old_value</span> <span class="k">AS</span> <span class="n">changed_from</span>        <span class="c1">-- changed from value
-</span><span class="c1"></span>    <span class="p">,</span><span class="n">d</span><span class="p">.</span><span class="n">new_value</span> <span class="k">AS</span> <span class="n">changed_to</span>          <span class="c1">-- changed to value
+    <span class="p">,</span><span class="n">j</span><span class="p">.</span><span class="n">name</span> <span class="k">AS</span> <span class="n">changed_attr</span>             <span class="c1">-- changed column name
+</span><span class="c1"></span>    <span class="p">,</span><span class="n">j</span><span class="p">.</span><span class="n">old_value</span> <span class="k">AS</span> <span class="n">changed_from</span>        <span class="c1">-- changed from value
+</span><span class="c1"></span>    <span class="p">,</span><span class="n">j</span><span class="p">.</span><span class="n">new_value</span> <span class="k">AS</span> <span class="n">changed_to</span>          <span class="c1">-- changed to value
 </span><span class="c1"></span>    <span class="p">,</span><span class="n">NOW</span><span class="p">()</span> <span class="k">AS</span> <span class="n">_CELONIS_CHANGE_DATE</span>
 <span class="k">FROM</span> <span class="n">issues</span> <span class="k">AS</span> <span class="n">i</span>
-<span class="k">JOIN</span> <span class="n">journals</span> <span class="k">AS</span> <span class="n">j</span> <span class="k">ON</span> <span class="mi">1</span><span class="o">=</span><span class="mi">1</span>
+<span class="k">JOIN</span> <span class="n">tmp_pl_journals</span> <span class="k">AS</span> <span class="n">j</span> <span class="k">ON</span> <span class="mi">1</span><span class="o">=</span><span class="mi">1</span>
     <span class="k">AND</span> <span class="n">i</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">j</span><span class="p">.</span><span class="s2">&#34;issues$id&#34;</span>
-<span class="k">JOIN</span> <span class="s2">&#34;journals$details&#34;</span> <span class="k">AS</span> <span class="n">d</span> <span class="k">ON</span> <span class="mi">1</span><span class="o">=</span><span class="mi">1</span>
-    <span class="k">AND</span> <span class="n">j</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">d</span><span class="p">.</span><span class="n">journals_id</span>
 <span class="k">WHERE</span> <span class="mi">1</span><span class="o">=</span><span class="mi">1</span>
-    <span class="k">AND</span> <span class="n">d</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;status_id&#39;</span>
-    <span class="k">AND</span> <span class="n">d</span><span class="p">.</span><span class="n">new_value</span> <span class="o">=</span> <span class="mi">8</span>
+    <span class="k">AND</span> <span class="n">j</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;status_id&#39;</span>
+    <span class="k">AND</span> <span class="n">j</span><span class="p">.</span><span class="n">new_value</span> <span class="o">=</span> <span class="mi">8</span>
 <span class="p">;</span>
-</code></pre></div><p><a href="https://user-images.githubusercontent.com/67397583/156861416-b6f92838-cc25-4260-8a5f-37dfbe5790bd.png"><img src="https://user-images.githubusercontent.com/67397583/156861416-b6f92838-cc25-4260-8a5f-37dfbe5790bd.png" alt="image"></a></p>
-<p>Today&rsquo;s SQL statement is double lines of previous one. Currently it is still readable but if I write more lines, I need to split SQL to multiple parts and manage readability. Next time I would like to show how to split SQL by creating view.</p>
+</code></pre></div><p>Compared with previous version, <code>JOIN</code> statement is shortened and I feel it is effective. This Planio <code>JOIN</code> key is one column, but in SAP tables at least two columns (one is always client number) so it is much effective.</p>
+<p>By the way, in case of <code>Take Note</code>, the SQL is</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- only WHERE clause --
+</span><span class="c1"></span><span class="k">WHERE</span> <span class="mi">1</span><span class="o">=</span><span class="mi">1</span>
+    <span class="k">AND</span> <span class="n">j</span><span class="p">.</span><span class="n">notes</span> <span class="k">IS</span> <span class="k">NOT</span> <span class="k">NULL</span>
+<span class="p">;</span>
+</code></pre></div><p>In case of <code>Update Progress</code>,</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- only WHERE clause --
+</span><span class="c1"></span><span class="k">WHERE</span> <span class="mi">1</span><span class="o">=</span><span class="mi">1</span>
+    <span class="k">AND</span> <span class="n">j</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;done_ratio&#39;</span>
+<span class="p">;</span>
+</code></pre></div><p>I can successfully crop <code>tmp_pl_journals</code> part as <code>VIEW</code> and split long SQL, and reuse this <code>VIEW</code> for another SQL of activities. But still there are three separate SQLs of <code>Close Issue</code>, <code>Take Note</code>, and <code>Update Progress</code>. In the next post I would like to integrate three SQLs to one using <code>CASE</code> expression.</p>
 <p>Kaz</p>
 
 
@@ -340,42 +322,42 @@ if (!doNotTrack) {
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-03-05-compose-activity-from-joining-multiple-tables%2f&amp;text=Compose%20Activity%20from%20Joining%20Multiple%20Tables&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-03-12-split-long-sql-using-views%2f&amp;text=Split%20Long%20SQL%20Using%20Views&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-03-05-compose-activity-from-joining-multiple-tables%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-03-12-split-long-sql-using-views%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-03-05-compose-activity-from-joining-multiple-tables%2f&amp;title=Compose%20Activity%20from%20Joining%20Multiple%20Tables" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-03-12-split-long-sql-using-views%2f&amp;title=Split%20Long%20SQL%20Using%20Views" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-03-05-compose-activity-from-joining-multiple-tables%2f&amp;title=Compose%20Activity%20from%20Joining%20Multiple%20Tables" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-03-12-split-long-sql-using-views%2f&amp;title=Split%20Long%20SQL%20Using%20Views" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-03-05-compose-activity-from-joining-multiple-tables%2f&amp;title=Compose%20Activity%20from%20Joining%20Multiple%20Tables" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-03-12-split-long-sql-using-views%2f&amp;title=Split%20Long%20SQL%20Using%20Views" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-03-05-compose-activity-from-joining-multiple-tables%2f&amp;description=Compose%20Activity%20from%20Joining%20Multiple%20Tables" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-03-12-split-long-sql-using-views%2f&amp;description=Split%20Long%20SQL%20Using%20Views" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -397,7 +379,7 @@ if (!doNotTrack) {
                   <ul>
                 
                 
-                    <li><a href="/celonis-hacks/posts/2022-03-12-split-long-sql-using-views/">Split Long SQL Using Views</a></li>
+                    <li><a href="/celonis-hacks/posts/2022-03-05-compose-activity-from-joining-multiple-tables/">Compose Activity from Joining Multiple Tables</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2022-02-26-insert-simple-record-into-activity-table/">Insert Simple Record into Activity Table</a></li>
                 
@@ -417,13 +399,9 @@ if (!doNotTrack) {
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-02-26-insert-simple-record-into-activity-table/" data-toggle="tooltip" data-placement="top" title="Insert Simple Record into Activity Table">&larr; Previous Post</a>
+              <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-03-05-compose-activity-from-joining-multiple-tables/" data-toggle="tooltip" data-placement="top" title="Compose Activity from Joining Multiple Tables">&larr; Previous Post</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-03-12-split-long-sql-using-views/" data-toggle="tooltip" data-placement="top" title="Split Long SQL Using Views">Next Post &rarr;</a>
-            </li>
           
         </ul>
       

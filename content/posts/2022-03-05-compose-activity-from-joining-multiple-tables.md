@@ -29,7 +29,7 @@ Is it enough ? No, I should restrict record of `journals` to only status change 
 Change column is stored at `"journals$details".name` column, and in case of status column it is `status_id`. Also changed to value is stored at `"journals$details".new_value` column, and closed status in my enviornment is `8`. I use `JOIN` to get these columns and use `WHERE` clause to restrict journal record as below.
 
 ```sql
--- draft 2--
+-- draft 2 --
 SELECT DISTINCT
      i.id AS _CASE_KEY
     ,'Close Issue' AS ACTIVITY_EN 
@@ -49,7 +49,7 @@ WHERE 1=1
 To complete SQL, I should add `_SORTING` and `_CELONIS_CHANGE_DATE` columns same as previous post. Also for future tracking purpose, I added few information columns from `journals` and `journals$details`. Finally I add `INSERT` statement and final version is as below. In my environment, I ran SQL successfully.
 
 ```sql
--- final
+-- final version --
 INSERT INTO _cel_pl_activities (
      _CASE_KEY
     ,_ACTIVITY_MAIN_TABLE
