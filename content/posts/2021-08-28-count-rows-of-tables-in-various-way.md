@@ -19,7 +19,7 @@ Even `COUNT_TABLE` column is correctly working, but this OLAP table is actually 
 
 Third test is using `COUNT DISTINCT` function that calculates the number of distinct elements per group. So I concatenated table primary keys, `EKKO.MANDT||EKKO.EBELN` for header count, and `EKPO.MANDT||EKPO.EBELN||EKPO.EBELP` for item count. Counting result of three tables are good. Why ? Because I explicitly count distinct primary keys even rows of header and item tables are duplicated.
 
-Result of last column (Net value) is duplicated too, but it is predicted. Fourth column that is counting Activity column (_CASE_KEY) is affected to duplication of Net value. To prevent it, counting Activity without joining Activity table. To do so I can use Pull up function `SUM(PU_COUNT(EKPO,_CEL_P2P_ACTIVITIES_EN._CASE_KEY))` that is initially count rows of Activity table by each item, then sum up the result of each item.
+Result of last column (Net value) is duplicated too, but it is predicted. Fourth column that is counting Activity column (_CASE_KEY) is affected to duplication of Net value. To prevent it, counting Activity without joining Activity table. To do so I can use Pull up function `SUM(PU_COUNT(EKPO, _CEL_P2P_ACTIVITIES_EN._CASE_KEY ))` that is initially count rows of Activity table by each item, then sum up the result of each item.
 
 In the end either `COUNT_TABLE` or `COUNT DISTINCT` is possible to correctly count rows of tables, but especially for `COUNT_TABLE` please be careful that target table is internally joined and that may affect to result of other columns.
 
