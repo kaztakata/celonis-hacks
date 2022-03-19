@@ -4,31 +4,36 @@
   
   <url>
     <loc>https://kaztakata.github.io/celonis-hacks/</loc>
-    <lastmod>2022-03-12T16:28:51+09:00</lastmod>
+    <lastmod>2022-03-19T09:14:35+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://kaztakata.github.io/celonis-hacks/tags/event-collection/</loc>
-    <lastmod>2022-03-12T16:28:51+09:00</lastmod>
+    <lastmod>2022-03-19T09:14:35+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://kaztakata.github.io/celonis-hacks/posts/</loc>
-    <lastmod>2022-03-12T16:28:51+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kaztakata.github.io/celonis-hacks/posts/2022-03-12-split-long-sql-using-views/</loc>
-    <lastmod>2022-03-12T16:28:51+09:00</lastmod>
+    <lastmod>2022-03-19T09:14:35+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://kaztakata.github.io/celonis-hacks/tags/</loc>
-    <lastmod>2022-03-12T16:28:51+09:00</lastmod>
+    <lastmod>2022-03-19T09:14:35+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://kaztakata.github.io/celonis-hacks/tags/transformation/</loc>
+    <lastmod>2022-03-19T09:14:35+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kaztakata.github.io/celonis-hacks/posts/2022-03-19-unite-sql-statements-by-case-expression/</loc>
+    <lastmod>2022-03-19T09:14:35+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kaztakata.github.io/celonis-hacks/posts/2022-03-12-split-long-sql-using-views/</loc>
     <lastmod>2022-03-12T16:28:51+09:00</lastmod>
   </url>
   

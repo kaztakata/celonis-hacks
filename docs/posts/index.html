@@ -199,6 +199,55 @@ if (!doNotTrack) {
         <div class="posts-list">
           
             <article class="post-preview">
+    <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-03-19-unite-sql-statements-by-case-expression/">
+        <h2 class="post-title">Unite SQL statements by CASE Expression</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on map[Count:2022-03-19]
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;minutes
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;573&nbsp;words
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kazuhiko Takata
+    
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        Until Split Long SQL Using Views post I created four activities and each SQLs, and I found three of four have same table join pattern. So I created VIEW to shorten JOIN predicate for each SQL. It is nice to shorten total statement volume but almost all statement except for JOIN predicate is duplicated among SQLs. When something change is required, maintenance of each SQLs is annoying work. Today I would like to integrate SQLs using CASE expression.
+        <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-03-19-unite-sql-statements-by-case-expression/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+        <a href="https://kaztakata.github.io/celonis-hacks/tags/event-collection/">Event Collection</a>&nbsp;
+        
+        <a href="https://kaztakata.github.io/celonis-hacks/tags/transformation/">Transformation</a>&nbsp;
+        
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
     <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-03-12-split-long-sql-using-views/">
         <h2 class="post-title">Split Long SQL Using Views</h2>
         
@@ -642,56 +691,6 @@ First problem I faced is upper limit of extraction data. Some day I found that I
         <a href="https://kaztakata.github.io/celonis-hacks/tags/event-collection/">Event Collection</a>&nbsp;
         
         <a href="https://kaztakata.github.io/celonis-hacks/tags/extractor-builder/">Extractor Builder</a>&nbsp;
-        
-    </div>
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-01-08-prepare-source-system-to-generate-event-log/">
-        <h2 class="post-title">Prepare Source System to Generate Event Log</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on map[Count:2022-01-08]
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;minutes
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;319&nbsp;words
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kazuhiko Takata
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        Until last post I explained extraction topics using own Postgres database. I think it is better to test extraction functions with changing database by yourself. But it is hard to manually input data record that is meaningful as event log.
-From now on I will move to transformation topic. To explain this, I think it is required to prepare source system that has user interface, database and API to connect to Celonis EMS, to easily generate event log and extract it.
-        <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-01-08-prepare-source-system-to-generate-event-log/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/event-collection/">Event Collection</a>&nbsp;
-        
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/transformation/">Transformation</a>&nbsp;
         
     </div>
     

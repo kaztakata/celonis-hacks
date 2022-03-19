@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Unite SQL statements by CASE Expression - Celonis hacks</title>
+  <meta name="description" content="Until Split Long SQL Using Views post I created four activities and each SQLs, and I found three of four have same table join pattern. So I created VIEW to shorten JOIN predicate for each SQL. It is nice to shorten total statement volume but almost all statement except for JOIN predicate is duplicated among SQLs. When something change is required, maintenance of each SQLs is annoying work. Today I would like to integrate SQLs using CASE expression.">
+  <meta name="author" content="Kazuhiko Takata"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "Celonis hacks",
+    
+    "url": "https:\/\/kaztakata.github.io\/celonis-hacks"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/kaztakata.github.io\/celonis-hacks"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-03-19-unite-sql-statements-by-case-expression\/",
+          "name": "Unite sql statements by c a s e expression"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Kazuhiko Takata"
+  },
+  "headline": "Unite SQL statements by CASE Expression",
+  "description" : "Until Split Long SQL Using Views post I created four activities and each SQLs, and I found three of four have same table join pattern. So I created VIEW to shorten JOIN predicate for each SQL. It is nice to shorten total statement volume but almost all statement except for JOIN predicate is duplicated among SQLs. When something change is required, maintenance of each SQLs is annoying work. Today I would like to integrate SQLs using CASE expression.",
+  "inLanguage" : "en",
+  "wordCount":  573 ,
+  "datePublished" : "2022-03-19T09:14:35",
+  "dateModified" : "2022-03-19T09:14:35",
+  "image" : "https:\/\/kaztakata.github.io\/celonis-hacks",
+  "keywords" : [ "Event Collection, Transformation" ],
+  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-03-19-unite-sql-statements-by-case-expression\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/kaztakata.github.io\/celonis-hacks",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/kaztakata.github.io\/celonis-hacks",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="Unite SQL statements by CASE Expression" />
+<meta property="og:description" content="Until Split Long SQL Using Views post I created four activities and each SQLs, and I found three of four have same table join pattern. So I created VIEW to shorten JOIN predicate for each SQL. It is nice to shorten total statement volume but almost all statement except for JOIN predicate is duplicated among SQLs. When something change is required, maintenance of each SQLs is annoying work. Today I would like to integrate SQLs using CASE expression.">
+<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2022-03-19-unite-sql-statements-by-case-expression/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Celonis hacks" />
+
+  <meta name="twitter:title" content="Unite SQL statements by CASE Expression" />
+  <meta name="twitter:description" content="Until Split Long SQL Using Views post I created four activities and each SQLs, and I found three of four have same table join pattern. So I created VIEW to shorten JOIN predicate for each SQL. It is …">
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@kaz_takatabs" />
+  <meta name="twitter:creator" content="@kaz_takatabs" />
+  <meta name="generator" content="Hugo 0.68.3" />
+  <link rel="alternate" href="https://kaztakata.github.io/celonis-hacks/index.xml" type="application/rss+xml" title="Celonis hacks"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://kaztakata.github.io/celonis-hacks/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://kaztakata.github.io/celonis-hacks/css/highlight.min.css" /><link rel="stylesheet" href="https://kaztakata.github.io/celonis-hacks/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-125786864-2', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://kaztakata.github.io/celonis-hacks">Celonis hacks</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/celonis-hacks">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/celonis-hacks/tags">Tags</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/celonis-hacks/page/about/">About</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="posts-heading">
+              
+                <h1>Unite SQL statements by CASE Expression</h1>
+              
+              
+                <hr class="small">
+              
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>Until <a href="../2022-03-12-split-long-sql-using-views">Split Long SQL Using Views</a> post I created four activities and each SQLs, and I found three of four have same table join pattern. So I created <code>VIEW</code> to shorten <code>JOIN</code> predicate for each SQL. It is nice to shorten total statement volume but almost all statement except for <code>JOIN</code> predicate is duplicated among SQLs. When something change is required, maintenance of each SQLs is annoying work. Today I would like to integrate SQLs using <code>CASE</code> expression.</p>
+<p>Remember that three activities <code>Close Issue</code>, <code>Take Note</code> and <code>Update Progress</code> are based on <code>issues</code> table and <code>tmp_pl_journals</code> view including <code>journals</code> and <code>journals$details</code> tables. Difference is how to filter <code>tmp_pl_journals</code> record by its columns (<code>name</code>, <code>new_value</code> and <code>notes</code>).</p>
+<p>First step to extract shared pattern like below. <code>&lt;activity name&gt;</code> and <code>&lt;sorting number&gt;</code> are dummy for explanation.</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- 1st draft, only SELECT statement --
+</span><span class="c1"></span><span class="k">SELECT</span> <span class="k">DISTINCT</span>
+     <span class="n">i</span><span class="p">.</span><span class="n">id</span> <span class="k">AS</span> <span class="n">_CASE_KEY</span>
+    <span class="p">,</span><span class="s1">&#39;journals&#39;</span> <span class="k">AS</span> <span class="n">_ACTIVITY_MAIN_TABLE</span> <span class="c1">-- which table I mainly get event log 
+</span><span class="c1"></span>    <span class="p">,</span><span class="n">j</span><span class="p">.</span><span class="n">id</span><span class="o">||</span><span class="s1">&#39;:&#39;</span><span class="o">||</span><span class="n">j</span><span class="p">.</span><span class="n">name</span> <span class="k">AS</span> <span class="n">_ACTIVITY_KEY</span> <span class="c1">-- ID to find record of journals and journals$details
+</span><span class="c1"></span>    <span class="p">,</span><span class="s1">&#39;&lt;activity name&gt;&#39;</span> <span class="k">AS</span> <span class="n">ACTIVITY_EN</span> 
+    <span class="p">,</span><span class="n">j</span><span class="p">.</span><span class="n">created_on</span> <span class="k">AS</span> <span class="n">EVENTTIME</span>
+    <span class="p">,</span><span class="s1">&#39;&lt;sorting number&gt;&#39;</span> <span class="k">AS</span> <span class="n">_SORTING</span>
+    <span class="p">,</span><span class="n">j</span><span class="p">.</span><span class="s2">&#34;user$id&#34;</span> <span class="k">AS</span> <span class="n">changed_by</span>
+    <span class="p">,</span><span class="n">j</span><span class="p">.</span><span class="n">name</span> <span class="k">AS</span> <span class="n">changed_attr</span>             <span class="c1">-- changed column name
+</span><span class="c1"></span>    <span class="p">,</span><span class="n">j</span><span class="p">.</span><span class="n">old_value</span> <span class="k">AS</span> <span class="n">changed_from</span>        <span class="c1">-- changed from value
+</span><span class="c1"></span>    <span class="p">,</span><span class="n">j</span><span class="p">.</span><span class="n">new_value</span> <span class="k">AS</span> <span class="n">changed_to</span>          <span class="c1">-- changed to value
+</span><span class="c1"></span>    <span class="p">,</span><span class="n">NOW</span><span class="p">()</span> <span class="k">AS</span> <span class="n">_CELONIS_CHANGE_DATE</span>
+<span class="k">FROM</span> <span class="n">issues</span> <span class="k">AS</span> <span class="n">i</span>
+<span class="k">JOIN</span> <span class="n">tmp_pl_journals</span> <span class="k">AS</span> <span class="n">j</span> <span class="k">ON</span> <span class="mi">1</span><span class="o">=</span><span class="mi">1</span>
+    <span class="k">AND</span> <span class="n">i</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">j</span><span class="p">.</span><span class="s2">&#34;issues$id&#34;</span>
+</code></pre></div><p>Second step is to replace dummy with <code>CASE</code> expression based on difference between activities.</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- 2nd draft, only replacing part --
+</span><span class="c1"></span>    <span class="p">,</span><span class="k">CASE</span>
+        <span class="k">WHEN</span> <span class="n">j</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;status_id&#39;</span> <span class="k">AND</span> <span class="n">j</span><span class="p">.</span><span class="n">new_value</span> <span class="o">=</span> <span class="mi">8</span> <span class="k">THEN</span> <span class="s1">&#39;Close Issue&#39;</span>
+        <span class="k">WHEN</span> <span class="n">j</span><span class="p">.</span><span class="n">notes</span> <span class="k">IS</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">THEN</span> <span class="s1">&#39;Take Note&#39;</span>
+        <span class="k">WHEN</span> <span class="n">j</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;done_ratio&#39;</span> <span class="k">THEN</span> <span class="s1">&#39;Update Progress&#39;</span>
+     <span class="k">END</span> <span class="k">AS</span> <span class="n">ACTIVITY_EN</span> 
+    <span class="p">,</span><span class="n">j</span><span class="p">.</span><span class="n">created_on</span> <span class="k">AS</span> <span class="n">EVENTTIME</span>
+    <span class="p">,</span><span class="k">CASE</span>
+        <span class="k">WHEN</span> <span class="n">j</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;status_id&#39;</span> <span class="k">AND</span> <span class="n">j</span><span class="p">.</span><span class="n">new_value</span> <span class="o">=</span> <span class="mi">8</span> <span class="k">THEN</span> <span class="mi">1000</span> <span class="c1">--&#39;Close Issue&#39;
+</span><span class="c1"></span>        <span class="k">WHEN</span> <span class="n">j</span><span class="p">.</span><span class="n">notes</span> <span class="k">IS</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">THEN</span> <span class="mi">200</span> <span class="c1">-- &#39;Take Note&#39;
+</span><span class="c1"></span>        <span class="k">WHEN</span> <span class="n">j</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;done_ratio&#39;</span> <span class="k">THEN</span> <span class="mi">500</span> <span class="c1">-- &#39;Update Progress&#39;
+</span><span class="c1"></span>     <span class="k">END</span> <span class="k">AS</span> <span class="n">_SORTING</span>
+</code></pre></div><p>Finally filter <code>tmp_pl_journals</code> record in <code>WHERE</code> clause to match above three cases by <code>OR</code> condition. Add <code>INSERT</code> statement and become final version.</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- final version --
+</span><span class="c1"></span><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">_cel_pl_activities</span> <span class="p">(</span>
+     <span class="n">_CASE_KEY</span>
+    <span class="p">,</span><span class="n">_ACTIVITY_MAIN_TABLE</span>
+    <span class="p">,</span><span class="n">_ACTIVITY_KEY</span>
+    <span class="p">,</span><span class="n">ACTIVITY_EN</span>
+    <span class="p">,</span><span class="n">EVENTTIME</span>
+    <span class="p">,</span><span class="n">_SORTING</span>
+    <span class="p">,</span><span class="n">changed_by</span>
+    <span class="p">,</span><span class="n">changed_attr</span>
+    <span class="p">,</span><span class="n">changed_from</span>
+    <span class="p">,</span><span class="n">changed_to</span>
+    <span class="p">,</span><span class="n">_CELONIS_CHANGE_DATE</span>
+<span class="p">)</span>
+<span class="k">SELECT</span> <span class="k">DISTINCT</span>
+     <span class="n">i</span><span class="p">.</span><span class="n">id</span> <span class="k">AS</span> <span class="n">_CASE_KEY</span>
+    <span class="p">,</span><span class="s1">&#39;journals&#39;</span> <span class="k">AS</span> <span class="n">_ACTIVITY_MAIN_TABLE</span>
+    <span class="p">,</span><span class="n">j</span><span class="p">.</span><span class="n">id</span><span class="o">||</span><span class="s1">&#39;:&#39;</span><span class="o">||</span><span class="n">COALESCE</span><span class="p">(</span><span class="n">j</span><span class="p">.</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39;notes&#39;</span><span class="p">)</span> <span class="k">AS</span> <span class="n">_ACTIVITY_KEY</span>
+    <span class="p">,</span><span class="k">CASE</span>
+        <span class="k">WHEN</span> <span class="n">j</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;status_id&#39;</span> <span class="k">AND</span> <span class="n">j</span><span class="p">.</span><span class="n">new_value</span> <span class="o">=</span> <span class="mi">8</span> <span class="k">THEN</span> <span class="s1">&#39;Close Issue&#39;</span>
+        <span class="k">WHEN</span> <span class="n">j</span><span class="p">.</span><span class="n">notes</span> <span class="k">IS</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">THEN</span> <span class="s1">&#39;Take Note&#39;</span>
+        <span class="k">WHEN</span> <span class="n">j</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;done_ratio&#39;</span> <span class="k">THEN</span> <span class="s1">&#39;Update Progress&#39;</span>
+     <span class="k">END</span> <span class="k">AS</span> <span class="n">ACTIVITY_EN</span>
+    <span class="p">,</span><span class="n">j</span><span class="p">.</span><span class="n">created_on</span> <span class="k">AS</span> <span class="n">EVENTTIME</span>
+    <span class="p">,</span><span class="k">CASE</span>
+        <span class="k">WHEN</span> <span class="n">j</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;status_id&#39;</span> <span class="k">AND</span> <span class="n">j</span><span class="p">.</span><span class="n">new_value</span> <span class="o">=</span> <span class="mi">8</span> <span class="k">THEN</span> <span class="mi">1000</span> <span class="c1">--&#39;Close Issue&#39;
+</span><span class="c1"></span>        <span class="k">WHEN</span> <span class="n">j</span><span class="p">.</span><span class="n">notes</span> <span class="k">IS</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">THEN</span> <span class="mi">200</span> <span class="c1">-- &#39;Take Note&#39;
+</span><span class="c1"></span>        <span class="k">WHEN</span> <span class="n">j</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;done_ratio&#39;</span> <span class="k">THEN</span> <span class="mi">500</span> <span class="c1">-- &#39;Update Progress&#39;
+</span><span class="c1"></span>     <span class="k">END</span> <span class="k">AS</span> <span class="n">_SORTING</span>
+    <span class="p">,</span><span class="n">j</span><span class="p">.</span><span class="s2">&#34;user$id&#34;</span> <span class="k">AS</span> <span class="n">changed_by</span>
+    <span class="p">,</span><span class="n">j</span><span class="p">.</span><span class="n">name</span> <span class="k">AS</span> <span class="n">changed_attr</span>
+    <span class="p">,</span><span class="n">j</span><span class="p">.</span><span class="n">old_value</span> <span class="k">AS</span> <span class="n">changed_from</span>
+    <span class="p">,</span><span class="n">j</span><span class="p">.</span><span class="n">new_value</span> <span class="k">AS</span> <span class="n">changed_to</span>
+    <span class="p">,</span><span class="n">NOW</span><span class="p">()</span> <span class="k">AS</span> <span class="n">_CELONIS_CHANGE_DATE</span>
+<span class="k">FROM</span> <span class="n">issues</span> <span class="k">AS</span> <span class="n">i</span>
+<span class="k">JOIN</span> <span class="n">tmp_pl_journals</span> <span class="k">AS</span> <span class="n">j</span> <span class="k">ON</span> <span class="mi">1</span><span class="o">=</span><span class="mi">1</span>
+    <span class="k">AND</span> <span class="n">i</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">j</span><span class="p">.</span><span class="s2">&#34;issues$id&#34;</span>
+<span class="k">WHERE</span>  <span class="p">(</span><span class="n">j</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;status_id&#39;</span> <span class="k">AND</span> <span class="n">j</span><span class="p">.</span><span class="n">new_value</span> <span class="o">=</span> <span class="mi">8</span><span class="p">)</span>
+    <span class="k">OR</span> <span class="n">j</span><span class="p">.</span><span class="n">notes</span> <span class="k">IS</span> <span class="k">NOT</span> <span class="k">NULL</span>
+    <span class="k">OR</span> <span class="n">j</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;done_ratio&#39;</span>
+<span class="p">;</span>
+</code></pre></div><p>Comparing with single <code>Close Issue</code> statement in <a href="../2022-03-05-compose-activity-from-joining-multiple-tables">Compose Activity from Joining Multiple Tables</a>, this version is similar lines. So this version including three activities shortens one third SQL lines.</p>
+<p>By the way <code>WHERE</code> clause seems complex due to <code>OR</code> condition. Alternatively I can do <code>INSERT</code> statement without <code>WHERE</code> clause, then later <code>DELETE</code> record of which <code>CASE</code> expression returns <code>NULL</code>.</p>
+<p>Below screen shows result without <code>WHERE</code> clause. Third record returns <code>NULL</code> in <code>ACTIVITY_EN</code> column because this is not matched with all cases. Delete record is done simply by <code>DELETE FROM _cel_pl_activities WHERE ACTIVITY_EN IS NULL;</code></p>
+<p><a href="https://user-images.githubusercontent.com/67397583/159101624-694ebc27-c9a6-47c6-a956-510f61d0c2c0.png"><img src="https://user-images.githubusercontent.com/67397583/159101624-694ebc27-c9a6-47c6-a956-510f61d0c2c0.png" alt="image"></a></p>
+<p>Kaz</p>
+
+
+        
+          <div class="blog-tags">
+            
+              <a href="https://kaztakata.github.io/celonis-hacks/tags/event-collection/">Event Collection</a>&nbsp;
+            
+              <a href="https://kaztakata.github.io/celonis-hacks/tags/transformation/">Transformation</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-03-19-unite-sql-statements-by-case-expression%2f&amp;text=Unite%20SQL%20statements%20by%20CASE%20Expression&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-03-19-unite-sql-statements-by-case-expression%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-03-19-unite-sql-statements-by-case-expression%2f&amp;title=Unite%20SQL%20statements%20by%20CASE%20Expression" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-03-19-unite-sql-statements-by-case-expression%2f&amp;title=Unite%20SQL%20statements%20by%20CASE%20Expression" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-03-19-unite-sql-statements-by-case-expression%2f&amp;title=Unite%20SQL%20statements%20by%20CASE%20Expression" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-03-19-unite-sql-statements-by-case-expression%2f&amp;description=Unite%20SQL%20statements%20by%20CASE%20Expression" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+            
+          
+
+          
+                  <h4 class="see-also">See also</h4>
+                  <ul>
+                
+                
+                    <li><a href="/celonis-hacks/posts/2022-03-12-split-long-sql-using-views/">Split Long SQL Using Views</a></li>
+                
+                    <li><a href="/celonis-hacks/posts/2022-03-05-compose-activity-from-joining-multiple-tables/">Compose Activity from Joining Multiple Tables</a></li>
+                
+                    <li><a href="/celonis-hacks/posts/2022-02-26-insert-simple-record-into-activity-table/">Insert Simple Record into Activity Table</a></li>
+                
+                    <li><a href="/celonis-hacks/posts/2022-02-19-determine-process-mining-tables-based-on-project-goal/">Determine Process Mining Tables based on Project Goal</a></li>
+                
+                    <li><a href="/celonis-hacks/posts/2022-02-12-consider-case-id-before-starting-transformation/">Consider Case ID before Starting Transformation</a></li>
+                
+              </ul>
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-03-12-split-long-sql-using-views/" data-toggle="tooltip" data-placement="top" title="Split Long SQL Using Views">&larr; Previous Post</a>
+            </li>
+          
+          
+        </ul>
+      
+
+
+      
+        
+        
+      
+
+    </div>
+  </div>
+</div>
+
+      
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="https://github.com/kaztakata" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/kaz_takatabs" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/kazuhiko-takatabs" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              Kazuhiko Takata
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2022
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://kaztakata.github.io/celonis-hacks">Celonis hacks</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.68.3</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://kaztakata.github.io/celonis-hacks/js/main.js"></script>
+<script src="https://kaztakata.github.io/celonis-hacks/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://kaztakata.github.io/celonis-hacks/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+
