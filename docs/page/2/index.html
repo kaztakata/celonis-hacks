@@ -205,6 +205,55 @@ if (!doNotTrack) {
           
           
             <article class="post-preview">
+    <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-01-15-connect-to-source-system-via-rest-api/">
+        <h2 class="post-title">Connect to Source System via REST API</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on map[Count:2022-01-15]
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;minutes
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;506&nbsp;words
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kazuhiko Takata
+    
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        At previous post Prepare Source System to Generate Event Log, I prepared Planio as source system for this blog, and entered few events (create Issue, update Issue Status) to it. Now it is time to extract event log from Planio. As other SaaS solution do, Planio also has REST API to extract data from outside. Currently Celonis EMS has ability to extract from arbitrary system that has REST API, Extractor Builder.
+        <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-01-15-connect-to-source-system-via-rest-api/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+        <a href="https://kaztakata.github.io/celonis-hacks/tags/event-collection/">Event Collection</a>&nbsp;
+        
+        <a href="https://kaztakata.github.io/celonis-hacks/tags/extractor-builder/">Extractor Builder</a>&nbsp;
+        
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
     <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-01-08-prepare-source-system-to-generate-event-log/">
         <h2 class="post-title">Prepare Source System to Generate Event Log</h2>
         
@@ -676,56 +725,6 @@ As first topic, I would like to explain on premise Extractor, that is in the mid
         <a href="https://kaztakata.github.io/celonis-hacks/tags/event-collection/">Event Collection</a>&nbsp;
         
         <a href="https://kaztakata.github.io/celonis-hacks/tags/extractor/">Extractor</a>&nbsp;
-        
-    </div>
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-10-30-copy-previous-value-to-blank-period-by-running-sum-and-range-append-functions/">
-        <h2 class="post-title">Copy Previous Value to Blank Period by RUNNING_SUM and RANGE_APPEND functions</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on map[Count:2021-10-30]
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;minutes
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;380&nbsp;words
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kazuhiko Takata
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        At Investigate Workload Trend of Cropped Subprocess I showed trend of activity count, and at that time I used RANGE_APPEND to fill zero count in trend graph. Today I would like to use different aggregation RUNNING_SUM and fill value to blank period.
-Imagine you would like to check weekly trend of credit amount regarding some customer. Credit amount is increased by the amount of net value when &lsquo;Receive Order&rsquo; happened, and it is decreased when &lsquo;Clear Invoice&rsquo; happened.
-        <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-10-30-copy-previous-value-to-blank-period-by-running-sum-and-range-append-functions/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/pql/">PQL</a>&nbsp;
-        
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/process-analytics/">Process Analytics</a>&nbsp;
         
     </div>
     

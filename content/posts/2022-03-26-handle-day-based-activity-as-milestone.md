@@ -1,6 +1,6 @@
 ---
 title: "Handle Day based Activity as Milestone"
-date: 2022-03-26T02:28:53+09:00
+date: 2022-03-25T21:48:53+09:00
 draft: false
 tags: ['Event Collection','Transformation', 'Process Analytics']
 ---
