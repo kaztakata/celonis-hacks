@@ -2,7 +2,7 @@
 title: "Tune Endpoint Parameter Relevant to Delta Load"
 date: 2022-02-05T10:05:51+09:00
 draft: false
-tags: ['Event Collection','Extractor Builder']
+tags: ['Data Integration','Extractor Builder']
 ---
 
 Until last post [Setup Dependent Endpoint in Extractor Builder](../2022-01-29-setup-dependent-endpoint-in-extractor-builder), I prepared endpoints of both Planio Issues and their journals. Today I would like to tackle final setup of extractor to deal with Delta Load option.

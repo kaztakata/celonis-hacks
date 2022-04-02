@@ -2,7 +2,7 @@
 title: "Categorize and Name Activity"
 date: 2021-07-24T10:47:12+09:00
 draft: false
-tags: ['Data Model','Event Collection','Transformation','PQL','Process Analytics','Pull Up Function','Process Explorer']
+tags: ['Data Model','Data Integration','Transformation','PQL','Process Analytics','Pull Up Function','Process Explorer']
 ---
 
 In the previous post [Transform Source System Tables to Minimize Data Model Tables](../2021-07-17-transform-source-system-tables-to-minimize-data-model-tables/), I recommended to convert some kind of source system tables to Activity. Today I focus on Activity and would like to share my way how to categorize and name Activity.

@@ -2,7 +2,7 @@
 title: "Consider Case ID before Starting Transformation"
 date: 2022-02-12T13:03:00+09:00
 draft: false
-tags: ['Event Collection','Transformation']
+tags: ['Data Integration','Transformation']
 ---
 
 After long explanation of Extractor Builder, I can move to Transformation Topic from now, using Planio issue and change history. But before starting detail discussion, I would like to discuss general issues at first.

@@ -2,7 +2,7 @@
 title: "Determine Process Mining Tables based on Project Goal"
 date: 2022-02-19T13:43:41+09:00
 draft: false
-tags: ['Event Collection','Transformation','Data Model']
+tags: ['Data Integration','Transformation','Data Model']
 ---
 
 I talked about how to consider Case ID in advance in [last post](../2022-02-12-consider-case-id-before-starting-transformation). That is same as goal setting of process mining project, it means what would like to be measured in process mining and why. Case is the unit of measuring performance and grouping activities.

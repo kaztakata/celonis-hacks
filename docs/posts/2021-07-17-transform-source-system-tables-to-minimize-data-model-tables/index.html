@@ -64,7 +64,7 @@ In case of SAP Order to Cash (O2C) scenario, case table is sales order item (VBA
   "datePublished" : "2021-07-17T13:24:10",
   "dateModified" : "2021-07-17T13:24:10",
   "image" : "https:\/\/kaztakata.github.io\/celonis-hacks",
-  "keywords" : [ "Data Model, Event Collection, Transformation" ],
+  "keywords" : [ "Data Model, Data Integration, Transformation" ],
   "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-07-17-transform-source-system-tables-to-minimize-data-model-tables\/",
   "publisher" : {
     "@type": "Organization",
@@ -251,8 +251,8 @@ if (!doNotTrack) {
       <article role="main" class="blog-post">
         <p>In the last part of previous post <a href="../2021-07-10-utilize-n-m-relationship-between-activity-and-dimension-tables/">Utilize N-M relationship between Activity and Dimension Tables</a>, I said just mimicing source system&rsquo;s table structure to data model is not useful for Celonis data model. Also I feel loading time to data model is exponentially long when one more table is added. So minimizing data model table is good practice especially for real time analytics.</p>
 <p>In case of SAP Order to Cash (O2C) scenario, case table is sales order item (<code>VBAP</code>). From <code>VBAP</code> perspective, sales order header <code>VBAK</code> can fully utilize as additional dimension table because <code>VBAK</code> is joined with <code>VBAP</code> as 1 side. In PQL, just choose <code>VBAK</code> column as dimension is same effect as choose <code>VBAP</code> column.</p>
-<p>On the other hand, schedule line <code>VBEP</code> table that is joined with <code>VBAP</code> as N side can not utilize like <code>VBAK</code>. As discussed in previous post, <code>VBEP</code> and Activity table are N-M relationship so <code>VBEP</code> table should be filtered (e.g. first row of <code>VBEP</code>). Schedule line is managing date / time of delivery, so I recommend to convert <code>VBEP</code> content to activity table. For example, first row of <code>VBEP</code> is normally original request from customer, so you will generate <code>Request delivery date</code> activity from <code>VBEP</code> table in Event Collection (Transformation). In the end <code>VBEP</code> table is not loaded to data model but you can utilize activity record. If you would like to handle order quantity with <code>Request delivery date</code> activity, quantity field is added to activity table then use it in PQL.</p>
-<p>One more example, partner VBPA table is joined with <code>VBAP</code> as N side. It contains sold-to party, ship-to party, bill-to party and payer rows against sales order item. Those are useful as dimension, so I recommend to convert these rows to additional columns of <code>VBAP</code> in Event Collection.</p>
+<p>On the other hand, schedule line <code>VBEP</code> table that is joined with <code>VBAP</code> as N side can not utilize like <code>VBAK</code>. As discussed in previous post, <code>VBEP</code> and Activity table are N-M relationship so <code>VBEP</code> table should be filtered (e.g. first row of <code>VBEP</code>). Schedule line is managing date / time of delivery, so I recommend to convert <code>VBEP</code> content to activity table. For example, first row of <code>VBEP</code> is normally original request from customer, so you will generate <code>Request delivery date</code> activity from <code>VBEP</code> table in Data Integration (Transformation). In the end <code>VBEP</code> table is not loaded to data model but you can utilize activity record. If you would like to handle order quantity with <code>Request delivery date</code> activity, quantity field is added to activity table then use it in PQL.</p>
+<p>One more example, partner VBPA table is joined with <code>VBAP</code> as N side. It contains sold-to party, ship-to party, bill-to party and payer rows against sales order item. Those are useful as dimension, so I recommend to convert these rows to additional columns of <code>VBAP</code> in Data Integration.</p>
 <p><a href="https://user-images.githubusercontent.com/67397583/126027089-d987f453-0434-421d-bc09-2442e55d4839.png"><img src="https://user-images.githubusercontent.com/67397583/126027089-d987f453-0434-421d-bc09-2442e55d4839.png" alt="image"></a></p>
 <p>As discussed above, transforming source system table structure to Celonis data model is quite important design topic. To do so, of cource you need to think about what KPI is measured then which tables / columns are required for analysis.</p>
 <p>Kaz</p>
@@ -263,7 +263,7 @@ if (!doNotTrack) {
             
               <a href="https://kaztakata.github.io/celonis-hacks/tags/data-model/">Data Model</a>&nbsp;
             
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/event-collection/">Event Collection</a>&nbsp;
+              <a href="https://kaztakata.github.io/celonis-hacks/tags/data-integration/">Data Integration</a>&nbsp;
             
               <a href="https://kaztakata.github.io/celonis-hacks/tags/transformation/">Transformation</a>&nbsp;
             
@@ -337,6 +337,8 @@ if (!doNotTrack) {
                   <ul>
                 
                 
+                    <li><a href="/celonis-hacks/posts/2022-04-02-adjust-time-zone-of-event-time-in-global-transformation/">Adjust Time Zone of Event Time in Global Transformation</a></li>
+                
                     <li><a href="/celonis-hacks/posts/2022-03-26-handle-day-based-activity-as-milestone/">Handle Day based Activity as Milestone</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2022-03-19-unite-sql-statements-by-case-expression/">Unite SQL statements by CASE Expression</a></li>
@@ -344,8 +346,6 @@ if (!doNotTrack) {
                     <li><a href="/celonis-hacks/posts/2022-03-12-split-long-sql-using-views/">Split Long SQL Using Views</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2022-03-05-compose-activity-from-joining-multiple-tables/">Compose Activity from Joining Multiple Tables</a></li>
-                
-                    <li><a href="/celonis-hacks/posts/2022-02-26-insert-simple-record-into-activity-table/">Insert Simple Record into Activity Table</a></li>
                 
               </ul>
 

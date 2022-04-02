@@ -2,7 +2,7 @@
 title: "Verify Cloning Table Contents via Delta Load"
 date: 2021-12-04T12:49:44+09:00
 draft: false
-tags: ['Event Collection','Extractor','Extraction','Transformation','Data Job']
+tags: ['Data Integration','Extractor','Extraction','Transformation','Data Job']
 ---
 
 Following last week's [Minimize Extraction Time by Delta Load Option](../2021-11-27-minimize-extraction-time-by-delta-load-option), today I would like to insert new record to Postgres table then try Delta Load again to extract it. To do this, I will start from operating [pgAdmin](https://www.pgadmin.org/), that is already ready for my loal machine after `docker-compose`.

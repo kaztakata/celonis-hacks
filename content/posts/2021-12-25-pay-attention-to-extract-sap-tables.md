@@ -2,7 +2,7 @@
 title: "Pay attention to Extract SAP Tables"
 date: 2021-12-25T08:53:48+09:00
 draft: false
-tags: ['Event Collection','Extraction',]
+tags: ['Data Integration','Extraction',]
 ---
 
 Until last post I explained general topics of extraction task, adapted to all kind of source systems. Today I would like to focus on SAP ECC or S4HANA as source system and would like to tell you the SAP specific issues.

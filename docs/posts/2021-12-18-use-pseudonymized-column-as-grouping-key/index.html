@@ -64,7 +64,7 @@ When I operate Celonis EMS, I try not to extract sensitive information from the 
   "datePublished" : "2021-12-18T09:22:56",
   "dateModified" : "2021-12-18T09:22:56",
   "image" : "https:\/\/kaztakata.github.io\/celonis-hacks",
-  "keywords" : [ "Event Collection, Extractor, Extraction, Transformation, Data Job" ],
+  "keywords" : [ "Data Integration, Extractor, Extraction, Transformation, Data Job" ],
   "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-12-18-use-pseudonymized-column-as-grouping-key\/",
   "publisher" : {
     "@type": "Organization",
@@ -267,7 +267,7 @@ if (!doNotTrack) {
 <span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">orders</span> <span class="p">(</span><span class="n">customer</span><span class="p">,</span><span class="n">material</span><span class="p">,</span><span class="n">createdBy</span><span class="p">,</span><span class="n">createdAt</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="s1">&#39;Tokugawa Ieyasu&#39;</span><span class="p">,</span><span class="s1">&#39;Platinum Plan&#39;</span><span class="p">,</span><span class="s1">&#39;Kazuhiko Takata&#39;</span><span class="p">,</span><span class="n">NOW</span><span class="p">());</span>
 <span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">orders</span> <span class="p">(</span><span class="n">customer</span><span class="p">,</span><span class="n">material</span><span class="p">,</span><span class="n">createdBy</span><span class="p">,</span><span class="n">createdAt</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="s1">&#39;Oda Nobunaga&#39;</span><span class="p">,</span><span class="s1">&#39;Platinum Plan&#39;</span><span class="p">,</span><span class="s1">&#39;Kazuhiko Takata&#39;</span><span class="p">,</span><span class="n">NOW</span><span class="p">());</span>
 </code></pre></div><p>Assuming this <code>orders</code> table is located inside my company&rsquo;s local network (on-premise) and I do not want to expose customer name and employee name to outside of my network, but I would like to analyze process of my orders.</p>
-<p>When I setup extraction task in Celonis Event Collection, I will click Configure button to set pseudonymized columns (customer and createdBy) as below.</p>
+<p>When I setup extraction task in Celonis Data Integration, I will click Configure button to set pseudonymized columns (customer and createdBy) as below.</p>
 <p><a href="https://user-images.githubusercontent.com/67397583/146629365-85ea409a-d274-42db-8456-193da230fdd0.png"><img src="https://user-images.githubusercontent.com/67397583/146629365-85ea409a-d274-42db-8456-193da230fdd0.png" alt="image"></a></p>
 <p>After that I will scroll down to Extraction Preview section and confirm it is not possible to recoginize customer and employee name. Also I can see id 1 and 4 has same value in customer column, these are originally same person.</p>
 <p><a href="https://user-images.githubusercontent.com/67397583/146629557-be532241-2248-4062-8979-a02b11ddbd09.png"><img src="https://user-images.githubusercontent.com/67397583/146629557-be532241-2248-4062-8979-a02b11ddbd09.png" alt="image"></a></p>
@@ -301,7 +301,7 @@ if (!doNotTrack) {
         
           <div class="blog-tags">
             
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/event-collection/">Event Collection</a>&nbsp;
+              <a href="https://kaztakata.github.io/celonis-hacks/tags/data-integration/">Data Integration</a>&nbsp;
             
               <a href="https://kaztakata.github.io/celonis-hacks/tags/extractor/">Extractor</a>&nbsp;
             
@@ -381,6 +381,8 @@ if (!doNotTrack) {
                   <ul>
                 
                 
+                    <li><a href="/celonis-hacks/posts/2022-04-02-adjust-time-zone-of-event-time-in-global-transformation/">Adjust Time Zone of Event Time in Global Transformation</a></li>
+                
                     <li><a href="/celonis-hacks/posts/2022-03-26-handle-day-based-activity-as-milestone/">Handle Day based Activity as Milestone</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2022-03-19-unite-sql-statements-by-case-expression/">Unite SQL statements by CASE Expression</a></li>
@@ -388,8 +390,6 @@ if (!doNotTrack) {
                     <li><a href="/celonis-hacks/posts/2022-03-12-split-long-sql-using-views/">Split Long SQL Using Views</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2022-03-05-compose-activity-from-joining-multiple-tables/">Compose Activity from Joining Multiple Tables</a></li>
-                
-                    <li><a href="/celonis-hacks/posts/2022-02-26-insert-simple-record-into-activity-table/">Insert Simple Record into Activity Table</a></li>
                 
               </ul>
 

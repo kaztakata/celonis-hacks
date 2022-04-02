@@ -2,7 +2,7 @@
 title: "Minimize Extraction Time by Delta Load Option"
 date: 2021-11-27T09:51:19+09:00
 draft: false
-tags: ['Event Collection','Extractor','Extraction','Transformation','Data Job']
+tags: ['Data Integration','Extractor','Extraction','Transformation','Data Job']
 ---
 
 Last week I extracted Postgres table and looked at the log to understand mechanism of data transfer. At that time I used Full Load option to extract data, that is to replace all table contents and schema to latest version. That is easiest way to synchronize tables between source system (Postgres) and Celonis, but it takes a lot of time to complete this task. So that I should also use second option Delta Load to minimize extraction time.

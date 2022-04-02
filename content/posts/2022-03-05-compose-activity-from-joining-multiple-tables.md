@@ -2,7 +2,7 @@
 title: "Compose Activity from Joining Multiple Tables"
 date: 2022-03-05T08:30:59+09:00
 draft: false
-tags: ['Event Collection','Transformation']
+tags: ['Data Integration','Transformation']
 ---
 
 In the last post of [Insert Simple Record into Activity Table](../2022-02-26-insert-simple-record-into-activity-table), I created SQL to insert `Raise Issue` activity. That SQL was simple because only one table `issues` are used as data source. Today I will create SQL of `Close Issue` activity that requires multiple tables.

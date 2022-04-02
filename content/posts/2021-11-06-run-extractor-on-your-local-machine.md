@@ -2,10 +2,10 @@
 title: "Run Extractor on Your Local Machine"
 date: 2021-11-06T09:59:30+09:00
 draft: false
-tags: ['Event Collection','Extractor']
+tags: ['Data Integration','Extractor']
 ---
 
-From this week I would like to explain my experience regarding Event Collection functions (Extraction, Transformation, Load etc.). To do this, I try to create sample source systems and build code in Celonis training environment.
+From this week I would like to explain my experience regarding Data Integration functions (Extraction, Transformation, Load etc.). To do this, I try to create sample source systems and build code in Celonis training environment.
 
 As first topic, I would like to explain on premise Extractor, that is in the middle between your source systems (SAP, Oracle etc.) and Celonis EMS and support transferring data. By the way, because I do not want to pay licence of source systems for this blog, I would like to use open source Postgres database. Also I do not want to pay subscription of cloud server, I use my local machine instead.
 

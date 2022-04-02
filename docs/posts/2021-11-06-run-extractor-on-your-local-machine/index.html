@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
   <title>Run Extractor on Your Local Machine - Celonis hacks</title>
-  <meta name="description" content="From this week I would like to explain my experience regarding Event Collection functions (Extraction, Transformation, Load etc.). To do this, I try to create sample source systems and build code in Celonis training environment.
+  <meta name="description" content="From this week I would like to explain my experience regarding Data Integration functions (Extraction, Transformation, Load etc.). To do this, I try to create sample source systems and build code in Celonis training environment.
 As first topic, I would like to explain on premise Extractor, that is in the middle between your source systems (SAP, Oracle etc.) and Celonis EMS and support transferring data. By the way, because I do not want to pay licence of source systems for this blog, I would like to use open source Postgres database.">
   <meta name="author" content="Kazuhiko Takata"/><script type="application/ld+json">
 {
@@ -58,13 +58,13 @@ As first topic, I would like to explain on premise Extractor, that is in the mid
     "name" : "Kazuhiko Takata"
   },
   "headline": "Run Extractor on Your Local Machine",
-  "description" : "From this week I would like to explain my experience regarding Event Collection functions (Extraction, Transformation, Load etc.). To do this, I try to create sample source systems and build code in Celonis training environment.\nAs first topic, I would like to explain on premise Extractor, that is in the middle between your source systems (SAP, Oracle etc.) and Celonis EMS and support transferring data. By the way, because I do not want to pay licence of source systems for this blog, I would like to use open source Postgres database.",
+  "description" : "From this week I would like to explain my experience regarding Data Integration functions (Extraction, Transformation, Load etc.). To do this, I try to create sample source systems and build code in Celonis training environment.\nAs first topic, I would like to explain on premise Extractor, that is in the middle between your source systems (SAP, Oracle etc.) and Celonis EMS and support transferring data. By the way, because I do not want to pay licence of source systems for this blog, I would like to use open source Postgres database.",
   "inLanguage" : "en",
   "wordCount":  457 ,
   "datePublished" : "2021-11-06T09:59:30",
   "dateModified" : "2021-11-06T09:59:30",
   "image" : "https:\/\/kaztakata.github.io\/celonis-hacks",
-  "keywords" : [ "Event Collection, Extractor" ],
+  "keywords" : [ "Data Integration, Extractor" ],
   "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-11-06-run-extractor-on-your-local-machine\/",
   "publisher" : {
     "@type": "Organization",
@@ -80,14 +80,14 @@ As first topic, I would like to explain on premise Extractor, that is in the mid
 </script>
 
 <meta property="og:title" content="Run Extractor on Your Local Machine" />
-<meta property="og:description" content="From this week I would like to explain my experience regarding Event Collection functions (Extraction, Transformation, Load etc.). To do this, I try to create sample source systems and build code in Celonis training environment.
+<meta property="og:description" content="From this week I would like to explain my experience regarding Data Integration functions (Extraction, Transformation, Load etc.). To do this, I try to create sample source systems and build code in Celonis training environment.
 As first topic, I would like to explain on premise Extractor, that is in the middle between your source systems (SAP, Oracle etc.) and Celonis EMS and support transferring data. By the way, because I do not want to pay licence of source systems for this blog, I would like to use open source Postgres database.">
 <meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2021-11-06-run-extractor-on-your-local-machine/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Celonis hacks" />
 
   <meta name="twitter:title" content="Run Extractor on Your Local Machine" />
-  <meta name="twitter:description" content="From this week I would like to explain my experience regarding Event Collection functions (Extraction, Transformation, Load etc.). To do this, I try to create sample source systems and build code in …">
+  <meta name="twitter:description" content="From this week I would like to explain my experience regarding Data Integration functions (Extraction, Transformation, Load etc.). To do this, I try to create sample source systems and build code in …">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
@@ -249,7 +249,7 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>From this week I would like to explain my experience regarding Event Collection functions (Extraction, Transformation, Load etc.). To do this, I try to create sample source systems and build code in Celonis training environment.</p>
+        <p>From this week I would like to explain my experience regarding Data Integration functions (Extraction, Transformation, Load etc.). To do this, I try to create sample source systems and build code in Celonis training environment.</p>
 <p>As first topic, I would like to explain on premise Extractor, that is in the middle between your source systems (SAP, Oracle etc.) and Celonis EMS and support transferring data. By the way, because I do not want to pay licence of source systems for this blog, I would like to use open source Postgres database. Also I do not want to pay subscription of cloud server, I use my local machine instead.</p>
 <p>I use Docker enviornment that can easily start and stop my sample source system and Extractor, and does not affect to other portion of my local machine. If you are using Windows 11, installing Docker environment is quite simple as below.</p>
 <ol>
@@ -278,7 +278,7 @@ if (!doNotTrack) {
         
           <div class="blog-tags">
             
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/event-collection/">Event Collection</a>&nbsp;
+              <a href="https://kaztakata.github.io/celonis-hacks/tags/data-integration/">Data Integration</a>&nbsp;
             
               <a href="https://kaztakata.github.io/celonis-hacks/tags/extractor/">Extractor</a>&nbsp;
             
@@ -352,6 +352,8 @@ if (!doNotTrack) {
                   <ul>
                 
                 
+                    <li><a href="/celonis-hacks/posts/2022-04-02-adjust-time-zone-of-event-time-in-global-transformation/">Adjust Time Zone of Event Time in Global Transformation</a></li>
+                
                     <li><a href="/celonis-hacks/posts/2022-03-26-handle-day-based-activity-as-milestone/">Handle Day based Activity as Milestone</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2022-03-19-unite-sql-statements-by-case-expression/">Unite SQL statements by CASE Expression</a></li>
@@ -359,8 +361,6 @@ if (!doNotTrack) {
                     <li><a href="/celonis-hacks/posts/2022-03-12-split-long-sql-using-views/">Split Long SQL Using Views</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2022-03-05-compose-activity-from-joining-multiple-tables/">Compose Activity from Joining Multiple Tables</a></li>
-                
-                    <li><a href="/celonis-hacks/posts/2022-02-26-insert-simple-record-into-activity-table/">Insert Simple Record into Activity Table</a></li>
                 
               </ul>
 

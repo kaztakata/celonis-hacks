@@ -2,12 +2,12 @@
 title: "Look at Data Transfer Process by Data Job Log"
 date: 2021-11-20T08:39:24+09:00
 draft: false
-tags: ['Event Collection','Extractor','Extraction','Data Job']
+tags: ['Data Integration','Extractor','Extraction','Data Job']
 ---
 
 Last week I posted [Connect to Celonis and Bring Back Instruction](../2021-11-13-connect-to-celonis-and-bring-back-instruction) to look at how Extractor works to connect between Celonis and Postgres. This week I would like to extract data from Postgres and look at data transfer process by data job log.
 
-In the Event Collection, I create new Data Job with Data Connection I created last week, then create new extraction task. In the next screen I add new table `public.app_users` that is pre-installed in Postgres when I deployed it (You can see detail by `sample.sql` in celonis-postgres folder). Going back to table configuration screen, I should touch somewhere in screen and redo it, then save button is enabled. Then click save it.
+In the Data Integration, I create new Data Job with Data Connection I created last week, then create new extraction task. In the next screen I add new table `public.app_users` that is pre-installed in Postgres when I deployed it (You can see detail by `sample.sql` in celonis-postgres folder). Going back to table configuration screen, I should touch somewhere in screen and redo it, then save button is enabled. Then click save it.
 
 [![image](https://user-images.githubusercontent.com/67397583/142714726-6d35f478-a2d8-4c5f-8004-07b33dabbafa.png)](https://user-images.githubusercontent.com/67397583/142714726-6d35f478-a2d8-4c5f-8004-07b33dabbafa.png)
 

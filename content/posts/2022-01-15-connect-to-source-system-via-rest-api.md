@@ -2,7 +2,7 @@
 title: "Connect to Source System via REST API"
 date: 2022-01-15T10:27:09+09:00
 draft: false
-tags: ['Event Collection','Extractor Builder']
+tags: ['Data Integration','Extractor Builder']
 ---
 
 At previous post [Prepare Source System to Generate Event Log](../2022-01-08-prepare-source-system-to-generate-event-log), I prepared Planio as source system for this blog, and entered few events (create Issue, update Issue Status) to it. Now it is time to extract event log from Planio. As other SaaS solution do, Planio also has [REST API](https://plan.io/api/) to extract data from outside. Currently Celonis EMS has ability to extract from arbitrary system that has REST API, Extractor Builder. Today I would like to setup Extractor Builder and try to extract Issue from Planio.
@@ -13,7 +13,7 @@ First step is to get Planio API key to access from Celonis EMS to Planio. After 
 
 Even using API key is deprecated solution as [documentation](https://plan.io/api/#deprecated-authentication-methods) said, OAuth2.0 authentication is not feasible to Extractor Builder when I tried before. So I should go with API key for the moment.
 
-Next step is Extractor setup in the Event Collection of Celonis EMS. I will go to Extractor Builder then click Build a New Extractor button. After determining Extractor name, I will setup Authentication Methods as below screen. As I got API key from Planio, I will select API Key Authentication. Header key is changed from x-api-key to X-Redmine-API-Key referring to documentation.
+Next step is Extractor setup in the Data Integration of Celonis EMS. I will go to Extractor Builder then click Build a New Extractor button. After determining Extractor name, I will setup Authentication Methods as below screen. As I got API key from Planio, I will select API Key Authentication. Header key is changed from x-api-key to X-Redmine-API-Key referring to documentation.
 
 [![image](https://user-images.githubusercontent.com/67397583/149615062-e239c258-6d2a-4cc0-be88-53a2e5707181.png)](https://user-images.githubusercontent.com/67397583/149615062-e239c258-6d2a-4cc0-be88-53a2e5707181.png)
 

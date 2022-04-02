@@ -64,7 +64,7 @@ After starting system operation including database, normally system is changing 
   "datePublished" : "2021-12-11T21:54:02",
   "dateModified" : "2021-12-11T21:54:02",
   "image" : "https:\/\/kaztakata.github.io\/celonis-hacks",
-  "keywords" : [ "Event Collection, Extractor, Extraction, Transformation, Data Job" ],
+  "keywords" : [ "Data Integration, Extractor, Extraction, Transformation, Data Job" ],
   "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-12-11-understand-delta-load-configuration-difference-in-adding-column-scenario\/",
   "publisher" : {
     "@type": "Organization",
@@ -301,14 +301,14 @@ if (!doNotTrack) {
 <p><a href="https://user-images.githubusercontent.com/67397583/145679033-19443a6c-0bd9-4c30-8d72-62d79cd79a72.png"><img src="https://user-images.githubusercontent.com/67397583/145679033-19443a6c-0bd9-4c30-8d72-62d79cd79a72.png" alt="image"></a></p>
 <p>After changing it, again I execute data job and it turns successful. Also new column nickname is appened to last and filled value regarding latest record.</p>
 <p><a href="https://user-images.githubusercontent.com/67397583/145679340-1a53b5f9-941d-4030-90cd-201a68605e88.png"><img src="https://user-images.githubusercontent.com/67397583/145679340-1a53b5f9-941d-4030-90cd-201a68605e88.png" alt="image"></a></p>
-<p>Which option is better for us ? Basically safer way is to raise error (option A) and manually resolve inconsistency by Full Load. But you should consider frequency of changing database. If it is frequent, everytime after changing database Celonis raises error. From operating perspective, frequent datajob error is may not by allowed because extraction is the first step of Event Collection tasks, so failure of extraction means Data Model still old. In my experience SAP is not changed so much, instead SalesForce is more frequently changed.</p>
+<p>Which option is better for us ? Basically safer way is to raise error (option A) and manually resolve inconsistency by Full Load. But you should consider frequency of changing database. If it is frequent, everytime after changing database Celonis raises error. From operating perspective, frequent datajob error is may not by allowed because extraction is the first step of Data Integration tasks, so failure of extraction means Data Model still old. In my experience SAP is not changed so much, instead SalesForce is more frequently changed.</p>
 <p>Kaz</p>
 
 
         
           <div class="blog-tags">
             
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/event-collection/">Event Collection</a>&nbsp;
+              <a href="https://kaztakata.github.io/celonis-hacks/tags/data-integration/">Data Integration</a>&nbsp;
             
               <a href="https://kaztakata.github.io/celonis-hacks/tags/extractor/">Extractor</a>&nbsp;
             
@@ -388,6 +388,8 @@ if (!doNotTrack) {
                   <ul>
                 
                 
+                    <li><a href="/celonis-hacks/posts/2022-04-02-adjust-time-zone-of-event-time-in-global-transformation/">Adjust Time Zone of Event Time in Global Transformation</a></li>
+                
                     <li><a href="/celonis-hacks/posts/2022-03-26-handle-day-based-activity-as-milestone/">Handle Day based Activity as Milestone</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2022-03-19-unite-sql-statements-by-case-expression/">Unite SQL statements by CASE Expression</a></li>
@@ -395,8 +397,6 @@ if (!doNotTrack) {
                     <li><a href="/celonis-hacks/posts/2022-03-12-split-long-sql-using-views/">Split Long SQL Using Views</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2022-03-05-compose-activity-from-joining-multiple-tables/">Compose Activity from Joining Multiple Tables</a></li>
-                
-                    <li><a href="/celonis-hacks/posts/2022-02-26-insert-simple-record-into-activity-table/">Insert Simple Record into Activity Table</a></li>
                 
               </ul>
 

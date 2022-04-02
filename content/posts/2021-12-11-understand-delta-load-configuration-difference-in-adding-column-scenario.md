@@ -2,7 +2,7 @@
 title: "Understand Delta Load Configuration Difference in Adding Column Scenario"
 date: 2021-12-11T21:54:02+09:00
 draft: false
-tags: ['Event Collection','Extractor','Extraction','Transformation','Data Job']
+tags: ['Data Integration','Extractor','Extraction','Transformation','Data Job']
 ---
 
 Last time I showed behavior when I added new record then extracted that record by Delta Load ([Verify Cloning Table Contents via Delta Load](../2021-12-04-verify-cloning-table-contents-via-delta-load)). Delta Load is effective way to minimize extraction effort, but it is not always applied. Today, it is continued from previous post, I would like to add column to cloned table and observe behavior of extraction task.
@@ -35,6 +35,6 @@ After changing it, again I execute data job and it turns successful. Also new co
 
 [![image](https://user-images.githubusercontent.com/67397583/145679340-1a53b5f9-941d-4030-90cd-201a68605e88.png)](https://user-images.githubusercontent.com/67397583/145679340-1a53b5f9-941d-4030-90cd-201a68605e88.png)
 
-Which option is better for us ? Basically safer way is to raise error (option A) and manually resolve inconsistency by Full Load. But you should consider frequency of changing database. If it is frequent, everytime after changing database Celonis raises error. From operating perspective, frequent datajob error is may not by allowed because extraction is the first step of Event Collection tasks, so failure of extraction means Data Model still old. In my experience SAP is not changed so much, instead SalesForce is more frequently changed.
+Which option is better for us ? Basically safer way is to raise error (option A) and manually resolve inconsistency by Full Load. But you should consider frequency of changing database. If it is frequent, everytime after changing database Celonis raises error. From operating perspective, frequent datajob error is may not by allowed because extraction is the first step of Data Integration tasks, so failure of extraction means Data Model still old. In my experience SAP is not changed so much, instead SalesForce is more frequently changed.
 
 Kaz

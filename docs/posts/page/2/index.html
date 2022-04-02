@@ -199,6 +199,56 @@ if (!doNotTrack) {
         <div class="posts-list">
           
             <article class="post-preview">
+    <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-01-22-configure-endpoint-for-suitable-extraction/">
+        <h2 class="post-title">Configure Endpoint for Suitable Extraction</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on map[Count:2022-01-22]
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;minutes
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;468&nbsp;words
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kazuhiko Takata
+    
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        In the last post Connect to Source System via REST API, I shared how to set up Extractor Builder and extracted Issue from Planio. It was shortest path to be avaiable for extraction job, so it is not enough for production job. Today I would like to configure Endpoint in Extractor Builder to resolve problems I experienced.
+First problem I faced is upper limit of extraction data. Some day I found that I could not get issue record until 25.
+        <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-01-22-configure-endpoint-for-suitable-extraction/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+        <a href="https://kaztakata.github.io/celonis-hacks/tags/data-integration/">Data Integration</a>&nbsp;
+        
+        <a href="https://kaztakata.github.io/celonis-hacks/tags/extractor-builder/">Extractor Builder</a>&nbsp;
+        
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
     <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-01-15-connect-to-source-system-via-rest-api/">
         <h2 class="post-title">Connect to Source System via REST API</h2>
         
@@ -238,7 +288,7 @@ if (!doNotTrack) {
     
     <div class="blog-tags">
         
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/event-collection/">Event Collection</a>&nbsp;
+        <a href="https://kaztakata.github.io/celonis-hacks/tags/data-integration/">Data Integration</a>&nbsp;
         
         <a href="https://kaztakata.github.io/celonis-hacks/tags/extractor-builder/">Extractor Builder</a>&nbsp;
         
@@ -288,7 +338,7 @@ From now on I will move to transformation topic. To explain this, I think it is 
     
     <div class="blog-tags">
         
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/event-collection/">Event Collection</a>&nbsp;
+        <a href="https://kaztakata.github.io/celonis-hacks/tags/data-integration/">Data Integration</a>&nbsp;
         
         <a href="https://kaztakata.github.io/celonis-hacks/tags/transformation/">Transformation</a>&nbsp;
         
@@ -338,7 +388,7 @@ First issue is regarding source system itself. We would like to guarantee source
     
     <div class="blog-tags">
         
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/event-collection/">Event Collection</a>&nbsp;
+        <a href="https://kaztakata.github.io/celonis-hacks/tags/data-integration/">Data Integration</a>&nbsp;
         
         <a href="https://kaztakata.github.io/celonis-hacks/tags/extraction/">Extraction</a>&nbsp;
         
@@ -388,7 +438,7 @@ When I operate Celonis EMS, I try not to extract sensitive information from the 
     
     <div class="blog-tags">
         
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/event-collection/">Event Collection</a>&nbsp;
+        <a href="https://kaztakata.github.io/celonis-hacks/tags/data-integration/">Data Integration</a>&nbsp;
         
         <a href="https://kaztakata.github.io/celonis-hacks/tags/extractor/">Extractor</a>&nbsp;
         
@@ -444,7 +494,7 @@ After starting system operation including database, normally system is changing 
     
     <div class="blog-tags">
         
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/event-collection/">Event Collection</a>&nbsp;
+        <a href="https://kaztakata.github.io/celonis-hacks/tags/data-integration/">Data Integration</a>&nbsp;
         
         <a href="https://kaztakata.github.io/celonis-hacks/tags/extractor/">Extractor</a>&nbsp;
         
@@ -500,7 +550,7 @@ First step is to enter localhost:5050 to my browser, then at the login screen en
     
     <div class="blog-tags">
         
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/event-collection/">Event Collection</a>&nbsp;
+        <a href="https://kaztakata.github.io/celonis-hacks/tags/data-integration/">Data Integration</a>&nbsp;
         
         <a href="https://kaztakata.github.io/celonis-hacks/tags/extractor/">Extractor</a>&nbsp;
         
@@ -555,7 +605,7 @@ First step is to enter localhost:5050 to my browser, then at the login screen en
     
     <div class="blog-tags">
         
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/event-collection/">Event Collection</a>&nbsp;
+        <a href="https://kaztakata.github.io/celonis-hacks/tags/data-integration/">Data Integration</a>&nbsp;
         
         <a href="https://kaztakata.github.io/celonis-hacks/tags/extractor/">Extractor</a>&nbsp;
         
@@ -603,7 +653,7 @@ First step is to enter localhost:5050 to my browser, then at the login screen en
     <div class="post-entry">
         
         Last week I posted Connect to Celonis and Bring Back Instruction to look at how Extractor works to connect between Celonis and Postgres. This week I would like to extract data from Postgres and look at data transfer process by data job log.
-In the Event Collection, I create new Data Job with Data Connection I created last week, then create new extraction task. In the next screen I add new table public.
+In the Data Integration, I create new Data Job with Data Connection I created last week, then create new extraction task. In the next screen I add new table public.
         <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-11-20-look-at-data-transfer-process-by-data-job-log/" class="post-read-more">[Read More]</a>
         
     </div>
@@ -611,7 +661,7 @@ In the Event Collection, I create new Data Job with Data Connection I created la
     
     <div class="blog-tags">
         
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/event-collection/">Event Collection</a>&nbsp;
+        <a href="https://kaztakata.github.io/celonis-hacks/tags/data-integration/">Data Integration</a>&nbsp;
         
         <a href="https://kaztakata.github.io/celonis-hacks/tags/extractor/">Extractor</a>&nbsp;
         
@@ -656,7 +706,7 @@ In the Event Collection, I create new Data Job with Data Connection I created la
     </p>
     <div class="post-entry">
         
-        From last week I started Event Collection series and posted Run Extractor on Your Local Machine to prepare for my Extractor and Postgres database. Today I will start using Extractor and show you the mechanism to extract data safely.
+        From last week I started Data Integration series and posted Run Extractor on Your Local Machine to prepare for my Extractor and Postgres database. Today I will start using Extractor and show you the mechanism to extract data safely.
 From this week I will start Extractor and Postgres by next two steps (same as last week).
  Open VS code and open terminal at celonis-postgres folder. Enter docker-compose up in VS code terminal.
         <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-11-13-connect-to-celonis-and-bring-back-instruction/" class="post-read-more">[Read More]</a>
@@ -666,57 +716,7 @@ From this week I will start Extractor and Postgres by next two steps (same as la
     
     <div class="blog-tags">
         
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/event-collection/">Event Collection</a>&nbsp;
-        
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/extractor/">Extractor</a>&nbsp;
-        
-    </div>
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-11-06-run-extractor-on-your-local-machine/">
-        <h2 class="post-title">Run Extractor on Your Local Machine</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on map[Count:2021-11-06]
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;minutes
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;457&nbsp;words
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kazuhiko Takata
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        From this week I would like to explain my experience regarding Event Collection functions (Extraction, Transformation, Load etc.). To do this, I try to create sample source systems and build code in Celonis training environment.
-As first topic, I would like to explain on premise Extractor, that is in the middle between your source systems (SAP, Oracle etc.) and Celonis EMS and support transferring data. By the way, because I do not want to pay licence of source systems for this blog, I would like to use open source Postgres database.
-        <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-11-06-run-extractor-on-your-local-machine/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/event-collection/">Event Collection</a>&nbsp;
+        <a href="https://kaztakata.github.io/celonis-hacks/tags/data-integration/">Data Integration</a>&nbsp;
         
         <a href="https://kaztakata.github.io/celonis-hacks/tags/extractor/">Extractor</a>&nbsp;
         

@@ -2,7 +2,7 @@
 title: "Split Long SQL Using Views"
 date: 2022-03-12T16:28:51+09:00
 draft: false
-tags: ['Event Collection','Transformation']
+tags: ['Data Integration','Transformation']
 ---
 
 At last post I wrote [Compose Activity from Joining Multiple Tables](../2022-03-05-compose-activity-from-joining-multiple-tables) to create second activity `Close Issue`. Final version of SQL statement was long even I just used three tables. In real process mining project I handled hundred of tables and wrote quite long SQLs. At that time I faced same patterns of SQL in multiple activities. So I introduces `VIEW` in my SQLs for grouping same pattern of `SELECT` SQL, similar to create function (method) in programming. I would like to try it using current project.

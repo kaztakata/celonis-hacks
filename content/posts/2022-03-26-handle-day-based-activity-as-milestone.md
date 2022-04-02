@@ -2,7 +2,7 @@
 title: "Handle Day based Activity as Milestone"
 date: 2022-03-26T01:48:53+09:00
 draft: false
-tags: ['Event Collection','Transformation', 'Process Analytics']
+tags: ['Data Integration','Transformation', 'Process Analytics']
 ---
 
 I already created four activities until last post [Unite SQL statements by CASE Expression](../2022-03-19-unite-sql-statements-by-case-expression), those are fillfilled requirement of event log. Going back to [Consider Case ID before Starting Transformation](../2022-02-12-consider-case-id-before-starting-transformation), case ID is the biggest requirement. Also is is not so big as case ID, but event time is important too. In process mining, event time should be year, month, day plus hour, minute, second (`YYYY-MM-DD HH:MI:SS` in Vertica format). I guess event time in process mining referred to that is recorded automatically by system responding to something action. But there are some exceptional cases. Today I would like to discuss about that point, day based activity.

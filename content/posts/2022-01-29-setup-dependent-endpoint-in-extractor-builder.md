@@ -2,7 +2,7 @@
 title: "Setup Dependent Endpoint in Extractor Builder"
 date: 2022-01-29T09:17:16+09:00
 draft: false
-tags: ['Event Collection','Extractor Builder']
+tags: ['Data Integration','Extractor Builder']
 ---
 
 In the last post [Configure Endpoint for Suitable Extraction](../2022-01-22-configure-endpoint-for-suitable-extraction), I configured Endpoint in Extractor Builder to suit my business requirements, and still there are points to extract change history of issues, and to extract data by Delta Load option. Today I would like to setup regarding change history using Dependent Endpoint in Extractor Builder.

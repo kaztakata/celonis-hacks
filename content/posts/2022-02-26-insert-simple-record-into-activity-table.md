@@ -2,7 +2,7 @@
 title: "Insert Simple Record into Activity Table"
 date: 2022-02-26T09:14:12+09:00
 draft: false
-tags: ['Event Collection','Transformation']
+tags: ['Data Integration','Transformation']
 ---
 
 In the last post of [Determine Process Mining Tables based on Project Goal](../2022-02-19-determine-process-mining-tables-based-on-project-goal), I talked strategy of transforming Planio data to event log. Then I wrote SQL to create activity table. 

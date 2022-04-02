@@ -30,7 +30,7 @@ STRINGHASH(
 
 By the way, generally I should keep uniqueness by four columns in Data Model load, but even if I violate that uniqueness I just return warning message and succeeded data load. So I need to check count of activity table, then add more columns to create uniqueness if required. Hashed function is good because it shortened to 39 characters, even if concatenated value is longer than.
 
-Finally if you can design activity table, it may be more beneficial to create activity key column in Event Collection. This point I would like to discuss later when I will start Event Collection series.
+Finally if you can design activity table, it may be more beneficial to create activity key column in Data Integration. This point I would like to discuss later when I will start Data Integration series.
 
 Kaz
 

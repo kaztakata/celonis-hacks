@@ -2,7 +2,7 @@
 title: "Unite SQL statements by CASE Expression"
 date: 2022-03-19T09:14:35+09:00
 draft: false
-tags: ['Event Collection','Transformation']
+tags: ['Data Integration','Transformation']
 ---
 
 Until [Split Long SQL Using Views](../2022-03-12-split-long-sql-using-views) post I created four activities and each SQLs, and I found three of four have same table join pattern. So I created `VIEW` to shorten `JOIN` predicate for each SQL. It is nice to shorten total statement volume but almost all statement except for `JOIN` predicate is duplicated among SQLs. When something change is required, maintenance of each SQLs is annoying work. Today I would like to integrate SQLs using `CASE` expression.

@@ -2,7 +2,7 @@
 title: "Configure Endpoint for Suitable Extraction"
 date: 2022-01-22T08:08:39+09:00
 draft: false
-tags: ['Event Collection','Extractor Builder']
+tags: ['Data Integration','Extractor Builder']
 ---
 
 In the last post [Connect to Source System via REST API](../2022-01-15-connect-to-source-system-via-rest-api), I shared how to set up Extractor Builder and extracted Issue from Planio. It was shortest path to be avaiable for extraction job, so it is not enough for production job. Today I would like to configure Endpoint in Extractor Builder to resolve problems I experienced.

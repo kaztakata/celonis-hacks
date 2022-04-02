@@ -2,7 +2,7 @@
 title: "Use Pseudonymized Column as Grouping Key"
 date: 2021-12-18T09:22:56+09:00
 draft: false
-tags: ['Event Collection','Extractor','Extraction','Transformation','Data Job']
+tags: ['Data Integration','Extractor','Extraction','Transformation','Data Job']
 ---
 
 One of the biggest headache for data engineer like me is how to assure data security when extracting data. Especially personal information should be dealt sensitively, otherwise I may be punished by each region's law (e.g. GDPR).
@@ -31,7 +31,7 @@ INSERT INTO orders (customer,material,createdBy,createdAt) VALUES ('Oda Nobunaga
 
 Assuming this `orders` table is located inside my company's local network (on-premise) and I do not want to expose customer name and employee name to outside of my network, but I would like to analyze process of my orders.
 
-When I setup extraction task in Celonis Event Collection, I will click Configure button to set pseudonymized columns (customer and createdBy) as below.
+When I setup extraction task in Celonis Data Integration, I will click Configure button to set pseudonymized columns (customer and createdBy) as below.
 
 [![image](https://user-images.githubusercontent.com/67397583/146629365-85ea409a-d274-42db-8456-193da230fdd0.png)](https://user-images.githubusercontent.com/67397583/146629365-85ea409a-d274-42db-8456-193da230fdd0.png)
 

@@ -2,7 +2,7 @@
 title: "Prepare Source System to Generate Event Log"
 date: 2022-01-08T16:35:30+09:00
 draft: false
-tags: ['Event Collection','Transformation']
+tags: ['Data Integration','Transformation']
 ---
 
 Until last post I explained extraction topics using own Postgres database. I think it is better to test extraction functions with changing database by yourself. But it is hard to manually input data record that is meaningful as event log.

@@ -2,16 +2,16 @@
 title: "Connect to Celonis and Bring Back Instruction"
 date: 2021-11-13T10:19:49+09:00
 draft: false
-tags: ['Event Collection','Extractor']
+tags: ['Data Integration','Extractor']
 ---
 
-From last week I started Event Collection series and posted [Run Extractor on Your Local Machine](../2021-11-06-run-extractor-on-your-local-machine) to prepare for my Extractor and Postgres database. Today I will start using Extractor and show you the mechanism to extract data safely. 
+From last week I started Data Integration series and posted [Run Extractor on Your Local Machine](../2021-11-06-run-extractor-on-your-local-machine) to prepare for my Extractor and Postgres database. Today I will start using Extractor and show you the mechanism to extract data safely. 
 
 From this week I will start Extractor and Postgres by next two steps (same as last week).
 1. Open VS code and open terminal at celonis-postgres folder.
 1. Enter `docker-compose up` in VS code terminal.
 
-Next, I will login to Celonis training environment and go to Event Collection, then create new Data Pool. Then go to Data Connection and click New Data Connection button. Choose Database at next screen, then parameter setting screen is appeared as below screenshot.
+Next, I will login to Celonis training environment and go to Data Integration, then create new Data Pool. Then go to Data Connection and click New Data Connection button. Choose Database at next screen, then parameter setting screen is appeared as below screenshot.
 
 Input parameters as below and click Test Connection. Normally it is successful.
 

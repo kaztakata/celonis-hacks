@@ -63,7 +63,7 @@
   "datePublished" : "2022-01-15T10:27:09",
   "dateModified" : "2022-01-15T10:27:09",
   "image" : "https:\/\/kaztakata.github.io\/celonis-hacks",
-  "keywords" : [ "Event Collection, Extractor Builder" ],
+  "keywords" : [ "Data Integration, Extractor Builder" ],
   "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-01-15-connect-to-source-system-via-rest-api\/",
   "publisher" : {
     "@type": "Organization",
@@ -251,7 +251,7 @@ if (!doNotTrack) {
 <p>First step is to get Planio API key to access from Celonis EMS to Planio. After sign in to Planio, I will go to My Account page from Avatar menu at top right of screen. Next click show button at API Access Key menu in the right pane, then I can see API key (this is credential information so it is possible to reset key any time).</p>
 <p><a href="https://user-images.githubusercontent.com/67397583/149604286-0db72830-d36e-49eb-a2a5-78ad614e3f05.png"><img src="https://user-images.githubusercontent.com/67397583/149604286-0db72830-d36e-49eb-a2a5-78ad614e3f05.png" alt="image"></a></p>
 <p>Even using API key is deprecated solution as <a href="https://plan.io/api/#deprecated-authentication-methods">documentation</a> said, OAuth2.0 authentication is not feasible to Extractor Builder when I tried before. So I should go with API key for the moment.</p>
-<p>Next step is Extractor setup in the Event Collection of Celonis EMS. I will go to Extractor Builder then click Build a New Extractor button. After determining Extractor name, I will setup Authentication Methods as below screen. As I got API key from Planio, I will select API Key Authentication. Header key is changed from x-api-key to X-Redmine-API-Key referring to documentation.</p>
+<p>Next step is Extractor setup in the Data Integration of Celonis EMS. I will go to Extractor Builder then click Build a New Extractor button. After determining Extractor name, I will setup Authentication Methods as below screen. As I got API key from Planio, I will select API Key Authentication. Header key is changed from x-api-key to X-Redmine-API-Key referring to documentation.</p>
 <p><a href="https://user-images.githubusercontent.com/67397583/149615062-e239c258-6d2a-4cc0-be88-53a2e5707181.png"><img src="https://user-images.githubusercontent.com/67397583/149615062-e239c258-6d2a-4cc0-be88-53a2e5707181.png" alt="image"></a></p>
 <p>Then skip the Connection parameters and move to Define Endpoints. Endpoint is the address to access to resources in source systems, similar to table name in case of previous Postgres database. This is something complex part but at first I would like to create quite simple Endpoint, so click Add New Endpoint.</p>
 <p>Looking at <a href="https://plan.io/api/#resources">Planio resources</a>, I found that I can access to Issues that I entered before. I would like to get all entries of Issues, so I focus on <code>GET /issues.[json|xml]</code>. So endpoint name is determined as <code>issues</code>, then enter <code>{Connection.API_URL}/issues.json}</code> to Request URL. <code>{Connection.API_URL}</code> is automatically replaced with my URL later. <code>json</code> is the response format acceptable for Extractor Builder.</p>
@@ -270,7 +270,7 @@ if (!doNotTrack) {
         
           <div class="blog-tags">
             
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/event-collection/">Event Collection</a>&nbsp;
+              <a href="https://kaztakata.github.io/celonis-hacks/tags/data-integration/">Data Integration</a>&nbsp;
             
               <a href="https://kaztakata.github.io/celonis-hacks/tags/extractor-builder/">Extractor Builder</a>&nbsp;
             
@@ -344,6 +344,8 @@ if (!doNotTrack) {
                   <ul>
                 
                 
+                    <li><a href="/celonis-hacks/posts/2022-04-02-adjust-time-zone-of-event-time-in-global-transformation/">Adjust Time Zone of Event Time in Global Transformation</a></li>
+                
                     <li><a href="/celonis-hacks/posts/2022-03-26-handle-day-based-activity-as-milestone/">Handle Day based Activity as Milestone</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2022-03-19-unite-sql-statements-by-case-expression/">Unite SQL statements by CASE Expression</a></li>
@@ -351,8 +353,6 @@ if (!doNotTrack) {
                     <li><a href="/celonis-hacks/posts/2022-03-12-split-long-sql-using-views/">Split Long SQL Using Views</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2022-03-05-compose-activity-from-joining-multiple-tables/">Compose Activity from Joining Multiple Tables</a></li>
-                
-                    <li><a href="/celonis-hacks/posts/2022-02-26-insert-simple-record-into-activity-table/">Insert Simple Record into Activity Table</a></li>
                 
               </ul>
 
