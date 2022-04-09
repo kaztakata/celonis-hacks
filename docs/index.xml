@@ -5,10 +5,20 @@
     <link>https://kaztakata.github.io/celonis-hacks/</link>
     <description>Recent content on Celonis hacks</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 02 Apr 2022 16:08:17 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 09 Apr 2022 17:40:32 +0900</lastBuildDate>
     
 	<atom:link href="https://kaztakata.github.io/celonis-hacks/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Inspect Table Data by SELECT statement</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2022-04-09-inspect-table-data-by-select-statement/</link>
+      <pubDate>Sat, 09 Apr 2022 17:40:32 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2022-04-09-inspect-table-data-by-select-statement/</guid>
+      <description>Today I would like to share small tips in transformation tasks. Of course main purpose of transforamtion is to create event log table etc. but we are not always sure about source system behavior, so before completing transformation SQL I must investigate data of source system. As I already showed, I can use simple SELECT statement to inspect tables.
+Previously when I was familiar with SAP ECC, the only way to easily inspect SAP table is to download table data by SE16 transaction and open Microsoft Excel and simply filter data or use pivot table etc.</description>
+    </item>
     
     <item>
       <title>Adjust Time Zone of Event Time in Global Transformation</title>

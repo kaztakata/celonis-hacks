@@ -199,6 +199,57 @@ if (!doNotTrack) {
         <div class="posts-list">
           
             <article class="post-preview">
+    <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-09-04-convert-count-unit-of-kpi-by-count-distinct/">
+        <h2 class="post-title">Convert count unit of KPI by COUNT DISTINCT</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on map[Count:2021-09-04]
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;minutes
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;430&nbsp;words
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kazuhiko Takata
+    
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        Last week I was asked to convert count unit of some KPI (that returns 1 or 0) from delivery item to delivery document (convert if all items in the document are 1 then document KPI is 1, else 0). In this case delivery document and item columns are stored at Activity table like this post&rsquo;s third topic. I already used DOMAIN_TABLE to group activity record by delivery item then calculate KPI.
+        <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-09-04-convert-count-unit-of-kpi-by-count-distinct/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+        <a href="https://kaztakata.github.io/celonis-hacks/tags/pql/">PQL</a>&nbsp;
+        
+        <a href="https://kaztakata.github.io/celonis-hacks/tags/process-analytics/">Process Analytics</a>&nbsp;
+        
+        <a href="https://kaztakata.github.io/celonis-hacks/tags/pull-up-function/">Pull Up Function</a>&nbsp;
+        
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
     <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-08-28-count-rows-of-tables-in-various-way/">
         <h2 class="post-title">Count rows of Tables in various way</h2>
         
@@ -652,59 +703,6 @@ In case of SAP Order to Cash (O2C) scenario, case table is sales order item (VBA
         In the last post Handle NULL efficiently in Aggregation Function, I used saved formulas to split long and complex PQL to reusable components. Today I would like to share my best practice to use saved formulas.
 For example I would like to ananlyze throughput time between arbitrary two activities. As below screenshot I created three dropdown buttons, switching time unit (sec, min, hour, day etc.) and two activities (from / to).
         <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-07-03-maintain-saved-formulas-effectively/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/pql/">PQL</a>&nbsp;
-        
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/process-analytics/">Process Analytics</a>&nbsp;
-        
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/pull-up-function/">Pull Up Function</a>&nbsp;
-        
-    </div>
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-06-26-handle-null-efficiently-in-aggregation-function/">
-        <h2 class="post-title">Handle NULL efficiently in Aggregation Function</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on map[Count:2021-06-26]
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;minutes
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;552&nbsp;words
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kazuhiko Takata
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        I looked at many PQLs that can be simplified if they know about NULL handling well. Today I would like to tell how to handle NULL efficiently in Aggregation Functions (COUNT,SUM,AVG etc.).
-Today I would like to use O2C process to explain my case. I determined KPI Send Invoice within a day after Ship Goods, because sales company will Ship Goods then should Send Invoice immediately.
-Same as previous posts, first I would like to create OLAP table to look into the cases.
-        <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-06-26-handle-null-efficiently-in-aggregation-function/" class="post-read-more">[Read More]</a>
         
     </div>
 

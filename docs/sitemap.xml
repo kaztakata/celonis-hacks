@@ -3,32 +3,37 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://kaztakata.github.io/celonis-hacks/posts/2022-04-02-adjust-time-zone-of-event-time-in-global-transformation/</loc>
-    <lastmod>2022-04-02T16:08:17+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://kaztakata.github.io/celonis-hacks/</loc>
-    <lastmod>2022-04-02T16:08:17+09:00</lastmod>
+    <lastmod>2022-04-09T17:40:32+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://kaztakata.github.io/celonis-hacks/tags/data-integration/</loc>
-    <lastmod>2022-04-02T16:08:17+09:00</lastmod>
+    <lastmod>2022-04-09T17:40:32+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kaztakata.github.io/celonis-hacks/posts/2022-04-09-inspect-table-data-by-select-statement/</loc>
+    <lastmod>2022-04-09T17:40:32+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://kaztakata.github.io/celonis-hacks/posts/</loc>
-    <lastmod>2022-04-02T16:08:17+09:00</lastmod>
+    <lastmod>2022-04-09T17:40:32+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://kaztakata.github.io/celonis-hacks/tags/</loc>
-    <lastmod>2022-04-02T16:08:17+09:00</lastmod>
+    <lastmod>2022-04-09T17:40:32+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://kaztakata.github.io/celonis-hacks/tags/transformation/</loc>
+    <lastmod>2022-04-09T17:40:32+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kaztakata.github.io/celonis-hacks/posts/2022-04-02-adjust-time-zone-of-event-time-in-global-transformation/</loc>
     <lastmod>2022-04-02T16:08:17+09:00</lastmod>
   </url>
   

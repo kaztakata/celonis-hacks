@@ -7,9 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Understand Delta Load Configuration Difference in Adding Column Scenario - Celonis hacks</title>
-  <meta name="description" content="Last time I showed behavior when I added new record then extracted that record by Delta Load (Verify Cloning Table Contents via Delta Load). Delta Load is effective way to minimize extraction effort, but it is not always applied. Today, it is continued from previous post, I would like to add column to cloned table and observe behavior of extraction task.
-After starting system operation including database, normally system is changing its requirement and extend function and database etc.">
+  <title>Inspect Table Data by SELECT statement - Celonis hacks</title>
+  <meta name="description" content="Today I would like to share small tips in transformation tasks. Of course main purpose of transforamtion is to create event log table etc. but we are not always sure about source system behavior, so before completing transformation SQL I must investigate data of source system. As I already showed, I can use simple SELECT statement to inspect tables.
+Previously when I was familiar with SAP ECC, the only way to easily inspect SAP table is to download table data by SE16 transaction and open Microsoft Excel and simply filter data or use pivot table etc.">
   <meta name="author" content="Kazuhiko Takata"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -45,8 +45,8 @@ After starting system operation including database, normally system is changing 
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-12-11-understand-delta-load-configuration-difference-in-adding-column-scenario\/",
-          "name": "Understand delta load configuration difference in adding column scenario"
+          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-04-09-inspect-table-data-by-select-statement\/",
+          "name": "Inspect table data by s e l e c t statement"
         }
     }]
 }
@@ -57,15 +57,15 @@ After starting system operation including database, normally system is changing 
   "author": {
     "name" : "Kazuhiko Takata"
   },
-  "headline": "Understand Delta Load Configuration Difference in Adding Column Scenario",
-  "description" : "Last time I showed behavior when I added new record then extracted that record by Delta Load (Verify Cloning Table Contents via Delta Load). Delta Load is effective way to minimize extraction effort, but it is not always applied. Today, it is continued from previous post, I would like to add column to cloned table and observe behavior of extraction task.\nAfter starting system operation including database, normally system is changing its requirement and extend function and database etc.",
+  "headline": "Inspect Table Data by SELECT statement",
+  "description" : "Today I would like to share small tips in transformation tasks. Of course main purpose of transforamtion is to create event log table etc. but we are not always sure about source system behavior, so before completing transformation SQL I must investigate data of source system. As I already showed, I can use simple SELECT statement to inspect tables.\nPreviously when I was familiar with SAP ECC, the only way to easily inspect SAP table is to download table data by SE16 transaction and open Microsoft Excel and simply filter data or use pivot table etc.",
   "inLanguage" : "en",
-  "wordCount":  402 ,
-  "datePublished" : "2021-12-11T21:54:02",
-  "dateModified" : "2021-12-11T21:54:02",
+  "wordCount":  530 ,
+  "datePublished" : "2022-04-09T17:40:32",
+  "dateModified" : "2022-04-09T17:40:32",
   "image" : "https:\/\/kaztakata.github.io\/celonis-hacks",
-  "keywords" : [ "Data Integration, Extractor, Extraction, Transformation, Data Job" ],
-  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-12-11-understand-delta-load-configuration-difference-in-adding-column-scenario\/",
+  "keywords" : [ "Data Integration, Transformation" ],
+  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-04-09-inspect-table-data-by-select-statement\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/kaztakata.github.io\/celonis-hacks",
@@ -79,15 +79,15 @@ After starting system operation including database, normally system is changing 
 }
 </script>
 
-<meta property="og:title" content="Understand Delta Load Configuration Difference in Adding Column Scenario" />
-<meta property="og:description" content="Last time I showed behavior when I added new record then extracted that record by Delta Load (Verify Cloning Table Contents via Delta Load). Delta Load is effective way to minimize extraction effort, but it is not always applied. Today, it is continued from previous post, I would like to add column to cloned table and observe behavior of extraction task.
-After starting system operation including database, normally system is changing its requirement and extend function and database etc.">
-<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2021-12-11-understand-delta-load-configuration-difference-in-adding-column-scenario/" />
+<meta property="og:title" content="Inspect Table Data by SELECT statement" />
+<meta property="og:description" content="Today I would like to share small tips in transformation tasks. Of course main purpose of transforamtion is to create event log table etc. but we are not always sure about source system behavior, so before completing transformation SQL I must investigate data of source system. As I already showed, I can use simple SELECT statement to inspect tables.
+Previously when I was familiar with SAP ECC, the only way to easily inspect SAP table is to download table data by SE16 transaction and open Microsoft Excel and simply filter data or use pivot table etc.">
+<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2022-04-09-inspect-table-data-by-select-statement/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Celonis hacks" />
 
-  <meta name="twitter:title" content="Understand Delta Load Configuration Difference in Adding Column …" />
-  <meta name="twitter:description" content="Last time I showed behavior when I added new record then extracted that record by Delta Load (Verify Cloning Table Contents via Delta Load). Delta Load is effective way to minimize extraction effort, …">
+  <meta name="twitter:title" content="Inspect Table Data by SELECT statement" />
+  <meta name="twitter:description" content="Today I would like to share small tips in transformation tasks. Of course main purpose of transforamtion is to create event log table etc. but we are not always sure about source system behavior, so …">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
@@ -229,7 +229,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="posts-heading">
               
-                <h1>Understand Delta Load Configuration Difference in Adding Column Scenario</h1>
+                <h1>Inspect Table Data by SELECT statement</h1>
               
               
                 <hr class="small">
@@ -249,59 +249,40 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>Last time I showed behavior when I added new record then extracted that record by Delta Load (<a href="../2021-12-04-verify-cloning-table-contents-via-delta-load">Verify Cloning Table Contents via Delta Load</a>). Delta Load is effective way to minimize extraction effort, but it is not always applied. Today, it is continued from previous post, I would like to add column to cloned table and observe behavior of extraction task.</p>
-<p>After starting system operation including database, normally system is changing its requirement and extend function and database etc. Let&rsquo;s assume <code>nickname</code> is newly required for <code>app_user</code> table.</p>
-<p>In pgAdmin, I will do SQL statement <code>ALTER TABLE app_users ADD COLUMN nickname TEXT;</code> to add column to table. Then I created new user with SQL <code>INSERT INTO app_users (firstname, lastname, nickname) VALUES ('Kazuhiko','Takata','Kaz');</code>. Looking at the table only latest record has nickname value.</p>
-<table>
-<thead>
-<tr>
-<th>id</th>
-<th>firstname</th>
-<th>lastname</th>
-<th>nickname</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>154823</td>
-<td>Kazuhiko</td>
-<td>Takata</td>
-<td>Kaz</td>
-</tr>
-<tr>
-<td>154822</td>
-<td>Celonis</td>
-<td>Hacks</td>
-<td></td>
-</tr>
-<tr>
-<td>154821</td>
-<td>0e08&hellip;.</td>
-<td>23bd&hellip;.</td>
-<td></td>
-</tr>
-<tr>
-<td>154820</td>
-<td>6d5f&hellip;.</td>
-<td>0a4b&hellip;.</td>
-<td></td>
-</tr>
-<tr>
-<td>154819</td>
-<td>3201&hellip;.</td>
-<td>d7ca&hellip;.</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p>Switching to Celonis, then start extraction job with Delta Load option to clone latest record. But I got error message with below log.</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">2021-12-11 22:38:50 Columns: (nickname) have changed. Table won&#39;t be delta loaded. Please perform a full load instead.
-</code></pre></div><p>As described in this error message, normally after column changes it is not possible to clone table except Full Load, because Celonis does not know how <code>nickname</code> of already cloned record is filled.</p>
-<p>Even above, if I already know cloned record do not have nickname value and only take care about new record, I can still use Delta Load. Going to Celonis extraction task and Extraction settings tab in it, then I will switch Delta Load Configuration from option A to B as below screen. It enables Delta Load with risk of data inconsistency as explained.</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/145679033-19443a6c-0bd9-4c30-8d72-62d79cd79a72.png"><img src="https://user-images.githubusercontent.com/67397583/145679033-19443a6c-0bd9-4c30-8d72-62d79cd79a72.png" alt="image"></a></p>
-<p>After changing it, again I execute data job and it turns successful. Also new column nickname is appened to last and filled value regarding latest record.</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/145679340-1a53b5f9-941d-4030-90cd-201a68605e88.png"><img src="https://user-images.githubusercontent.com/67397583/145679340-1a53b5f9-941d-4030-90cd-201a68605e88.png" alt="image"></a></p>
-<p>Which option is better for us ? Basically safer way is to raise error (option A) and manually resolve inconsistency by Full Load. But you should consider frequency of changing database. If it is frequent, everytime after changing database Celonis raises error. From operating perspective, frequent datajob error is may not by allowed because extraction is the first step of Data Integration tasks, so failure of extraction means Data Model still old. In my experience SAP is not changed so much, instead SalesForce is more frequently changed.</p>
+        <p>Today I would like to share small tips in transformation tasks. Of course main purpose of transforamtion is to create event log table etc. but we are not always sure about source system behavior, so before completing transformation SQL I must investigate data of source system. As I already showed, I can use simple <code>SELECT</code> statement to inspect tables.</p>
+<p>Previously when I was familiar with SAP ECC, the only way to easily inspect SAP table is to download table data by <code>SE16</code> transaction and open Microsoft Excel and simply filter data or use pivot table etc. There are multiple steps to inspect table data, and annoying thing is every time I should extract all table data from SAP (though simply filter data by where clause is possible). Compared with <code>SE16</code> and Excel, Celonis transformation screen enable me to directly write complex SQL to inspect data. I would like to show some of examples.</p>
+<p>First scenario is to check key columns are really unique, that means all table record has unique key value. For example at <a href="../2022-01-29-setup-dependent-endpoint-in-extractor-builder/">Setup Dependent Endpoint in Extractor Builder
+</a> post I said <code>journals$details</code> table is created by its journal ID and column name. That means <code>journals$details</code> table should have key columns of above two columns. To check this, I will execute below <code>SELECT</code> statement in new transformation task (or use existing transformation without saving SQL).</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> 
+     <span class="n">journals_id</span>
+    <span class="p">,</span><span class="n">name</span> 
+<span class="k">FROM</span> <span class="n">journals$details</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">journals_id</span><span class="p">,</span> <span class="n">name</span>
+<span class="k">HAVING</span> <span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span>
+</code></pre></div><p>As below screen, I expected zero record from this SQL, and got that. This SQL inspect key column values that have 2 and more record (see <code>HAVING</code> clause), that is not expected.
+<a href="https://user-images.githubusercontent.com/67397583/162565438-4bdaa44f-b554-474e-a1f6-98e332768421.png"><img src="https://user-images.githubusercontent.com/67397583/162565438-4bdaa44f-b554-474e-a1f6-98e332768421.png" alt="image"></a></p>
+<p>Second scenario is to find combination of attributes in source system table. For example referring <a href="../2022-03-05-compose-activity-from-joining-multiple-tables/">Compose Activity from Joining Multiple Tables</a> how many patterns of <code>old_value</code> and <code>new_value</code> are there in changing Planio status. To check this I will execute below statement.</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="k">DISTINCT</span>
+     <span class="n">old_value</span>
+    <span class="p">,</span><span class="n">new_value</span>
+<span class="k">FROM</span> <span class="n">journals$details</span>
+<span class="k">WHERE</span> <span class="mi">1</span><span class="o">=</span><span class="mi">1</span>
+    <span class="k">AND</span> <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;status_id&#39;</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">old_value</span><span class="p">,</span> <span class="n">new_value</span>
+<span class="k">OFFSET</span> <span class="mi">1</span>
+<span class="p">;</span>
+</code></pre></div><p><code>DISTINCT</code> combination of two columns are displayed. Point of this SQL is last part <code>ORDER BY</code> and <code>OFFSET</code>, because if combination is more than 100, Celonis only displays first 100 records. To check more, I should change to <code>OFFSET 100</code>, <code>OFFSET 200</code> etc. <code>ORDER BY</code> guarantee the sort of record, so result of <code>OFFSET 100</code> is exactly next record of <code>OFFSET 0</code>.</p>
+<p>Third scenario is to check my event log table. As mentioned in <a href="../2022-02-19-determine-process-mining-tables-based-on-project-goal/">Determine Process Mining Tables based on Project Goal</a>, event log in Celonis is composed by two tables, activity table and case table. In the end, I should guarantee all activity record has its case record. To check this relationship, I will execute below statement.</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">SELECT</span>
+     <span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">_cel_pl_activities</span> <span class="k">AS</span> <span class="n">a</span>
+<span class="k">LEFT</span> <span class="k">JOIN</span> <span class="n">issues</span> <span class="k">AS</span> <span class="n">i</span> <span class="k">ON</span> <span class="mi">1</span><span class="o">=</span><span class="mi">1</span>
+    <span class="k">AND</span> <span class="n">a</span><span class="p">.</span><span class="n">_CASE_KEY</span> <span class="o">=</span> <span class="n">i</span><span class="p">.</span><span class="n">id</span>
+<span class="k">WHERE</span> <span class="mi">1</span><span class="o">=</span><span class="mi">1</span>
+    <span class="k">AND</span> <span class="n">i</span><span class="p">.</span><span class="n">id</span> <span class="k">IS</span> <span class="k">NULL</span>
+<span class="p">;</span>
+</code></pre></div><p>I expected zero count from this SQL. Check if <code>LEFT JOIN</code> table column is <code>NULL</code>, meaning case (issue) record does not exist.</p>
+<p>After learning few technique of SQL like above scenarios, I can really reduce time to investigate source system. It is very nice to do this instead of I did in SAP ECC.</p>
 <p>Kaz</p>
 
 
@@ -310,13 +291,7 @@ if (!doNotTrack) {
             
               <a href="https://kaztakata.github.io/celonis-hacks/tags/data-integration/">Data Integration</a>&nbsp;
             
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/extractor/">Extractor</a>&nbsp;
-            
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/extraction/">Extraction</a>&nbsp;
-            
               <a href="https://kaztakata.github.io/celonis-hacks/tags/transformation/">Transformation</a>&nbsp;
-            
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/data-job/">Data Job</a>&nbsp;
             
           </div>
         
@@ -331,42 +306,42 @@ if (!doNotTrack) {
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-12-11-understand-delta-load-configuration-difference-in-adding-column-scenario%2f&amp;text=Understand%20Delta%20Load%20Configuration%20Difference%20in%20Adding%20Column%20Scenario&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-04-09-inspect-table-data-by-select-statement%2f&amp;text=Inspect%20Table%20Data%20by%20SELECT%20statement&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-12-11-understand-delta-load-configuration-difference-in-adding-column-scenario%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-04-09-inspect-table-data-by-select-statement%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-12-11-understand-delta-load-configuration-difference-in-adding-column-scenario%2f&amp;title=Understand%20Delta%20Load%20Configuration%20Difference%20in%20Adding%20Column%20Scenario" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-04-09-inspect-table-data-by-select-statement%2f&amp;title=Inspect%20Table%20Data%20by%20SELECT%20statement" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-12-11-understand-delta-load-configuration-difference-in-adding-column-scenario%2f&amp;title=Understand%20Delta%20Load%20Configuration%20Difference%20in%20Adding%20Column%20Scenario" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-04-09-inspect-table-data-by-select-statement%2f&amp;title=Inspect%20Table%20Data%20by%20SELECT%20statement" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-12-11-understand-delta-load-configuration-difference-in-adding-column-scenario%2f&amp;title=Understand%20Delta%20Load%20Configuration%20Difference%20in%20Adding%20Column%20Scenario" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-04-09-inspect-table-data-by-select-statement%2f&amp;title=Inspect%20Table%20Data%20by%20SELECT%20statement" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-12-11-understand-delta-load-configuration-difference-in-adding-column-scenario%2f&amp;description=Understand%20Delta%20Load%20Configuration%20Difference%20in%20Adding%20Column%20Scenario" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-04-09-inspect-table-data-by-select-statement%2f&amp;description=Inspect%20Table%20Data%20by%20SELECT%20statement" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -388,8 +363,6 @@ if (!doNotTrack) {
                   <ul>
                 
                 
-                    <li><a href="/celonis-hacks/posts/2022-04-09-inspect-table-data-by-select-statement/">Inspect Table Data by SELECT statement</a></li>
-                
                     <li><a href="/celonis-hacks/posts/2022-04-02-adjust-time-zone-of-event-time-in-global-transformation/">Adjust Time Zone of Event Time in Global Transformation</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2022-03-26-handle-day-based-activity-as-milestone/">Handle Day based Activity as Milestone</a></li>
@@ -397,6 +370,8 @@ if (!doNotTrack) {
                     <li><a href="/celonis-hacks/posts/2022-03-19-unite-sql-statements-by-case-expression/">Unite SQL statements by CASE Expression</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2022-03-12-split-long-sql-using-views/">Split Long SQL Using Views</a></li>
+                
+                    <li><a href="/celonis-hacks/posts/2022-03-05-compose-activity-from-joining-multiple-tables/">Compose Activity from Joining Multiple Tables</a></li>
                 
               </ul>
 
@@ -408,13 +383,9 @@ if (!doNotTrack) {
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-12-04-verify-cloning-table-contents-via-delta-load/" data-toggle="tooltip" data-placement="top" title="Verify Cloning Table Contents via Delta Load">&larr; Previous Post</a>
+              <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-04-02-adjust-time-zone-of-event-time-in-global-transformation/" data-toggle="tooltip" data-placement="top" title="Adjust Time Zone of Event Time in Global Transformation">&larr; Previous Post</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-12-18-use-pseudonymized-column-as-grouping-key/" data-toggle="tooltip" data-placement="top" title="Use Pseudonymized Column as Grouping Key">Next Post &rarr;</a>
-            </li>
           
         </ul>
       
