@@ -5,10 +5,20 @@
     <link>https://kaztakata.github.io/celonis-hacks/tags/transformation/</link>
     <description>Recent content in Transformation on Celonis hacks</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 09 Apr 2022 17:40:32 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 16 Apr 2022 11:03:14 +0900</lastBuildDate>
     
 	<atom:link href="https://kaztakata.github.io/celonis-hacks/tags/transformation/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Construct My First Data Model</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2022-04-16-construct-my-first-data-model/</link>
+      <pubDate>Sat, 16 Apr 2022 11:03:14 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2022-04-16-construct-my-first-data-model/</guid>
+      <description>Today I would like to create draft version of data model then complete series of ETL (Extraction, Transformation, Load) started from last November.
+As I showed in Adjust Time Zone of Event Time in Global Transformation, I created global VIEW for activity table. Before creating Data Model, I would like to create one more global VIEW against case table. As below SQL, it is quite simple to copy all columns of issues in Planio connection, plus one more column _CASE_KEY that is converting from interger id to character.</description>
+    </item>
     
     <item>
       <title>Inspect Table Data by SELECT statement</title>

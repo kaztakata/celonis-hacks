@@ -7,9 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Understand Delta Load Configuration Difference in Adding Column Scenario - Celonis hacks</title>
-  <meta name="description" content="Last time I showed behavior when I added new record then extracted that record by Delta Load (Verify Cloning Table Contents via Delta Load). Delta Load is effective way to minimize extraction effort, but it is not always applied. Today, it is continued from previous post, I would like to add column to cloned table and observe behavior of extraction task.
-After starting system operation including database, normally system is changing its requirement and extend function and database etc.">
+  <title>Construct My First Data Model - Celonis hacks</title>
+  <meta name="description" content="Today I would like to create draft version of data model then complete series of ETL (Extraction, Transformation, Load) started from last November.
+As I showed in Adjust Time Zone of Event Time in Global Transformation, I created global VIEW for activity table. Before creating Data Model, I would like to create one more global VIEW against case table. As below SQL, it is quite simple to copy all columns of issues in Planio connection, plus one more column _CASE_KEY that is converting from interger id to character.">
   <meta name="author" content="Kazuhiko Takata"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -45,8 +45,8 @@ After starting system operation including database, normally system is changing 
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-12-11-understand-delta-load-configuration-difference-in-adding-column-scenario\/",
-          "name": "Understand delta load configuration difference in adding column scenario"
+          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-04-16-construct-my-first-data-model\/",
+          "name": "Construct my first data model"
         }
     }]
 }
@@ -57,15 +57,15 @@ After starting system operation including database, normally system is changing 
   "author": {
     "name" : "Kazuhiko Takata"
   },
-  "headline": "Understand Delta Load Configuration Difference in Adding Column Scenario",
-  "description" : "Last time I showed behavior when I added new record then extracted that record by Delta Load (Verify Cloning Table Contents via Delta Load). Delta Load is effective way to minimize extraction effort, but it is not always applied. Today, it is continued from previous post, I would like to add column to cloned table and observe behavior of extraction task.\nAfter starting system operation including database, normally system is changing its requirement and extend function and database etc.",
+  "headline": "Construct My First Data Model",
+  "description" : "Today I would like to create draft version of data model then complete series of ETL (Extraction, Transformation, Load) started from last November.\nAs I showed in Adjust Time Zone of Event Time in Global Transformation, I created global VIEW for activity table. Before creating Data Model, I would like to create one more global VIEW against case table. As below SQL, it is quite simple to copy all columns of issues in Planio connection, plus one more column _CASE_KEY that is converting from interger id to character.",
   "inLanguage" : "en",
-  "wordCount":  402 ,
-  "datePublished" : "2021-12-11T21:54:02",
-  "dateModified" : "2021-12-11T21:54:02",
+  "wordCount":  494 ,
+  "datePublished" : "2022-04-16T11:03:14",
+  "dateModified" : "2022-04-16T11:03:14",
   "image" : "https:\/\/kaztakata.github.io\/celonis-hacks",
-  "keywords" : [ "Data Integration, Extractor, Extraction, Transformation, Data Job" ],
-  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-12-11-understand-delta-load-configuration-difference-in-adding-column-scenario\/",
+  "keywords" : [ "Data Integration, Transformation, Data Model" ],
+  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-04-16-construct-my-first-data-model\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/kaztakata.github.io\/celonis-hacks",
@@ -79,15 +79,16 @@ After starting system operation including database, normally system is changing 
 }
 </script>
 
-<meta property="og:title" content="Understand Delta Load Configuration Difference in Adding Column Scenario" />
-<meta property="og:description" content="Last time I showed behavior when I added new record then extracted that record by Delta Load (Verify Cloning Table Contents via Delta Load). Delta Load is effective way to minimize extraction effort, but it is not always applied. Today, it is continued from previous post, I would like to add column to cloned table and observe behavior of extraction task.
-After starting system operation including database, normally system is changing its requirement and extend function and database etc.">
-<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2021-12-11-understand-delta-load-configuration-difference-in-adding-column-scenario/" />
+<meta property="og:title" content="Construct My First Data Model" />
+<meta property="og:description" content="Today I would like to create draft version of data model then complete series of ETL (Extraction, Transformation, Load) started from last November.
+As I showed in Adjust Time Zone of Event Time in Global Transformation, I created global VIEW for activity table. Before creating Data Model, I would like to create one more global VIEW against case table. As below SQL, it is quite simple to copy all columns of issues in Planio connection, plus one more column _CASE_KEY that is converting from interger id to character.">
+<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2022-04-16-construct-my-first-data-model/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Celonis hacks" />
 
-  <meta name="twitter:title" content="Understand Delta Load Configuration Difference in Adding Column …" />
-  <meta name="twitter:description" content="Last time I showed behavior when I added new record then extracted that record by Delta Load (Verify Cloning Table Contents via Delta Load). Delta Load is effective way to minimize extraction effort, …">
+  <meta name="twitter:title" content="Construct My First Data Model" />
+  <meta name="twitter:description" content="Today I would like to create draft version of data model then complete series of ETL (Extraction, Transformation, Load) started from last November.
+As I showed in Adjust Time Zone of Event Time in …">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
@@ -229,7 +230,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="posts-heading">
               
-                <h1>Understand Delta Load Configuration Difference in Adding Column Scenario</h1>
+                <h1>Construct My First Data Model</h1>
               
               
                 <hr class="small">
@@ -249,59 +250,24 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>Last time I showed behavior when I added new record then extracted that record by Delta Load (<a href="../2021-12-04-verify-cloning-table-contents-via-delta-load">Verify Cloning Table Contents via Delta Load</a>). Delta Load is effective way to minimize extraction effort, but it is not always applied. Today, it is continued from previous post, I would like to add column to cloned table and observe behavior of extraction task.</p>
-<p>After starting system operation including database, normally system is changing its requirement and extend function and database etc. Let&rsquo;s assume <code>nickname</code> is newly required for <code>app_user</code> table.</p>
-<p>In pgAdmin, I will do SQL statement <code>ALTER TABLE app_users ADD COLUMN nickname TEXT;</code> to add column to table. Then I created new user with SQL <code>INSERT INTO app_users (firstname, lastname, nickname) VALUES ('Kazuhiko','Takata','Kaz');</code>. Looking at the table only latest record has nickname value.</p>
-<table>
-<thead>
-<tr>
-<th>id</th>
-<th>firstname</th>
-<th>lastname</th>
-<th>nickname</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>154823</td>
-<td>Kazuhiko</td>
-<td>Takata</td>
-<td>Kaz</td>
-</tr>
-<tr>
-<td>154822</td>
-<td>Celonis</td>
-<td>Hacks</td>
-<td></td>
-</tr>
-<tr>
-<td>154821</td>
-<td>0e08&hellip;.</td>
-<td>23bd&hellip;.</td>
-<td></td>
-</tr>
-<tr>
-<td>154820</td>
-<td>6d5f&hellip;.</td>
-<td>0a4b&hellip;.</td>
-<td></td>
-</tr>
-<tr>
-<td>154819</td>
-<td>3201&hellip;.</td>
-<td>d7ca&hellip;.</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p>Switching to Celonis, then start extraction job with Delta Load option to clone latest record. But I got error message with below log.</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">2021-12-11 22:38:50 Columns: (nickname) have changed. Table won&#39;t be delta loaded. Please perform a full load instead.
-</code></pre></div><p>As described in this error message, normally after column changes it is not possible to clone table except Full Load, because Celonis does not know how <code>nickname</code> of already cloned record is filled.</p>
-<p>Even above, if I already know cloned record do not have nickname value and only take care about new record, I can still use Delta Load. Going to Celonis extraction task and Extraction settings tab in it, then I will switch Delta Load Configuration from option A to B as below screen. It enables Delta Load with risk of data inconsistency as explained.</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/145679033-19443a6c-0bd9-4c30-8d72-62d79cd79a72.png"><img src="https://user-images.githubusercontent.com/67397583/145679033-19443a6c-0bd9-4c30-8d72-62d79cd79a72.png" alt="image"></a></p>
-<p>After changing it, again I execute data job and it turns successful. Also new column nickname is appened to last and filled value regarding latest record.</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/145679340-1a53b5f9-941d-4030-90cd-201a68605e88.png"><img src="https://user-images.githubusercontent.com/67397583/145679340-1a53b5f9-941d-4030-90cd-201a68605e88.png" alt="image"></a></p>
-<p>Which option is better for us ? Basically safer way is to raise error (option A) and manually resolve inconsistency by Full Load. But you should consider frequency of changing database. If it is frequent, everytime after changing database Celonis raises error. From operating perspective, frequent datajob error is may not by allowed because extraction is the first step of Data Integration tasks, so failure of extraction means Data Model still old. In my experience SAP is not changed so much, instead SalesForce is more frequently changed.</p>
+        <p>Today I would like to create draft version of data model then complete series of ETL (Extraction, Transformation, Load) started from last November.</p>
+<p>As I showed in <a href="../2022-04-02-adjust-time-zone-of-event-time-in-global-transformation">Adjust Time Zone of Event Time in Global Transformation</a>, I created global <code>VIEW</code> for activity table. Before creating Data Model, I would like to create one more global <code>VIEW</code> against case table. As below SQL, it is quite simple to copy all columns of <code>issues</code> in Planio connection, plus one more column <code>_CASE_KEY</code> that is converting from interger <code>id</code> to character. Reason of type conversion is to match with type of activity table (talk later in this post).</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">CREATE</span> <span class="k">VIEW</span> <span class="n">issues</span> <span class="k">AS</span>
+<span class="k">SELECT</span> 
+     <span class="n">TO_CHAR</span><span class="p">(</span><span class="n">id</span><span class="p">)</span> <span class="k">AS</span> <span class="n">_CASE_KEY</span>
+    <span class="p">,</span><span class="o">*</span> 
+<span class="k">FROM</span> <span class="o">&lt;%=</span><span class="n">DATASOURCE</span><span class="p">:</span><span class="n">PLANIO</span><span class="o">%&gt;</span><span class="p">.</span><span class="n">issues</span>
+</code></pre></div><p>OK, I will go to Process Data Models menu, then click New Data Model button. This time I named <code>Planio Data Model</code>. First step is to choose tables for data models. As below screen, there are tables from global schema and from data connection planio too. Click <code>_cel_pl_activities</code> and <code>issues</code> and go to next step.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/163664362-5dd2635d-306f-4b8a-9d3d-8e886dfd0347.png"><img src="https://user-images.githubusercontent.com/67397583/163664362-5dd2635d-306f-4b8a-9d3d-8e886dfd0347.png" alt="image"></a></p>
+<p>Second step is to choose (default) activity table. Of course I choose <code>_cel_pl_activities</code> then go to next step. Third step is to configure columns in activity table. As below screen, I will choose 1) Case ID, 2) Activity name, 3) Timestamp and 4) Sorting columns. Normally respective columns are <code>_CASE_KEY</code>, <code>ACTIVITY_EN</code>, <code>EVENTTIME</code> and <code>_SORTING</code>, but I can choose any other columns (Timestamp column is limited to Date type column).</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/163664485-b0e4714d-ae05-4965-ab2d-a9cad3c8bdc0.png"><img src="https://user-images.githubusercontent.com/67397583/163664485-b0e4714d-ae05-4965-ab2d-a9cad3c8bdc0.png" alt="image"></a></p>
+<p>Fourth step is create join pair in data model tables. As described in <a href="../2021-06-19-understand-how-tables-are-joined-in-data-model">Understand how Tables are joined in Data Model</a>, Celonis Data Model support snowflake schema and the point is join path is determined before data model load. This time join pair is simply between <code>issues</code> and <code>_cel_pl_activities</code>. Click New Foreign Key button of two tables, then go to Foreign key setting screen as below.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/163664872-6bb6aa17-b586-4850-a81f-3b19e1635b1c.png"><img src="https://user-images.githubusercontent.com/67397583/163664872-6bb6aa17-b586-4850-a81f-3b19e1635b1c.png" alt="image"></a></p>
+<p>It is quite important to check which is Dimension table (1) and which is Fact table (N). As mentioned many times in this blog, it is determining 1:N relationship. This time 1 side is <code>issue</code> and N side is <code>_cel_pl_activities</code> (if oppsite side, click Swap Tables button). Then I will click join columns in both side, this time only one column <code>_CASE_KEY</code> but more columns are fine (standard SAP case). Join columns should be same data type (this case character type) and 1 side should have unique value.</p>
+<p>Fifth step is to assing case table against activity table. Click three dots in activity table then choose Assign case table, then choose <code>issues</code> table. Finally circle <code>C</code> mark is displayed before <code>issues</code> table.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/163665198-2db7e8d9-a0a1-40f2-80a2-e5082cd2256d.png"><img src="https://user-images.githubusercontent.com/67397583/163665198-2db7e8d9-a0a1-40f2-80a2-e5082cd2256d.png" alt="image"></a></p>
+<p>Final step is loading data to data model. Click Data Loads tab and click Force Complete Reload button. It takes few minutes in my environment and finally returned green status. By the way Reload From Cache is not used in standard scenario, so simply use Force Complete Reload only.</p>
+<p>In the next post, I would like to create simple Analysis to validate my ETL result.</p>
 <p>Kaz</p>
 
 
@@ -310,13 +276,9 @@ if (!doNotTrack) {
             
               <a href="https://kaztakata.github.io/celonis-hacks/tags/data-integration/">Data Integration</a>&nbsp;
             
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/extractor/">Extractor</a>&nbsp;
-            
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/extraction/">Extraction</a>&nbsp;
-            
               <a href="https://kaztakata.github.io/celonis-hacks/tags/transformation/">Transformation</a>&nbsp;
             
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/data-job/">Data Job</a>&nbsp;
+              <a href="https://kaztakata.github.io/celonis-hacks/tags/data-model/">Data Model</a>&nbsp;
             
           </div>
         
@@ -331,42 +293,42 @@ if (!doNotTrack) {
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-12-11-understand-delta-load-configuration-difference-in-adding-column-scenario%2f&amp;text=Understand%20Delta%20Load%20Configuration%20Difference%20in%20Adding%20Column%20Scenario&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-04-16-construct-my-first-data-model%2f&amp;text=Construct%20My%20First%20Data%20Model&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-12-11-understand-delta-load-configuration-difference-in-adding-column-scenario%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-04-16-construct-my-first-data-model%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-12-11-understand-delta-load-configuration-difference-in-adding-column-scenario%2f&amp;title=Understand%20Delta%20Load%20Configuration%20Difference%20in%20Adding%20Column%20Scenario" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-04-16-construct-my-first-data-model%2f&amp;title=Construct%20My%20First%20Data%20Model" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-12-11-understand-delta-load-configuration-difference-in-adding-column-scenario%2f&amp;title=Understand%20Delta%20Load%20Configuration%20Difference%20in%20Adding%20Column%20Scenario" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-04-16-construct-my-first-data-model%2f&amp;title=Construct%20My%20First%20Data%20Model" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-12-11-understand-delta-load-configuration-difference-in-adding-column-scenario%2f&amp;title=Understand%20Delta%20Load%20Configuration%20Difference%20in%20Adding%20Column%20Scenario" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-04-16-construct-my-first-data-model%2f&amp;title=Construct%20My%20First%20Data%20Model" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-12-11-understand-delta-load-configuration-difference-in-adding-column-scenario%2f&amp;description=Understand%20Delta%20Load%20Configuration%20Difference%20in%20Adding%20Column%20Scenario" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-04-16-construct-my-first-data-model%2f&amp;description=Construct%20My%20First%20Data%20Model" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -388,8 +350,6 @@ if (!doNotTrack) {
                   <ul>
                 
                 
-                    <li><a href="/celonis-hacks/posts/2022-04-16-construct-my-first-data-model/">Construct My First Data Model</a></li>
-                
                     <li><a href="/celonis-hacks/posts/2022-04-09-inspect-table-data-by-select-statement/">Inspect Table Data by SELECT statement</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2022-04-02-adjust-time-zone-of-event-time-in-global-transformation/">Adjust Time Zone of Event Time in Global Transformation</a></li>
@@ -397,6 +357,8 @@ if (!doNotTrack) {
                     <li><a href="/celonis-hacks/posts/2022-03-26-handle-day-based-activity-as-milestone/">Handle Day based Activity as Milestone</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2022-03-19-unite-sql-statements-by-case-expression/">Unite SQL statements by CASE Expression</a></li>
+                
+                    <li><a href="/celonis-hacks/posts/2022-03-12-split-long-sql-using-views/">Split Long SQL Using Views</a></li>
                 
               </ul>
 
@@ -408,13 +370,9 @@ if (!doNotTrack) {
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-12-04-verify-cloning-table-contents-via-delta-load/" data-toggle="tooltip" data-placement="top" title="Verify Cloning Table Contents via Delta Load">&larr; Previous Post</a>
+              <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-04-09-inspect-table-data-by-select-statement/" data-toggle="tooltip" data-placement="top" title="Inspect Table Data by SELECT statement">&larr; Previous Post</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-12-18-use-pseudonymized-column-as-grouping-key/" data-toggle="tooltip" data-placement="top" title="Use Pseudonymized Column as Grouping Key">Next Post &rarr;</a>
-            </li>
           
         </ul>
       

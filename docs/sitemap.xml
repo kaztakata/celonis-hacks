@@ -4,31 +4,41 @@
   
   <url>
     <loc>https://kaztakata.github.io/celonis-hacks/</loc>
-    <lastmod>2022-04-09T17:40:32+09:00</lastmod>
+    <lastmod>2022-04-16T11:03:14+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kaztakata.github.io/celonis-hacks/posts/2022-04-16-construct-my-first-data-model/</loc>
+    <lastmod>2022-04-16T11:03:14+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://kaztakata.github.io/celonis-hacks/tags/data-integration/</loc>
-    <lastmod>2022-04-09T17:40:32+09:00</lastmod>
+    <lastmod>2022-04-16T11:03:14+09:00</lastmod>
   </url>
   
   <url>
-    <loc>https://kaztakata.github.io/celonis-hacks/posts/2022-04-09-inspect-table-data-by-select-statement/</loc>
-    <lastmod>2022-04-09T17:40:32+09:00</lastmod>
+    <loc>https://kaztakata.github.io/celonis-hacks/tags/data-model/</loc>
+    <lastmod>2022-04-16T11:03:14+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://kaztakata.github.io/celonis-hacks/posts/</loc>
-    <lastmod>2022-04-09T17:40:32+09:00</lastmod>
+    <lastmod>2022-04-16T11:03:14+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://kaztakata.github.io/celonis-hacks/tags/</loc>
-    <lastmod>2022-04-09T17:40:32+09:00</lastmod>
+    <lastmod>2022-04-16T11:03:14+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://kaztakata.github.io/celonis-hacks/tags/transformation/</loc>
+    <lastmod>2022-04-16T11:03:14+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kaztakata.github.io/celonis-hacks/posts/2022-04-09-inspect-table-data-by-select-statement/</loc>
     <lastmod>2022-04-09T17:40:32+09:00</lastmod>
   </url>
   
@@ -65,11 +75,6 @@
   <url>
     <loc>https://kaztakata.github.io/celonis-hacks/posts/2022-02-26-insert-simple-record-into-activity-table/</loc>
     <lastmod>2022-02-26T09:14:12+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kaztakata.github.io/celonis-hacks/tags/data-model/</loc>
-    <lastmod>2022-02-19T13:43:41+09:00</lastmod>
   </url>
   
   <url>
