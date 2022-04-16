@@ -17,7 +17,6 @@ SELECT
 FROM <%=DATASOURCE:PLANIO%>.issues
 ```
 
-
 OK, I will go to Process Data Models menu, then click New Data Model button. This time I named `Planio Data Model`. First step is to choose tables for data models. As below screen, there are tables from global schema and from data connection planio too. Click `_cel_pl_activities` and `issues` and go to next step. 
 
 [![image](https://user-images.githubusercontent.com/67397583/163664362-5dd2635d-306f-4b8a-9d3d-8e886dfd0347.png)](https://user-images.githubusercontent.com/67397583/163664362-5dd2635d-306f-4b8a-9d3d-8e886dfd0347.png)
@@ -36,7 +35,7 @@ Fifth step is to assing case table against activity table. Click three dots in a
 
 [![image](https://user-images.githubusercontent.com/67397583/163665198-2db7e8d9-a0a1-40f2-80a2-e5082cd2256d.png)](https://user-images.githubusercontent.com/67397583/163665198-2db7e8d9-a0a1-40f2-80a2-e5082cd2256d.png)
 
-Final step is loading data to data model. Click Data Loads tab and click Force Complete Reload button. It takes few minutes in my environment and finally returned green status. By the way Reload From Cache is not used in standard scenario, so simply use Force Complete Reload only.
+Final step is loading data to data model. Click Data Loads tab and click Force Complete Reload button. It takes few minutes in my environment and finally returned green status. Otherwise you can check error message then retry Data Jobs or Data Model setting.
 
 In the next post, I would like to create simple Analysis to validate my ETL result.
 
