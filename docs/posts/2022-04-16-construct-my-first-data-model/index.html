@@ -60,7 +60,7 @@ As I showed in Adjust Time Zone of Event Time in Global Transformation, I create
   "headline": "Construct My First Data Model",
   "description" : "Today I would like to create draft version of data model then complete series of ETL (Extraction, Transformation, Load) started from last November.\nAs I showed in Adjust Time Zone of Event Time in Global Transformation, I created global VIEW for activity table. Before creating Data Model, I would like to create one more global VIEW against case table. As below SQL, it is quite simple to copy all columns of issues in Planio connection, plus one more column _CASE_KEY that is converting from interger id to character.",
   "inLanguage" : "en",
-  "wordCount":  494 ,
+  "wordCount":  489 ,
   "datePublished" : "2022-04-16T11:03:14",
   "dateModified" : "2022-04-16T11:03:14",
   "image" : "https:\/\/kaztakata.github.io\/celonis-hacks",
@@ -113,7 +113,14 @@ if (!doNotTrack) {
 <script async src='https://www.google-analytics.com/analytics.js'></script>
 
 
-  </head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-94C83TLPYD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-94C83TLPYD');
+</script></head>
   <body>
     <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
   <div class="container-fluid">
@@ -266,7 +273,7 @@ if (!doNotTrack) {
 <p>It is quite important to check which is Dimension table (1) and which is Fact table (N). As mentioned many times in this blog, it is determining 1:N relationship. This time 1 side is <code>issue</code> and N side is <code>_cel_pl_activities</code> (if oppsite side, click Swap Tables button). Then I will click join columns in both side, this time only one column <code>_CASE_KEY</code> but more columns are fine (standard SAP case). Join columns should be same data type (this case character type) and 1 side should have unique value.</p>
 <p>Fifth step is to assing case table against activity table. Click three dots in activity table then choose Assign case table, then choose <code>issues</code> table. Finally circle <code>C</code> mark is displayed before <code>issues</code> table.</p>
 <p><a href="https://user-images.githubusercontent.com/67397583/163665198-2db7e8d9-a0a1-40f2-80a2-e5082cd2256d.png"><img src="https://user-images.githubusercontent.com/67397583/163665198-2db7e8d9-a0a1-40f2-80a2-e5082cd2256d.png" alt="image"></a></p>
-<p>Final step is loading data to data model. Click Data Loads tab and click Force Complete Reload button. It takes few minutes in my environment and finally returned green status. By the way Reload From Cache is not used in standard scenario, so simply use Force Complete Reload only.</p>
+<p>Final step is loading data to data model. Click Data Loads tab and click Force Complete Reload button. It takes few minutes in my environment and finally returned green status. Otherwise you can check error message then retry Data Jobs or Data Model setting.</p>
 <p>In the next post, I would like to create simple Analysis to validate my ETL result.</p>
 <p>Kaz</p>
 
