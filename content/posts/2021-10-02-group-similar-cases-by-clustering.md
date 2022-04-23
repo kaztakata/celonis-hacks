@@ -2,7 +2,7 @@
 title: "Group similar cases by Clustering"
 date: 2021-10-02T10:56:43+09:00
 draft: false
-tags: ['PQL','Process Analytics','Pull Up Function']
+tags: ['PQL','Process Analytics','Studio','Analysis','Pull Up Function']
 ---
 
 Last week I posted [Convert Quantitative value to Categorical one by Quantile Function](../2021-09-25-convert-quantitative-value-to-categorical-one-by-quantile-function/) to create categorical dimension. Today I will create categorical dimension via different way, clustering.

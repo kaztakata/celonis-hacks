@@ -2,7 +2,7 @@
 title: "Understand Difference between Dimension and KPI"
 date: 2021-05-01T15:25:08+09:00
 draft: false
-tags: ['PQL','Process Analytics']
+tags: ['PQL','Process Analytics','Studio','Analysis']
 ---
 
 If you are beginner of creating Celonis Analysis, I believe you will first create OLAP table to understand how Celonis PQL works with data model. Points are,

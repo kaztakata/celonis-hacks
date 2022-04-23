@@ -2,7 +2,7 @@
 title: "Create Matrix of Throughput Time by Pivot Table"
 date: 2021-08-07T14:07:40+09:00
 draft: false
-tags: ['PQL','Process Analytics']
+tags: ['PQL','Process Analytics','Studio','Analysis']
 ---
 
 At the previous post of [Customize Process Explorer](../2021-05-08-customize-process-explorer/), I showed how to determine throughput time between two activities. This KPI is visible when expanding Process Explorer, but font size of Process Explorer become smaller and smaller when expanding connections, so it is difficult to grasp overview of throughput time.

@@ -2,7 +2,7 @@
 title: "Determine First Time Right by Pull up function"
 date: 2021-05-22T16:31:16+09:00
 draft: false
-tags: ['PQL','Process Analytics','Pull Up Function']
+tags: ['PQL','Process Analytics','Studio','Analysis','Pull Up Function']
 ---
 
 As a first example of Pull up function, I will show you First Time Right (FTR) that means process without rework activities ([link](https://dictionary.cambridge.org/dictionary/english/right-first-time)).

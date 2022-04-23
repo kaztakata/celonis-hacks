@@ -2,7 +2,7 @@
 title: "Use BIND function to enable multiple DOMAIN_TABLE"
 date: 2021-09-11T13:16:26+09:00
 draft: false
-tags: ['PQL','Process Analytics','Pull Up Function','Variant Explorer']
+tags: ['PQL','Process Analytics','Studio','Analysis','Pull Up Function','Variant Explorer']
 ---
 
 Variant Explorer is the major Celonis Analytical view to find process pattern by GUI operation. Of course I used it many times and enjoyed it at first, and found that I had a lot of effort to filter on and off to observe process. Today I would like to create collective list of variant to see major process KPI. Also I would like to show you `BIND` function that is difficult to understand but quite convenient if you know it.

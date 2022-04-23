@@ -2,7 +2,7 @@
 title: "Use Pull up function as Subquery"
 date: 2021-05-29T13:04:06+09:00
 draft: false
-tags: ['PQL','Process Analytics','Pull Up Function']
+tags: ['PQL','Process Analytics','Studio','Analysis','Pull Up Function']
 ---
 
 In the last post [Determine First Time Right by Pull up function](../2021-05-22-determine-first-time-right-by-pull-up-function/), I broke down PQL of FTR step by step. Today I will explain more complex KPI in similar way. By the way you may know Subquery that enables to pass result of SQL to parts of another SQL. PQL can also do similar things by Pull up function.

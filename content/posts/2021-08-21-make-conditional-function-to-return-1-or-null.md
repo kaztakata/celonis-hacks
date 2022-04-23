@@ -2,7 +2,7 @@
 title: "Make Conditional Function to return 1 or NULL"
 date: 2021-08-21T10:42:17+09:00
 draft: false
-tags: ['PQL','Process Analytics']
+tags: ['PQL','Process Analytics','Studio','Analysis']
 ---
 
 Previously I posted [Handle NULL efficiently in Aggregation Function](../2021-06-26-handle-null-efficiently-in-aggregation-function/) and discussed how to unite formula of COUNT, SUM, AVG functions. Today I will create boolean function and use it for conditional aggregation.

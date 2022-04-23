@@ -2,7 +2,7 @@
 title: "Understand how Tables are joined in Data Model"
 date: 2021-06-19T11:42:09+09:00
 draft: false
-tags: ['PQL','Process Analytics','Data Model']
+tags: ['PQL','Process Analytics','Studio','Analysis','Data Model']
 ---
 
 In the [Understand Difference between Dimension and KPI](../2021-05-01-understand-difference-between-dimension-and-kpi/) post, I mentioned that Columns used as dimensions and KPIs are inplicitly joined based on data model, but I did not mention how to join tables in data model. Today I would like to say about it.

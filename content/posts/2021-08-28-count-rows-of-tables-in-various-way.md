@@ -2,7 +2,7 @@
 title: "Count rows of Tables in various way"
 date: 2021-08-28T11:11:45+09:00
 draft: false
-tags: ['PQL','Process Analytics','Pull Up Function']
+tags: ['PQL','Process Analytics','Studio','Analysis','Pull Up Function']
 ---
 
 Counting rows of tables is frequently used so we are not aware about how to do it. But sometimes I got stuck to do it so I would like to deep dive this topic today.

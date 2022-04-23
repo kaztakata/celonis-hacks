@@ -2,7 +2,7 @@
 title: "Recognize Record to Calculate KPI"
 date: 2021-06-05T17:34:46+09:00
 draft: false
-tags: ['PQL','Process Analytics']
+tags: ['PQL','Process Analytics','Studio','Analysis']
 ---
 
 Using Pull up function, you can calculate various kind of KPIs. I would like to tell in this post is taking care the record (dimensions) to calculate each KPI especially when you unite multiple KPIs to same component.

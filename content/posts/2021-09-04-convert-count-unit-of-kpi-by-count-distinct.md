@@ -2,7 +2,7 @@
 title: "Convert count unit of KPI by COUNT DISTINCT"
 date: 2021-09-04T09:06:11+09:00
 draft: false
-tags: ['PQL','Process Analytics','Pull Up Function']
+tags: ['PQL','Process Analytics','Studio','Analysis','Pull Up Function']
 ---
 
 Last week I was asked to convert count unit of some KPI (that returns 1 or 0) from delivery item to delivery document (convert if all items in the document are 1 then document KPI is 1, else 0). In this case delivery document and item columns are stored at Activity table like [this post's third topic](../2021-07-24-categorize-and-name-activity/). I already used `DOMAIN_TABLE` to group activity record by delivery item then calculate KPI.

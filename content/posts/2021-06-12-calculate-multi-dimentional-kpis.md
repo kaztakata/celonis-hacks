@@ -2,7 +2,7 @@
 title: "Calculate Multi Dimensional KPIs"
 date: 2021-06-12T13:20:53+09:00
 draft: false
-tags: ['PQL','Process Analytics']
+tags: ['PQL','Process Analytics','Studio','Analysis']
 ---
 
 In the last post [Recognize Record to Calculate KPI](../2021-06-05-recognize-record-to-calculate-kpi/), I showed issue of count duplication when I merged two different dimentional KPIs. Today I will tell how to calculate it correctly.

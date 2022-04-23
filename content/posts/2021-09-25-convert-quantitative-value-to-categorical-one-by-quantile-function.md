@@ -2,7 +2,7 @@
 title: "Convert Quantitative value to Categorical one by Quantile Function"
 date: 2021-09-25T09:42:52+09:00
 draft: false
-tags: ['PQL','Process Analytics','Pull Up Function']
+tags: ['PQL','Process Analytics','Studio','Analysis','Pull Up Function']
 ---
 
 Last week I posted [Integrate Button Dropdown Entries to one Formula](../2021-09-18-integrate-button-dropdown-entries-to-one-formula/) and integrated multiple dimensions. At that time I used string column that enable you to categorize each case, that is called categorical variable. In contrast quantitative variable such as order quantity, net value is not normally possible to use for dimension. If you would like to use these column as dimension, you need to convert its value to categorical value. Today I would like to show you how to convert it by quantile function.

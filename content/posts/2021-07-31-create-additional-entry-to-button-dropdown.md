@@ -2,7 +2,7 @@
 title: "Create Additional Entry to Button Dropdown"
 date: 2021-07-31T10:00:39+09:00
 draft: false
-tags: ['PQL','Process Analytics','Process Explorer']
+tags: ['PQL','Process Analytics','Studio','Analysis','Process Explorer']
 ---
 
 I looked at the [Celopeers post](https://www.celopeers.com/s/question/0D50700000KZNLICA5/could-you-please-help-me-to-find-out-how-i-can-check-for-empty-variable-input-to-prevent-the-component-specifically-olat-table-from-running-into-an-error) that had issue when variable input is blank (`NULL`) then PQL using this variable had error. 

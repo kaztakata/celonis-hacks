@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Analysis on Celonis hacks</title>
+    <link>https://kaztakata.github.io/celonis-hacks/tags/analysis/</link>
+    <description>Recent content in Analysis on Celonis hacks</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 23 Apr 2022 08:43:22 +0900</lastBuildDate>
+    
+	<atom:link href="https://kaztakata.github.io/celonis-hacks/tags/analysis/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Validate Data Model by Studio Analysis</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2022-04-23-validate-data-model-by-studio-analysis/</link>
+      <pubDate>Sat, 23 Apr 2022 08:43:22 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2022-04-23-validate-data-model-by-studio-analysis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Handle Day based Activity as Milestone</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2022-03-26-handle-day-based-activity-as-milestone/</link>
+      <pubDate>Sat, 26 Mar 2022 01:48:53 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2022-03-26-handle-day-based-activity-as-milestone/</guid>
+      <description>I already created four activities until last post Unite SQL statements by CASE Expression, those are fillfilled requirement of event log. Going back to Consider Case ID before Starting Transformation, case ID is the biggest requirement. Also is is not so big as case ID, but event time is important too. In process mining, event time should be year, month, day plus hour, minute, second (YYYY-MM-DD HH:MI:SS in Vertica format). I guess event time in process mining referred to that is recorded automatically by system responding to something action.</description>
+    </item>
+    
+    <item>
+      <title>Copy Previous Value to Blank Period by RUNNING_SUM and RANGE_APPEND functions</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2021-10-30-copy-previous-value-to-blank-period-by-running-sum-and-range-append-functions/</link>
+      <pubDate>Sat, 30 Oct 2021 09:17:48 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2021-10-30-copy-previous-value-to-blank-period-by-running-sum-and-range-append-functions/</guid>
+      <description>At Investigate Workload Trend of Cropped Subprocess I showed trend of activity count, and at that time I used RANGE_APPEND to fill zero count in trend graph. Today I would like to use different aggregation RUNNING_SUM and fill value to blank period.
+Imagine you would like to check weekly trend of credit amount regarding some customer. Credit amount is increased by the amount of net value when &amp;lsquo;Receive Order&amp;rsquo; happened, and it is decreased when &amp;lsquo;Clear Invoice&amp;rsquo; happened.</description>
+    </item>
+    
+    <item>
+      <title>Create Key Column of Activity Table</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2021-10-23-create-key-column-of-activity-table/</link>
+      <pubDate>Sat, 23 Oct 2021 08:02:29 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2021-10-23-create-key-column-of-activity-table/</guid>
+      <description>Celonis Data Model always require unique key in case tabel (case key) to group activities belong to each case. How about activity table ? Activity table do not have explicit key column, instead combination of case key, activity name, timestamp, and sorting number are similar to activity key (those four columns are configured in Data Model).
+This week I was asked to create activity table key column due to duplication check purpose.</description>
+    </item>
+    
+    <item>
+      <title>Investigate Workload Trend of Cropped Subprocess</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2021-10-16-investigate-workload-trend-of-cropped-subprocess/</link>
+      <pubDate>Sat, 16 Oct 2021 10:12:18 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2021-10-16-investigate-workload-trend-of-cropped-subprocess/</guid>
+      <description>Celonis Activity record is good to investigate user workload, so you may already implement analysis to do this. Today I would like to crop activities to minimum subprocess then investigate workload against subprocess.
+Today&amp;rsquo;s output image is below. I set filter button of company code, also set three buttons to point out activities to crop subprocess pass through these activities. Right side Process Explorer is to check subprocess, in this case it is starting from &amp;lsquo;Approve Credit Check&amp;rsquo; until &amp;lsquo;Cancel Order&amp;rsquo; via &amp;lsquo;Deny Credit Check&amp;rsquo;.</description>
+    </item>
+    
+    <item>
+      <title>Verify calculation result in OLAP table then convert to visual component</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2021-10-09-verify-calculation-result-in-olap-table-then-convert-to-visual-component/</link>
+      <pubDate>Sat, 09 Oct 2021 09:33:43 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2021-10-09-verify-calculation-result-in-olap-table-then-convert-to-visual-component/</guid>
+      <description>Today is 24th post of this blog series and I am suprised that I can continue to post blog every week. I got some reply from who loves Celonis in the world and it is my fun to continue posting. Celonis is releasing new functionarity year by year and I am interested in catching up them and thinking how these functions help my clients. After listening to next week&amp;rsquo;s Celonis World Tour Webiner in Tokyo, I will get more inspiration to write blog.</description>
+    </item>
+    
+    <item>
+      <title>Group similar cases by Clustering</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2021-10-02-group-similar-cases-by-clustering/</link>
+      <pubDate>Sat, 02 Oct 2021 10:56:43 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2021-10-02-group-similar-cases-by-clustering/</guid>
+      <description>Last week I posted Convert Quantitative value to Categorical one by Quantile Function to create categorical dimension. Today I will create categorical dimension via different way, clustering.
+Clustering is one of the unsupervised learning method, to automatically group cases by their attributes. Celonis PQL has clustering funciton KMEANS, so you are ready to use clustering.
+Today I will use O2C process and would like to group customers by (1) their lead time from Invoice send to Clear Invoice and (2) net value.</description>
+    </item>
+    
+    <item>
+      <title>Convert Quantitative value to Categorical one by Quantile Function</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2021-09-25-convert-quantitative-value-to-categorical-one-by-quantile-function/</link>
+      <pubDate>Sat, 25 Sep 2021 09:42:52 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2021-09-25-convert-quantitative-value-to-categorical-one-by-quantile-function/</guid>
+      <description>Last week I posted Integrate Button Dropdown Entries to one Formula and integrated multiple dimensions. At that time I used string column that enable you to categorize each case, that is called categorical variable. In contrast quantitative variable such as order quantity, net value is not normally possible to use for dimension. If you would like to use these column as dimension, you need to convert its value to categorical value.</description>
+    </item>
+    
+    <item>
+      <title>Integrate Button Dropdown Entries to one Formula</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2021-09-18-integrate-button-dropdown-entries-to-one-formula/</link>
+      <pubDate>Sat, 18 Sep 2021 10:42:24 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2021-09-18-integrate-button-dropdown-entries-to-one-formula/</guid>
+      <description>I usually use two types of analysis components, time scale graph and drilldown table for my development projects. These compnents makes it possible to discover root cause of target KPIs by changing time scale or drilldown dimension.
+In the end, these components and attaching button dropdown were maintained many times, but I was annoyed to set variable value (especially long PQL) to each button entry (it was also cause of defects against my analysis sheet).</description>
+    </item>
+    
+    <item>
+      <title>Use BIND function to enable multiple DOMAIN_TABLE</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2021-09-11-use-bind-function-to-enable-multiple-domain-table/</link>
+      <pubDate>Sat, 11 Sep 2021 13:16:26 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2021-09-11-use-bind-function-to-enable-multiple-domain-table/</guid>
+      <description>Variant Explorer is the major Celonis Analytical view to find process pattern by GUI operation. Of course I used it many times and enjoyed it at first, and found that I had a lot of effort to filter on and off to observe process. Today I would like to create collective list of variant to see major process KPI. Also I would like to show you BIND function that is difficult to understand but quite convenient if you know it.</description>
+    </item>
+    
+    <item>
+      <title>Convert count unit of KPI by COUNT DISTINCT</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2021-09-04-convert-count-unit-of-kpi-by-count-distinct/</link>
+      <pubDate>Sat, 04 Sep 2021 09:06:11 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2021-09-04-convert-count-unit-of-kpi-by-count-distinct/</guid>
+      <description>Last week I was asked to convert count unit of some KPI (that returns 1 or 0) from delivery item to delivery document (convert if all items in the document are 1 then document KPI is 1, else 0). In this case delivery document and item columns are stored at Activity table like this post&amp;rsquo;s third topic. I already used DOMAIN_TABLE to group activity record by delivery item then calculate KPI.</description>
+    </item>
+    
+    <item>
+      <title>Count rows of Tables in various way</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2021-08-28-count-rows-of-tables-in-various-way/</link>
+      <pubDate>Sat, 28 Aug 2021 11:11:45 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2021-08-28-count-rows-of-tables-in-various-way/</guid>
+      <description>Counting rows of tables is frequently used so we are not aware about how to do it. But sometimes I got stuck to do it so I would like to deep dive this topic today.
+For this demo case I use P2P data model and three tables, header EKKO (key columns are MANDT/EBELN), item EKPO (MANDT/EBELN/EBELP) and activity. Also I used sum of item Net value. Below screen is the result of this demo.</description>
+    </item>
+    
+    <item>
+      <title>Make Conditional Function to return 1 or NULL</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2021-08-21-make-conditional-function-to-return-1-or-null/</link>
+      <pubDate>Sat, 21 Aug 2021 10:42:17 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2021-08-21-make-conditional-function-to-return-1-or-null/</guid>
+      <description>Previously I posted Handle NULL efficiently in Aggregation Function and discussed how to unite formula of COUNT, SUM, AVG functions. Today I will create boolean function and use it for conditional aggregation.
+Imagine you would like to calculate net value of Sales Order (VBAP.NETWR_CONVERTED) in O2C process, but there are some conditons to calculate it. First condition is that sales order is active, means rejection reason column (VBAP.ABGRU) is not set.</description>
+    </item>
+    
+    <item>
+      <title>Create Matrix of Throughput Time by Pivot Table</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2021-08-07-create-matrix-of-throughput-time-by-pivot-table/</link>
+      <pubDate>Sat, 07 Aug 2021 14:07:40 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2021-08-07-create-matrix-of-throughput-time-by-pivot-table/</guid>
+      <description>At the previous post of Customize Process Explorer, I showed how to determine throughput time between two activities. This KPI is visible when expanding Process Explorer, but font size of Process Explorer become smaller and smaller when expanding connections, so it is difficult to grasp overview of throughput time.
+Until previous post, I usually used OLAP table to show the list of KPI value. Of course it is good enough to grasp overview, but today I used different component Pivot Table to show KPI.</description>
+    </item>
+    
+    <item>
+      <title>Create Additional Entry to Button Dropdown</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2021-07-31-create-additional-entry-to-button-dropdown/</link>
+      <pubDate>Sat, 31 Jul 2021 10:00:39 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2021-07-31-create-additional-entry-to-button-dropdown/</guid>
+      <description>I looked at the Celopeers post that had issue when variable input is blank (NULL) then PQL using this variable had error.
+I already used work around below to skip FILTER execution if variable is null. But I also felt troublesome in two points. First is this is not officially documented so myself need to instruct to my colleagues. Second is more important, I would like to unfilter this selection if variable is not set, but there was no way to do it.</description>
+    </item>
+    
+    <item>
+      <title>Categorize and Name Activity</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2021-07-24-categorize-and-name-activity/</link>
+      <pubDate>Sat, 24 Jul 2021 10:47:12 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2021-07-24-categorize-and-name-activity/</guid>
+      <description>In the previous post Transform Source System Tables to Minimize Data Model Tables, I recommended to convert some kind of source system tables to Activity. Today I focus on Activity and would like to share my way how to categorize and name Activity.
+First point is to split Activity name to two parts, more general part and detail part. For example, in SAP ECC or S4HANA Order to Cash process, general Activity name is Create Sales Order when data committed in VA01 transaction.</description>
+    </item>
+    
+    <item>
+      <title>Utilize N-M relationship between Activity and Dimension Tables</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2021-07-10-utilize-n-m-relationship-between-activity-and-dimension-tables/</link>
+      <pubDate>Sat, 10 Jul 2021 10:08:50 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2021-07-10-utilize-n-m-relationship-between-activity-and-dimension-tables/</guid>
+      <description>When you determine data model structure by yourself, basically you should follow snowflake schema writtern in Understand how Tables are joined in Data Model. From case table perspective, n side is case table, and 1 side is another dimension table. On the other hand, activity table is the first case that 1 side is case table. If you determine second dimension table that 1 side is case table, please note that you can not use both activity and that dimension table at once because those tables are N-M relationship via case table.</description>
+    </item>
+    
+    <item>
+      <title>Maintain Saved Formulas effectively</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2021-07-03-maintain-saved-formulas-effectively/</link>
+      <pubDate>Sat, 03 Jul 2021 21:25:28 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2021-07-03-maintain-saved-formulas-effectively/</guid>
+      <description>In the last post Handle NULL efficiently in Aggregation Function, I used saved formulas to split long and complex PQL to reusable components. Today I would like to share my best practice to use saved formulas.
+For example I would like to ananlyze throughput time between arbitrary two activities. As below screenshot I created three dropdown buttons, switching time unit (sec, min, hour, day etc.) and two activities (from / to).</description>
+    </item>
+    
+    <item>
+      <title>Handle NULL efficiently in Aggregation Function</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2021-06-26-handle-null-efficiently-in-aggregation-function/</link>
+      <pubDate>Sat, 26 Jun 2021 09:37:59 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2021-06-26-handle-null-efficiently-in-aggregation-function/</guid>
+      <description>I looked at many PQLs that can be simplified if they know about NULL handling well. Today I would like to tell how to handle NULL efficiently in Aggregation Functions (COUNT,SUM,AVG etc.).
+Today I would like to use O2C process to explain my case. I determined KPI Send Invoice within a day after Ship Goods, because sales company will Ship Goods then should Send Invoice immediately.
+Same as previous posts, first I would like to create OLAP table to look into the cases.</description>
+    </item>
+    
+    <item>
+      <title>Understand how Tables are joined in Data Model</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2021-06-19-understand-how-tables-are-joined-in-data-model/</link>
+      <pubDate>Sat, 19 Jun 2021 11:42:09 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2021-06-19-understand-how-tables-are-joined-in-data-model/</guid>
+      <description>In the Understand Difference between Dimension and KPI post, I mentioned that Columns used as dimensions and KPIs are inplicitly joined based on data model, but I did not mention how to join tables in data model. Today I would like to say about it.
+Celonis Data Model support snowflake schema that consists of multiple tables, each table pair join as 1:N relationship. Normally activity table is top of N side and dimension tables including case table are bottom of 1 side as pyramid hierarchy.</description>
+    </item>
+    
+    <item>
+      <title>Calculate Multi Dimensional KPIs</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2021-06-12-calculate-multi-dimentional-kpis/</link>
+      <pubDate>Sat, 12 Jun 2021 13:20:53 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2021-06-12-calculate-multi-dimentional-kpis/</guid>
+      <description>In the last post Recognize Record to Calculate KPI, I showed issue of count duplication when I merged two different dimentional KPIs. Today I will tell how to calculate it correctly.
+I will start from changing OLAP table to hide USER_TYPE and ACTIVITY_EN for calculating KPIs grouped by customer master. And I filtered by customer K1 as previous post. Finally I added SUM function to both Rework Time and Reminder Time.</description>
+    </item>
+    
+    <item>
+      <title>Recognize Record to Calculate KPI</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2021-06-05-recognize-record-to-calculate-kpi/</link>
+      <pubDate>Sat, 05 Jun 2021 17:34:46 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2021-06-05-recognize-record-to-calculate-kpi/</guid>
+      <description>Using Pull up function, you can calculate various kind of KPIs. I would like to tell in this post is taking care the record (dimensions) to calculate each KPI especially when you unite multiple KPIs to same component.
+In this example, I will use Order to Cash process again and first I would like to estiamate time of rework. If rework Activity is operated by manual user, this rework is estimated 1 minute for example.</description>
+    </item>
+    
+    <item>
+      <title>Use Pull up function as Subquery</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2021-05-29-use-pull-up-function-as-subquery/</link>
+      <pubDate>Sat, 29 May 2021 13:04:06 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2021-05-29-use-pull-up-function-as-subquery/</guid>
+      <description>In the last post Determine First Time Right by Pull up function, I broke down PQL of FTR step by step. Today I will explain more complex KPI in similar way. By the way you may know Subquery that enables to pass result of SQL to parts of another SQL. PQL can also do similar things by Pull up function.
+In this post, for example I would like to calculate Average rework count after Delivery in Order to Cash process, and definition of rework is same as previous post.</description>
+    </item>
+    
+    <item>
+      <title>Determine First Time Right by Pull up function</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2021-05-22-determine-first-time-right-by-pull-up-function/</link>
+      <pubDate>Sat, 22 May 2021 16:31:16 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2021-05-22-determine-first-time-right-by-pull-up-function/</guid>
+      <description>As a first example of Pull up function, I will show you First Time Right (FTR) that means process without rework activities (link).
+To determine whether each case is FTR or not, first I should determine rework activities, then judge if each case has rework activities or not. In this example I determined that rework activity name is started from Change. PQL to find such a string pattern is Change %, using wildcard % after Change.</description>
+    </item>
+    
+    <item>
+      <title>Understand mechanism of Pull up function</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2021-05-15-understand-mechanism-of-pull-up-function/</link>
+      <pubDate>Sat, 15 May 2021 10:00:14 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2021-05-15-understand-mechanism-of-pull-up-function/</guid>
+      <description>Pull up aggregation function, called PU function, like PU_COUNT, PU_SUM, PU_AVG, PU_MAX, PU_MIN looks similar to Standard aggregation function like COUNT, SUM, AVG, MAX, MIN. In Celonis, it is important to understand that output of PU function is not KPI but dimension. You can see Understand Difference between Dimension and KPI.
+If you know about SQL, you can imagine that PU function is similar to window function in SQL. As other functions, PU functions add dynamic column in grouping table.</description>
+    </item>
+    
+    <item>
+      <title>Customize Process Explorer</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2021-05-08-customize-process-explorer/</link>
+      <pubDate>Sat, 08 May 2021 09:15:03 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2021-05-08-customize-process-explorer/</guid>
+      <description>Process explorer in Celonis Analysis is default application to analyze process. First you can see main process pattern (called happy path), count of each step (activity) and count of path between two steps (connection). You can show minor activities and connections, or switch throughput time instead of count of connection.
+I think there are two ways to customize Process explorer.
+ Change activity name Add more KPI against activity / connection  Change activity name If you want to add detail information to each activity, you can change activity dimension.</description>
+    </item>
+    
+    <item>
+      <title>Understand Difference between Dimension and KPI</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2021-05-01-understand-difference-between-dimension-and-kpi/</link>
+      <pubDate>Sat, 01 May 2021 15:25:08 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2021-05-01-understand-difference-between-dimension-and-kpi/</guid>
+      <description>If you are beginner of creating Celonis Analysis, I believe you will first create OLAP table to understand how Celonis PQL works with data model. Points are,
+ Dimensions are grouping key to calculate KPI, normally they are string (character) columns KPIs are calculated figures based on specific numeric columns, or count of rows of any columns, it must be numeric value in either cases Columns used as dimensions and KPIs are inplicitly joined based on data model  Below screenshot is the quite simple example to show Dimension, KPI, and data model.</description>
+    </item>
+    
+  </channel>
+</rss>

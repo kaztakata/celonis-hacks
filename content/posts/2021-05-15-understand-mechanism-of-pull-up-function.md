@@ -2,7 +2,7 @@
 title: "Understand mechanism of Pull up function"
 date: 2021-05-15T10:00:14+09:00
 draft: false
-tags: ['PQL','Process Analytics','Pull Up Function']
+tags: ['PQL','Process Analytics','Studio','Analysis','Pull Up Function']
 ---
 
 Pull up aggregation function, called PU function, like `PU_COUNT`, `PU_SUM`, `PU_AVG`, `PU_MAX`, `PU_MIN` looks similar to Standard aggregation function like `COUNT`, `SUM`, `AVG`, `MAX`, `MIN`. In Celonis, it is important to understand that output of PU function is not KPI but dimension. You can see [Understand Difference between Dimension and KPI](../2021-05-01-understand-difference-between-dimension-and-kpi/).

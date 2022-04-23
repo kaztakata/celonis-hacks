@@ -2,7 +2,7 @@
 title: "Investigate Workload Trend of Cropped Subprocess"
 date: 2021-10-16T10:12:18+09:00
 draft: false
-tags: ['PQL','Process Analytics','Process Explorer']
+tags: ['PQL','Process Analytics','Studio','Analysis','Process Explorer']
 ---
 
 Celonis Activity record is good to investigate user workload, so you may already implement analysis to do this. Today I would like to crop activities to minimum subprocess then investigate workload against subprocess.

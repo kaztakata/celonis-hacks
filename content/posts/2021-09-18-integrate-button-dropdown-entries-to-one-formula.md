@@ -2,7 +2,7 @@
 title: "Integrate Button Dropdown Entries to one Formula"
 date: 2021-09-18T10:42:24+09:00
 draft: false
-tags: ['PQL','Process Analytics']
+tags: ['PQL','Process Analytics','Studio','Analysis']
 ---
 
 I usually use two types of analysis components, time scale graph and drilldown table for my development projects. These compnents makes it possible to discover root cause of target KPIs by changing time scale or drilldown dimension.

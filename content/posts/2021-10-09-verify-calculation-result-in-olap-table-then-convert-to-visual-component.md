@@ -2,7 +2,7 @@
 title: "Verify calculation result in OLAP table then convert to visual component"
 date: 2021-10-09T09:33:43+09:00
 draft: false
-tags: ['Process Analytics']
+tags: ['Process Analytics','Studio','Analysis']
 ---
 
 Today is 24th post of this blog series and I am suprised that I can continue to post blog every week. I got some reply from who loves Celonis in the world and it is my fun to continue posting. Celonis is releasing new functionarity year by year and I am interested in catching up them and thinking how these functions help my clients. After listening to next week's Celonis World Tour Webiner in Tokyo, I will get more inspiration to write blog.

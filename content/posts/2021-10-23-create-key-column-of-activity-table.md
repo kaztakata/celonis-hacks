@@ -2,7 +2,7 @@
 title: "Create Key Column of Activity Table"
 date: 2021-10-23T08:02:29+09:00
 draft: false
-tags: ['PQL','Process Analytics','Data Model']
+tags: ['PQL','Process Analytics','Studio','Analysis','Data Model']
 ---
 
 Celonis Data Model always require unique key in case tabel (case key) to group activities belong to each case. How about activity table ? Activity table do not have explicit key column, instead combination of case key, activity name, timestamp, and sorting number are similar to activity key (those four columns are configured in Data Model). 

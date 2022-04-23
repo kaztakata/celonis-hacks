@@ -5,10 +5,19 @@
     <link>https://kaztakata.github.io/celonis-hacks/</link>
     <description>Recent content on Celonis hacks</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 16 Apr 2022 11:03:14 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 23 Apr 2022 08:43:22 +0900</lastBuildDate>
     
 	<atom:link href="https://kaztakata.github.io/celonis-hacks/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Validate Data Model by Studio Analysis</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2022-04-23-validate-data-model-by-studio-analysis/</link>
+      <pubDate>Sat, 23 Apr 2022 08:43:22 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2022-04-23-validate-data-model-by-studio-analysis/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Construct My First Data Model</title>

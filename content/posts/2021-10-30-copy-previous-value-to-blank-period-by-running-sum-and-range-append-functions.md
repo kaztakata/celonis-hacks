@@ -2,7 +2,7 @@
 title: "Copy Previous Value to Blank Period by RUNNING_SUM and RANGE_APPEND functions"
 date: 2021-10-30T09:17:48+09:00
 draft: false
-tags: ['PQL','Process Analytics']
+tags: ['PQL','Process Analytics','Studio','Analysis']
 ---
 
 At [Investigate Workload Trend of Cropped Subprocess](../2021-10-16-investigate-workload-trend-of-cropped-subprocess) I showed trend of activity count, and at that time I used `RANGE_APPEND` to fill zero count in trend graph. Today I would like to use different aggregation `RUNNING_SUM` and fill value to blank period. 

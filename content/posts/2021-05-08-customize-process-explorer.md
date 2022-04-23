@@ -2,7 +2,7 @@
 title: "Customize Process Explorer"
 date: 2021-05-08T09:15:03+09:00
 draft: false
-tags: ['PQL','Process Analytics','Process Explorer']
+tags: ['PQL','Process Analytics','Studio','Analysis','Process Explorer']
 ---
 
 Process explorer in Celonis Analysis is default application to analyze process. First you can see main process pattern (called happy path), count of each step (activity) and count of path between two steps (connection). You can show minor activities and connections, or switch throughput time instead of count of connection.

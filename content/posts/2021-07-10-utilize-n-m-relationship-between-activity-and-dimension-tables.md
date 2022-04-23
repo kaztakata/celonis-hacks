@@ -2,7 +2,7 @@
 title: "Utilize N-M relationship between Activity and Dimension Tables"
 date: 2021-07-10T10:08:50+09:00
 draft: false
-tags: ['PQL','Process Analytics','Data Model']
+tags: ['PQL','Process Analytics','Studio','Analysis','Data Model']
 ---
 
 When you determine data model structure by yourself, basically you should follow snowflake schema writtern in [Understand how Tables are joined in Data Model](../2021-06-19-understand-how-tables-are-joined-in-data-model/). From case table perspective, n side is case table, and 1 side is another dimension table. On the other hand, activity table is the first case that 1 side is case table. If you determine second dimension table that 1 side is case table, please note that you can not use both activity and that dimension table at once because those tables are N-M relationship via case table. But you can utilize these tables reducing (filtering) rows same as that of case table by Pull Up function.

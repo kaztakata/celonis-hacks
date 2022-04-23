@@ -2,7 +2,7 @@
 title: "Handle NULL efficiently in Aggregation Function"
 date: 2021-06-26T09:37:59+09:00
 draft: false
-tags: ['PQL','Process Analytics','Pull Up Function']
+tags: ['PQL','Process Analytics','Studio','Analysis','Pull Up Function']
 ---
 
 I looked at many PQLs that can be simplified if they know about NULL handling well. Today I would like to tell how to handle NULL efficiently in Aggregation Functions (`COUNT`,`SUM`,`AVG` etc.).

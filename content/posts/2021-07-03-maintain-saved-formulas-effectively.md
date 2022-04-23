@@ -2,7 +2,7 @@
 title: "Maintain Saved Formulas effectively"
 date: 2021-07-03T21:25:28+09:00
 draft: false
-tags: ['PQL','Process Analytics','Pull Up Function']
+tags: ['PQL','Process Analytics','Studio','Analysis','Pull Up Function']
 ---
 
 In the last post [Handle NULL efficiently in Aggregation Function](../2021-06-26-handle-null-efficiently-in-aggregation-function/), I used saved formulas to split long and complex PQL to reusable components. Today I would like to share my best practice to use saved formulas.
