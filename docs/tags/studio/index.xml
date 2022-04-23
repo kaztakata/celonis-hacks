@@ -16,7 +16,7 @@
       <pubDate>Sat, 23 Apr 2022 08:43:22 +0900</pubDate>
       
       <guid>https://kaztakata.github.io/celonis-hacks/posts/2022-04-23-validate-data-model-by-studio-analysis/</guid>
-      <description></description>
+      <description>At last post Construct My First Data Model, I created Data Model and load data to it. Normally initial load is not perfect, so I should check data in Data Model. Today I would like to share how to validate my Data Model using Analysis. By the way, Celonis EMS main function is now Studio (and App for viewer) and Analysis is also part of Studio, so today I will create Studio instead of Process Analytics to create Analysis.</description>
     </item>
     
     <item>

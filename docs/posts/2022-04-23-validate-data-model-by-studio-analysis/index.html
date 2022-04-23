@@ -8,6 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
   <title>Validate Data Model by Studio Analysis - Celonis hacks</title>
+  <meta name="description" content="At last post Construct My First Data Model, I created Data Model and load data to it. Normally initial load is not perfect, so I should check data in Data Model. Today I would like to share how to validate my Data Model using Analysis. By the way, Celonis EMS main function is now Studio (and App for viewer) and Analysis is also part of Studio, so today I will create Studio instead of Process Analytics to create Analysis.">
   <meta name="author" content="Kazuhiko Takata"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -56,13 +57,13 @@
     "name" : "Kazuhiko Takata"
   },
   "headline": "Validate Data Model by Studio Analysis",
-  "description" : "",
+  "description" : "At last post Construct My First Data Model, I created Data Model and load data to it. Normally initial load is not perfect, so I should check data in Data Model. Today I would like to share how to validate my Data Model using Analysis. By the way, Celonis EMS main function is now Studio (and App for viewer) and Analysis is also part of Studio, so today I will create Studio instead of Process Analytics to create Analysis.",
   "inLanguage" : "en",
-  "wordCount":  0 ,
+  "wordCount":  549 ,
   "datePublished" : "2022-04-23T08:43:22",
   "dateModified" : "2022-04-23T08:43:22",
   "image" : "https:\/\/kaztakata.github.io\/celonis-hacks",
-  "keywords" : [ "Data Integration, Transformation, Data Model, Studio, Analysis" ],
+  "keywords" : [ "Data Integration, Transformation, Data Model, Studio, Analysis, Variant Explorer, Case Explorer" ],
   "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-04-23-validate-data-model-by-studio-analysis\/",
   "publisher" : {
     "@type": "Organization",
@@ -78,11 +79,13 @@
 </script>
 
 <meta property="og:title" content="Validate Data Model by Studio Analysis" />
+<meta property="og:description" content="At last post Construct My First Data Model, I created Data Model and load data to it. Normally initial load is not perfect, so I should check data in Data Model. Today I would like to share how to validate my Data Model using Analysis. By the way, Celonis EMS main function is now Studio (and App for viewer) and Analysis is also part of Studio, so today I will create Studio instead of Process Analytics to create Analysis.">
 <meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2022-04-23-validate-data-model-by-studio-analysis/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Celonis hacks" />
 
   <meta name="twitter:title" content="Validate Data Model by Studio Analysis" />
+  <meta name="twitter:description" content="At last post Construct My First Data Model, I created Data Model and load data to it. Normally initial load is not perfect, so I should check data in Data Model. Today I would like to share how to …">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
@@ -251,7 +254,22 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        
+        <p>At last post <a href="../2022-04-16-construct-my-first-data-model">Construct My First Data Model</a>, I created Data Model and load data to it. Normally initial load is not perfect, so I should check data in Data Model. Today I would like to share how to validate my Data Model using Analysis. By the way, Celonis EMS main function is now Studio (and App for viewer) and Analysis is also part of Studio, so today I will create Studio instead of Process Analytics to create Analysis.</p>
+<p>First step is to create package for collecting Analysis and other nodes (View, Knowledge Model, Action Flow etc.). Just click Cerate Package button and enter name (and key automatically). Then click three dots button at right side of new package (im my case <code>planio</code>), and go to settings. In the setting I must first setup variable of Data Model for this package. So click Variable tab and Create Variable button in that tab.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/164874444-6652abce-1ed8-4327-bc75-9ccedc89504d.png"><img src="https://user-images.githubusercontent.com/67397583/164874444-6652abce-1ed8-4327-bc75-9ccedc89504d.png" alt="image"></a></p>
+<p>I should choose Data Model I previously loaded, and check status of data load (green is OK). Then determine key of data model variable (normally default value is fine), and save it.</p>
+<p>Next step is to create blank Analysis. I will click plus button at right of my package, and enter name and key. The point is node key under package is unique, even it is deleted. So you are careful to determine temporary key. I used <code>1</code> that is really temporary key for validation. And I should setup Data Model Variable I created in the first step. Another option Knowledge Model is too much for today&rsquo;s validation, so I simply use Data Model.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/164874577-d61b82d5-97ec-49ab-8556-baecb5f472ce.png"><img src="https://user-images.githubusercontent.com/67397583/164874576-aaa02936-b131-4541-82df-7b4791ec7716.png" alt="image"></a></p>
+<p>It is ready to create components in Analysis, but before that I will check number of case at upper left of Analysis sheet. It must be same as table count of case table (in my case <code>issues</code>) so I will go back to Data Integration and use SQL <code>SELECT COUNT(*) FROM issues</code> to compare number. If different, there are two possibilities, one is data model reload is not sufficient (if you did reload many times and final reload failed e.g.), and the other is incorrect configuration of data model especially case table assignment.</p>
+<p>Then I will create Variant Explorer in blank sheet. Until now I creaated <code>Raise Issue</code>, <code>Close Issue</code>, <code>Take Note</code>, <code>Update Progress</code> and <code>Due date has passed</code>, so I will check these activities are appeared in either of process variant. Also I will check order of activities is appropriate.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/164875154-e4887f4e-ad88-45cb-8c45-d66ecaf9a092.png"><img src="https://user-images.githubusercontent.com/67397583/164875154-e4887f4e-ad88-45cb-8c45-d66ecaf9a092.png" alt="image"></a></p>
+<p>To check more detail, I will create new sheet for Case Explorer. I can click case I would like to check, and see each activity and their columns. For example I will check <code>_SORTING</code>, and <code>changed_by</code> are appropriate for each activity.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/164876250-93b6f880-7cf7-4e5c-b51e-b0a6dff122a7.png"><img src="https://user-images.githubusercontent.com/67397583/164876250-93b6f880-7cf7-4e5c-b51e-b0a6dff122a7.png" alt="image"></a></p>
+<p>Finally I will check table columns in UI selection screen. Click selection button next to <code>100%</code> number, and click attribute selection. You can see table list I loaded, and columns and value of column. For example I will check <code>priority$name</code> value under <code>issues</code> table that will be used for dimension column.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/164877666-e705a507-c332-4363-9f75-128bff780e47.png"><img src="https://user-images.githubusercontent.com/67397583/164877666-e705a507-c332-4363-9f75-128bff780e47.png" alt="image"></a></p>
+<p>Doing these steps I checked Data Model load is good enough, and if not I will go back to transformation (or extraction) and try data model reload again. This validation step is quite important for following Analysis construction, otherwise I will find trouble later and I need huge rework.</p>
+<p>Kaz</p>
+
 
         
           <div class="blog-tags">
@@ -265,6 +283,10 @@ if (!doNotTrack) {
               <a href="https://kaztakata.github.io/celonis-hacks/tags/studio/">Studio</a>&nbsp;
             
               <a href="https://kaztakata.github.io/celonis-hacks/tags/analysis/">Analysis</a>&nbsp;
+            
+              <a href="https://kaztakata.github.io/celonis-hacks/tags/variant-explorer/">Variant Explorer</a>&nbsp;
+            
+              <a href="https://kaztakata.github.io/celonis-hacks/tags/case-explorer/">Case Explorer</a>&nbsp;
             
           </div>
         
