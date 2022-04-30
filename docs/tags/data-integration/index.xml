@@ -5,10 +5,20 @@
     <link>https://kaztakata.github.io/celonis-hacks/tags/data-integration/</link>
     <description>Recent content in Data Integration on Celonis hacks</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 23 Apr 2022 08:43:22 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 30 Apr 2022 08:54:10 +0900</lastBuildDate>
     
 	<atom:link href="https://kaztakata.github.io/celonis-hacks/tags/data-integration/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Execute Periodic ETL Automatically</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2022-04-30-execute-periodic-etl-automatically/</link>
+      <pubDate>Sat, 30 Apr 2022 08:54:10 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2022-04-30-execute-periodic-etl-automatically/</guid>
+      <description>Until last post Validate Data Model by Studio Analysis, I completed creating ETL programs in Data Integration. But this is still test product because this programs are executed manually by operator. In this post, I would like to share the final piece of Data Integration, how to run ETL programs automatically after production release.
+There are several ways to achieve automatic ETL, for example in my production system I am using scheduler in Machine Learning Workbench to trigger Jupyter Notebook, then operate Data Integration via Pycelonis (Python API for Celonis EMS).</description>
+    </item>
     
     <item>
       <title>Validate Data Model by Studio Analysis</title>

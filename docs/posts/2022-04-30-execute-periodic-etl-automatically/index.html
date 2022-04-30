@@ -7,9 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Categorize and Name Activity - Celonis hacks</title>
-  <meta name="description" content="In the previous post Transform Source System Tables to Minimize Data Model Tables, I recommended to convert some kind of source system tables to Activity. Today I focus on Activity and would like to share my way how to categorize and name Activity.
-First point is to split Activity name to two parts, more general part and detail part. For example, in SAP ECC or S4HANA Order to Cash process, general Activity name is Create Sales Order when data committed in VA01 transaction.">
+  <title>Execute Periodic ETL Automatically - Celonis hacks</title>
+  <meta name="description" content="Until last post Validate Data Model by Studio Analysis, I completed creating ETL programs in Data Integration. But this is still test product because this programs are executed manually by operator. In this post, I would like to share the final piece of Data Integration, how to run ETL programs automatically after production release.
+There are several ways to achieve automatic ETL, for example in my production system I am using scheduler in Machine Learning Workbench to trigger Jupyter Notebook, then operate Data Integration via Pycelonis (Python API for Celonis EMS).">
   <meta name="author" content="Kazuhiko Takata"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -45,8 +45,8 @@ First point is to split Activity name to two parts, more general part and detail
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-07-24-categorize-and-name-activity\/",
-          "name": "Categorize and name activity"
+          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-04-30-execute-periodic-etl-automatically\/",
+          "name": "Execute periodic e t l automatically"
         }
     }]
 }
@@ -57,15 +57,15 @@ First point is to split Activity name to two parts, more general part and detail
   "author": {
     "name" : "Kazuhiko Takata"
   },
-  "headline": "Categorize and Name Activity",
-  "description" : "In the previous post Transform Source System Tables to Minimize Data Model Tables, I recommended to convert some kind of source system tables to Activity. Today I focus on Activity and would like to share my way how to categorize and name Activity.\nFirst point is to split Activity name to two parts, more general part and detail part. For example, in SAP ECC or S4HANA Order to Cash process, general Activity name is Create Sales Order when data committed in VA01 transaction.",
+  "headline": "Execute Periodic ETL Automatically",
+  "description" : "Until last post Validate Data Model by Studio Analysis, I completed creating ETL programs in Data Integration. But this is still test product because this programs are executed manually by operator. In this post, I would like to share the final piece of Data Integration, how to run ETL programs automatically after production release.\nThere are several ways to achieve automatic ETL, for example in my production system I am using scheduler in Machine Learning Workbench to trigger Jupyter Notebook, then operate Data Integration via Pycelonis (Python API for Celonis EMS).",
   "inLanguage" : "en",
-  "wordCount":  471 ,
-  "datePublished" : "2021-07-24T10:47:12",
-  "dateModified" : "2021-07-24T10:47:12",
+  "wordCount":  514 ,
+  "datePublished" : "2022-04-30T08:54:10",
+  "dateModified" : "2022-04-30T08:54:10",
   "image" : "https:\/\/kaztakata.github.io\/celonis-hacks",
-  "keywords" : [ "Data Model, Data Integration, Transformation, PQL, Process Analytics, Studio, Analysis, Pull Up Function, Process Explorer" ],
-  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-07-24-categorize-and-name-activity\/",
+  "keywords" : [ "Data Integration, Extraction, Transformation, Data Model, Content-CLI, Machine Learning" ],
+  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-04-30-execute-periodic-etl-automatically\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/kaztakata.github.io\/celonis-hacks",
@@ -79,15 +79,15 @@ First point is to split Activity name to two parts, more general part and detail
 }
 </script>
 
-<meta property="og:title" content="Categorize and Name Activity" />
-<meta property="og:description" content="In the previous post Transform Source System Tables to Minimize Data Model Tables, I recommended to convert some kind of source system tables to Activity. Today I focus on Activity and would like to share my way how to categorize and name Activity.
-First point is to split Activity name to two parts, more general part and detail part. For example, in SAP ECC or S4HANA Order to Cash process, general Activity name is Create Sales Order when data committed in VA01 transaction.">
-<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2021-07-24-categorize-and-name-activity/" />
+<meta property="og:title" content="Execute Periodic ETL Automatically" />
+<meta property="og:description" content="Until last post Validate Data Model by Studio Analysis, I completed creating ETL programs in Data Integration. But this is still test product because this programs are executed manually by operator. In this post, I would like to share the final piece of Data Integration, how to run ETL programs automatically after production release.
+There are several ways to achieve automatic ETL, for example in my production system I am using scheduler in Machine Learning Workbench to trigger Jupyter Notebook, then operate Data Integration via Pycelonis (Python API for Celonis EMS).">
+<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2022-04-30-execute-periodic-etl-automatically/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Celonis hacks" />
 
-  <meta name="twitter:title" content="Categorize and Name Activity" />
-  <meta name="twitter:description" content="In the previous post Transform Source System Tables to Minimize Data Model Tables, I recommended to convert some kind of source system tables to Activity. Today I focus on Activity and would like to …">
+  <meta name="twitter:title" content="Execute Periodic ETL Automatically" />
+  <meta name="twitter:description" content="Until last post Validate Data Model by Studio Analysis, I completed creating ETL programs in Data Integration. But this is still test product because this programs are executed manually by operator. …">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
@@ -236,7 +236,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="posts-heading">
               
-                <h1>Categorize and Name Activity</h1>
+                <h1>Execute Periodic ETL Automatically</h1>
               
               
                 <hr class="small">
@@ -256,63 +256,44 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>In the previous post <a href="../2021-07-17-transform-source-system-tables-to-minimize-data-model-tables/">Transform Source System Tables to Minimize Data Model Tables</a>, I recommended to convert some kind of source system tables to Activity. Today I focus on Activity and would like to share my way how to categorize and name Activity.</p>
-<p>First point is to split Activity name to two parts, more general part and detail part. For example, in SAP ECC or S4HANA Order to Cash process, general Activity name is <code>Create Sales Order</code> when data committed in VA01 transaction. On the other hand detail Activity name is from sales document type (<code>Standard sales order</code>, <code>Cash sale</code> etc.). General Activity name is used as default Activity name in process mining, more system perspective analysis purpose. Detail Activity name is used as optional analysis or busines perspective analysis.</p>
-<p>Detail Activity name can be used in Process Explorer (and Variant Explorer) in Custom dimension setting (refer to <a href="../2021-05-08-customize-process-explorer/">Customize Process Explorer</a>). In my case <code>_CEL_O2C_ACTIVITIES.ACTIVITY_EN || ' : ' || COALESCE(_CEL_O2C_ACTIVITIES.ACTIVITY_DETAIL,'')</code> to concatenate General and Detail parts (consider converting <code>NULL</code> to zero byte string to prevent disappering General part).</p>
-<p>Second point is to use verb as Activity when it is direct user action to source system, instead use noun when it is just milestone to compare with some user action. One set of example is <code>Create Goods Issue Document</code> and <code>Planned Goods Issue Date</code>. For further programming purpose, norn Activity does not fill user name column to distinguish it is not direct user action. I do not want to count it for analysing automation Activity, rework Activity and throughuput between Activities, so I used <code>_CEL_O2C_ACTIVITIES.USER_NAME</code> IS NOT NULL to exclude norn Activity.</p>
-<p>Also you can exclude norn activity in Process Explorer by below PQL.</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">CASE 
-    WHEN _CEL_O2C_ACTIVITIES.USER_NAME IS NOT NULL THEN _CEL_O2C_ACTIVITIES.ACTIVITY_EN
-    ELSE NULl
-END
-</code></pre></div><p>After I found I can hide norn Activities as I like, I create new Activities without hesitation. Now I used hundred of Activities for multiple purposes. For example, create <code>Planned Goods Issue Date</code> for on time Delivery purpuse.</p>
-<p>Third point is to fill additional case key columns to Activity table. In case of on time Delivery analysis, I need to consider multiple (partial) delivery scenario against one sales order. I filled delivery number to delivery relevant Activity record to distinguish each record is first delivery, second delivery etc.</p>
-<p>After filling delivery number <code>VBELN_VL</code> and delivery item number <code>POSNR_VL</code>, I can use Pull Up Function to calculate each delivery is on time like below PQL. <code>DOMAIN_TABLE</code> is the way to group by delivery even activity main case key is sales order.</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">DATEDIFF(
-    dd,
-    PU_FIRST(
-        DOMAIN_TABLE(
-            _CEL_O2C_ACTIVITIES._CASE_KEY,
-            _CEL_O2C_ACTIVITIES.VBELN_VL,
-            _CEL_O2C_ACTIVITIES.POSNR_VL
-        ),
-        _CEL_O2C_ACTIVITIES.EVENTTIME,
-        _CEL_O2C_ACTIVITIES.ACTIVITY_EN = &#39;Create Goods Issue Document&#39;
-    ),
-    PU_FIRST(
-        DOMAIN_TABLE(
-            _CEL_O2C_ACTIVITIES._CASE_KEY,
-            _CEL_O2C_ACTIVITIES.VBELN_VL,
-            _CEL_O2C_ACTIVITIES.POSNR_VL
-        ),
-        _CEL_O2C_ACTIVITIES.EVENTTIME,
-        _CEL_O2C_ACTIVITIES.ACTIVITY_EN = &#39;Planned Goods Issue Date&#39;
-    )
-)
-</code></pre></div><p>Using above three points, I believe I can maximize process analysis with minimum dataset.</p>
+        <p>Until last post <a href="../2022-04-23-validate-data-model-by-studio-analysis">Validate Data Model by Studio Analysis</a>, I completed creating ETL programs in Data Integration. But this is still test product because this programs are executed manually by operator. In this post, I would like to share the final piece of Data Integration, how to run ETL programs automatically after production release.</p>
+<p>There are several ways to achieve automatic ETL, for example in my production system I am using scheduler in Machine Learning Workbench to trigger Jupyter Notebook, then operate Data Integration via <a href="https://celonis.github.io/pycelonis">Pycelonis (Python API for Celonis EMS)</a>. I would like to create posts regarding Pycelonis later, but today I do not use it because it takes a lot to explain Pycelonis. Instead today I use build in Scheduler in Data Integration, it is easy to construct and enough to use in production too.</p>
+<p>If you remember discussion in <a href="../2022-02-05-tune-endpoint-parameter-relevant-to-delta-load">Tune Endpoint Parameter Relevant to Delta Load</a>, I created Data Pool Parameter <code>today</code> for filtering extracting scope. This parameter should be updated to current time before extraction, so I will introduce new (global) <code>initial job</code>. SQL in this job is just getting current time like below.</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">DROP TABLE _CEL_CURRENT_TIME;
+CREATE TABLE _CEL_CURRENT_TIME AS
+SELECT NOW()
+;
+</code></pre></div><p>Next I would like to fetch this value for extraction. Open Data Pool Parameters and update <code>today</code> setting to get value from above table <code>_CEL_CURRENT_TIME</code>. Then go to Extraction setting and change parameter <code>today</code> to use value of Data Pool Parameter.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/166088925-8e1a9814-5015-40fd-917c-f716564ef4cd.png"><img src="https://user-images.githubusercontent.com/67397583/166088925-8e1a9814-5015-40fd-917c-f716564ef4cd.png" alt="image"></a></p>
+<p><a href="https://user-images.githubusercontent.com/67397583/166088988-945945e8-5e72-46f1-95f9-8243564076fd.png"><img src="https://user-images.githubusercontent.com/67397583/166088988-945945e8-5e72-46f1-95f9-8243564076fd.png" alt="image"></a></p>
+<p>OK then I would like to collect extraction and transformations to <code>main job</code>, and global view creation and Data Model Reload to <code>final job</code> like below.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/166089091-c952cd91-4629-4ffa-a0d0-1151b5f4cafe.png"><img src="https://user-images.githubusercontent.com/67397583/166089091-c952cd91-4629-4ffa-a0d0-1151b5f4cafe.png" alt="image"></a></p>
+<p><a href="https://user-images.githubusercontent.com/67397583/166089119-78f0fcb7-9711-43dd-8e47-750798ae61dc.png"><img src="https://user-images.githubusercontent.com/67397583/166089119-78f0fcb7-9711-43dd-8e47-750798ae61dc.png" alt="image"></a></p>
+<p>I am ready for scheduling data jobs. Click Scheduling menu and create new one. From bottom to top in below screen I setup scheduling. First I will choose data jobs which is executed periodically. I choose three jobs above and order them to run <code>initial job</code>, <code>main job</code> and <code>final job</code> sequentially. Second I will choose Scheduling Plan to Hourly. If I would like to execute more frequently I should use Custom Cron and setup parameter (<a href="https://www.netiq.com/documentation/cloud-manager-2-5/ncm-reference/data/bexyssf.html#beykoa4">reference</a>). Third I will enable scheduling, and switch to Delta Load. Final setup is as below screen.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/166091175-e2f57443-feee-4a8e-832d-4e8afdcd1ae4.png"><img src="https://user-images.githubusercontent.com/67397583/166091175-e2f57443-feee-4a8e-832d-4e8afdcd1ae4.png" alt="image"></a></p>
+<p>Then just wait for one hour and see if job is executed successfully. If you would like to monitor background run, click three dots of data job or data model and setup notification (or subscription) setting. Scheduler itself does not have notification function.</p>
+<p>That is it. I can conclude Data Integration series now. And I am thankful to you to continue reading my posts for one year. I would like to share my ideas with you in second year too.</p>
 <p>Kaz</p>
+<hr>
+<p>I would like to share my <a href="../../examples/planio_pool_20220430.json">Data Pool File</a> to you. If you would like to copy my pool to your environment, run content-CLI in your Machine Learning Workbench like <code>content-cli push data-pool -f planio_pool_20220430.json -p mytraining</code>. Please see <a href="../2021-08-14-share-my-analysis-by-content-cli">Share my Analysis by Content-CLI</a> for detail of content-CLI.</p>
+<p>Extactor is excluded from this copy, so please see <a href="../2022-02-05-tune-endpoint-parameter-relevant-to-delta-load">Tune Endpoint Parameter Relevant to Delta Load</a> to upload Extractor and replace connection to that with uploaded Extarctor.</p>
+<hr>
 
 
         
           <div class="blog-tags">
             
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/data-model/">Data Model</a>&nbsp;
-            
               <a href="https://kaztakata.github.io/celonis-hacks/tags/data-integration/">Data Integration</a>&nbsp;
+            
+              <a href="https://kaztakata.github.io/celonis-hacks/tags/extraction/">Extraction</a>&nbsp;
             
               <a href="https://kaztakata.github.io/celonis-hacks/tags/transformation/">Transformation</a>&nbsp;
             
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/pql/">PQL</a>&nbsp;
+              <a href="https://kaztakata.github.io/celonis-hacks/tags/data-model/">Data Model</a>&nbsp;
             
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/process-analytics/">Process Analytics</a>&nbsp;
+              <a href="https://kaztakata.github.io/celonis-hacks/tags/content-cli/">Content-CLI</a>&nbsp;
             
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/studio/">Studio</a>&nbsp;
-            
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/analysis/">Analysis</a>&nbsp;
-            
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/pull-up-function/">Pull Up Function</a>&nbsp;
-            
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/process-explorer/">Process Explorer</a>&nbsp;
+              <a href="https://kaztakata.github.io/celonis-hacks/tags/machine-learning/">Machine Learning</a>&nbsp;
             
           </div>
         
@@ -327,42 +308,42 @@ END
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-07-24-categorize-and-name-activity%2f&amp;text=Categorize%20and%20Name%20Activity&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-04-30-execute-periodic-etl-automatically%2f&amp;text=Execute%20Periodic%20ETL%20Automatically&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-07-24-categorize-and-name-activity%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-04-30-execute-periodic-etl-automatically%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-07-24-categorize-and-name-activity%2f&amp;title=Categorize%20and%20Name%20Activity" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-04-30-execute-periodic-etl-automatically%2f&amp;title=Execute%20Periodic%20ETL%20Automatically" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-07-24-categorize-and-name-activity%2f&amp;title=Categorize%20and%20Name%20Activity" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-04-30-execute-periodic-etl-automatically%2f&amp;title=Execute%20Periodic%20ETL%20Automatically" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-07-24-categorize-and-name-activity%2f&amp;title=Categorize%20and%20Name%20Activity" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-04-30-execute-periodic-etl-automatically%2f&amp;title=Execute%20Periodic%20ETL%20Automatically" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-07-24-categorize-and-name-activity%2f&amp;description=Categorize%20and%20Name%20Activity" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-04-30-execute-periodic-etl-automatically%2f&amp;description=Execute%20Periodic%20ETL%20Automatically" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -384,8 +365,6 @@ END
                   <ul>
                 
                 
-                    <li><a href="/celonis-hacks/posts/2022-04-30-execute-periodic-etl-automatically/">Execute Periodic ETL Automatically</a></li>
-                
                     <li><a href="/celonis-hacks/posts/2022-04-23-validate-data-model-by-studio-analysis/">Validate Data Model by Studio Analysis</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2022-04-16-construct-my-first-data-model/">Construct My First Data Model</a></li>
@@ -393,6 +372,8 @@ END
                     <li><a href="/celonis-hacks/posts/2022-04-09-inspect-table-data-by-select-statement/">Inspect Table Data by SELECT statement</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2022-04-02-adjust-time-zone-of-event-time-in-global-transformation/">Adjust Time Zone of Event Time in Global Transformation</a></li>
+                
+                    <li><a href="/celonis-hacks/posts/2022-03-26-handle-day-based-activity-as-milestone/">Handle Day based Activity as Milestone</a></li>
                 
               </ul>
 
@@ -404,13 +385,9 @@ END
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-07-17-transform-source-system-tables-to-minimize-data-model-tables/" data-toggle="tooltip" data-placement="top" title="Transform Source System Tables to Minimize Data Model Tables">&larr; Previous Post</a>
+              <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-04-23-validate-data-model-by-studio-analysis/" data-toggle="tooltip" data-placement="top" title="Validate Data Model by Studio Analysis">&larr; Previous Post</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-07-31-create-additional-entry-to-button-dropdown/" data-toggle="tooltip" data-placement="top" title="Create Additional Entry to Button Dropdown">Next Post &rarr;</a>
-            </li>
           
         </ul>
       
