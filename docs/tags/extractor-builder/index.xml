@@ -5,11 +5,7 @@
     <link>https://kaztakata.github.io/celonis-hacks/tags/extractor-builder/</link>
     <description>Recent content in Extractor Builder on Celonis hacks</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 05 Feb 2022 10:05:51 +0900</lastBuildDate>
-    
-	<atom:link href="https://kaztakata.github.io/celonis-hacks/tags/extractor-builder/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 05 Feb 2022 10:05:51 +0900</lastBuildDate><atom:link href="https://kaztakata.github.io/celonis-hacks/tags/extractor-builder/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Tune Endpoint Parameter Relevant to Delta Load</title>
       <link>https://kaztakata.github.io/celonis-hacks/posts/2022-02-05-tune-endpoint-parameter-relevant-to-delta-load/</link>

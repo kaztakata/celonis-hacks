@@ -91,7 +91,7 @@ If you know about SQL, you can imagine that PU function is similar to window fun
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
-  <meta name="generator" content="Hugo 0.68.3" />
+  <meta name="generator" content="Hugo 0.92.2" />
   <link rel="alternate" href="https://kaztakata.github.io/celonis-hacks/index.xml" type="application/rss+xml" title="Celonis hacks"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://kaztakata.github.io/celonis-hacks/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -263,12 +263,12 @@ if (!doNotTrack) {
 <p>Looking at screenshot, PO Document <code>0000005763</code> has max value <code>3,744.14</code> in item <code>00009</code>, then all other items in this PO also has representative max value <code>3,744.14</code>.</p>
 <p>When using <code>PU_MAX</code> function, 10 items are kept and add one more column representing max value. On the other hand, you can imagine when using standard <code>MAX</code> function, 10 items are aggregated to 1 record and show max value.</p>
 <p>In above PQL, by table name <code>EKKO</code> in first argument, PO item record is partitioned by join key between <code>EKKO</code> and <code>EKPO</code>. So that below three PQLs are equivalent (<code>DOMAIN_TABLE</code> function creates dynamic table of argument columns).</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">PU_MAX(EKKO,EKPO.NETWR) -- using table
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">PU_MAX(EKKO,EKPO.NETWR) -- using table
 PU_MAX(DOMAIN_TABLE(EKKO.MANDT,EKKO.EBELN),EKPO.NETWR) -- using PO Doc columns
 PU_MAX(DOMAIN_TABLE(EKPO.MANDT,EKPO.EBELN),EKPO.NETWR) -- using PO item columns
 </code></pre></div><p>Back to screenshot above, column <code>Max Net Value by Vendor</code> has PQL <code>PU_MAX(LFA1,EKPO.NETWR)</code>. Vendor <code>0000002901</code> have 2 PO Document and 20 PO items, then max value <code>9,213.75</code> in the second PO is representing max value in this vendor.</p>
 <p>Also grouping by any columns in above 3 tables is possible like below.</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">PU_MAX(DOMAIN_TABLE(EKKO.MANDT,EKKO.BUKRS),EKPO.NETWR) -- grouped by column in PO Document 
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">PU_MAX(DOMAIN_TABLE(EKKO.MANDT,EKKO.BUKRS),EKPO.NETWR) -- grouped by column in PO Document 
 PU_MAX(DOMAIN_TABLE(EKPO.MANDT,EKPO.MATNR),EKPO.NETWR) -- grouped by column in PO item.
 </code></pre></div><p>In the next post, I will show you how to use output of PU function.</p>
 <p>Kaz</p>
@@ -360,6 +360,8 @@ PU_MAX(DOMAIN_TABLE(EKPO.MANDT,EKPO.MATNR),EKPO.NETWR) -- grouped by column in P
                   <ul>
                 
                 
+                    <li><a href="/celonis-hacks/posts/2022-05-07-start-deep-dive-to-machine-learning-and-action-flow/">Start Deep Dive to Machine Learning and Action Flow</a></li>
+                
                     <li><a href="/celonis-hacks/posts/2022-04-23-validate-data-model-by-studio-analysis/">Validate Data Model by Studio Analysis</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2022-03-26-handle-day-based-activity-as-milestone/">Handle Day based Activity as Milestone</a></li>
@@ -367,8 +369,6 @@ PU_MAX(DOMAIN_TABLE(EKPO.MANDT,EKPO.MATNR),EKPO.NETWR) -- grouped by column in P
                     <li><a href="/celonis-hacks/posts/2021-10-30-copy-previous-value-to-blank-period-by-running-sum-and-range-append-functions/">Copy Previous Value to Blank Period by RUNNING_SUM and RANGE_APPEND functions</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2021-10-23-create-key-column-of-activity-table/">Create Key Column of Activity Table</a></li>
-                
-                    <li><a href="/celonis-hacks/posts/2021-10-16-investigate-workload-trend-of-cropped-subprocess/">Investigate Workload Trend of Cropped Subprocess</a></li>
                 
               </ul>
 
@@ -462,7 +462,7 @@ PU_MAX(DOMAIN_TABLE(EKPO.MANDT,EKPO.MATNR),EKPO.NETWR) -- grouped by column in P
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.68.3</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.92.2</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

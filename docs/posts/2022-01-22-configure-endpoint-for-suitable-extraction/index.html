@@ -91,7 +91,7 @@ First problem I faced is upper limit of extraction data. Some day I found that I
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
-  <meta name="generator" content="Hugo 0.68.3" />
+  <meta name="generator" content="Hugo 0.92.2" />
   <link rel="alternate" href="https://kaztakata.github.io/celonis-hacks/index.xml" type="application/rss+xml" title="Celonis hacks"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://kaztakata.github.io/celonis-hacks/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -259,7 +259,7 @@ if (!doNotTrack) {
         <p>In the last post <a href="../2022-01-15-connect-to-source-system-via-rest-api">Connect to Source System via REST API</a>, I shared how to set up Extractor Builder and extracted Issue from Planio. It was shortest path to be avaiable for extraction job, so it is not enough for production job. Today I would like to configure Endpoint in Extractor Builder to resolve problems I experienced.</p>
 <p>First problem I faced is upper limit of extraction data. Some day I found that I could not get issue record until 25. This is described at <a href="https://plan.io/api/#collections-and-pagination">Collections and Pagination in Planio API documentation</a>, that said I need to setup Pagination to extract 1-25th record at first, then 26-50th record. Endpoint example is written as <code>https://example.plan.io/users.xml?limit=10&amp;offset=20</code> to get 10 users starting at the 21st. So I would like to setup this to my Endpoint setting.</p>
 <p>Open Celonis Extractor builder then go to 4 Define Endpoints. Move to 2 Configure Request and click Pagination Method. As below screen I choose Limit and Offset Pagination then fill in parameters as below. I can review my setting by looking at PAGINATION PREVIEW. In my result <code>offset</code> and <code>limit</code> are opposite to eample above, but it works correctly.</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">1.Request:{Connection.API_URL}/issues.json?offset=0&amp;limit=25
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">1.Request:{Connection.API_URL}/issues.json?offset=0&amp;limit=25
 2.Request:{Connection.API_URL}/issues.json?offset=25&amp;limit=25
 3.Request:{Connection.API_URL}/issues.json?offset=50&amp;limit=25
 </code></pre></div><p><a href="https://user-images.githubusercontent.com/67397583/150613164-64b8533f-34ba-44e8-a6c8-abd73f2c2ddc.png"><img src="https://user-images.githubusercontent.com/67397583/150613164-64b8533f-34ba-44e8-a6c8-abd73f2c2ddc.png" alt="image"></a></p>
@@ -452,7 +452,7 @@ if (!doNotTrack) {
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.68.3</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.92.2</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

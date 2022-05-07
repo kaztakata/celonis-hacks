@@ -91,7 +91,7 @@ In this post, for example I would like to calculate Average rework count after D
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
-  <meta name="generator" content="Hugo 0.68.3" />
+  <meta name="generator" content="Hugo 0.92.2" />
   <link rel="alternate" href="https://kaztakata.github.io/celonis-hacks/index.xml" type="application/rss+xml" title="Celonis hacks"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://kaztakata.github.io/celonis-hacks/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -259,14 +259,14 @@ if (!doNotTrack) {
         <p>In the last post <a href="../2021-05-22-determine-first-time-right-by-pull-up-function/">Determine First Time Right by Pull up function</a>, I broke down PQL of FTR step by step. Today I will explain more complex KPI in similar way. By the way you may know Subquery that enables to pass result of SQL to parts of another SQL. PQL can also do similar things by Pull up function.</p>
 <p>In this post, for example I would like to calculate Average rework count after Delivery in Order to Cash process, and definition of rework is same as previous post. I imagine that rework operation after Delivery operation causes more time loss than rework before Delivery, so that I would like to visualize this KPI.</p>
 <p>First step is to determine when Delivery is started in each case key (sales order item), so I introduced Pull up function <code>PU_FIRST</code> as below. It returns first record by grouping key, with filter condition as option. Below function returns EVENTTIME column of first record of <code>Generate Delivery Document</code> activity by each sales order item.</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">PU_FIRST(
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">PU_FIRST(
     VBAP,                                                           -- grouping key (sales order item)
     _CEL_O2C_ACTIVITIES.EVENTTIME,                                  -- returning column
     _CEL_O2C_ACTIVITIES.ACTIVITY_EN = &#39;Generate Delivery Document&#39;, -- filter condition
     ORDER BY _CEL_O2C_ACTIVITIES.EVENTTIME                          -- sorting column
 )
 </code></pre></div><p>Second step is to determine rework activities after Delivery. It is decomposed to rework definition and comparison of timestamp. PQL using <code>CASE</code> statement is below. Point is using result of <code>PU_FIRST</code> as comparator of <code>&gt;=</code>. One more consideration is using <code>COALESCE</code> to set default value if Delivery is not happened yet.</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">CASE 
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">CASE 
     WHEN 1=1                                                    -- always true, just for formatting reason
         AND _CEL_O2C_ACTIVITIES.ACTIVITY_EN LIKE &#39;Change %&#39;     -- rework definition 
         AND _CEL_O2C_ACTIVITIES.EVENTTIME &gt;= COALESCE(PU_FIRST( -- after Delivery timestamp (result of PU_FIRST)
@@ -281,7 +281,7 @@ END
 </code></pre></div><p>Below screenshot is the result of applying above two PQLs to sample case <code>1217437</code>. <code>Generate Delivery Document</code> is the third record so timestamp of third record is set to <code>Delivery EVENTTIME</code> column. After Delivery there are three activity record started from <code>Change</code> so these record have <code>1</code> in <code>Rework after Delivery</code> column.</p>
 <p><a href="https://user-images.githubusercontent.com/67397583/120057779-ca75d980-c080-11eb-80ab-7fcdb6e15080.png"><img src="https://user-images.githubusercontent.com/67397583/120057779-ca75d980-c080-11eb-80ab-7fcdb6e15080.png" alt="image"></a></p>
 <p>The last step is counting Rework activity by <code>PU_COUNT</code> function, below is the PQL. I feel <code>PU_FIRST</code> function is similar to SQL Subquery applying to <code>WHERE</code> clause.</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">    PU_COUNT(
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">    PU_COUNT(
         VBAP,                                                       -- grouping key (sales order item)
         _CEL_O2C_ACTIVITIES.ACTIVITY_EN,                            -- counting column
         1=1                                                         -- filter condition same as above CASE condition
@@ -384,6 +384,8 @@ END
                   <ul>
                 
                 
+                    <li><a href="/celonis-hacks/posts/2022-05-07-start-deep-dive-to-machine-learning-and-action-flow/">Start Deep Dive to Machine Learning and Action Flow</a></li>
+                
                     <li><a href="/celonis-hacks/posts/2022-04-23-validate-data-model-by-studio-analysis/">Validate Data Model by Studio Analysis</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2022-03-26-handle-day-based-activity-as-milestone/">Handle Day based Activity as Milestone</a></li>
@@ -391,8 +393,6 @@ END
                     <li><a href="/celonis-hacks/posts/2021-10-30-copy-previous-value-to-blank-period-by-running-sum-and-range-append-functions/">Copy Previous Value to Blank Period by RUNNING_SUM and RANGE_APPEND functions</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2021-10-23-create-key-column-of-activity-table/">Create Key Column of Activity Table</a></li>
-                
-                    <li><a href="/celonis-hacks/posts/2021-10-16-investigate-workload-trend-of-cropped-subprocess/">Investigate Workload Trend of Cropped Subprocess</a></li>
                 
               </ul>
 
@@ -486,7 +486,7 @@ END
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.68.3</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.92.2</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

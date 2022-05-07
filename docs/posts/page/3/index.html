@@ -38,7 +38,7 @@
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
-  <meta name="generator" content="Hugo 0.68.3" />
+  <meta name="generator" content="Hugo 0.92.2" />
   <link rel="alternate" href="https://kaztakata.github.io/celonis-hacks/index.xml" type="application/rss+xml" title="Celonis hacks"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://kaztakata.github.io/celonis-hacks/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -206,6 +206,62 @@ if (!doNotTrack) {
         <div class="posts-list">
           
             <article class="post-preview">
+    <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-12-11-understand-delta-load-configuration-difference-in-adding-column-scenario/">
+        <h2 class="post-title">Understand Delta Load Configuration Difference in Adding Column Scenario</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2021-12-11
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;minutes
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;402&nbsp;words
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kazuhiko Takata
+    
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        Last time I showed behavior when I added new record then extracted that record by Delta Load (Verify Cloning Table Contents via Delta Load). Delta Load is effective way to minimize extraction effort, but it is not always applied. Today, it is continued from previous post, I would like to add column to cloned table and observe behavior of extraction task.
+After starting system operation including database, normally system is changing its requirement and extend function and database etc.
+        <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-12-11-understand-delta-load-configuration-difference-in-adding-column-scenario/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+        <a href="https://kaztakata.github.io/celonis-hacks/tags/data-integration/">Data Integration</a>&nbsp;
+        
+        <a href="https://kaztakata.github.io/celonis-hacks/tags/extractor/">Extractor</a>&nbsp;
+        
+        <a href="https://kaztakata.github.io/celonis-hacks/tags/extraction/">Extraction</a>&nbsp;
+        
+        <a href="https://kaztakata.github.io/celonis-hacks/tags/transformation/">Transformation</a>&nbsp;
+        
+        <a href="https://kaztakata.github.io/celonis-hacks/tags/data-job/">Data Job</a>&nbsp;
+        
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
     <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-12-04-verify-cloning-table-contents-via-delta-load/">
         <h2 class="post-title">Verify Cloning Table Contents via Delta Load</h2>
         
@@ -217,7 +273,7 @@ if (!doNotTrack) {
         <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;Posted on map[Count:2021-12-04]
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2021-12-04
   
   
     &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;minutes
@@ -273,7 +329,7 @@ First step is to enter localhost:5050 to my browser, then at the login screen en
         <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;Posted on map[Count:2021-11-27]
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2021-11-27
   
   
     &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;minutes
@@ -328,7 +384,7 @@ First step is to enter localhost:5050 to my browser, then at the login screen en
         <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;Posted on map[Count:2021-11-20]
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2021-11-20
   
   
     &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;minutes
@@ -382,7 +438,7 @@ In the Data Integration, I create new Data Job with Data Connection I created la
         <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;Posted on map[Count:2021-11-13]
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2021-11-13
   
   
     &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;minutes
@@ -433,7 +489,7 @@ From this week I will start Extractor and Postgres by next two steps (same as la
         <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;Posted on map[Count:2021-11-06]
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2021-11-06
   
   
     &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;minutes
@@ -483,7 +539,7 @@ As first topic, I would like to explain on premise Extractor, that is in the mid
         <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;Posted on map[Count:2021-10-30]
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2021-10-30
   
   
     &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;minutes
@@ -537,7 +593,7 @@ Imagine you would like to check weekly trend of credit amount regarding some cus
         <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;Posted on map[Count:2021-10-23]
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2021-10-23
   
   
     &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;minutes
@@ -593,13 +649,13 @@ This week I was asked to create activity table key column due to duplication che
         <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;Posted on map[Count:2021-10-16]
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2021-10-16
   
   
     &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;minutes
   
   
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;401&nbsp;words
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;383&nbsp;words
   
   
     
@@ -649,7 +705,7 @@ Today&rsquo;s output image is below. I set filter button of company code, also s
         <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;Posted on map[Count:2021-10-09]
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2021-10-09
   
   
     &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;minutes
@@ -682,63 +738,6 @@ Today&rsquo;s output image is below. I set filter button of company code, also s
         <a href="https://kaztakata.github.io/celonis-hacks/tags/studio/">Studio</a>&nbsp;
         
         <a href="https://kaztakata.github.io/celonis-hacks/tags/analysis/">Analysis</a>&nbsp;
-        
-    </div>
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-10-02-group-similar-cases-by-clustering/">
-        <h2 class="post-title">Group similar cases by Clustering</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on map[Count:2021-10-02]
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;minutes
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;397&nbsp;words
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kazuhiko Takata
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        Last week I posted Convert Quantitative value to Categorical one by Quantile Function to create categorical dimension. Today I will create categorical dimension via different way, clustering.
-Clustering is one of the unsupervised learning method, to automatically group cases by their attributes. Celonis PQL has clustering funciton KMEANS, so you are ready to use clustering.
-Today I will use O2C process and would like to group customers by (1) their lead time from Invoice send to Clear Invoice and (2) net value.
-        <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-10-02-group-similar-cases-by-clustering/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/pql/">PQL</a>&nbsp;
-        
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/process-analytics/">Process Analytics</a>&nbsp;
-        
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/studio/">Studio</a>&nbsp;
-        
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/analysis/">Analysis</a>&nbsp;
-        
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/pull-up-function/">Pull Up Function</a>&nbsp;
         
     </div>
     
@@ -825,7 +824,7 @@ Today I will use O2C process and would like to group customers by (1) their lead
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.68.3</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.92.2</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

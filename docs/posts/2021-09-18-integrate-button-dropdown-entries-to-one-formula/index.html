@@ -91,7 +91,7 @@ In the end, these components and attaching button dropdown were maintained many 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
-  <meta name="generator" content="Hugo 0.68.3" />
+  <meta name="generator" content="Hugo 0.92.2" />
   <link rel="alternate" href="https://kaztakata.github.io/celonis-hacks/index.xml" type="application/rss+xml" title="Celonis hacks"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://kaztakata.github.io/celonis-hacks/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -263,7 +263,7 @@ if (!doNotTrack) {
 <p>Next image is button of time scale unit. Previously I assigned two variables (text and PQL) per button entry, but now one variable (<code>timeScaleUnit</code>) that is simply text of time scale unit. X axis of chart (time scale) is described as <code>KPI(timeScale,&lt;%=timeScaleUnit%&gt;,VARIABLE(poCreationTime))</code>, I will move time scale PQL from button to formula.</p>
 <p><a href="https://user-images.githubusercontent.com/67397583/133868855-33b22925-80bc-49e4-9479-d9e9de05a423.png"><img src="https://user-images.githubusercontent.com/67397583/133868855-33b22925-80bc-49e4-9479-d9e9de05a423.png" alt="image"></a></p>
 <p>Next, let&rsquo;s see the formula <code>timeScale</code>. It passes two parameters, first is unit name like &lsquo;Year&rsquo;, and second is the column to get eventtime (this time it is PO creation date).</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">-- timeScale
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">-- timeScale
 CASE
   WHEN {p1} = &#39;Year&#39; THEN 
     YEAR(KPI({p2}))||&#39;&#39;
@@ -291,7 +291,7 @@ CASE
 END
 </code></pre></div><p>I developed <code>CASE WHEN</code> statements against each time scale unit judging by unit text p1. You may be doubtful why I do not simply use <code>ROUND_YEAR</code>,<code>ROUND_MONTH</code> etc. Because these function returns timestamp value and it is not compatible to the result of &lsquo;Day of Week&rsquo; that returns string (<code>CASE WHEN</code> should return only one data type from all pattern). So that I converted to number of year, month, day of timestamp, then concatenate them to build string.</p>
 <p>Development of drilldown dimension is similar strategy. This formula requests one parameter that represents dimension text, and return string of concatenating value column and text column. This time you are careful which table column is used for drilldown dimension compared with table of KPIs, because all <code>CASE WHEN</code> statements are read in this PQL formula even if you choose one of the dimension. This time <code>LFA1</code>,<code>EKKO</code> and <code>EKPO</code> are good for dimension because KPIs are calculated based on case table <code>EKPO</code>. On the other hand, if you will add <code>_CEL_P2P_ACTIVITIES_EN._CASE_KEY</code> to drilldown dimension, I found net value is unintentionally duplicated from 539M (you will choose &lsquo;-&rsquo; entry from button, then you can compare single line value in OLAP table with that of left side single KPI).</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">-- drilldownDimension
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">-- drilldownDimension
 CASE
   WHEN {p1} = &#39;-&#39; THEN &#39;-&#39;
   WHEN {p1} = &#39;Company Code&#39; THEN EKKO.BUKRS||&#39; - &#39;||EKKO.&#34;Company Name (EKKO_BUTXT)&#34;
@@ -393,6 +393,8 @@ END
                   <ul>
                 
                 
+                    <li><a href="/celonis-hacks/posts/2022-05-07-start-deep-dive-to-machine-learning-and-action-flow/">Start Deep Dive to Machine Learning and Action Flow</a></li>
+                
                     <li><a href="/celonis-hacks/posts/2022-04-23-validate-data-model-by-studio-analysis/">Validate Data Model by Studio Analysis</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2022-03-26-handle-day-based-activity-as-milestone/">Handle Day based Activity as Milestone</a></li>
@@ -400,8 +402,6 @@ END
                     <li><a href="/celonis-hacks/posts/2021-10-30-copy-previous-value-to-blank-period-by-running-sum-and-range-append-functions/">Copy Previous Value to Blank Period by RUNNING_SUM and RANGE_APPEND functions</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2021-10-23-create-key-column-of-activity-table/">Create Key Column of Activity Table</a></li>
-                
-                    <li><a href="/celonis-hacks/posts/2021-10-16-investigate-workload-trend-of-cropped-subprocess/">Investigate Workload Trend of Cropped Subprocess</a></li>
                 
               </ul>
 
@@ -495,7 +495,7 @@ END
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.68.3</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.92.2</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

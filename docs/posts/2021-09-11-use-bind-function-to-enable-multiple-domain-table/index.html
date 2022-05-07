@@ -45,7 +45,7 @@
         "position": 3,
         "item": {
           "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-09-11-use-bind-function-to-enable-multiple-domain-table\/",
-          "name": "Use b i n d function to enable multiple d o m a i n t a b l e"
+          "name": "Use bind function to enable multiple domain table"
         }
     }]
 }
@@ -89,7 +89,7 @@
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
-  <meta name="generator" content="Hugo 0.68.3" />
+  <meta name="generator" content="Hugo 0.92.2" />
   <link rel="alternate" href="https://kaztakata.github.io/celonis-hacks/index.xml" type="application/rss+xml" title="Celonis hacks"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://kaztakata.github.io/celonis-hacks/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -258,7 +258,7 @@ if (!doNotTrack) {
 <p>Today&rsquo;s output report image is below. My goal is to calculate case count of variant by vendor (<code>EKKO.LIFNR</code>) in P2P process. Also I would like to cacululate case coverage and ranking (index order) of variant by vendor as Variant Explorer. Finally I used it to find vendor list that does not use Purchase Requisition (starts from Purchase Order) in its major pattern (&gt; 20%).</p>
 <p><a href="https://user-images.githubusercontent.com/67397583/132936310-2c1e9f17-d2ae-48d8-9044-57722c232e22.png"><img src="https://user-images.githubusercontent.com/67397583/132936310-2c1e9f17-d2ae-48d8-9044-57722c232e22.png" alt="image"></a></p>
 <p>First step is to determine two dimensions, vendor and variant. Later I need to create <code>DOMAIN_TABLE</code> from these two columns, so both columns should be derived from same table (this time it is <code>EKPO</code>). I need to introduce <code>BIND</code> for vendor column in header table <code>EKKO</code> to bind to item table <code>EKPO</code> as <code>BIND(EKPO,EKKO.LIFNR)</code> , then it looks like vendor columns is copied to <code>EKPO</code>. I determined two columns as formulas <code>vendorDomain</code> and <code>variantDomain</code> as below.</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">-- _vendor
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">-- _vendor
 BIND(EKPO,EKKO.LIFNR)
 
 -- _variant
@@ -283,7 +283,7 @@ PU_FIRST(
 )
 </code></pre></div><p>From this I use above <code>DOMAIN_TABLE</code> with vendor and variant as baseline domain. Next step is to calculate case count for each domain, and it is simply count case key (formula <code>countCaseDomain</code>). Then I would like to count case by vendor, but it is not simple as previous column.</p>
 <p>To count case by vendor I need to use <code>DOMAIN_TABLE</code> of vendor. This is joined to <code>EKPO</code> table, not baseline domain. As discussed <a href="../2021-09-04-convert-count-unit-of-kpi-by-count-distinct/">last week</a>, normally two <code>DOMAIN_TABLE</code>s are N-M relationship so it does not work. Today&rsquo;s breakthrough is to <code>BIND</code> case count by vendor to <code>EKPO</code> table, then used it from baseline domain (formula <code>countCaseVendor</code> as below).</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">-- countCaseDomain
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">-- countCaseDomain
 PU_COUNT(
   DOMAIN_TABLE(
     KPI(_vendor),
@@ -309,7 +309,7 @@ PU_FIRST( -- 3. pick up EKPO first record by each baseline domain
   )
 )
 </code></pre></div><p>Finally I created formula <code>caseCoverageVendor</code> as <code>KPI(countCaseDomain) / KPI(countCaseVendor)</code>, then using this I created <code>indexCoverageVendor</code> as below.</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">INDEX_ORDER(
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">INDEX_ORDER(
   KPI(caseCoverageVendor),
   ORDER BY (KPI(caseCoverageVendor) DESC),
   PARTITION BY (KPI(vendorDomain))
@@ -406,6 +406,8 @@ PU_FIRST( -- 3. pick up EKPO first record by each baseline domain
                   <ul>
                 
                 
+                    <li><a href="/celonis-hacks/posts/2022-05-07-start-deep-dive-to-machine-learning-and-action-flow/">Start Deep Dive to Machine Learning and Action Flow</a></li>
+                
                     <li><a href="/celonis-hacks/posts/2022-04-23-validate-data-model-by-studio-analysis/">Validate Data Model by Studio Analysis</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2022-03-26-handle-day-based-activity-as-milestone/">Handle Day based Activity as Milestone</a></li>
@@ -413,8 +415,6 @@ PU_FIRST( -- 3. pick up EKPO first record by each baseline domain
                     <li><a href="/celonis-hacks/posts/2021-10-30-copy-previous-value-to-blank-period-by-running-sum-and-range-append-functions/">Copy Previous Value to Blank Period by RUNNING_SUM and RANGE_APPEND functions</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2021-10-23-create-key-column-of-activity-table/">Create Key Column of Activity Table</a></li>
-                
-                    <li><a href="/celonis-hacks/posts/2021-10-16-investigate-workload-trend-of-cropped-subprocess/">Investigate Workload Trend of Cropped Subprocess</a></li>
                 
               </ul>
 
@@ -508,7 +508,7 @@ PU_FIRST( -- 3. pick up EKPO first record by each baseline domain
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.68.3</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.92.2</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

@@ -1,379 +1,235 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
+    <loc>https://kaztakata.github.io/celonis-hacks/tags/action-flow/</loc>
+    <lastmod>2022-05-07T12:54:54+09:00</lastmod>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/</loc>
-    <lastmod>2022-04-30T08:54:10+09:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2022-05-07T12:54:54+09:00</lastmod>
+  </url><url>
+    <loc>https://kaztakata.github.io/celonis-hacks/tags/machine-learning/</loc>
+    <lastmod>2022-05-07T12:54:54+09:00</lastmod>
+  </url><url>
+    <loc>https://kaztakata.github.io/celonis-hacks/posts/</loc>
+    <lastmod>2022-05-07T12:54:54+09:00</lastmod>
+  </url><url>
+    <loc>https://kaztakata.github.io/celonis-hacks/posts/2022-05-07-start-deep-dive-to-machine-learning-and-action-flow/</loc>
+    <lastmod>2022-05-07T12:54:54+09:00</lastmod>
+  </url><url>
+    <loc>https://kaztakata.github.io/celonis-hacks/tags/studio/</loc>
+    <lastmod>2022-05-07T12:54:54+09:00</lastmod>
+  </url><url>
+    <loc>https://kaztakata.github.io/celonis-hacks/tags/</loc>
+    <lastmod>2022-05-07T12:54:54+09:00</lastmod>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/tags/content-cli/</loc>
     <lastmod>2022-04-30T08:54:10+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/tags/data-integration/</loc>
     <lastmod>2022-04-30T08:54:10+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/tags/data-model/</loc>
     <lastmod>2022-04-30T08:54:10+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/posts/2022-04-30-execute-periodic-etl-automatically/</loc>
     <lastmod>2022-04-30T08:54:10+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/tags/extraction/</loc>
     <lastmod>2022-04-30T08:54:10+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kaztakata.github.io/celonis-hacks/tags/machine-learning/</loc>
-    <lastmod>2022-04-30T08:54:10+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kaztakata.github.io/celonis-hacks/posts/</loc>
-    <lastmod>2022-04-30T08:54:10+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kaztakata.github.io/celonis-hacks/tags/</loc>
-    <lastmod>2022-04-30T08:54:10+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/tags/transformation/</loc>
     <lastmod>2022-04-30T08:54:10+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/tags/analysis/</loc>
     <lastmod>2022-04-23T08:43:22+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/tags/case-explorer/</loc>
     <lastmod>2022-04-23T08:43:22+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kaztakata.github.io/celonis-hacks/tags/studio/</loc>
-    <lastmod>2022-04-23T08:43:22+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/posts/2022-04-23-validate-data-model-by-studio-analysis/</loc>
     <lastmod>2022-04-23T08:43:22+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/tags/variant-explorer/</loc>
     <lastmod>2022-04-23T08:43:22+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/posts/2022-04-16-construct-my-first-data-model/</loc>
     <lastmod>2022-04-16T11:03:14+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/posts/2022-04-09-inspect-table-data-by-select-statement/</loc>
     <lastmod>2022-04-09T17:40:32+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/posts/2022-04-02-adjust-time-zone-of-event-time-in-global-transformation/</loc>
     <lastmod>2022-04-02T16:08:17+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/posts/2022-03-26-handle-day-based-activity-as-milestone/</loc>
     <lastmod>2022-03-26T01:48:53+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/tags/process-analytics/</loc>
     <lastmod>2022-03-26T01:48:53+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/posts/2022-03-19-unite-sql-statements-by-case-expression/</loc>
     <lastmod>2022-03-19T09:14:35+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/posts/2022-03-12-split-long-sql-using-views/</loc>
     <lastmod>2022-03-12T16:28:51+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/posts/2022-03-05-compose-activity-from-joining-multiple-tables/</loc>
     <lastmod>2022-03-05T08:30:59+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/posts/2022-02-26-insert-simple-record-into-activity-table/</loc>
     <lastmod>2022-02-26T09:14:12+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/posts/2022-02-19-determine-process-mining-tables-based-on-project-goal/</loc>
     <lastmod>2022-02-19T13:43:41+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/posts/2022-02-12-consider-case-id-before-starting-transformation/</loc>
     <lastmod>2022-02-12T13:03:00+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kaztakata.github.io/celonis-hacks/tags/extractor/</loc>
-    <lastmod>2022-02-05T10:05:51+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/tags/extractor-builder/</loc>
     <lastmod>2022-02-05T10:05:51+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/posts/2022-02-05-tune-endpoint-parameter-relevant-to-delta-load/</loc>
     <lastmod>2022-02-05T10:05:51+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/posts/2022-01-29-setup-dependent-endpoint-in-extractor-builder/</loc>
     <lastmod>2022-01-29T09:17:16+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/posts/2022-01-22-configure-endpoint-for-suitable-extraction/</loc>
     <lastmod>2022-01-22T08:08:39+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/posts/2022-01-15-connect-to-source-system-via-rest-api/</loc>
     <lastmod>2022-01-15T10:27:09+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/posts/2022-01-08-prepare-source-system-to-generate-event-log/</loc>
     <lastmod>2022-01-08T16:35:30+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/posts/2021-12-25-pay-attention-to-extract-sap-tables/</loc>
     <lastmod>2021-12-25T08:53:48+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/tags/data-job/</loc>
     <lastmod>2021-12-18T09:22:56+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>https://kaztakata.github.io/celonis-hacks/tags/extractor/</loc>
+    <lastmod>2021-12-18T09:22:56+09:00</lastmod>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/posts/2021-12-18-use-pseudonymized-column-as-grouping-key/</loc>
     <lastmod>2021-12-18T09:22:56+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/posts/2021-12-11-understand-delta-load-configuration-difference-in-adding-column-scenario/</loc>
     <lastmod>2021-12-11T21:54:02+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/posts/2021-12-04-verify-cloning-table-contents-via-delta-load/</loc>
     <lastmod>2021-12-04T12:49:44+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/posts/2021-11-27-minimize-extraction-time-by-delta-load-option/</loc>
     <lastmod>2021-11-27T09:51:19+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/posts/2021-11-20-look-at-data-transfer-process-by-data-job-log/</loc>
     <lastmod>2021-11-20T08:39:24+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/posts/2021-11-13-connect-to-celonis-and-bring-back-instruction/</loc>
     <lastmod>2021-11-13T10:19:49+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/posts/2021-11-06-run-extractor-on-your-local-machine/</loc>
     <lastmod>2021-11-06T09:59:30+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/posts/2021-10-30-copy-previous-value-to-blank-period-by-running-sum-and-range-append-functions/</loc>
     <lastmod>2021-10-30T09:17:48+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/tags/pql/</loc>
     <lastmod>2021-10-30T09:17:48+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/posts/2021-10-23-create-key-column-of-activity-table/</loc>
     <lastmod>2021-10-23T08:02:29+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/page/about/</loc>
     <lastmod>2021-10-17T22:42:10+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/page/</loc>
     <lastmod>2021-10-17T22:42:10+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/posts/2021-10-16-investigate-workload-trend-of-cropped-subprocess/</loc>
     <lastmod>2021-10-16T10:12:18+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/tags/process-explorer/</loc>
     <lastmod>2021-10-16T10:12:18+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/posts/2021-10-09-verify-calculation-result-in-olap-table-then-convert-to-visual-component/</loc>
     <lastmod>2021-10-09T09:33:43+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/posts/2021-10-02-group-similar-cases-by-clustering/</loc>
     <lastmod>2021-10-02T10:56:43+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/tags/pull-up-function/</loc>
     <lastmod>2021-10-02T10:56:43+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/posts/2021-09-25-convert-quantitative-value-to-categorical-one-by-quantile-function/</loc>
     <lastmod>2021-09-25T09:42:52+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/posts/2021-09-18-integrate-button-dropdown-entries-to-one-formula/</loc>
     <lastmod>2021-09-18T10:42:24+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/posts/2021-09-11-use-bind-function-to-enable-multiple-domain-table/</loc>
     <lastmod>2021-09-11T13:16:26+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/posts/2021-09-04-convert-count-unit-of-kpi-by-count-distinct/</loc>
     <lastmod>2021-09-04T09:06:11+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/posts/2021-08-28-count-rows-of-tables-in-various-way/</loc>
     <lastmod>2021-08-28T11:11:45+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/posts/2021-08-21-make-conditional-function-to-return-1-or-null/</loc>
     <lastmod>2021-08-21T10:42:17+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/posts/2021-08-14-share-my-analysis-by-content-cli/</loc>
     <lastmod>2021-08-14T13:33:06+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/posts/2021-08-07-create-matrix-of-throughput-time-by-pivot-table/</loc>
     <lastmod>2021-08-07T14:07:40+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/posts/2021-07-31-create-additional-entry-to-button-dropdown/</loc>
     <lastmod>2021-07-31T10:00:39+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/posts/2021-07-24-categorize-and-name-activity/</loc>
     <lastmod>2021-07-24T10:47:12+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/posts/2021-07-17-transform-source-system-tables-to-minimize-data-model-tables/</loc>
     <lastmod>2021-07-17T13:24:10+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/posts/2021-07-10-utilize-n-m-relationship-between-activity-and-dimension-tables/</loc>
     <lastmod>2021-07-10T10:08:50+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/posts/2021-07-03-maintain-saved-formulas-effectively/</loc>
     <lastmod>2021-07-03T21:25:28+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/posts/2021-06-26-handle-null-efficiently-in-aggregation-function/</loc>
     <lastmod>2021-06-26T09:37:59+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/posts/2021-06-19-understand-how-tables-are-joined-in-data-model/</loc>
     <lastmod>2021-06-19T11:42:09+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/posts/2021-06-12-calculate-multi-dimentional-kpis/</loc>
     <lastmod>2021-06-12T13:20:53+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/posts/2021-06-05-recognize-record-to-calculate-kpi/</loc>
     <lastmod>2021-06-05T17:34:46+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/posts/2021-05-29-use-pull-up-function-as-subquery/</loc>
     <lastmod>2021-05-29T13:04:06+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/posts/2021-05-22-determine-first-time-right-by-pull-up-function/</loc>
     <lastmod>2021-05-22T16:31:16+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/posts/2021-05-15-understand-mechanism-of-pull-up-function/</loc>
     <lastmod>2021-05-15T10:00:14+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/posts/2021-05-08-customize-process-explorer/</loc>
     <lastmod>2021-05-08T09:15:03+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/posts/2021-05-01-understand-difference-between-dimension-and-kpi/</loc>
     <lastmod>2021-05-01T15:25:08+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://kaztakata.github.io/celonis-hacks/categories/</loc>
   </url>
-  
 </urlset>

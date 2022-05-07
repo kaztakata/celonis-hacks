@@ -60,7 +60,7 @@ Considering my case of Planio, for example I would like to measure 1) Throughput
   "headline": "Determine Process Mining Tables based on Project Goal",
   "description" : "I talked about how to consider Case ID in advance in last post. That is same as goal setting of process mining project, it means what would like to be measured in process mining and why. Case is the unit of measuring performance and grouping activities.\nConsidering my case of Planio, for example I would like to measure 1) Throughput time from raising issue to closing it, 2) How many users are involved until closing issue.",
   "inLanguage" : "en",
-  "wordCount":  446 ,
+  "wordCount":  400 ,
   "datePublished" : "2022-02-19T13:43:41",
   "dateModified" : "2022-02-19T13:43:41",
   "image" : "https:\/\/kaztakata.github.io\/celonis-hacks",
@@ -91,7 +91,7 @@ Considering my case of Planio, for example I would like to measure 1) Throughput
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
-  <meta name="generator" content="Hugo 0.68.3" />
+  <meta name="generator" content="Hugo 0.92.2" />
   <link rel="alternate" href="https://kaztakata.github.io/celonis-hacks/index.xml" type="application/rss+xml" title="Celonis hacks"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://kaztakata.github.io/celonis-hacks/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -262,27 +262,27 @@ if (!doNotTrack) {
 <p>Going back to my project, first (activity) table should store at least case ID, activity, event time, and user ID those are different value in each record. Second (case) table should store at lease case ID (equals issue ID) and other attributes stored at Planio issue (project ID, Priority, Milestone etc.) to grouping issues. Normally case table is quite similar to source system table that has case ID as primary key, so today I just use issue table that extracted before and do not touch any more.</p>
 <p>Of course first activity table is not in source system, so I would like to create table at first transformation. By the way,Celonis EMS transformation is over Vertica Database, so I can see SQL syntax following <a href="https://www.vertica.com/docs/">Vertica documentation</a>.</p>
 <p>I will write below SQL to new transformation then execute it to create activity table <code>_cel_pl_activities</code>. There are no case attribute fields those are in <code>issues</code> table.</p>
-<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">DROP</span> <span class="k">TABLE</span> <span class="k">IF</span> <span class="k">EXISTS</span> <span class="n">_cel_pl_activities</span><span class="p">;</span>
-
-<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="k">IF</span> <span class="k">NOT</span> <span class="k">EXISTS</span> <span class="n">_cel_pl_activities</span> <span class="p">(</span>
-     <span class="n">_CASE_KEY</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span> <span class="c1">-- case ID
-</span><span class="c1"></span>    <span class="p">,</span><span class="n">_ACTIVITY_MAIN_TABLE</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
-    <span class="p">,</span><span class="n">_ACTIVITY_KEY</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
-    <span class="p">,</span><span class="n">ACTIVITY_EN</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span> <span class="c1">-- activity 
-</span><span class="c1"></span>    <span class="p">,</span><span class="n">EVENTTIME</span> <span class="n">DATETIME</span> <span class="c1">-- event time
-</span><span class="c1"></span>    <span class="p">,</span><span class="n">_SORTING</span> <span class="nb">INT</span>
-    <span class="p">,</span><span class="n">changed_by</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span> <span class="c1">-- user
-</span><span class="c1"></span>    <span class="p">,</span><span class="n">changed_email</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span>
-    <span class="p">,</span><span class="n">changed_attr</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
-    <span class="p">,</span><span class="n">changed_from</span> <span class="nb">VARCHAR</span> <span class="p">(</span><span class="mi">200</span><span class="p">)</span>
-    <span class="p">,</span><span class="n">changed_to</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
-    <span class="p">,</span><span class="n">changed_from_float</span> <span class="nb">FLOAT</span>
-    <span class="p">,</span><span class="n">changed_to_float</span> <span class="nb">FLOAT</span>
-    <span class="p">,</span><span class="n">changed_from_date</span> <span class="nb">DATE</span>
-    <span class="p">,</span><span class="n">changed_to_date</span> <span class="nb">DATE</span>
-    <span class="p">,</span><span class="n">_CELONIS_CHANGE_DATE</span> <span class="n">DATETIME</span>
-<span class="p">);</span>
-</code></pre></div><p>This is just creating table and there are no activity record now, so from next post I would like to insert activity record based on my project goal.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="k">DROP</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">_cel_pl_activities</span><span class="p">;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">_cel_pl_activities</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span><span class="w">     </span><span class="n">_CASE_KEY</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w"> </span><span class="c1">-- case ID
+</span><span class="c1"></span><span class="w">    </span><span class="p">,</span><span class="n">_ACTIVITY_MAIN_TABLE</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w">
+</span><span class="w">    </span><span class="p">,</span><span class="n">_ACTIVITY_KEY</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span><span class="w">
+</span><span class="w">    </span><span class="p">,</span><span class="n">ACTIVITY_EN</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span><span class="w"> </span><span class="c1">-- activity 
+</span><span class="c1"></span><span class="w">    </span><span class="p">,</span><span class="n">EVENTTIME</span><span class="w"> </span><span class="n">DATETIME</span><span class="w"> </span><span class="c1">-- event time
+</span><span class="c1"></span><span class="w">    </span><span class="p">,</span><span class="n">_SORTING</span><span class="w"> </span><span class="nb">INT</span><span class="w">
+</span><span class="w">    </span><span class="p">,</span><span class="n">changed_by</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span><span class="w"> </span><span class="c1">-- user
+</span><span class="c1"></span><span class="w">    </span><span class="p">,</span><span class="n">changed_email</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span><span class="w">
+</span><span class="w">    </span><span class="p">,</span><span class="n">changed_attr</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="w">
+</span><span class="w">    </span><span class="p">,</span><span class="n">changed_from</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="w"> </span><span class="p">(</span><span class="mi">200</span><span class="p">)</span><span class="w">
+</span><span class="w">    </span><span class="p">,</span><span class="n">changed_to</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span><span class="w">
+</span><span class="w">    </span><span class="p">,</span><span class="n">changed_from_float</span><span class="w"> </span><span class="nb">FLOAT</span><span class="w">
+</span><span class="w">    </span><span class="p">,</span><span class="n">changed_to_float</span><span class="w"> </span><span class="nb">FLOAT</span><span class="w">
+</span><span class="w">    </span><span class="p">,</span><span class="n">changed_from_date</span><span class="w"> </span><span class="nb">DATE</span><span class="w">
+</span><span class="w">    </span><span class="p">,</span><span class="n">changed_to_date</span><span class="w"> </span><span class="nb">DATE</span><span class="w">
+</span><span class="w">    </span><span class="p">,</span><span class="n">_CELONIS_CHANGE_DATE</span><span class="w"> </span><span class="n">DATETIME</span><span class="w">
+</span><span class="w"></span><span class="p">);</span><span class="w">
+</span></code></pre></div><p>This is just creating table and there are no activity record now, so from next post I would like to insert activity record based on my project goal.</p>
 <p>Kaz</p>
 
 
@@ -467,7 +467,7 @@ if (!doNotTrack) {
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.68.3</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.92.2</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

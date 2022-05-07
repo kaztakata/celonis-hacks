@@ -91,7 +91,7 @@ For example I would like to ananlyze throughput time between arbitrary two activ
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
-  <meta name="generator" content="Hugo 0.68.3" />
+  <meta name="generator" content="Hugo 0.92.2" />
   <link rel="alternate" href="https://kaztakata.github.io/celonis-hacks/index.xml" type="application/rss+xml" title="Celonis hacks"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://kaztakata.github.io/celonis-hacks/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -260,7 +260,7 @@ if (!doNotTrack) {
 <p>For example I would like to ananlyze throughput time between arbitrary two activities. As below screenshot I created three dropdown buttons, switching time unit (sec, min, hour, day etc.) and two activities (from / to). Variables (time_unit, from, to) are set by user action and passed to PQL for calculating other components relevant to throughtput time (single KPI, histogram, boxplot, drill down table, and fact table).</p>
 <p><a href="https://user-images.githubusercontent.com/67397583/124353919-52cd3880-dc44-11eb-8516-effc7047db33.png"><img src="https://user-images.githubusercontent.com/67397583/124353919-52cd3880-dc44-11eb-8516-effc7047db33.png" alt="image"></a></p>
 <p>In each component it is possible to write down throughput time PQL like below. But if I need to change something in PQL, I need to open each component and maintain it multiple times. So I will try to create saved formulas and simplify each component.</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">DATEDIFF(
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">DATEDIFF(
     &lt;%=time_unit%&gt;,
     PU_FIRST(
         EKPO,
@@ -274,20 +274,20 @@ if (!doNotTrack) {
     )
 )
 </code></pre></div><p>First I focused on the <code>PU_FIRST</code> portion. These functions can be summarized to formula <code>first_time</code> as below.</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">--first_time
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">--first_time
 PU_FIRST(
     EKPO,
     _CEL_P2P_ACTIVITIES_EN.EVENTTIME,
     _CEL_P2P_ACTIVITIES_EN.ACTIVITY_EN = {p1}
 )
 </code></pre></div><p>Then original PQL is changed to below.</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">DATEDIFF(
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">DATEDIFF(
     &lt;%=time_unit%&gt;,
     KPI(first_time,VARIABLE(&lt;%=from%&gt;)),    -- call first_time formula passing parameter &#39;from&#39;
     KPI(first_time,VARIABLE(&lt;%=to%&gt;))       -- call first_time formula passing parameter &#39;to&#39;
 )
 </code></pre></div><p>This is something better than previous PQL, but let&rsquo;s encapsulate the <code>DATEDIFF</code> portion. I will create second formula <code>throughput_time</code> as below.</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">--throughput_time
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">--throughput_time
 DATEDIFF(
     {p1},
     KPI(first_time,VARIABLE({p2})),
@@ -432,6 +432,8 @@ DATEDIFF(
                   <ul>
                 
                 
+                    <li><a href="/celonis-hacks/posts/2022-05-07-start-deep-dive-to-machine-learning-and-action-flow/">Start Deep Dive to Machine Learning and Action Flow</a></li>
+                
                     <li><a href="/celonis-hacks/posts/2022-04-23-validate-data-model-by-studio-analysis/">Validate Data Model by Studio Analysis</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2022-03-26-handle-day-based-activity-as-milestone/">Handle Day based Activity as Milestone</a></li>
@@ -439,8 +441,6 @@ DATEDIFF(
                     <li><a href="/celonis-hacks/posts/2021-10-30-copy-previous-value-to-blank-period-by-running-sum-and-range-append-functions/">Copy Previous Value to Blank Period by RUNNING_SUM and RANGE_APPEND functions</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2021-10-23-create-key-column-of-activity-table/">Create Key Column of Activity Table</a></li>
-                
-                    <li><a href="/celonis-hacks/posts/2021-10-16-investigate-workload-trend-of-cropped-subprocess/">Investigate Workload Trend of Cropped Subprocess</a></li>
                 
               </ul>
 
@@ -534,7 +534,7 @@ DATEDIFF(
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.68.3</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.92.2</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

@@ -46,7 +46,7 @@ First you need to open your training environment if you do not.">
         "position": 3,
         "item": {
           "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-08-14-share-my-analysis-by-content-cli\/",
-          "name": "Share my analysis by content cli"
+          "name": "Share my analysis by content CLI"
         }
     }]
 }
@@ -91,7 +91,7 @@ First you need to open your training environment if you do not.">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
-  <meta name="generator" content="Hugo 0.68.3" />
+  <meta name="generator" content="Hugo 0.92.2" />
   <link rel="alternate" href="https://kaztakata.github.io/celonis-hacks/index.xml" type="application/rss+xml" title="Celonis hacks"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://kaztakata.github.io/celonis-hacks/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -291,13 +291,13 @@ if (!doNotTrack) {
 <p>Next you will start Content-CLI. In the Workbench select File &gt; New &gt; Terminal, then you can see terminal as below screen. Terminal is waiting for your command so you will input command after $ sign and input Enter key. If additional information is required, enter command and input Enter key too.</p>
 <p><a href="https://user-images.githubusercontent.com/67397583/129436118-acdbbe70-9b6c-485a-a4ea-5616f6cbe767.png"><img src="https://user-images.githubusercontent.com/67397583/129436118-acdbbe70-9b6c-485a-a4ea-5616f6cbe767.png" alt="image"></a></p>
 <p>First Content-CLI command is to create profile for login to training environment via Content-CLI. Please change your team and api token value accordingly.</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">(base) jovyan@workbench-6599f565c6-sr2f8:~$ content-cli profile create
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">(base) jovyan@workbench-6599f565c6-sr2f8:~$ content-cli profile create
 Name of the profile: mytraining
 Your team (please provide the full url): https://your-email-address.training.celonis.cloud/
 Your api token: your-api-token
 info:    Profile created successfully!
 </code></pre></div><p>Next command is to push my backup file to workspace you created. Please change Workspace ID to your O2C Process Workspace.</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">(base) jovyan@workbench-6599f565c6-sr2f8:~$ content-cli push analysis -p mytraining --workspaceId 2056362c-0576-4356-82d2-2ce341db6fbf -f celonis-hacks/docs/examples/o2c_analysis_20210807.json 
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">(base) jovyan@workbench-6599f565c6-sr2f8:~$ content-cli push analysis -p mytraining --workspaceId 2056362c-0576-4356-82d2-2ce341db6fbf -f celonis-hacks/docs/examples/o2c_analysis_20210807.json 
 info:    Analysis was pushed successfully. New ID: 2c1c370b-2a4b-4321-b3e7-9f3c27dbaf19
 </code></pre></div><p>Finally you can go back to Process Analytics then confirm new Analysis is created. Please enjoy my blog post with live environment.</p>
 <p>Kaz</p>
@@ -382,6 +382,8 @@ info:    Analysis was pushed successfully. New ID: 2c1c370b-2a4b-4321-b3e7-9f3c2
                   <ul>
                 
                 
+                    <li><a href="/celonis-hacks/posts/2022-05-07-start-deep-dive-to-machine-learning-and-action-flow/">Start Deep Dive to Machine Learning and Action Flow</a></li>
+                
                     <li><a href="/celonis-hacks/posts/2022-04-30-execute-periodic-etl-automatically/">Execute Periodic ETL Automatically</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2022-03-26-handle-day-based-activity-as-milestone/">Handle Day based Activity as Milestone</a></li>
@@ -389,8 +391,6 @@ info:    Analysis was pushed successfully. New ID: 2c1c370b-2a4b-4321-b3e7-9f3c2
                     <li><a href="/celonis-hacks/posts/2021-10-30-copy-previous-value-to-blank-period-by-running-sum-and-range-append-functions/">Copy Previous Value to Blank Period by RUNNING_SUM and RANGE_APPEND functions</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2021-10-23-create-key-column-of-activity-table/">Create Key Column of Activity Table</a></li>
-                
-                    <li><a href="/celonis-hacks/posts/2021-10-16-investigate-workload-trend-of-cropped-subprocess/">Investigate Workload Trend of Cropped Subprocess</a></li>
                 
               </ul>
 
@@ -484,7 +484,7 @@ info:    Analysis was pushed successfully. New ID: 2c1c370b-2a4b-4321-b3e7-9f3c2
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.68.3</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.92.2</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

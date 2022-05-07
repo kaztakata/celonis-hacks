@@ -60,7 +60,7 @@ Same as previous post, first I should analyze columns to compose Close Issue act
   "headline": "Compose Activity from Joining Multiple Tables",
   "description" : "In the last post of Insert Simple Record into Activity Table, I created SQL to insert Raise Issue activity. That SQL was simple because only one table issues are used as data source. Today I will create SQL of Close Issue activity that requires multiple tables.\nSame as previous post, first I should analyze columns to compose Close Issue activity. This is happend when I change Status column in each issue, so I need change history.",
   "inLanguage" : "en",
-  "wordCount":  570 ,
+  "wordCount":  407 ,
   "datePublished" : "2022-03-05T08:30:59",
   "dateModified" : "2022-03-05T08:30:59",
   "image" : "https:\/\/kaztakata.github.io\/celonis-hacks",
@@ -91,7 +91,7 @@ Same as previous post, first I should analyze columns to compose Close Issue act
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
-  <meta name="generator" content="Hugo 0.68.3" />
+  <meta name="generator" content="Hugo 0.92.2" />
   <link rel="alternate" href="https://kaztakata.github.io/celonis-hacks/index.xml" type="application/rss+xml" title="Celonis hacks"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://kaztakata.github.io/celonis-hacks/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -259,70 +259,70 @@ if (!doNotTrack) {
         <p>In the last post of <a href="../2022-02-26-insert-simple-record-into-activity-table">Insert Simple Record into Activity Table</a>, I created SQL to insert <code>Raise Issue</code> activity. That SQL was simple because only one table <code>issues</code> are used as data source. Today I will create SQL of <code>Close Issue</code> activity that requires multiple tables.</p>
 <p>Same as previous post, first I should analyze columns to compose <code>Close Issue</code> activity. This is happend when I change Status column in each issue, so I need change history. I already looked at where is change hisory table, that is <code>journals</code> table and <code>journals$details</code> table (see <a href="../2022-01-29-setup-dependent-endpoint-in-extractor-builder">Setup Dependent Endpoint in Extractor Builder</a>). As discussed these two tables are recorded at same timing.</p>
 <p>This time case key is provided by <code>issues</code> table, but other columns are provided by change history tables. Looking at columns (you can browse columns by Schema Explorer in transformation screen), <code>journals.created_on</code> is <code>EVENTTIME</code> and <code>journals.&quot;user$id&quot;</code> is <code>changed_by</code> column respectively. I created draft SQL (only <code>SELECT</code> statement) as below.</p>
-<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- draft 1 --
-</span><span class="c1"></span><span class="k">SELECT</span> <span class="k">DISTINCT</span>
-     <span class="n">i</span><span class="p">.</span><span class="n">id</span> <span class="k">AS</span> <span class="n">_CASE_KEY</span>
-    <span class="p">,</span><span class="s1">&#39;Close Issue&#39;</span> <span class="k">AS</span> <span class="n">ACTIVITY_EN</span> 
-    <span class="p">,</span><span class="n">j</span><span class="p">.</span><span class="n">created_on</span> <span class="k">AS</span> <span class="n">EVENTTIME</span>
-    <span class="p">,</span><span class="n">j</span><span class="p">.</span><span class="s2">&#34;user$id&#34;</span> <span class="k">AS</span> <span class="n">changed_by</span>
-<span class="k">FROM</span> <span class="n">issues</span> <span class="k">AS</span> <span class="n">i</span>            <span class="c1">-- i is alias of issues
-</span><span class="c1"></span><span class="k">JOIN</span> <span class="n">journals</span> <span class="k">AS</span> <span class="n">j</span> <span class="k">ON</span> <span class="mi">1</span><span class="o">=</span><span class="mi">1</span>   <span class="c1">-- j is alias of journals
-</span><span class="c1"></span>    <span class="k">AND</span> <span class="n">i</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">j</span><span class="p">.</span><span class="s2">&#34;issues$id&#34;</span>
-<span class="p">;</span>
-</code></pre></div><p>Is it enough ? No, I should restrict record of <code>journals</code> to only status change to closed one. To do this I need to check <code>journals$details</code> table additionally.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- draft 1 --
+</span><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="k">DISTINCT</span><span class="w">
+</span><span class="w">     </span><span class="n">i</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">_CASE_KEY</span><span class="w">
+</span><span class="w">    </span><span class="p">,</span><span class="s1">&#39;Close Issue&#39;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">ACTIVITY_EN</span><span class="w"> 
+</span><span class="w">    </span><span class="p">,</span><span class="n">j</span><span class="p">.</span><span class="n">created_on</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">EVENTTIME</span><span class="w">
+</span><span class="w">    </span><span class="p">,</span><span class="n">j</span><span class="p">.</span><span class="s2">&#34;user$id&#34;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">changed_by</span><span class="w">
+</span><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">issues</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">i</span><span class="w">            </span><span class="c1">-- i is alias of issues
+</span><span class="c1"></span><span class="k">JOIN</span><span class="w"> </span><span class="n">journals</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="mi">1</span><span class="o">=</span><span class="mi">1</span><span class="w">   </span><span class="c1">-- j is alias of journals
+</span><span class="c1"></span><span class="w">    </span><span class="k">AND</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span><span class="p">.</span><span class="s2">&#34;issues$id&#34;</span><span class="w">
+</span><span class="w"></span><span class="p">;</span><span class="w">
+</span></code></pre></div><p>Is it enough ? No, I should restrict record of <code>journals</code> to only status change to closed one. To do this I need to check <code>journals$details</code> table additionally.</p>
 <p>Change column is stored at <code>&quot;journals$details&quot;.name</code> column, and in case of status column it is <code>status_id</code>. Also changed to value is stored at <code>&quot;journals$details&quot;.new_value</code> column, and closed status in my enviornment is <code>8</code>. I use <code>JOIN</code> to get these columns and use <code>WHERE</code> clause to restrict journal record as below.</p>
-<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- draft 2 --
-</span><span class="c1"></span><span class="k">SELECT</span> <span class="k">DISTINCT</span>
-     <span class="n">i</span><span class="p">.</span><span class="n">id</span> <span class="k">AS</span> <span class="n">_CASE_KEY</span>
-    <span class="p">,</span><span class="s1">&#39;Close Issue&#39;</span> <span class="k">AS</span> <span class="n">ACTIVITY_EN</span> 
-    <span class="p">,</span><span class="n">j</span><span class="p">.</span><span class="n">created_on</span> <span class="k">AS</span> <span class="n">EVENTTIME</span>
-    <span class="p">,</span><span class="n">j</span><span class="p">.</span><span class="s2">&#34;user$id&#34;</span> <span class="k">AS</span> <span class="n">changed_by</span>
-<span class="k">FROM</span> <span class="n">issues</span> <span class="k">AS</span> <span class="n">i</span>
-<span class="k">JOIN</span> <span class="n">journals</span> <span class="k">AS</span> <span class="n">j</span> <span class="k">ON</span> <span class="mi">1</span><span class="o">=</span><span class="mi">1</span>
-    <span class="k">AND</span> <span class="n">i</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">j</span><span class="p">.</span><span class="s2">&#34;issues$id&#34;</span>
-<span class="k">JOIN</span> <span class="s2">&#34;journals$details&#34;</span> <span class="k">AS</span> <span class="n">d</span> <span class="k">ON</span> <span class="mi">1</span><span class="o">=</span><span class="mi">1</span> <span class="c1">-- d is alias of journals$details
-</span><span class="c1"></span>    <span class="k">AND</span> <span class="n">j</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">d</span><span class="p">.</span><span class="n">journals_id</span>
-<span class="k">WHERE</span> <span class="mi">1</span><span class="o">=</span><span class="mi">1</span>
-    <span class="k">AND</span> <span class="n">d</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;status_id&#39;</span>        <span class="c1">-- only column of status
-</span><span class="c1"></span>    <span class="k">AND</span> <span class="n">d</span><span class="p">.</span><span class="n">new_value</span> <span class="o">=</span> <span class="mi">8</span>             <span class="c1">-- only closed status (value 8 is dependent on my enviornment)
-</span><span class="c1"></span><span class="p">;</span>
-</code></pre></div><p>To complete SQL, I should add <code>_SORTING</code> and <code>_CELONIS_CHANGE_DATE</code> columns same as previous post. Also for future tracking purpose, I added few information columns from <code>journals</code> and <code>journals$details</code>. Finally I add <code>INSERT</code> statement and final version is as below. In my environment, I ran SQL successfully.</p>
-<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- final version --
-</span><span class="c1"></span><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">_cel_pl_activities</span> <span class="p">(</span>
-     <span class="n">_CASE_KEY</span>
-    <span class="p">,</span><span class="n">_ACTIVITY_MAIN_TABLE</span>
-    <span class="p">,</span><span class="n">_ACTIVITY_KEY</span>
-    <span class="p">,</span><span class="n">ACTIVITY_EN</span>
-    <span class="p">,</span><span class="n">EVENTTIME</span>
-    <span class="p">,</span><span class="n">_SORTING</span> 
-    <span class="p">,</span><span class="n">changed_by</span>
-    <span class="p">,</span><span class="n">changed_attr</span>
-    <span class="p">,</span><span class="n">changed_from</span>
-    <span class="p">,</span><span class="n">changed_to</span>
-    <span class="p">,</span><span class="n">_CELONIS_CHANGE_DATE</span>
-<span class="p">)</span>
-<span class="k">SELECT</span> <span class="k">DISTINCT</span>
-     <span class="n">i</span><span class="p">.</span><span class="n">id</span> <span class="k">AS</span> <span class="n">_CASE_KEY</span>
-    <span class="p">,</span><span class="s1">&#39;journals&#39;</span> <span class="k">AS</span> <span class="n">_ACTIVITY_MAIN_TABLE</span> <span class="c1">-- which table I mainly get event log 
-</span><span class="c1"></span>    <span class="p">,</span><span class="n">j</span><span class="p">.</span><span class="n">id</span><span class="o">||</span><span class="s1">&#39;:&#39;</span><span class="o">||</span><span class="n">d</span><span class="p">.</span><span class="n">name</span> <span class="k">AS</span> <span class="n">_ACTIVITY_KEY</span> <span class="c1">-- ID to find record of journals and journals$details
-</span><span class="c1"></span>    <span class="p">,</span><span class="s1">&#39;Close Issue&#39;</span> <span class="k">AS</span> <span class="n">ACTIVITY_EN</span> 
-    <span class="p">,</span><span class="n">j</span><span class="p">.</span><span class="n">created_on</span> <span class="k">AS</span> <span class="n">EVENTTIME</span>
-    <span class="p">,</span><span class="mi">1000</span> <span class="k">AS</span> <span class="n">_SORTING</span>
-    <span class="p">,</span><span class="n">j</span><span class="p">.</span><span class="s2">&#34;user$id&#34;</span> <span class="k">AS</span> <span class="n">changed_by</span>
-    <span class="p">,</span><span class="n">d</span><span class="p">.</span><span class="n">name</span> <span class="k">AS</span> <span class="n">changed_attr</span>             <span class="c1">-- changed column name
-</span><span class="c1"></span>    <span class="p">,</span><span class="n">d</span><span class="p">.</span><span class="n">old_value</span> <span class="k">AS</span> <span class="n">changed_from</span>        <span class="c1">-- changed from value
-</span><span class="c1"></span>    <span class="p">,</span><span class="n">d</span><span class="p">.</span><span class="n">new_value</span> <span class="k">AS</span> <span class="n">changed_to</span>          <span class="c1">-- changed to value
-</span><span class="c1"></span>    <span class="p">,</span><span class="n">NOW</span><span class="p">()</span> <span class="k">AS</span> <span class="n">_CELONIS_CHANGE_DATE</span>
-<span class="k">FROM</span> <span class="n">issues</span> <span class="k">AS</span> <span class="n">i</span>
-<span class="k">JOIN</span> <span class="n">journals</span> <span class="k">AS</span> <span class="n">j</span> <span class="k">ON</span> <span class="mi">1</span><span class="o">=</span><span class="mi">1</span>
-    <span class="k">AND</span> <span class="n">i</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">j</span><span class="p">.</span><span class="s2">&#34;issues$id&#34;</span>
-<span class="k">JOIN</span> <span class="s2">&#34;journals$details&#34;</span> <span class="k">AS</span> <span class="n">d</span> <span class="k">ON</span> <span class="mi">1</span><span class="o">=</span><span class="mi">1</span>
-    <span class="k">AND</span> <span class="n">j</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">d</span><span class="p">.</span><span class="n">journals_id</span>
-<span class="k">WHERE</span> <span class="mi">1</span><span class="o">=</span><span class="mi">1</span>
-    <span class="k">AND</span> <span class="n">d</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;status_id&#39;</span>
-    <span class="k">AND</span> <span class="n">d</span><span class="p">.</span><span class="n">new_value</span> <span class="o">=</span> <span class="mi">8</span>
-<span class="p">;</span>
-</code></pre></div><p><a href="https://user-images.githubusercontent.com/67397583/156861416-b6f92838-cc25-4260-8a5f-37dfbe5790bd.png"><img src="https://user-images.githubusercontent.com/67397583/156861416-b6f92838-cc25-4260-8a5f-37dfbe5790bd.png" alt="image"></a></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- draft 2 --
+</span><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="k">DISTINCT</span><span class="w">
+</span><span class="w">     </span><span class="n">i</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">_CASE_KEY</span><span class="w">
+</span><span class="w">    </span><span class="p">,</span><span class="s1">&#39;Close Issue&#39;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">ACTIVITY_EN</span><span class="w"> 
+</span><span class="w">    </span><span class="p">,</span><span class="n">j</span><span class="p">.</span><span class="n">created_on</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">EVENTTIME</span><span class="w">
+</span><span class="w">    </span><span class="p">,</span><span class="n">j</span><span class="p">.</span><span class="s2">&#34;user$id&#34;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">changed_by</span><span class="w">
+</span><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">issues</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">i</span><span class="w">
+</span><span class="w"></span><span class="k">JOIN</span><span class="w"> </span><span class="n">journals</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="mi">1</span><span class="o">=</span><span class="mi">1</span><span class="w">
+</span><span class="w">    </span><span class="k">AND</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span><span class="p">.</span><span class="s2">&#34;issues$id&#34;</span><span class="w">
+</span><span class="w"></span><span class="k">JOIN</span><span class="w"> </span><span class="s2">&#34;journals$details&#34;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="mi">1</span><span class="o">=</span><span class="mi">1</span><span class="w"> </span><span class="c1">-- d is alias of journals$details
+</span><span class="c1"></span><span class="w">    </span><span class="k">AND</span><span class="w"> </span><span class="n">j</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">journals_id</span><span class="w">
+</span><span class="w"></span><span class="k">WHERE</span><span class="w"> </span><span class="mi">1</span><span class="o">=</span><span class="mi">1</span><span class="w">
+</span><span class="w">    </span><span class="k">AND</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;status_id&#39;</span><span class="w">        </span><span class="c1">-- only column of status
+</span><span class="c1"></span><span class="w">    </span><span class="k">AND</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">new_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="w">             </span><span class="c1">-- only closed status (value 8 is dependent on my enviornment)
+</span><span class="c1"></span><span class="p">;</span><span class="w">
+</span></code></pre></div><p>To complete SQL, I should add <code>_SORTING</code> and <code>_CELONIS_CHANGE_DATE</code> columns same as previous post. Also for future tracking purpose, I added few information columns from <code>journals</code> and <code>journals$details</code>. Finally I add <code>INSERT</code> statement and final version is as below. In my environment, I ran SQL successfully.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- final version --
+</span><span class="c1"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">_cel_pl_activities</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span><span class="w">     </span><span class="n">_CASE_KEY</span><span class="w">
+</span><span class="w">    </span><span class="p">,</span><span class="n">_ACTIVITY_MAIN_TABLE</span><span class="w">
+</span><span class="w">    </span><span class="p">,</span><span class="n">_ACTIVITY_KEY</span><span class="w">
+</span><span class="w">    </span><span class="p">,</span><span class="n">ACTIVITY_EN</span><span class="w">
+</span><span class="w">    </span><span class="p">,</span><span class="n">EVENTTIME</span><span class="w">
+</span><span class="w">    </span><span class="p">,</span><span class="n">_SORTING</span><span class="w"> 
+</span><span class="w">    </span><span class="p">,</span><span class="n">changed_by</span><span class="w">
+</span><span class="w">    </span><span class="p">,</span><span class="n">changed_attr</span><span class="w">
+</span><span class="w">    </span><span class="p">,</span><span class="n">changed_from</span><span class="w">
+</span><span class="w">    </span><span class="p">,</span><span class="n">changed_to</span><span class="w">
+</span><span class="w">    </span><span class="p">,</span><span class="n">_CELONIS_CHANGE_DATE</span><span class="w">
+</span><span class="w"></span><span class="p">)</span><span class="w">
+</span><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="k">DISTINCT</span><span class="w">
+</span><span class="w">     </span><span class="n">i</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">_CASE_KEY</span><span class="w">
+</span><span class="w">    </span><span class="p">,</span><span class="s1">&#39;journals&#39;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">_ACTIVITY_MAIN_TABLE</span><span class="w"> </span><span class="c1">-- which table I mainly get event log 
+</span><span class="c1"></span><span class="w">    </span><span class="p">,</span><span class="n">j</span><span class="p">.</span><span class="n">id</span><span class="o">||</span><span class="s1">&#39;:&#39;</span><span class="o">||</span><span class="n">d</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">_ACTIVITY_KEY</span><span class="w"> </span><span class="c1">-- ID to find record of journals and journals$details
+</span><span class="c1"></span><span class="w">    </span><span class="p">,</span><span class="s1">&#39;Close Issue&#39;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">ACTIVITY_EN</span><span class="w"> 
+</span><span class="w">    </span><span class="p">,</span><span class="n">j</span><span class="p">.</span><span class="n">created_on</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">EVENTTIME</span><span class="w">
+</span><span class="w">    </span><span class="p">,</span><span class="mi">1000</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">_SORTING</span><span class="w">
+</span><span class="w">    </span><span class="p">,</span><span class="n">j</span><span class="p">.</span><span class="s2">&#34;user$id&#34;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">changed_by</span><span class="w">
+</span><span class="w">    </span><span class="p">,</span><span class="n">d</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">changed_attr</span><span class="w">             </span><span class="c1">-- changed column name
+</span><span class="c1"></span><span class="w">    </span><span class="p">,</span><span class="n">d</span><span class="p">.</span><span class="n">old_value</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">changed_from</span><span class="w">        </span><span class="c1">-- changed from value
+</span><span class="c1"></span><span class="w">    </span><span class="p">,</span><span class="n">d</span><span class="p">.</span><span class="n">new_value</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">changed_to</span><span class="w">          </span><span class="c1">-- changed to value
+</span><span class="c1"></span><span class="w">    </span><span class="p">,</span><span class="n">NOW</span><span class="p">()</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">_CELONIS_CHANGE_DATE</span><span class="w">
+</span><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">issues</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">i</span><span class="w">
+</span><span class="w"></span><span class="k">JOIN</span><span class="w"> </span><span class="n">journals</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="mi">1</span><span class="o">=</span><span class="mi">1</span><span class="w">
+</span><span class="w">    </span><span class="k">AND</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span><span class="p">.</span><span class="s2">&#34;issues$id&#34;</span><span class="w">
+</span><span class="w"></span><span class="k">JOIN</span><span class="w"> </span><span class="s2">&#34;journals$details&#34;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="mi">1</span><span class="o">=</span><span class="mi">1</span><span class="w">
+</span><span class="w">    </span><span class="k">AND</span><span class="w"> </span><span class="n">j</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">journals_id</span><span class="w">
+</span><span class="w"></span><span class="k">WHERE</span><span class="w"> </span><span class="mi">1</span><span class="o">=</span><span class="mi">1</span><span class="w">
+</span><span class="w">    </span><span class="k">AND</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;status_id&#39;</span><span class="w">
+</span><span class="w">    </span><span class="k">AND</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">new_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="w">
+</span><span class="w"></span><span class="p">;</span><span class="w">
+</span></code></pre></div><p><a href="https://user-images.githubusercontent.com/67397583/156861416-b6f92838-cc25-4260-8a5f-37dfbe5790bd.png"><img src="https://user-images.githubusercontent.com/67397583/156861416-b6f92838-cc25-4260-8a5f-37dfbe5790bd.png" alt="image"></a></p>
 <p>Today&rsquo;s SQL statement is double lines of previous one. Currently it is still readable but if I write more lines, I need to split SQL to multiple parts and manage readability. Next time I would like to show how to split SQL by creating view.</p>
 <p>Kaz</p>
 
@@ -506,7 +506,7 @@ if (!doNotTrack) {
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.68.3</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.92.2</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

@@ -5,10 +5,16 @@
     <link>https://kaztakata.github.io/celonis-hacks/posts/</link>
     <description>Recent content in Posts on Celonis hacks</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 30 Apr 2022 08:54:10 +0900</lastBuildDate>
-    
-	<atom:link href="https://kaztakata.github.io/celonis-hacks/posts/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Sat, 07 May 2022 12:54:54 +0900</lastBuildDate><atom:link href="https://kaztakata.github.io/celonis-hacks/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Start Deep Dive to Machine Learning and Action Flow</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2022-05-07-start-deep-dive-to-machine-learning-and-action-flow/</link>
+      <pubDate>Sat, 07 May 2022 12:54:54 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2022-05-07-start-deep-dive-to-machine-learning-and-action-flow/</guid>
+      <description>Until last post, I have seen the flow of process discovery through Celonis Process Analytics (or Studio Analysis) and prerequisite ETL (Extraction, Transformation, Load) by Data Integration. I already worked in multiple static process mining projects and found that they are enough functions for static process mining. And other process mining solutions are provided these functions too.
+By the way, referring to Process Mining Data Science in Action by Wil van der Aalst, Process Mining can also make it possible for further actions such as monitoring and predictive analysis.</description>
+    </item>
     
     <item>
       <title>Execute Periodic ETL Automatically</title>

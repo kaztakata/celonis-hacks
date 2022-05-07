@@ -46,7 +46,7 @@ There are several ways to achieve automatic ETL, for example in my production sy
         "position": 3,
         "item": {
           "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-04-30-execute-periodic-etl-automatically\/",
-          "name": "Execute periodic e t l automatically"
+          "name": "Execute periodic etl automatically"
         }
     }]
 }
@@ -91,7 +91,7 @@ There are several ways to achieve automatic ETL, for example in my production sy
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
-  <meta name="generator" content="Hugo 0.68.3" />
+  <meta name="generator" content="Hugo 0.92.2" />
   <link rel="alternate" href="https://kaztakata.github.io/celonis-hacks/index.xml" type="application/rss+xml" title="Celonis hacks"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://kaztakata.github.io/celonis-hacks/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -259,7 +259,7 @@ if (!doNotTrack) {
         <p>Until last post <a href="../2022-04-23-validate-data-model-by-studio-analysis">Validate Data Model by Studio Analysis</a>, I completed creating ETL programs in Data Integration. But this is still test product because this programs are executed manually by operator. In this post, I would like to share the final piece of Data Integration, how to run ETL programs automatically after production release.</p>
 <p>There are several ways to achieve automatic ETL, for example in my production system I am using scheduler in Machine Learning Workbench to trigger Jupyter Notebook, then operate Data Integration via <a href="https://celonis.github.io/pycelonis">Pycelonis (Python API for Celonis EMS)</a>. I would like to create posts regarding Pycelonis later, but today I do not use it because it takes a lot to explain Pycelonis. Instead today I use build in Scheduler in Data Integration, it is easy to construct and enough to use in production too.</p>
 <p>If you remember discussion in <a href="../2022-02-05-tune-endpoint-parameter-relevant-to-delta-load">Tune Endpoint Parameter Relevant to Delta Load</a>, I created Data Pool Parameter <code>today</code> for filtering extracting scope. This parameter should be updated to current time before extraction, so I will introduce new (global) <code>initial job</code>. SQL in this job is just getting current time like below.</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">DROP TABLE _CEL_CURRENT_TIME;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">DROP TABLE _CEL_CURRENT_TIME;
 CREATE TABLE _CEL_CURRENT_TIME AS
 SELECT NOW()
 ;
@@ -365,6 +365,8 @@ SELECT NOW()
                   <ul>
                 
                 
+                    <li><a href="/celonis-hacks/posts/2022-05-07-start-deep-dive-to-machine-learning-and-action-flow/">Start Deep Dive to Machine Learning and Action Flow</a></li>
+                
                     <li><a href="/celonis-hacks/posts/2022-04-23-validate-data-model-by-studio-analysis/">Validate Data Model by Studio Analysis</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2022-04-16-construct-my-first-data-model/">Construct My First Data Model</a></li>
@@ -372,8 +374,6 @@ SELECT NOW()
                     <li><a href="/celonis-hacks/posts/2022-04-09-inspect-table-data-by-select-statement/">Inspect Table Data by SELECT statement</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2022-04-02-adjust-time-zone-of-event-time-in-global-transformation/">Adjust Time Zone of Event Time in Global Transformation</a></li>
-                
-                    <li><a href="/celonis-hacks/posts/2022-03-26-handle-day-based-activity-as-milestone/">Handle Day based Activity as Milestone</a></li>
                 
               </ul>
 
@@ -388,6 +388,10 @@ SELECT NOW()
               <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-04-23-validate-data-model-by-studio-analysis/" data-toggle="tooltip" data-placement="top" title="Validate Data Model by Studio Analysis">&larr; Previous Post</a>
             </li>
           
+          
+            <li class="next">
+              <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-05-07-start-deep-dive-to-machine-learning-and-action-flow/" data-toggle="tooltip" data-placement="top" title="Start Deep Dive to Machine Learning and Action Flow">Next Post &rarr;</a>
+            </li>
           
         </ul>
       
@@ -463,7 +467,7 @@ SELECT NOW()
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.68.3</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.92.2</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>
