@@ -5,7 +5,18 @@
     <link>https://kaztakata.github.io/celonis-hacks/tags/machine-learning/</link>
     <description>Recent content in Machine Learning on Celonis hacks</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 07 May 2022 12:54:54 +0900</lastBuildDate><atom:link href="https://kaztakata.github.io/celonis-hacks/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 14 May 2022 10:40:29 +0900</lastBuildDate><atom:link href="https://kaztakata.github.io/celonis-hacks/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Login to Celonis EMS from Jupyter Workbench</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2022-05-14-login-to-celonis-ems-from-jupyter-workbench/</link>
+      <pubDate>Sat, 14 May 2022 10:40:29 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2022-05-14-login-to-celonis-ems-from-jupyter-workbench/</guid>
+      <description>At last post Start Deep Dive to Machine Learning and Action Flow, I introduced overview of these two functions that manipulate Celonis EMS functions without using GUI (browser) for automatation.
+From today I would like to share basic functions in Machine Learning (Jupyter Workbench). Before staring I will setup Jupyter Workbench. If you do not have your Workbench, read Share my Analysis by Content-CLI then follow until creating Workbench.
+I will go to Launcher in Workbench then select Others &amp;gt; Terminal, then enter below command after $ sign (output is as of 2022-05-14).</description>
+    </item>
+    
     <item>
       <title>Start Deep Dive to Machine Learning and Action Flow</title>
       <link>https://kaztakata.github.io/celonis-hacks/posts/2022-05-07-start-deep-dive-to-machine-learning-and-action-flow/</link>

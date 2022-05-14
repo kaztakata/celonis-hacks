@@ -7,9 +7,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Start Deep Dive to Machine Learning and Action Flow - Celonis hacks</title>
-  <meta name="description" content="Until last post, I have seen the flow of process discovery through Celonis Process Analytics (or Studio Analysis) and prerequisite ETL (Extraction, Transformation, Load) by Data Integration. I already worked in multiple static process mining projects and found that they are enough functions for static process mining. And other process mining solutions are provided these functions too.
-By the way, referring to Process Mining Data Science in Action by Wil van der Aalst, Process Mining can also make it possible for further actions such as monitoring and predictive analysis.">
+  <title>Login to Celonis EMS from Jupyter Workbench - Celonis hacks</title>
+  <meta name="description" content="At last post Start Deep Dive to Machine Learning and Action Flow, I introduced overview of these two functions that manipulate Celonis EMS functions without using GUI (browser) for automatation.
+From today I would like to share basic functions in Machine Learning (Jupyter Workbench). Before staring I will setup Jupyter Workbench. If you do not have your Workbench, read Share my Analysis by Content-CLI then follow until creating Workbench.
+I will go to Launcher in Workbench then select Others &gt; Terminal, then enter below command after $ sign (output is as of 2022-05-14).">
   <meta name="author" content="Kazuhiko Takata"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -45,8 +46,8 @@ By the way, referring to Process Mining Data Science in Action by Wil van der Aa
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-05-07-start-deep-dive-to-machine-learning-and-action-flow\/",
-          "name": "Start deep dive to machine learning and action flow"
+          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-05-14-login-to-celonis-ems-from-jupyter-workbench\/",
+          "name": "Login to celonis ems from jupyter workbench"
         }
     }]
 }
@@ -57,15 +58,15 @@ By the way, referring to Process Mining Data Science in Action by Wil van der Aa
   "author": {
     "name" : "Kazuhiko Takata"
   },
-  "headline": "Start Deep Dive to Machine Learning and Action Flow",
-  "description" : "Until last post, I have seen the flow of process discovery through Celonis Process Analytics (or Studio Analysis) and prerequisite ETL (Extraction, Transformation, Load) by Data Integration. I already worked in multiple static process mining projects and found that they are enough functions for static process mining. And other process mining solutions are provided these functions too.\nBy the way, referring to Process Mining Data Science in Action by Wil van der Aalst, Process Mining can also make it possible for further actions such as monitoring and predictive analysis.",
+  "headline": "Login to Celonis EMS from Jupyter Workbench",
+  "description" : "At last post Start Deep Dive to Machine Learning and Action Flow, I introduced overview of these two functions that manipulate Celonis EMS functions without using GUI (browser) for automatation.\nFrom today I would like to share basic functions in Machine Learning (Jupyter Workbench). Before staring I will setup Jupyter Workbench. If you do not have your Workbench, read Share my Analysis by Content-CLI then follow until creating Workbench.\nI will go to Launcher in Workbench then select Others \u0026gt; Terminal, then enter below command after $ sign (output is as of 2022-05-14).",
   "inLanguage" : "en",
-  "wordCount":  433 ,
-  "datePublished" : "2022-05-07T12:54:54",
-  "dateModified" : "2022-05-07T12:54:54",
+  "wordCount":  482 ,
+  "datePublished" : "2022-05-14T10:40:29",
+  "dateModified" : "2022-05-14T10:40:29",
   "image" : "https:\/\/kaztakata.github.io\/celonis-hacks",
-  "keywords" : [ "Machine Learning, Studio, Action Flow" ],
-  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-05-07-start-deep-dive-to-machine-learning-and-action-flow\/",
+  "keywords" : [ "Machine Learning" ],
+  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-05-14-login-to-celonis-ems-from-jupyter-workbench\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/kaztakata.github.io\/celonis-hacks",
@@ -79,15 +80,17 @@ By the way, referring to Process Mining Data Science in Action by Wil van der Aa
 }
 </script>
 
-<meta property="og:title" content="Start Deep Dive to Machine Learning and Action Flow" />
-<meta property="og:description" content="Until last post, I have seen the flow of process discovery through Celonis Process Analytics (or Studio Analysis) and prerequisite ETL (Extraction, Transformation, Load) by Data Integration. I already worked in multiple static process mining projects and found that they are enough functions for static process mining. And other process mining solutions are provided these functions too.
-By the way, referring to Process Mining Data Science in Action by Wil van der Aalst, Process Mining can also make it possible for further actions such as monitoring and predictive analysis.">
-<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2022-05-07-start-deep-dive-to-machine-learning-and-action-flow/" />
+<meta property="og:title" content="Login to Celonis EMS from Jupyter Workbench" />
+<meta property="og:description" content="At last post Start Deep Dive to Machine Learning and Action Flow, I introduced overview of these two functions that manipulate Celonis EMS functions without using GUI (browser) for automatation.
+From today I would like to share basic functions in Machine Learning (Jupyter Workbench). Before staring I will setup Jupyter Workbench. If you do not have your Workbench, read Share my Analysis by Content-CLI then follow until creating Workbench.
+I will go to Launcher in Workbench then select Others &gt; Terminal, then enter below command after $ sign (output is as of 2022-05-14).">
+<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2022-05-14-login-to-celonis-ems-from-jupyter-workbench/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Celonis hacks" />
 
-  <meta name="twitter:title" content="Start Deep Dive to Machine Learning and Action Flow" />
-  <meta name="twitter:description" content="Until last post, I have seen the flow of process discovery through Celonis Process Analytics (or Studio Analysis) and prerequisite ETL (Extraction, Transformation, Load) by Data Integration. I already …">
+  <meta name="twitter:title" content="Login to Celonis EMS from Jupyter Workbench" />
+  <meta name="twitter:description" content="At last post Start Deep Dive to Machine Learning and Action Flow, I introduced overview of these two functions that manipulate Celonis EMS functions without using GUI (browser) for automatation.
+From …">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
@@ -236,7 +239,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="posts-heading">
               
-                <h1>Start Deep Dive to Machine Learning and Action Flow</h1>
+                <h1>Login to Celonis EMS from Jupyter Workbench</h1>
               
               
                 <hr class="small">
@@ -256,19 +259,48 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>Until last post, I have seen the flow of process discovery through Celonis Process Analytics (or Studio Analysis) and prerequisite ETL (Extraction, Transformation, Load) by Data Integration. I already worked in multiple static process mining projects and found that they are enough functions for static process mining. And other process mining solutions are provided these functions too.</p>
-<p>By the way, referring to <a href="https://link.springer.com/book/10.1007/978-3-662-49851-4">Process Mining Data Science in Action by Wil van der Aalst</a>, Process Mining can also make it possible for further actions such as monitoring and predictive analysis. Celonis EMS is ready for these further actions by Machine Learning and Action Flow components I think.</p>
-<p>Machine Learning component is not only in the sense of the word, but also Python execution environment powered by <a href="https://jupyterlab.readthedocs.io/en/stable/">JupyterLab</a> and <a href="https://celonis.github.io/pycelonis">Pycelonis</a>. This component allows me to extend process mining functions in some extent of frexibility. For example,</p>
-<ul>
-<li>integrate data that is not feasible for Extractor Builder I introduced before</li>
-<li>integrate file based data</li>
-<li>generate new data calculated by machine learning algorithm</li>
-<li>manipulate Celonis EMS functions from outside of it.</li>
-</ul>
-<p>On the other hand, Action Flow (customized version of <a href="https://www.make.com/">Integromat / Make</a>) component enables me to manipulate and integrate not only Celonis EMS, but almost all SasS solutions with easier development knowledge and relatively higher frexibility.</p>
-<p>I guess these components confuse you because of their high degree of freedom, also require some knowledge of current internet world&rsquo;s programming, e.g. REST API and prerequisite HTTP request/response. When I first tried these functions, I am struggled with the freedom of choosing these components, then finally I can use these components to automate my own work, and I have chance to train them to my colleagues. Now some of my colleagues can utilize these components too. I believe they are ideal components to solve individual (local) requirements in your organization, so I strongly recommend to try them.</p>
-<p>Based on the training above, due to your knowledge base is broader, I think it is difficult to write about these components in a series of posts. But I will try my best to explain it step by step. In addition, since Machine Learning and Action Flow are interrelated for me, I will use whichever is necessary in future posts.</p>
-<p>Finally, I would like to comment to other Celonis components, Action Engine, and Skill (previously Automation). I believe both are older version of Action Flow and recommend not to take much time to learn them. In this blog, normally I do not mention about them. But I sometimes deal with Skill in case Action Flow does not have function that Skill has.</p>
+        <p>At last post <a href="../2022-05-07-start-deep-dive-to-machine-learning-and-action-flow">Start Deep Dive to Machine Learning and Action Flow</a>, I introduced overview of these two functions that manipulate Celonis EMS functions without using GUI (browser) for automatation.</p>
+<p>From today I would like to share basic functions in Machine Learning (Jupyter Workbench). Before staring I will setup Jupyter Workbench. If you do not have your Workbench, read <a href="../2021-08-14-share-my-analysis-by-content-cli">Share my Analysis by Content-CLI</a> then follow until creating Workbench.</p>
+<p>I will go to Launcher in Workbench then select Others &gt; Terminal, then enter below command after $ sign (output is as of 2022-05-14). First command is to upgrade latest version of Pycelonis 1.7.0. Second command is to confirm installed version.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="o">(</span>base<span class="o">)</span> jovyan@workbench-d46f8977-mtfw6:~$ pip install pycelonis --upgrade
+Looking in indexes: https://pypi.celonis.cloud, https://pypi.org/simple
+...
+Successfully installed ddsketch-2.0.2 ddtrace-1.1.2 pycelonis-1.7.0
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="o">(</span>base<span class="o">)</span> jovyan@workbench-d46f8977-mtfw6:~$ pip show pycelonis
+Name: pycelonis
+Version: 1.7.0
+...
+Required-by: celonis-ml
+</code></pre></div><p>Next I will click New Folder button in left pane, then name it as <code>pycelonis-profiles</code>, that is for storing credeintial files later. Then move to this folder and create new file <code>user.json</code>. Just copy below content and modify <code>your_team</code>,<code>your_realm</code>,<code>your_api_token</code> to your value. For the moment I use API token from Edit Profile (see <a href="../2021-08-14-share-my-analysis-by-content-cli">Share my Analysis by Content-CLI</a>).</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
+    <span class="nt">&#34;url&#34;</span><span class="p">:</span> <span class="s2">&#34;https://your_team.your_realm.celonis.cloud&#34;</span><span class="p">,</span> 
+    <span class="nt">&#34;api_token&#34;</span><span class="p">:</span> <span class="s2">&#34;your_api_token&#34;</span>
+<span class="p">}</span>
+</code></pre></div><p>OK, it is time to run first script in Jupyter Workbench. As below screen, create new Nootbook (Python 3 ipykernel) and copy below script to first cell in notebook, then click Start button (or enter shift + Enter).</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># import packages</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">from</span> <span class="nn">pycelonis</span> <span class="kn">import</span> <span class="n">get_celonis</span>
+<span class="kn">from</span> <span class="nn">pycelonis.celonis_api.utils</span> <span class="kn">import</span> <span class="n">KeyType</span>
+
+<span class="c1"># open credential file</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;/home/jovyan/pycelonis-profiles/user.json&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">credential</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+
+<span class="c1"># login to Celonis EMS</span>
+<span class="n">celonis</span> <span class="o">=</span> <span class="n">get_celonis</span><span class="p">(</span><span class="o">**</span><span class="n">credential</span><span class="p">,</span> <span class="n">key_type</span><span class="o">=</span><span class="n">KeyType</span><span class="o">.</span><span class="n">USER_KEY</span><span class="p">,</span> <span class="n">total_retry</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">permissions</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div><p><a href="https://user-images.githubusercontent.com/67397583/168415145-a4c02cc3-abbd-4340-88fc-c29323d15db4.png"><img src="https://user-images.githubusercontent.com/67397583/168415145-a4c02cc3-abbd-4340-88fc-c29323d15db4.png" alt="image"></a></p>
+<p>This script is firstly import packages required for next step, then open credential file and use it to login to Celonis EMS. Login method <code>get_celonis</code> has <a href="https://celonis.github.io/pycelonis/1.7.0/reference/get_celonis/">documentation</a> to see each parameters. In this method, this notebook tried to login to Celonis EMS using API token, and showed avaiable permissions if URL and API token are valid.</p>
+<p>Two points to learn from this operation are</p>
+<ol>
+<li>it is possible to login to any Celonis environment that is different from ML notebook location</li>
+<li>Permission granted to this API token is same as GUI user.</li>
+</ol>
+<p>Regarding 1, even if I am using different Jupyter environment e.g. my local machine, I just pass URL and API token then I can login to Celonis EMS.</p>
+<p>About 2, I am Admin user and it is too strong permissions for especially production environment. Considering unauthorized access, I will create one more API key that is weaker than Admin but enough for my operation in next post.</p>
+<p>As today&rsquo;s last thing, I would like to show one example to use pycelonis. Below is displaying Celonis Packages under login enviornment which I created at <a href="../2022-04-23-validate-data-model-by-studio-analysis">Validate Data Model by Studio Analysis</a>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">celonis</span><span class="o">.</span><span class="n">default_space</span><span class="o">.</span><span class="n">packages</span>
+</code></pre></div><p><a href="https://user-images.githubusercontent.com/67397583/168414778-c211ab89-77c8-4933-ac6a-c3d405aad3de.png"><img src="https://user-images.githubusercontent.com/67397583/168414778-c211ab89-77c8-4933-ac6a-c3d405aad3de.png" alt="image"></a></p>
+<p>In the next post I will create application and assign appropriate permissions to it.</p>
 <p>Kaz</p>
 
 
@@ -276,10 +308,6 @@ if (!doNotTrack) {
           <div class="blog-tags">
             
               <a href="https://kaztakata.github.io/celonis-hacks/tags/machine-learning/">Machine Learning</a>&nbsp;
-            
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/studio/">Studio</a>&nbsp;
-            
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/action-flow/">Action Flow</a>&nbsp;
             
           </div>
         
@@ -294,42 +322,42 @@ if (!doNotTrack) {
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-05-07-start-deep-dive-to-machine-learning-and-action-flow%2f&amp;text=Start%20Deep%20Dive%20to%20Machine%20Learning%20and%20Action%20Flow&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-05-14-login-to-celonis-ems-from-jupyter-workbench%2f&amp;text=Login%20to%20Celonis%20EMS%20from%20Jupyter%20Workbench&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-05-07-start-deep-dive-to-machine-learning-and-action-flow%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-05-14-login-to-celonis-ems-from-jupyter-workbench%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-05-07-start-deep-dive-to-machine-learning-and-action-flow%2f&amp;title=Start%20Deep%20Dive%20to%20Machine%20Learning%20and%20Action%20Flow" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-05-14-login-to-celonis-ems-from-jupyter-workbench%2f&amp;title=Login%20to%20Celonis%20EMS%20from%20Jupyter%20Workbench" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-05-07-start-deep-dive-to-machine-learning-and-action-flow%2f&amp;title=Start%20Deep%20Dive%20to%20Machine%20Learning%20and%20Action%20Flow" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-05-14-login-to-celonis-ems-from-jupyter-workbench%2f&amp;title=Login%20to%20Celonis%20EMS%20from%20Jupyter%20Workbench" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-05-07-start-deep-dive-to-machine-learning-and-action-flow%2f&amp;title=Start%20Deep%20Dive%20to%20Machine%20Learning%20and%20Action%20Flow" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-05-14-login-to-celonis-ems-from-jupyter-workbench%2f&amp;title=Login%20to%20Celonis%20EMS%20from%20Jupyter%20Workbench" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-05-07-start-deep-dive-to-machine-learning-and-action-flow%2f&amp;description=Start%20Deep%20Dive%20to%20Machine%20Learning%20and%20Action%20Flow" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-05-14-login-to-celonis-ems-from-jupyter-workbench%2f&amp;description=Login%20to%20Celonis%20EMS%20from%20Jupyter%20Workbench" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -351,15 +379,11 @@ if (!doNotTrack) {
                   <ul>
                 
                 
-                    <li><a href="/celonis-hacks/posts/2022-05-14-login-to-celonis-ems-from-jupyter-workbench/">Login to Celonis EMS from Jupyter Workbench</a></li>
+                    <li><a href="/celonis-hacks/posts/2022-05-07-start-deep-dive-to-machine-learning-and-action-flow/">Start Deep Dive to Machine Learning and Action Flow</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2022-04-30-execute-periodic-etl-automatically/">Execute Periodic ETL Automatically</a></li>
                 
-                    <li><a href="/celonis-hacks/posts/2022-04-23-validate-data-model-by-studio-analysis/">Validate Data Model by Studio Analysis</a></li>
-                
-                    <li><a href="/celonis-hacks/posts/2022-03-26-handle-day-based-activity-as-milestone/">Handle Day based Activity as Milestone</a></li>
-                
-                    <li><a href="/celonis-hacks/posts/2021-10-30-copy-previous-value-to-blank-period-by-running-sum-and-range-append-functions/">Copy Previous Value to Blank Period by RUNNING_SUM and RANGE_APPEND functions</a></li>
+                    <li><a href="/celonis-hacks/posts/2021-08-14-share-my-analysis-by-content-cli/">Share my Analysis by Content-CLI</a></li>
                 
               </ul>
 
@@ -371,13 +395,9 @@ if (!doNotTrack) {
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-04-30-execute-periodic-etl-automatically/" data-toggle="tooltip" data-placement="top" title="Execute Periodic ETL Automatically">&larr; Previous Post</a>
+              <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-05-07-start-deep-dive-to-machine-learning-and-action-flow/" data-toggle="tooltip" data-placement="top" title="Start Deep Dive to Machine Learning and Action Flow">&larr; Previous Post</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-05-14-login-to-celonis-ems-from-jupyter-workbench/" data-toggle="tooltip" data-placement="top" title="Login to Celonis EMS from Jupyter Workbench">Next Post &rarr;</a>
-            </li>
           
         </ul>
       
