@@ -5,7 +5,16 @@
     <link>https://kaztakata.github.io/celonis-hacks/posts/</link>
     <description>Recent content in Posts on Celonis hacks</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 14 May 2022 10:40:29 +0900</lastBuildDate><atom:link href="https://kaztakata.github.io/celonis-hacks/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 21 May 2022 09:31:32 +0900</lastBuildDate><atom:link href="https://kaztakata.github.io/celonis-hacks/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Limit permissions of API token to minimize risk</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2022-05-21-limit-permissions-of-api-token-to-minimize-risk/</link>
+      <pubDate>Sat, 21 May 2022 09:31:32 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2022-05-21-limit-permissions-of-api-token-to-minimize-risk/</guid>
+      <description>At last post Login to Celonis EMS from Jupyter Workbench, I used API key that have same permission as my GUI user. I mentioned that it is too strong and risky against unauthorized access. Imagine your API token accidentally make public, then anyone can operate Celonis instead of you. That is why I segregate API token from Notebook (Notebook may be published to GitHub etc.). Anyway, user API token must be altered to another weaker key especially in production system.</description>
+    </item>
+    
     <item>
       <title>Login to Celonis EMS from Jupyter Workbench</title>
       <link>https://kaztakata.github.io/celonis-hacks/posts/2022-05-14-login-to-celonis-ems-from-jupyter-workbench/</link>

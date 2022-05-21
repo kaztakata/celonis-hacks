@@ -7,9 +7,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Share my Analysis by Content-CLI - Celonis hacks</title>
-  <meta name="description" content="Recently I was thinking how to share my work with you not only blog post but experience by live environment. Today I would like to tell how to reproduce my Analysis to your environment by Content-CLI. Content-CLI is used to copy programs between Celonis environments via backup file. I created backup file and upload to public repository. So you can download it and reproduce my program in your environment.
-First you need to open your training environment if you do not.">
+  <title>Limit permissions of API token to minimize risk - Celonis hacks</title>
+  <meta name="description" content="At last post Login to Celonis EMS from Jupyter Workbench, I used API key that have same permission as my GUI user. I mentioned that it is too strong and risky against unauthorized access. Imagine your API token accidentally make public, then anyone can operate Celonis instead of you. That is why I segregate API token from Notebook (Notebook may be published to GitHub etc.). Anyway, user API token must be altered to another weaker key especially in production system.">
   <meta name="author" content="Kazuhiko Takata"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -45,8 +44,8 @@ First you need to open your training environment if you do not.">
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-08-14-share-my-analysis-by-content-cli\/",
-          "name": "Share my analysis by content CLI"
+          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-05-21-limit-permissions-of-api-token-to-minimize-risk\/",
+          "name": "Limit permissions of API token to minimize risk"
         }
     }]
 }
@@ -57,15 +56,15 @@ First you need to open your training environment if you do not.">
   "author": {
     "name" : "Kazuhiko Takata"
   },
-  "headline": "Share my Analysis by Content-CLI",
-  "description" : "Recently I was thinking how to share my work with you not only blog post but experience by live environment. Today I would like to tell how to reproduce my Analysis to your environment by Content-CLI. Content-CLI is used to copy programs between Celonis environments via backup file. I created backup file and upload to public repository. So you can download it and reproduce my program in your environment.\nFirst you need to open your training environment if you do not.",
+  "headline": "Limit permissions of API token to minimize risk",
+  "description" : "At last post Login to Celonis EMS from Jupyter Workbench, I used API key that have same permission as my GUI user. I mentioned that it is too strong and risky against unauthorized access. Imagine your API token accidentally make public, then anyone can operate Celonis instead of you. That is why I segregate API token from Notebook (Notebook may be published to GitHub etc.). Anyway, user API token must be altered to another weaker key especially in production system.",
   "inLanguage" : "en",
-  "wordCount":  569 ,
-  "datePublished" : "2021-08-14T13:33:06",
-  "dateModified" : "2021-08-14T13:33:06",
+  "wordCount":  507 ,
+  "datePublished" : "2022-05-21T09:31:32",
+  "dateModified" : "2022-05-21T09:31:32",
   "image" : "https:\/\/kaztakata.github.io\/celonis-hacks",
-  "keywords" : [ "Content-CLI, Machine Learning, Process Analytics" ],
-  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-08-14-share-my-analysis-by-content-cli\/",
+  "keywords" : [ "Machine Learning, Admin and Settings" ],
+  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-05-21-limit-permissions-of-api-token-to-minimize-risk\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/kaztakata.github.io\/celonis-hacks",
@@ -79,15 +78,14 @@ First you need to open your training environment if you do not.">
 }
 </script>
 
-<meta property="og:title" content="Share my Analysis by Content-CLI" />
-<meta property="og:description" content="Recently I was thinking how to share my work with you not only blog post but experience by live environment. Today I would like to tell how to reproduce my Analysis to your environment by Content-CLI. Content-CLI is used to copy programs between Celonis environments via backup file. I created backup file and upload to public repository. So you can download it and reproduce my program in your environment.
-First you need to open your training environment if you do not.">
-<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2021-08-14-share-my-analysis-by-content-cli/" />
+<meta property="og:title" content="Limit permissions of API token to minimize risk" />
+<meta property="og:description" content="At last post Login to Celonis EMS from Jupyter Workbench, I used API key that have same permission as my GUI user. I mentioned that it is too strong and risky against unauthorized access. Imagine your API token accidentally make public, then anyone can operate Celonis instead of you. That is why I segregate API token from Notebook (Notebook may be published to GitHub etc.). Anyway, user API token must be altered to another weaker key especially in production system.">
+<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2022-05-21-limit-permissions-of-api-token-to-minimize-risk/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Celonis hacks" />
 
-  <meta name="twitter:title" content="Share my Analysis by Content-CLI" />
-  <meta name="twitter:description" content="Recently I was thinking how to share my work with you not only blog post but experience by live environment. Today I would like to tell how to reproduce my Analysis to your environment by Content-CLI. …">
+  <meta name="twitter:title" content="Limit permissions of API token to minimize risk" />
+  <meta name="twitter:description" content="At last post Login to Celonis EMS from Jupyter Workbench, I used API key that have same permission as my GUI user. I mentioned that it is too strong and risky against unauthorized access. Imagine your …">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
@@ -236,7 +234,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="posts-heading">
               
-                <h1>Share my Analysis by Content-CLI</h1>
+                <h1>Limit permissions of API token to minimize risk</h1>
               
               
                 <hr class="small">
@@ -256,61 +254,55 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>Recently I was thinking how to share my work with you not only blog post but experience by live environment. Today I would like to tell how to reproduce my Analysis to your environment by <a href="https://github.com/celonis/content-cli">Content-CLI</a>. Content-CLI is used to copy programs between Celonis environments via backup file. I created backup file and upload to public repository. So you can download it and reproduce my program in your environment.</p>
-<p>First you need to open your training environment if you do not. You will go to <a href="https://lms.celonis.com/">Celonis LMS</a> then sign up for your account. After that you enroll Process Discovery Basics cource then you will receive invitation mail of training envioronment. Training environment URL is like <a href="https://your-email-address.training.celonis.cloud/">https://your-email-address.training.celonis.cloud/</a> and your-email-address is based on your sign up email address to Celonis LMS.</p>
-<p>From now on, I would like to tell procedure to reproduce Analysis of last blog post <a href="../2021-08-07-create-matrix-of-throughput-time-by-pivot-table/">Create Matrix of Throughput Time by Pivot Table</a>. In case of other Analysis, please change parameters accordingly.</p>
-<p>After you can login to your training environment, go to Process Analytics first. Click New button at left side (Workspaces), then select Data Model <code>CelonisCertificationExam_Order-to-Cash_DataModel</code> and name workspace as <code>celonis-hacks O2C</code> (please see below table for other Processes / Data Models). You should note workspace ID from URL of new workspace, like <code>workspaces=2056362c-0576-4356-82d2-2ce341db6fbf</code>, that is required to push Analysis later.</p>
-<table>
-<thead>
-<tr>
-<th>Process</th>
-<th>Data Model</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>O2C</td>
-<td>CelonisCertificationExam_Order-to-Cash_DataModel</td>
-</tr>
-<tr>
-<td>P2P</td>
-<td>Purchase-To-Pay_Training_EN</td>
-</tr>
-<tr>
-<td>AP</td>
-<td>CelonisCertificationExam_AnalysisBuilding_2020/2021</td>
-</tr>
-</tbody>
-</table>
-<p>Next you will create API-Key from your profile. Click your avatar on top right of screen, then click Edit Profile button. Then enter content-cli to New API Key name then click Create API Key button (below screen). You should note API Key that makes possible to login to this environment without UI.</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/129434323-7ce72520-c163-46cc-932b-959926c01b46.png"><img src="https://user-images.githubusercontent.com/67397583/129434323-7ce72520-c163-46cc-932b-959926c01b46.png" alt="image"></a></p>
-<p>Next is the last step of preparation. You will go to Machine Learning then click New App. Like below screen, you can create Jupyter Workbench in Machine Learning. Click App you created, then you will go to Jupyter Workbench.</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/129434369-353cfa82-301b-499e-ae4b-c1d3e7de3401.png"><img src="https://user-images.githubusercontent.com/67397583/129434369-353cfa82-301b-499e-ae4b-c1d3e7de3401.png" alt="image"></a></p>
-<p>Jupyter Workbench is web based interactive development environment for Jupyter notebook, but today I do not touch Jupyter notebook but Content-CLI installed to this environment.</p>
-<p>First you need to copy my backup file. Easiest way to copy and sync file is using Git. In the Workbench select menu Git &gt; Clone a repository, then enter <a href="https://github.com/kaztakata/celonis-hacks">https://github.com/kaztakata/celonis-hacks</a>. You can see celonis-hacks folder at left side. If you would like to update it, then go to celonis-hacks folder and select Git &gt; Pull from Remote.</p>
-<p>Next you will start Content-CLI. In the Workbench select File &gt; New &gt; Terminal, then you can see terminal as below screen. Terminal is waiting for your command so you will input command after $ sign and input Enter key. If additional information is required, enter command and input Enter key too.</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/129436118-acdbbe70-9b6c-485a-a4ea-5616f6cbe767.png"><img src="https://user-images.githubusercontent.com/67397583/129436118-acdbbe70-9b6c-485a-a4ea-5616f6cbe767.png" alt="image"></a></p>
-<p>First Content-CLI command is to create profile for login to training environment via Content-CLI. Please change your team and api token value accordingly.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">(base) jovyan@workbench-6599f565c6-sr2f8:~$ content-cli profile create
-Name of the profile: mytraining
-Your team (please provide the full url): https://your-email-address.training.celonis.cloud/
-Your api token: your-api-token
-info:    Profile created successfully!
-</code></pre></div><p>Next command is to push my backup file to workspace you created. Please change Workspace ID to your O2C Process Workspace.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">(base) jovyan@workbench-6599f565c6-sr2f8:~$ content-cli push analysis -p mytraining --workspaceId 2056362c-0576-4356-82d2-2ce341db6fbf -f celonis-hacks/docs/examples/o2c_analysis_20210807.json 
-info:    Analysis was pushed successfully. New ID: 2c1c370b-2a4b-4321-b3e7-9f3c27dbaf19
-</code></pre></div><p>Finally you can go back to Process Analytics then confirm new Analysis is created. Please enjoy my blog post with live environment.</p>
+        <p>At last post <a href="../2022-05-14-login-to-celonis-ems-from-jupyter-workbench">Login to Celonis EMS from Jupyter Workbench</a>, I used API key that have same permission as my GUI user. I mentioned that it is too strong and risky against unauthorized access. Imagine your API token accidentally make public, then anyone can operate Celonis instead of you. That is why I segregate API token from Notebook (Notebook may be published to GitHub etc.). Anyway, user API token must be altered to another weaker key especially in production system.</p>
+<p>First step is to access to <code>Admin and Settings</code>. If you are using training environment as me, you can see this button because you are admin user. Normally you cannot see <code>Admin and Settings</code> if you are not admin user.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/169627997-2e767f3a-7f40-45ac-8f76-8b73de954d43.png"><img src="https://user-images.githubusercontent.com/67397583/169627997-2e767f3a-7f40-45ac-8f76-8b73de954d43.png" alt="image"></a></p>
+<p>In the <code>Admin and Settings</code>, find <code>Applications</code> menu that is target for today. Click <code>New Application Key</code> and type name for our purpose. Then I can see Appication key (API token) so copy it to text editor etc. If this key is accidentally published to public space, then click three dots of this Application then <code>Delete</code>. This token is not used anymore.</p>
+<p>Also click three dots and <code>View Permissions</code>. For the moment No permissions found is displayed. So currently this token is useless. So next step is adding permissions to this token.</p>
+<p>In the <code>Admin and Settings</code>, click <code>Permissions</code> menu then all Celonis EMS modules are displayed.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/169628815-1775ff9f-902b-4d6b-b63e-124a8f8edda0.png"><img src="https://user-images.githubusercontent.com/67397583/169628815-1775ff9f-902b-4d6b-b63e-124a8f8edda0.png" alt="image"></a></p>
+<p>For example, click <code>Data Integration</code> and go into detail setting. If I would like to handle all of existing Pools from this API token but no need to create new Pool, untick <code>CREATE DATA POOL</code> and tick the rest.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/169629061-bf371670-e52f-4953-bd84-2db557dc40b4.png"><img src="https://user-images.githubusercontent.com/67397583/169629061-bf371670-e52f-4953-bd84-2db557dc40b4.png" alt="image"></a></p>
+<p>Or if I would like to limit to only one Pool from this API token, go to <code>Data Integration</code> and click three dots of relevant Pool, then tick required permissions as below.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/169629286-0af0d303-254c-44ba-99dd-e01fc8565aed.png"><img src="https://user-images.githubusercontent.com/67397583/169629286-0af0d303-254c-44ba-99dd-e01fc8565aed.png" alt="image"></a></p>
+<p>Please be careful that if both All Pool permissions and One Pool permissions are set, first one prioritize second one.</p>
+<p>After that go back to <code>Applications</code> and see <code>View Permissions</code>. I can review which permissions is assigned to this API token.</p>
+<p>OK, let&rsquo;s use new API token (Application key) in Notebook. Change two points from last post&rsquo;s script.</p>
+<ul>
+<li>File to store API token is changed to <code>app.json</code>, and create relevant file that store Application key noted before.</li>
+<li>when calling <code>get_celonis</code>, second argument key_type is changed to <code>KeyType.APP_KEY</code> to use Application key.</li>
+</ul>
+<p>If working correctly, output log is like below.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="p">[</span><span class="mi">2022</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">21</span> <span class="mi">01</span><span class="p">:</span><span class="mi">42</span><span class="p">:</span><span class="mi">09</span><span class="p">]</span> <span class="n">INFO</span><span class="p">:</span> <span class="n">Initial</span> <span class="n">connect</span> <span class="n">successful</span><span class="err">!</span> <span class="n">You</span> <span class="n">are</span> <span class="n">using</span> <span class="n">an</span> <span class="n">Application</span> <span class="n">Key</span><span class="o">.</span> <span class="n">PyCelonis</span> <span class="n">Version</span><span class="p">:</span> <span class="mf">1.7.0</span>
+<span class="p">[</span><span class="mi">2022</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">21</span> <span class="mi">01</span><span class="p">:</span><span class="mi">42</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span> <span class="n">INFO</span><span class="p">:</span> <span class="n">Your</span> <span class="n">key</span> <span class="n">has</span> <span class="n">following</span> <span class="n">permissions</span><span class="p">:</span>
+<span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&#34;permissions&#34;</span><span class="p">:</span> <span class="p">[],</span>
+        <span class="s2">&#34;serviceName&#34;</span><span class="p">:</span> <span class="s2">&#34;package-manager&#34;</span>
+    <span class="p">},</span>
+    <span class="o">...</span>
+    <span class="p">{</span>
+        <span class="s2">&#34;permissions&#34;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&#34;USE_ALL_DATA_MODELS&#34;</span><span class="p">,</span>
+            <span class="s2">&#34;EDIT_ALL_DATA_POOLS&#34;</span>
+        <span class="p">],</span>
+        <span class="s2">&#34;serviceName&#34;</span><span class="p">:</span> <span class="s2">&#34;event-collection&#34;</span>
+    <span class="p">},</span>
+    <span class="o">...</span>
+<span class="p">]</span>
+</code></pre></div><p>And I can confirm I cannot access to packages by <code>celonis.default_space.packages</code> like last post.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="o">...</span>
+<span class="n">PyCelonisNotFoundError</span><span class="p">:</span> <span class="n">No</span> <span class="n">result</span> <span class="n">found</span> <span class="k">for</span> <span class="n">Default</span><span class="o">.</span>
+</code></pre></div><p>To minimize risk of unauthorized access, I recommend to understand today&rsquo;s topic well. By the way, as test purpose I do not want to raise error every time for explaining functions, so I use full permissions to my API token in this blog posts after that.</p>
 <p>Kaz</p>
 
 
         
           <div class="blog-tags">
             
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/content-cli/">Content-CLI</a>&nbsp;
-            
               <a href="https://kaztakata.github.io/celonis-hacks/tags/machine-learning/">Machine Learning</a>&nbsp;
             
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/process-analytics/">Process Analytics</a>&nbsp;
+              <a href="https://kaztakata.github.io/celonis-hacks/tags/admin-and-settings/">Admin and Settings</a>&nbsp;
             
           </div>
         
@@ -325,42 +317,42 @@ info:    Analysis was pushed successfully. New ID: 2c1c370b-2a4b-4321-b3e7-9f3c2
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-08-14-share-my-analysis-by-content-cli%2f&amp;text=Share%20my%20Analysis%20by%20Content-CLI&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-05-21-limit-permissions-of-api-token-to-minimize-risk%2f&amp;text=Limit%20permissions%20of%20API%20token%20to%20minimize%20risk&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-08-14-share-my-analysis-by-content-cli%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-05-21-limit-permissions-of-api-token-to-minimize-risk%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-08-14-share-my-analysis-by-content-cli%2f&amp;title=Share%20my%20Analysis%20by%20Content-CLI" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-05-21-limit-permissions-of-api-token-to-minimize-risk%2f&amp;title=Limit%20permissions%20of%20API%20token%20to%20minimize%20risk" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-08-14-share-my-analysis-by-content-cli%2f&amp;title=Share%20my%20Analysis%20by%20Content-CLI" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-05-21-limit-permissions-of-api-token-to-minimize-risk%2f&amp;title=Limit%20permissions%20of%20API%20token%20to%20minimize%20risk" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-08-14-share-my-analysis-by-content-cli%2f&amp;title=Share%20my%20Analysis%20by%20Content-CLI" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-05-21-limit-permissions-of-api-token-to-minimize-risk%2f&amp;title=Limit%20permissions%20of%20API%20token%20to%20minimize%20risk" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-08-14-share-my-analysis-by-content-cli%2f&amp;description=Share%20my%20Analysis%20by%20Content-CLI" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-05-21-limit-permissions-of-api-token-to-minimize-risk%2f&amp;description=Limit%20permissions%20of%20API%20token%20to%20minimize%20risk" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -382,15 +374,13 @@ info:    Analysis was pushed successfully. New ID: 2c1c370b-2a4b-4321-b3e7-9f3c2
                   <ul>
                 
                 
-                    <li><a href="/celonis-hacks/posts/2022-05-21-limit-permissions-of-api-token-to-minimize-risk/">Limit permissions of API token to minimize risk</a></li>
-                
                     <li><a href="/celonis-hacks/posts/2022-05-14-login-to-celonis-ems-from-jupyter-workbench/">Login to Celonis EMS from Jupyter Workbench</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2022-05-07-start-deep-dive-to-machine-learning-and-action-flow/">Start Deep Dive to Machine Learning and Action Flow</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2022-04-30-execute-periodic-etl-automatically/">Execute Periodic ETL Automatically</a></li>
                 
-                    <li><a href="/celonis-hacks/posts/2022-03-26-handle-day-based-activity-as-milestone/">Handle Day based Activity as Milestone</a></li>
+                    <li><a href="/celonis-hacks/posts/2021-08-14-share-my-analysis-by-content-cli/">Share my Analysis by Content-CLI</a></li>
                 
               </ul>
 
@@ -402,13 +392,9 @@ info:    Analysis was pushed successfully. New ID: 2c1c370b-2a4b-4321-b3e7-9f3c2
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-08-07-create-matrix-of-throughput-time-by-pivot-table/" data-toggle="tooltip" data-placement="top" title="Create Matrix of Throughput Time by Pivot Table">&larr; Previous Post</a>
+              <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-05-14-login-to-celonis-ems-from-jupyter-workbench/" data-toggle="tooltip" data-placement="top" title="Login to Celonis EMS from Jupyter Workbench">&larr; Previous Post</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-08-21-make-conditional-function-to-return-1-or-null/" data-toggle="tooltip" data-placement="top" title="Make Conditional Function to return 1 or NULL">Next Post &rarr;</a>
-            </li>
           
         </ul>
       
