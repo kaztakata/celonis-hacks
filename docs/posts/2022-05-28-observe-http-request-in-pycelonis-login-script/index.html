@@ -7,9 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Execute Periodic ETL Automatically - Celonis hacks</title>
-  <meta name="description" content="Until last post Validate Data Model by Studio Analysis, I completed creating ETL programs in Data Integration. But this is still test product because this programs are executed manually by operator. In this post, I would like to share the final piece of Data Integration, how to run ETL programs automatically after production release.
-There are several ways to achieve automatic ETL, for example in my production system I am using scheduler in Machine Learning Workbench to trigger Jupyter Notebook, then operate Data Integration via Pycelonis (Python API for Celonis EMS).">
+  <title>Observe HTTP request in Pycelonis login script - Celonis hacks</title>
+  <meta name="description" content="I showed how to login to Celonis EMS using Pycelonis in previous posts. Authentication topic I mentioned there is the most annoying when using API, but after mastering this I can transfer this knowledge to another areas easily.
+To master authentication, I would like to show the mechanism of HTTP request in the internet (web) programming. Even I did not know HTTP request well at the beginning of using Celonis, now I got some of basic knowledge and it is enough to use HTTP request.">
   <meta name="author" content="Kazuhiko Takata"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -45,8 +45,8 @@ There are several ways to achieve automatic ETL, for example in my production sy
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-04-30-execute-periodic-etl-automatically\/",
-          "name": "Execute periodic etl automatically"
+          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-05-28-observe-http-request-in-pycelonis-login-script\/",
+          "name": "Observe HTTP request in pycelonis login script"
         }
     }]
 }
@@ -57,15 +57,15 @@ There are several ways to achieve automatic ETL, for example in my production sy
   "author": {
     "name" : "Kazuhiko Takata"
   },
-  "headline": "Execute Periodic ETL Automatically",
-  "description" : "Until last post Validate Data Model by Studio Analysis, I completed creating ETL programs in Data Integration. But this is still test product because this programs are executed manually by operator. In this post, I would like to share the final piece of Data Integration, how to run ETL programs automatically after production release.\nThere are several ways to achieve automatic ETL, for example in my production system I am using scheduler in Machine Learning Workbench to trigger Jupyter Notebook, then operate Data Integration via Pycelonis (Python API for Celonis EMS).",
+  "headline": "Observe HTTP request in Pycelonis login script",
+  "description" : "I showed how to login to Celonis EMS using Pycelonis in previous posts. Authentication topic I mentioned there is the most annoying when using API, but after mastering this I can transfer this knowledge to another areas easily.\nTo master authentication, I would like to show the mechanism of HTTP request in the internet (web) programming. Even I did not know HTTP request well at the beginning of using Celonis, now I got some of basic knowledge and it is enough to use HTTP request.",
   "inLanguage" : "en",
-  "wordCount":  514 ,
-  "datePublished" : "2022-04-30T08:54:10",
-  "dateModified" : "2022-04-30T08:54:10",
+  "wordCount":  543 ,
+  "datePublished" : "2022-05-28T07:59:48",
+  "dateModified" : "2022-05-28T07:59:48",
   "image" : "https:\/\/kaztakata.github.io\/celonis-hacks",
-  "keywords" : [ "Data Integration, Extraction, Transformation, Data Model, Content-CLI, Machine Learning" ],
-  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-04-30-execute-periodic-etl-automatically\/",
+  "keywords" : [ "Machine Learning" ],
+  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-05-28-observe-http-request-in-pycelonis-login-script\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/kaztakata.github.io\/celonis-hacks",
@@ -79,15 +79,15 @@ There are several ways to achieve automatic ETL, for example in my production sy
 }
 </script>
 
-<meta property="og:title" content="Execute Periodic ETL Automatically" />
-<meta property="og:description" content="Until last post Validate Data Model by Studio Analysis, I completed creating ETL programs in Data Integration. But this is still test product because this programs are executed manually by operator. In this post, I would like to share the final piece of Data Integration, how to run ETL programs automatically after production release.
-There are several ways to achieve automatic ETL, for example in my production system I am using scheduler in Machine Learning Workbench to trigger Jupyter Notebook, then operate Data Integration via Pycelonis (Python API for Celonis EMS).">
-<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2022-04-30-execute-periodic-etl-automatically/" />
+<meta property="og:title" content="Observe HTTP request in Pycelonis login script" />
+<meta property="og:description" content="I showed how to login to Celonis EMS using Pycelonis in previous posts. Authentication topic I mentioned there is the most annoying when using API, but after mastering this I can transfer this knowledge to another areas easily.
+To master authentication, I would like to show the mechanism of HTTP request in the internet (web) programming. Even I did not know HTTP request well at the beginning of using Celonis, now I got some of basic knowledge and it is enough to use HTTP request.">
+<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2022-05-28-observe-http-request-in-pycelonis-login-script/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Celonis hacks" />
 
-  <meta name="twitter:title" content="Execute Periodic ETL Automatically" />
-  <meta name="twitter:description" content="Until last post Validate Data Model by Studio Analysis, I completed creating ETL programs in Data Integration. But this is still test product because this programs are executed manually by operator. …">
+  <meta name="twitter:title" content="Observe HTTP request in Pycelonis login script" />
+  <meta name="twitter:description" content="I showed how to login to Celonis EMS using Pycelonis in previous posts. Authentication topic I mentioned there is the most annoying when using API, but after mastering this I can transfer this …">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
@@ -236,7 +236,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="posts-heading">
               
-                <h1>Execute Periodic ETL Automatically</h1>
+                <h1>Observe HTTP request in Pycelonis login script</h1>
               
               
                 <hr class="small">
@@ -256,42 +256,73 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>Until last post <a href="../2022-04-23-validate-data-model-by-studio-analysis">Validate Data Model by Studio Analysis</a>, I completed creating ETL programs in Data Integration. But this is still test product because this programs are executed manually by operator. In this post, I would like to share the final piece of Data Integration, how to run ETL programs automatically after production release.</p>
-<p>There are several ways to achieve automatic ETL, for example in my production system I am using scheduler in Machine Learning Workbench to trigger Jupyter Notebook, then operate Data Integration via <a href="https://celonis.github.io/pycelonis">Pycelonis (Python API for Celonis EMS)</a>. I would like to create posts regarding Pycelonis later, but today I do not use it because it takes a lot to explain Pycelonis. Instead today I use build in Scheduler in Data Integration, it is easy to construct and enough to use in production too.</p>
-<p>If you remember discussion in <a href="../2022-02-05-tune-endpoint-parameter-relevant-to-delta-load">Tune Endpoint Parameter Relevant to Delta Load</a>, I created Data Pool Parameter <code>today</code> for filtering extracting scope. This parameter should be updated to current time before extraction, so I will introduce new (global) <code>initial job</code>. SQL in this job is just getting current time like below.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">DROP TABLE _CEL_CURRENT_TIME;
-CREATE TABLE _CEL_CURRENT_TIME AS
-SELECT NOW()
-;
-</code></pre></div><p>Next I would like to fetch this value for extraction. Open Data Pool Parameters and update <code>today</code> setting to get value from above table <code>_CEL_CURRENT_TIME</code>. Then go to Extraction setting and change parameter <code>today</code> to use value of Data Pool Parameter.</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/166088925-8e1a9814-5015-40fd-917c-f716564ef4cd.png"><img src="https://user-images.githubusercontent.com/67397583/166088925-8e1a9814-5015-40fd-917c-f716564ef4cd.png" alt="image"></a></p>
-<p><a href="https://user-images.githubusercontent.com/67397583/166088988-945945e8-5e72-46f1-95f9-8243564076fd.png"><img src="https://user-images.githubusercontent.com/67397583/166088988-945945e8-5e72-46f1-95f9-8243564076fd.png" alt="image"></a></p>
-<p>OK then I would like to collect extraction and transformations to <code>main job</code>, and global view creation and Data Model Reload to <code>final job</code> like below.</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/166089091-c952cd91-4629-4ffa-a0d0-1151b5f4cafe.png"><img src="https://user-images.githubusercontent.com/67397583/166089091-c952cd91-4629-4ffa-a0d0-1151b5f4cafe.png" alt="image"></a></p>
-<p><a href="https://user-images.githubusercontent.com/67397583/166089119-78f0fcb7-9711-43dd-8e47-750798ae61dc.png"><img src="https://user-images.githubusercontent.com/67397583/166089119-78f0fcb7-9711-43dd-8e47-750798ae61dc.png" alt="image"></a></p>
-<p>I am ready for scheduling data jobs. Click Scheduling menu and create new one. From bottom to top in below screen I setup scheduling. First I will choose data jobs which is executed periodically. I choose three jobs above and order them to run <code>initial job</code>, <code>main job</code> and <code>final job</code> sequentially. Second I will choose Scheduling Plan to Hourly. If I would like to execute more frequently I should use Custom Cron and setup parameter (<a href="https://www.netiq.com/documentation/cloud-manager-2-5/ncm-reference/data/bexyssf.html#beykoa4">reference</a>). Third I will enable scheduling, and switch to Delta Load. Final setup is as below screen.</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/166091175-e2f57443-feee-4a8e-832d-4e8afdcd1ae4.png"><img src="https://user-images.githubusercontent.com/67397583/166091175-e2f57443-feee-4a8e-832d-4e8afdcd1ae4.png" alt="image"></a></p>
-<p>Then just wait for one hour and see if job is executed successfully. If you would like to monitor background run, click three dots of data job or data model and setup notification (or subscription) setting. Scheduler itself does not have notification function.</p>
-<p>That is it. I can conclude Data Integration series now. And I am thankful to you to continue reading my posts for one year. I would like to share my ideas with you in second year too.</p>
+        <p>I showed how to login to Celonis EMS using Pycelonis in previous posts. Authentication topic I mentioned there is the most annoying when using API, but after mastering this I can transfer this knowledge to another areas easily.</p>
+<p>To master authentication, I would like to show the mechanism of HTTP request in the internet (web) programming. Even I did not know HTTP request well at the beginning of using Celonis, now I got some of basic knowledge and it is enough to use HTTP request.</p>
+<p>Today I will continue using ML notebook and stop at the timing of HTTP request, then show what is passed to Celonis EMS and what is returned. Using below script (modify from <a href="../2022-05-14-login-to-celonis-ems-from-jupyter-workbench">Login to Celonis EMS from Jupyter Workbench</a>) I ran script, so that stop program at <code>pdb.set_trace()</code> point.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1">###### import packages</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">from</span> <span class="nn">pycelonis</span> <span class="kn">import</span> <span class="n">get_celonis</span>
+<span class="kn">from</span> <span class="nn">pycelonis.celonis_api.utils</span> <span class="kn">import</span> <span class="n">KeyType</span>
+
+<span class="c1"># open credential file</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;/home/jovyan/pycelonis-profiles/user.json&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">credential</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+
+<span class="c1"># stop program</span>
+<span class="kn">import</span> <span class="nn">pdb</span> 
+<span class="n">pdb</span><span class="o">.</span><span class="n">set_trace</span><span class="p">()</span>
+
+<span class="c1"># login to Celonis EMS</span>
+<span class="n">celonis</span> <span class="o">=</span> <span class="n">get_celonis</span><span class="p">(</span><span class="o">**</span><span class="n">credential</span><span class="p">,</span> <span class="n">key_type</span><span class="o">=</span><span class="n">KeyType</span><span class="o">.</span><span class="n">USER_KEY</span><span class="p">,</span> <span class="n">total_retry</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">permissions</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</code></pre></div><p><a href="https://user-images.githubusercontent.com/67397583/170803914-b9f06c6a-00b7-44a2-92d6-aa248cf4d02f.png"><img src="https://user-images.githubusercontent.com/67397583/170803914-b9f06c6a-00b7-44a2-92d6-aa248cf4d02f.png" alt="image"></a></p>
+<p>Now it is possible to slowly run script using this debugger. At the input window at the bottom of output, command as below (ignore <code>ipdb&gt;</code> when enter command).</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">ipdb&gt; b pycelonis/celonis_api/celonis.py:626
+Breakpoint 1 at /home/jovyan/.local/lib/python3.8/site-packages/pycelonis/celonis_api/celonis.py:626
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">ipdb&gt; c
+...
+&gt; /home/jovyan/.local/lib/python3.8/site-packages/pycelonis/celonis_api/celonis.py(626)api_request()
+    624 
+    625         try:
+1-&gt; 626             response = self._session.request(**kwargs, **extra)
+    627         except ReadTimeout as e:
+    628             raise PyCelonisHTTPError(
+</code></pre></div><p>First command makes new breakpoint to stop program at HTTP request. Second command just go until new breakpoint. After that I am at <code>response = self._session.request(**kwargs, **extra)</code> line, where famous python library <a href="https://requests.readthedocs.io/en/latest/">requests</a> is used to execute HTTP request. Before executing request, I would like to see some of parameters in request. Command as below.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">ipdb&gt;  url
+&#39;https://your_team.your_realm.celonis.cloud/api/cloud&#39;
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">ipdb&gt;  self._session.headers
+{&#39;User-Agent&#39;: &#39;pycelonis/1.7.0&#39;, &#39;Accept-Encoding&#39;: &#39;gzip, deflate, br&#39;, &#39;Accept&#39;: &#39;*/*&#39;, &#39;Connection&#39;: &#39;keep-alive&#39;, &#39;authorization&#39;: &#39;Bearer your_api_token&#39;}
+</code></pre></div><p>URL is also called endpoint, to access to resource in Web server. In this case this URL will retun login information. On the other hand header information is attached with URL, especially if authentication is required it is meaningful. Authorization attribute is stored my api_token with <code>Bearer</code> text (<code>AppKey</code> if Application Key is used).</p>
+<p>OK, let&rsquo;s run HTTP requst by command <code>n</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">ipdb&gt; n
+&gt; /home/jovyan/.local/lib/python3.8/site-packages/pycelonis/celonis_api/celonis.py(637)api_request()
+    635             )
+    636 
+--&gt; 637         if response.status_code in [401, 403]:
+    638             message = f&#34;You don&#39;t have permission to perform {kwargs[&#39;method&#39;]} -&gt; {url}.&#34;
+    639             if self.permissions:
+</code></pre></div><p>Program is moved to next line, after executing HTTP request. I can see the result in <code>response</code>, in this case <code>response.content</code> returns your account information if authentication is successful.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">ipdb&gt;  response.content
+b&#39;{your_account_information}&#39;
+</code></pre></div><p>Finally command <code>c</code> and run the rest of script to complete.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">ipdb&gt;  c
+[2022-05-28 01:35:00] INFO: Initial connect successful! Hello your_email. PyCelonis Version: 1.7.0
+</code></pre></div><p>In Pycelonis, <code>get_celonis</code> method returns authentication information to <code>celonis</code> object, so after that <code>celonis</code> object can access to another endpoints in various Pycelonis methods. For example after first cell in notebook is completed, input below script. I can stop script same as previous cell.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">celonis</span><span class="o">.</span><span class="n">default_space</span>
+</code></pre></div><p>Then enter command same as below.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">ipdb&gt;  url
+&#39;https://your_team.your_realm.celonis.cloud/package-manager/api/spaces&#39;
+ipdb&gt;  n
+...
+ipdb&gt;  response.content
+b&#39;[{&#34;permissions&#34;:[&#34;CREATE_PACKAGE&#34;,&#34;DELETE_SPACE&#34;,&#34;USE&#34;,&#34;$ACCESS_CHILD&#34;,&#34;CREATE_SPACE&#34;,&#34;DELETE_ALL_PACKAGES&#34;,&#34;USE_ALL_PACKAGES&#34;,&#34;DELETE_PACKAGE&#34;,&#34;EDIT_PACKAGE&#34;,&#34;EDIT_ALL_PACKAGES&#34;,&#34;EDIT_ALL_SPACES&#34;,&#34;MANAGE_PERMISSIONS&#34;,&#34;EDIT_SPACE&#34;,&#34;DELETE_ALL_SPACES&#34;,&#34;USE_PACKAGE&#34;],&#34;id&#34;:&#34;3c895d6e-38c1-4ea7-9451-13ee5c55b67a&#34;,&#34;name&#34;:&#34;Default&#34;,&#34;iconReference&#34;:&#34;earth&#34;,&#34;creationDate&#34;:1624615392821,&#34;changeDate&#34;:1624615392821,&#34;objectId&#34;:&#34;3c895d6e-38c1-4ea7-9451-13ee5c55b67a&#34;}]&#39;
+ipdb&gt;  c
+&lt;Space, id 3c895d6e-38c1-4ea7-9451-13ee5c55b67a, name Default&gt;
+</code></pre></div><p>This is first step to understand HTTP request. Please do it by your hand, it is required for further instruction in my posts.</p>
 <p>Kaz</p>
-<hr>
-<p>I would like to share my <a href="../../examples/planio_pool_20220430.json">Data Pool File</a> to you. If you would like to copy my pool to your environment, run content-CLI in your Machine Learning Workbench like <code>content-cli push data-pool -f planio_pool_20220430.json -p mytraining</code>. Please see <a href="../2021-08-14-share-my-analysis-by-content-cli">Share my Analysis by Content-CLI</a> for detail of content-CLI.</p>
-<p>Extactor is excluded from this copy, so please see <a href="../2022-02-05-tune-endpoint-parameter-relevant-to-delta-load">Tune Endpoint Parameter Relevant to Delta Load</a> to upload Extractor and replace connection to that with uploaded Extarctor.</p>
-<hr>
 
 
         
           <div class="blog-tags">
-            
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/data-integration/">Data Integration</a>&nbsp;
-            
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/extraction/">Extraction</a>&nbsp;
-            
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/transformation/">Transformation</a>&nbsp;
-            
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/data-model/">Data Model</a>&nbsp;
-            
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/content-cli/">Content-CLI</a>&nbsp;
             
               <a href="https://kaztakata.github.io/celonis-hacks/tags/machine-learning/">Machine Learning</a>&nbsp;
             
@@ -308,42 +339,42 @@ SELECT NOW()
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-04-30-execute-periodic-etl-automatically%2f&amp;text=Execute%20Periodic%20ETL%20Automatically&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-05-28-observe-http-request-in-pycelonis-login-script%2f&amp;text=Observe%20HTTP%20request%20in%20Pycelonis%20login%20script&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-04-30-execute-periodic-etl-automatically%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-05-28-observe-http-request-in-pycelonis-login-script%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-04-30-execute-periodic-etl-automatically%2f&amp;title=Execute%20Periodic%20ETL%20Automatically" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-05-28-observe-http-request-in-pycelonis-login-script%2f&amp;title=Observe%20HTTP%20request%20in%20Pycelonis%20login%20script" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-04-30-execute-periodic-etl-automatically%2f&amp;title=Execute%20Periodic%20ETL%20Automatically" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-05-28-observe-http-request-in-pycelonis-login-script%2f&amp;title=Observe%20HTTP%20request%20in%20Pycelonis%20login%20script" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-04-30-execute-periodic-etl-automatically%2f&amp;title=Execute%20Periodic%20ETL%20Automatically" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-05-28-observe-http-request-in-pycelonis-login-script%2f&amp;title=Observe%20HTTP%20request%20in%20Pycelonis%20login%20script" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-04-30-execute-periodic-etl-automatically%2f&amp;description=Execute%20Periodic%20ETL%20Automatically" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-05-28-observe-http-request-in-pycelonis-login-script%2f&amp;description=Observe%20HTTP%20request%20in%20Pycelonis%20login%20script" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -365,15 +396,15 @@ SELECT NOW()
                   <ul>
                 
                 
-                    <li><a href="/celonis-hacks/posts/2022-05-28-observe-http-request-in-pycelonis-login-script/">Observe HTTP request in Pycelonis login script</a></li>
-                
                     <li><a href="/celonis-hacks/posts/2022-05-21-limit-permissions-of-api-token-to-minimize-risk/">Limit permissions of API token to minimize risk</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2022-05-14-login-to-celonis-ems-from-jupyter-workbench/">Login to Celonis EMS from Jupyter Workbench</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2022-05-07-start-deep-dive-to-machine-learning-and-action-flow/">Start Deep Dive to Machine Learning and Action Flow</a></li>
                 
-                    <li><a href="/celonis-hacks/posts/2022-04-23-validate-data-model-by-studio-analysis/">Validate Data Model by Studio Analysis</a></li>
+                    <li><a href="/celonis-hacks/posts/2022-04-30-execute-periodic-etl-automatically/">Execute Periodic ETL Automatically</a></li>
+                
+                    <li><a href="/celonis-hacks/posts/2021-08-14-share-my-analysis-by-content-cli/">Share my Analysis by Content-CLI</a></li>
                 
               </ul>
 
@@ -385,13 +416,9 @@ SELECT NOW()
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-04-23-validate-data-model-by-studio-analysis/" data-toggle="tooltip" data-placement="top" title="Validate Data Model by Studio Analysis">&larr; Previous Post</a>
+              <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-05-21-limit-permissions-of-api-token-to-minimize-risk/" data-toggle="tooltip" data-placement="top" title="Limit permissions of API token to minimize risk">&larr; Previous Post</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-05-07-start-deep-dive-to-machine-learning-and-action-flow/" data-toggle="tooltip" data-placement="top" title="Start Deep Dive to Machine Learning and Action Flow">Next Post &rarr;</a>
-            </li>
           
         </ul>
       

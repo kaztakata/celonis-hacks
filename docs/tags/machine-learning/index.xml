@@ -5,7 +5,17 @@
     <link>https://kaztakata.github.io/celonis-hacks/tags/machine-learning/</link>
     <description>Recent content in Machine Learning on Celonis hacks</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 21 May 2022 09:31:32 +0900</lastBuildDate><atom:link href="https://kaztakata.github.io/celonis-hacks/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 28 May 2022 07:59:48 +0900</lastBuildDate><atom:link href="https://kaztakata.github.io/celonis-hacks/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Observe HTTP request in Pycelonis login script</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2022-05-28-observe-http-request-in-pycelonis-login-script/</link>
+      <pubDate>Sat, 28 May 2022 07:59:48 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2022-05-28-observe-http-request-in-pycelonis-login-script/</guid>
+      <description>I showed how to login to Celonis EMS using Pycelonis in previous posts. Authentication topic I mentioned there is the most annoying when using API, but after mastering this I can transfer this knowledge to another areas easily.
+To master authentication, I would like to show the mechanism of HTTP request in the internet (web) programming. Even I did not know HTTP request well at the beginning of using Celonis, now I got some of basic knowledge and it is enough to use HTTP request.</description>
+    </item>
+    
     <item>
       <title>Limit permissions of API token to minimize risk</title>
       <link>https://kaztakata.github.io/celonis-hacks/posts/2022-05-21-limit-permissions-of-api-token-to-minimize-risk/</link>
