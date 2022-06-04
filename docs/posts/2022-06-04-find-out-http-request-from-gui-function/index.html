@@ -7,9 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Observe HTTP request in Pycelonis login script - Celonis hacks</title>
-  <meta name="description" content="I showed how to login to Celonis EMS using Pycelonis in previous posts. Authentication topic I mentioned there is the most annoying when using API, but after mastering this I can transfer this knowledge to another areas easily.
-To master authentication, I would like to show the mechanism of HTTP request in the internet (web) programming. Even I did not know HTTP request well at the beginning of using Celonis, now I got some of basic knowledge and it is enough to use HTTP request.">
+  <title>Find out HTTP Request from GUI Function - Celonis hacks</title>
+  <meta name="description" content="In the previous post Observe HTTP request in Pycelonis login script, I showed how to observe HTTP request under Pycelonis API. In this observation I found HTTP request requires at least Authorization header and of course URL to reach to resource in Celonis EMS. Also I found that I can manage to investigate which HTTP request is sent when calling Pycelonis class method.
+By the way, not all HTTP requests are implemented in Pycelonis.">
   <meta name="author" content="Kazuhiko Takata"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -45,8 +45,8 @@ To master authentication, I would like to show the mechanism of HTTP request in 
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-05-28-observe-http-request-in-pycelonis-login-script\/",
-          "name": "Observe HTTP request in pycelonis login script"
+          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-06-04-find-out-http-request-from-gui-function\/",
+          "name": "Find out HTTP request from gui function"
         }
     }]
 }
@@ -57,15 +57,15 @@ To master authentication, I would like to show the mechanism of HTTP request in 
   "author": {
     "name" : "Kazuhiko Takata"
   },
-  "headline": "Observe HTTP request in Pycelonis login script",
-  "description" : "I showed how to login to Celonis EMS using Pycelonis in previous posts. Authentication topic I mentioned there is the most annoying when using API, but after mastering this I can transfer this knowledge to another areas easily.\nTo master authentication, I would like to show the mechanism of HTTP request in the internet (web) programming. Even I did not know HTTP request well at the beginning of using Celonis, now I got some of basic knowledge and it is enough to use HTTP request.",
+  "headline": "Find out HTTP Request from GUI Function",
+  "description" : "In the previous post Observe HTTP request in Pycelonis login script, I showed how to observe HTTP request under Pycelonis API. In this observation I found HTTP request requires at least Authorization header and of course URL to reach to resource in Celonis EMS. Also I found that I can manage to investigate which HTTP request is sent when calling Pycelonis class method.\nBy the way, not all HTTP requests are implemented in Pycelonis.",
   "inLanguage" : "en",
-  "wordCount":  543 ,
-  "datePublished" : "2022-05-28T07:59:48",
-  "dateModified" : "2022-05-28T07:59:48",
+  "wordCount":  608 ,
+  "datePublished" : "2022-06-04T09:25:43",
+  "dateModified" : "2022-06-04T09:25:43",
   "image" : "https:\/\/kaztakata.github.io\/celonis-hacks",
-  "keywords" : [ "Machine Learning" ],
-  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-05-28-observe-http-request-in-pycelonis-login-script\/",
+  "keywords" : [ "Machine Learning, Data Integration" ],
+  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-06-04-find-out-http-request-from-gui-function\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/kaztakata.github.io\/celonis-hacks",
@@ -79,15 +79,15 @@ To master authentication, I would like to show the mechanism of HTTP request in 
 }
 </script>
 
-<meta property="og:title" content="Observe HTTP request in Pycelonis login script" />
-<meta property="og:description" content="I showed how to login to Celonis EMS using Pycelonis in previous posts. Authentication topic I mentioned there is the most annoying when using API, but after mastering this I can transfer this knowledge to another areas easily.
-To master authentication, I would like to show the mechanism of HTTP request in the internet (web) programming. Even I did not know HTTP request well at the beginning of using Celonis, now I got some of basic knowledge and it is enough to use HTTP request.">
-<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2022-05-28-observe-http-request-in-pycelonis-login-script/" />
+<meta property="og:title" content="Find out HTTP Request from GUI Function" />
+<meta property="og:description" content="In the previous post Observe HTTP request in Pycelonis login script, I showed how to observe HTTP request under Pycelonis API. In this observation I found HTTP request requires at least Authorization header and of course URL to reach to resource in Celonis EMS. Also I found that I can manage to investigate which HTTP request is sent when calling Pycelonis class method.
+By the way, not all HTTP requests are implemented in Pycelonis.">
+<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2022-06-04-find-out-http-request-from-gui-function/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Celonis hacks" />
 
-  <meta name="twitter:title" content="Observe HTTP request in Pycelonis login script" />
-  <meta name="twitter:description" content="I showed how to login to Celonis EMS using Pycelonis in previous posts. Authentication topic I mentioned there is the most annoying when using API, but after mastering this I can transfer this …">
+  <meta name="twitter:title" content="Find out HTTP Request from GUI Function" />
+  <meta name="twitter:description" content="In the previous post Observe HTTP request in Pycelonis login script, I showed how to observe HTTP request under Pycelonis API. In this observation I found HTTP request requires at least Authorization …">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
@@ -236,7 +236,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="posts-heading">
               
-                <h1>Observe HTTP request in Pycelonis login script</h1>
+                <h1>Find out HTTP Request from GUI Function</h1>
               
               
                 <hr class="small">
@@ -256,9 +256,19 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>I showed how to login to Celonis EMS using Pycelonis in previous posts. Authentication topic I mentioned there is the most annoying when using API, but after mastering this I can transfer this knowledge to another areas easily.</p>
-<p>To master authentication, I would like to show the mechanism of HTTP request in the internet (web) programming. Even I did not know HTTP request well at the beginning of using Celonis, now I got some of basic knowledge and it is enough to use HTTP request.</p>
-<p>Today I will continue using ML notebook and stop at the timing of HTTP request, then show what is passed to Celonis EMS and what is returned. Using below script (modify from <a href="../2022-05-14-login-to-celonis-ems-from-jupyter-workbench">Login to Celonis EMS from Jupyter Workbench</a>) I ran script, so that stop program at <code>pdb.set_trace()</code> point.</p>
+        <p>In the previous post <a href="../2022-05-28-observe-http-request-in-pycelonis-login-script">Observe HTTP request in Pycelonis login script</a>, I showed how to observe HTTP request under Pycelonis API. In this observation I found HTTP request requires at least <code>Authorization</code> header and of course URL to reach to resource in Celonis EMS. Also I found that I can manage to investigate which HTTP request is sent when calling Pycelonis class method.</p>
+<p>By the way, not all HTTP requests are implemented in Pycelonis. And sometimes I would like to use HTTP request that in not in Pycelonis. Even in this situation, if I can find GUI (browser) function, it may be possible to find HTTP request under GUI function.</p>
+<p>Today I would like to show how to observe HTTP request in Celonis GUI (browser) function.</p>
+<p>For example, I am aware about <code>Export</code> button in Data Pool three dots. In Pycelonis <a href="https://celonis.github.io/pycelonis/1.7.0/reference/celonis_api/event_collection/data_pool/#celonis_api.event_collection.data_pool.Pool">Pool Class</a>, there is not such export method. If I can easily call export API, it is convenient to backup Data Pool contents and to integrate with version control system like Git.</p>
+<p>By the way, I will demonstrate in my Google Chrome browser from now on. If you use other browser, you can switch to Google Chrome or find similar function in your browser.</p>
+<p>OK, assuming I click Data &gt; Data Integration in left side menu, and now I am in Data Pool list screen. At that time enter F12 key, or enter Ctrl + Shift + I to open DevTools. If it is first time for you to open it, your screen may be similar to my screen below. This tool show many aspects in this web page, for example web page <code>Elements</code> that is structured HTML file content.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/171999882-0bcd3dc9-85c5-46d8-9b84-a3e6a826d773.png"><img src="https://user-images.githubusercontent.com/67397583/171999882-0bcd3dc9-85c5-46d8-9b84-a3e6a826d773.png" alt="image"></a></p>
+<p>My interest is which HTTP requests are sent in this web page. So I click <code>&gt;&gt;</code> button at right side of <code>Elements</code> and choose <code>Network</code>, then I can see communication between this browser and Celonis EMS including HTTP request.</p>
+<p>After that I clicked three dots and <code>Export</code>. Immediately some of rows are appened in Network tab like below.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/172000308-e27685d3-14f7-4f20-82cb-b3e298acf1a4.png"><img src="https://user-images.githubusercontent.com/67397583/172000308-e27685d3-14f7-4f20-82cb-b3e298acf1a4.png" alt="image"></a></p>
+<p>I should look for HTTP request relevant to Pool Export from Network log. It is lucky that third log is exactly <code>export</code>. I click this log to see detail.</p>
+<p>First I check <code>Headers &gt; General</code> section and I can see <code>Request URL</code> in the first attribute. RequestURL is <code>https://your_email.training.celonis.cloud/integration//api/pools/your_pool_id/export</code> (<code>your_email</code> and <code>your_pool_id</code> are actually my email and Pool ID).</p>
+<p>Using this URL pattern (called endpoint), I think export function can be reproduced in Pycelonis too. I will switch to Machine Learning Workbench, open notebook and run below script.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1">###### import packages</span>
 <span class="kn">import</span> <span class="nn">json</span>
 <span class="kn">from</span> <span class="nn">pycelonis</span> <span class="kn">import</span> <span class="n">get_celonis</span>
@@ -268,56 +278,28 @@ if (!doNotTrack) {
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;/home/jovyan/pycelonis-profiles/user.json&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">credential</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
 
-<span class="c1"># stop program</span>
-<span class="kn">import</span> <span class="nn">pdb</span> 
-<span class="n">pdb</span><span class="o">.</span><span class="n">set_trace</span><span class="p">()</span>
-
 <span class="c1"># login to Celonis EMS</span>
 <span class="n">celonis</span> <span class="o">=</span> <span class="n">get_celonis</span><span class="p">(</span><span class="o">**</span><span class="n">credential</span><span class="p">,</span> <span class="n">key_type</span><span class="o">=</span><span class="n">KeyType</span><span class="o">.</span><span class="n">USER_KEY</span><span class="p">,</span> <span class="n">total_retry</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">permissions</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-</code></pre></div><p><a href="https://user-images.githubusercontent.com/67397583/170803914-b9f06c6a-00b7-44a2-92d6-aa248cf4d02f.png"><img src="https://user-images.githubusercontent.com/67397583/170803914-b9f06c6a-00b7-44a2-92d6-aa248cf4d02f.png" alt="image"></a></p>
-<p>Now it is possible to slowly run script using this debugger. At the input window at the bottom of output, command as below (ignore <code>ipdb&gt;</code> when enter command).</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">ipdb&gt; b pycelonis/celonis_api/celonis.py:626
-Breakpoint 1 at /home/jovyan/.local/lib/python3.8/site-packages/pycelonis/celonis_api/celonis.py:626
-</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">ipdb&gt; c
-...
-&gt; /home/jovyan/.local/lib/python3.8/site-packages/pycelonis/celonis_api/celonis.py(626)api_request()
-    624 
-    625         try:
-1-&gt; 626             response = self._session.request(**kwargs, **extra)
-    627         except ReadTimeout as e:
-    628             raise PyCelonisHTTPError(
-</code></pre></div><p>First command makes new breakpoint to stop program at HTTP request. Second command just go until new breakpoint. After that I am at <code>response = self._session.request(**kwargs, **extra)</code> line, where famous python library <a href="https://requests.readthedocs.io/en/latest/">requests</a> is used to execute HTTP request. Before executing request, I would like to see some of parameters in request. Command as below.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">ipdb&gt;  url
-&#39;https://your_team.your_realm.celonis.cloud/api/cloud&#39;
-</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">ipdb&gt;  self._session.headers
-{&#39;User-Agent&#39;: &#39;pycelonis/1.7.0&#39;, &#39;Accept-Encoding&#39;: &#39;gzip, deflate, br&#39;, &#39;Accept&#39;: &#39;*/*&#39;, &#39;Connection&#39;: &#39;keep-alive&#39;, &#39;authorization&#39;: &#39;Bearer your_api_token&#39;}
-</code></pre></div><p>URL is also called endpoint, to access to resource in Web server. In this case this URL will retun login information. On the other hand header information is attached with URL, especially if authentication is required it is meaningful. Authorization attribute is stored my api_token with <code>Bearer</code> text (<code>AppKey</code> if Application Key is used).</p>
-<p>OK, let&rsquo;s run HTTP requst by command <code>n</code>.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">ipdb&gt; n
-&gt; /home/jovyan/.local/lib/python3.8/site-packages/pycelonis/celonis_api/celonis.py(637)api_request()
-    635             )
-    636 
---&gt; 637         if response.status_code in [401, 403]:
-    638             message = f&#34;You don&#39;t have permission to perform {kwargs[&#39;method&#39;]} -&gt; {url}.&#34;
-    639             if self.permissions:
-</code></pre></div><p>Program is moved to next line, after executing HTTP request. I can see the result in <code>response</code>, in this case <code>response.content</code> returns your account information if authentication is successful.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">ipdb&gt;  response.content
-b&#39;{your_account_information}&#39;
-</code></pre></div><p>Finally command <code>c</code> and run the rest of script to complete.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">ipdb&gt;  c
-[2022-05-28 01:35:00] INFO: Initial connect successful! Hello your_email. PyCelonis Version: 1.7.0
-</code></pre></div><p>In Pycelonis, <code>get_celonis</code> method returns authentication information to <code>celonis</code> object, so after that <code>celonis</code> object can access to another endpoints in various Pycelonis methods. For example after first cell in notebook is completed, input below script. I can stop script same as previous cell.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">celonis</span><span class="o">.</span><span class="n">default_space</span>
-</code></pre></div><p>Then enter command same as below.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">ipdb&gt;  url
-&#39;https://your_team.your_realm.celonis.cloud/package-manager/api/spaces&#39;
-ipdb&gt;  n
-...
-ipdb&gt;  response.content
-b&#39;[{&#34;permissions&#34;:[&#34;CREATE_PACKAGE&#34;,&#34;DELETE_SPACE&#34;,&#34;USE&#34;,&#34;$ACCESS_CHILD&#34;,&#34;CREATE_SPACE&#34;,&#34;DELETE_ALL_PACKAGES&#34;,&#34;USE_ALL_PACKAGES&#34;,&#34;DELETE_PACKAGE&#34;,&#34;EDIT_PACKAGE&#34;,&#34;EDIT_ALL_PACKAGES&#34;,&#34;EDIT_ALL_SPACES&#34;,&#34;MANAGE_PERMISSIONS&#34;,&#34;EDIT_SPACE&#34;,&#34;DELETE_ALL_SPACES&#34;,&#34;USE_PACKAGE&#34;],&#34;id&#34;:&#34;3c895d6e-38c1-4ea7-9451-13ee5c55b67a&#34;,&#34;name&#34;:&#34;Default&#34;,&#34;iconReference&#34;:&#34;earth&#34;,&#34;creationDate&#34;:1624615392821,&#34;changeDate&#34;:1624615392821,&#34;objectId&#34;:&#34;3c895d6e-38c1-4ea7-9451-13ee5c55b67a&#34;}]&#39;
-ipdb&gt;  c
-&lt;Space, id 3c895d6e-38c1-4ea7-9451-13ee5c55b67a, name Default&gt;
-</code></pre></div><p>This is first step to understand HTTP request. Please do it by your hand, it is required for further instruction in my posts.</p>
+
+<span class="c1"># Export Pool</span>
+<span class="n">pool_id</span> <span class="o">=</span> <span class="s1">&#39;3d8a2621-f9c0-456a-9b2d-9bb8c0a9fcd1&#39;</span> <span class="c1"># my Pool ID</span>
+<span class="n">celonis</span><span class="o">.</span><span class="n">api_request</span><span class="p">(</span><span class="n">celonis</span><span class="o">.</span><span class="n">url</span> <span class="o">+</span> <span class="s1">&#39;/integration//api/pools/&#39;</span> <span class="o">+</span> <span class="n">pool_id</span> <span class="o">+</span> <span class="s1">&#39;/export&#39;</span><span class="p">)</span>
+</code></pre></div><p>The output is quite similar to what I exported from GUI.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/172001206-928170e9-0698-4bf7-9202-c5a5e42f2200.png"><img src="https://user-images.githubusercontent.com/67397583/172001206-928170e9-0698-4bf7-9202-c5a5e42f2200.png" alt="image"></a></p>
+<p>I need to explain the last line of Python script. This is what I emulate to send HTTP Request <code>celonis.api_request(celonis.url + '/integration//api/pools/' + pool_id + '/export')</code>.</p>
+<ul>
+<li>
+<p><code>celonis.api_request</code> is the way to send HTTP request using <code>Authorization</code> header that is from <code>get_celonis</code> method (see <a href="../2022-05-28-observe-http-request-in-pycelonis-login-script">Observe HTTP request in Pycelonis login script</a>).</p>
+</li>
+<li>
+<p><code>celonis.url</code> is team URL I am login by API token.</p>
+</li>
+</ul>
+<p>URL string can be shortened using Pycelonis Pool Class.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">pool</span> <span class="o">=</span> <span class="n">celonis</span><span class="o">.</span><span class="n">pools</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;3d8a2621-f9c0-456a-9b2d-9bb8c0a9fcd1&#39;</span><span class="p">)</span>
+<span class="n">celonis</span><span class="o">.</span><span class="n">api_request</span><span class="p">(</span><span class="n">pool</span><span class="o">.</span><span class="n">url</span> <span class="o">+</span> <span class="s1">&#39;/export&#39;</span><span class="p">)</span>
+</code></pre></div><p>This time <code>pool</code> object has its URL in <code>pool.url</code>, so just add &lsquo;/export&rsquo; is enough.</p>
+<p>I believe today&rsquo;s topic is not so difficult. And I am happy if you know that you can extend Pycelonis method to automate some of GUI functions.</p>
 <p>Kaz</p>
 
 
@@ -325,6 +307,8 @@ ipdb&gt;  c
           <div class="blog-tags">
             
               <a href="https://kaztakata.github.io/celonis-hacks/tags/machine-learning/">Machine Learning</a>&nbsp;
+            
+              <a href="https://kaztakata.github.io/celonis-hacks/tags/data-integration/">Data Integration</a>&nbsp;
             
           </div>
         
@@ -339,42 +323,42 @@ ipdb&gt;  c
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-05-28-observe-http-request-in-pycelonis-login-script%2f&amp;text=Observe%20HTTP%20request%20in%20Pycelonis%20login%20script&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-06-04-find-out-http-request-from-gui-function%2f&amp;text=Find%20out%20HTTP%20Request%20from%20GUI%20Function&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-05-28-observe-http-request-in-pycelonis-login-script%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-06-04-find-out-http-request-from-gui-function%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-05-28-observe-http-request-in-pycelonis-login-script%2f&amp;title=Observe%20HTTP%20request%20in%20Pycelonis%20login%20script" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-06-04-find-out-http-request-from-gui-function%2f&amp;title=Find%20out%20HTTP%20Request%20from%20GUI%20Function" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-05-28-observe-http-request-in-pycelonis-login-script%2f&amp;title=Observe%20HTTP%20request%20in%20Pycelonis%20login%20script" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-06-04-find-out-http-request-from-gui-function%2f&amp;title=Find%20out%20HTTP%20Request%20from%20GUI%20Function" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-05-28-observe-http-request-in-pycelonis-login-script%2f&amp;title=Observe%20HTTP%20request%20in%20Pycelonis%20login%20script" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-06-04-find-out-http-request-from-gui-function%2f&amp;title=Find%20out%20HTTP%20Request%20from%20GUI%20Function" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-05-28-observe-http-request-in-pycelonis-login-script%2f&amp;description=Observe%20HTTP%20request%20in%20Pycelonis%20login%20script" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-06-04-find-out-http-request-from-gui-function%2f&amp;description=Find%20out%20HTTP%20Request%20from%20GUI%20Function" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -396,7 +380,7 @@ ipdb&gt;  c
                   <ul>
                 
                 
-                    <li><a href="/celonis-hacks/posts/2022-06-04-find-out-http-request-from-gui-function/">Find out HTTP Request from GUI Function</a></li>
+                    <li><a href="/celonis-hacks/posts/2022-05-28-observe-http-request-in-pycelonis-login-script/">Observe HTTP request in Pycelonis login script</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2022-05-21-limit-permissions-of-api-token-to-minimize-risk/">Limit permissions of API token to minimize risk</a></li>
                 
@@ -416,13 +400,9 @@ ipdb&gt;  c
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-05-21-limit-permissions-of-api-token-to-minimize-risk/" data-toggle="tooltip" data-placement="top" title="Limit permissions of API token to minimize risk">&larr; Previous Post</a>
+              <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-05-28-observe-http-request-in-pycelonis-login-script/" data-toggle="tooltip" data-placement="top" title="Observe HTTP request in Pycelonis login script">&larr; Previous Post</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-06-04-find-out-http-request-from-gui-function/" data-toggle="tooltip" data-placement="top" title="Find out HTTP Request from GUI Function">Next Post &rarr;</a>
-            </li>
           
         </ul>
       

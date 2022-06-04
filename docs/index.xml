@@ -5,7 +5,17 @@
     <link>https://kaztakata.github.io/celonis-hacks/</link>
     <description>Recent content on Celonis hacks</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 28 May 2022 07:59:48 +0900</lastBuildDate><atom:link href="https://kaztakata.github.io/celonis-hacks/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 04 Jun 2022 09:25:43 +0900</lastBuildDate><atom:link href="https://kaztakata.github.io/celonis-hacks/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Find out HTTP Request from GUI Function</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2022-06-04-find-out-http-request-from-gui-function/</link>
+      <pubDate>Sat, 04 Jun 2022 09:25:43 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2022-06-04-find-out-http-request-from-gui-function/</guid>
+      <description>In the previous post Observe HTTP request in Pycelonis login script, I showed how to observe HTTP request under Pycelonis API. In this observation I found HTTP request requires at least Authorization header and of course URL to reach to resource in Celonis EMS. Also I found that I can manage to investigate which HTTP request is sent when calling Pycelonis class method.
+By the way, not all HTTP requests are implemented in Pycelonis.</description>
+    </item>
+    
     <item>
       <title>Observe HTTP request in Pycelonis login script</title>
       <link>https://kaztakata.github.io/celonis-hacks/posts/2022-05-28-observe-http-request-in-pycelonis-login-script/</link>
