@@ -60,7 +60,7 @@ To master authentication, I would like to show the mechanism of HTTP request in 
   "headline": "Observe HTTP request in Pycelonis login script",
   "description" : "I showed how to login to Celonis EMS using Pycelonis in previous posts. Authentication topic I mentioned there is the most annoying when using API, but after mastering this I can transfer this knowledge to another areas easily.\nTo master authentication, I would like to show the mechanism of HTTP request in the internet (web) programming. Even I did not know HTTP request well at the beginning of using Celonis, now I got some of basic knowledge and it is enough to use HTTP request.",
   "inLanguage" : "en",
-  "wordCount":  543 ,
+  "wordCount":  514 ,
   "datePublished" : "2022-05-28T07:59:48",
   "dateModified" : "2022-05-28T07:59:48",
   "image" : "https:\/\/kaztakata.github.io\/celonis-hacks",
@@ -91,7 +91,7 @@ To master authentication, I would like to show the mechanism of HTTP request in 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
-  <meta name="generator" content="Hugo 0.92.2" />
+  <meta name="generator" content="Hugo 0.95.0" />
   <link rel="alternate" href="https://kaztakata.github.io/celonis-hacks/index.xml" type="application/rss+xml" title="Celonis hacks"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://kaztakata.github.io/celonis-hacks/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -259,65 +259,65 @@ if (!doNotTrack) {
         <p>I showed how to login to Celonis EMS using Pycelonis in previous posts. Authentication topic I mentioned there is the most annoying when using API, but after mastering this I can transfer this knowledge to another areas easily.</p>
 <p>To master authentication, I would like to show the mechanism of HTTP request in the internet (web) programming. Even I did not know HTTP request well at the beginning of using Celonis, now I got some of basic knowledge and it is enough to use HTTP request.</p>
 <p>Today I will continue using ML notebook and stop at the timing of HTTP request, then show what is passed to Celonis EMS and what is returned. Using below script (modify from <a href="../2022-05-14-login-to-celonis-ems-from-jupyter-workbench">Login to Celonis EMS from Jupyter Workbench</a>) I ran script, so that stop program at <code>pdb.set_trace()</code> point.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1">###### import packages</span>
-<span class="kn">import</span> <span class="nn">json</span>
-<span class="kn">from</span> <span class="nn">pycelonis</span> <span class="kn">import</span> <span class="n">get_celonis</span>
-<span class="kn">from</span> <span class="nn">pycelonis.celonis_api.utils</span> <span class="kn">import</span> <span class="n">KeyType</span>
-
-<span class="c1"># open credential file</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;/home/jovyan/pycelonis-profiles/user.json&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">credential</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
-
-<span class="c1"># stop program</span>
-<span class="kn">import</span> <span class="nn">pdb</span> 
-<span class="n">pdb</span><span class="o">.</span><span class="n">set_trace</span><span class="p">()</span>
-
-<span class="c1"># login to Celonis EMS</span>
-<span class="n">celonis</span> <span class="o">=</span> <span class="n">get_celonis</span><span class="p">(</span><span class="o">**</span><span class="n">credential</span><span class="p">,</span> <span class="n">key_type</span><span class="o">=</span><span class="n">KeyType</span><span class="o">.</span><span class="n">USER_KEY</span><span class="p">,</span> <span class="n">total_retry</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">permissions</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-</code></pre></div><p><a href="https://user-images.githubusercontent.com/67397583/170803914-b9f06c6a-00b7-44a2-92d6-aa248cf4d02f.png"><img src="https://user-images.githubusercontent.com/67397583/170803914-b9f06c6a-00b7-44a2-92d6-aa248cf4d02f.png" alt="image"></a></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1">###### import packages</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">json</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">pycelonis</span> <span class="kn">import</span> <span class="n">get_celonis</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">pycelonis.celonis_api.utils</span> <span class="kn">import</span> <span class="n">KeyType</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># open credential file</span>
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;/home/jovyan/pycelonis-profiles/user.json&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">credential</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># stop program</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">pdb</span> 
+</span></span><span class="line"><span class="cl"><span class="n">pdb</span><span class="o">.</span><span class="n">set_trace</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># login to Celonis EMS</span>
+</span></span><span class="line"><span class="cl"><span class="n">celonis</span> <span class="o">=</span> <span class="n">get_celonis</span><span class="p">(</span><span class="o">**</span><span class="n">credential</span><span class="p">,</span> <span class="n">key_type</span><span class="o">=</span><span class="n">KeyType</span><span class="o">.</span><span class="n">USER_KEY</span><span class="p">,</span> <span class="n">total_retry</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">permissions</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span></span></code></pre></div><p><a href="https://user-images.githubusercontent.com/67397583/170803914-b9f06c6a-00b7-44a2-92d6-aa248cf4d02f.png"><img src="https://user-images.githubusercontent.com/67397583/170803914-b9f06c6a-00b7-44a2-92d6-aa248cf4d02f.png" alt="image"></a></p>
 <p>Now it is possible to slowly run script using this debugger. At the input window at the bottom of output, command as below (ignore <code>ipdb&gt;</code> when enter command).</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">ipdb&gt; b pycelonis/celonis_api/celonis.py:626
-Breakpoint 1 at /home/jovyan/.local/lib/python3.8/site-packages/pycelonis/celonis_api/celonis.py:626
-</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">ipdb&gt; c
-...
-&gt; /home/jovyan/.local/lib/python3.8/site-packages/pycelonis/celonis_api/celonis.py(626)api_request()
-    624 
-    625         try:
-1-&gt; 626             response = self._session.request(**kwargs, **extra)
-    627         except ReadTimeout as e:
-    628             raise PyCelonisHTTPError(
-</code></pre></div><p>First command makes new breakpoint to stop program at HTTP request. Second command just go until new breakpoint. After that I am at <code>response = self._session.request(**kwargs, **extra)</code> line, where famous python library <a href="https://requests.readthedocs.io/en/latest/">requests</a> is used to execute HTTP request. Before executing request, I would like to see some of parameters in request. Command as below.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">ipdb&gt;  url
-&#39;https://your_team.your_realm.celonis.cloud/api/cloud&#39;
-</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">ipdb&gt;  self._session.headers
-{&#39;User-Agent&#39;: &#39;pycelonis/1.7.0&#39;, &#39;Accept-Encoding&#39;: &#39;gzip, deflate, br&#39;, &#39;Accept&#39;: &#39;*/*&#39;, &#39;Connection&#39;: &#39;keep-alive&#39;, &#39;authorization&#39;: &#39;Bearer your_api_token&#39;}
-</code></pre></div><p>URL is also called endpoint, to access to resource in Web server. In this case this URL will retun login information. On the other hand header information is attached with URL, especially if authentication is required it is meaningful. Authorization attribute is stored my api_token with <code>Bearer</code> text (<code>AppKey</code> if Application Key is used).</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ipdb&gt; b pycelonis/celonis_api/celonis.py:626
+</span></span><span class="line"><span class="cl">Breakpoint 1 at /home/jovyan/.local/lib/python3.8/site-packages/pycelonis/celonis_api/celonis.py:626
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ipdb&gt; c
+</span></span><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl">&gt; /home/jovyan/.local/lib/python3.8/site-packages/pycelonis/celonis_api/celonis.py(626)api_request()
+</span></span><span class="line"><span class="cl">    624 
+</span></span><span class="line"><span class="cl">    625         try:
+</span></span><span class="line"><span class="cl">1-&gt; 626             response = self._session.request(**kwargs, **extra)
+</span></span><span class="line"><span class="cl">    627         except ReadTimeout as e:
+</span></span><span class="line"><span class="cl">    628             raise PyCelonisHTTPError(
+</span></span></code></pre></div><p>First command makes new breakpoint to stop program at HTTP request. Second command just go until new breakpoint. After that I am at <code>response = self._session.request(**kwargs, **extra)</code> line, where famous python library <a href="https://requests.readthedocs.io/en/latest/">requests</a> is used to execute HTTP request. Before executing request, I would like to see some of parameters in request. Command as below.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ipdb&gt;  url
+</span></span><span class="line"><span class="cl">&#39;https://your_team.your_realm.celonis.cloud/api/cloud&#39;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ipdb&gt;  self._session.headers
+</span></span><span class="line"><span class="cl">{&#39;User-Agent&#39;: &#39;pycelonis/1.7.0&#39;, &#39;Accept-Encoding&#39;: &#39;gzip, deflate, br&#39;, &#39;Accept&#39;: &#39;*/*&#39;, &#39;Connection&#39;: &#39;keep-alive&#39;, &#39;authorization&#39;: &#39;Bearer your_api_token&#39;}
+</span></span></code></pre></div><p>URL is also called endpoint, to access to resource in Web server. In this case this URL will retun login information. On the other hand header information is attached with URL, especially if authentication is required it is meaningful. Authorization attribute is stored my api_token with <code>Bearer</code> text (<code>AppKey</code> if Application Key is used).</p>
 <p>OK, let&rsquo;s run HTTP requst by command <code>n</code>.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">ipdb&gt; n
-&gt; /home/jovyan/.local/lib/python3.8/site-packages/pycelonis/celonis_api/celonis.py(637)api_request()
-    635             )
-    636 
---&gt; 637         if response.status_code in [401, 403]:
-    638             message = f&#34;You don&#39;t have permission to perform {kwargs[&#39;method&#39;]} -&gt; {url}.&#34;
-    639             if self.permissions:
-</code></pre></div><p>Program is moved to next line, after executing HTTP request. I can see the result in <code>response</code>, in this case <code>response.content</code> returns your account information if authentication is successful.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">ipdb&gt;  response.content
-b&#39;{your_account_information}&#39;
-</code></pre></div><p>Finally command <code>c</code> and run the rest of script to complete.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">ipdb&gt;  c
-[2022-05-28 01:35:00] INFO: Initial connect successful! Hello your_email. PyCelonis Version: 1.7.0
-</code></pre></div><p>In Pycelonis, <code>get_celonis</code> method returns authentication information to <code>celonis</code> object, so after that <code>celonis</code> object can access to another endpoints in various Pycelonis methods. For example after first cell in notebook is completed, input below script. I can stop script same as previous cell.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">celonis</span><span class="o">.</span><span class="n">default_space</span>
-</code></pre></div><p>Then enter command same as below.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">ipdb&gt;  url
-&#39;https://your_team.your_realm.celonis.cloud/package-manager/api/spaces&#39;
-ipdb&gt;  n
-...
-ipdb&gt;  response.content
-b&#39;[{&#34;permissions&#34;:[&#34;CREATE_PACKAGE&#34;,&#34;DELETE_SPACE&#34;,&#34;USE&#34;,&#34;$ACCESS_CHILD&#34;,&#34;CREATE_SPACE&#34;,&#34;DELETE_ALL_PACKAGES&#34;,&#34;USE_ALL_PACKAGES&#34;,&#34;DELETE_PACKAGE&#34;,&#34;EDIT_PACKAGE&#34;,&#34;EDIT_ALL_PACKAGES&#34;,&#34;EDIT_ALL_SPACES&#34;,&#34;MANAGE_PERMISSIONS&#34;,&#34;EDIT_SPACE&#34;,&#34;DELETE_ALL_SPACES&#34;,&#34;USE_PACKAGE&#34;],&#34;id&#34;:&#34;3c895d6e-38c1-4ea7-9451-13ee5c55b67a&#34;,&#34;name&#34;:&#34;Default&#34;,&#34;iconReference&#34;:&#34;earth&#34;,&#34;creationDate&#34;:1624615392821,&#34;changeDate&#34;:1624615392821,&#34;objectId&#34;:&#34;3c895d6e-38c1-4ea7-9451-13ee5c55b67a&#34;}]&#39;
-ipdb&gt;  c
-&lt;Space, id 3c895d6e-38c1-4ea7-9451-13ee5c55b67a, name Default&gt;
-</code></pre></div><p>This is first step to understand HTTP request. Please do it by your hand, it is required for further instruction in my posts.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zed" data-lang="zed"><span class="line"><span class="cl"><span class="n">ipdb</span><span class="o">&gt;</span><span class="w"> </span><span class="n">n</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="nn">home/jovyan/</span><span class="p">.</span><span class="nn">local/lib/</span><span class="n">python3</span><span class="p">.</span><span class="err">8</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="nn">packages/pycelonis/celonis_api/</span><span class="n">celonis</span><span class="p">.</span><span class="n">py</span><span class="p">(</span><span class="err">637</span><span class="p">)</span><span class="n">api_request</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="err">635</span><span class="w">             </span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="err">636</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">--&gt;</span><span class="w"> </span><span class="err">637</span><span class="w">         </span><span class="n">if</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="n">status_code</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="p">[</span><span class="err">401</span><span class="p">,</span><span class="w"> </span><span class="err">403</span><span class="p">]</span><span class="o">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="err">638</span><span class="w">             </span><span class="n">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="err">&#34;</span><span class="n">You</span><span class="w"> </span><span class="n">don</span><span class="err">&#39;</span><span class="n">t</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="kd">permission</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">perform</span><span class="w"> </span><span class="p">{</span><span class="n">kwargs</span><span class="p">[</span><span class="err">&#39;</span><span class="n">method</span><span class="err">&#39;</span><span class="p">]}</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="n">url</span><span class="p">}.</span><span class="err">&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="err">639</span><span class="w">             </span><span class="n">if</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">permissions</span><span class="o">:</span><span class="w">
+</span></span></span></code></pre></div><p>Program is moved to next line, after executing HTTP request. I can see the result in <code>response</code>, in this case <code>response.content</code> returns your account information if authentication is successful.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ipdb&gt;  response.content
+</span></span><span class="line"><span class="cl">b&#39;{your_account_information}&#39;
+</span></span></code></pre></div><p>Finally command <code>c</code> and run the rest of script to complete.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ipdb&gt;  c
+</span></span><span class="line"><span class="cl">[2022-05-28 01:35:00] INFO: Initial connect successful! Hello your_email. PyCelonis Version: 1.7.0
+</span></span></code></pre></div><p>In Pycelonis, <code>get_celonis</code> method returns authentication information to <code>celonis</code> object, so after that <code>celonis</code> object can access to another endpoints in various Pycelonis methods. For example after first cell in notebook is completed, input below script. I can stop script same as previous cell.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">celonis</span><span class="o">.</span><span class="n">default_space</span>
+</span></span></code></pre></div><p>Then enter command same as below.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ipdb&gt;  url
+</span></span><span class="line"><span class="cl">&#39;https://your_team.your_realm.celonis.cloud/package-manager/api/spaces&#39;
+</span></span><span class="line"><span class="cl">ipdb&gt;  n
+</span></span><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl">ipdb&gt;  response.content
+</span></span><span class="line"><span class="cl">b&#39;[{&#34;permissions&#34;:[&#34;CREATE_PACKAGE&#34;,&#34;DELETE_SPACE&#34;,&#34;USE&#34;,&#34;$ACCESS_CHILD&#34;,&#34;CREATE_SPACE&#34;,&#34;DELETE_ALL_PACKAGES&#34;,&#34;USE_ALL_PACKAGES&#34;,&#34;DELETE_PACKAGE&#34;,&#34;EDIT_PACKAGE&#34;,&#34;EDIT_ALL_PACKAGES&#34;,&#34;EDIT_ALL_SPACES&#34;,&#34;MANAGE_PERMISSIONS&#34;,&#34;EDIT_SPACE&#34;,&#34;DELETE_ALL_SPACES&#34;,&#34;USE_PACKAGE&#34;],&#34;id&#34;:&#34;3c895d6e-38c1-4ea7-9451-13ee5c55b67a&#34;,&#34;name&#34;:&#34;Default&#34;,&#34;iconReference&#34;:&#34;earth&#34;,&#34;creationDate&#34;:1624615392821,&#34;changeDate&#34;:1624615392821,&#34;objectId&#34;:&#34;3c895d6e-38c1-4ea7-9451-13ee5c55b67a&#34;}]&#39;
+</span></span><span class="line"><span class="cl">ipdb&gt;  c
+</span></span><span class="line"><span class="cl">&lt;Space, id 3c895d6e-38c1-4ea7-9451-13ee5c55b67a, name Default&gt;
+</span></span></code></pre></div><p>This is first step to understand HTTP request. Please do it by your hand, it is required for further instruction in my posts.</p>
 <p>Kaz</p>
 
 
@@ -498,7 +498,7 @@ ipdb&gt;  c
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.92.2</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.95.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

@@ -91,7 +91,7 @@ First step is to enter localhost:5050 to my browser, then at the login screen en
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
-  <meta name="generator" content="Hugo 0.92.2" />
+  <meta name="generator" content="Hugo 0.95.0" />
   <link rel="alternate" href="https://kaztakata.github.io/celonis-hacks/index.xml" type="application/rss+xml" title="Celonis hacks"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://kaztakata.github.io/celonis-hacks/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -264,16 +264,16 @@ if (!doNotTrack) {
 <p><a href="https://user-images.githubusercontent.com/67397583/144696601-b2585927-f89b-4e65-8f4f-810ed2b1026e.png"><img src="https://user-images.githubusercontent.com/67397583/144696601-b2585927-f89b-4e65-8f4f-810ed2b1026e.png" alt="image"></a></p>
 <p>Now I am ready for inserting new record. Let&rsquo;s enter <code>INSERT INTO app_users (firstname, lastname) VALUES ('Celonis','Hacks');</code> then execute SQL. To confirm new record, enter <code>SELECT * FROM app_users ORDER BY id DESC LIMIT 5;</code> then I can see new id <code>154822</code> at first row.</p>
 <p>Finally I will go to Celonis to execute extraction job with Delta Load option, then only new record is extracted from Postgres as I expected. Below is the job logs.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">2021-12-04 13:34:47 Extraction successful
-2021-12-04 13:34:46 Table app_users loaded ..
-2021-12-04 13:34:24 Inserting extracted data into the Data Pool (this may take a while)
-2021-12-04 13:34:24 Starting load app_users to target ...
-2021-12-04 13:34:24 Uploading result files
-2021-12-04 13:34:23 Total 1 records loaded for table app_users
-2021-12-04 13:34:23 Loading 1 records for table app_users. Total extracted records 1
-2021-12-04 13:34:23 Setting filter to: id &gt; 154821
-2021-12-04 13:34:22 Starting extraction for resource: app_users
-</code></pre></div><p>To confirm new record I executed <code>SELECT</code> statement in Celonis transformation as below screen. The difference between Postgres and Celonis is the last column <code>_CELONIS_CHANGE_DATE</code>, that is UTC timestamp when this record is cloned (extracted) to Celonis (not relevant to when this record is inserted in Postgres). <code>_CELONIS_CHANGE_DATE</code> column is automatically generated at extraction timing.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">2021-12-04 13:34:47 Extraction successful
+</span></span><span class="line"><span class="cl">2021-12-04 13:34:46 Table app_users loaded ..
+</span></span><span class="line"><span class="cl">2021-12-04 13:34:24 Inserting extracted data into the Data Pool (this may take a while)
+</span></span><span class="line"><span class="cl">2021-12-04 13:34:24 Starting load app_users to target ...
+</span></span><span class="line"><span class="cl">2021-12-04 13:34:24 Uploading result files
+</span></span><span class="line"><span class="cl">2021-12-04 13:34:23 Total 1 records loaded for table app_users
+</span></span><span class="line"><span class="cl">2021-12-04 13:34:23 Loading 1 records for table app_users. Total extracted records 1
+</span></span><span class="line"><span class="cl">2021-12-04 13:34:23 Setting filter to: id &gt; 154821
+</span></span><span class="line"><span class="cl">2021-12-04 13:34:22 Starting extraction for resource: app_users
+</span></span></code></pre></div><p>To confirm new record I executed <code>SELECT</code> statement in Celonis transformation as below screen. The difference between Postgres and Celonis is the last column <code>_CELONIS_CHANGE_DATE</code>, that is UTC timestamp when this record is cloned (extracted) to Celonis (not relevant to when this record is inserted in Postgres). <code>_CELONIS_CHANGE_DATE</code> column is automatically generated at extraction timing.</p>
 <p><a href="https://user-images.githubusercontent.com/67397583/144697298-d3924858-3498-4a1c-a5d4-6c1f827e999e.png"><img src="https://user-images.githubusercontent.com/67397583/144697298-d3924858-3498-4a1c-a5d4-6c1f827e999e.png" alt="image"></a></p>
 <p>In real situation, not only inserting record but updating and deleting record should be considered. If there is some sorting column to use for updating scenario (e.g. last updated timestamp column) it is possible to use Delta Load. Only Full Load is available to synchronize table contents if not such a update column or if record is deleted.</p>
 <p>One more case to consider for extraction is adding or deleting table column. This topic is discussed next week.</p>
@@ -465,7 +465,7 @@ if (!doNotTrack) {
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.92.2</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.95.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

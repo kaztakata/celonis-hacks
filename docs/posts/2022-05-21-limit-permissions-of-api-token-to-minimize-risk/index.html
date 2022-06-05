@@ -89,7 +89,7 @@
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
-  <meta name="generator" content="Hugo 0.92.2" />
+  <meta name="generator" content="Hugo 0.95.0" />
   <link rel="alternate" href="https://kaztakata.github.io/celonis-hacks/index.xml" type="application/rss+xml" title="Celonis hacks"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://kaztakata.github.io/celonis-hacks/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -273,27 +273,27 @@ if (!doNotTrack) {
 <li>when calling <code>get_celonis</code>, second argument key_type is changed to <code>KeyType.APP_KEY</code> to use Application key.</li>
 </ul>
 <p>If working correctly, output log is like below.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="p">[</span><span class="mi">2022</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">21</span> <span class="mi">01</span><span class="p">:</span><span class="mi">42</span><span class="p">:</span><span class="mi">09</span><span class="p">]</span> <span class="n">INFO</span><span class="p">:</span> <span class="n">Initial</span> <span class="n">connect</span> <span class="n">successful</span><span class="err">!</span> <span class="n">You</span> <span class="n">are</span> <span class="n">using</span> <span class="n">an</span> <span class="n">Application</span> <span class="n">Key</span><span class="o">.</span> <span class="n">PyCelonis</span> <span class="n">Version</span><span class="p">:</span> <span class="mf">1.7.0</span>
-<span class="p">[</span><span class="mi">2022</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">21</span> <span class="mi">01</span><span class="p">:</span><span class="mi">42</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span> <span class="n">INFO</span><span class="p">:</span> <span class="n">Your</span> <span class="n">key</span> <span class="n">has</span> <span class="n">following</span> <span class="n">permissions</span><span class="p">:</span>
-<span class="p">[</span>
-    <span class="p">{</span>
-        <span class="s2">&#34;permissions&#34;</span><span class="p">:</span> <span class="p">[],</span>
-        <span class="s2">&#34;serviceName&#34;</span><span class="p">:</span> <span class="s2">&#34;package-manager&#34;</span>
-    <span class="p">},</span>
-    <span class="o">...</span>
-    <span class="p">{</span>
-        <span class="s2">&#34;permissions&#34;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="s2">&#34;USE_ALL_DATA_MODELS&#34;</span><span class="p">,</span>
-            <span class="s2">&#34;EDIT_ALL_DATA_POOLS&#34;</span>
-        <span class="p">],</span>
-        <span class="s2">&#34;serviceName&#34;</span><span class="p">:</span> <span class="s2">&#34;event-collection&#34;</span>
-    <span class="p">},</span>
-    <span class="o">...</span>
-<span class="p">]</span>
-</code></pre></div><p>And I can confirm I cannot access to packages by <code>celonis.default_space.packages</code> like last post.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="o">...</span>
-<span class="n">PyCelonisNotFoundError</span><span class="p">:</span> <span class="n">No</span> <span class="n">result</span> <span class="n">found</span> <span class="k">for</span> <span class="n">Default</span><span class="o">.</span>
-</code></pre></div><p>To minimize risk of unauthorized access, I recommend to understand today&rsquo;s topic well. By the way, as test purpose I do not want to raise error every time for explaining functions, so I use full permissions to my API token in this blog posts after that.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="p">[</span><span class="mi">2022</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">21</span> <span class="mi">01</span><span class="p">:</span><span class="mi">42</span><span class="p">:</span><span class="mi">09</span><span class="p">]</span> <span class="n">INFO</span><span class="p">:</span> <span class="n">Initial</span> <span class="n">connect</span> <span class="n">successful</span><span class="err">!</span> <span class="n">You</span> <span class="n">are</span> <span class="n">using</span> <span class="n">an</span> <span class="n">Application</span> <span class="n">Key</span><span class="o">.</span> <span class="n">PyCelonis</span> <span class="n">Version</span><span class="p">:</span> <span class="mf">1.7.0</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="mi">2022</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">21</span> <span class="mi">01</span><span class="p">:</span><span class="mi">42</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span> <span class="n">INFO</span><span class="p">:</span> <span class="n">Your</span> <span class="n">key</span> <span class="n">has</span> <span class="n">following</span> <span class="n">permissions</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;permissions&#34;</span><span class="p">:</span> <span class="p">[],</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;serviceName&#34;</span><span class="p">:</span> <span class="s2">&#34;package-manager&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;permissions&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;USE_ALL_DATA_MODELS&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;EDIT_ALL_DATA_POOLS&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;serviceName&#34;</span><span class="p">:</span> <span class="s2">&#34;event-collection&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>
+</span></span><span class="line"><span class="cl"><span class="p">]</span>
+</span></span></code></pre></div><p>And I can confirm I cannot access to packages by <code>celonis.default_space.packages</code> like last post.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">...</span>
+</span></span><span class="line"><span class="cl"><span class="n">PyCelonisNotFoundError</span><span class="p">:</span> <span class="n">No</span> <span class="n">result</span> <span class="n">found</span> <span class="k">for</span> <span class="n">Default</span><span class="o">.</span>
+</span></span></code></pre></div><p>To minimize risk of unauthorized access, I recommend to understand today&rsquo;s topic well. By the way, as test purpose I do not want to raise error every time for explaining functions, so I use full permissions to my API token in this blog posts after that.</p>
 <p>Kaz</p>
 
 
@@ -476,7 +476,7 @@ if (!doNotTrack) {
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.92.2</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.95.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

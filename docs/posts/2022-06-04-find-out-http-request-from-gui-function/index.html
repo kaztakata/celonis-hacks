@@ -91,7 +91,7 @@ By the way, not all HTTP requests are implemented in Pycelonis.">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
-  <meta name="generator" content="Hugo 0.92.2" />
+  <meta name="generator" content="Hugo 0.95.0" />
   <link rel="alternate" href="https://kaztakata.github.io/celonis-hacks/index.xml" type="application/rss+xml" title="Celonis hacks"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://kaztakata.github.io/celonis-hacks/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -269,22 +269,22 @@ if (!doNotTrack) {
 <p>I should look for HTTP request relevant to Pool Export from Network log. It is lucky that third log is exactly <code>export</code>. I click this log to see detail.</p>
 <p>First I check <code>Headers &gt; General</code> section and I can see <code>Request URL</code> in the first attribute. RequestURL is <code>https://your_email.training.celonis.cloud/integration//api/pools/your_pool_id/export</code> (<code>your_email</code> and <code>your_pool_id</code> are actually my email and Pool ID).</p>
 <p>Using this URL pattern (called endpoint), I think export function can be reproduced in Pycelonis too. I will switch to Machine Learning Workbench, open notebook and run below script.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1">###### import packages</span>
-<span class="kn">import</span> <span class="nn">json</span>
-<span class="kn">from</span> <span class="nn">pycelonis</span> <span class="kn">import</span> <span class="n">get_celonis</span>
-<span class="kn">from</span> <span class="nn">pycelonis.celonis_api.utils</span> <span class="kn">import</span> <span class="n">KeyType</span>
-
-<span class="c1"># open credential file</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;/home/jovyan/pycelonis-profiles/user.json&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">credential</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
-
-<span class="c1"># login to Celonis EMS</span>
-<span class="n">celonis</span> <span class="o">=</span> <span class="n">get_celonis</span><span class="p">(</span><span class="o">**</span><span class="n">credential</span><span class="p">,</span> <span class="n">key_type</span><span class="o">=</span><span class="n">KeyType</span><span class="o">.</span><span class="n">USER_KEY</span><span class="p">,</span> <span class="n">total_retry</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">permissions</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-
-<span class="c1"># Export Pool</span>
-<span class="n">pool_id</span> <span class="o">=</span> <span class="s1">&#39;3d8a2621-f9c0-456a-9b2d-9bb8c0a9fcd1&#39;</span> <span class="c1"># my Pool ID</span>
-<span class="n">celonis</span><span class="o">.</span><span class="n">api_request</span><span class="p">(</span><span class="n">celonis</span><span class="o">.</span><span class="n">url</span> <span class="o">+</span> <span class="s1">&#39;/integration//api/pools/&#39;</span> <span class="o">+</span> <span class="n">pool_id</span> <span class="o">+</span> <span class="s1">&#39;/export&#39;</span><span class="p">)</span>
-</code></pre></div><p>The output is quite similar to what I exported from GUI.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1">###### import packages</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">json</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">pycelonis</span> <span class="kn">import</span> <span class="n">get_celonis</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">pycelonis.celonis_api.utils</span> <span class="kn">import</span> <span class="n">KeyType</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># open credential file</span>
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;/home/jovyan/pycelonis-profiles/user.json&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">credential</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># login to Celonis EMS</span>
+</span></span><span class="line"><span class="cl"><span class="n">celonis</span> <span class="o">=</span> <span class="n">get_celonis</span><span class="p">(</span><span class="o">**</span><span class="n">credential</span><span class="p">,</span> <span class="n">key_type</span><span class="o">=</span><span class="n">KeyType</span><span class="o">.</span><span class="n">USER_KEY</span><span class="p">,</span> <span class="n">total_retry</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">permissions</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Export Pool</span>
+</span></span><span class="line"><span class="cl"><span class="n">pool_id</span> <span class="o">=</span> <span class="s1">&#39;3d8a2621-f9c0-456a-9b2d-9bb8c0a9fcd1&#39;</span> <span class="c1"># my Pool ID</span>
+</span></span><span class="line"><span class="cl"><span class="n">celonis</span><span class="o">.</span><span class="n">api_request</span><span class="p">(</span><span class="n">celonis</span><span class="o">.</span><span class="n">url</span> <span class="o">+</span> <span class="s1">&#39;/integration//api/pools/&#39;</span> <span class="o">+</span> <span class="n">pool_id</span> <span class="o">+</span> <span class="s1">&#39;/export&#39;</span><span class="p">)</span>
+</span></span></code></pre></div><p>The output is quite similar to what I exported from GUI.</p>
 <p><a href="https://user-images.githubusercontent.com/67397583/172001206-928170e9-0698-4bf7-9202-c5a5e42f2200.png"><img src="https://user-images.githubusercontent.com/67397583/172001206-928170e9-0698-4bf7-9202-c5a5e42f2200.png" alt="image"></a></p>
 <p>I need to explain the last line of Python script. This is what I emulate to send HTTP Request <code>celonis.api_request(celonis.url + '/integration//api/pools/' + pool_id + '/export')</code>.</p>
 <ul>
@@ -296,9 +296,9 @@ if (!doNotTrack) {
 </li>
 </ul>
 <p>URL string can be shortened using Pycelonis Pool Class.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">pool</span> <span class="o">=</span> <span class="n">celonis</span><span class="o">.</span><span class="n">pools</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;3d8a2621-f9c0-456a-9b2d-9bb8c0a9fcd1&#39;</span><span class="p">)</span>
-<span class="n">celonis</span><span class="o">.</span><span class="n">api_request</span><span class="p">(</span><span class="n">pool</span><span class="o">.</span><span class="n">url</span> <span class="o">+</span> <span class="s1">&#39;/export&#39;</span><span class="p">)</span>
-</code></pre></div><p>This time <code>pool</code> object has its URL in <code>pool.url</code>, so just add &lsquo;/export&rsquo; is enough.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">pool</span> <span class="o">=</span> <span class="n">celonis</span><span class="o">.</span><span class="n">pools</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;3d8a2621-f9c0-456a-9b2d-9bb8c0a9fcd1&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">celonis</span><span class="o">.</span><span class="n">api_request</span><span class="p">(</span><span class="n">pool</span><span class="o">.</span><span class="n">url</span> <span class="o">+</span> <span class="s1">&#39;/export&#39;</span><span class="p">)</span>
+</span></span></code></pre></div><p>This time <code>pool</code> object has its URL in <code>pool.url</code>, so just add &lsquo;/export&rsquo; is enough.</p>
 <p>I believe today&rsquo;s topic is not so difficult. And I am happy if you know that you can extend Pycelonis method to automate some of GUI functions.</p>
 <p>Kaz</p>
 
@@ -478,7 +478,7 @@ if (!doNotTrack) {
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.92.2</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.95.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

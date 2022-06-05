@@ -92,7 +92,7 @@ I will start from …">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
-  <meta name="generator" content="Hugo 0.92.2" />
+  <meta name="generator" content="Hugo 0.95.0" />
   <link rel="alternate" href="https://kaztakata.github.io/celonis-hacks/index.xml" type="application/rss+xml" title="Celonis hacks"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://kaztakata.github.io/celonis-hacks/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -261,51 +261,51 @@ if (!doNotTrack) {
 <p>I will start from changing OLAP table to hide <code>USER_TYPE</code> and <code>ACTIVITY_EN</code> for calculating KPIs grouped by customer master. And I filtered by customer <code>K1</code> as previous post. Finally I added SUM function to both <code>Rework Time</code> and <code>Reminder Time</code>. Below is the current result, calculation result is still incorrect.</p>
 <p><a href="https://user-images.githubusercontent.com/67397583/121765300-d08daf00-cb84-11eb-8f27-4c7316cd74c6.png"><img src="https://user-images.githubusercontent.com/67397583/121765300-d08daf00-cb84-11eb-8f27-4c7316cd74c6.png" alt="image"></a></p>
 <p>Next I will modify OLAP table to recalculate <code>Reminder Time</code> correctly. As explained in previous post, current value <code>19,660 min</code> is decomposed to <code>(10 min as customer K1) x (1,966 Activity record assigned to customer K1)</code>. If I would like to get <code>10 min</code>, I need to divide summed value by <code>1,996</code>, count of activity. Activity count is calculated by <code>COUNT_TABLE(_CEL_O2C_ACTIVITIES)</code>, so correctly counted PQL is below.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">SUM(
-    CASE
-        WHEN PU_COUNT(
-            KNA1,
-            _CEL_O2C_ACTIVITIES.ACTIVITY_EN,
-            _CEL_O2C_ACTIVITIES.ACTIVITY_EN = &#39;Send 1st Payment Reminder&#39;
-        ) &gt; 0 THEN 10
-        ELSE 0
-    END
-) / COUNT_TABLE(_CEL_O2C_ACTIVITIES) -- Activity count per customer
-</code></pre></div><p>Appling above PQL to OLAP table then the result <code>10 min</code> is correct.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">SUM(
+</span></span><span class="line"><span class="cl">    CASE
+</span></span><span class="line"><span class="cl">        WHEN PU_COUNT(
+</span></span><span class="line"><span class="cl">            KNA1,
+</span></span><span class="line"><span class="cl">            _CEL_O2C_ACTIVITIES.ACTIVITY_EN,
+</span></span><span class="line"><span class="cl">            _CEL_O2C_ACTIVITIES.ACTIVITY_EN = &#39;Send 1st Payment Reminder&#39;
+</span></span><span class="line"><span class="cl">        ) &gt; 0 THEN 10
+</span></span><span class="line"><span class="cl">        ELSE 0
+</span></span><span class="line"><span class="cl">    END
+</span></span><span class="line"><span class="cl">) / COUNT_TABLE(_CEL_O2C_ACTIVITIES) -- Activity count per customer
+</span></span></code></pre></div><p>Appling above PQL to OLAP table then the result <code>10 min</code> is correct.</p>
 <p><a href="https://user-images.githubusercontent.com/67397583/121765924-5c093f00-cb89-11eb-9072-4a0b3e9eceb4.png"><img src="https://user-images.githubusercontent.com/67397583/121765924-5c093f00-cb89-11eb-9072-4a0b3e9eceb4.png" alt="image"></a></p>
 <p>Next I would like to modify <code>Total Estimated Time</code>, single KPI value to sum up all customer&rsquo;s result. Unfortunately just copying PQL of OLAP table as below is not working, especially when clearing filter and calculate all customer&rsquo;s value. The reason is both Reminder time and activity count are independently summed up among all customers, then Reminder time of all customers are divided by activity count of all customers.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">SUM(
-    CASE
-        WHEN _CEL_O2C_ACTIVITIES.USER_TYPE = &#39;A&#39; AND _CEL_O2C_ACTIVITIES.ACTIVITY_EN LIKE &#39;Change %&#39; THEN 1
-        ELSE 0
-    END
-) + SUM(                                -- Sum up Reminder time of all customers
-    CASE
-        WHEN PU_COUNT(
-            KNA1,
-            _CEL_O2C_ACTIVITIES.ACTIVITY_EN,
-            _CEL_O2C_ACTIVITIES.ACTIVITY_EN = &#39;Send 1st Payment Reminder&#39;
-        ) &gt; 0 THEN 10
-        ELSE 0
-    END
-) / COUNT_TABLE(_CEL_O2C_ACTIVITIES)    -- Activity count of all customers
-</code></pre></div><p>The solution is actually quite simple, I will introduce <code>GLOBAL</code> for calculating Riminder time like below. This funciton is getting one global aggregation result, so it is not affected from other part of PQL. In below case, customer level calculation can be processed by passing <code>SUM</code> function result to <code>GLOBAL</code>.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">SUM(
-    CASE
-        WHEN _CEL_O2C_ACTIVITIES.USER_TYPE = &#39;A&#39; AND _CEL_O2C_ACTIVITIES.ACTIVITY_EN LIKE &#39;Change %&#39; THEN 1
-        ELSE 0
-    END
-) + GLOBAL(SUM(   -- GLOBAL calculates an aggregation function independently as one group.
-    CASE
-        WHEN PU_COUNT(
-            KNA1,
-            _CEL_O2C_ACTIVITIES.ACTIVITY_EN,
-            _CEL_O2C_ACTIVITIES.ACTIVITY_EN = &#39;Send 1st Payment Reminder&#39;
-        ) &gt; 0 THEN 10
-        ELSE 0
-    END
-))
-</code></pre></div><p>Screenshot below is applying above PQL and getting Total Estimated Time <code>214,798 min</code> correctly.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">SUM(
+</span></span><span class="line"><span class="cl">    CASE
+</span></span><span class="line"><span class="cl">        WHEN _CEL_O2C_ACTIVITIES.USER_TYPE = &#39;A&#39; AND _CEL_O2C_ACTIVITIES.ACTIVITY_EN LIKE &#39;Change %&#39; THEN 1
+</span></span><span class="line"><span class="cl">        ELSE 0
+</span></span><span class="line"><span class="cl">    END
+</span></span><span class="line"><span class="cl">) + SUM(                                -- Sum up Reminder time of all customers
+</span></span><span class="line"><span class="cl">    CASE
+</span></span><span class="line"><span class="cl">        WHEN PU_COUNT(
+</span></span><span class="line"><span class="cl">            KNA1,
+</span></span><span class="line"><span class="cl">            _CEL_O2C_ACTIVITIES.ACTIVITY_EN,
+</span></span><span class="line"><span class="cl">            _CEL_O2C_ACTIVITIES.ACTIVITY_EN = &#39;Send 1st Payment Reminder&#39;
+</span></span><span class="line"><span class="cl">        ) &gt; 0 THEN 10
+</span></span><span class="line"><span class="cl">        ELSE 0
+</span></span><span class="line"><span class="cl">    END
+</span></span><span class="line"><span class="cl">) / COUNT_TABLE(_CEL_O2C_ACTIVITIES)    -- Activity count of all customers
+</span></span></code></pre></div><p>The solution is actually quite simple, I will introduce <code>GLOBAL</code> for calculating Riminder time like below. This funciton is getting one global aggregation result, so it is not affected from other part of PQL. In below case, customer level calculation can be processed by passing <code>SUM</code> function result to <code>GLOBAL</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">SUM(
+</span></span><span class="line"><span class="cl">    CASE
+</span></span><span class="line"><span class="cl">        WHEN _CEL_O2C_ACTIVITIES.USER_TYPE = &#39;A&#39; AND _CEL_O2C_ACTIVITIES.ACTIVITY_EN LIKE &#39;Change %&#39; THEN 1
+</span></span><span class="line"><span class="cl">        ELSE 0
+</span></span><span class="line"><span class="cl">    END
+</span></span><span class="line"><span class="cl">) + GLOBAL(SUM(   -- GLOBAL calculates an aggregation function independently as one group.
+</span></span><span class="line"><span class="cl">    CASE
+</span></span><span class="line"><span class="cl">        WHEN PU_COUNT(
+</span></span><span class="line"><span class="cl">            KNA1,
+</span></span><span class="line"><span class="cl">            _CEL_O2C_ACTIVITIES.ACTIVITY_EN,
+</span></span><span class="line"><span class="cl">            _CEL_O2C_ACTIVITIES.ACTIVITY_EN = &#39;Send 1st Payment Reminder&#39;
+</span></span><span class="line"><span class="cl">        ) &gt; 0 THEN 10
+</span></span><span class="line"><span class="cl">        ELSE 0
+</span></span><span class="line"><span class="cl">    END
+</span></span><span class="line"><span class="cl">))
+</span></span></code></pre></div><p>Screenshot below is applying above PQL and getting Total Estimated Time <code>214,798 min</code> correctly.</p>
 <p><a href="https://user-images.githubusercontent.com/67397583/121766598-169b4080-cb8e-11eb-8931-bf739fb08b28.png"><img src="https://user-images.githubusercontent.com/67397583/121766598-169b4080-cb8e-11eb-8931-bf739fb08b28.png" alt="image"></a></p>
 <p>Kaz</p>
 <hr>
@@ -496,7 +496,7 @@ if (!doNotTrack) {
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.92.2</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.95.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

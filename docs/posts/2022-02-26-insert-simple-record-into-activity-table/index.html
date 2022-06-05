@@ -92,7 +92,7 @@ From now I would like …">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
-  <meta name="generator" content="Hugo 0.92.2" />
+  <meta name="generator" content="Hugo 0.95.0" />
   <link rel="alternate" href="https://kaztakata.github.io/celonis-hacks/index.xml" type="application/rss+xml" title="Celonis hacks"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://kaztakata.github.io/celonis-hacks/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -260,45 +260,45 @@ if (!doNotTrack) {
         <p>In the last post of <a href="../2022-02-19-determine-process-mining-tables-based-on-project-goal">Determine Process Mining Tables based on Project Goal</a>, I talked strategy of transforming Planio data to event log. Then I wrote SQL to create activity table.</p>
 <p>From now I would like to insert activity record to that table. Based on the discussion of last post, at least I need two activities <code>Raise Issue</code> and <code>Close Issue</code> to measure throughput time between them. That is the next step to achieve my goal.</p>
 <p>First, <code>Raise Issue</code> activity is happened when Planio issue record is created. As I already looked at <a href="../2022-01-22-configure-endpoint-for-suitable-extraction">Configure Endpoint for Suitable Extraction</a>, when new issue record is created, it is transferred to <code>issues</code> table in Celonis EMS. I can see <code>created_on</code> column as <code>EVENTTIME</code> and <code>author$id</code> column as <code>changed_by</code> in issue table, and of course <code>issues</code> table has its primary key column <code>id</code>, it is enough to use only <code>issues</code> table to create <code>Raise Issue</code> activity. Simply I can write draft SQL as below.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- draft --
-</span><span class="c1"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">_cel_pl_activities</span><span class="w"> </span><span class="p">(</span><span class="w">
-</span><span class="w">     </span><span class="n">_CASE_KEY</span><span class="w">
-</span><span class="w">    </span><span class="p">,</span><span class="n">ACTIVITY_EN</span><span class="w">
-</span><span class="w">    </span><span class="p">,</span><span class="n">EVENTTIME</span><span class="w">
-</span><span class="w">    </span><span class="p">,</span><span class="n">changed_by</span><span class="w">
-</span><span class="w"></span><span class="p">)</span><span class="w">
-</span><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="k">DISTINCT</span><span class="w">
-</span><span class="w">     </span><span class="n">id</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">_CASE_KEY</span><span class="w">
-</span><span class="w">    </span><span class="p">,</span><span class="s1">&#39;Raise Issue&#39;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">ACTIVITY_EN</span><span class="w">
-</span><span class="w">    </span><span class="p">,</span><span class="n">created_on</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">EVENTTIME</span><span class="w">
-</span><span class="w">    </span><span class="p">,</span><span class="n">author$id</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">changed_by</span><span class="w">
-</span><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">issues</span><span class="w">
-</span><span class="w"></span><span class="p">;</span><span class="w">
-</span></code></pre></div><p>Before executing all <code>INSERT</code> statement, I recommend to execute <code>SELECT</code> part of this SQL beforehand (as below), to validate table or column name and expected result. If you execute <code>INSERT</code> statement many times, duplicated record are inserted to <code>issues</code> table and it is difficult to validate <code>SELECT</code> result.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- draft --
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">_cel_pl_activities</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="n">_CASE_KEY</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">,</span><span class="n">ACTIVITY_EN</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">,</span><span class="n">EVENTTIME</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">,</span><span class="n">changed_by</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="k">DISTINCT</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="n">id</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">_CASE_KEY</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">,</span><span class="s1">&#39;Raise Issue&#39;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">ACTIVITY_EN</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">,</span><span class="n">created_on</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">EVENTTIME</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">,</span><span class="n">author$id</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">changed_by</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">issues</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><p>Before executing all <code>INSERT</code> statement, I recommend to execute <code>SELECT</code> part of this SQL beforehand (as below), to validate table or column name and expected result. If you execute <code>INSERT</code> statement many times, duplicated record are inserted to <code>issues</code> table and it is difficult to validate <code>SELECT</code> result.</p>
 <p><a href="https://user-images.githubusercontent.com/67397583/155821647-e23209a3-f9a1-4c21-b5a3-532e18acf679.png"><img src="https://user-images.githubusercontent.com/67397583/155821647-e23209a3-f9a1-4c21-b5a3-532e18acf679.png" alt="image"></a></p>
 <p>For example, in this case I was not sure whether <code>author$id</code> is appropriate value for operating user ID, so I tried <code>&quot;author$id&quot;||&quot;author$name&quot;</code> instead at <code>SELECT</code> statement and confirmed this is actually user ID (by the way, I decide not to include <code>author$name</code> because it is not required for further analysis. If <code>author$id</code> is not there and it is required to hide personal information, then I use pseudonymization. see <a href="../2021-12-18-use-pseudonymized-column-as-grouping-key">Use Pseudonymized Column as Grouping Key</a>).</p>
 <p>To complete first SQL, I need two more columns <code>_SORTING</code> and <code>_CELONIS_CHANGE_DATE</code>. <code>_SORTING</code> is the integer value to prioritize activity order if two or more activities are same <code>EVENTTIME</code>. It is sometimes happened if I changed many fields and save data at once e.g. I assume there is no activity that happened same timing as <code>Raise Issue</code>, so any value is fine. This time I set <code>0</code>. Regarding <code>_CELONIS_CHANGE_DATE</code>, I already saw this column at <a href="../2021-12-04-verify-cloning-table-contents-via-delta-load">Verify Cloning Table Contents via Delta Load</a>. This column is automatically inserted timing of extraction.
 It is effective for future debug, so I decide same strategy to my activity table too. I can use <code>NOW()</code> function to insert timinig of <code>INSERT</code> execution.</p>
 <p>Final version of SQL to insert <code>Raise Issue</code> is below.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- final --
-</span><span class="c1"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">_cel_pl_activities</span><span class="w"> </span><span class="p">(</span><span class="w">
-</span><span class="w">     </span><span class="n">_CASE_KEY</span><span class="w">
-</span><span class="w">    </span><span class="p">,</span><span class="n">ACTIVITY_EN</span><span class="w">
-</span><span class="w">    </span><span class="p">,</span><span class="n">EVENTTIME</span><span class="w">
-</span><span class="w">    </span><span class="p">,</span><span class="n">_SORTING</span><span class="w"> 
-</span><span class="w">    </span><span class="p">,</span><span class="n">changed_by</span><span class="w">
-</span><span class="w">    </span><span class="p">,</span><span class="n">_CELONIS_CHANGE_DATE</span><span class="w">
-</span><span class="w"></span><span class="p">)</span><span class="w">
-</span><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="k">DISTINCT</span><span class="w">
-</span><span class="w">     </span><span class="n">id</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">_CASE_KEY</span><span class="w">
-</span><span class="w">    </span><span class="p">,</span><span class="s1">&#39;Raise Issue&#39;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">ACTIVITY_EN</span><span class="w">
-</span><span class="w">    </span><span class="p">,</span><span class="n">created_on</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">EVENTTIME</span><span class="w">
-</span><span class="w">    </span><span class="p">,</span><span class="mi">0</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">_SORTING</span><span class="w"> 
-</span><span class="w">    </span><span class="p">,</span><span class="n">author$id</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">changed_by</span><span class="w">
-</span><span class="w">    </span><span class="p">,</span><span class="n">NOW</span><span class="p">()</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">_CELONIS_CHANGE_DATE</span><span class="w">
-</span><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">issues</span><span class="w">
-</span><span class="w"></span><span class="p">;</span><span class="w">
-</span></code></pre></div><p>Today is the simplest transformation case in process mining. Next time I would like to show another case of joining tables.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- final --
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">_cel_pl_activities</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="n">_CASE_KEY</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">,</span><span class="n">ACTIVITY_EN</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">,</span><span class="n">EVENTTIME</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">,</span><span class="n">_SORTING</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">,</span><span class="n">changed_by</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">,</span><span class="n">_CELONIS_CHANGE_DATE</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="k">DISTINCT</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="n">id</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">_CASE_KEY</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">,</span><span class="s1">&#39;Raise Issue&#39;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">ACTIVITY_EN</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">,</span><span class="n">created_on</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">EVENTTIME</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">,</span><span class="mi">0</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">_SORTING</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">,</span><span class="n">author$id</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">changed_by</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">,</span><span class="n">NOW</span><span class="p">()</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">_CELONIS_CHANGE_DATE</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">issues</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><p>Today is the simplest transformation case in process mining. Next time I would like to show another case of joining tables.</p>
 <p>Kaz</p>
 
 
@@ -481,7 +481,7 @@ It is effective for future debug, so I decide same strategy to my activity table
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.92.2</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.95.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

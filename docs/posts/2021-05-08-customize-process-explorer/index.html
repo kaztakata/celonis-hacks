@@ -93,7 +93,7 @@ I think there are two ways to customize Process explorer.
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
-  <meta name="generator" content="Hugo 0.92.2" />
+  <meta name="generator" content="Hugo 0.95.0" />
   <link rel="alternate" href="https://kaztakata.github.io/celonis-hacks/index.xml" type="application/rss+xml" title="Celonis hacks"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://kaztakata.github.io/celonis-hacks/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -276,17 +276,17 @@ if (!doNotTrack) {
 <p>When I look at <code>Approve Invoice</code> activity, automation activity count is <code>95085</code> instead manual activity is <code>207401</code>, so automation ratio is <code>95085 / ( 95085 + 207401 ) = 31.43%</code></p>
 <p><a href="https://user-images.githubusercontent.com/67397583/117090813-55222c00-ad94-11eb-9e05-19573a400340.png"><img src="https://user-images.githubusercontent.com/67397583/117090813-55222c00-ad94-11eb-9e05-19573a400340.png" alt="image"></a></p>
 <p>On the other hand if I want to add connection KPI, for example same day ratio, based on throughput time between two activities is less than 1 day, I will determine connection KPI as below PQL.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">AVG(
-   CASE 
-   WHEN DATEDIFF(
-        dd,
-        SOURCE(_CEL_AP_ACTIVITIES.EVENTTIME),
-        TARGET(_CEL_AP_ACTIVITIES.EVENTTIME)
-    ) &lt; 1.0 THEN 1.0 
-    ELSE 0.0 
-    END
-)
-</code></pre></div><p>This PQL, especially <code>SOURCE(_CEL_AP_ACTIVITIES.EVENTTIME)</code> and <code>TARGET(_CEL_AP_ACTIVITIES.EVENTTIME)</code> combination, will implicitly create temporary table grouped by neighboring two activities, like below OLAP table (Temporary table can be joined with case table to add another dimensions).</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">AVG(
+</span></span><span class="line"><span class="cl">   CASE 
+</span></span><span class="line"><span class="cl">   WHEN DATEDIFF(
+</span></span><span class="line"><span class="cl">        dd,
+</span></span><span class="line"><span class="cl">        SOURCE(_CEL_AP_ACTIVITIES.EVENTTIME),
+</span></span><span class="line"><span class="cl">        TARGET(_CEL_AP_ACTIVITIES.EVENTTIME)
+</span></span><span class="line"><span class="cl">    ) &lt; 1.0 THEN 1.0 
+</span></span><span class="line"><span class="cl">    ELSE 0.0 
+</span></span><span class="line"><span class="cl">    END
+</span></span><span class="line"><span class="cl">)
+</span></span></code></pre></div><p>This PQL, especially <code>SOURCE(_CEL_AP_ACTIVITIES.EVENTTIME)</code> and <code>TARGET(_CEL_AP_ACTIVITIES.EVENTTIME)</code> combination, will implicitly create temporary table grouped by neighboring two activities, like below OLAP table (Temporary table can be joined with case table to add another dimensions).</p>
 <p>For example, in both OLAP table and Process Explorer you can see same day ratio <code>3.41%</code> at connection between <code>Record Goods Receipt</code> and <code>Record Invoice Receipt</code>,</p>
 <p><a href="https://user-images.githubusercontent.com/67397583/117090514-7f271e80-ad93-11eb-816d-f26ff48c7bf0.png"><img src="https://user-images.githubusercontent.com/67397583/117090514-7f271e80-ad93-11eb-816d-f26ff48c7bf0.png" alt="image"></a></p>
 <p>Kaz</p>
@@ -480,7 +480,7 @@ if (!doNotTrack) {
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.92.2</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.95.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

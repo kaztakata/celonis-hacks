@@ -89,7 +89,7 @@
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
-  <meta name="generator" content="Hugo 0.92.2" />
+  <meta name="generator" content="Hugo 0.95.0" />
   <link rel="alternate" href="https://kaztakata.github.io/celonis-hacks/index.xml" type="application/rss+xml" title="Celonis hacks"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://kaztakata.github.io/celonis-hacks/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -261,22 +261,22 @@ if (!doNotTrack) {
 <p>By the way Celonis can not use <code>MEDIAN</code> or <code>QUANTILE</code> as comparator because these aggregation function can be used once (most outer function in PQL). Instead I use Pull Up function that can be used as comparator, because output of Pull Up function behaves as standard column (see <a href="../2021-05-15-understand-mechanism-of-pull-up-function/">Understand mechanism of Pull up function</a>).</p>
 <p>One more points is how to determine the target table of Pull up function. Now I would like to see all cases globally and calculate median and quantiles, so I should set <code>CONSTANT()</code> function to target table.</p>
 <p>Finally extended formula to categorize net value is below. As output value I also use <code>PU_MIN</code> and <code>PU_MAX</code>, but it can be expresses by <code>PU_QUANTILE</code> with parameter 0% and 100% (<code>PU_MEDIAN</code> is 50% too). To distinguish boundary value easily, I rounded it to integer. So it is different from output of boxplot, and case number of four categories are slightly different.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">--drilldownDimension
-
-CASE
-  -- ... same as last week
-  WHEN {p1} = &#39;Net Value Range&#39; THEN 
-    CASE
-      WHEN EKPO.&#34;Net Value(NETWR_EUR)&#34; &lt; ROUND(PU_QUANTILE(CONSTANT(),EKPO.&#34;Net Value(NETWR_EUR)&#34;,0.25))
-        THEN &#39;1.(&#39;||ROUND(PU_MIN(CONSTANT(),EKPO.&#34;Net Value(NETWR_EUR)&#34;))||&#39; - &#39;||ROUND(PU_QUANTILE(CONSTANT(),EKPO.&#34;Net Value(NETWR_EUR)&#34;,0.25))||&#39;)&#39;
-      WHEN EKPO.&#34;Net Value(NETWR_EUR)&#34; &lt; ROUND(PU_MEDIAN(CONSTANT(),EKPO.&#34;Net Value(NETWR_EUR)&#34;))
-        THEN &#39;2.(&#39;||ROUND(PU_QUANTILE(CONSTANT(),EKPO.&#34;Net Value(NETWR_EUR)&#34;,0.25))||&#39; - &#39;||ROUND(PU_MEDIAN(CONSTANT(),EKPO.&#34;Net Value(NETWR_EUR)&#34;))||&#39;)&#39;
-      WHEN EKPO.&#34;Net Value(NETWR_EUR)&#34; &lt; ROUND(PU_QUANTILE(CONSTANT(),EKPO.&#34;Net Value(NETWR_EUR)&#34;,0.75)) 
-        THEN &#39;3.(&#39;||ROUND(PU_MEDIAN(CONSTANT(),EKPO.&#34;Net Value(NETWR_EUR)&#34;))||&#39; - &#39;||ROUND(PU_QUANTILE(CONSTANT(),EKPO.&#34;Net Value(NETWR_EUR)&#34;,0.75))||&#39;)&#39;
-      ELSE &#39;4.(&#39;||ROUND(PU_QUANTILE(CONSTANT(),EKPO.&#34;Net Value(NETWR_EUR)&#34;,0.75))||&#39; - &#39;||ROUND(PU_MAX(CONSTANT(),EKPO.&#34;Net Value(NETWR_EUR)&#34;))||&#39;)&#39;
-    END
-END 
-</code></pre></div><p>Finally you should take care that result of Pull up function is not changed by filter, so it is not possible to dinamically change boundary by filtering like box plot.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">--drilldownDimension
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">CASE
+</span></span><span class="line"><span class="cl">  -- ... same as last week
+</span></span><span class="line"><span class="cl">  WHEN {p1} = &#39;Net Value Range&#39; THEN 
+</span></span><span class="line"><span class="cl">    CASE
+</span></span><span class="line"><span class="cl">      WHEN EKPO.&#34;Net Value(NETWR_EUR)&#34; &lt; ROUND(PU_QUANTILE(CONSTANT(),EKPO.&#34;Net Value(NETWR_EUR)&#34;,0.25))
+</span></span><span class="line"><span class="cl">        THEN &#39;1.(&#39;||ROUND(PU_MIN(CONSTANT(),EKPO.&#34;Net Value(NETWR_EUR)&#34;))||&#39; - &#39;||ROUND(PU_QUANTILE(CONSTANT(),EKPO.&#34;Net Value(NETWR_EUR)&#34;,0.25))||&#39;)&#39;
+</span></span><span class="line"><span class="cl">      WHEN EKPO.&#34;Net Value(NETWR_EUR)&#34; &lt; ROUND(PU_MEDIAN(CONSTANT(),EKPO.&#34;Net Value(NETWR_EUR)&#34;))
+</span></span><span class="line"><span class="cl">        THEN &#39;2.(&#39;||ROUND(PU_QUANTILE(CONSTANT(),EKPO.&#34;Net Value(NETWR_EUR)&#34;,0.25))||&#39; - &#39;||ROUND(PU_MEDIAN(CONSTANT(),EKPO.&#34;Net Value(NETWR_EUR)&#34;))||&#39;)&#39;
+</span></span><span class="line"><span class="cl">      WHEN EKPO.&#34;Net Value(NETWR_EUR)&#34; &lt; ROUND(PU_QUANTILE(CONSTANT(),EKPO.&#34;Net Value(NETWR_EUR)&#34;,0.75)) 
+</span></span><span class="line"><span class="cl">        THEN &#39;3.(&#39;||ROUND(PU_MEDIAN(CONSTANT(),EKPO.&#34;Net Value(NETWR_EUR)&#34;))||&#39; - &#39;||ROUND(PU_QUANTILE(CONSTANT(),EKPO.&#34;Net Value(NETWR_EUR)&#34;,0.75))||&#39;)&#39;
+</span></span><span class="line"><span class="cl">      ELSE &#39;4.(&#39;||ROUND(PU_QUANTILE(CONSTANT(),EKPO.&#34;Net Value(NETWR_EUR)&#34;,0.75))||&#39; - &#39;||ROUND(PU_MAX(CONSTANT(),EKPO.&#34;Net Value(NETWR_EUR)&#34;))||&#39;)&#39;
+</span></span><span class="line"><span class="cl">    END
+</span></span><span class="line"><span class="cl">END 
+</span></span></code></pre></div><p>Finally you should take care that result of Pull up function is not changed by filter, so it is not possible to dinamically change boundary by filtering like box plot.</p>
 <p>Kaz</p>
 <hr>
 <p>This post&rsquo;s program can be <a href="../../examples/p2p_analysis_20210925.json">downloaded here</a> then push to your environment by content-cli.</p>
@@ -468,7 +468,7 @@ END
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.92.2</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.95.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

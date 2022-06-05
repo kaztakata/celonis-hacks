@@ -91,7 +91,7 @@ Imagine you would like to check weekly trend of credit amount regarding some cus
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
-  <meta name="generator" content="Hugo 0.92.2" />
+  <meta name="generator" content="Hugo 0.95.0" />
   <link rel="alternate" href="https://kaztakata.github.io/celonis-hacks/index.xml" type="application/rss+xml" title="Celonis hacks"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://kaztakata.github.io/celonis-hacks/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -260,11 +260,11 @@ if (!doNotTrack) {
 <p>Imagine you would like to check weekly trend of credit amount regarding some customer. Credit amount is increased by the amount of net value when &lsquo;Receive Order&rsquo; happened, and it is decreased when &lsquo;Clear Invoice&rsquo; happened. There are no activities to change credit amount between &lsquo;Receive Order&rsquo; and &lsquo;Clear Invoice&rsquo; period, but you would like to see credit amount at that period too. Below image is the output of today&rsquo;s post.</p>
 <p><a href="https://user-images.githubusercontent.com/67397583/139514193-7fcb6fb5-e9cb-4a60-9864-6f3da0cb5c7f.png"><img src="https://user-images.githubusercontent.com/67397583/139514193-7fcb6fb5-e9cb-4a60-9864-6f3da0cb5c7f.png" alt="image"></a></p>
 <p>As first step, I create formula <code>deltaNetValue</code> to calculate delta credit amount at next step. When &lsquo;Clear Invoice&rsquo; I multiply net value by -1  to decrease credit amount.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">CASE
-  WHEN _CEL_O2C_ACTIVITIES.ACTIVITY_EN = &#39;Receive Order&#39; THEN VBAP.NETWR_CONVERTED
-  WHEN _CEL_O2C_ACTIVITIES.ACTIVITY_EN = &#39;Clear Invoice&#39; THEN -1 * VBAP.NETWR_CONVERTED
-END
-</code></pre></div><p>Second step is to create OLAP table at left side of screen and verify delta calculation. Dimension column is week of each activities, filling blank period by <code>RANGE_APPEND</code> as <code>RANGE_APPEND(ROUND_WEEK(_CEL_O2C_ACTIVITIES.EVENTTIME),'7D')</code>. I use step size <code>7D</code> to fill blank week (7 days).</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">CASE
+</span></span><span class="line"><span class="cl">  WHEN _CEL_O2C_ACTIVITIES.ACTIVITY_EN = &#39;Receive Order&#39; THEN VBAP.NETWR_CONVERTED
+</span></span><span class="line"><span class="cl">  WHEN _CEL_O2C_ACTIVITIES.ACTIVITY_EN = &#39;Clear Invoice&#39; THEN -1 * VBAP.NETWR_CONVERTED
+</span></span><span class="line"><span class="cl">END
+</span></span></code></pre></div><p>Second step is to create OLAP table at left side of screen and verify delta calculation. Dimension column is week of each activities, filling blank period by <code>RANGE_APPEND</code> as <code>RANGE_APPEND(ROUND_WEEK(_CEL_O2C_ACTIVITIES.EVENTTIME),'7D')</code>. I use step size <code>7D</code> to fill blank week (7 days).</p>
 <p>Next I create KPI <code>SUM(KPI(deltaNetValue))</code> to sum up all delta net value belonging each week. You can see first <code>24,294</code> value at <code>2016-07-11</code> week, and there are no value few weeks afterward.</p>
 <p>To sum up all previous delta value, I create new KPI Credit Amount as <code>RUNNING_SUM(SUM(KPI(deltaNetValue)))</code>. By creating blank period by <code>RANGE_APPEND</code>, I generate running sum value of blank period that is same as previous week&rsquo;s one. For example week <code>2016-07-25</code> is same value <code>24,294</code> as <code>2016-07-11</code>.</p>
 <p>Third step is to copy OLAP table and convert it to Area Chart (Area Chart is good to express cumulated total value). Removing unnecessary Delta column then I can create trend graph of credit amount as right side of the screen. You can easily see that credit amount is not changed for 6 weeks from <code>2016-07-11</code> to <code>2016-08-22</code> and start moving afterward.</p>
@@ -458,7 +458,7 @@ END
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.92.2</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.95.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

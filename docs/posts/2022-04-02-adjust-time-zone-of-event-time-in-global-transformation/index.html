@@ -91,7 +91,7 @@ In my case, I previously analyzed multiple SAP ECC systems, those are located in
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
-  <meta name="generator" content="Hugo 0.92.2" />
+  <meta name="generator" content="Hugo 0.95.0" />
   <link rel="alternate" href="https://kaztakata.github.io/celonis-hacks/index.xml" type="application/rss+xml" title="Celonis hacks"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://kaztakata.github.io/celonis-hacks/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -261,28 +261,28 @@ if (!doNotTrack) {
 <p>My client is not only Japanese but other country people too, so I should flexibly change timezone in analysis. To do so, I would like to unite timezones to UTC in Data Integration, then adjust local timezone in analysis (using PQL and hours variable).</p>
 <p>OK, so where should I unite timezones to UTC ? My answer is at the last step of transformation before data model load. If I use multiple source systems, I have multiple data connections. Each data connection is linked to Vertica database schema, and one more global data schema exists in data pool. This global data schema does not have data connection but it is possible to access to all database schema (connections) under pool. So my plan is to pick up each connection&rsquo;s activity table in global transformation and at that time convert timezone to UTC.</p>
 <p>Below is the sample SQL if I would like to unit two Planio systems, first one has JST timezone and second one has UCT (acutally Planio is used UTC, so this is just for explaining above SAP case etc.). Integration is done by creating <code>VIEW</code> and in the <code>VIEW</code> I use <code>UNION</code> to unite two data connections. Variable <code>&lt;%=DATASOURCE:PLANIO_1%&gt;</code> represents database schema ID in Vertica. <code>TIMESTAMPADD</code> is timezone adjustment function in Vertica SQL. I should set reversed value <code>-9</code> to adjust from JST (UTC+9) to UTC.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="k">CREATE</span><span class="w"> </span><span class="k">VIEW</span><span class="w"> </span><span class="n">_cel_pl_activities</span><span class="w"> </span><span class="k">AS</span><span class="w"> 
-</span><span class="w"></span><span class="k">SELECT</span><span class="w"> 
-</span><span class="w">     </span><span class="n">_CASE_KEY</span><span class="w">
-</span><span class="w">    </span><span class="p">,</span><span class="n">_ACTIVITY_MAIN_TABLE</span><span class="w">
-</span><span class="w">    </span><span class="p">,</span><span class="n">_ACTIVITY_KEY</span><span class="w">
-</span><span class="w">    </span><span class="p">,</span><span class="n">ACTIVITY_EN</span><span class="w">
-</span><span class="w">    </span><span class="p">,</span><span class="n">TIMESTAMPADD</span><span class="p">(</span><span class="n">hh</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="n">EVENTTIME</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">EVENTTIME</span><span class="w"> </span><span class="c1">-- from JST to UTC
-</span><span class="c1"></span><span class="w">    </span><span class="p">,</span><span class="n">_SORTING</span><span class="w">
-</span><span class="w">    </span><span class="p">,</span><span class="n">changed_by</span><span class="w">
-</span><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="o">&lt;%=</span><span class="n">DATASOURCE</span><span class="p">:</span><span class="n">PLANIO_1</span><span class="o">%&gt;</span><span class="p">.</span><span class="n">_cel_pl_activities</span><span class="w"> </span><span class="c1">-- first connection
-</span><span class="c1"></span><span class="k">UNION</span><span class="w"> </span><span class="c1">-- integrate two connections
-</span><span class="c1"></span><span class="k">SELECT</span><span class="w"> 
-</span><span class="w">     </span><span class="n">_CASE_KEY</span><span class="w">
-</span><span class="w">    </span><span class="p">,</span><span class="n">_ACTIVITY_MAIN_TABLE</span><span class="w">
-</span><span class="w">    </span><span class="p">,</span><span class="n">_ACTIVITY_KEY</span><span class="w">
-</span><span class="w">    </span><span class="p">,</span><span class="n">ACTIVITY_EN</span><span class="w">
-</span><span class="w">    </span><span class="p">,</span><span class="n">TIMESTAMPADD</span><span class="p">(</span><span class="n">hh</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">EVENTTIME</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">EVENTTIME</span><span class="w"> </span><span class="c1">-- no change
-</span><span class="c1"></span><span class="w">    </span><span class="p">,</span><span class="n">_SORTING</span><span class="w">
-</span><span class="w">    </span><span class="p">,</span><span class="n">changed_by</span><span class="w">
-</span><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="o">&lt;%=</span><span class="n">DATASOURCE</span><span class="p">:</span><span class="n">PLANIO_2</span><span class="o">%&gt;</span><span class="p">.</span><span class="n">_cel_pl_activities</span><span class="w"> </span><span class="c1">-- second connection
-</span><span class="c1"></span><span class="p">;</span><span class="w">
-</span></code></pre></div><p>In my actual work, I have Python script to automatically create and execute above SQL not only activity tables but case tables etc. So I always create <code>VIEW</code> in global database schema and start data model load.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="k">VIEW</span><span class="w"> </span><span class="n">_cel_pl_activities</span><span class="w"> </span><span class="k">AS</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SELECT</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="n">_CASE_KEY</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">,</span><span class="n">_ACTIVITY_MAIN_TABLE</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">,</span><span class="n">_ACTIVITY_KEY</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">,</span><span class="n">ACTIVITY_EN</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">,</span><span class="n">TIMESTAMPADD</span><span class="p">(</span><span class="n">hh</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="n">EVENTTIME</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">EVENTTIME</span><span class="w"> </span><span class="c1">-- from JST to UTC
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">    </span><span class="p">,</span><span class="n">_SORTING</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">,</span><span class="n">changed_by</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="o">&lt;%=</span><span class="n">DATASOURCE</span><span class="p">:</span><span class="n">PLANIO_1</span><span class="o">%&gt;</span><span class="p">.</span><span class="n">_cel_pl_activities</span><span class="w"> </span><span class="c1">-- first connection
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">UNION</span><span class="w"> </span><span class="c1">-- integrate two connections
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="n">_CASE_KEY</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">,</span><span class="n">_ACTIVITY_MAIN_TABLE</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">,</span><span class="n">_ACTIVITY_KEY</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">,</span><span class="n">ACTIVITY_EN</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">,</span><span class="n">TIMESTAMPADD</span><span class="p">(</span><span class="n">hh</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">EVENTTIME</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">EVENTTIME</span><span class="w"> </span><span class="c1">-- no change
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">    </span><span class="p">,</span><span class="n">_SORTING</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">,</span><span class="n">changed_by</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="o">&lt;%=</span><span class="n">DATASOURCE</span><span class="p">:</span><span class="n">PLANIO_2</span><span class="o">%&gt;</span><span class="p">.</span><span class="n">_cel_pl_activities</span><span class="w"> </span><span class="c1">-- second connection
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><p>In my actual work, I have Python script to automatically create and execute above SQL not only activity tables but case tables etc. So I always create <code>VIEW</code> in global database schema and start data model load.</p>
 <p>Kaz</p>
 
 
@@ -465,7 +465,7 @@ if (!doNotTrack) {
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.92.2</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.95.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

@@ -91,7 +91,7 @@ This week I was asked to create activity table key column due to duplication che
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
-  <meta name="generator" content="Hugo 0.92.2" />
+  <meta name="generator" content="Hugo 0.95.0" />
   <link rel="alternate" href="https://kaztakata.github.io/celonis-hacks/index.xml" type="application/rss+xml" title="Celonis hacks"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://kaztakata.github.io/celonis-hacks/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -263,13 +263,13 @@ if (!doNotTrack) {
 <p>First step to create key column is to concatenate (<code>||</code>) four columns, that I already used it many times in this blog. Point to use <code>||</code> is columns to be concatenated are always string and not <code>NULL</code> value.</p>
 <p>Reviewing four columns, timestamp column is not string column, and sorting column include <code>NULL</code> value. Timestamp is not easily converted to string in PQL, so I use <code>REMAP_TIMESTAMPS</code> function to convert to counts of the seconds for timestamp since the epoch year (1970-01-01 00:00:00.000). After <code>REMAP_TIMESTAMPS</code> it is still number, but it is automatically converted to string before the concatenation is executed. Sorting column is wrapped with <code>COALESCE</code> function and set default value 0 (any number is fine).</p>
 <p>Concatenated value has already uniqueness in this case but its length differs because e.g. activity name has different length. So I use <code>STRINGHASH</code> function against concatenated value to generate hashed and fixed length value. It computes a cryptographic hash of a string, encoded using base64 encoding, so output value is combination of numbers, alphabets, and two special characters (+, /). Concluding above points, below PQL is for activity key column.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">STRINGHASH(
-  _CEL_P2P_ACTIVITIES_EN._CASE_KEY ||
-  _CEL_P2P_ACTIVITIES_EN.ACTIVITY_EN ||
-  REMAP_TIMESTAMPS(_CEL_P2P_ACTIVITIES_EN.EVENTTIME,SECONDS) ||
-  COALESCE(_CEL_P2P_ACTIVITIES_EN._SORTING,0)
-)
-</code></pre></div><p>By the way, generally I should keep uniqueness by four columns in Data Model load, but even if I violate that uniqueness I just return warning message and succeeded data load. So I need to check count of activity table, then add more columns to create uniqueness if required. Hashed function is good because it shortened to 39 characters, even if concatenated value is longer than.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">STRINGHASH(
+</span></span><span class="line"><span class="cl">  _CEL_P2P_ACTIVITIES_EN._CASE_KEY ||
+</span></span><span class="line"><span class="cl">  _CEL_P2P_ACTIVITIES_EN.ACTIVITY_EN ||
+</span></span><span class="line"><span class="cl">  REMAP_TIMESTAMPS(_CEL_P2P_ACTIVITIES_EN.EVENTTIME,SECONDS) ||
+</span></span><span class="line"><span class="cl">  COALESCE(_CEL_P2P_ACTIVITIES_EN._SORTING,0)
+</span></span><span class="line"><span class="cl">)
+</span></span></code></pre></div><p>By the way, generally I should keep uniqueness by four columns in Data Model load, but even if I violate that uniqueness I just return warning message and succeeded data load. So I need to check count of activity table, then add more columns to create uniqueness if required. Hashed function is good because it shortened to 39 characters, even if concatenated value is longer than.</p>
 <p>Finally if you can design activity table, it may be more beneficial to create activity key column in Data Integration. This point I would like to discuss later when I will start Data Integration series.</p>
 <p>Kaz</p>
 <hr>
@@ -462,7 +462,7 @@ if (!doNotTrack) {
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.92.2</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.95.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

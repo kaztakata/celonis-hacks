@@ -92,7 +92,7 @@ As I showed in Adjust Time Zone of Event Time in …">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
-  <meta name="generator" content="Hugo 0.92.2" />
+  <meta name="generator" content="Hugo 0.95.0" />
   <link rel="alternate" href="https://kaztakata.github.io/celonis-hacks/index.xml" type="application/rss+xml" title="Celonis hacks"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://kaztakata.github.io/celonis-hacks/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -259,12 +259,12 @@ if (!doNotTrack) {
       <article role="main" class="blog-post">
         <p>Today I would like to create draft version of data model then complete series of ETL (Extraction, Transformation, Load) started from last November.</p>
 <p>As I showed in <a href="../2022-04-02-adjust-time-zone-of-event-time-in-global-transformation">Adjust Time Zone of Event Time in Global Transformation</a>, I created global <code>VIEW</code> for activity table. Before creating Data Model, I would like to create one more global <code>VIEW</code> against case table. As below SQL, it is quite simple to copy all columns of <code>issues</code> in Planio connection, plus one more column <code>_CASE_KEY</code> that is converting from interger <code>id</code> to character. Reason of type conversion is to match with type of activity table (talk later in this post).</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="k">CREATE</span><span class="w"> </span><span class="k">VIEW</span><span class="w"> </span><span class="n">issues</span><span class="w"> </span><span class="k">AS</span><span class="w">
-</span><span class="w"></span><span class="k">SELECT</span><span class="w"> 
-</span><span class="w">     </span><span class="n">TO_CHAR</span><span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">_CASE_KEY</span><span class="w">
-</span><span class="w">    </span><span class="p">,</span><span class="o">*</span><span class="w"> 
-</span><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="o">&lt;%=</span><span class="n">DATASOURCE</span><span class="p">:</span><span class="n">PLANIO</span><span class="o">%&gt;</span><span class="p">.</span><span class="n">issues</span><span class="w">
-</span></code></pre></div><p>OK, I will go to Process Data Models menu, then click New Data Model button. This time I named <code>Planio Data Model</code>. First step is to choose tables for data models. As below screen, there are tables from global schema and from data connection planio too. Click <code>_cel_pl_activities</code> and <code>issues</code> and go to next step.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="k">VIEW</span><span class="w"> </span><span class="n">issues</span><span class="w"> </span><span class="k">AS</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SELECT</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="n">TO_CHAR</span><span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">_CASE_KEY</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">,</span><span class="o">*</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="o">&lt;%=</span><span class="n">DATASOURCE</span><span class="p">:</span><span class="n">PLANIO</span><span class="o">%&gt;</span><span class="p">.</span><span class="n">issues</span><span class="w">
+</span></span></span></code></pre></div><p>OK, I will go to Process Data Models menu, then click New Data Model button. This time I named <code>Planio Data Model</code>. First step is to choose tables for data models. As below screen, there are tables from global schema and from data connection planio too. Click <code>_cel_pl_activities</code> and <code>issues</code> and go to next step.</p>
 <p><a href="https://user-images.githubusercontent.com/67397583/163664362-5dd2635d-306f-4b8a-9d3d-8e886dfd0347.png"><img src="https://user-images.githubusercontent.com/67397583/163664362-5dd2635d-306f-4b8a-9d3d-8e886dfd0347.png" alt="image"></a></p>
 <p>Second step is to choose (default) activity table. Of course I choose <code>_cel_pl_activities</code> then go to next step. Third step is to configure columns in activity table. As below screen, I will choose 1) Case ID, 2) Activity name, 3) Timestamp and 4) Sorting columns. Normally respective columns are <code>_CASE_KEY</code>, <code>ACTIVITY_EN</code>, <code>EVENTTIME</code> and <code>_SORTING</code>, but I can choose any other columns (Timestamp column is limited to Date type column).</p>
 <p><a href="https://user-images.githubusercontent.com/67397583/163664485-b0e4714d-ae05-4965-ab2d-a9cad3c8bdc0.png"><img src="https://user-images.githubusercontent.com/67397583/163664485-b0e4714d-ae05-4965-ab2d-a9cad3c8bdc0.png" alt="image"></a></p>
@@ -459,7 +459,7 @@ if (!doNotTrack) {
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.92.2</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.95.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

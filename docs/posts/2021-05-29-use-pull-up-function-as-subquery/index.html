@@ -60,7 +60,7 @@ In this post, for example I would like to calculate Average rework count after D
   "headline": "Use Pull up function as Subquery",
   "description" : "In the last post Determine First Time Right by Pull up function, I broke down PQL of FTR step by step. Today I will explain more complex KPI in similar way. By the way you may know Subquery that enables to pass result of SQL to parts of another SQL. PQL can also do similar things by Pull up function.\nIn this post, for example I would like to calculate Average rework count after Delivery in Order to Cash process, and definition of rework is same as previous post.",
   "inLanguage" : "en",
-  "wordCount":  473 ,
+  "wordCount":  420 ,
   "datePublished" : "2021-05-29T13:04:06",
   "dateModified" : "2021-05-29T13:04:06",
   "image" : "https:\/\/kaztakata.github.io\/celonis-hacks",
@@ -91,7 +91,7 @@ In this post, for example I would like to calculate Average rework count after D
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
-  <meta name="generator" content="Hugo 0.92.2" />
+  <meta name="generator" content="Hugo 0.95.0" />
   <link rel="alternate" href="https://kaztakata.github.io/celonis-hacks/index.xml" type="application/rss+xml" title="Celonis hacks"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://kaztakata.github.io/celonis-hacks/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -259,41 +259,41 @@ if (!doNotTrack) {
         <p>In the last post <a href="../2021-05-22-determine-first-time-right-by-pull-up-function/">Determine First Time Right by Pull up function</a>, I broke down PQL of FTR step by step. Today I will explain more complex KPI in similar way. By the way you may know Subquery that enables to pass result of SQL to parts of another SQL. PQL can also do similar things by Pull up function.</p>
 <p>In this post, for example I would like to calculate Average rework count after Delivery in Order to Cash process, and definition of rework is same as previous post. I imagine that rework operation after Delivery operation causes more time loss than rework before Delivery, so that I would like to visualize this KPI.</p>
 <p>First step is to determine when Delivery is started in each case key (sales order item), so I introduced Pull up function <code>PU_FIRST</code> as below. It returns first record by grouping key, with filter condition as option. Below function returns EVENTTIME column of first record of <code>Generate Delivery Document</code> activity by each sales order item.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">PU_FIRST(
-    VBAP,                                                           -- grouping key (sales order item)
-    _CEL_O2C_ACTIVITIES.EVENTTIME,                                  -- returning column
-    _CEL_O2C_ACTIVITIES.ACTIVITY_EN = &#39;Generate Delivery Document&#39;, -- filter condition
-    ORDER BY _CEL_O2C_ACTIVITIES.EVENTTIME                          -- sorting column
-)
-</code></pre></div><p>Second step is to determine rework activities after Delivery. It is decomposed to rework definition and comparison of timestamp. PQL using <code>CASE</code> statement is below. Point is using result of <code>PU_FIRST</code> as comparator of <code>&gt;=</code>. One more consideration is using <code>COALESCE</code> to set default value if Delivery is not happened yet.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">CASE 
-    WHEN 1=1                                                    -- always true, just for formatting reason
-        AND _CEL_O2C_ACTIVITIES.ACTIVITY_EN LIKE &#39;Change %&#39;     -- rework definition 
-        AND _CEL_O2C_ACTIVITIES.EVENTTIME &gt;= COALESCE(PU_FIRST( -- after Delivery timestamp (result of PU_FIRST)
-            VBAP,
-            _CEL_O2C_ACTIVITIES.EVENTTIME,
-            _CEL_O2C_ACTIVITIES.ACTIVITY_EN = &#39;Generate Delivery Document&#39;,
-            ORDER BY _CEL_O2C_ACTIVITIES.EVENTTIME
-        ),{d &#39;9999-12-31&#39;})                                     -- default value if Delivery not found
-    THEN 1
-    ELSE 0
-END
-</code></pre></div><p>Below screenshot is the result of applying above two PQLs to sample case <code>1217437</code>. <code>Generate Delivery Document</code> is the third record so timestamp of third record is set to <code>Delivery EVENTTIME</code> column. After Delivery there are three activity record started from <code>Change</code> so these record have <code>1</code> in <code>Rework after Delivery</code> column.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">PU_FIRST(
+</span></span><span class="line"><span class="cl">    VBAP,                                                           -- grouping key (sales order item)
+</span></span><span class="line"><span class="cl">    _CEL_O2C_ACTIVITIES.EVENTTIME,                                  -- returning column
+</span></span><span class="line"><span class="cl">    _CEL_O2C_ACTIVITIES.ACTIVITY_EN = &#39;Generate Delivery Document&#39;, -- filter condition
+</span></span><span class="line"><span class="cl">    ORDER BY _CEL_O2C_ACTIVITIES.EVENTTIME                          -- sorting column
+</span></span><span class="line"><span class="cl">)
+</span></span></code></pre></div><p>Second step is to determine rework activities after Delivery. It is decomposed to rework definition and comparison of timestamp. PQL using <code>CASE</code> statement is below. Point is using result of <code>PU_FIRST</code> as comparator of <code>&gt;=</code>. One more consideration is using <code>COALESCE</code> to set default value if Delivery is not happened yet.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zed" data-lang="zed"><span class="line"><span class="cl"><span class="n">CASE</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">WHEN</span><span class="w"> </span><span class="err">1</span><span class="o">=</span><span class="err">1</span><span class="w">                                                    </span><span class="o">--</span><span class="w"> </span><span class="n">always</span><span class="w"> </span><span class="n">true</span><span class="p">,</span><span class="w"> </span><span class="n">just</span><span class="w"> </span><span class="n">for</span><span class="w"> </span><span class="n">formatting</span><span class="w"> </span><span class="n">reason</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">AND</span><span class="w"> </span><span class="n">_CEL_O2C_ACTIVITIES</span><span class="p">.</span><span class="n">ACTIVITY_EN</span><span class="w"> </span><span class="n">LIKE</span><span class="w"> </span><span class="err">&#39;</span><span class="n">Change</span><span class="w"> </span><span class="o">%</span><span class="err">&#39;</span><span class="w">     </span><span class="o">--</span><span class="w"> </span><span class="n">rework</span><span class="w"> </span><span class="kt">definition</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">AND</span><span class="w"> </span><span class="n">_CEL_O2C_ACTIVITIES</span><span class="p">.</span><span class="n">EVENTTIME</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">COALESCE</span><span class="p">(</span><span class="n">PU_FIRST</span><span class="p">(</span><span class="w"> </span><span class="o">--</span><span class="w"> </span><span class="n">after</span><span class="w"> </span><span class="n">Delivery</span><span class="w"> </span><span class="n">timestamp</span><span class="w"> </span><span class="p">(</span><span class="n">result</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">PU_FIRST</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">VBAP</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">_CEL_O2C_ACTIVITIES</span><span class="p">.</span><span class="n">EVENTTIME</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">_CEL_O2C_ACTIVITIES</span><span class="p">.</span><span class="n">ACTIVITY_EN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">&#39;</span><span class="n">Generate</span><span class="w"> </span><span class="n">Delivery</span><span class="w"> </span><span class="n">Document</span><span class="err">&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">ORDER</span><span class="w"> </span><span class="n">BY</span><span class="w"> </span><span class="n">_CEL_O2C_ACTIVITIES</span><span class="p">.</span><span class="n">EVENTTIME</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">),{</span><span class="n">d</span><span class="w"> </span><span class="err">&#39;9999</span><span class="o">-</span><span class="err">12</span><span class="o">-</span><span class="err">31&#39;</span><span class="p">})</span><span class="w">                                     </span><span class="o">--</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">if</span><span class="w"> </span><span class="n">Delivery</span><span class="w"> </span><span class="n">not</span><span class="w"> </span><span class="n">found</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">THEN</span><span class="w"> </span><span class="err">1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">ELSE</span><span class="w"> </span><span class="err">0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">END</span><span class="w">
+</span></span></span></code></pre></div><p>Below screenshot is the result of applying above two PQLs to sample case <code>1217437</code>. <code>Generate Delivery Document</code> is the third record so timestamp of third record is set to <code>Delivery EVENTTIME</code> column. After Delivery there are three activity record started from <code>Change</code> so these record have <code>1</code> in <code>Rework after Delivery</code> column.</p>
 <p><a href="https://user-images.githubusercontent.com/67397583/120057779-ca75d980-c080-11eb-80ab-7fcdb6e15080.png"><img src="https://user-images.githubusercontent.com/67397583/120057779-ca75d980-c080-11eb-80ab-7fcdb6e15080.png" alt="image"></a></p>
 <p>The last step is counting Rework activity by <code>PU_COUNT</code> function, below is the PQL. I feel <code>PU_FIRST</code> function is similar to SQL Subquery applying to <code>WHERE</code> clause.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">    PU_COUNT(
-        VBAP,                                                       -- grouping key (sales order item)
-        _CEL_O2C_ACTIVITIES.ACTIVITY_EN,                            -- counting column
-        1=1                                                         -- filter condition same as above CASE condition
-            AND _CEL_O2C_ACTIVITIES.ACTIVITY_EN LIKE &#39;Change %&#39;
-            AND _CEL_O2C_ACTIVITIES.EVENTTIME &gt;= COALESCE(PU_FIRST(
-                VBAP,
-                _CEL_O2C_ACTIVITIES.EVENTTIME,
-                _CEL_O2C_ACTIVITIES.ACTIVITY_EN = &#39;Generate Delivery Document&#39;,
-                ORDER BY _CEL_O2C_ACTIVITIES.EVENTTIME
-            ),{d &#39;9999-12-31&#39;})                         
-    )
-</code></pre></div><p>Final result screenshot is as below (hiding other columns except for case key). Above sample case <code>1217437</code> has 3 in rework count column. Single KPI value <code>0.03</code> is the result of <code>AVG</code> function of rework count.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">    PU_COUNT(
+</span></span><span class="line"><span class="cl">        VBAP,                                                       -- grouping key (sales order item)
+</span></span><span class="line"><span class="cl">        _CEL_O2C_ACTIVITIES.ACTIVITY_EN,                            -- counting column
+</span></span><span class="line"><span class="cl">        1=1                                                         -- filter condition same as above CASE condition
+</span></span><span class="line"><span class="cl">            AND _CEL_O2C_ACTIVITIES.ACTIVITY_EN LIKE &#39;Change %&#39;
+</span></span><span class="line"><span class="cl">            AND _CEL_O2C_ACTIVITIES.EVENTTIME &gt;= COALESCE(PU_FIRST(
+</span></span><span class="line"><span class="cl">                VBAP,
+</span></span><span class="line"><span class="cl">                _CEL_O2C_ACTIVITIES.EVENTTIME,
+</span></span><span class="line"><span class="cl">                _CEL_O2C_ACTIVITIES.ACTIVITY_EN = &#39;Generate Delivery Document&#39;,
+</span></span><span class="line"><span class="cl">                ORDER BY _CEL_O2C_ACTIVITIES.EVENTTIME
+</span></span><span class="line"><span class="cl">            ),{d &#39;9999-12-31&#39;})                         
+</span></span><span class="line"><span class="cl">    )
+</span></span></code></pre></div><p>Final result screenshot is as below (hiding other columns except for case key). Above sample case <code>1217437</code> has 3 in rework count column. Single KPI value <code>0.03</code> is the result of <code>AVG</code> function of rework count.</p>
 <p><a href="https://user-images.githubusercontent.com/67397583/120058113-7fa99100-c083-11eb-8fd3-b5a3578b39fb.png"><img src="https://user-images.githubusercontent.com/67397583/120058113-7fa99100-c083-11eb-8fd3-b5a3578b39fb.png" alt="image"></a></p>
 <p>Kaz</p>
 <hr>
@@ -486,7 +486,7 @@ END
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.92.2</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.95.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

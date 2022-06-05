@@ -92,7 +92,7 @@ To determine whether each case is FTR or not, first I should …">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
-  <meta name="generator" content="Hugo 0.92.2" />
+  <meta name="generator" content="Hugo 0.95.0" />
   <link rel="alternate" href="https://kaztakata.github.io/celonis-hacks/index.xml" type="application/rss+xml" title="Celonis hacks"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://kaztakata.github.io/celonis-hacks/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -260,24 +260,24 @@ if (!doNotTrack) {
         <p>As a first example of Pull up function, I will show you First Time Right (FTR) that means process without rework activities (<a href="https://dictionary.cambridge.org/dictionary/english/right-first-time">link</a>).</p>
 <p>To determine whether each case is FTR or not, first I should determine rework activities, then judge if each case has rework activities or not. In this example I determined that rework activity name is started from <code>Change</code>. PQL to find such a string pattern is <code>Change %</code>, using wildcard <code>%</code> after <code>Change</code>. Also use keyword <code>LIKE</code> with pattern string.</p>
 <p>Next step is counting rework activities in each case (<code>EKPO</code>, Purchase Order item table in this example) by pull up function. PQL of rework count is below.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">PU_COUNT(
-    EKPO,                                                 -- grouping key
-    _CEL_P2P_ACTIVITIES_EN.ACTIVITY_EN,                 -- column to be counted
-    _CEL_P2P_ACTIVITIES_EN.ACTIVITY_EN LIKE &#39;Change %&#39;  -- filter condition
-)
-</code></pre></div><p>As previous explanation of <a href="../2021-05-15-understand-mechanism-of-pull-up-function/">Understand mechanism of Pull up function</a>, by first argument <code>EKPO</code>, Activity record is grouped by <code>EKPO</code> table key columns. Also by third argument Activity record is filtered by rework activities. In the end rework activities are counted in each case key.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">PU_COUNT(
+</span></span><span class="line"><span class="cl">    EKPO,                                                 -- grouping key
+</span></span><span class="line"><span class="cl">    _CEL_P2P_ACTIVITIES_EN.ACTIVITY_EN,                 -- column to be counted
+</span></span><span class="line"><span class="cl">    _CEL_P2P_ACTIVITIES_EN.ACTIVITY_EN LIKE &#39;Change %&#39;  -- filter condition
+</span></span><span class="line"><span class="cl">)
+</span></span></code></pre></div><p>As previous explanation of <a href="../2021-05-15-understand-mechanism-of-pull-up-function/">Understand mechanism of Pull up function</a>, by first argument <code>EKPO</code>, Activity record is grouped by <code>EKPO</code> table key columns. Also by third argument Activity record is filtered by rework activities. In the end rework activities are counted in each case key.</p>
 <p>Below screenshot shows that <code>Change Price</code> and <code>Change Quantity</code> are recognized as rework activities, e.g. PO item <code>00001</code> has 2 rework record.</p>
 <p><a href="https://user-images.githubusercontent.com/67397583/119218995-090a1200-bb1e-11eb-9ad7-854206edffee.png"><img src="https://user-images.githubusercontent.com/67397583/119218995-090a1200-bb1e-11eb-9ad7-854206edffee.png" alt="image"></a></p>
 <p>Finally PQL to calculate FTR is determined as combination of <code>CASE</code> statement and previous rework activities count like below. In previous screenshot, PO item <code>00004</code> is FTR instead <code>00001</code> is not.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">CASE 
-    WHEN PU_COUNT(
-        EKPO,
-        _CEL_P2P_ACTIVITIES_EN.ACTIVITY_EN,
-        _CEL_P2P_ACTIVITIES_EN.ACTIVITY_EN LIKE &#39;Change %&#39;        
-    ) = 0 THEN 1.0      -- zero rework activity (= FTR)
-    ELSE 0.0            -- non-zero rework activity
-END
-</code></pre></div><p>Normally you can use single KPI component to summarize FTR ratio (average of FTR cases) as below screenshot. Looking at the OLAP table (I hide Activity column compared with previous one), I can easily verify that FTR ratio is 70% (7 FTR case in total 10 cases). When you build complex PQL logic, I strongly recommend you to split parts as above and verify them by OLAP table.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">CASE 
+</span></span><span class="line"><span class="cl">    WHEN PU_COUNT(
+</span></span><span class="line"><span class="cl">        EKPO,
+</span></span><span class="line"><span class="cl">        _CEL_P2P_ACTIVITIES_EN.ACTIVITY_EN,
+</span></span><span class="line"><span class="cl">        _CEL_P2P_ACTIVITIES_EN.ACTIVITY_EN LIKE &#39;Change %&#39;        
+</span></span><span class="line"><span class="cl">    ) = 0 THEN 1.0      -- zero rework activity (= FTR)
+</span></span><span class="line"><span class="cl">    ELSE 0.0            -- non-zero rework activity
+</span></span><span class="line"><span class="cl">END
+</span></span></code></pre></div><p>Normally you can use single KPI component to summarize FTR ratio (average of FTR cases) as below screenshot. Looking at the OLAP table (I hide Activity column compared with previous one), I can easily verify that FTR ratio is 70% (7 FTR case in total 10 cases). When you build complex PQL logic, I strongly recommend you to split parts as above and verify them by OLAP table.</p>
 <p><a href="https://user-images.githubusercontent.com/67397583/119220916-bafa0c00-bb27-11eb-9a01-1a932dfe350d.png"><img src="https://user-images.githubusercontent.com/67397583/119220916-bafa0c00-bb27-11eb-9a01-1a932dfe350d.png" alt="image"></a></p>
 <p>Kaz</p>
 <hr>
@@ -470,7 +470,7 @@ END
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.92.2</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.95.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

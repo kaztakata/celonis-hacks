@@ -94,7 +94,7 @@ From …">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
-  <meta name="generator" content="Hugo 0.92.2" />
+  <meta name="generator" content="Hugo 0.95.0" />
   <link rel="alternate" href="https://kaztakata.github.io/celonis-hacks/index.xml" type="application/rss+xml" title="Celonis hacks"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://kaztakata.github.io/celonis-hacks/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -262,33 +262,33 @@ if (!doNotTrack) {
         <p>At last post <a href="../2022-05-07-start-deep-dive-to-machine-learning-and-action-flow">Start Deep Dive to Machine Learning and Action Flow</a>, I introduced overview of these two functions that manipulate Celonis EMS functions without using GUI (browser) for automatation.</p>
 <p>From today I would like to share basic functions in Machine Learning (Jupyter Workbench). Before staring I will setup Jupyter Workbench. If you do not have your Workbench, read <a href="../2021-08-14-share-my-analysis-by-content-cli">Share my Analysis by Content-CLI</a> then follow until creating Workbench.</p>
 <p>I will go to Launcher in Workbench then select Others &gt; Terminal, then enter below command after $ sign (output is as of 2022-05-14). First command is to upgrade latest version of Pycelonis 1.7.0. Second command is to confirm installed version.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="o">(</span>base<span class="o">)</span> jovyan@workbench-d46f8977-mtfw6:~$ pip install pycelonis --upgrade
-Looking in indexes: https://pypi.celonis.cloud, https://pypi.org/simple
-...
-Successfully installed ddsketch-2.0.2 ddtrace-1.1.2 pycelonis-1.7.0
-</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="o">(</span>base<span class="o">)</span> jovyan@workbench-d46f8977-mtfw6:~$ pip show pycelonis
-Name: pycelonis
-Version: 1.7.0
-...
-Required-by: celonis-ml
-</code></pre></div><p>Next I will click New Folder button in left pane, then name it as <code>pycelonis-profiles</code>, that is for storing credeintial files later. Then move to this folder and create new file <code>user.json</code>. Just copy below content and modify <code>your_team</code>,<code>your_realm</code>,<code>your_api_token</code> to your value. For the moment I use API token from Edit Profile (see <a href="../2021-08-14-share-my-analysis-by-content-cli">Share my Analysis by Content-CLI</a>).</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
-    <span class="nt">&#34;url&#34;</span><span class="p">:</span> <span class="s2">&#34;https://your_team.your_realm.celonis.cloud&#34;</span><span class="p">,</span> 
-    <span class="nt">&#34;api_token&#34;</span><span class="p">:</span> <span class="s2">&#34;your_api_token&#34;</span>
-<span class="p">}</span>
-</code></pre></div><p>OK, it is time to run first script in Jupyter Workbench. As below screen, create new Nootbook (Python 3 ipykernel) and copy below script to first cell in notebook, then click Start button (or enter shift + Enter).</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># import packages</span>
-<span class="kn">import</span> <span class="nn">json</span>
-<span class="kn">from</span> <span class="nn">pycelonis</span> <span class="kn">import</span> <span class="n">get_celonis</span>
-<span class="kn">from</span> <span class="nn">pycelonis.celonis_api.utils</span> <span class="kn">import</span> <span class="n">KeyType</span>
-
-<span class="c1"># open credential file</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;/home/jovyan/pycelonis-profiles/user.json&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">credential</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
-
-<span class="c1"># login to Celonis EMS</span>
-<span class="n">celonis</span> <span class="o">=</span> <span class="n">get_celonis</span><span class="p">(</span><span class="o">**</span><span class="n">credential</span><span class="p">,</span> <span class="n">key_type</span><span class="o">=</span><span class="n">KeyType</span><span class="o">.</span><span class="n">USER_KEY</span><span class="p">,</span> <span class="n">total_retry</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">permissions</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</code></pre></div><p><a href="https://user-images.githubusercontent.com/67397583/168415145-a4c02cc3-abbd-4340-88fc-c29323d15db4.png"><img src="https://user-images.githubusercontent.com/67397583/168415145-a4c02cc3-abbd-4340-88fc-c29323d15db4.png" alt="image"></a></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">(</span>base<span class="o">)</span> jovyan@workbench-d46f8977-mtfw6:~$ pip install pycelonis --upgrade
+</span></span><span class="line"><span class="cl">Looking in indexes: https://pypi.celonis.cloud, https://pypi.org/simple
+</span></span><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl">Successfully installed ddsketch-2.0.2 ddtrace-1.1.2 pycelonis-1.7.0
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">(</span>base<span class="o">)</span> jovyan@workbench-d46f8977-mtfw6:~$ pip show pycelonis
+</span></span><span class="line"><span class="cl">Name: pycelonis
+</span></span><span class="line"><span class="cl">Version: 1.7.0
+</span></span><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl">Required-by: celonis-ml
+</span></span></code></pre></div><p>Next I will click New Folder button in left pane, then name it as <code>pycelonis-profiles</code>, that is for storing credeintial files later. Then move to this folder and create new file <code>user.json</code>. Just copy below content and modify <code>your_team</code>,<code>your_realm</code>,<code>your_api_token</code> to your value. For the moment I use API token from Edit Profile (see <a href="../2021-08-14-share-my-analysis-by-content-cli">Share my Analysis by Content-CLI</a>).</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;url&#34;</span><span class="p">:</span> <span class="s2">&#34;https://your_team.your_realm.celonis.cloud&#34;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;api_token&#34;</span><span class="p">:</span> <span class="s2">&#34;your_api_token&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>OK, it is time to run first script in Jupyter Workbench. As below screen, create new Nootbook (Python 3 ipykernel) and copy below script to first cell in notebook, then click Start button (or enter shift + Enter).</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># import packages</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">json</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">pycelonis</span> <span class="kn">import</span> <span class="n">get_celonis</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">pycelonis.celonis_api.utils</span> <span class="kn">import</span> <span class="n">KeyType</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># open credential file</span>
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;/home/jovyan/pycelonis-profiles/user.json&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">credential</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># login to Celonis EMS</span>
+</span></span><span class="line"><span class="cl"><span class="n">celonis</span> <span class="o">=</span> <span class="n">get_celonis</span><span class="p">(</span><span class="o">**</span><span class="n">credential</span><span class="p">,</span> <span class="n">key_type</span><span class="o">=</span><span class="n">KeyType</span><span class="o">.</span><span class="n">USER_KEY</span><span class="p">,</span> <span class="n">total_retry</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">permissions</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span></code></pre></div><p><a href="https://user-images.githubusercontent.com/67397583/168415145-a4c02cc3-abbd-4340-88fc-c29323d15db4.png"><img src="https://user-images.githubusercontent.com/67397583/168415145-a4c02cc3-abbd-4340-88fc-c29323d15db4.png" alt="image"></a></p>
 <p>This script is firstly import packages required for next step, then open credential file and use it to login to Celonis EMS. Login method <code>get_celonis</code> has <a href="https://celonis.github.io/pycelonis/1.7.0/reference/get_celonis/">documentation</a> to see each parameters. In this method, this notebook tried to login to Celonis EMS using API token, and showed avaiable permissions if URL and API token are valid.</p>
 <p>Two points to learn from this operation are</p>
 <ol>
@@ -298,8 +298,8 @@ Required-by: celonis-ml
 <p>Regarding 1, even if I am using different Jupyter environment e.g. my local machine, I just pass URL and API token then I can login to Celonis EMS.</p>
 <p>About 2, I am Admin user and it is too strong permissions for especially production environment. Considering unauthorized access, I will create one more API key that is weaker than Admin but enough for my operation in next post.</p>
 <p>As today&rsquo;s last thing, I would like to show one example to use pycelonis. Below is displaying Celonis Packages under login enviornment which I created at <a href="../2022-04-23-validate-data-model-by-studio-analysis">Validate Data Model by Studio Analysis</a>.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">celonis</span><span class="o">.</span><span class="n">default_space</span><span class="o">.</span><span class="n">packages</span>
-</code></pre></div><p><a href="https://user-images.githubusercontent.com/67397583/168414778-c211ab89-77c8-4933-ac6a-c3d405aad3de.png"><img src="https://user-images.githubusercontent.com/67397583/168414778-c211ab89-77c8-4933-ac6a-c3d405aad3de.png" alt="image"></a></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">celonis</span><span class="o">.</span><span class="n">default_space</span><span class="o">.</span><span class="n">packages</span>
+</span></span></code></pre></div><p><a href="https://user-images.githubusercontent.com/67397583/168414778-c211ab89-77c8-4933-ac6a-c3d405aad3de.png"><img src="https://user-images.githubusercontent.com/67397583/168414778-c211ab89-77c8-4933-ac6a-c3d405aad3de.png" alt="image"></a></p>
 <p>In the next post I will create application and assign appropriate permissions to it.</p>
 <p>Kaz</p>
 
@@ -481,7 +481,7 @@ Required-by: celonis-ml
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.92.2</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.95.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

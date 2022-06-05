@@ -91,7 +91,7 @@ First point is to split Activity name to two parts, more general part and detail
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
-  <meta name="generator" content="Hugo 0.92.2" />
+  <meta name="generator" content="Hugo 0.95.0" />
   <link rel="alternate" href="https://kaztakata.github.io/celonis-hacks/index.xml" type="application/rss+xml" title="Celonis hacks"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://kaztakata.github.io/celonis-hacks/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -261,35 +261,35 @@ if (!doNotTrack) {
 <p>Detail Activity name can be used in Process Explorer (and Variant Explorer) in Custom dimension setting (refer to <a href="../2021-05-08-customize-process-explorer/">Customize Process Explorer</a>). In my case <code>_CEL_O2C_ACTIVITIES.ACTIVITY_EN || ' : ' || COALESCE(_CEL_O2C_ACTIVITIES.ACTIVITY_DETAIL,'')</code> to concatenate General and Detail parts (consider converting <code>NULL</code> to zero byte string to prevent disappering General part).</p>
 <p>Second point is to use verb as Activity when it is direct user action to source system, instead use noun when it is just milestone to compare with some user action. One set of example is <code>Create Goods Issue Document</code> and <code>Planned Goods Issue Date</code>. For further programming purpose, norn Activity does not fill user name column to distinguish it is not direct user action. I do not want to count it for analysing automation Activity, rework Activity and throughuput between Activities, so I used <code>_CEL_O2C_ACTIVITIES.USER_NAME</code> IS NOT NULL to exclude norn Activity.</p>
 <p>Also you can exclude norn activity in Process Explorer by below PQL.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">CASE 
-    WHEN _CEL_O2C_ACTIVITIES.USER_NAME IS NOT NULL THEN _CEL_O2C_ACTIVITIES.ACTIVITY_EN
-    ELSE NULl
-END
-</code></pre></div><p>After I found I can hide norn Activities as I like, I create new Activities without hesitation. Now I used hundred of Activities for multiple purposes. For example, create <code>Planned Goods Issue Date</code> for on time Delivery purpuse.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">CASE 
+</span></span><span class="line"><span class="cl">    WHEN _CEL_O2C_ACTIVITIES.USER_NAME IS NOT NULL THEN _CEL_O2C_ACTIVITIES.ACTIVITY_EN
+</span></span><span class="line"><span class="cl">    ELSE NULl
+</span></span><span class="line"><span class="cl">END
+</span></span></code></pre></div><p>After I found I can hide norn Activities as I like, I create new Activities without hesitation. Now I used hundred of Activities for multiple purposes. For example, create <code>Planned Goods Issue Date</code> for on time Delivery purpuse.</p>
 <p>Third point is to fill additional case key columns to Activity table. In case of on time Delivery analysis, I need to consider multiple (partial) delivery scenario against one sales order. I filled delivery number to delivery relevant Activity record to distinguish each record is first delivery, second delivery etc.</p>
 <p>After filling delivery number <code>VBELN_VL</code> and delivery item number <code>POSNR_VL</code>, I can use Pull Up Function to calculate each delivery is on time like below PQL. <code>DOMAIN_TABLE</code> is the way to group by delivery even activity main case key is sales order.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">DATEDIFF(
-    dd,
-    PU_FIRST(
-        DOMAIN_TABLE(
-            _CEL_O2C_ACTIVITIES._CASE_KEY,
-            _CEL_O2C_ACTIVITIES.VBELN_VL,
-            _CEL_O2C_ACTIVITIES.POSNR_VL
-        ),
-        _CEL_O2C_ACTIVITIES.EVENTTIME,
-        _CEL_O2C_ACTIVITIES.ACTIVITY_EN = &#39;Create Goods Issue Document&#39;
-    ),
-    PU_FIRST(
-        DOMAIN_TABLE(
-            _CEL_O2C_ACTIVITIES._CASE_KEY,
-            _CEL_O2C_ACTIVITIES.VBELN_VL,
-            _CEL_O2C_ACTIVITIES.POSNR_VL
-        ),
-        _CEL_O2C_ACTIVITIES.EVENTTIME,
-        _CEL_O2C_ACTIVITIES.ACTIVITY_EN = &#39;Planned Goods Issue Date&#39;
-    )
-)
-</code></pre></div><p>Using above three points, I believe I can maximize process analysis with minimum dataset.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">DATEDIFF(
+</span></span><span class="line"><span class="cl">    dd,
+</span></span><span class="line"><span class="cl">    PU_FIRST(
+</span></span><span class="line"><span class="cl">        DOMAIN_TABLE(
+</span></span><span class="line"><span class="cl">            _CEL_O2C_ACTIVITIES._CASE_KEY,
+</span></span><span class="line"><span class="cl">            _CEL_O2C_ACTIVITIES.VBELN_VL,
+</span></span><span class="line"><span class="cl">            _CEL_O2C_ACTIVITIES.POSNR_VL
+</span></span><span class="line"><span class="cl">        ),
+</span></span><span class="line"><span class="cl">        _CEL_O2C_ACTIVITIES.EVENTTIME,
+</span></span><span class="line"><span class="cl">        _CEL_O2C_ACTIVITIES.ACTIVITY_EN = &#39;Create Goods Issue Document&#39;
+</span></span><span class="line"><span class="cl">    ),
+</span></span><span class="line"><span class="cl">    PU_FIRST(
+</span></span><span class="line"><span class="cl">        DOMAIN_TABLE(
+</span></span><span class="line"><span class="cl">            _CEL_O2C_ACTIVITIES._CASE_KEY,
+</span></span><span class="line"><span class="cl">            _CEL_O2C_ACTIVITIES.VBELN_VL,
+</span></span><span class="line"><span class="cl">            _CEL_O2C_ACTIVITIES.POSNR_VL
+</span></span><span class="line"><span class="cl">        ),
+</span></span><span class="line"><span class="cl">        _CEL_O2C_ACTIVITIES.EVENTTIME,
+</span></span><span class="line"><span class="cl">        _CEL_O2C_ACTIVITIES.ACTIVITY_EN = &#39;Planned Goods Issue Date&#39;
+</span></span><span class="line"><span class="cl">    )
+</span></span><span class="line"><span class="cl">)
+</span></span></code></pre></div><p>Using above three points, I believe I can maximize process analysis with minimum dataset.</p>
 <p>Kaz</p>
 
 
@@ -486,7 +486,7 @@ END
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.92.2</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.95.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>
