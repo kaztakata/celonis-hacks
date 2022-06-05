@@ -10,7 +10,7 @@ pygmentsCodefencesGuessSyntax = true
 #pygmentsUseClassic = true
 #pygmentOptions = "linenos=inline"
 #disqusShortname = "XXX"
-googleAnalytics = "UA-125786864-2"
+#googleAnalytics = "UA-125786864-2"
 author = "false"
 publishDir = "docs"
 
