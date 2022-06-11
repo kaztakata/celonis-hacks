@@ -5,7 +5,16 @@
     <link>https://kaztakata.github.io/celonis-hacks/tags/data-integration/</link>
     <description>Recent content in Data Integration on Celonis hacks</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 04 Jun 2022 09:25:43 +0900</lastBuildDate><atom:link href="https://kaztakata.github.io/celonis-hacks/tags/data-integration/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 11 Jun 2022 18:58:00 +0900</lastBuildDate><atom:link href="https://kaztakata.github.io/celonis-hacks/tags/data-integration/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Include JSON data in HTTP Request and Response</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2022-06-11-include-json-data-in-http-request-and-response/</link>
+      <pubDate>Sat, 11 Jun 2022 18:58:00 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2022-06-11-include-json-data-in-http-request-and-response/</guid>
+      <description>About JSON Until last post, I did not intentionally mention about detail of input and output data in HTTP request. Actually HTTP request requires not only URL (URI) but header data like Authorization (refer to Observe HTTP request in Pycelonis login script). Also you can imagine it is possible to attach input form value (e.g. name, address, email). Generally in API world, JSON format is used to attach with HTTP request.</description>
+    </item>
+    
     <item>
       <title>Find out HTTP Request from GUI Function</title>
       <link>https://kaztakata.github.io/celonis-hacks/posts/2022-06-04-find-out-http-request-from-gui-function/</link>

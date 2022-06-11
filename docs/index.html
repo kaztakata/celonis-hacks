@@ -201,6 +201,55 @@
           
           
             <article class="post-preview">
+    <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-06-11-include-json-data-in-http-request-and-response/">
+        <h2 class="post-title">Include JSON data in HTTP Request and Response</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2022-06-11
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;minutes
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;560&nbsp;words
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kazuhiko Takata
+    
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        About JSON Until last post, I did not intentionally mention about detail of input and output data in HTTP request. Actually HTTP request requires not only URL (URI) but header data like Authorization (refer to Observe HTTP request in Pycelonis login script). Also you can imagine it is possible to attach input form value (e.g. name, address, email). Generally in API world, JSON format is used to attach with HTTP request.
+        <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-06-11-include-json-data-in-http-request-and-response/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+        <a href="https://kaztakata.github.io/celonis-hacks/tags/machine-learning/">Machine Learning</a>&nbsp;
+        
+        <a href="https://kaztakata.github.io/celonis-hacks/tags/data-integration/">Data Integration</a>&nbsp;
+        
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
     <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-06-04-find-out-http-request-from-gui-function/">
         <h2 class="post-title">Find out HTTP Request from GUI Function</h2>
         
@@ -652,56 +701,6 @@ As I showed in Adjust Time Zone of Event Time in Global Transformation, I create
         Today I would like to share small tips in transformation tasks. Of course main purpose of transforamtion is to create event log table etc. but we are not always sure about source system behavior, so before completing transformation SQL I must investigate data of source system. As I already showed, I can use simple SELECT statement to inspect tables.
 Previously when I was familiar with SAP ECC, the only way to easily inspect SAP table is to download table data by SE16 transaction and open Microsoft Excel and simply filter data or use pivot table etc.
         <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-04-09-inspect-table-data-by-select-statement/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/data-integration/">Data Integration</a>&nbsp;
-        
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/transformation/">Transformation</a>&nbsp;
-        
-    </div>
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-04-02-adjust-time-zone-of-event-time-in-global-transformation/">
-        <h2 class="post-title">Adjust Time Zone of Event Time in Global Transformation</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on 2022-04-02
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;minutes
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;424&nbsp;words
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kazuhiko Takata
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        Until now I do not care about value of event time, that is stored at source system like Planio. If I analyse only one system like my current project it is no problem, but if I would like to analyze data from multiple source systems, I should take care time zone of each system.
-In my case, I previously analyzed multiple SAP ECC systems, those are located in various area of world (US, EU, JP etc.
-        <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-04-02-adjust-time-zone-of-event-time-in-global-transformation/" class="post-read-more">[Read More]</a>
         
     </div>
 

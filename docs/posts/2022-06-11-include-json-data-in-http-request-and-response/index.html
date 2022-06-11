@@ -7,10 +7,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Login to Celonis EMS from Jupyter Workbench - Celonis hacks</title>
-  <meta name="description" content="At last post Start Deep Dive to Machine Learning and Action Flow, I introduced overview of these two functions that manipulate Celonis EMS functions without using GUI (browser) for automatation.
-From today I would like to share basic functions in Machine Learning (Jupyter Workbench). Before staring I will setup Jupyter Workbench. If you do not have your Workbench, read Share my Analysis by Content-CLI then follow until creating Workbench.
-I will go to Launcher in Workbench then select Others &gt; Terminal, then enter below command after $ sign (output is as of 2022-05-14).">
+  <title>Include JSON data in HTTP Request and Response - Celonis hacks</title>
+  <meta name="description" content="About JSON Until last post, I did not intentionally mention about detail of input and output data in HTTP request. Actually HTTP request requires not only URL (URI) but header data like Authorization (refer to Observe HTTP request in Pycelonis login script). Also you can imagine it is possible to attach input form value (e.g. name, address, email). Generally in API world, JSON format is used to attach with HTTP request.">
   <meta name="author" content="Kazuhiko Takata"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -46,8 +44,8 @@ I will go to Launcher in Workbench then select Others &gt; Terminal, then enter 
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-05-14-login-to-celonis-ems-from-jupyter-workbench\/",
-          "name": "Login to celonis ems from jupyter workbench"
+          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-06-11-include-json-data-in-http-request-and-response\/",
+          "name": "Include JSON data in HTTP request and response"
         }
     }]
 }
@@ -58,15 +56,15 @@ I will go to Launcher in Workbench then select Others &gt; Terminal, then enter 
   "author": {
     "name" : "Kazuhiko Takata"
   },
-  "headline": "Login to Celonis EMS from Jupyter Workbench",
-  "description" : "At last post Start Deep Dive to Machine Learning and Action Flow, I introduced overview of these two functions that manipulate Celonis EMS functions without using GUI (browser) for automatation.\nFrom today I would like to share basic functions in Machine Learning (Jupyter Workbench). Before staring I will setup Jupyter Workbench. If you do not have your Workbench, read Share my Analysis by Content-CLI then follow until creating Workbench.\nI will go to Launcher in Workbench then select Others \u0026gt; Terminal, then enter below command after $ sign (output is as of 2022-05-14).",
+  "headline": "Include JSON data in HTTP Request and Response",
+  "description" : "About JSON Until last post, I did not intentionally mention about detail of input and output data in HTTP request. Actually HTTP request requires not only URL (URI) but header data like Authorization (refer to Observe HTTP request in Pycelonis login script). Also you can imagine it is possible to attach input form value (e.g. name, address, email). Generally in API world, JSON format is used to attach with HTTP request.",
   "inLanguage" : "en",
-  "wordCount":  482 ,
-  "datePublished" : "2022-05-14T10:40:29",
-  "dateModified" : "2022-05-14T10:40:29",
+  "wordCount":  560 ,
+  "datePublished" : "2022-06-11T18:58:00",
+  "dateModified" : "2022-06-11T18:58:00",
   "image" : "https:\/\/kaztakata.github.io\/celonis-hacks",
-  "keywords" : [ "Machine Learning" ],
-  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-05-14-login-to-celonis-ems-from-jupyter-workbench\/",
+  "keywords" : [ "Machine Learning, Data Integration" ],
+  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-06-11-include-json-data-in-http-request-and-response\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/kaztakata.github.io\/celonis-hacks",
@@ -80,17 +78,14 @@ I will go to Launcher in Workbench then select Others &gt; Terminal, then enter 
 }
 </script>
 
-<meta property="og:title" content="Login to Celonis EMS from Jupyter Workbench" />
-<meta property="og:description" content="At last post Start Deep Dive to Machine Learning and Action Flow, I introduced overview of these two functions that manipulate Celonis EMS functions without using GUI (browser) for automatation.
-From today I would like to share basic functions in Machine Learning (Jupyter Workbench). Before staring I will setup Jupyter Workbench. If you do not have your Workbench, read Share my Analysis by Content-CLI then follow until creating Workbench.
-I will go to Launcher in Workbench then select Others &gt; Terminal, then enter below command after $ sign (output is as of 2022-05-14).">
-<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2022-05-14-login-to-celonis-ems-from-jupyter-workbench/" />
+<meta property="og:title" content="Include JSON data in HTTP Request and Response" />
+<meta property="og:description" content="About JSON Until last post, I did not intentionally mention about detail of input and output data in HTTP request. Actually HTTP request requires not only URL (URI) but header data like Authorization (refer to Observe HTTP request in Pycelonis login script). Also you can imagine it is possible to attach input form value (e.g. name, address, email). Generally in API world, JSON format is used to attach with HTTP request.">
+<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2022-06-11-include-json-data-in-http-request-and-response/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Celonis hacks" />
 
-  <meta name="twitter:title" content="Login to Celonis EMS from Jupyter Workbench" />
-  <meta name="twitter:description" content="At last post Start Deep Dive to Machine Learning and Action Flow, I introduced overview of these two functions that manipulate Celonis EMS functions without using GUI (browser) for automatation.
-From …">
+  <meta name="twitter:title" content="Include JSON data in HTTP Request and Response" />
+  <meta name="twitter:description" content="About JSON Until last post, I did not intentionally mention about detail of input and output data in HTTP request. Actually HTTP request requires not only URL (URI) but header data like Authorization …">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
@@ -228,7 +223,7 @@ From …">
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="posts-heading">
               
-                <h1>Login to Celonis EMS from Jupyter Workbench</h1>
+                <h1>Include JSON data in HTTP Request and Response</h1>
               
               
                 <hr class="small">
@@ -248,48 +243,41 @@ From …">
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>At last post <a href="../2022-05-07-start-deep-dive-to-machine-learning-and-action-flow">Start Deep Dive to Machine Learning and Action Flow</a>, I introduced overview of these two functions that manipulate Celonis EMS functions without using GUI (browser) for automatation.</p>
-<p>From today I would like to share basic functions in Machine Learning (Jupyter Workbench). Before staring I will setup Jupyter Workbench. If you do not have your Workbench, read <a href="../2021-08-14-share-my-analysis-by-content-cli">Share my Analysis by Content-CLI</a> then follow until creating Workbench.</p>
-<p>I will go to Launcher in Workbench then select Others &gt; Terminal, then enter below command after $ sign (output is as of 2022-05-14). First command is to upgrade latest version of Pycelonis 1.7.0. Second command is to confirm installed version.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">(</span>base<span class="o">)</span> jovyan@workbench-d46f8977-mtfw6:~$ pip install pycelonis --upgrade
-</span></span><span class="line"><span class="cl">Looking in indexes: https://pypi.celonis.cloud, https://pypi.org/simple
-</span></span><span class="line"><span class="cl">...
-</span></span><span class="line"><span class="cl">Successfully installed ddsketch-2.0.2 ddtrace-1.1.2 pycelonis-1.7.0
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">(</span>base<span class="o">)</span> jovyan@workbench-d46f8977-mtfw6:~$ pip show pycelonis
-</span></span><span class="line"><span class="cl">Name: pycelonis
-</span></span><span class="line"><span class="cl">Version: 1.7.0
-</span></span><span class="line"><span class="cl">...
-</span></span><span class="line"><span class="cl">Required-by: celonis-ml
-</span></span></code></pre></div><p>Next I will click New Folder button in left pane, then name it as <code>pycelonis-profiles</code>, that is for storing credeintial files later. Then move to this folder and create new file <code>user.json</code>. Just copy below content and modify <code>your_team</code>,<code>your_realm</code>,<code>your_api_token</code> to your value. For the moment I use API token from Edit Profile (see <a href="../2021-08-14-share-my-analysis-by-content-cli">Share my Analysis by Content-CLI</a>).</p>
+        <h3 id="about-json">About JSON</h3>
+<p>Until last post, I did not intentionally mention about detail of input and output data in HTTP request. Actually HTTP request requires not only URL (URI) but header data like <code>Authorization</code> (refer to <a href="../2022-05-28-observe-http-request-in-pycelonis-login-script">Observe HTTP request in Pycelonis login script</a>). Also you can imagine it is possible to attach input form value (e.g. name, address, email). Generally in API world, JSON format is used to attach with HTTP request.</p>
+<p><a href="https://www.json.org/json-en.html">JSON</a> (JavaScript Object Notation) is text file format to describe structured data. It was derived from JavaScript Programming Language but used for other environment.</p>
+<p>JSON is useful to describe complex structured data, that include 1) collection of Key and Value (name is Kazuhiko, country is Japan etc.) and 2) list of value (today&rsquo;s stock price, yesterday&rsquo;s one etc.). Due to this structure, JSON text is easily converted to data structure in each programming languages. On the other hand, JSON is text data so it is easily communicated with Web server by HTTP protocol.</p>
+<p>Focusing on Python environment, JSON file can be converted to nested dictionary and list, both are basic data type in Python and luckily looks of JSON text and Python data are almost same.</p>
+<h3 id="send-json-data-as-http-request">Send JSON data as HTTP Request</h3>
+<p>Similar to last post <a href="../2022-06-04-find-out-http-request-from-gui-function">Find out HTTP Request from GUI Function</a>, I would like to find API from GUI function. Today I focus on Configura Alert button in Data Job menu as below.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/173181333-3b58cb59-f41e-4a84-be4c-e07d94a5558c.png"><img src="https://user-images.githubusercontent.com/67397583/173181333-3b58cb59-f41e-4a84-be4c-e07d94a5558c.png" alt="image"></a></p>
+<p>I opened DevTools and record network in setup Alert configuration. This time I clicked <code>Payload</code> tab and I can see configuration I put in my screen like this (format text for readability).</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;url&#34;</span><span class="p">:</span> <span class="s2">&#34;https://your_team.your_realm.celonis.cloud&#34;</span><span class="p">,</span> 
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;api_token&#34;</span><span class="p">:</span> <span class="s2">&#34;your_api_token&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;enabled&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;jobId&#34;</span><span class="p">:</span> <span class="s2">&#34;3427660d-6b6f-4d7b-8488-210cff8e7ebb&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;notifyIfdataJobFails&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;notifyIfdataJobFinishesSuccessfully&#34;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;notifyIfdataJobFinishesSkipped&#34;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;notifyIfdataJobExecutionTimeLongerThan&#34;</span><span class="p">:</span> <span class="kc">null</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p>OK, it is time to run first script in Jupyter Workbench. As below screen, create new Nootbook (Python 3 ipykernel) and copy below script to first cell in notebook, then click Start button (or enter shift + Enter).</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># import packages</span>
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">json</span>
-</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">pycelonis</span> <span class="kn">import</span> <span class="n">get_celonis</span>
-</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">pycelonis.celonis_api.utils</span> <span class="kn">import</span> <span class="n">KeyType</span>
+</span></span></code></pre></div><p>This is simple JSON data including collection of key and value. In this case, each key name is relevant to field in screen, for example first toggle button is <code>enabled</code> and its value is <code>true</code>.</p>
+<p>OK I will mimic this configuration update in Pycelonis. I reused last post&rsquo;s Python script until login to Celonis, and changed last part as below.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">pool</span> <span class="o">=</span> <span class="n">celonis</span><span class="o">.</span><span class="n">pools</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;3d8a2621-f9c0-456a-9b2d-9bb8c0a9fcd1&#39;</span><span class="p">)</span> <span class="c1"># my Pool ID</span>
+</span></span><span class="line"><span class="cl"><span class="n">datajob</span> <span class="o">=</span> <span class="n">pool</span><span class="o">.</span><span class="n">data_jobs</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;3427660d-6b6f-4d7b-8488-210cff8e7ebb&#39;</span><span class="p">)</span> <span class="c1"># my Job ID</span>
+</span></span><span class="line"><span class="cl"><span class="n">celonis</span><span class="o">.</span><span class="n">api_request</span><span class="p">(</span><span class="n">datajob</span><span class="o">.</span><span class="n">url</span> <span class="o">+</span> <span class="s1">&#39;/alerts&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&#34;enabled&#34;</span><span class="p">:</span><span class="kc">True</span><span class="p">,</span> <span class="s2">&#34;jobId&#34;</span><span class="p">:</span><span class="n">datajob</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="s2">&#34;notifyIfdataJobFails&#34;</span><span class="p">:</span><span class="kc">True</span><span class="p">})</span>
+</span></span></code></pre></div><p>URL is picked up from DevTools, combination of Job URL and <code>/alerts</code>. Second argument <code>{&quot;enabled&quot;:True, &quot;jobId&quot;:datajob.id, &quot;notifyIfdataJobFails&quot;:True}</code> is mimic of Payload from DevTools. This is Python dictionary data and it is internally converted to JSON text and send to Celonis. Please keep in mind Python boolean flag is <code>True</code>, even JSON it is <code>true</code> (<a href="https://stackoverflow.com/questions/33486100/why-cant-i-use-true-false-null-in-a-python-object-fed-to-json-dumps">Ref</a>).</p>
+<p>This time the purpose of HTTP request is to update alert configuration, so after running script, move to Data Job screen and confirm whether configuration is updated.</p>
+<h3 id="receive-json-data-as-http-response">Receive JSON data as HTTP Response</h3>
+<p>Additionally I would like to confirm response of HTTP request is also JSON data. Using last post example, I would like to receive response (export pool) data by <code>export_data = celonis.api_request(pool.url + '/export')</code>. Variable <code>export_data</code> is originally JSON but internally converted to Python structured data describing pool information. I will check the data content by below script.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># JSON is converted to Python dictionary object</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">export_data</span><span class="p">))</span> 
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># open credential file</span>
-</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;/home/jovyan/pycelonis-profiles/user.json&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">    <span class="n">credential</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># see collection of key</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">export_data</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> 
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># login to Celonis EMS</span>
-</span></span><span class="line"><span class="cl"><span class="n">celonis</span> <span class="o">=</span> <span class="n">get_celonis</span><span class="p">(</span><span class="o">**</span><span class="n">credential</span><span class="p">,</span> <span class="n">key_type</span><span class="o">=</span><span class="n">KeyType</span><span class="o">.</span><span class="n">USER_KEY</span><span class="p">,</span> <span class="n">total_retry</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">permissions</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</span></span></code></pre></div><p><a href="https://user-images.githubusercontent.com/67397583/168415145-a4c02cc3-abbd-4340-88fc-c29323d15db4.png"><img src="https://user-images.githubusercontent.com/67397583/168415145-a4c02cc3-abbd-4340-88fc-c29323d15db4.png" alt="image"></a></p>
-<p>This script is firstly import packages required for next step, then open credential file and use it to login to Celonis EMS. Login method <code>get_celonis</code> has <a href="https://celonis.github.io/pycelonis/1.7.0/reference/get_celonis/">documentation</a> to see each parameters. In this method, this notebook tried to login to Celonis EMS using API token, and showed avaiable permissions if URL and API token are valid.</p>
-<p>Two points to learn from this operation are</p>
-<ol>
-<li>it is possible to login to any Celonis environment that is different from ML notebook location</li>
-<li>Permission granted to this API token is same as GUI user.</li>
-</ol>
-<p>Regarding 1, even if I am using different Jupyter environment e.g. my local machine, I just pass URL and API token then I can login to Celonis EMS.</p>
-<p>About 2, I am Admin user and it is too strong permissions for especially production environment. Considering unauthorized access, I will create one more API key that is weaker than Admin but enough for my operation in next post.</p>
-<p>As today&rsquo;s last thing, I would like to show one example to use pycelonis. Below is displaying Celonis Packages under login enviornment which I created at <a href="../2022-04-23-validate-data-model-by-studio-analysis">Validate Data Model by Studio Analysis</a>.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">celonis</span><span class="o">.</span><span class="n">default_space</span><span class="o">.</span><span class="n">packages</span>
-</span></span></code></pre></div><p><a href="https://user-images.githubusercontent.com/67397583/168414778-c211ab89-77c8-4933-ac6a-c3d405aad3de.png"><img src="https://user-images.githubusercontent.com/67397583/168414778-c211ab89-77c8-4933-ac6a-c3d405aad3de.png" alt="image"></a></p>
-<p>In the next post I will create application and assign appropriate permissions to it.</p>
+</span></span><span class="line"><span class="cl"><span class="c1"># &#39;transformations&#39; is one of the key, including list of transformation </span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">export_data</span><span class="p">[</span><span class="s1">&#39;transformations&#39;</span><span class="p">])</span> 
+</span></span></code></pre></div><p>Actually some of Pycelonis method is to get JSON data from Celonis, format some text and return as dictionary like object (or list of that).</p>
 <p>Kaz</p>
 
 
@@ -297,6 +285,8 @@ From …">
           <div class="blog-tags">
             
               <a href="https://kaztakata.github.io/celonis-hacks/tags/machine-learning/">Machine Learning</a>&nbsp;
+            
+              <a href="https://kaztakata.github.io/celonis-hacks/tags/data-integration/">Data Integration</a>&nbsp;
             
           </div>
         
@@ -311,42 +301,42 @@ From …">
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-05-14-login-to-celonis-ems-from-jupyter-workbench%2f&amp;text=Login%20to%20Celonis%20EMS%20from%20Jupyter%20Workbench&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-06-11-include-json-data-in-http-request-and-response%2f&amp;text=Include%20JSON%20data%20in%20HTTP%20Request%20and%20Response&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-05-14-login-to-celonis-ems-from-jupyter-workbench%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-06-11-include-json-data-in-http-request-and-response%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-05-14-login-to-celonis-ems-from-jupyter-workbench%2f&amp;title=Login%20to%20Celonis%20EMS%20from%20Jupyter%20Workbench" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-06-11-include-json-data-in-http-request-and-response%2f&amp;title=Include%20JSON%20data%20in%20HTTP%20Request%20and%20Response" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-05-14-login-to-celonis-ems-from-jupyter-workbench%2f&amp;title=Login%20to%20Celonis%20EMS%20from%20Jupyter%20Workbench" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-06-11-include-json-data-in-http-request-and-response%2f&amp;title=Include%20JSON%20data%20in%20HTTP%20Request%20and%20Response" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-05-14-login-to-celonis-ems-from-jupyter-workbench%2f&amp;title=Login%20to%20Celonis%20EMS%20from%20Jupyter%20Workbench" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-06-11-include-json-data-in-http-request-and-response%2f&amp;title=Include%20JSON%20data%20in%20HTTP%20Request%20and%20Response" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-05-14-login-to-celonis-ems-from-jupyter-workbench%2f&amp;description=Login%20to%20Celonis%20EMS%20from%20Jupyter%20Workbench" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-06-11-include-json-data-in-http-request-and-response%2f&amp;description=Include%20JSON%20data%20in%20HTTP%20Request%20and%20Response" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -368,13 +358,13 @@ From …">
                   <ul>
                 
                 
-                    <li><a href="/celonis-hacks/posts/2022-06-11-include-json-data-in-http-request-and-response/">Include JSON data in HTTP Request and Response</a></li>
-                
                     <li><a href="/celonis-hacks/posts/2022-06-04-find-out-http-request-from-gui-function/">Find out HTTP Request from GUI Function</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2022-05-28-observe-http-request-in-pycelonis-login-script/">Observe HTTP request in Pycelonis login script</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2022-05-21-limit-permissions-of-api-token-to-minimize-risk/">Limit permissions of API token to minimize risk</a></li>
+                
+                    <li><a href="/celonis-hacks/posts/2022-05-14-login-to-celonis-ems-from-jupyter-workbench/">Login to Celonis EMS from Jupyter Workbench</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2022-05-07-start-deep-dive-to-machine-learning-and-action-flow/">Start Deep Dive to Machine Learning and Action Flow</a></li>
                 
@@ -388,13 +378,9 @@ From …">
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-05-07-start-deep-dive-to-machine-learning-and-action-flow/" data-toggle="tooltip" data-placement="top" title="Start Deep Dive to Machine Learning and Action Flow">&larr; Previous Post</a>
+              <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-06-04-find-out-http-request-from-gui-function/" data-toggle="tooltip" data-placement="top" title="Find out HTTP Request from GUI Function">&larr; Previous Post</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-05-21-limit-permissions-of-api-token-to-minimize-risk/" data-toggle="tooltip" data-placement="top" title="Limit permissions of API token to minimize risk">Next Post &rarr;</a>
-            </li>
           
         </ul>
       
