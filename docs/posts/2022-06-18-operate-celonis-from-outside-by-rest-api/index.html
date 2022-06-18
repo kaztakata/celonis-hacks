@@ -7,9 +7,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Consider Case ID before Starting Transformation - Celonis hacks</title>
-  <meta name="description" content="After long explanation of Extractor Builder, I can move to Transformation Topic from now, using Planio issue and change history. But before starting detail discussion, I would like to discuss general issues at first.
-In process mining context, Transformation is procedure to generate event log table from source tables. Event Log or Event Data is the collection of case and its event (activity) with timestamp. Case ID can be associated with multiple activities in source system, in other word it is not possible to generate event log without case ID.">
+  <title>Operate Celonis from outside by REST API - Celonis hacks</title>
+  <meta name="description" content="About REST API Until last post, I explained some of API use cases (export Pool program and configure data job alert) using Pycelonis script from ML Workbench. Is is something Celonis &ldquo;internal&rdquo; operation. By the way, as I mentioned in Login to Celonis EMS from Jupyter Workbench, I can call API from outside of Celonis. Generally this kind of API using HTTP request is called REST API (or RESTful API)">
   <meta name="author" content="Kazuhiko Takata"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -45,8 +44,8 @@ In process mining context, Transformation is procedure to generate event log tab
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-02-12-consider-case-id-before-starting-transformation\/",
-          "name": "Consider case ID before starting transformation"
+          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-06-18-operate-celonis-from-outside-by-rest-api\/",
+          "name": "Operate celonis from outside by rest API"
         }
     }]
 }
@@ -57,15 +56,15 @@ In process mining context, Transformation is procedure to generate event log tab
   "author": {
     "name" : "Kazuhiko Takata"
   },
-  "headline": "Consider Case ID before Starting Transformation",
-  "description" : "After long explanation of Extractor Builder, I can move to Transformation Topic from now, using Planio issue and change history. But before starting detail discussion, I would like to discuss general issues at first.\nIn process mining context, Transformation is procedure to generate event log table from source tables. Event Log or Event Data is the collection of case and its event (activity) with timestamp. Case ID can be associated with multiple activities in source system, in other word it is not possible to generate event log without case ID.",
+  "headline": "Operate Celonis from outside by REST API",
+  "description" : "About REST API Until last post, I explained some of API use cases (export Pool program and configure data job alert) using Pycelonis script from ML Workbench. Is is something Celonis \u0026ldquo;internal\u0026rdquo; operation. By the way, as I mentioned in Login to Celonis EMS from Jupyter Workbench, I can call API from outside of Celonis. Generally this kind of API using HTTP request is called REST API (or RESTful API)",
   "inLanguage" : "en",
-  "wordCount":  380 ,
-  "datePublished" : "2022-02-12T13:03:00",
-  "dateModified" : "2022-02-12T13:03:00",
+  "wordCount":  594 ,
+  "datePublished" : "2022-06-18T17:59:00",
+  "dateModified" : "2022-06-18T17:59:00",
   "image" : "https:\/\/kaztakata.github.io\/celonis-hacks",
-  "keywords" : [ "Data Integration, Transformation" ],
-  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-02-12-consider-case-id-before-starting-transformation\/",
+  "keywords" : [ "Machine Learning, Data Integration" ],
+  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-06-18-operate-celonis-from-outside-by-rest-api\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/kaztakata.github.io\/celonis-hacks",
@@ -79,15 +78,14 @@ In process mining context, Transformation is procedure to generate event log tab
 }
 </script>
 
-<meta property="og:title" content="Consider Case ID before Starting Transformation" />
-<meta property="og:description" content="After long explanation of Extractor Builder, I can move to Transformation Topic from now, using Planio issue and change history. But before starting detail discussion, I would like to discuss general issues at first.
-In process mining context, Transformation is procedure to generate event log table from source tables. Event Log or Event Data is the collection of case and its event (activity) with timestamp. Case ID can be associated with multiple activities in source system, in other word it is not possible to generate event log without case ID.">
-<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2022-02-12-consider-case-id-before-starting-transformation/" />
+<meta property="og:title" content="Operate Celonis from outside by REST API" />
+<meta property="og:description" content="About REST API Until last post, I explained some of API use cases (export Pool program and configure data job alert) using Pycelonis script from ML Workbench. Is is something Celonis &ldquo;internal&rdquo; operation. By the way, as I mentioned in Login to Celonis EMS from Jupyter Workbench, I can call API from outside of Celonis. Generally this kind of API using HTTP request is called REST API (or RESTful API)">
+<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2022-06-18-operate-celonis-from-outside-by-rest-api/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Celonis hacks" />
 
-  <meta name="twitter:title" content="Consider Case ID before Starting Transformation" />
-  <meta name="twitter:description" content="After long explanation of Extractor Builder, I can move to Transformation Topic from now, using Planio issue and change history. But before starting detail discussion, I would like to discuss general …">
+  <meta name="twitter:title" content="Operate Celonis from outside by REST API" />
+  <meta name="twitter:description" content="About REST API Until last post, I explained some of API use cases (export Pool program and configure data job alert) using Pycelonis script from ML Workbench. Is is something Celonis …">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
@@ -225,7 +223,7 @@ In process mining context, Transformation is procedure to generate event log tab
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="posts-heading">
               
-                <h1>Consider Case ID before Starting Transformation</h1>
+                <h1>Operate Celonis from outside by REST API</h1>
               
               
                 <hr class="small">
@@ -245,22 +243,40 @@ In process mining context, Transformation is procedure to generate event log tab
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>After long explanation of Extractor Builder, I can move to Transformation Topic from now, using Planio issue and change history. But before starting detail discussion, I would like to discuss general issues at first.</p>
-<p>In process mining context, Transformation is procedure to generate event log table from source tables. <a href="http://www.processmining.org/event-data.html#data">Event Log or Event Data</a> is the collection of case and its event (activity) with timestamp. Case ID can be associated with multiple activities in source system, in other word it is not possible to generate event log without case ID.</p>
-<p>When I tried to design Event Log before, I referred Business Process Flow (Diagram) but this flow was normally written in perspective of how business staff (or role) and resources (system, form etc.) are ordered, without taking care of case ID, so I was stucked how to assign case ID to some of activities. For the moment my answer is all activities can not perfectlly be mapped to one (integrated) process.</p>
-<p>For example, I was requested to design event log of supply chain management of a company, that include sales, production, and purchasing activities. What is the case ID of this supply chain ? Of cource I know that for example production has its ID like order number, but in transition from productoin to sales, its ID are not transferred if production purpose is to make stock.</p>
-<p>How about if I behave stock as case ID ? Stock may have its batch number and it seems to be case ID. But if I go back to upstream (purchasing side) there may be powder bag that is not easy to identify by each.</p>
-<p>In another example, some of monthly closing tasks in finance area are operated once per month, and I do not know how to create case ID of these tasks. In this case year and month itself may be case ID, but how to integrate with other tasks that are operated many times per month ?</p>
-<p>Going back to Business Proces Flow, I should think about how many operation is done in each box (activity) and is it possible to transfer case ID of previous activity to next one. After that I should split business process to small processes that can be trasnformed to process mining event log.</p>
+        <h3 id="about-rest-api">About REST API</h3>
+<p>Until last post, I explained some of API use cases (export Pool program and configure data job alert) using Pycelonis script from ML Workbench. Is is something Celonis &ldquo;internal&rdquo; operation. By the way, as I mentioned in <a href="../2022-05-14-login-to-celonis-ems-from-jupyter-workbench">Login to Celonis EMS from Jupyter Workbench</a>, I can call API from outside of Celonis. Generally this kind of API using HTTP request is called <a href="https://www.techtarget.com/searchapparchitecture/definition/RESTful-API#:~:text=A%20RESTful%20API%20is%20an,deleting%20of%20operations%20concerning%20resources.">REST API (or RESTful API)</a></p>
+<p>Some cloud services including Celonis are open their REST API to interact with other applications. It is convenient that I can learn standard REST API rules, then I can handle different cloud services using REST API.</p>
+<p>As first step, today I would like to operate Celonis from my local computer without login to Celonis.</p>
+<h3 id="use-case">Use case</h3>
+<p>Imagine that I setup quite long data extraction job and source system (SAP ECC etc.) will shutdown at midnight, so if data job is still running at the timing of shutdown, I should cancel data job for safer shutdown.</p>
+<p>By the way, myself do not monitor this job but someone else will do it. That person monitoring midnight batch job is managing not only Celonis but many systems. So that person do not have user account of Celonis. Even this situation that person should cancel data job. How to do that ?</p>
+<p>First I should register Application key for that person (means application of that person) reffering to <a href="../2022-05-21-limit-permissions-of-api-token-to-minimize-risk">Limit permissions of API token to minimize risk</a>. Of course permissions of this key are limited to relevant Data Pool.</p>
+<p>Second I will write simple command to look at data job exextion status and to cancel it. Let&rsquo;s look at the detail.</p>
+<p>I assume, I can not ask that person to install any kind of application. That person is using Windows, normally Python is not installed. So Pycelonis is not the option.</p>
+<h3 id="monitor-data-job-execution-status">Monitor Data Job execution status</h3>
+<p>I found that Windows PowerShell is installed by default, and <a href="https://curl.se/">cURL</a> which can send HTTP request is also available as <code>curl.exe</code> command in PowerShell. So I decided to use <code>curl.exe</code> for this task (You can confirm by entering <code>curl.exe --version</code> whether it is installed).</p>
+<p>Next step is to find endpoint (URL) of two things, displaying data job status and cancel data job. Former one is documented in Pycelonis as <a href="https://celonis.github.io/pycelonis/1.7.0/reference/celonis_api/event_collection/data_pool/#celonis_api.event_collection.data_pool.Pool.check_data_job_execution_status">check_data_job_execution_status</a> method.</p>
+<p>That said <code>GET: /integration/api/pools/{pool_id}/logs/status</code>. Adding my team URL to this endpoint and fill in pool_id is good enough.</p>
+<p>Also, to authenticate to Celonis, Authorization header is required as I showed in <a href="../2022-05-28-observe-http-request-in-pycelonis-login-script">Observe HTTP request in Pycelonis login script</a>. In cURL header is set by <code>-H</code> option. Finally cURL command is</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">curl.exe https://{team_id}.training.celonis.cloud/integration/api/pools/{pool_id}/logs/status -H &#34;Authorization: AppKey {app_key}&#34;
+</span></span></code></pre></div><p>I entered command to PowerShell, then return the status of each Data Job as below screen. In this case second job <code>0bae5839-6921-46dc-8d0f-3294ecd6b3fd</code> is still <code>RUNNING</code> so I should cancel this one.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/174424482-93d60f3d-9780-42d9-8a8d-0ff1ddea8253.png"><img src="https://user-images.githubusercontent.com/67397583/174424482-93d60f3d-9780-42d9-8a8d-0ff1ddea8253.png" alt="image"></a></p>
+<h3 id="send-cancel-request-of-data-job-execution">Send Cancel request of Data Job execution</h3>
+<p>Cancel request is also sent by cURL. This request is not documented in Pycelonis, so I will check endpoint by <code>Stop Execution</code> button. <code>POST: /integration/api/pools/{pool_id}/jobs/{job_id}/cancel</code> is the endpoint I confirmed.</p>
+<p>This case is the first one I should specify HTTP request method <code>POST</code> by cURL <code>-X</code> option (until then method was automatically determined and it was working). Finally cURL command is.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">curl.exe -X POST https://{team_id}.training.celonis.cloud/integration/api/pools/{pool_id}/jobs/{job_id}/cancel -H &#34;Authorization: AppKey {app_key}&#34;
+</span></span></code></pre></div><p>I entered command to PowerShell, then waiting for few seconds and return new prompt without any message. So I entered first command again and confirmed status is actually changed to <code>CANCEL</code>.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/174430359-e3119eef-3e2e-4f98-93c2-b10f9e4bbed5.png"><img src="https://user-images.githubusercontent.com/67397583/174430359-e3119eef-3e2e-4f98-93c2-b10f9e4bbed5.png" alt="image"></a></p>
+<p>Even above explanation is quite simplified, but I believe you can imagine how REST API is convenient.</p>
 <p>Kaz</p>
 
 
         
           <div class="blog-tags">
             
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/data-integration/">Data Integration</a>&nbsp;
+              <a href="https://kaztakata.github.io/celonis-hacks/tags/machine-learning/">Machine Learning</a>&nbsp;
             
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/transformation/">Transformation</a>&nbsp;
+              <a href="https://kaztakata.github.io/celonis-hacks/tags/data-integration/">Data Integration</a>&nbsp;
             
           </div>
         
@@ -275,42 +291,42 @@ In process mining context, Transformation is procedure to generate event log tab
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-02-12-consider-case-id-before-starting-transformation%2f&amp;text=Consider%20Case%20ID%20before%20Starting%20Transformation&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-06-18-operate-celonis-from-outside-by-rest-api%2f&amp;text=Operate%20Celonis%20from%20outside%20by%20REST%20API&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-02-12-consider-case-id-before-starting-transformation%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-06-18-operate-celonis-from-outside-by-rest-api%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-02-12-consider-case-id-before-starting-transformation%2f&amp;title=Consider%20Case%20ID%20before%20Starting%20Transformation" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-06-18-operate-celonis-from-outside-by-rest-api%2f&amp;title=Operate%20Celonis%20from%20outside%20by%20REST%20API" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-02-12-consider-case-id-before-starting-transformation%2f&amp;title=Consider%20Case%20ID%20before%20Starting%20Transformation" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-06-18-operate-celonis-from-outside-by-rest-api%2f&amp;title=Operate%20Celonis%20from%20outside%20by%20REST%20API" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-02-12-consider-case-id-before-starting-transformation%2f&amp;title=Consider%20Case%20ID%20before%20Starting%20Transformation" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-06-18-operate-celonis-from-outside-by-rest-api%2f&amp;title=Operate%20Celonis%20from%20outside%20by%20REST%20API" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-02-12-consider-case-id-before-starting-transformation%2f&amp;description=Consider%20Case%20ID%20before%20Starting%20Transformation" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-06-18-operate-celonis-from-outside-by-rest-api%2f&amp;description=Operate%20Celonis%20from%20outside%20by%20REST%20API" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -332,15 +348,15 @@ In process mining context, Transformation is procedure to generate event log tab
                   <ul>
                 
                 
-                    <li><a href="/celonis-hacks/posts/2022-06-18-operate-celonis-from-outside-by-rest-api/">Operate Celonis from outside by REST API</a></li>
-                
                     <li><a href="/celonis-hacks/posts/2022-06-11-include-json-data-in-http-request-and-response/">Include JSON data in HTTP Request and Response</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2022-06-04-find-out-http-request-from-gui-function/">Find out HTTP Request from GUI Function</a></li>
                 
-                    <li><a href="/celonis-hacks/posts/2022-04-30-execute-periodic-etl-automatically/">Execute Periodic ETL Automatically</a></li>
+                    <li><a href="/celonis-hacks/posts/2022-05-28-observe-http-request-in-pycelonis-login-script/">Observe HTTP request in Pycelonis login script</a></li>
                 
-                    <li><a href="/celonis-hacks/posts/2022-04-23-validate-data-model-by-studio-analysis/">Validate Data Model by Studio Analysis</a></li>
+                    <li><a href="/celonis-hacks/posts/2022-05-21-limit-permissions-of-api-token-to-minimize-risk/">Limit permissions of API token to minimize risk</a></li>
+                
+                    <li><a href="/celonis-hacks/posts/2022-05-14-login-to-celonis-ems-from-jupyter-workbench/">Login to Celonis EMS from Jupyter Workbench</a></li>
                 
               </ul>
 
@@ -352,13 +368,9 @@ In process mining context, Transformation is procedure to generate event log tab
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-02-05-tune-endpoint-parameter-relevant-to-delta-load/" data-toggle="tooltip" data-placement="top" title="Tune Endpoint Parameter Relevant to Delta Load">&larr; Previous Post</a>
+              <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-06-11-include-json-data-in-http-request-and-response/" data-toggle="tooltip" data-placement="top" title="Include JSON data in HTTP Request and Response">&larr; Previous Post</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-02-19-determine-process-mining-tables-based-on-project-goal/" data-toggle="tooltip" data-placement="top" title="Determine Process Mining Tables based on Project Goal">Next Post &rarr;</a>
-            </li>
           
         </ul>
       

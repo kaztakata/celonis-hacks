@@ -5,7 +5,16 @@
     <link>https://kaztakata.github.io/celonis-hacks/tags/data-integration/</link>
     <description>Recent content in Data Integration on Celonis hacks</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 11 Jun 2022 18:58:00 +0900</lastBuildDate><atom:link href="https://kaztakata.github.io/celonis-hacks/tags/data-integration/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 18 Jun 2022 17:59:00 +0900</lastBuildDate><atom:link href="https://kaztakata.github.io/celonis-hacks/tags/data-integration/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Operate Celonis from outside by REST API</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2022-06-18-operate-celonis-from-outside-by-rest-api/</link>
+      <pubDate>Sat, 18 Jun 2022 17:59:00 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2022-06-18-operate-celonis-from-outside-by-rest-api/</guid>
+      <description>About REST API Until last post, I explained some of API use cases (export Pool program and configure data job alert) using Pycelonis script from ML Workbench. Is is something Celonis &amp;ldquo;internal&amp;rdquo; operation. By the way, as I mentioned in Login to Celonis EMS from Jupyter Workbench, I can call API from outside of Celonis. Generally this kind of API using HTTP request is called REST API (or RESTful API)</description>
+    </item>
+    
     <item>
       <title>Include JSON data in HTTP Request and Response</title>
       <link>https://kaztakata.github.io/celonis-hacks/posts/2022-06-11-include-json-data-in-http-request-and-response/</link>
