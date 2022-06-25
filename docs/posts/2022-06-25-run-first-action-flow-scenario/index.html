@@ -7,9 +7,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Make Conditional Function to return 1 or NULL - Celonis hacks</title>
-  <meta name="description" content="Previously I posted Handle NULL efficiently in Aggregation Function and discussed how to unite formula of COUNT, SUM, AVG functions. Today I will create boolean function and use it for conditional aggregation.
-Imagine you would like to calculate net value of Sales Order (VBAP.NETWR_CONVERTED) in O2C process, but there are some conditons to calculate it. First condition is that sales order is active, means rejection reason column (VBAP.ABGRU) is not set.">
+  <title>Run first Action Flow Scenario - Celonis hacks</title>
+  <meta name="description" content="Action Flow as HTTP client From today I would like to introduce Action Flow, that is possible to automate scenario and integrate SaaS systems (also on-premise too).
+You may know that 100 over SaaS systems are registered in Action Flow and easily build your own scenario. Great, but I sometimes felt that I could not find appropriate module from that. How do I fullfill my requirement ?
+Actually Action Flow can be used HTTP client, so what I did by cURL at last post Operate Celonis from outside by REST API is also possible in Action Flow.">
   <meta name="author" content="Kazuhiko Takata"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -45,8 +46,8 @@ Imagine you would like to calculate net value of Sales Order (VBAP.NETWR_CONVERT
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-08-21-make-conditional-function-to-return-1-or-null\/",
-          "name": "Make conditional function to return 1 or null"
+          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-06-25-run-first-action-flow-scenario\/",
+          "name": "Run first action flow scenario"
         }
     }]
 }
@@ -57,15 +58,15 @@ Imagine you would like to calculate net value of Sales Order (VBAP.NETWR_CONVERT
   "author": {
     "name" : "Kazuhiko Takata"
   },
-  "headline": "Make Conditional Function to return 1 or NULL",
-  "description" : "Previously I posted Handle NULL efficiently in Aggregation Function and discussed how to unite formula of COUNT, SUM, AVG functions. Today I will create boolean function and use it for conditional aggregation.\nImagine you would like to calculate net value of Sales Order (VBAP.NETWR_CONVERTED) in O2C process, but there are some conditons to calculate it. First condition is that sales order is active, means rejection reason column (VBAP.ABGRU) is not set.",
+  "headline": "Run first Action Flow Scenario",
+  "description" : "Action Flow as HTTP client From today I would like to introduce Action Flow, that is possible to automate scenario and integrate SaaS systems (also on-premise too).\nYou may know that 100 over SaaS systems are registered in Action Flow and easily build your own scenario. Great, but I sometimes felt that I could not find appropriate module from that. How do I fullfill my requirement ?\nActually Action Flow can be used HTTP client, so what I did by cURL at last post Operate Celonis from outside by REST API is also possible in Action Flow.",
   "inLanguage" : "en",
-  "wordCount":  427 ,
-  "datePublished" : "2021-08-21T10:42:17",
-  "dateModified" : "2021-08-21T10:42:17",
+  "wordCount":  534 ,
+  "datePublished" : "2022-06-25T05:05:00",
+  "dateModified" : "2022-06-25T05:05:00",
   "image" : "https:\/\/kaztakata.github.io\/celonis-hacks",
-  "keywords" : [ "PQL, Process Analytics, Studio, Analysis" ],
-  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-08-21-make-conditional-function-to-return-1-or-null\/",
+  "keywords" : [ "Studio, Action Flow, Data Integration" ],
+  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-06-25-run-first-action-flow-scenario\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/kaztakata.github.io\/celonis-hacks",
@@ -79,15 +80,17 @@ Imagine you would like to calculate net value of Sales Order (VBAP.NETWR_CONVERT
 }
 </script>
 
-<meta property="og:title" content="Make Conditional Function to return 1 or NULL" />
-<meta property="og:description" content="Previously I posted Handle NULL efficiently in Aggregation Function and discussed how to unite formula of COUNT, SUM, AVG functions. Today I will create boolean function and use it for conditional aggregation.
-Imagine you would like to calculate net value of Sales Order (VBAP.NETWR_CONVERTED) in O2C process, but there are some conditons to calculate it. First condition is that sales order is active, means rejection reason column (VBAP.ABGRU) is not set.">
-<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2021-08-21-make-conditional-function-to-return-1-or-null/" />
+<meta property="og:title" content="Run first Action Flow Scenario" />
+<meta property="og:description" content="Action Flow as HTTP client From today I would like to introduce Action Flow, that is possible to automate scenario and integrate SaaS systems (also on-premise too).
+You may know that 100 over SaaS systems are registered in Action Flow and easily build your own scenario. Great, but I sometimes felt that I could not find appropriate module from that. How do I fullfill my requirement ?
+Actually Action Flow can be used HTTP client, so what I did by cURL at last post Operate Celonis from outside by REST API is also possible in Action Flow.">
+<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2022-06-25-run-first-action-flow-scenario/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Celonis hacks" />
 
-  <meta name="twitter:title" content="Make Conditional Function to return 1 or NULL" />
-  <meta name="twitter:description" content="Previously I posted Handle NULL efficiently in Aggregation Function and discussed how to unite formula of COUNT, SUM, AVG functions. Today I will create boolean function and use it for conditional …">
+  <meta name="twitter:title" content="Run first Action Flow Scenario" />
+  <meta name="twitter:description" content="Action Flow as HTTP client From today I would like to introduce Action Flow, that is possible to automate scenario and integrate SaaS systems (also on-premise too).
+You may know that 100 over SaaS …">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
@@ -225,7 +228,7 @@ Imagine you would like to calculate net value of Sales Order (VBAP.NETWR_CONVERT
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="posts-heading">
               
-                <h1>Make Conditional Function to return 1 or NULL</h1>
+                <h1>Run first Action Flow Scenario</h1>
               
               
                 <hr class="small">
@@ -245,48 +248,41 @@ Imagine you would like to calculate net value of Sales Order (VBAP.NETWR_CONVERT
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>Previously I posted <a href="../2021-06-26-handle-null-efficiently-in-aggregation-function/">Handle NULL efficiently in Aggregation Function</a> and discussed how to unite formula of COUNT, SUM, AVG functions. Today I will create boolean function and use it for conditional aggregation.</p>
-<p>Imagine you would like to calculate net value of Sales Order (<code>VBAP.NETWR_CONVERTED</code>) in O2C process, but there are some conditons to calculate it. First condition is that sales order is active, means rejection reason column (<code>VBAP.ABGRU</code>) is not set. Second condition is that Shipping has already done, means &lsquo;Ship Goods&rsquo; activity is included in the case.</p>
-<p>Of course it is possible to use component filter to exclude cases, but I do not select this way because I can not manage component filters spreaded to everywhere in the analysis sheet. Instead I will create boolean function to fullfill that condition and return 1 if true, and NULL if false.</p>
-<p>Regarding first condition, I will create formula <code>isActive</code> like below.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">REMAP_INTS(ISNULL(VBAP.ABGRU),[0,NULL])
-</span></span></code></pre></div><p>I introduce <code>ISNULL</code> function that returns 1 if columns value is NULL otherwise returns 0. Then I introduce <code>REMAP_INTS</code> against return value of <code>ISNULL</code> function. Point is to replace 0 to NULL in this function, then finally I can get 1 if rejection reason is not set (active SO), and NULL if it is set (inactive).</p>
-<p>By the way <code>REMAP_INTS</code> is easier to read PQL than <code>CASE WHEN</code> statement. If I use same function by <code>CASE WHEN</code>, PQL is longer and redundant as below.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">CASE 
-</span></span><span class="line"><span class="cl">  WHEN ISNULL(VBAP.ABGRU) = 1 THEN 1 
-</span></span><span class="line"><span class="cl">  WHEN ISNULL(VBAP.ABGRU) = 0 NULL 
-</span></span><span class="line"><span class="cl">END 
-</span></span></code></pre></div><p>Let&rsquo;s go to second condtion named formula <code>isDelivered</code> as below, and <code>CASE WHEN</code> version too. Apparently first one is simpler.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">REMAP_INTS(MATCH_ACTIVITIES(_CEL_O2C_ACTIVITIES.ACTIVITY_EN, NODE [&#39;Ship Goods&#39;]),[0,NULL])
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">------
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">CASE
-</span></span><span class="line"><span class="cl">  WHEN MATCH_ACTIVITIES(_CEL_O2C_ACTIVITIES.ACTIVITY_EN, NODE [&#39;Ship Goods&#39;]) = 1 THEN 1
-</span></span><span class="line"><span class="cl">  WHEN MATCH_ACTIVITIES(_CEL_O2C_ACTIVITIES.ACTIVITY_EN, NODE [&#39;Ship Goods&#39;]) = 0 THEN NULL
-</span></span><span class="line"><span class="cl">END
-</span></span></code></pre></div><p>Regarding this formula I introduced <code>MATCH_ACTIVITIES</code> function that returns 1 if each case has activity &lsquo;Ship Goods&rsquo; otherwise returns 0. This function (and similar process functions) is calculated by each case, so it returns result by case key, like PU function against case table. See <a href="../2021-05-15-understand-mechanism-of-pull-up-function/">Understand mechanism of Pull up function</a> for reference.</p>
-<p>Finally I would like to build up conditional net value of each case (named deliveredNetValue) by multiplying three terms. This function returns net value if following two functions return 1, otherwise return NULL.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">VBAP.NETWR_CONVERTED  * KPI(isActive) * KPI(isDelivered)
-</span></span></code></pre></div><p>Using deliveredNetValue I can aggregate COUNT, SUM, AVG of this value as below screen.</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/130308160-d448caa9-7898-47ad-a5bd-69e180f6dd8f.png"><img src="https://user-images.githubusercontent.com/67397583/130308160-d448caa9-7898-47ad-a5bd-69e180f6dd8f.png" alt="image"></a></p>
-<p>For readability and maintenability perspective I believe conditinal function like above is best practice.</p>
+        <h3 id="action-flow-as-http-client">Action Flow as HTTP client</h3>
+<p>From today I would like to introduce Action Flow, that is possible to automate scenario and integrate SaaS systems (also on-premise too).</p>
+<p>You may know that 100 over SaaS systems are registered in Action Flow and easily build your own scenario. Great, but I sometimes felt that I could not find appropriate module from that. How do I fullfill my requirement ?</p>
+<p>Actually Action Flow can be used HTTP client, so what I did by <a href="https://curl.se/">cURL</a> at last post <a href="../2022-06-18-operate-celonis-from-outside-by-rest-api">Operate Celonis from outside by REST API</a> is also possible in Action Flow.</p>
+<p>From today I will create my own module by HTTP client in Action Flow. Today is the first time to explain Action Flow, I will create one HTTP module and test it.</p>
+<p>By the way my scenario is same as previous post, monitoring Celonis Data Jobs at midnight. At last post I deregated someone else to monitor Data Jobs, but this kind of task can be automated by Action Flow.</p>
+<h3 id="create-action-flow-and-initialization-module">Create Action Flow and initialization module</h3>
+<p>Action Flow is one of the node in Studio Package, so I will create Package beforehand and click plus button to create Action Flow under that package. Then enter Action Flow name (and set key automatically) and click Create button.</p>
+<p>I can see blank scenario cambus with one blank circle (module) as below screen. I normally choose initialization at first module, so click plus button then enter <code>tools</code> then select <code>Set multiple variables</code>.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/175759087-863c1980-4a25-4bae-b39d-975e24a2eb6a.png"><img src="https://user-images.githubusercontent.com/67397583/175759087-863c1980-4a25-4bae-b39d-975e24a2eb6a.png" alt="image"></a></p>
+<p>In this module, I create two variables <code>pool_url</code> and <code>authorization</code>. Both are similar to cULR command parameters. Later there variables are reused so it is better to collect to initialization module. After setup, my module is like below.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/175759324-8cd8f4a6-33bb-4785-879e-f3857f248d4f.png"><img src="https://user-images.githubusercontent.com/67397583/175759324-8cd8f4a6-33bb-4785-879e-f3857f248d4f.png" alt="image"></a></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">pool_url : https://{team_id}.training.celonis.cloud/integration/api/pools/{pool_id} 
+</span></span><span class="line"><span class="cl">authorization : AppKey {app_key}
+</span></span></code></pre></div><h3 id="create-own-http-request-module">Create own HTTP request module</h3>
+<p>After setup first module, click right side small circle, then next blank circle (module) is appeared. Select <code>HTTP</code> and click <code>Make a request</code>. This is HTTP client module.</p>
+<p>Same as cURL command, fill URL and Headers as below screen. When entering value, previously setup variables are listed up. Click them so variable value can be used. Additionally tick <code>Parse response</code>, and <code>Evaluate all states as errors (except for 2xx and 3xx)</code> in advanced settings. Former one is to use response value for further steps (modules), and latter one is to stop scenario if I could not get result. Finally save scenario.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/175759577-a88dbbfd-e1e2-491e-b36b-5019d40ebd01.png"><img src="https://user-images.githubusercontent.com/67397583/175759577-a88dbbfd-e1e2-491e-b36b-5019d40ebd01.png" alt="image"></a></p>
+<h3 id="run-action-flow-as-test">Run Action Flow as test</h3>
+<p>It is ready to test this scenario. Click Green button (run once) and wait for few seconds. Then process modules one by one. I can see balloon describing number in each module, that represents processed bundles (number of processing unit) .</p>
+<p>Click balloon in HTTP module, then drilldown Bundle 1 and Data. I can see statuses of each Data Jobs. That is also same appearance as cURL result, but this result is restructured to 3 bundles and from next steps each bundle can be processed.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/175760230-77d6a323-4d08-4c9f-8784-fb911d4ee1a5.png"><img src="https://user-images.githubusercontent.com/67397583/175760230-77d6a323-4d08-4c9f-8784-fb911d4ee1a5.png" alt="image"></a></p>
+<p>In the next post, I would like to add one more HTTP module to cancel data job if still running status.</p>
+<p>Finally, Action Flow is derived from Integromat, so <a href="https://www.integromat.com/en/help/basic-terms">documentation of term</a> of Integromat is helpful if you are struggled with terms like scenario, bundle etc.</p>
 <p>Kaz</p>
-<hr>
-<p>This post&rsquo;s program can be <a href="../../examples/o2c_analysis_20210821.json">downloaded here</a> then push to your environment by content-cli.</p>
-<hr>
 
 
         
           <div class="blog-tags">
             
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/pql/">PQL</a>&nbsp;
-            
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/process-analytics/">Process Analytics</a>&nbsp;
-            
               <a href="https://kaztakata.github.io/celonis-hacks/tags/studio/">Studio</a>&nbsp;
             
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/analysis/">Analysis</a>&nbsp;
+              <a href="https://kaztakata.github.io/celonis-hacks/tags/action-flow/">Action Flow</a>&nbsp;
+            
+              <a href="https://kaztakata.github.io/celonis-hacks/tags/data-integration/">Data Integration</a>&nbsp;
             
           </div>
         
@@ -301,42 +297,42 @@ Imagine you would like to calculate net value of Sales Order (VBAP.NETWR_CONVERT
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-08-21-make-conditional-function-to-return-1-or-null%2f&amp;text=Make%20Conditional%20Function%20to%20return%201%20or%20NULL&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-06-25-run-first-action-flow-scenario%2f&amp;text=Run%20first%20Action%20Flow%20Scenario&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-08-21-make-conditional-function-to-return-1-or-null%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-06-25-run-first-action-flow-scenario%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-08-21-make-conditional-function-to-return-1-or-null%2f&amp;title=Make%20Conditional%20Function%20to%20return%201%20or%20NULL" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-06-25-run-first-action-flow-scenario%2f&amp;title=Run%20first%20Action%20Flow%20Scenario" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-08-21-make-conditional-function-to-return-1-or-null%2f&amp;title=Make%20Conditional%20Function%20to%20return%201%20or%20NULL" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-06-25-run-first-action-flow-scenario%2f&amp;title=Run%20first%20Action%20Flow%20Scenario" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-08-21-make-conditional-function-to-return-1-or-null%2f&amp;title=Make%20Conditional%20Function%20to%20return%201%20or%20NULL" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-06-25-run-first-action-flow-scenario%2f&amp;title=Run%20first%20Action%20Flow%20Scenario" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-08-21-make-conditional-function-to-return-1-or-null%2f&amp;description=Make%20Conditional%20Function%20to%20return%201%20or%20NULL" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-06-25-run-first-action-flow-scenario%2f&amp;description=Run%20first%20Action%20Flow%20Scenario" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -358,15 +354,15 @@ Imagine you would like to calculate net value of Sales Order (VBAP.NETWR_CONVERT
                   <ul>
                 
                 
-                    <li><a href="/celonis-hacks/posts/2022-06-25-run-first-action-flow-scenario/">Run first Action Flow Scenario</a></li>
+                    <li><a href="/celonis-hacks/posts/2022-06-18-operate-celonis-from-outside-by-rest-api/">Operate Celonis from outside by REST API</a></li>
+                
+                    <li><a href="/celonis-hacks/posts/2022-06-11-include-json-data-in-http-request-and-response/">Include JSON data in HTTP Request and Response</a></li>
+                
+                    <li><a href="/celonis-hacks/posts/2022-06-04-find-out-http-request-from-gui-function/">Find out HTTP Request from GUI Function</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2022-05-07-start-deep-dive-to-machine-learning-and-action-flow/">Start Deep Dive to Machine Learning and Action Flow</a></li>
                 
-                    <li><a href="/celonis-hacks/posts/2022-04-23-validate-data-model-by-studio-analysis/">Validate Data Model by Studio Analysis</a></li>
-                
-                    <li><a href="/celonis-hacks/posts/2022-03-26-handle-day-based-activity-as-milestone/">Handle Day based Activity as Milestone</a></li>
-                
-                    <li><a href="/celonis-hacks/posts/2021-10-30-copy-previous-value-to-blank-period-by-running-sum-and-range-append-functions/">Copy Previous Value to Blank Period by RUNNING_SUM and RANGE_APPEND functions</a></li>
+                    <li><a href="/celonis-hacks/posts/2022-04-30-execute-periodic-etl-automatically/">Execute Periodic ETL Automatically</a></li>
                 
               </ul>
 
@@ -378,13 +374,9 @@ Imagine you would like to calculate net value of Sales Order (VBAP.NETWR_CONVERT
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-08-14-share-my-analysis-by-content-cli/" data-toggle="tooltip" data-placement="top" title="Share my Analysis by Content-CLI">&larr; Previous Post</a>
+              <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-06-18-operate-celonis-from-outside-by-rest-api/" data-toggle="tooltip" data-placement="top" title="Operate Celonis from outside by REST API">&larr; Previous Post</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-08-28-count-rows-of-tables-in-various-way/" data-toggle="tooltip" data-placement="top" title="Count rows of Tables in various way">Next Post &rarr;</a>
-            </li>
           
         </ul>
       

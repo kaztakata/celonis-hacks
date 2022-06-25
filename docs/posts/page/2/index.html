@@ -195,6 +195,58 @@
         <div class="posts-list">
           
             <article class="post-preview">
+    <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-04-16-construct-my-first-data-model/">
+        <h2 class="post-title">Construct My First Data Model</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2022-04-16
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;minutes
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;478&nbsp;words
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kazuhiko Takata
+    
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        Today I would like to create draft version of data model then complete series of ETL (Extraction, Transformation, Load) started from last November.
+As I showed in Adjust Time Zone of Event Time in Global Transformation, I created global VIEW for activity table. Before creating Data Model, I would like to create one more global VIEW against case table. As below SQL, it is quite simple to copy all columns of issues in Planio connection, plus one more column _CASE_KEY that is converting from interger id to character.
+        <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-04-16-construct-my-first-data-model/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+        <a href="https://kaztakata.github.io/celonis-hacks/tags/data-integration/">Data Integration</a>&nbsp;
+        
+        <a href="https://kaztakata.github.io/celonis-hacks/tags/transformation/">Transformation</a>&nbsp;
+        
+        <a href="https://kaztakata.github.io/celonis-hacks/tags/data-model/">Data Model</a>&nbsp;
+        
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
     <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-04-09-inspect-table-data-by-select-statement/">
         <h2 class="post-title">Inspect Table Data by SELECT statement</h2>
         
@@ -643,56 +695,6 @@ In process mining context, Transformation is procedure to generate event log tab
         <a href="https://kaztakata.github.io/celonis-hacks/tags/data-integration/">Data Integration</a>&nbsp;
         
         <a href="https://kaztakata.github.io/celonis-hacks/tags/transformation/">Transformation</a>&nbsp;
-        
-    </div>
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-02-05-tune-endpoint-parameter-relevant-to-delta-load/">
-        <h2 class="post-title">Tune Endpoint Parameter Relevant to Delta Load</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on 2022-02-05
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;minutes
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;434&nbsp;words
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kazuhiko Takata
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        Until last post Setup Dependent Endpoint in Extractor Builder, I prepared endpoints of both Planio Issues and their journals. Today I would like to tackle final setup of extractor to deal with Delta Load option.
-Referring to the Planio Documentation, updated_on column exists for filtering Issues. This timestamp column is updated when creating and updating relevant issue, so it is appropriate column for Delta Load. Open Celonis Extractor builder then go to 4 Define Endpoints.
-        <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-02-05-tune-endpoint-parameter-relevant-to-delta-load/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/data-integration/">Data Integration</a>&nbsp;
-        
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/extractor-builder/">Extractor Builder</a>&nbsp;
         
     </div>
     

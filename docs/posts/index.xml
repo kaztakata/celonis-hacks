@@ -5,7 +5,18 @@
     <link>https://kaztakata.github.io/celonis-hacks/posts/</link>
     <description>Recent content in Posts on Celonis hacks</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 18 Jun 2022 17:59:00 +0900</lastBuildDate><atom:link href="https://kaztakata.github.io/celonis-hacks/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 25 Jun 2022 05:05:00 +0900</lastBuildDate><atom:link href="https://kaztakata.github.io/celonis-hacks/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Run first Action Flow Scenario</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2022-06-25-run-first-action-flow-scenario/</link>
+      <pubDate>Sat, 25 Jun 2022 05:05:00 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2022-06-25-run-first-action-flow-scenario/</guid>
+      <description>Action Flow as HTTP client From today I would like to introduce Action Flow, that is possible to automate scenario and integrate SaaS systems (also on-premise too).
+You may know that 100 over SaaS systems are registered in Action Flow and easily build your own scenario. Great, but I sometimes felt that I could not find appropriate module from that. How do I fullfill my requirement ?
+Actually Action Flow can be used HTTP client, so what I did by cURL at last post Operate Celonis from outside by REST API is also possible in Action Flow.</description>
+    </item>
+    
     <item>
       <title>Operate Celonis from outside by REST API</title>
       <link>https://kaztakata.github.io/celonis-hacks/posts/2022-06-18-operate-celonis-from-outside-by-rest-api/</link>

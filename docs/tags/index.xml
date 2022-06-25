@@ -5,13 +5,31 @@
     <link>https://kaztakata.github.io/celonis-hacks/tags/</link>
     <description>Recent content in Tags on Celonis hacks</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 18 Jun 2022 17:59:00 +0900</lastBuildDate><atom:link href="https://kaztakata.github.io/celonis-hacks/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 25 Jun 2022 05:05:00 +0900</lastBuildDate><atom:link href="https://kaztakata.github.io/celonis-hacks/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Action Flow</title>
+      <link>https://kaztakata.github.io/celonis-hacks/tags/action-flow/</link>
+      <pubDate>Sat, 25 Jun 2022 05:05:00 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/tags/action-flow/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Data Integration</title>
       <link>https://kaztakata.github.io/celonis-hacks/tags/data-integration/</link>
-      <pubDate>Sat, 18 Jun 2022 17:59:00 +0900</pubDate>
+      <pubDate>Sat, 25 Jun 2022 05:05:00 +0900</pubDate>
       
       <guid>https://kaztakata.github.io/celonis-hacks/tags/data-integration/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Studio</title>
+      <link>https://kaztakata.github.io/celonis-hacks/tags/studio/</link>
+      <pubDate>Sat, 25 Jun 2022 05:05:00 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/tags/studio/</guid>
       <description></description>
     </item>
     
@@ -30,24 +48,6 @@
       <pubDate>Sat, 21 May 2022 09:31:32 +0900</pubDate>
       
       <guid>https://kaztakata.github.io/celonis-hacks/tags/admin-and-settings/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Action Flow</title>
-      <link>https://kaztakata.github.io/celonis-hacks/tags/action-flow/</link>
-      <pubDate>Sat, 07 May 2022 12:54:54 +0900</pubDate>
-      
-      <guid>https://kaztakata.github.io/celonis-hacks/tags/action-flow/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Studio</title>
-      <link>https://kaztakata.github.io/celonis-hacks/tags/studio/</link>
-      <pubDate>Sat, 07 May 2022 12:54:54 +0900</pubDate>
-      
-      <guid>https://kaztakata.github.io/celonis-hacks/tags/studio/</guid>
       <description></description>
     </item>
     
