@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Data Integration - Celonis hacks</title>
+  <title>Posts - Celonis hacks</title>
   <meta name="author" content="Kazuhiko Takata"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -29,12 +29,12 @@
 }
 </script>
 
-<meta property="og:title" content="Data Integration" />
-<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/tags/data-integration/" />
+<meta property="og:title" content="Posts" />
+<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Celonis hacks" />
 
-  <meta name="twitter:title" content="Data Integration" />
+  <meta name="twitter:title" content="Posts" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
@@ -170,9 +170,9 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <div class="tags-heading">
+            <div class="posts-heading">
               
-                <h1>Data Integration</h1>
+                <h1>Posts</h1>
               
               
                 <hr class="small">
@@ -195,8 +195,8 @@
         <div class="posts-list">
           
             <article class="post-preview">
-    <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-07-24-categorize-and-name-activity/">
-        <h2 class="post-title">Categorize and Name Activity</h2>
+    <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-05-01-understand-difference-between-dimension-and-kpi/">
+        <h2 class="post-title">Understand Difference between Dimension and KPI</h2>
         
         
         
@@ -206,13 +206,13 @@
         <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;Posted on 2021-07-24
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2021-05-01
   
   
     &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;minutes
   
   
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;471&nbsp;words
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;476&nbsp;words
   
   
     
@@ -226,20 +226,14 @@
     </p>
     <div class="post-entry">
         
-        In the previous post Transform Source System Tables to Minimize Data Model Tables, I recommended to convert some kind of source system tables to Activity. Today I focus on Activity and would like to share my way how to categorize and name Activity.
-First point is to split Activity name to two parts, more general part and detail part. For example, in SAP ECC or S4HANA Order to Cash process, general Activity name is Create Sales Order when data committed in VA01 transaction.
-        <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-07-24-categorize-and-name-activity/" class="post-read-more">[Read More]</a>
+        If you are beginner of creating Celonis Analysis, I believe you will first create OLAP table to understand how Celonis PQL works with data model. Points are,
+ Dimensions are grouping key to calculate KPI, normally they are string (character) columns KPIs are calculated figures based on specific numeric columns, or count of rows of any columns, it must be numeric value in either cases Columns used as dimensions and KPIs are inplicitly joined based on data model  Below screenshot is the quite simple example to show Dimension, KPI, and data model.
+        <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-05-01-understand-difference-between-dimension-and-kpi/" class="post-read-more">[Read More]</a>
         
     </div>
 
     
     <div class="blog-tags">
-        
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/data-model/">Data Model</a>&nbsp;
-        
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/data-integration/">Data Integration</a>&nbsp;
-        
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/transformation/">Transformation</a>&nbsp;
         
         <a href="https://kaztakata.github.io/celonis-hacks/tags/pql/">PQL</a>&nbsp;
         
@@ -248,62 +242,6 @@ First point is to split Activity name to two parts, more general part and detail
         <a href="https://kaztakata.github.io/celonis-hacks/tags/studio/">Studio</a>&nbsp;
         
         <a href="https://kaztakata.github.io/celonis-hacks/tags/analysis/">Analysis</a>&nbsp;
-        
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/pull-up-function/">Pull Up Function</a>&nbsp;
-        
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/process-explorer/">Process Explorer</a>&nbsp;
-        
-    </div>
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-07-17-transform-source-system-tables-to-minimize-data-model-tables/">
-        <h2 class="post-title">Transform Source System Tables to Minimize Data Model Tables</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on 2021-07-17
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;minutes
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;338&nbsp;words
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kazuhiko Takata
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        In the last part of previous post Utilize N-M relationship between Activity and Dimension Tables, I said just mimicing source system&rsquo;s table structure to data model is not useful for Celonis data model. Also I feel loading time to data model is exponentially long when one more table is added. So minimizing data model table is good practice especially for real time analytics.
-In case of SAP Order to Cash (O2C) scenario, case table is sales order item (VBAP).
-        <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-07-17-transform-source-system-tables-to-minimize-data-model-tables/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/data-model/">Data Model</a>&nbsp;
-        
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/data-integration/">Data Integration</a>&nbsp;
-        
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/transformation/">Transformation</a>&nbsp;
         
     </div>
     
@@ -315,7 +253,7 @@ In case of SAP Order to Cash (O2C) scenario, case table is sales order item (VBA
           <ul class="pager main-pager">
             
               <li class="previous">
-                <a href="https://kaztakata.github.io/celonis-hacks/tags/data-integration/page/3/">&larr; Newer Posts</a>
+                <a href="https://kaztakata.github.io/celonis-hacks/posts/page/6/">&larr; Newer Posts</a>
               </li>
             
             
@@ -358,7 +296,7 @@ In case of SAP Order to Cash (O2C) scenario, case table is sales order item (VBA
               </li>
           
           <li>
-            <a href="/celonis-hacks/tags/data-integration/index.xml" title="RSS">
+            <a href="/celonis-hacks/posts/index.xml" title="RSS">
               <span class="fa-stack fa-lg">
                 <i class="fas fa-circle fa-stack-2x"></i>
                 <i class="fas fa-rss fa-stack-1x fa-inverse"></i>

@@ -7,9 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Look at Data Transfer Process by Data Job Log - Celonis hacks</title>
-  <meta name="description" content="Last week I posted Connect to Celonis and Bring Back Instruction to look at how Extractor works to connect between Celonis and Postgres. This week I would like to extract data from Postgres and look at data transfer process by data job log.
-In the Data Integration, I create new Data Job with Data Connection I created last week, then create new extraction task. In the next screen I add new table public.">
+  <title>Manage Bundles in between Action Flow Modules - Celonis hacks</title>
+  <meta name="description" content="Convert array to bundles by Iterator module At last post Run first Action Flow Scenario I created HTTP request module to check data job status. Based on the scenario, today I would like to create next module to cancel running data jobs.
+Because next module is also HTTP request, it is convenient to clone last module and modify something. I right click the last module, then select Clone menu, then new module is generated and connected with previous module.">
   <meta name="author" content="Kazuhiko Takata"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -45,8 +45,8 @@ In the Data Integration, I create new Data Job with Data Connection I created la
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-11-20-look-at-data-transfer-process-by-data-job-log\/",
-          "name": "Look at data transfer process by data job log"
+          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-07-02-manage-bundles-in-between-action-flow-modules\/",
+          "name": "Manage bundles in between action flow modules"
         }
     }]
 }
@@ -57,15 +57,15 @@ In the Data Integration, I create new Data Job with Data Connection I created la
   "author": {
     "name" : "Kazuhiko Takata"
   },
-  "headline": "Look at Data Transfer Process by Data Job Log",
-  "description" : "Last week I posted Connect to Celonis and Bring Back Instruction to look at how Extractor works to connect between Celonis and Postgres. This week I would like to extract data from Postgres and look at data transfer process by data job log.\nIn the Data Integration, I create new Data Job with Data Connection I created last week, then create new extraction task. In the next screen I add new table public.",
+  "headline": "Manage Bundles in between Action Flow Modules",
+  "description" : "Convert array to bundles by Iterator module At last post Run first Action Flow Scenario I created HTTP request module to check data job status. Based on the scenario, today I would like to create next module to cancel running data jobs.\nBecause next module is also HTTP request, it is convenient to clone last module and modify something. I right click the last module, then select Clone menu, then new module is generated and connected with previous module.",
   "inLanguage" : "en",
-  "wordCount":  607 ,
-  "datePublished" : "2021-11-20T08:39:24",
-  "dateModified" : "2021-11-20T08:39:24",
+  "wordCount":  367 ,
+  "datePublished" : "2022-07-02T07:25:00",
+  "dateModified" : "2022-07-02T07:25:00",
   "image" : "https:\/\/kaztakata.github.io\/celonis-hacks",
-  "keywords" : [ "Data Integration, Extractor, Extraction, Data Job" ],
-  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-11-20-look-at-data-transfer-process-by-data-job-log\/",
+  "keywords" : [ "Studio, Action Flow, Data Integration" ],
+  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-07-02-manage-bundles-in-between-action-flow-modules\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/kaztakata.github.io\/celonis-hacks",
@@ -79,15 +79,15 @@ In the Data Integration, I create new Data Job with Data Connection I created la
 }
 </script>
 
-<meta property="og:title" content="Look at Data Transfer Process by Data Job Log" />
-<meta property="og:description" content="Last week I posted Connect to Celonis and Bring Back Instruction to look at how Extractor works to connect between Celonis and Postgres. This week I would like to extract data from Postgres and look at data transfer process by data job log.
-In the Data Integration, I create new Data Job with Data Connection I created last week, then create new extraction task. In the next screen I add new table public.">
-<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2021-11-20-look-at-data-transfer-process-by-data-job-log/" />
+<meta property="og:title" content="Manage Bundles in between Action Flow Modules" />
+<meta property="og:description" content="Convert array to bundles by Iterator module At last post Run first Action Flow Scenario I created HTTP request module to check data job status. Based on the scenario, today I would like to create next module to cancel running data jobs.
+Because next module is also HTTP request, it is convenient to clone last module and modify something. I right click the last module, then select Clone menu, then new module is generated and connected with previous module.">
+<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2022-07-02-manage-bundles-in-between-action-flow-modules/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Celonis hacks" />
 
-  <meta name="twitter:title" content="Look at Data Transfer Process by Data Job Log" />
-  <meta name="twitter:description" content="Last week I posted Connect to Celonis and Bring Back Instruction to look at how Extractor works to connect between Celonis and Postgres. This week I would like to extract data from Postgres and look …">
+  <meta name="twitter:title" content="Manage Bundles in between Action Flow Modules" />
+  <meta name="twitter:description" content="Convert array to bundles by Iterator module At last post Run first Action Flow Scenario I created HTTP request module to check data job status. Based on the scenario, today I would like to create next …">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
@@ -225,7 +225,7 @@ In the Data Integration, I create new Data Job with Data Connection I created la
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="posts-heading">
               
-                <h1>Look at Data Transfer Process by Data Job Log</h1>
+                <h1>Manage Bundles in between Action Flow Modules</h1>
               
               
                 <hr class="small">
@@ -245,64 +245,38 @@ In the Data Integration, I create new Data Job with Data Connection I created la
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>Last week I posted <a href="../2021-11-13-connect-to-celonis-and-bring-back-instruction">Connect to Celonis and Bring Back Instruction</a> to look at how Extractor works to connect between Celonis and Postgres. This week I would like to extract data from Postgres and look at data transfer process by data job log.</p>
-<p>In the Data Integration, I create new Data Job with Data Connection I created last week, then create new extraction task. In the next screen I add new table <code>public.app_users</code> that is pre-installed in Postgres when I deployed it (You can see detail by <code>sample.sql</code> in celonis-postgres folder). Going back to table configuration screen, I should touch somewhere in screen and redo it, then save button is enabled. Then click save it.</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/142714726-6d35f478-a2d8-4c5f-8004-07b33dabbafa.png"><img src="https://user-images.githubusercontent.com/67397583/142714726-6d35f478-a2d8-4c5f-8004-07b33dabbafa.png" alt="image"></a></p>
-<p>Then I start Data Job (Full Load) and look at the log in Extractor (in VS code terminal). Extractor log (shortened and commented) is below, with three parts.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">-- first part : Extract data from Postgres and create file --
-</span></span><span class="line"><span class="cl">2021-11-19 23:53:26.292 Request with ID pDmB.... received  
-</span></span><span class="line"><span class="cl">2021-11-19 23:53:32.257 Starting extraction for resource: app_users  
-</span></span><span class="line"><span class="cl">2021-11-19 23:53:32.309 Executing query: SELECT * FROM &#34;public&#34;.&#34;app_users&#34;  
-</span></span><span class="line"><span class="cl">2021-11-19 23:53:33.007 Response for request i3UZ.... is sent, finished. Stopping keep alive requests  
-</span></span><span class="line"><span class="cl">2021-11-19 23:53:34.170 Loading 100,000 records for table app_users. Total extracted records 100,000  
-</span></span><span class="line"><span class="cl">2021-11-19 23:53:34.432 Loading 54,821 records for table app_users. Total extracted records 154,821  
-</span></span><span class="line"><span class="cl">2021-11-19 23:53:34.433 Total 154,821 records loaded for table app_users  
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">-- second part : Transfer file to Celonis --
-</span></span><span class="line"><span class="cl">2021-11-19 23:53:34.439 Uploading result files  
-</span></span><span class="line"><span class="cl">2021-11-19 23:53:35.342 Called upload file 98b7856c-c685-4b28-ad33-e86b72483a9f, app_users  
-</span></span><span class="line"><span class="cl">2021-11-19 23:53:35.342 Called upload file 98b7856c-c685-4b28-ad33-e86b72483a9f, app_users  
-</span></span><span class="line"><span class="cl">2021-11-19 23:53:35.343 Called upload file 98b7856c-c685-4b28-ad33-e86b72483a9f, app_users  
-</span></span><span class="line"><span class="cl">2021-11-19 23:53:35.343 Called upload file 98b7856c-c685-4b28-ad33-e86b72483a9f, app_users  
-</span></span><span class="line"><span class="cl">2021-11-19 23:53:35.343 Called upload file 98b7856c-c685-4b28-ad33-e86b72483a9f, app_users  
-</span></span><span class="line"><span class="cl">2021-11-19 23:53:35.344 Called upload file 98b7856c-c685-4b28-ad33-e86b72483a9f, app_users  
-</span></span><span class="line"><span class="cl">2021-11-19 23:53:35.344 Called upload file 98b7856c-c685-4b28-ad33-e86b72483a9f, app_users  
-</span></span><span class="line"><span class="cl">2021-11-19 23:53:35.443 Pushing upsert for table app_users and id 98b7856c-c685-4b28-ad33-e86b72483a9f  
-</span></span><span class="line"><span class="cl">2021-11-19 23:53:37.342 Pushing upsert for table app_users and id 98b7856c-c685-4b28-ad33-e86b72483a9f  
-</span></span><span class="line"><span class="cl">2021-11-19 23:53:38.310 Pushing upsert for table app_users and id 98b7856c-c685-4b28-ad33-e86b72483a9f  
-</span></span><span class="line"><span class="cl">2021-11-19 23:53:38.806 Pushing upsert for table app_users and id 98b7856c-c685-4b28-ad33-e86b72483a9f  
-</span></span><span class="line"><span class="cl">2021-11-19 23:53:39.345 Pushing upsert for table app_users and id 98b7856c-c685-4b28-ad33-e86b72483a9f  
-</span></span><span class="line"><span class="cl">2021-11-19 23:53:39.890 Pushing upsert for table app_users and id 98b7856c-c685-4b28-ad33-e86b72483a9f  
-</span></span><span class="line"><span class="cl">2021-11-19 23:53:40.519 Pushing upsert for table app_users and id 98b7856c-c685-4b28-ad33-e86b72483a9f  
-</span></span><span class="line"><span class="cl">2021-11-19 23:53:41.283 called onSuccess for table app_users with id 98b7856c-c685-4b28-ad33-e86b72483a9f  
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">-- third part : Insert file content into table in Celonis --
-</span></span><span class="line"><span class="cl">2021-11-19 23:53:41.287 Starting load app_users to target ...  
-</span></span><span class="line"><span class="cl">2021-11-19 23:53:41.641 Waiting for success state ...  
-</span></span><span class="line"><span class="cl">2021-11-19 23:54:00.760 Table app_users loaded ..  
-</span></span><span class="line"><span class="cl">2021-11-19 23:54:00.760 Extraction successful  
-</span></span></code></pre></div><ol>
-<li>Extractor bring back Extraction Job instruction (connection, table etc.) from Celonis then execute SELECT statement in Postgres to create file. SELECT execution is split to chunks (per 100K record) to minimize resource usage of local machine.</li>
-<li>Files stored at my local machine are 7 chunks (seems ~25K record). Those are transferred to Celonis via HTTPS. To control network resource usage, smaller size of files are better, so each files are compressed as parquet file.</li>
-<li>After 7 files are moved to Celonis, then start INSERT statement to Celonis table. It takes most of time in total Extraction task.</li>
-</ol>
-<p>When I looked at job log in Celonis, it is similar to that of Extractor so, it has also three parts as below.</p>
-<p>In the second part of log is only one message <code>Uploading result files</code>, so you should patiently wait until next message if you need to do 1 day long full load to transfer huge volume of data.</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/142714091-f1e3a6c6-5c99-4bb2-97a0-7220f24c931e.png"><img src="https://user-images.githubusercontent.com/67397583/142714091-f1e3a6c6-5c99-4bb2-97a0-7220f24c931e.png" alt="image"></a></p>
-<p>By the way, most of staff managing source system said that they were worried about performance down of their source system and thier network, but at least I did not experience such a trouble, even when I extracted ~100M record of SAP FI Documnet (BSEG) etc.</p>
+        <h3 id="convert-array-to-bundles-by-iterator-module">Convert array to bundles by Iterator module</h3>
+<p>At last post <a href="../2022-06-25-run-first-action-flow-scenario">Run first Action Flow Scenario</a> I created HTTP request module to check data job status. Based on the scenario, today I would like to create next module to cancel running data jobs.</p>
+<p>Because next module is also HTTP request, it is convenient to clone last module and modify something. I right click the last module, then select <code>Clone</code> menu, then new module is generated and connected with previous module. In the next module, I will change below two points based on cURL result of <a href="../2022-06-18-operate-celonis-from-outside-by-rest-api">Operate Celonis from outside by REST API</a>.</p>
+<ul>
+<li>URL : {{5.pool_url}}/jobs/{job_id}/cancel</li>
+<li>Method : POST</li>
+</ul>
+<p>By the way, to set each {job_id} in cancel module, unfortunately current direct connection between HTTP request is not enough (currently only first data job can be chosen). I will click gear icon in left lower corner and select <code>Iterator</code>. Then drag this module between two HTTP request modules as below screen. At last I will set <code>Data[]</code> of previous module to Array.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/176899124-dfce27f3-513e-4ee0-8a8b-32d3f109d827.png"><img src="https://user-images.githubusercontent.com/67397583/176899124-dfce27f3-513e-4ee0-8a8b-32d3f109d827.png" alt="image"></a></p>
+<p>After doing this, HTTP cancel request can select data job id that is split in <code>Iterator</code> module.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/176899992-d394c1ec-3d0f-4857-aaa6-ef86f0c692c9.png"><img src="https://user-images.githubusercontent.com/67397583/176899992-d394c1ec-3d0f-4857-aaa6-ef86f0c692c9.png" alt="image"></a></p>
+<p>To confirm that point I can run once and confirm cancel request is operated 3 times (same as number of data jobs).</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/176900345-f76d09ef-f202-4a6e-b7d1-2a1080acde78.png"><img src="https://user-images.githubusercontent.com/67397583/176900345-f76d09ef-f202-4a6e-b7d1-2a1080acde78.png" alt="image"></a></p>
+<h3 id="filter-data-job-bundles-by-their-status">Filter data job bundles by their status</h3>
+<p>Even current scenario is enough for achieving my purpose, but I found that I do not need to post request to all jobs, so it is better to post cancel request to only running jobs.</p>
+<p>To do this, I will focus on the connection between Iterator and cancel request. I will click spanner button and select <code>Setup up a filter</code> menu.</p>
+<p>At filter setup, I create condition that <code>status</code> column in Iterator module is equal to <code>RUNNING</code> as below.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/176902745-6fbeeadf-b900-4e96-af9f-a4b106856cdd.png"><img src="https://user-images.githubusercontent.com/67397583/176902745-6fbeeadf-b900-4e96-af9f-a4b106856cdd.png" alt="image"></a></p>
+<p>I am ready for testing. I will run data job and immediately run scenario to cancel it. The only running job is passed to cancel request and successfully finished (honestly I tried some times to prevent timeout of cancel request, you will set timeout column to 1 second.)</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/176906516-1e337f45-aee9-431b-a88c-137ad5936834.png"><img src="https://user-images.githubusercontent.com/67397583/176906516-1e337f45-aee9-431b-a88c-137ad5936834.png" alt="image"></a></p>
+<p>In action flow scenario, managing bundles like today is important but not documented in anywhere so I would like to document this today.</p>
 <p>Kaz</p>
 
 
         
           <div class="blog-tags">
             
+              <a href="https://kaztakata.github.io/celonis-hacks/tags/studio/">Studio</a>&nbsp;
+            
+              <a href="https://kaztakata.github.io/celonis-hacks/tags/action-flow/">Action Flow</a>&nbsp;
+            
               <a href="https://kaztakata.github.io/celonis-hacks/tags/data-integration/">Data Integration</a>&nbsp;
-            
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/extractor/">Extractor</a>&nbsp;
-            
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/extraction/">Extraction</a>&nbsp;
-            
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/data-job/">Data Job</a>&nbsp;
             
           </div>
         
@@ -317,42 +291,42 @@ In the Data Integration, I create new Data Job with Data Connection I created la
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-11-20-look-at-data-transfer-process-by-data-job-log%2f&amp;text=Look%20at%20Data%20Transfer%20Process%20by%20Data%20Job%20Log&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-07-02-manage-bundles-in-between-action-flow-modules%2f&amp;text=Manage%20Bundles%20in%20between%20Action%20Flow%20Modules&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-11-20-look-at-data-transfer-process-by-data-job-log%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-07-02-manage-bundles-in-between-action-flow-modules%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-11-20-look-at-data-transfer-process-by-data-job-log%2f&amp;title=Look%20at%20Data%20Transfer%20Process%20by%20Data%20Job%20Log" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-07-02-manage-bundles-in-between-action-flow-modules%2f&amp;title=Manage%20Bundles%20in%20between%20Action%20Flow%20Modules" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-11-20-look-at-data-transfer-process-by-data-job-log%2f&amp;title=Look%20at%20Data%20Transfer%20Process%20by%20Data%20Job%20Log" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-07-02-manage-bundles-in-between-action-flow-modules%2f&amp;title=Manage%20Bundles%20in%20between%20Action%20Flow%20Modules" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-11-20-look-at-data-transfer-process-by-data-job-log%2f&amp;title=Look%20at%20Data%20Transfer%20Process%20by%20Data%20Job%20Log" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-07-02-manage-bundles-in-between-action-flow-modules%2f&amp;title=Manage%20Bundles%20in%20between%20Action%20Flow%20Modules" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-11-20-look-at-data-transfer-process-by-data-job-log%2f&amp;description=Look%20at%20Data%20Transfer%20Process%20by%20Data%20Job%20Log" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-07-02-manage-bundles-in-between-action-flow-modules%2f&amp;description=Manage%20Bundles%20in%20between%20Action%20Flow%20Modules" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -374,8 +348,6 @@ In the Data Integration, I create new Data Job with Data Connection I created la
                   <ul>
                 
                 
-                    <li><a href="/celonis-hacks/posts/2022-07-02-manage-bundles-in-between-action-flow-modules/">Manage Bundles in between Action Flow Modules</a></li>
-                
                     <li><a href="/celonis-hacks/posts/2022-06-25-run-first-action-flow-scenario/">Run first Action Flow Scenario</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2022-06-18-operate-celonis-from-outside-by-rest-api/">Operate Celonis from outside by REST API</a></li>
@@ -383,6 +355,8 @@ In the Data Integration, I create new Data Job with Data Connection I created la
                     <li><a href="/celonis-hacks/posts/2022-06-11-include-json-data-in-http-request-and-response/">Include JSON data in HTTP Request and Response</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2022-06-04-find-out-http-request-from-gui-function/">Find out HTTP Request from GUI Function</a></li>
+                
+                    <li><a href="/celonis-hacks/posts/2022-05-07-start-deep-dive-to-machine-learning-and-action-flow/">Start Deep Dive to Machine Learning and Action Flow</a></li>
                 
               </ul>
 
@@ -394,13 +368,9 @@ In the Data Integration, I create new Data Job with Data Connection I created la
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-11-13-connect-to-celonis-and-bring-back-instruction/" data-toggle="tooltip" data-placement="top" title="Connect to Celonis and Bring Back Instruction">&larr; Previous Post</a>
+              <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-06-25-run-first-action-flow-scenario/" data-toggle="tooltip" data-placement="top" title="Run first Action Flow Scenario">&larr; Previous Post</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-11-27-minimize-extraction-time-by-delta-load-option/" data-toggle="tooltip" data-placement="top" title="Minimize Extraction Time by Delta Load Option">Next Post &rarr;</a>
-            </li>
           
         </ul>
       

@@ -1,6 +1,6 @@
 ---
 title: "Run first Action Flow Scenario"
-date: 2022-06-25T5:05:00+09:00
+date: 2022-06-25T05:05:00+09:00
 draft: false
 tags: ['Studio', 'Action Flow', 'Data Integration']
 ---
@@ -46,7 +46,7 @@ Same as cURL command, fill URL and Headers as below screen. When entering value,
 
 It is ready to test this scenario. Click Green button (run once) and wait for few seconds. Then process modules one by one. I can see balloon describing number in each module, that represents processed bundles (number of processing unit) .
 
-Click balloon in HTTP module, then drilldown Bundle 1 and Data. I can see statuses of each Data Jobs. That is also same appearance as cURL result, but this result is restructured to 3 bundles and from next steps each bundle can be processed.
+Click balloon in HTTP module, then drilldown Bundle 1 and Data. I can see array of each Data Jobs. That is also same appearance as cURL result, but this result can be restructured for next steps to process each record.
 
 [![image](https://user-images.githubusercontent.com/67397583/175760230-77d6a323-4d08-4c9f-8784-fb911d4ee1a5.png)](https://user-images.githubusercontent.com/67397583/175760230-77d6a323-4d08-4c9f-8784-fb911d4ee1a5.png)
 
