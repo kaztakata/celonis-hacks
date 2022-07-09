@@ -201,6 +201,58 @@
           
           
             <article class="post-preview">
+    <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-07-09-aggregate-bundles-to-minimize-notification/">
+        <h2 class="post-title">Aggregate Bundles to Minimize Notification</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2022-07-09
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;minutes
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;587&nbsp;words
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kazuhiko Takata
+    
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        Integrate cancel operation bundles to one In the last Manage Bundles in between Action Flow Modules I successfully automated Data Job cancel operation. To do this, I used Iterator module to split one bundle of Data Pool to multiple bundles of Data Jobs, and filtered bundles to specify running Data Jobs. In the end, bundles of running Data Jobs are selected and cancelled.
+Continued from last post, goal of today is to notify result of automated operation by email (my Gmail), because I can not check automated operation is done correctly at midnight based on initial scenario.
+        <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-07-09-aggregate-bundles-to-minimize-notification/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+        <a href="https://kaztakata.github.io/celonis-hacks/tags/studio/">Studio</a>&nbsp;
+        
+        <a href="https://kaztakata.github.io/celonis-hacks/tags/action-flow/">Action Flow</a>&nbsp;
+        
+        <a href="https://kaztakata.github.io/celonis-hacks/tags/data-integration/">Data Integration</a>&nbsp;
+        
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
     <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-07-02-manage-bundles-in-between-action-flow-modules/">
         <h2 class="post-title">Manage Bundles in between Action Flow Modules</h2>
         
@@ -645,64 +697,6 @@ By the way, referring to Process Mining Data Science in Action by Wil van der Aa
         <a href="https://kaztakata.github.io/celonis-hacks/tags/studio/">Studio</a>&nbsp;
         
         <a href="https://kaztakata.github.io/celonis-hacks/tags/action-flow/">Action Flow</a>&nbsp;
-        
-    </div>
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-04-30-execute-periodic-etl-automatically/">
-        <h2 class="post-title">Execute Periodic ETL Automatically</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on 2022-04-30
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;minutes
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;514&nbsp;words
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kazuhiko Takata
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        Until last post Validate Data Model by Studio Analysis, I completed creating ETL programs in Data Integration. But this is still test product because this programs are executed manually by operator. In this post, I would like to share the final piece of Data Integration, how to run ETL programs automatically after production release.
-There are several ways to achieve automatic ETL, for example in my production system I am using scheduler in Machine Learning Workbench to trigger Jupyter Notebook, then operate Data Integration via Pycelonis (Python API for Celonis EMS).
-        <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-04-30-execute-periodic-etl-automatically/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/data-integration/">Data Integration</a>&nbsp;
-        
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/extraction/">Extraction</a>&nbsp;
-        
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/transformation/">Transformation</a>&nbsp;
-        
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/data-model/">Data Model</a>&nbsp;
-        
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/content-cli/">Content-CLI</a>&nbsp;
-        
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/machine-learning/">Machine Learning</a>&nbsp;
         
     </div>
     

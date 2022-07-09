@@ -5,7 +5,17 @@
     <link>https://kaztakata.github.io/celonis-hacks/posts/</link>
     <description>Recent content in Posts on Celonis hacks</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 02 Jul 2022 07:25:00 +0900</lastBuildDate><atom:link href="https://kaztakata.github.io/celonis-hacks/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 09 Jul 2022 18:19:00 +0900</lastBuildDate><atom:link href="https://kaztakata.github.io/celonis-hacks/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Aggregate Bundles to Minimize Notification</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2022-07-09-aggregate-bundles-to-minimize-notification/</link>
+      <pubDate>Sat, 09 Jul 2022 18:19:00 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2022-07-09-aggregate-bundles-to-minimize-notification/</guid>
+      <description>Integrate cancel operation bundles to one In the last Manage Bundles in between Action Flow Modules I successfully automated Data Job cancel operation. To do this, I used Iterator module to split one bundle of Data Pool to multiple bundles of Data Jobs, and filtered bundles to specify running Data Jobs. In the end, bundles of running Data Jobs are selected and cancelled.
+Continued from last post, goal of today is to notify result of automated operation by email (my Gmail), because I can not check automated operation is done correctly at midnight based on initial scenario.</description>
+    </item>
+    
     <item>
       <title>Manage Bundles in between Action Flow Modules</title>
       <link>https://kaztakata.github.io/celonis-hacks/posts/2022-07-02-manage-bundles-in-between-action-flow-modules/</link>

@@ -7,10 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Group similar cases by Clustering - Celonis hacks</title>
-  <meta name="description" content="Last week I posted Convert Quantitative value to Categorical one by Quantile Function to create categorical dimension. Today I will create categorical dimension via different way, clustering.
-Clustering is one of the unsupervised learning method, to automatically group cases by their attributes. Celonis PQL has clustering funciton KMEANS, so you are ready to use clustering.
-Today I will use O2C process and would like to group customers by (1) their lead time from Invoice send to Clear Invoice and (2) net value.">
+  <title>Aggregate Bundles to Minimize Notification - Celonis hacks</title>
+  <meta name="description" content="Integrate cancel operation bundles to one In the last Manage Bundles in between Action Flow Modules I successfully automated Data Job cancel operation. To do this, I used Iterator module to split one bundle of Data Pool to multiple bundles of Data Jobs, and filtered bundles to specify running Data Jobs. In the end, bundles of running Data Jobs are selected and cancelled.
+Continued from last post, goal of today is to notify result of automated operation by email (my Gmail), because I can not check automated operation is done correctly at midnight based on initial scenario.">
   <meta name="author" content="Kazuhiko Takata"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -46,8 +45,8 @@ Today I will use O2C process and would like to group customers by (1) their lead
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-10-02-group-similar-cases-by-clustering\/",
-          "name": "Group similar cases by clustering"
+          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-07-09-aggregate-bundles-to-minimize-notification\/",
+          "name": "Aggregate bundles to minimize notification"
         }
     }]
 }
@@ -58,15 +57,15 @@ Today I will use O2C process and would like to group customers by (1) their lead
   "author": {
     "name" : "Kazuhiko Takata"
   },
-  "headline": "Group similar cases by Clustering",
-  "description" : "Last week I posted Convert Quantitative value to Categorical one by Quantile Function to create categorical dimension. Today I will create categorical dimension via different way, clustering.\nClustering is one of the unsupervised learning method, to automatically group cases by their attributes. Celonis PQL has clustering funciton KMEANS, so you are ready to use clustering.\nToday I will use O2C process and would like to group customers by (1) their lead time from Invoice send to Clear Invoice and (2) net value.",
+  "headline": "Aggregate Bundles to Minimize Notification",
+  "description" : "Integrate cancel operation bundles to one In the last Manage Bundles in between Action Flow Modules I successfully automated Data Job cancel operation. To do this, I used Iterator module to split one bundle of Data Pool to multiple bundles of Data Jobs, and filtered bundles to specify running Data Jobs. In the end, bundles of running Data Jobs are selected and cancelled.\nContinued from last post, goal of today is to notify result of automated operation by email (my Gmail), because I can not check automated operation is done correctly at midnight based on initial scenario.",
   "inLanguage" : "en",
-  "wordCount":  397 ,
-  "datePublished" : "2021-10-02T10:56:43",
-  "dateModified" : "2021-10-02T10:56:43",
+  "wordCount":  587 ,
+  "datePublished" : "2022-07-09T18:19:00",
+  "dateModified" : "2022-07-09T18:19:00",
   "image" : "https:\/\/kaztakata.github.io\/celonis-hacks",
-  "keywords" : [ "PQL, Process Analytics, Studio, Analysis, Pull Up Function" ],
-  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-10-02-group-similar-cases-by-clustering\/",
+  "keywords" : [ "Studio, Action Flow, Data Integration" ],
+  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-07-09-aggregate-bundles-to-minimize-notification\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/kaztakata.github.io\/celonis-hacks",
@@ -80,16 +79,15 @@ Today I will use O2C process and would like to group customers by (1) their lead
 }
 </script>
 
-<meta property="og:title" content="Group similar cases by Clustering" />
-<meta property="og:description" content="Last week I posted Convert Quantitative value to Categorical one by Quantile Function to create categorical dimension. Today I will create categorical dimension via different way, clustering.
-Clustering is one of the unsupervised learning method, to automatically group cases by their attributes. Celonis PQL has clustering funciton KMEANS, so you are ready to use clustering.
-Today I will use O2C process and would like to group customers by (1) their lead time from Invoice send to Clear Invoice and (2) net value.">
-<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2021-10-02-group-similar-cases-by-clustering/" />
+<meta property="og:title" content="Aggregate Bundles to Minimize Notification" />
+<meta property="og:description" content="Integrate cancel operation bundles to one In the last Manage Bundles in between Action Flow Modules I successfully automated Data Job cancel operation. To do this, I used Iterator module to split one bundle of Data Pool to multiple bundles of Data Jobs, and filtered bundles to specify running Data Jobs. In the end, bundles of running Data Jobs are selected and cancelled.
+Continued from last post, goal of today is to notify result of automated operation by email (my Gmail), because I can not check automated operation is done correctly at midnight based on initial scenario.">
+<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2022-07-09-aggregate-bundles-to-minimize-notification/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Celonis hacks" />
 
-  <meta name="twitter:title" content="Group similar cases by Clustering" />
-  <meta name="twitter:description" content="Last week I posted Convert Quantitative value to Categorical one by Quantile Function to create categorical dimension. Today I will create categorical dimension via different way, clustering. …">
+  <meta name="twitter:title" content="Aggregate Bundles to Minimize Notification" />
+  <meta name="twitter:description" content="Integrate cancel operation bundles to one In the last Manage Bundles in between Action Flow Modules I successfully automated Data Job cancel operation. To do this, I used Iterator module to split one …">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
@@ -227,7 +225,7 @@ Today I will use O2C process and would like to group customers by (1) their lead
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="posts-heading">
               
-                <h1>Group similar cases by Clustering</h1>
+                <h1>Aggregate Bundles to Minimize Notification</h1>
               
               
                 <hr class="small">
@@ -247,65 +245,51 @@ Today I will use O2C process and would like to group customers by (1) their lead
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>Last week I posted <a href="../2021-09-25-convert-quantitative-value-to-categorical-one-by-quantile-function/">Convert Quantitative value to Categorical one by Quantile Function</a> to create categorical dimension. Today I will create categorical dimension via different way, clustering.</p>
-<p>Clustering is one of the unsupervised learning method, to automatically group cases by their attributes. Celonis PQL has clustering funciton <code>KMEANS</code>, so you are ready to use clustering.</p>
-<p>Today I will use O2C process and would like to group customers by (1) their lead time from Invoice send to Clear Invoice and (2) net value. Imagine lower (Quicker) lead time and higher net value is high priority customer and vise versa.</p>
-<p>Today&rsquo;s output is below, I clusetered each dot (customer) by k-means. So group 1 is higher priority than group 0.</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/135702244-36a5125d-dfb2-4978-8dba-3965f6d33a61.png"><img src="https://user-images.githubusercontent.com/67397583/135702244-36a5125d-dfb2-4978-8dba-3965f6d33a61.png" alt="image"></a></p>
-<p>By the way, I found that current customer code is too much to plot in graph, so I would like to group customer by its name before starting k-means. To do this I used <code>CLUSTER_STRINGS</code> function and convert customer name to similar one.</p>
-<p>Below is check sheet of this function. I created <code>customerGroup</code> formula as <code>CLUSTER_STRINGS(KNA1.NAME1,EDIT_THRESHOLD({p1}))</code> then passed edit distance from 1 to 3 in each columns. You can see that result of edit distance 3 can create bigger group than 1, for example customer <code>K5392</code> belongs to one big group in case of 3, instead different group in case of 1 and 2.</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/135702356-4bd7a601-0887-42ba-b851-7720ffd97eba.png"><img src="https://user-images.githubusercontent.com/67397583/135702356-4bd7a601-0887-42ba-b851-7720ffd97eba.png" alt="image"></a></p>
-<p>Going back to k-means clustering, I created two dimensions mentioned above. I used edit distance 3 to group customer then defined <code>DOMAIN_TABLE</code>. I used Pull up funciton instead of aggregation function, so later I can filter customers by clicking group color dot in scatter plot.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">-- avgDaysInvoiceClear
-</span></span><span class="line"><span class="cl">PU_AVG(
-</span></span><span class="line"><span class="cl">  DOMAIN_TABLE(KPI(customerGroup,3)),
-</span></span><span class="line"><span class="cl">  DATEDIFF(
-</span></span><span class="line"><span class="cl">    dd,
-</span></span><span class="line"><span class="cl">    PU_FIRST(VBAP, _CEL_O2C_ACTIVITIES.EVENTTIME, _CEL_O2C_ACTIVITIES.ACTIVITY_EN = &#39;Send Invoice&#39;),
-</span></span><span class="line"><span class="cl">    PU_FIRST(VBAP, _CEL_O2C_ACTIVITIES.EVENTTIME, _CEL_O2C_ACTIVITIES.ACTIVITY_EN = &#39;Clear Invoice&#39;)
-</span></span><span class="line"><span class="cl">  )
-</span></span><span class="line"><span class="cl">)
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">-- sumNetValue
-</span></span><span class="line"><span class="cl">PU_SUM(
-</span></span><span class="line"><span class="cl">  DOMAIN_TABLE(KPI(customerGroup,3)),
-</span></span><span class="line"><span class="cl">  VBAP.NETWR_CONVERTED
-</span></span><span class="line"><span class="cl">)
-</span></span></code></pre></div><p>Then I determined clustering using two formulas (input and cluster are same). By passing number to parameter, I can change number of clusters by button dropdown.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">-- clusterByCustomer
-</span></span><span class="line"><span class="cl">KMEANS (
-</span></span><span class="line"><span class="cl">  TRAIN_KM (
-</span></span><span class="line"><span class="cl">    INPUT (
-</span></span><span class="line"><span class="cl">      KPI(avgDaysInvoiceClear),
-</span></span><span class="line"><span class="cl">      KPI(sumNetValue)
-</span></span><span class="line"><span class="cl">    ), {p1}
-</span></span><span class="line"><span class="cl">  ),
-</span></span><span class="line"><span class="cl">  CLUSTER (
-</span></span><span class="line"><span class="cl">    KPI(avgDaysInvoiceClear),
-</span></span><span class="line"><span class="cl">    KPI(sumNetValue)
-</span></span><span class="line"><span class="cl">  ) 
-</span></span><span class="line"><span class="cl">)
-</span></span></code></pre></div><p>In scatter plot you should use Grouping option and set k-means result, so each dot is colored based on cluster.</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/135702994-4526a63a-b625-421c-b4a1-f0b3eae8e32c.png"><img src="https://user-images.githubusercontent.com/67397583/135702994-4526a63a-b625-421c-b4a1-f0b3eae8e32c.png" alt="image"></a></p>
-<p>Finally, similar to last week topic, I chose Pull up function so filtering by other dimension (e.g. company code) does not affect this result.</p>
+        <h3 id="integrate-cancel-operation-bundles-to-one">Integrate cancel operation bundles to one</h3>
+<p>In the last <a href="../2022-07-02-manage-bundles-in-between-action-flow-modules">Manage Bundles in between Action Flow Modules</a> I successfully automated Data Job cancel operation. To do this, I used <code>Iterator</code> module to split one bundle of Data Pool to multiple bundles of Data Jobs, and filtered bundles to specify running Data Jobs. In the end, bundles of running Data Jobs are selected and cancelled.</p>
+<p>Continued from last post, goal of today is to notify result of automated operation by email (my Gmail), because I can not check automated operation is done correctly at midnight based on initial scenario. I will open email next morning then confirm automation has done correctly.</p>
+<p>By the way, imagine I handle hundreds of Data Jobs and I should receive email, I do not want to receive multiple emails. Instead I would like to receive one email describing multiple cancel operation.</p>
+<p>To do this, I need to integrate multiple cancel operation bundles to one bundle again then create email based on integrated result. OK let&rsquo;s start.</p>
+<h3 id="describe-result-of-each-cancel-operation">Describe result of each cancel operation</h3>
+<p>I reviewed previous result of HTTP cancel request, and found that there is no output even if cancel has done. So I add one more HTTP request to GET Data Job, including current status and its name. I cloned cancel request module and changed like below screen (remove <code>/cancel</code> from URL, change method to <code>GET</code>).</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/178089301-0bd02bc0-21fc-4479-b5a8-0113b2a9230e.png"><img src="https://user-images.githubusercontent.com/67397583/178089301-0bd02bc0-21fc-4479-b5a8-0113b2a9230e.png" alt="image"></a></p>
+<p>I run once then get data of current Data Job like below, actually status is changed to <code>CANCEL</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&#34;data&#34;: {
+</span></span><span class="line"><span class="cl">            &#34;id&#34;: &#34;0bae5839-6921-46dc-8d0f-3294ecd6b3fd&#34;,
+</span></span><span class="line"><span class="cl">            &#34;name&#34;: &#34;main job&#34;,
+</span></span><span class="line"><span class="cl">            &#34;dataPoolId&#34;: &#34;3d8a2621-f9c0-456a-9b2d-9bb8c0a9fcd1&#34;,
+</span></span><span class="line"><span class="cl">            &#34;dataSourceId&#34;: &#34;3702de43-b181-4b5b-90da-87e056ce7616&#34;,
+</span></span><span class="line"><span class="cl">            &#34;timeStamp&#34;: 1642237998799,
+</span></span><span class="line"><span class="cl">            &#34;status&#34;: &#34;CANCEL&#34;,
+</span></span><span class="line"><span class="cl">            &#34;currentExecutionId&#34;: null,
+</span></span><span class="line"><span class="cl">            &#34;dagBasedExecutionEnabled&#34;: null
+</span></span><span class="line"><span class="cl">        },
+</span></span></code></pre></div><h3 id="aggregate-bundles-to-describe-email-text">Aggregate bundles to describe email text</h3>
+<p>Current last module is still Data Job level bundles so it can be multiple. To pass single bundle to Gmail module, I choose <code>Tools &gt; Text Aggregation</code> as next module. In this module I should choose <code>Source Module</code>. This <code>Source</code> means which bundle (module) do you want to aggregate. Now I would like to aggregate to Pool level bundle, so I choosed <code>Iterator</code> module (or previous modules are fine too).</p>
+<p>Then I need to determine which text is generated from each Data Job bundles. I need to confirm current status, so I check whether status is <code>CANCEL</code> then output text like below. If multiple bundles are processed, output to new line per bundle.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Data Job [{{16.data.name}}] is {{if(16.data.status = &#34;CANCEL&#34;; &#34;successfully cancelled.&#34;; &#34;failed to cancel.&#34;)}}
+</span></span></code></pre></div><p><a href="https://user-images.githubusercontent.com/67397583/178089547-cfe610c2-9e21-437a-9718-3461ac45a3cb.png"><img src="https://user-images.githubusercontent.com/67397583/178089547-cfe610c2-9e21-437a-9718-3461ac45a3cb.png" alt="image"></a></p>
+<h3 id="send-aggregated-status-by-email">Send aggregated status by email</h3>
+<p>Finally I add email (this time Gmail) module to send message. It depends on which mailer is used, but normally I need to login to email service then allow Celonis to operate email service. After that this authorization is stored as <code>Connection</code>. As below screen I set <code>To</code>, <code>Subject</code>, and <code>Content</code> that is described in previous aggregator module.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/178099193-abd9feff-5b3e-4e56-a084-ed594612903c.png"><img src="https://user-images.githubusercontent.com/67397583/178099193-abd9feff-5b3e-4e56-a084-ed594612903c.png" alt="image"></a></p>
+<p>When I run total scenario, I got one mail in my inbox as expected. You can check whether it is only one email by removing filter after <code>Iterator</code> module.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/178099267-32916f4c-bd65-44fb-9017-0d502f1c5761.png"><img src="https://user-images.githubusercontent.com/67397583/178099267-32916f4c-bd65-44fb-9017-0d502f1c5761.png" alt="image"></a></p>
+<h3 id="deploy-scenario-as-production-one">Deploy scenario as production one</h3>
+<p>Scenario is tested so it is time to deploy to production. I should do 1) Publish Package, 2) Set schedule, and 3) Activate scenario.</p>
+<p>Regarding 2) I should click clock icon in the first module when you can see <code>Published</code> at top left. First I can try by <code>At regular intervals</code> and set 1 minutes. After that wait for 1 minute to check this scenario is working correctly. After that change to apporopriate timing.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/178099647-8e4ecbce-9357-43da-b98b-f811358d3759.png"><img src="https://user-images.githubusercontent.com/67397583/178099647-8e4ecbce-9357-43da-b98b-f811358d3759.png" alt="image"></a></p>
+<p>Draft version of scenario is completed, but I would like to improve some points next time.</p>
 <p>Kaz</p>
-<hr>
-<p>This post&rsquo;s program can be <a href="../../examples/o2c_analysis_20211002.json">downloaded here</a> then push to your environment by content-cli.</p>
-<hr>
 
 
         
           <div class="blog-tags">
             
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/pql/">PQL</a>&nbsp;
-            
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/process-analytics/">Process Analytics</a>&nbsp;
-            
               <a href="https://kaztakata.github.io/celonis-hacks/tags/studio/">Studio</a>&nbsp;
             
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/analysis/">Analysis</a>&nbsp;
+              <a href="https://kaztakata.github.io/celonis-hacks/tags/action-flow/">Action Flow</a>&nbsp;
             
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/pull-up-function/">Pull Up Function</a>&nbsp;
+              <a href="https://kaztakata.github.io/celonis-hacks/tags/data-integration/">Data Integration</a>&nbsp;
             
           </div>
         
@@ -320,42 +304,42 @@ Today I will use O2C process and would like to group customers by (1) their lead
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-10-02-group-similar-cases-by-clustering%2f&amp;text=Group%20similar%20cases%20by%20Clustering&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-07-09-aggregate-bundles-to-minimize-notification%2f&amp;text=Aggregate%20Bundles%20to%20Minimize%20Notification&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-10-02-group-similar-cases-by-clustering%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-07-09-aggregate-bundles-to-minimize-notification%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-10-02-group-similar-cases-by-clustering%2f&amp;title=Group%20similar%20cases%20by%20Clustering" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-07-09-aggregate-bundles-to-minimize-notification%2f&amp;title=Aggregate%20Bundles%20to%20Minimize%20Notification" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-10-02-group-similar-cases-by-clustering%2f&amp;title=Group%20similar%20cases%20by%20Clustering" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-07-09-aggregate-bundles-to-minimize-notification%2f&amp;title=Aggregate%20Bundles%20to%20Minimize%20Notification" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-10-02-group-similar-cases-by-clustering%2f&amp;title=Group%20similar%20cases%20by%20Clustering" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-07-09-aggregate-bundles-to-minimize-notification%2f&amp;title=Aggregate%20Bundles%20to%20Minimize%20Notification" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-10-02-group-similar-cases-by-clustering%2f&amp;description=Group%20similar%20cases%20by%20Clustering" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-07-09-aggregate-bundles-to-minimize-notification%2f&amp;description=Aggregate%20Bundles%20to%20Minimize%20Notification" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -377,15 +361,15 @@ Today I will use O2C process and would like to group customers by (1) their lead
                   <ul>
                 
                 
-                    <li><a href="/celonis-hacks/posts/2022-07-09-aggregate-bundles-to-minimize-notification/">Aggregate Bundles to Minimize Notification</a></li>
-                
                     <li><a href="/celonis-hacks/posts/2022-07-02-manage-bundles-in-between-action-flow-modules/">Manage Bundles in between Action Flow Modules</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2022-06-25-run-first-action-flow-scenario/">Run first Action Flow Scenario</a></li>
                 
-                    <li><a href="/celonis-hacks/posts/2022-05-07-start-deep-dive-to-machine-learning-and-action-flow/">Start Deep Dive to Machine Learning and Action Flow</a></li>
+                    <li><a href="/celonis-hacks/posts/2022-06-18-operate-celonis-from-outside-by-rest-api/">Operate Celonis from outside by REST API</a></li>
                 
-                    <li><a href="/celonis-hacks/posts/2022-04-23-validate-data-model-by-studio-analysis/">Validate Data Model by Studio Analysis</a></li>
+                    <li><a href="/celonis-hacks/posts/2022-06-11-include-json-data-in-http-request-and-response/">Include JSON data in HTTP Request and Response</a></li>
+                
+                    <li><a href="/celonis-hacks/posts/2022-06-04-find-out-http-request-from-gui-function/">Find out HTTP Request from GUI Function</a></li>
                 
               </ul>
 
@@ -397,13 +381,9 @@ Today I will use O2C process and would like to group customers by (1) their lead
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-09-25-convert-quantitative-value-to-categorical-one-by-quantile-function/" data-toggle="tooltip" data-placement="top" title="Convert Quantitative value to Categorical one by Quantile Function">&larr; Previous Post</a>
+              <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-07-02-manage-bundles-in-between-action-flow-modules/" data-toggle="tooltip" data-placement="top" title="Manage Bundles in between Action Flow Modules">&larr; Previous Post</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-10-09-verify-calculation-result-in-olap-table-then-convert-to-visual-component/" data-toggle="tooltip" data-placement="top" title="Verify calculation result in OLAP table then convert to visual component">Next Post &rarr;</a>
-            </li>
           
         </ul>
       
