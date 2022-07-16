@@ -5,7 +5,17 @@
     <link>https://kaztakata.github.io/celonis-hacks/tags/action-flow/</link>
     <description>Recent content in Action Flow on Celonis hacks</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 09 Jul 2022 18:19:00 +0900</lastBuildDate><atom:link href="https://kaztakata.github.io/celonis-hacks/tags/action-flow/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 16 Jul 2022 09:49:00 +0900</lastBuildDate><atom:link href="https://kaztakata.github.io/celonis-hacks/tags/action-flow/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Use Webhook to Integrate Skill with Action Flow</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2022-07-16-use-webhook-to-integrate-skill-with-action-flow/</link>
+      <pubDate>Sat, 16 Jul 2022 09:49:00 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2022-07-16-use-webhook-to-integrate-skill-with-action-flow/</guid>
+      <description>Email from Celonis EMS Until last post Aggregate Bundles to Minimize Notification, first Action Flow scenario is developed as draft. Today I would like to improve notification part of scenario.
+Few days after I started scenario, I found that Sent box in my email account is unnecessarily increased due to notification I developed. That is because I used my email account to send it. If this is personal development that is fine, but if it is official one and in some time later you will leave your position, this email account is not available.</description>
+    </item>
+    
     <item>
       <title>Aggregate Bundles to Minimize Notification</title>
       <link>https://kaztakata.github.io/celonis-hacks/posts/2022-07-09-aggregate-bundles-to-minimize-notification/</link>

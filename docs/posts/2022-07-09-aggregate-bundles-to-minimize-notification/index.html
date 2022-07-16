@@ -267,7 +267,7 @@ Continued from last post, goal of today is to notify result of automated operati
 </span></span></code></pre></div><h3 id="aggregate-bundles-to-describe-email-text">Aggregate bundles to describe email text</h3>
 <p>Current last module is still Data Job level bundles so it can be multiple. To pass single bundle to Gmail module, I choose <code>Tools &gt; Text Aggregation</code> as next module. In this module I should choose <code>Source Module</code>. This <code>Source</code> means which bundle (module) do you want to aggregate. Now I would like to aggregate to Pool level bundle, so I choosed <code>Iterator</code> module (or previous modules are fine too).</p>
 <p>Then I need to determine which text is generated from each Data Job bundles. I need to confirm current status, so I check whether status is <code>CANCEL</code> then output text like below. If multiple bundles are processed, output to new line per bundle.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Data Job [{{16.data.name}}] is {{if(16.data.status = &#34;CANCEL&#34;; &#34;successfully cancelled.&#34;; &#34;failed to cancel.&#34;)}}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Data Job [{{16.data.name}}] is {{if(16.data.status = &#34;CANCEL&#34;; &#34;successfully cancelled.&#34;; &#34;failed to cancel.&#34;)}} 
 </span></span></code></pre></div><p><a href="https://user-images.githubusercontent.com/67397583/178089547-cfe610c2-9e21-437a-9718-3461ac45a3cb.png"><img src="https://user-images.githubusercontent.com/67397583/178089547-cfe610c2-9e21-437a-9718-3461ac45a3cb.png" alt="image"></a></p>
 <h3 id="send-aggregated-status-by-email">Send aggregated status by email</h3>
 <p>Finally I add email (this time Gmail) module to send message. It depends on which mailer is used, but normally I need to login to email service then allow Celonis to operate email service. After that this authorization is stored as <code>Connection</code>. As below screen I set <code>To</code>, <code>Subject</code>, and <code>Content</code> that is described in previous aggregator module.</p>
@@ -361,6 +361,8 @@ Continued from last post, goal of today is to notify result of automated operati
                   <ul>
                 
                 
+                    <li><a href="/celonis-hacks/posts/2022-07-16-use-webhook-to-integrate-skill-with-action-flow/">Use Webhook to Integrate Skill with Action Flow</a></li>
+                
                     <li><a href="/celonis-hacks/posts/2022-07-02-manage-bundles-in-between-action-flow-modules/">Manage Bundles in between Action Flow Modules</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2022-06-25-run-first-action-flow-scenario/">Run first Action Flow Scenario</a></li>
@@ -368,8 +370,6 @@ Continued from last post, goal of today is to notify result of automated operati
                     <li><a href="/celonis-hacks/posts/2022-06-18-operate-celonis-from-outside-by-rest-api/">Operate Celonis from outside by REST API</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2022-06-11-include-json-data-in-http-request-and-response/">Include JSON data in HTTP Request and Response</a></li>
-                
-                    <li><a href="/celonis-hacks/posts/2022-06-04-find-out-http-request-from-gui-function/">Find out HTTP Request from GUI Function</a></li>
                 
               </ul>
 
@@ -384,6 +384,10 @@ Continued from last post, goal of today is to notify result of automated operati
               <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-07-02-manage-bundles-in-between-action-flow-modules/" data-toggle="tooltip" data-placement="top" title="Manage Bundles in between Action Flow Modules">&larr; Previous Post</a>
             </li>
           
+          
+            <li class="next">
+              <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-07-16-use-webhook-to-integrate-skill-with-action-flow/" data-toggle="tooltip" data-placement="top" title="Use Webhook to Integrate Skill with Action Flow">Next Post &rarr;</a>
+            </li>
           
         </ul>
       

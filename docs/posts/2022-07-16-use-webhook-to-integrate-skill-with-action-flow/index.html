@@ -7,9 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Understand Difference between Dimension and KPI - Celonis hacks</title>
-  <meta name="description" content="If you are beginner of creating Celonis Analysis, I believe you will first create OLAP table to understand how Celonis PQL works with data model. Points are,
- Dimensions are grouping key to calculate KPI, normally they are string (character) columns KPIs are calculated figures based on specific numeric columns, or count of rows of any columns, it must be numeric value in either cases Columns used as dimensions and KPIs are inplicitly joined based on data model  Below screenshot is the quite simple example to show Dimension, KPI, and data model.">
+  <title>Use Webhook to Integrate Skill with Action Flow - Celonis hacks</title>
+  <meta name="description" content="Email from Celonis EMS Until last post Aggregate Bundles to Minimize Notification, first Action Flow scenario is developed as draft. Today I would like to improve notification part of scenario.
+Few days after I started scenario, I found that Sent box in my email account is unnecessarily increased due to notification I developed. That is because I used my email account to send it. If this is personal development that is fine, but if it is official one and in some time later you will leave your position, this email account is not available.">
   <meta name="author" content="Kazuhiko Takata"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -45,8 +45,8 @@
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-05-01-understand-difference-between-dimension-and-kpi\/",
-          "name": "Understand difference between dimension and kpi"
+          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-07-16-use-webhook-to-integrate-skill-with-action-flow\/",
+          "name": "Use webhook to integrate skill with action flow"
         }
     }]
 }
@@ -57,15 +57,15 @@
   "author": {
     "name" : "Kazuhiko Takata"
   },
-  "headline": "Understand Difference between Dimension and KPI",
-  "description" : "If you are beginner of creating Celonis Analysis, I believe you will first create OLAP table to understand how Celonis PQL works with data model. Points are,\n Dimensions are grouping key to calculate KPI, normally they are string (character) columns KPIs are calculated figures based on specific numeric columns, or count of rows of any columns, it must be numeric value in either cases Columns used as dimensions and KPIs are inplicitly joined based on data model  Below screenshot is the quite simple example to show Dimension, KPI, and data model.",
+  "headline": "Use Webhook to Integrate Skill with Action Flow",
+  "description" : "Email from Celonis EMS Until last post Aggregate Bundles to Minimize Notification, first Action Flow scenario is developed as draft. Today I would like to improve notification part of scenario.\nFew days after I started scenario, I found that Sent box in my email account is unnecessarily increased due to notification I developed. That is because I used my email account to send it. If this is personal development that is fine, but if it is official one and in some time later you will leave your position, this email account is not available.",
   "inLanguage" : "en",
-  "wordCount":  476 ,
-  "datePublished" : "2021-05-01T15:25:08",
-  "dateModified" : "2021-05-01T15:25:08",
+  "wordCount":  581 ,
+  "datePublished" : "2022-07-16T09:49:00",
+  "dateModified" : "2022-07-16T09:49:00",
   "image" : "https:\/\/kaztakata.github.io\/celonis-hacks",
-  "keywords" : [ "PQL, Process Analytics, Studio, Analysis" ],
-  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-05-01-understand-difference-between-dimension-and-kpi\/",
+  "keywords" : [ "Studio, Action Flow, Data Integration" ],
+  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-07-16-use-webhook-to-integrate-skill-with-action-flow\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/kaztakata.github.io\/celonis-hacks",
@@ -79,16 +79,16 @@
 }
 </script>
 
-<meta property="og:title" content="Understand Difference between Dimension and KPI" />
-<meta property="og:description" content="If you are beginner of creating Celonis Analysis, I believe you will first create OLAP table to understand how Celonis PQL works with data model. Points are,
- Dimensions are grouping key to calculate KPI, normally they are string (character) columns KPIs are calculated figures based on specific numeric columns, or count of rows of any columns, it must be numeric value in either cases Columns used as dimensions and KPIs are inplicitly joined based on data model  Below screenshot is the quite simple example to show Dimension, KPI, and data model.">
-<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2021-05-01-understand-difference-between-dimension-and-kpi/" />
+<meta property="og:title" content="Use Webhook to Integrate Skill with Action Flow" />
+<meta property="og:description" content="Email from Celonis EMS Until last post Aggregate Bundles to Minimize Notification, first Action Flow scenario is developed as draft. Today I would like to improve notification part of scenario.
+Few days after I started scenario, I found that Sent box in my email account is unnecessarily increased due to notification I developed. That is because I used my email account to send it. If this is personal development that is fine, but if it is official one and in some time later you will leave your position, this email account is not available.">
+<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2022-07-16-use-webhook-to-integrate-skill-with-action-flow/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Celonis hacks" />
 
-  <meta name="twitter:title" content="Understand Difference between Dimension and KPI" />
-  <meta name="twitter:description" content="If you are beginner of creating Celonis Analysis, I believe you will first create OLAP table to understand how Celonis PQL works with data model. Points are,
- Dimensions are grouping key to calculate …">
+  <meta name="twitter:title" content="Use Webhook to Integrate Skill with Action Flow" />
+  <meta name="twitter:description" content="Email from Celonis EMS Until last post Aggregate Bundles to Minimize Notification, first Action Flow scenario is developed as draft. Today I would like to improve notification part of scenario.
+Few …">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
@@ -226,7 +226,7 @@
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="posts-heading">
               
-                <h1>Understand Difference between Dimension and KPI</h1>
+                <h1>Use Webhook to Integrate Skill with Action Flow</h1>
               
               
                 <hr class="small">
@@ -246,37 +246,46 @@
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>If you are beginner of creating Celonis Analysis, I believe you will first create OLAP table to understand how Celonis PQL works with data model. Points are,</p>
-<ul>
-<li>Dimensions are grouping key to calculate KPI, normally they are string (character) columns</li>
-<li>KPIs are calculated figures based on specific numeric columns, or count of rows of any columns, it must be numeric value in either cases</li>
-<li>Columns used as dimensions and KPIs are inplicitly joined based on data model</li>
-</ul>
-<p>Below screenshot is the quite simple example to show Dimension, KPI, and data model. Dimension is vendor code <code>LFA1.LIFNR</code> that is group key to calculate KPI <code>COUNT(EKKO.MANDT)</code> that is count of rows of Purchase order table (<code>MANDT</code> can be changed to any columns in <code>EKKO</code>). I just set up columns in different tables then you can see two tables (vendor master <code>LFA1</code> and purchase order <code>EKKO</code>) are joined automatically.</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/116774171-b6e14e00-aa95-11eb-8506-9196c09ace4b.png"><img src="https://user-images.githubusercontent.com/67397583/116774171-b6e14e00-aa95-11eb-8506-9196c09ace4b.png" alt="image"></a></p>
-<p>Next screenshot is the proof of count KPI. I hide KPI then add one more dimension, purchase order number <code>EKKO.EBELN</code>. You can see first vendor code <code>0000000002</code> that has 4 rows of different purchase order number. Dimension is grouping key of KPI so <code>0000000002</code> that is seen in 4 rows are merged to 1 row if I set count KPI, instead when I do not display KPI then 4 rows are displayed as they are.</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/116774364-1ee46400-aa97-11eb-8048-6ae6b4ebf111.png"><img src="https://user-images.githubusercontent.com/67397583/116774364-1ee46400-aa97-11eb-8048-6ae6b4ebf111.png" alt="image"></a></p>
-<p>When I use functions to operate columns in data model, the idea is the same. In the next screenshot I will add one more KPI using deletion flag <code>EKKO.LOEKZ</code> that is originally string column and it is converted to numeric value by <code>CASE WHEN ... THEN 1.0 ELSE 0.0 END</code> function judging this column is NULL or not, finally use <code>SUM</code> to sum up numeric value by vendor. You can see vendor <code>0000001000</code> has 1528 active PO on the other hand PO count is 1530 (means there are 2 deleted PO).</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/116775716-6d95fc00-aa9f-11eb-8e1e-d9f8f010fed5.png"><img src="https://user-images.githubusercontent.com/67397583/116775716-6d95fc00-aa9f-11eb-8e1e-d9f8f010fed5.png" alt="image"></a></p>
-<p>Similar to previous case, I hide two KPIs and add dimensions of <code>EKKO.LOEKZ</code> and column of judging resust whether PO is active or not. It is important that total count of rows (rows of joining <code>LFA1</code> and <code>EKKO</code>) is not changed after applying function to <code>EKKO.LOEKZ</code>. You can imagine one more numeric column <code>Active PO</code> is added to <code>EKKO</code> dynamically, so that each Purchase order has <code>Active PO</code> value (active is 1 and inactive is 0). When I write KPI that include data model columns, firstly result of function is expaneded to <code>EKKO</code> dynamically, then sum up value by dimension.</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/116775990-39233f80-aaa1-11eb-92e4-294221dc6078.png"><img src="https://user-images.githubusercontent.com/67397583/116775990-39233f80-aaa1-11eb-92e4-294221dc6078.png" alt="image"></a></p>
-<p>Even when you use other component (charts and single KPI component), the idea is the same. So I recommend you to start from OLAP table to visualize each step of KPI calculation and test your PQL. Also this idea is applicable to all data model tables including activity tables.</p>
+        <h3 id="email-from-celonis-ems">Email from Celonis EMS</h3>
+<p>Until last post <a href="../2022-07-09-aggregate-bundles-to-minimize-notification">Aggregate Bundles to Minimize Notification</a>, first Action Flow scenario is developed as draft. Today I would like to improve notification part of scenario.</p>
+<p>Few days after I started scenario, I found that <code>Sent</code> box in my email account is unnecessarily increased due to notification I developed. That is because I used my email account to send it. If this is personal development that is fine, but if it is official one and in some time later you will leave your position, this email account is not available. So that I would like to use system email account instead of personal one.</p>
+<p>I found that Action Flow does not have functionarity to do that, but Skill has. Skill is similar function developed by Celonis and its development is almost stopped due to aquiring Action Flow, but there are few functions that is only in Skill. I would like to integrate Action Flow and Skill to replace notification part of my scenario.</p>
+<h3 id="create-webhook-as-first-step-of-skill">Create Webhook as first step of Skill</h3>
+<p>OK, I need one more node in my package, so click plus button in package then create skill, then enter its name and key to save it. In the blank cambus I will choose Sensor, means first step of this flow, as Webhook &gt; Catch Hook. <a href="https://en.wikipedia.org/wiki/Webhook">Webhook</a> is trigger point constructed by HTTP request. From anywhere else I send to HTTP request to URL registered for Webhook then Webhook is triggered to process the following operations.</p>
+<p>After that I will add new input field for this Webhook. For the moment I need <code>to</code>, <code>subject</code> and <code>body</code> parameters for following email function.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/179325285-0c31c420-e21f-435c-a02d-05ba1202b242.png"><img src="https://user-images.githubusercontent.com/67397583/179325285-0c31c420-e21f-435c-a02d-05ba1202b242.png" alt="image"></a></p>
+<h3 id="add-following-email-step">Add following email step</h3>
+<p>Click <code>Add Next Step</code> in the cambus, then choose Celonis &gt; Email by Celonis. As below screen, set corresponding variables in Webhook.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/179325644-d8ed23d3-f28e-42f6-a7e3-f0182f92409a.png"><img src="https://user-images.githubusercontent.com/67397583/179325644-d8ed23d3-f28e-42f6-a7e3-f0182f92409a.png" alt="image"></a></p>
+<p>Let&rsquo;s test this Skill. Copy Webhook URL like below, change parameters accoringly (without space for the moment), then paste to your URL bar in browser and input Enter button.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">https://your_email.training.celonis.cloud/process-automation-v2/api/public/skills/your_skill_id/hook?to=your_email&amp;subject=Test&amp;body=test
+</span></span></code></pre></div><p>Then I can receive email from <code>noreply@celonismail.com</code> that is Celonis system.</p>
+<h3 id="add-authorization-to-skill">Add authorization to Skill</h3>
+<p>Because Webhook is using public URL, I have risk that someone else is getting Webhook URL then use Skill. To prevent this I will add one more step to validate request.</p>
+<p>I will add one more parameter <code>authorization</code> in Webhook. Next I will add step between Webhook and Email, and choose System Actions &gt; Filter. In Filter condition, compare authorization parameter with arbitrary long password like below. To do this, if someone else knows URL, that poeson also need to know password to use Skill.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/179326625-bf02c785-c0cf-428b-ac09-6847f082f7f8.png"><img src="https://user-images.githubusercontent.com/67397583/179326625-bf02c785-c0cf-428b-ac09-6847f082f7f8.png" alt="image"></a></p>
+<h3 id="integrate-skill-with-action-flow">Integrate Skill with Action Flow</h3>
+<p>Finally I would like to replace email module in Action flow with HTTP request for Webhook. Delete email module and create new HTTP request module. Instead of previous test, this time URL parameter is not used but use JSON body to hide authorization. So I copy URL until <code>?</code> to HTTP module. Request content is JSON body like below. This content should follow JSON format, so line feed or <code>&quot;</code> in each value (especially body from previous module) is not allowed.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&#34;to&#34;</span><span class="p">:</span><span class="s2">&#34;your_email&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&#34;subject&#34;</span><span class="p">:</span><span class="s2">&#34;Data Job Monitor&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&#34;body&#34;</span><span class="p">:</span><span class="s2">&#34;{{17.text}}&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&#34;authorization&#34;</span><span class="p">:</span><span class="s2">&#34;your_password&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p><a href="https://user-images.githubusercontent.com/67397583/179327196-5133f0de-17ef-41c4-bcc8-2353ac32a184.png"><img src="https://user-images.githubusercontent.com/67397583/179327196-5133f0de-17ef-41c4-bcc8-2353ac32a184.png" alt="image"></a></p>
+<p>After replacing module, I can run once then see if this Action Flow and following Skill are working correctly.</p>
+<p>Like today&rsquo;s topic, Webhook is the convenient tool to integrate your action flows / skills with another tools. For example, I setup Webhook to my GitHub account to notify my when our GitHub repository is updated.</p>
 <p>Kaz</p>
-<hr>
-<p>This post&rsquo;s program can be <a href="../../examples/p2p_analysis_20210501.json">downloaded here</a> then push to your environment by content-cli.</p>
-<hr>
 
 
         
           <div class="blog-tags">
             
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/pql/">PQL</a>&nbsp;
-            
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/process-analytics/">Process Analytics</a>&nbsp;
-            
               <a href="https://kaztakata.github.io/celonis-hacks/tags/studio/">Studio</a>&nbsp;
             
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/analysis/">Analysis</a>&nbsp;
+              <a href="https://kaztakata.github.io/celonis-hacks/tags/action-flow/">Action Flow</a>&nbsp;
+            
+              <a href="https://kaztakata.github.io/celonis-hacks/tags/data-integration/">Data Integration</a>&nbsp;
             
           </div>
         
@@ -291,42 +300,42 @@
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-05-01-understand-difference-between-dimension-and-kpi%2f&amp;text=Understand%20Difference%20between%20Dimension%20and%20KPI&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-07-16-use-webhook-to-integrate-skill-with-action-flow%2f&amp;text=Use%20Webhook%20to%20Integrate%20Skill%20with%20Action%20Flow&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-05-01-understand-difference-between-dimension-and-kpi%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-07-16-use-webhook-to-integrate-skill-with-action-flow%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-05-01-understand-difference-between-dimension-and-kpi%2f&amp;title=Understand%20Difference%20between%20Dimension%20and%20KPI" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-07-16-use-webhook-to-integrate-skill-with-action-flow%2f&amp;title=Use%20Webhook%20to%20Integrate%20Skill%20with%20Action%20Flow" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-05-01-understand-difference-between-dimension-and-kpi%2f&amp;title=Understand%20Difference%20between%20Dimension%20and%20KPI" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-07-16-use-webhook-to-integrate-skill-with-action-flow%2f&amp;title=Use%20Webhook%20to%20Integrate%20Skill%20with%20Action%20Flow" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-05-01-understand-difference-between-dimension-and-kpi%2f&amp;title=Understand%20Difference%20between%20Dimension%20and%20KPI" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-07-16-use-webhook-to-integrate-skill-with-action-flow%2f&amp;title=Use%20Webhook%20to%20Integrate%20Skill%20with%20Action%20Flow" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-05-01-understand-difference-between-dimension-and-kpi%2f&amp;description=Understand%20Difference%20between%20Dimension%20and%20KPI" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-07-16-use-webhook-to-integrate-skill-with-action-flow%2f&amp;description=Use%20Webhook%20to%20Integrate%20Skill%20with%20Action%20Flow" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -348,15 +357,15 @@
                   <ul>
                 
                 
-                    <li><a href="/celonis-hacks/posts/2022-07-16-use-webhook-to-integrate-skill-with-action-flow/">Use Webhook to Integrate Skill with Action Flow</a></li>
-                
                     <li><a href="/celonis-hacks/posts/2022-07-09-aggregate-bundles-to-minimize-notification/">Aggregate Bundles to Minimize Notification</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2022-07-02-manage-bundles-in-between-action-flow-modules/">Manage Bundles in between Action Flow Modules</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2022-06-25-run-first-action-flow-scenario/">Run first Action Flow Scenario</a></li>
                 
-                    <li><a href="/celonis-hacks/posts/2022-05-07-start-deep-dive-to-machine-learning-and-action-flow/">Start Deep Dive to Machine Learning and Action Flow</a></li>
+                    <li><a href="/celonis-hacks/posts/2022-06-18-operate-celonis-from-outside-by-rest-api/">Operate Celonis from outside by REST API</a></li>
+                
+                    <li><a href="/celonis-hacks/posts/2022-06-11-include-json-data-in-http-request-and-response/">Include JSON data in HTTP Request and Response</a></li>
                 
               </ul>
 
@@ -367,10 +376,10 @@
       
         <ul class="pager blog-pager">
           
-          
-            <li class="next">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-05-08-customize-process-explorer/" data-toggle="tooltip" data-placement="top" title="Customize Process Explorer">Next Post &rarr;</a>
+            <li class="previous">
+              <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-07-09-aggregate-bundles-to-minimize-notification/" data-toggle="tooltip" data-placement="top" title="Aggregate Bundles to Minimize Notification">&larr; Previous Post</a>
             </li>
+          
           
         </ul>
       

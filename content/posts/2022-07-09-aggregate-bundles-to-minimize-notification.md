@@ -43,8 +43,7 @@ Current last module is still Data Job level bundles so it can be multiple. To pa
 Then I need to determine which text is generated from each Data Job bundles. I need to confirm current status, so I check whether status is `CANCEL` then output text like below. If multiple bundles are processed, output to new line per bundle.
 
 ```
-Data Job [{{16.data.name}}] is {{if(16.data.status = "CANCEL"; "successfully cancelled."; "failed to cancel.")}}
-
+Data Job [{{16.data.name}}] is {{if(16.data.status = "CANCEL"; "successfully cancelled."; "failed to cancel.")}} 
 ```
 
 [![image](https://user-images.githubusercontent.com/67397583/178089547-cfe610c2-9e21-437a-9718-3461ac45a3cb.png)](https://user-images.githubusercontent.com/67397583/178089547-cfe610c2-9e21-437a-9718-3461ac45a3cb.png)
