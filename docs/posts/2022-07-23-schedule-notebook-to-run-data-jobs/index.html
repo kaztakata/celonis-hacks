@@ -7,9 +7,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Run Extractor on Your Local Machine - Celonis hacks</title>
-  <meta name="description" content="From this week I would like to explain my experience regarding Data Integration functions (Extraction, Transformation, Load etc.). To do this, I try to create sample source systems and build code in Celonis training environment.
-As first topic, I would like to explain on premise Extractor, that is in the middle between your source systems (SAP, Oracle etc.) and Celonis EMS and support transferring data. By the way, because I do not want to pay licence of source systems for this blog, I would like to use open source Postgres database.">
+  <title>Schedule Notebook to Run Data Jobs - Celonis hacks</title>
+  <meta name="description" content="From today I would like to use Machine Learning Workbench again. As described at Start Deep Dive to Machine Learning and Action Flow it can manipulate Celonis EMS functions from outside of it. And this manipulation can be scheduled periodically.
+Using scheduling function, Machine Learning Workbench can be extension of Data Job scheduler in Data Integration. Today I would like to build simple job scheduler.
+Parallel Data Job execution You may think your ETL duration is too long so you would like to shorten it as soon as possible.">
   <meta name="author" content="Kazuhiko Takata"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -45,8 +46,8 @@ As first topic, I would like to explain on premise Extractor, that is in the mid
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-11-06-run-extractor-on-your-local-machine\/",
-          "name": "Run extractor on your local machine"
+          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-07-23-schedule-notebook-to-run-data-jobs\/",
+          "name": "Schedule notebook to run data jobs"
         }
     }]
 }
@@ -57,15 +58,15 @@ As first topic, I would like to explain on premise Extractor, that is in the mid
   "author": {
     "name" : "Kazuhiko Takata"
   },
-  "headline": "Run Extractor on Your Local Machine",
-  "description" : "From this week I would like to explain my experience regarding Data Integration functions (Extraction, Transformation, Load etc.). To do this, I try to create sample source systems and build code in Celonis training environment.\nAs first topic, I would like to explain on premise Extractor, that is in the middle between your source systems (SAP, Oracle etc.) and Celonis EMS and support transferring data. By the way, because I do not want to pay licence of source systems for this blog, I would like to use open source Postgres database.",
+  "headline": "Schedule Notebook to Run Data Jobs",
+  "description" : "From today I would like to use Machine Learning Workbench again. As described at Start Deep Dive to Machine Learning and Action Flow it can manipulate Celonis EMS functions from outside of it. And this manipulation can be scheduled periodically.\nUsing scheduling function, Machine Learning Workbench can be extension of Data Job scheduler in Data Integration. Today I would like to build simple job scheduler.\nParallel Data Job execution You may think your ETL duration is too long so you would like to shorten it as soon as possible.",
   "inLanguage" : "en",
-  "wordCount":  457 ,
-  "datePublished" : "2021-11-06T09:59:30",
-  "dateModified" : "2021-11-06T09:59:30",
+  "wordCount":  436 ,
+  "datePublished" : "2022-07-23T14:49:00",
+  "dateModified" : "2022-07-23T14:49:00",
   "image" : "https:\/\/kaztakata.github.io\/celonis-hacks",
-  "keywords" : [ "Data Integration, Extractor" ],
-  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-11-06-run-extractor-on-your-local-machine\/",
+  "keywords" : [ "Machine Learning, Data Integration" ],
+  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-07-23-schedule-notebook-to-run-data-jobs\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/kaztakata.github.io\/celonis-hacks",
@@ -79,15 +80,16 @@ As first topic, I would like to explain on premise Extractor, that is in the mid
 }
 </script>
 
-<meta property="og:title" content="Run Extractor on Your Local Machine" />
-<meta property="og:description" content="From this week I would like to explain my experience regarding Data Integration functions (Extraction, Transformation, Load etc.). To do this, I try to create sample source systems and build code in Celonis training environment.
-As first topic, I would like to explain on premise Extractor, that is in the middle between your source systems (SAP, Oracle etc.) and Celonis EMS and support transferring data. By the way, because I do not want to pay licence of source systems for this blog, I would like to use open source Postgres database.">
-<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2021-11-06-run-extractor-on-your-local-machine/" />
+<meta property="og:title" content="Schedule Notebook to Run Data Jobs" />
+<meta property="og:description" content="From today I would like to use Machine Learning Workbench again. As described at Start Deep Dive to Machine Learning and Action Flow it can manipulate Celonis EMS functions from outside of it. And this manipulation can be scheduled periodically.
+Using scheduling function, Machine Learning Workbench can be extension of Data Job scheduler in Data Integration. Today I would like to build simple job scheduler.
+Parallel Data Job execution You may think your ETL duration is too long so you would like to shorten it as soon as possible.">
+<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2022-07-23-schedule-notebook-to-run-data-jobs/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Celonis hacks" />
 
-  <meta name="twitter:title" content="Run Extractor on Your Local Machine" />
-  <meta name="twitter:description" content="From this week I would like to explain my experience regarding Data Integration functions (Extraction, Transformation, Load etc.). To do this, I try to create sample source systems and build code in …">
+  <meta name="twitter:title" content="Schedule Notebook to Run Data Jobs" />
+  <meta name="twitter:description" content="From today I would like to use Machine Learning Workbench again. As described at Start Deep Dive to Machine Learning and Action Flow it can manipulate Celonis EMS functions from outside of it. And …">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
@@ -225,7 +227,7 @@ As first topic, I would like to explain on premise Extractor, that is in the mid
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="posts-heading">
               
-                <h1>Run Extractor on Your Local Machine</h1>
+                <h1>Schedule Notebook to Run Data Jobs</h1>
               
               
                 <hr class="small">
@@ -245,38 +247,47 @@ As first topic, I would like to explain on premise Extractor, that is in the mid
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>From this week I would like to explain my experience regarding Data Integration functions (Extraction, Transformation, Load etc.). To do this, I try to create sample source systems and build code in Celonis training environment.</p>
-<p>As first topic, I would like to explain on premise Extractor, that is in the middle between your source systems (SAP, Oracle etc.) and Celonis EMS and support transferring data. By the way, because I do not want to pay licence of source systems for this blog, I would like to use open source Postgres database. Also I do not want to pay subscription of cloud server, I use my local machine instead.</p>
-<p>I use Docker enviornment that can easily start and stop my sample source system and Extractor, and does not affect to other portion of my local machine. If you are using Windows 11, installing Docker environment is quite simple as below.</p>
-<ol>
-<li>Install Windows Subsystem for Linux Preview and Ubuntu via Microsoft Store referring to <a href="https://devblogs.microsoft.com/commandline/a-preview-of-wsl-in-the-microsoft-store-is-now-available/">this</a></li>
-<li>Install Docker Desktop via <a href="https://www.docker.com/products/docker-desktop">website</a></li>
-<li>(To operate Docker and edit configuration files in WSL) Install Visual Studio Code via <a href="https://azure.microsoft.com/en-us/products/visual-studio-code/">website</a></li>
-</ol>
-<p>Open Visual Studio Code (VS code) and press F1, select <code>Remote-WSL: New WSL Window</code>. At the new screen select Open Folder button and input your home directory as below.</p>
-<p><img src="https://microsoft.github.io/vscode-remote-release/images/remote-wsl-new-window.png" alt="From Microsoft website"></p>
-<p>Next open terminal by pressing Ctrl+Shift+@, then input <code>git clone https://github.com/kaztakata/celonis-postgres</code>. Then <code>cd celonis-postgres</code> to move to newly created folder.</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/140595660-5647157c-bb02-4332-ab87-e0d67d8d4857.png"><img src="https://user-images.githubusercontent.com/67397583/140595660-5647157c-bb02-4332-ab87-e0d67d8d4857.png" alt="image"></a></p>
-<p>From here you need to configure both Extractor and Celonis EMS.</p>
-<ol>
-<li>(In Celonis EMS) go to help page. Search &lsquo;Downloads and Version History&rsquo; then download &lsquo;Dockerized JDBC Extractor Package&rsquo; file (currently it is 2020-11-05_JDBC_Extractor_Package_Docker.tar.gz). Drug and drop this file to VS code folder celonis-postgres.</li>
-<li>(In VS code terminal) enter <code>docker load -i 2020-11-05_JDBC_Extractor_Package_Docker.tar.gz</code>.</li>
-<li>(In Celonis EMS) go to Team Setting from right top avatar. Go to Uplink integrations. Push Connect new system button, then type Connector, note client ID and Secret for next step then save it.</li>
-<li>(In VS code terminal) open <code>uplink.env</code> file then replace URL(<code>your-email-address</code>), client ID (<code>yourClientId</code>) and Secret (<code>yourClientSecret</code>).</li>
-</ol>
-<p>Finally enter <code>docker-compose up</code> in VS code terminal. You can see flowing logs in the initiation step and it is stopped soon . If log does not stop and see <code>Uplink could not connect</code> in the log, you can stop running docker by entering Ctrl+C in VS code terminal, then check configuration and try <code>docker-compose up</code> again.</p>
-<p>Again go to Celonis EMS, Team Setting, Uplink integrations. Check if your uplink status is green, then your Extractor in local machine can successfully access to IBC. After checking connection, enter Ctrl+C in VS code terminal, then Extractor and Postgres are stopped. You can close VS code afterward.</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/140595109-d9f644ff-d1e2-4644-bd24-89a627ee7171.png"><img src="https://user-images.githubusercontent.com/67397583/140595109-d9f644ff-d1e2-4644-bd24-89a627ee7171.png" alt="image"></a></p>
-<p>Next week I would like to extact data form Postgres and explain detail of Extractor mechanism.</p>
+        <p>From today I would like to use Machine Learning Workbench again. As described at <a href="../2022-05-07-start-deep-dive-to-machine-learning-and-action-flow">Start Deep Dive to Machine Learning and Action Flow</a> it can manipulate Celonis EMS functions from outside of it. And this manipulation can be scheduled periodically.</p>
+<p>Using scheduling function, Machine Learning Workbench can be extension of Data Job scheduler in Data Integration. Today I would like to build simple job scheduler.</p>
+<h3 id="parallel-data-job-execution">Parallel Data Job execution</h3>
+<p>You may think your ETL duration is too long so you would like to shorten it as soon as possible. One of the solution is parallel job execution.</p>
+<p>For example, one Data Job is inserting into activity table A, and another Data Job is inserting into activity table B, these two Data Jobs are possible to run parallelly.</p>
+<p>By the way, scheduling function in Data Integration is only possible to run Data Jobs one by one. So that scheduling parallel run by Machine Learning Workbench is good alternative.</p>
+<h3 id="build-jupyter-nootbook">Build Jupyter Nootbook</h3>
+<p>I will create new Jupyter Notebook from Launcher, rename it as <code>JobExecution.ipynb</code>. In the first cell I copied script from <a href="../2022-05-14-login-to-celonis-ems-from-jupyter-workbench">Login to Celonis EMS from Jupyter Workbench</a> to login to Celonis EMS.</p>
+<p>In the second cell, I determined Data Pool then execute two Data Jobs as below. When parameter <code>wait_for_execution</code> is <code>False</code>, then <code>execute</code> method just kick first Data Job and do not wait until completion. Then immediately go to next line, second Data Job kick. That means I can run two Jobs parallelly.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Pool / Job IDs are in my environment</span>
+</span></span><span class="line"><span class="cl"><span class="n">pool</span> <span class="o">=</span> <span class="n">celonis</span><span class="o">.</span><span class="n">pools</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;3d8a2621-f9c0-456a-9b2d-9bb8c0a9fcd1&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">datajob1</span> <span class="o">=</span> <span class="n">pool</span><span class="o">.</span><span class="n">data_jobs</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;0bae5839-6921-46dc-8d0f-3294ecd6b3fd&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">datajob2</span> <span class="o">=</span> <span class="n">pool</span><span class="o">.</span><span class="n">data_jobs</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;7355c620-0c46-49b5-b466-b31aad09f6ec&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">datajob1</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">wait_for_execution</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1"># kick Data Job and immediatelly go to next line </span>
+</span></span><span class="line"><span class="cl"><span class="n">datajob2</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">wait_for_execution</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1"># kick Data Job and immediatelly go to next line</span>
+</span></span></code></pre></div><p>In the third cell, I will wait for completion of two Jobs. I use <code>check_data_job_execution_status</code>
+method that is used at <a href="../2022-06-18-operate-celonis-from-outside-by-rest-api">Operate Celonis from outside by REST API</a>.
+If any Job is still <code>RUNNING</code> then wait for 5 seconds then check status again.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nb">any</span><span class="p">([</span><span class="n">j</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;RUNNING&#39;</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">pool</span><span class="o">.</span><span class="n">check_data_job_execution_status</span><span class="p">()]):</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Job executing ...&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Job finished&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">break</span>
+</span></span></code></pre></div><h3 id="schedule-jupyter-notebook">Schedule Jupyter Notebook</h3>
+<p>After saving notebook, I will select Manage &gt; Scheduling, then move to Schedule screen. Click New Schedule button, then choose ML workbench and Notebook as below screenshot. Please note that notebooks can be detected in home directory or first subdirectory.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/180594101-e7405c94-848e-43fc-81b0-e45cf3d76bd9.png"><img src="https://user-images.githubusercontent.com/67397583/180594101-e7405c94-848e-43fc-81b0-e45cf3d76bd9.png" alt="image"></a></p>
+<p>To check whether notebook works correctly, I click three dots button and select <code>Run</code>. Then immediately notebook is started and check the result.</p>
+<p><a href="https://user-images.githubusercontent.com/67397583/180594257-29e1879e-6e2f-42a9-9877-c97e503553bb.png"><img src="https://user-images.githubusercontent.com/67397583/180594257-29e1879e-6e2f-42a9-9877-c97e503553bb.png" alt="image"></a></p>
+<p>I can receive notebook error notification when I click <code>Subscribe</code>. And I can also receive notification if I setup <code>Alert</code> of Data Job.</p>
 <p>Kaz</p>
 
 
         
           <div class="blog-tags">
             
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/data-integration/">Data Integration</a>&nbsp;
+              <a href="https://kaztakata.github.io/celonis-hacks/tags/machine-learning/">Machine Learning</a>&nbsp;
             
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/extractor/">Extractor</a>&nbsp;
+              <a href="https://kaztakata.github.io/celonis-hacks/tags/data-integration/">Data Integration</a>&nbsp;
             
           </div>
         
@@ -291,42 +302,42 @@ As first topic, I would like to explain on premise Extractor, that is in the mid
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-11-06-run-extractor-on-your-local-machine%2f&amp;text=Run%20Extractor%20on%20Your%20Local%20Machine&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-07-23-schedule-notebook-to-run-data-jobs%2f&amp;text=Schedule%20Notebook%20to%20Run%20Data%20Jobs&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-11-06-run-extractor-on-your-local-machine%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-07-23-schedule-notebook-to-run-data-jobs%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-11-06-run-extractor-on-your-local-machine%2f&amp;title=Run%20Extractor%20on%20Your%20Local%20Machine" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-07-23-schedule-notebook-to-run-data-jobs%2f&amp;title=Schedule%20Notebook%20to%20Run%20Data%20Jobs" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-11-06-run-extractor-on-your-local-machine%2f&amp;title=Run%20Extractor%20on%20Your%20Local%20Machine" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-07-23-schedule-notebook-to-run-data-jobs%2f&amp;title=Schedule%20Notebook%20to%20Run%20Data%20Jobs" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-11-06-run-extractor-on-your-local-machine%2f&amp;title=Run%20Extractor%20on%20Your%20Local%20Machine" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-07-23-schedule-notebook-to-run-data-jobs%2f&amp;title=Schedule%20Notebook%20to%20Run%20Data%20Jobs" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-11-06-run-extractor-on-your-local-machine%2f&amp;description=Run%20Extractor%20on%20Your%20Local%20Machine" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-07-23-schedule-notebook-to-run-data-jobs%2f&amp;description=Schedule%20Notebook%20to%20Run%20Data%20Jobs" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -348,8 +359,6 @@ As first topic, I would like to explain on premise Extractor, that is in the mid
                   <ul>
                 
                 
-                    <li><a href="/celonis-hacks/posts/2022-07-23-schedule-notebook-to-run-data-jobs/">Schedule Notebook to Run Data Jobs</a></li>
-                
                     <li><a href="/celonis-hacks/posts/2022-07-16-use-webhook-to-integrate-skill-with-action-flow/">Use Webhook to Integrate Skill with Action Flow</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2022-07-09-aggregate-bundles-to-minimize-notification/">Aggregate Bundles to Minimize Notification</a></li>
@@ -357,6 +366,8 @@ As first topic, I would like to explain on premise Extractor, that is in the mid
                     <li><a href="/celonis-hacks/posts/2022-07-02-manage-bundles-in-between-action-flow-modules/">Manage Bundles in between Action Flow Modules</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2022-06-25-run-first-action-flow-scenario/">Run first Action Flow Scenario</a></li>
+                
+                    <li><a href="/celonis-hacks/posts/2022-06-18-operate-celonis-from-outside-by-rest-api/">Operate Celonis from outside by REST API</a></li>
                 
               </ul>
 
@@ -368,13 +379,9 @@ As first topic, I would like to explain on premise Extractor, that is in the mid
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-10-30-copy-previous-value-to-blank-period-by-running-sum-and-range-append-functions/" data-toggle="tooltip" data-placement="top" title="Copy Previous Value to Blank Period by RUNNING_SUM and RANGE_APPEND functions">&larr; Previous Post</a>
+              <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-07-16-use-webhook-to-integrate-skill-with-action-flow/" data-toggle="tooltip" data-placement="top" title="Use Webhook to Integrate Skill with Action Flow">&larr; Previous Post</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-11-13-connect-to-celonis-and-bring-back-instruction/" data-toggle="tooltip" data-placement="top" title="Connect to Celonis and Bring Back Instruction">Next Post &rarr;</a>
-            </li>
           
         </ul>
       

@@ -5,7 +5,18 @@
     <link>https://kaztakata.github.io/celonis-hacks/</link>
     <description>Recent content on Celonis hacks</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 16 Jul 2022 09:49:00 +0900</lastBuildDate><atom:link href="https://kaztakata.github.io/celonis-hacks/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 23 Jul 2022 14:49:00 +0900</lastBuildDate><atom:link href="https://kaztakata.github.io/celonis-hacks/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Schedule Notebook to Run Data Jobs</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2022-07-23-schedule-notebook-to-run-data-jobs/</link>
+      <pubDate>Sat, 23 Jul 2022 14:49:00 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2022-07-23-schedule-notebook-to-run-data-jobs/</guid>
+      <description>From today I would like to use Machine Learning Workbench again. As described at Start Deep Dive to Machine Learning and Action Flow it can manipulate Celonis EMS functions from outside of it. And this manipulation can be scheduled periodically.
+Using scheduling function, Machine Learning Workbench can be extension of Data Job scheduler in Data Integration. Today I would like to build simple job scheduler.
+Parallel Data Job execution You may think your ETL duration is too long so you would like to shorten it as soon as possible.</description>
+    </item>
+    
     <item>
       <title>Use Webhook to Integrate Skill with Action Flow</title>
       <link>https://kaztakata.github.io/celonis-hacks/posts/2022-07-16-use-webhook-to-integrate-skill-with-action-flow/</link>
