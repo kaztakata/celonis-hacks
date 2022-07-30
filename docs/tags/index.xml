@@ -5,11 +5,20 @@
     <link>https://kaztakata.github.io/celonis-hacks/tags/</link>
     <description>Recent content in Tags on Celonis hacks</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 23 Jul 2022 14:49:00 +0900</lastBuildDate><atom:link href="https://kaztakata.github.io/celonis-hacks/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 30 Jul 2022 11:13:24 +0900</lastBuildDate><atom:link href="https://kaztakata.github.io/celonis-hacks/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Analysis</title>
+      <link>https://kaztakata.github.io/celonis-hacks/tags/analysis/</link>
+      <pubDate>Sat, 30 Jul 2022 11:13:24 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/tags/analysis/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Data Integration</title>
       <link>https://kaztakata.github.io/celonis-hacks/tags/data-integration/</link>
-      <pubDate>Sat, 23 Jul 2022 14:49:00 +0900</pubDate>
+      <pubDate>Sat, 30 Jul 2022 11:13:24 +0900</pubDate>
       
       <guid>https://kaztakata.github.io/celonis-hacks/tags/data-integration/</guid>
       <description></description>
@@ -18,9 +27,27 @@
     <item>
       <title>Machine Learning</title>
       <link>https://kaztakata.github.io/celonis-hacks/tags/machine-learning/</link>
-      <pubDate>Sat, 23 Jul 2022 14:49:00 +0900</pubDate>
+      <pubDate>Sat, 30 Jul 2022 11:13:24 +0900</pubDate>
       
       <guid>https://kaztakata.github.io/celonis-hacks/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Process Analytics</title>
+      <link>https://kaztakata.github.io/celonis-hacks/tags/process-analytics/</link>
+      <pubDate>Sat, 30 Jul 2022 11:13:24 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/tags/process-analytics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Studio</title>
+      <link>https://kaztakata.github.io/celonis-hacks/tags/studio/</link>
+      <pubDate>Sat, 30 Jul 2022 11:13:24 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/tags/studio/</guid>
       <description></description>
     </item>
     
@@ -30,15 +57,6 @@
       <pubDate>Sat, 16 Jul 2022 09:49:00 +0900</pubDate>
       
       <guid>https://kaztakata.github.io/celonis-hacks/tags/action-flow/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Studio</title>
-      <link>https://kaztakata.github.io/celonis-hacks/tags/studio/</link>
-      <pubDate>Sat, 16 Jul 2022 09:49:00 +0900</pubDate>
-      
-      <guid>https://kaztakata.github.io/celonis-hacks/tags/studio/</guid>
       <description></description>
     </item>
     
@@ -88,15 +106,6 @@
     </item>
     
     <item>
-      <title>Analysis</title>
-      <link>https://kaztakata.github.io/celonis-hacks/tags/analysis/</link>
-      <pubDate>Sat, 23 Apr 2022 08:43:22 +0900</pubDate>
-      
-      <guid>https://kaztakata.github.io/celonis-hacks/tags/analysis/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Case Explorer</title>
       <link>https://kaztakata.github.io/celonis-hacks/tags/case-explorer/</link>
       <pubDate>Sat, 23 Apr 2022 08:43:22 +0900</pubDate>
@@ -111,15 +120,6 @@
       <pubDate>Sat, 23 Apr 2022 08:43:22 +0900</pubDate>
       
       <guid>https://kaztakata.github.io/celonis-hacks/tags/variant-explorer/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Process Analytics</title>
-      <link>https://kaztakata.github.io/celonis-hacks/tags/process-analytics/</link>
-      <pubDate>Sat, 26 Mar 2022 01:48:53 +0900</pubDate>
-      
-      <guid>https://kaztakata.github.io/celonis-hacks/tags/process-analytics/</guid>
       <description></description>
     </item>
     

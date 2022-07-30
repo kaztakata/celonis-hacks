@@ -5,7 +5,17 @@
     <link>https://kaztakata.github.io/celonis-hacks/tags/studio/</link>
     <description>Recent content in Studio on Celonis hacks</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 16 Jul 2022 09:49:00 +0900</lastBuildDate><atom:link href="https://kaztakata.github.io/celonis-hacks/tags/studio/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 30 Jul 2022 11:13:24 +0900</lastBuildDate><atom:link href="https://kaztakata.github.io/celonis-hacks/tags/studio/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Store Time Series of Metrics to Table</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2022-07-30-store-time-series-of-metrics-to-table/</link>
+      <pubDate>Sat, 30 Jul 2022 11:13:24 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2022-07-30-store-time-series-of-metrics-to-table/</guid>
+      <description>At last post Schedule Notebook to Run Data Jobs I showed you how to schedule Data Job using Machine Learning Workbench. Of course, not only Data Job but any kind of tasks can be scheduled by Python script. Today I would like to schedule backup some kind of data to table by Machine Learning Workbench.
+Store time series of metrics Imagine I am running Celonis EMS for months and I already established dash board Aalysis to observe some KPIs (metrics).</description>
+    </item>
+    
     <item>
       <title>Use Webhook to Integrate Skill with Action Flow</title>
       <link>https://kaztakata.github.io/celonis-hacks/posts/2022-07-16-use-webhook-to-integrate-skill-with-action-flow/</link>

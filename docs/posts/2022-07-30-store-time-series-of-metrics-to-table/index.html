@@ -7,9 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Investigate Workload Trend of Cropped Subprocess - Celonis hacks</title>
-  <meta name="description" content="Celonis Activity record is good to investigate user workload, so you may already implement analysis to do this. Today I would like to crop activities to minimum subprocess then investigate workload against subprocess.
-Today&rsquo;s output image is below. I set filter button of company code, also set three buttons to point out activities to crop subprocess pass through these activities. Right side Process Explorer is to check subprocess, in this case it is starting from &lsquo;Approve Credit Check&rsquo; until &lsquo;Cancel Order&rsquo; via &lsquo;Deny Credit Check&rsquo;.">
+  <title>Store Time Series of Metrics to Table - Celonis hacks</title>
+  <meta name="description" content="At last post Schedule Notebook to Run Data Jobs I showed you how to schedule Data Job using Machine Learning Workbench. Of course, not only Data Job but any kind of tasks can be scheduled by Python script. Today I would like to schedule backup some kind of data to table by Machine Learning Workbench.
+Store time series of metrics Imagine I am running Celonis EMS for months and I already established dash board Aalysis to observe some KPIs (metrics).">
   <meta name="author" content="Kazuhiko Takata"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -45,8 +45,8 @@ Today&rsquo;s output image is below. I set filter button of company code, also s
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-10-16-investigate-workload-trend-of-cropped-subprocess\/",
-          "name": "Investigate workload trend of cropped subprocess"
+          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-07-30-store-time-series-of-metrics-to-table\/",
+          "name": "Store time series of metrics to table"
         }
     }]
 }
@@ -57,15 +57,15 @@ Today&rsquo;s output image is below. I set filter button of company code, also s
   "author": {
     "name" : "Kazuhiko Takata"
   },
-  "headline": "Investigate Workload Trend of Cropped Subprocess",
-  "description" : "Celonis Activity record is good to investigate user workload, so you may already implement analysis to do this. Today I would like to crop activities to minimum subprocess then investigate workload against subprocess.\nToday\u0026rsquo;s output image is below. I set filter button of company code, also set three buttons to point out activities to crop subprocess pass through these activities. Right side Process Explorer is to check subprocess, in this case it is starting from \u0026lsquo;Approve Credit Check\u0026rsquo; until \u0026lsquo;Cancel Order\u0026rsquo; via \u0026lsquo;Deny Credit Check\u0026rsquo;.",
+  "headline": "Store Time Series of Metrics to Table",
+  "description" : "At last post Schedule Notebook to Run Data Jobs I showed you how to schedule Data Job using Machine Learning Workbench. Of course, not only Data Job but any kind of tasks can be scheduled by Python script. Today I would like to schedule backup some kind of data to table by Machine Learning Workbench.\nStore time series of metrics Imagine I am running Celonis EMS for months and I already established dash board Aalysis to observe some KPIs (metrics).",
   "inLanguage" : "en",
-  "wordCount":  383 ,
-  "datePublished" : "2021-10-16T10:12:18",
-  "dateModified" : "2021-10-16T10:12:18",
+  "wordCount":  570 ,
+  "datePublished" : "2022-07-30T11:13:24",
+  "dateModified" : "2022-07-30T11:13:24",
   "image" : "https:\/\/kaztakata.github.io\/celonis-hacks",
-  "keywords" : [ "PQL, Process Analytics, Studio, Analysis, Process Explorer" ],
-  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2021-10-16-investigate-workload-trend-of-cropped-subprocess\/",
+  "keywords" : [ "Machine Learning, Data Integration, Process Analytics, Studio, Analysis" ],
+  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-07-30-store-time-series-of-metrics-to-table\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/kaztakata.github.io\/celonis-hacks",
@@ -79,15 +79,15 @@ Today&rsquo;s output image is below. I set filter button of company code, also s
 }
 </script>
 
-<meta property="og:title" content="Investigate Workload Trend of Cropped Subprocess" />
-<meta property="og:description" content="Celonis Activity record is good to investigate user workload, so you may already implement analysis to do this. Today I would like to crop activities to minimum subprocess then investigate workload against subprocess.
-Today&rsquo;s output image is below. I set filter button of company code, also set three buttons to point out activities to crop subprocess pass through these activities. Right side Process Explorer is to check subprocess, in this case it is starting from &lsquo;Approve Credit Check&rsquo; until &lsquo;Cancel Order&rsquo; via &lsquo;Deny Credit Check&rsquo;.">
-<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2021-10-16-investigate-workload-trend-of-cropped-subprocess/" />
+<meta property="og:title" content="Store Time Series of Metrics to Table" />
+<meta property="og:description" content="At last post Schedule Notebook to Run Data Jobs I showed you how to schedule Data Job using Machine Learning Workbench. Of course, not only Data Job but any kind of tasks can be scheduled by Python script. Today I would like to schedule backup some kind of data to table by Machine Learning Workbench.
+Store time series of metrics Imagine I am running Celonis EMS for months and I already established dash board Aalysis to observe some KPIs (metrics).">
+<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2022-07-30-store-time-series-of-metrics-to-table/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Celonis hacks" />
 
-  <meta name="twitter:title" content="Investigate Workload Trend of Cropped Subprocess" />
-  <meta name="twitter:description" content="Celonis Activity record is good to investigate user workload, so you may already implement analysis to do this. Today I would like to crop activities to minimum subprocess then investigate workload …">
+  <meta name="twitter:title" content="Store Time Series of Metrics to Table" />
+  <meta name="twitter:description" content="At last post Schedule Notebook to Run Data Jobs I showed you how to schedule Data Job using Machine Learning Workbench. Of course, not only Data Job but any kind of tasks can be scheduled by Python …">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
@@ -225,7 +225,7 @@ Today&rsquo;s output image is below. I set filter button of company code, also s
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="posts-heading">
               
-                <h1>Investigate Workload Trend of Cropped Subprocess</h1>
+                <h1>Store Time Series of Metrics to Table</h1>
               
               
                 <hr class="small">
@@ -245,60 +245,70 @@ Today&rsquo;s output image is below. I set filter button of company code, also s
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>Celonis Activity record is good to investigate user workload, so you may already implement analysis to do this. Today I would like to crop activities to minimum subprocess then investigate workload against subprocess.</p>
-<p>Today&rsquo;s output image is below. I set filter button of company code, also set three buttons to point out activities to crop subprocess pass through these activities. Right side Process Explorer is to check subprocess, in this case it is starting from &lsquo;Approve Credit Check&rsquo; until &lsquo;Cancel Order&rsquo; via &lsquo;Deny Credit Check&rsquo;. Left side bar charts are to count activities in this subprocess by Hour, Day, and Month.</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/137567852-34a663d2-21f1-41ec-bde4-7f68276c787c.png"><img src="https://user-images.githubusercontent.com/67397583/137567852-34a663d2-21f1-41ec-bde4-7f68276c787c.png" alt="image"></a></p>
-<p>First I would like to determine subprocess. Cropping to subprocess between two activities is done by <code>CALC_CROP_TO_NULL</code> function, so I create OR condition of two cropped subprocess by <code>COALESCE</code> function as below.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- cropTrinityActivity
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">COALESCE</span><span class="p">(</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">CALC_CROP_TO_NULL</span><span class="p">(</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">FIRST_OCCURRENCE</span><span class="w"> </span><span class="p">[</span><span class="err">{</span><span class="n">p1</span><span class="err">}</span><span class="p">]</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">LAST_OCCURRENCE</span><span class="w"> </span><span class="p">[</span><span class="err">{</span><span class="n">p2</span><span class="err">}</span><span class="p">],</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">_CEL_O2C_ACTIVITIES</span><span class="p">.</span><span class="n">ACTIVITY_EN</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">),</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">CALC_CROP_TO_NULL</span><span class="p">(</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">FIRST_OCCURRENCE</span><span class="w"> </span><span class="p">[</span><span class="err">{</span><span class="n">p2</span><span class="err">}</span><span class="p">]</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">LAST_OCCURRENCE</span><span class="w"> </span><span class="p">[</span><span class="err">{</span><span class="n">p3</span><span class="err">}</span><span class="p">],</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">_CEL_O2C_ACTIVITIES</span><span class="p">.</span><span class="n">ACTIVITY_EN</span><span class="w">
+        <p>At last post <a href="../2022-07-23-schedule-notebook-to-run-data-jobs">Schedule Notebook to Run Data Jobs</a> I showed you how to schedule Data Job using Machine Learning Workbench.
+Of course, not only Data Job but any kind of tasks can be scheduled by Python script. Today I would like to schedule backup some kind of data to table by Machine Learning Workbench.</p>
+<h3 id="store-time-series-of-metrics">Store time series of metrics</h3>
+<p>Imagine I am running Celonis EMS for months and I already established dash board Aalysis to observe some KPIs (metrics). Data is continously updated so metrics is moved up and down respectively. So that I think I would like to see the time series of metrics, but old metrics is based on old data set so it is not possible to calculate it again.</p>
+<p>Based on above situation, I will store metrics after each Data Model reload, then later use this time series of metrics for another Analysis component.</p>
+<p>To simplify discussion from here, I picked up one simple metrics - average throughput time from process start to process end. Using Planio Data Model I already build at <a href="../2022-04-16-construct-my-first-data-model">Construct My First Data Model</a>, metrics is represented as below. This PQL is set to single KPI component in my Analysis.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">AVG</span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">DATEDIFF</span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">dd</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">PU_FIRST</span><span class="p">(</span><span class="n">issues</span><span class="p">,</span><span class="w"> </span><span class="n">_cel_pl_activities</span><span class="p">.</span><span class="n">EVENTTIME</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">PU_LAST</span><span class="p">(</span><span class="n">issues</span><span class="p">,</span><span class="w"> </span><span class="n">_cel_pl_activities</span><span class="p">.</span><span class="n">EVENTTIME</span><span class="p">)</span><span class="w">      
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w">
-</span></span></span></code></pre></div><p>It converts Activity name to NULL except for cropped area. So dimension of Process Explorer is determined as <code>KPI(cropTrinityActivity, &lt;%=cropFromActivity%&gt;, &lt;%=cropViaActivity%&gt;, &lt;%=cropToActivity%&gt;)</code> to see cropped subprocess (see <a href="../2021-05-08-customize-process-explorer/">Customize Process Explorer</a> for detail).</p>
-<p>Regarding bar charts, time scale dimension (x axis) is extracted from timestamp column only when Activity name is not NULL. Y axis is just counting non NULL actiivty name by <code>COUNT</code> aggregation.</p>
-<p>By the way, if you look at x axis precisely, there are blank (zero) area e.g. 8:00 and 5 to 7 day. Normally Celonis do not show blank dimension value but I use <code>RANGE_APPEND</code> to fill blank value to solve this. Below is the PQL of Hours case, generating 0 to 23 consecutive values even if there are no case from timestamp. Showing zero value in visual graph is good to understand trend which part is happened and not.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">RANGE_APPEND(
-</span></span><span class="line"><span class="cl">  CASE 
-</span></span><span class="line"><span class="cl">    WHEN ISNULL(KPI(cropTrinityActivity,&lt;%=cropFromActivity%&gt;,&lt;%=cropViaActivity%&gt;,&lt;%=cropToActivity%&gt;)) = 0 
-</span></span><span class="line"><span class="cl">      THEN HOURS(_CEL_O2C_ACTIVITIES.EVENTTIME) 
-</span></span><span class="line"><span class="cl">  END,
-</span></span><span class="line"><span class="cl">  1,
-</span></span><span class="line"><span class="cl">  0,
-</span></span><span class="line"><span class="cl">  23
-</span></span><span class="line"><span class="cl">)
-</span></span></code></pre></div><p>Regarding Month, filling blank month by <code>RANGE_APPEND</code> too. In case I do not determine upper and lower limit so these are automatically determined from timestamp value.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">RANGE_APPEND(
-</span></span><span class="line"><span class="cl">  CASE 
-</span></span><span class="line"><span class="cl">    WHEN ISNULL(KPI(cropTrinityActivity,&lt;%=cropFromActivity%&gt;,&lt;%=cropViaActivity%&gt;,&lt;%=cropToActivity%&gt;)) = 0 
-</span></span><span class="line"><span class="cl">      THEN ROUND_MONTH(_CEL_O2C_ACTIVITIES.EVENTTIME) 
-</span></span><span class="line"><span class="cl">  END,
-</span></span><span class="line"><span class="cl">  &#39;1M&#39;
-</span></span><span class="line"><span class="cl">)
-</span></span></code></pre></div><p>In this sample case, subprocess of “Approve Credit but Deny later then cancel order” is happend per half year, and at second half of that month. Due to blank value I feel it is easy to understand time series trend.</p>
+</span></span></span></code></pre></div><h3 id="pick-up-metrics-from-data-model">Pick up metrics from Data Model</h3>
+<p>To pick up metrics from Machine Learning Workbench, first I would like to select above component, then get calculated value to local variable.</p>
+<p>I copy previously created notebook and rename it as <code>StoreMetrics.ipynb</code>. I do not touch first cell regarding login to Celonis EMS. Then replace second and third cells from now.</p>
+<p>In the second cell, I write below script. At first line I select my package then analysis. Using this analysis object, in second line I find sheet and component respectively. At third line, calculate PQL in this component (same result as just displaying in the browser) and get result to table data called <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html">DataFrame</a>, but this component is sigle KPI so result is 1 x 1 table. At last line pickup first column, first row of table and assign value to local variable <code>tpt</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">analysis</span> <span class="o">=</span> <span class="n">celonis</span><span class="o">.</span><span class="n">default_space</span><span class="o">.</span><span class="n">packages</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;your package&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">analyses</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;your analysis&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">component</span> <span class="o">=</span> <span class="n">analysis</span><span class="o">.</span><span class="n">draft</span><span class="o">.</span><span class="n">sheets</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;your sheet&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">components</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;your component&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">df</span> <span class="o">=</span> <span class="n">component</span><span class="o">.</span><span class="n">get_data_frame</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># calculate component and get table data</span>
+</span></span><span class="line"><span class="cl"><span class="n">tpt</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">]][</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># pickup first column, first row of table</span>
+</span></span></code></pre></div><h3 id="insert-metrics-into-table">Insert metrics into Table</h3>
+<p>I will write script below in third cell to insert average throughput time into new table <code>TPT_TS</code> in my Data Pool that has two columns <code>EVENTTIME</code> and <code>TPT</code> to store time series of average thruoghput time.</p>
+<p>I will call <code>CREATE TABLE</code> and <code>INSERT</code> SQL statement from Machine Learning Workbench, same as doing it in Transformation. To do this I choose arbitrary transformation from existing transformations, then from that object call <code>execute_from_workbench</code> method. This method does not affect to existing SQL statement in this transformation.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">pool</span> <span class="o">=</span> <span class="n">celonis</span><span class="o">.</span><span class="n">pools</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;your pool&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">transformation</span> <span class="o">=</span> <span class="n">pool</span><span class="o">.</span><span class="n">data_jobs</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;your data job&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">transformations</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">transformation</span><span class="o">.</span><span class="n">execute_from_workbench</span><span class="p">(</span><span class="s1">&#39;CREATE TABLE IF NOT EXISTS TPT_TS(EVENTTIME TIMESTAMP, TPT FLOAT)&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">transformation</span><span class="o">.</span><span class="n">execute_from_workbench</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;INSERT INTO TPT_TS VALUES (NOW(), </span><span class="si">{</span><span class="n">tpt</span><span class="si">}</span><span class="s2">)&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><p>By the way <code>CREATE TABLE</code> is happened at first time only, so it is fine to create table outside of Machine Learning Workbench, and omit <code>CREATE TABLE</code> statement from below script.</p>
+<p>Finally save <code>StoreMetrics.ipynb</code> notebook and schedule it after Data Model Reload has done. Then I can backup time series like below.</p>
+<table>
+<thead>
+<tr>
+<th>EVENTTIME</th>
+<th>TPT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2022-07-30 01:47:46</td>
+<td>2.28148748285322</td>
+</tr>
+<tr>
+<td>2022-08-01 01:22:08</td>
+<td>1.98482858748148</td>
+</tr>
+</tbody>
+</table>
+<p>Like today it is possible to run arbitrary SQL statement from Machine Learning Workbench, so I love to use this functoin for mass database operation.</p>
 <p>Kaz</p>
-<hr>
-<p>This post&rsquo;s program can be <a href="../../examples/o2c_analysis_20211016.json">downloaded here</a> then push to your environment by content-cli.</p>
-<hr>
 
 
         
           <div class="blog-tags">
             
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/pql/">PQL</a>&nbsp;
+              <a href="https://kaztakata.github.io/celonis-hacks/tags/machine-learning/">Machine Learning</a>&nbsp;
+            
+              <a href="https://kaztakata.github.io/celonis-hacks/tags/data-integration/">Data Integration</a>&nbsp;
             
               <a href="https://kaztakata.github.io/celonis-hacks/tags/process-analytics/">Process Analytics</a>&nbsp;
             
               <a href="https://kaztakata.github.io/celonis-hacks/tags/studio/">Studio</a>&nbsp;
             
               <a href="https://kaztakata.github.io/celonis-hacks/tags/analysis/">Analysis</a>&nbsp;
-            
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/process-explorer/">Process Explorer</a>&nbsp;
             
           </div>
         
@@ -313,42 +323,42 @@ Today&rsquo;s output image is below. I set filter button of company code, also s
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-10-16-investigate-workload-trend-of-cropped-subprocess%2f&amp;text=Investigate%20Workload%20Trend%20of%20Cropped%20Subprocess&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-07-30-store-time-series-of-metrics-to-table%2f&amp;text=Store%20Time%20Series%20of%20Metrics%20to%20Table&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-10-16-investigate-workload-trend-of-cropped-subprocess%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-07-30-store-time-series-of-metrics-to-table%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-10-16-investigate-workload-trend-of-cropped-subprocess%2f&amp;title=Investigate%20Workload%20Trend%20of%20Cropped%20Subprocess" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-07-30-store-time-series-of-metrics-to-table%2f&amp;title=Store%20Time%20Series%20of%20Metrics%20to%20Table" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-10-16-investigate-workload-trend-of-cropped-subprocess%2f&amp;title=Investigate%20Workload%20Trend%20of%20Cropped%20Subprocess" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-07-30-store-time-series-of-metrics-to-table%2f&amp;title=Store%20Time%20Series%20of%20Metrics%20to%20Table" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-10-16-investigate-workload-trend-of-cropped-subprocess%2f&amp;title=Investigate%20Workload%20Trend%20of%20Cropped%20Subprocess" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-07-30-store-time-series-of-metrics-to-table%2f&amp;title=Store%20Time%20Series%20of%20Metrics%20to%20Table" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2021-10-16-investigate-workload-trend-of-cropped-subprocess%2f&amp;description=Investigate%20Workload%20Trend%20of%20Cropped%20Subprocess" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-07-30-store-time-series-of-metrics-to-table%2f&amp;description=Store%20Time%20Series%20of%20Metrics%20to%20Table" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -370,7 +380,7 @@ Today&rsquo;s output image is below. I set filter button of company code, also s
                   <ul>
                 
                 
-                    <li><a href="/celonis-hacks/posts/2022-07-30-store-time-series-of-metrics-to-table/">Store Time Series of Metrics to Table</a></li>
+                    <li><a href="/celonis-hacks/posts/2022-07-23-schedule-notebook-to-run-data-jobs/">Schedule Notebook to Run Data Jobs</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2022-07-16-use-webhook-to-integrate-skill-with-action-flow/">Use Webhook to Integrate Skill with Action Flow</a></li>
                 
@@ -390,13 +400,9 @@ Today&rsquo;s output image is below. I set filter button of company code, also s
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-10-09-verify-calculation-result-in-olap-table-then-convert-to-visual-component/" data-toggle="tooltip" data-placement="top" title="Verify calculation result in OLAP table then convert to visual component">&larr; Previous Post</a>
+              <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-07-23-schedule-notebook-to-run-data-jobs/" data-toggle="tooltip" data-placement="top" title="Schedule Notebook to Run Data Jobs">&larr; Previous Post</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2021-10-23-create-key-column-of-activity-table/" data-toggle="tooltip" data-placement="top" title="Create Key Column of Activity Table">Next Post &rarr;</a>
-            </li>
           
         </ul>
       

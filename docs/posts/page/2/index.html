@@ -195,6 +195,55 @@
         <div class="posts-list">
           
             <article class="post-preview">
+    <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-05-21-limit-permissions-of-api-token-to-minimize-risk/">
+        <h2 class="post-title">Limit permissions of API token to minimize risk</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2022-05-21
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;minutes
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;507&nbsp;words
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kazuhiko Takata
+    
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        At last post Login to Celonis EMS from Jupyter Workbench, I used API key that have same permission as my GUI user. I mentioned that it is too strong and risky against unauthorized access. Imagine your API token accidentally make public, then anyone can operate Celonis instead of you. That is why I segregate API token from Notebook (Notebook may be published to GitHub etc.). Anyway, user API token must be altered to another weaker key especially in production system.
+        <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-05-21-limit-permissions-of-api-token-to-minimize-risk/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+        <a href="https://kaztakata.github.io/celonis-hacks/tags/machine-learning/">Machine Learning</a>&nbsp;
+        
+        <a href="https://kaztakata.github.io/celonis-hacks/tags/admin-and-settings/">Admin and Settings</a>&nbsp;
+        
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
     <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-05-14-login-to-celonis-ems-from-jupyter-workbench/">
         <h2 class="post-title">Login to Celonis EMS from Jupyter Workbench</h2>
         
@@ -653,55 +702,6 @@ In my case, I previously analyzed multiple SAP ECC systems, those are located in
         
         Until Split Long SQL Using Views post I created four activities and each SQLs, and I found three of four have same table join pattern. So I created VIEW to shorten JOIN predicate for each SQL. It is nice to shorten total statement volume but almost all statement except for JOIN predicate is duplicated among SQLs. When something change is required, maintenance of each SQLs is annoying work. Today I would like to integrate SQLs using CASE expression.
         <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-03-19-unite-sql-statements-by-case-expression/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/data-integration/">Data Integration</a>&nbsp;
-        
-        <a href="https://kaztakata.github.io/celonis-hacks/tags/transformation/">Transformation</a>&nbsp;
-        
-    </div>
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-03-12-split-long-sql-using-views/">
-        <h2 class="post-title">Split Long SQL Using Views</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on 2022-03-12
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;minutes
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;444&nbsp;words
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kazuhiko Takata
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        At last post I wrote Compose Activity from Joining Multiple Tables to create second activity Close Issue. Final version of SQL statement was long even I just used three tables. In real process mining project I handled hundred of tables and wrote quite long SQLs. At that time I faced same patterns of SQL in multiple activities. So I introduces VIEW in my SQLs for grouping same pattern of SELECT SQL, similar to create function (method) in programming.
-        <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-03-12-split-long-sql-using-views/" class="post-read-more">[Read More]</a>
         
     </div>
 
