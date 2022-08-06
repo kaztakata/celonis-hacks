@@ -7,9 +7,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Aggregate Bundles to Minimize Notification - Celonis hacks</title>
-  <meta name="description" content="Integrate cancel operation bundles to one In the last Manage Bundles in between Action Flow Modules I successfully automated Data Job cancel operation. To do this, I used Iterator module to split one bundle of Data Pool to multiple bundles of Data Jobs, and filtered bundles to specify running Data Jobs. In the end, bundles of running Data Jobs are selected and cancelled.
-Continued from last post, goal of today is to notify result of automated operation by email (my Gmail), because I can not check automated operation is done correctly at midnight based on initial scenario.">
+  <title>Manipulate Transformatoin Scripts Collectively - Celonis hacks</title>
+  <meta name="description" content="At described in Start Deep Dive to Machine Learning and Action Flow it is possible to manipulate Celonis EMS function by Machine Learning Workbench. Function relevant to EMS data is already discussed at last post Store Time Series of Metrics to Table. Machine learning Workbench also enables to manipulate programs in EMS for developers. Today I would like to demonstrate some of functions to manipulate Transformation (SQL) script developed in Data Integration.">
   <meta name="author" content="Kazuhiko Takata"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -45,8 +44,8 @@ Continued from last post, goal of today is to notify result of automated operati
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-07-09-aggregate-bundles-to-minimize-notification\/",
-          "name": "Aggregate bundles to minimize notification"
+          "@id": "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-08-06-manipulate-transformation-scripts-collectively\/",
+          "name": "Manipulate transformatoin scripts collectively"
         }
     }]
 }
@@ -57,15 +56,15 @@ Continued from last post, goal of today is to notify result of automated operati
   "author": {
     "name" : "Kazuhiko Takata"
   },
-  "headline": "Aggregate Bundles to Minimize Notification",
-  "description" : "Integrate cancel operation bundles to one In the last Manage Bundles in between Action Flow Modules I successfully automated Data Job cancel operation. To do this, I used Iterator module to split one bundle of Data Pool to multiple bundles of Data Jobs, and filtered bundles to specify running Data Jobs. In the end, bundles of running Data Jobs are selected and cancelled.\nContinued from last post, goal of today is to notify result of automated operation by email (my Gmail), because I can not check automated operation is done correctly at midnight based on initial scenario.",
+  "headline": "Manipulate Transformatoin Scripts Collectively",
+  "description" : "At described in Start Deep Dive to Machine Learning and Action Flow it is possible to manipulate Celonis EMS function by Machine Learning Workbench. Function relevant to EMS data is already discussed at last post Store Time Series of Metrics to Table. Machine learning Workbench also enables to manipulate programs in EMS for developers. Today I would like to demonstrate some of functions to manipulate Transformation (SQL) script developed in Data Integration.",
   "inLanguage" : "en",
-  "wordCount":  587 ,
-  "datePublished" : "2022-07-09T18:19:00",
-  "dateModified" : "2022-07-09T18:19:00",
+  "wordCount":  490 ,
+  "datePublished" : "2022-08-06T10:13:42",
+  "dateModified" : "2022-08-06T10:13:42",
   "image" : "https:\/\/kaztakata.github.io\/celonis-hacks",
-  "keywords" : [ "Studio, Action Flow, Data Integration" ],
-  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-07-09-aggregate-bundles-to-minimize-notification\/",
+  "keywords" : [ "Machine Learning, Data Integration, Transformation" ],
+  "mainEntityOfPage" : "https:\/\/kaztakata.github.io\/celonis-hacks\/posts\/2022-08-06-manipulate-transformation-scripts-collectively\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/kaztakata.github.io\/celonis-hacks",
@@ -79,15 +78,14 @@ Continued from last post, goal of today is to notify result of automated operati
 }
 </script>
 
-<meta property="og:title" content="Aggregate Bundles to Minimize Notification" />
-<meta property="og:description" content="Integrate cancel operation bundles to one In the last Manage Bundles in between Action Flow Modules I successfully automated Data Job cancel operation. To do this, I used Iterator module to split one bundle of Data Pool to multiple bundles of Data Jobs, and filtered bundles to specify running Data Jobs. In the end, bundles of running Data Jobs are selected and cancelled.
-Continued from last post, goal of today is to notify result of automated operation by email (my Gmail), because I can not check automated operation is done correctly at midnight based on initial scenario.">
-<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2022-07-09-aggregate-bundles-to-minimize-notification/" />
+<meta property="og:title" content="Manipulate Transformatoin Scripts Collectively" />
+<meta property="og:description" content="At described in Start Deep Dive to Machine Learning and Action Flow it is possible to manipulate Celonis EMS function by Machine Learning Workbench. Function relevant to EMS data is already discussed at last post Store Time Series of Metrics to Table. Machine learning Workbench also enables to manipulate programs in EMS for developers. Today I would like to demonstrate some of functions to manipulate Transformation (SQL) script developed in Data Integration.">
+<meta property="og:url" content="https://kaztakata.github.io/celonis-hacks/posts/2022-08-06-manipulate-transformation-scripts-collectively/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Celonis hacks" />
 
-  <meta name="twitter:title" content="Aggregate Bundles to Minimize Notification" />
-  <meta name="twitter:description" content="Integrate cancel operation bundles to one In the last Manage Bundles in between Action Flow Modules I successfully automated Data Job cancel operation. To do this, I used Iterator module to split one …">
+  <meta name="twitter:title" content="Manipulate Transformatoin Scripts Collectively" />
+  <meta name="twitter:description" content="At described in Start Deep Dive to Machine Learning and Action Flow it is possible to manipulate Celonis EMS function by Machine Learning Workbench. Function relevant to EMS data is already discussed …">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kaz_takatabs" />
   <meta name="twitter:creator" content="@kaz_takatabs" />
@@ -225,7 +223,7 @@ Continued from last post, goal of today is to notify result of automated operati
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="posts-heading">
               
-                <h1>Aggregate Bundles to Minimize Notification</h1>
+                <h1>Manipulate Transformatoin Scripts Collectively</h1>
               
               
                 <hr class="small">
@@ -245,51 +243,40 @@ Continued from last post, goal of today is to notify result of automated operati
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <h3 id="integrate-cancel-operation-bundles-to-one">Integrate cancel operation bundles to one</h3>
-<p>In the last <a href="../2022-07-02-manage-bundles-in-between-action-flow-modules">Manage Bundles in between Action Flow Modules</a> I successfully automated Data Job cancel operation. To do this, I used <code>Iterator</code> module to split one bundle of Data Pool to multiple bundles of Data Jobs, and filtered bundles to specify running Data Jobs. In the end, bundles of running Data Jobs are selected and cancelled.</p>
-<p>Continued from last post, goal of today is to notify result of automated operation by email (my Gmail), because I can not check automated operation is done correctly at midnight based on initial scenario. I will open email next morning then confirm automation has done correctly.</p>
-<p>By the way, imagine I handle hundreds of Data Jobs and I should receive email, I do not want to receive multiple emails. Instead I would like to receive one email describing multiple cancel operation.</p>
-<p>To do this, I need to integrate multiple cancel operation bundles to one bundle again then create email based on integrated result. OK let&rsquo;s start.</p>
-<h3 id="describe-result-of-each-cancel-operation">Describe result of each cancel operation</h3>
-<p>I reviewed previous result of HTTP cancel request, and found that there is no output even if cancel has done. So I add one more HTTP request to GET Data Job, including current status and its name. I cloned cancel request module and changed like below screen (remove <code>/cancel</code> from URL, change method to <code>GET</code>).</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/178089301-0bd02bc0-21fc-4479-b5a8-0113b2a9230e.png"><img src="https://user-images.githubusercontent.com/67397583/178089301-0bd02bc0-21fc-4479-b5a8-0113b2a9230e.png" alt="image"></a></p>
-<p>I run once then get data of current Data Job like below, actually status is changed to <code>CANCEL</code>.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&#34;data&#34;: {
-</span></span><span class="line"><span class="cl">            &#34;id&#34;: &#34;0bae5839-6921-46dc-8d0f-3294ecd6b3fd&#34;,
-</span></span><span class="line"><span class="cl">            &#34;name&#34;: &#34;main job&#34;,
-</span></span><span class="line"><span class="cl">            &#34;dataPoolId&#34;: &#34;3d8a2621-f9c0-456a-9b2d-9bb8c0a9fcd1&#34;,
-</span></span><span class="line"><span class="cl">            &#34;dataSourceId&#34;: &#34;3702de43-b181-4b5b-90da-87e056ce7616&#34;,
-</span></span><span class="line"><span class="cl">            &#34;timeStamp&#34;: 1642237998799,
-</span></span><span class="line"><span class="cl">            &#34;status&#34;: &#34;CANCEL&#34;,
-</span></span><span class="line"><span class="cl">            &#34;currentExecutionId&#34;: null,
-</span></span><span class="line"><span class="cl">            &#34;dagBasedExecutionEnabled&#34;: null
-</span></span><span class="line"><span class="cl">        },
-</span></span></code></pre></div><h3 id="aggregate-bundles-to-describe-email-text">Aggregate bundles to describe email text</h3>
-<p>Current last module is still Data Job level bundles so it can be multiple. To pass single bundle to Gmail module, I choose <code>Tools &gt; Text Aggregation</code> as next module. In this module I should choose <code>Source Module</code>. This <code>Source</code> means which bundle (module) do you want to aggregate. Now I would like to aggregate to Pool level bundle, so I choosed <code>Iterator</code> module (or previous modules are fine too).</p>
-<p>Then I need to determine which text is generated from each Data Job bundles. I need to confirm current status, so I check whether status is <code>CANCEL</code> then output text like below. If multiple bundles are processed, output to new line per bundle.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Data Job [{{16.data.name}}] is {{if(16.data.status = &#34;CANCEL&#34;; &#34;successfully cancelled.&#34;; &#34;failed to cancel.&#34;)}} 
-</span></span></code></pre></div><p><a href="https://user-images.githubusercontent.com/67397583/178089547-cfe610c2-9e21-437a-9718-3461ac45a3cb.png"><img src="https://user-images.githubusercontent.com/67397583/178089547-cfe610c2-9e21-437a-9718-3461ac45a3cb.png" alt="image"></a></p>
-<h3 id="send-aggregated-status-by-email">Send aggregated status by email</h3>
-<p>Finally I add email (this time Gmail) module to send message. It depends on which mailer is used, but normally I need to login to email service then allow Celonis to operate email service. After that this authorization is stored as <code>Connection</code>. As below screen I set <code>To</code>, <code>Subject</code>, and <code>Content</code> that is described in previous aggregator module.</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/178099193-abd9feff-5b3e-4e56-a084-ed594612903c.png"><img src="https://user-images.githubusercontent.com/67397583/178099193-abd9feff-5b3e-4e56-a084-ed594612903c.png" alt="image"></a></p>
-<p>When I run total scenario, I got one mail in my inbox as expected. You can check whether it is only one email by removing filter after <code>Iterator</code> module.</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/178099267-32916f4c-bd65-44fb-9017-0d502f1c5761.png"><img src="https://user-images.githubusercontent.com/67397583/178099267-32916f4c-bd65-44fb-9017-0d502f1c5761.png" alt="image"></a></p>
-<h3 id="deploy-scenario-as-production-one">Deploy scenario as production one</h3>
-<p>Scenario is tested so it is time to deploy to production. I should do 1) Publish Package, 2) Set schedule, and 3) Activate scenario.</p>
-<p>Regarding 2) I should click clock icon in the first module when you can see <code>Published</code> at top left. First I can try by <code>At regular intervals</code> and set 1 minutes. After that wait for 1 minute to check this scenario is working correctly. After that change to apporopriate timing.</p>
-<p><a href="https://user-images.githubusercontent.com/67397583/178099647-8e4ecbce-9357-43da-b98b-f811358d3759.png"><img src="https://user-images.githubusercontent.com/67397583/178099647-8e4ecbce-9357-43da-b98b-f811358d3759.png" alt="image"></a></p>
-<p>Draft version of scenario is completed, but I would like to improve some points next time.</p>
+        <p>At described in <a href="../2022-05-07-start-deep-dive-to-machine-learning-and-action-flow">Start Deep Dive to Machine Learning and Action Flow</a> it is possible to manipulate Celonis EMS function by Machine Learning Workbench. Function relevant to EMS data is already discussed at last post <a href="../2022-07-30-store-time-series-of-metrics-to-table">Store Time Series of Metrics to Table</a>. Machine learning Workbench also enables to manipulate programs in EMS for developers. Today I would like to demonstrate some of functions to manipulate Transformation (SQL) script developed in Data Integration.</p>
+<h3 id="motivation-to-manipulate-sql-scripts">Motivation to manipulate SQL scripts</h3>
+<p>I have some time to create and maintain SQL script in Transformations for adding new Activity or improving new features, like deal with multi languages, adjust timezone to UTC etc. Also I need to refactor scripts to simplify code sets, for example group similar logic in various script to one VIEW statement. In these situation, I need to handle SQL scripts described in various data jobs and transformations. Of course it is possible to open transformation one by one, but it is better to create small program to mass operation against all SQL scripts, because small (Python) program is quickly constructed and executed in 5 minutes etc.</p>
+<h3 id="replace-keyword-in-multiple-sql-scripts">Replace keyword in multiple SQL scripts</h3>
+<p>First live example is to replace some of keyword spreaded to various transformations. Imagine I would like to rename column of activity table from <code>ACTIVITY_EN</code> to <code>ACTIVITY</code>,because this column will be stored not only English Activity but other languages too. This keyword is used in <code>CREATE TABLE</code> and multiple <code>INSERT</code> statements. To deal with this task, first I picked up transformation script from EMS then replace keyword and push back to EMS again. After login to Celonis EMS (refer to last post), I will write below Python script. I use <code>replace</code> method (<a href="https://docs.python.org/3/library/stdtypes.html?highlight=str%20replace#str.replace">reference</a>) against SQL script in this simple case, but I can also use <a href="https://docs.python.org/3/library/re.html?highlight=regular%20expression">regular expression</a> to deal with complex cases too.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">dry_run</span> <span class="o">=</span> <span class="kc">True</span> <span class="c1"># if true, no push back but just show replacement simulation</span>
+</span></span><span class="line"><span class="cl"><span class="n">pool</span> <span class="o">=</span> <span class="n">celonis</span><span class="o">.</span><span class="n">pools</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;3d8a2621-f9c0-456a-9b2d-9bb8c0a9fcd1&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">datajob</span> <span class="o">=</span> <span class="n">pool</span><span class="o">.</span><span class="n">data_jobs</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;0bae5839-6921-46dc-8d0f-3294ecd6b3fd&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">transformation</span> <span class="ow">in</span> <span class="n">datajob</span><span class="o">.</span><span class="n">transformations</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">statement</span> <span class="o">=</span> <span class="n">transformation</span><span class="o">.</span><span class="n">statement</span> <span class="c1"># pick up SQL script</span>
+</span></span><span class="line"><span class="cl">    <span class="n">statement</span> <span class="o">=</span> <span class="n">statement</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;ACTIVITY_EN&#39;</span><span class="p">,</span> <span class="s1">&#39;ACTIVITY&#39;</span><span class="p">)</span> <span class="c1"># replace method against text (SQL script)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="ow">not</span> <span class="n">dry_run</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">transformation</span><span class="o">.</span><span class="n">statement</span> <span class="o">=</span> <span class="n">statement</span> <span class="c1"># push back to Celonis EMS</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">statement</span><span class="p">)</span>
+</span></span></code></pre></div><h3 id="move-transformations-from-one-datajob-to-another-datajob">Move transformations from one datajob to another datajob</h3>
+<p>Second case is to move transformations from one datajob to another datajob. It is to reconstructure (merge or split) datajobs for improving performance. Below is example to just copying transformations in one datajob to another for merging two datajobs. I use <code>create_transformaton</code> method in datajob object (<a href="https://celonis.github.io/pycelonis/1.7.1/reference/celonis_api/event_collection/data_job/#celonis_api.event_collection.data_job.DataJob.create_transformation">reference</a>) by passing two parameters - name and statement. To do this, I can copy transformation name and script from one to another.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">datajob_from</span> <span class="o">=</span> <span class="n">pool</span><span class="o">.</span><span class="n">data_jobs</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;cbff607e-c376-4c84-9c97-ac75ea86e19f&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">datajob_to</span> <span class="o">=</span> <span class="n">pool</span><span class="o">.</span><span class="n">data_jobs</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;da5a5e5e-b01a-465a-bc3f-1e504f8043ef&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">datajob_from</span><span class="o">.</span><span class="n">transformations</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">datajob_to</span><span class="o">.</span><span class="n">create_transformation</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">statement</span><span class="p">)</span>
+</span></span></code></pre></div><p>Like using this method, I already established version control programs, that can extract programs to outside of EMS (GitHub) then load it to another EMS team example another. It helps my team to minimize distributing our template program to multiple teams.</p>
 <p>Kaz</p>
 
 
         
           <div class="blog-tags">
             
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/studio/">Studio</a>&nbsp;
-            
-              <a href="https://kaztakata.github.io/celonis-hacks/tags/action-flow/">Action Flow</a>&nbsp;
+              <a href="https://kaztakata.github.io/celonis-hacks/tags/machine-learning/">Machine Learning</a>&nbsp;
             
               <a href="https://kaztakata.github.io/celonis-hacks/tags/data-integration/">Data Integration</a>&nbsp;
+            
+              <a href="https://kaztakata.github.io/celonis-hacks/tags/transformation/">Transformation</a>&nbsp;
             
           </div>
         
@@ -304,42 +291,42 @@ Continued from last post, goal of today is to notify result of automated operati
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-07-09-aggregate-bundles-to-minimize-notification%2f&amp;text=Aggregate%20Bundles%20to%20Minimize%20Notification&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-08-06-manipulate-transformation-scripts-collectively%2f&amp;text=Manipulate%20Transformatoin%20Scripts%20Collectively&amp;via=kaz_takatabs" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-07-09-aggregate-bundles-to-minimize-notification%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-08-06-manipulate-transformation-scripts-collectively%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-07-09-aggregate-bundles-to-minimize-notification%2f&amp;title=Aggregate%20Bundles%20to%20Minimize%20Notification" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-08-06-manipulate-transformation-scripts-collectively%2f&amp;title=Manipulate%20Transformatoin%20Scripts%20Collectively" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-07-09-aggregate-bundles-to-minimize-notification%2f&amp;title=Aggregate%20Bundles%20to%20Minimize%20Notification" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-08-06-manipulate-transformation-scripts-collectively%2f&amp;title=Manipulate%20Transformatoin%20Scripts%20Collectively" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-07-09-aggregate-bundles-to-minimize-notification%2f&amp;title=Aggregate%20Bundles%20to%20Minimize%20Notification" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-08-06-manipulate-transformation-scripts-collectively%2f&amp;title=Manipulate%20Transformatoin%20Scripts%20Collectively" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-07-09-aggregate-bundles-to-minimize-notification%2f&amp;description=Aggregate%20Bundles%20to%20Minimize%20Notification" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fkaztakata.github.io%2fcelonis-hacks%2fposts%2f2022-08-06-manipulate-transformation-scripts-collectively%2f&amp;description=Manipulate%20Transformatoin%20Scripts%20Collectively" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -361,13 +348,13 @@ Continued from last post, goal of today is to notify result of automated operati
                   <ul>
                 
                 
-                    <li><a href="/celonis-hacks/posts/2022-08-06-manipulate-transformation-scripts-collectively/">Manipulate Transformatoin Scripts Collectively</a></li>
-                
                     <li><a href="/celonis-hacks/posts/2022-07-30-store-time-series-of-metrics-to-table/">Store Time Series of Metrics to Table</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2022-07-23-schedule-notebook-to-run-data-jobs/">Schedule Notebook to Run Data Jobs</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2022-07-16-use-webhook-to-integrate-skill-with-action-flow/">Use Webhook to Integrate Skill with Action Flow</a></li>
+                
+                    <li><a href="/celonis-hacks/posts/2022-07-09-aggregate-bundles-to-minimize-notification/">Aggregate Bundles to Minimize Notification</a></li>
                 
                     <li><a href="/celonis-hacks/posts/2022-07-02-manage-bundles-in-between-action-flow-modules/">Manage Bundles in between Action Flow Modules</a></li>
                 
@@ -381,13 +368,9 @@ Continued from last post, goal of today is to notify result of automated operati
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-07-02-manage-bundles-in-between-action-flow-modules/" data-toggle="tooltip" data-placement="top" title="Manage Bundles in between Action Flow Modules">&larr; Previous Post</a>
+              <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-07-30-store-time-series-of-metrics-to-table/" data-toggle="tooltip" data-placement="top" title="Store Time Series of Metrics to Table">&larr; Previous Post</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://kaztakata.github.io/celonis-hacks/posts/2022-07-16-use-webhook-to-integrate-skill-with-action-flow/" data-toggle="tooltip" data-placement="top" title="Use Webhook to Integrate Skill with Action Flow">Next Post &rarr;</a>
-            </li>
           
         </ul>
       

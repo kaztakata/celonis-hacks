@@ -5,20 +5,11 @@
     <link>https://kaztakata.github.io/celonis-hacks/tags/</link>
     <description>Recent content in Tags on Celonis hacks</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 30 Jul 2022 11:13:24 +0900</lastBuildDate><atom:link href="https://kaztakata.github.io/celonis-hacks/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Analysis</title>
-      <link>https://kaztakata.github.io/celonis-hacks/tags/analysis/</link>
-      <pubDate>Sat, 30 Jul 2022 11:13:24 +0900</pubDate>
-      
-      <guid>https://kaztakata.github.io/celonis-hacks/tags/analysis/</guid>
-      <description></description>
-    </item>
-    
+    <lastBuildDate>Sat, 06 Aug 2022 10:13:42 +0900</lastBuildDate><atom:link href="https://kaztakata.github.io/celonis-hacks/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Data Integration</title>
       <link>https://kaztakata.github.io/celonis-hacks/tags/data-integration/</link>
-      <pubDate>Sat, 30 Jul 2022 11:13:24 +0900</pubDate>
+      <pubDate>Sat, 06 Aug 2022 10:13:42 +0900</pubDate>
       
       <guid>https://kaztakata.github.io/celonis-hacks/tags/data-integration/</guid>
       <description></description>
@@ -27,9 +18,27 @@
     <item>
       <title>Machine Learning</title>
       <link>https://kaztakata.github.io/celonis-hacks/tags/machine-learning/</link>
-      <pubDate>Sat, 30 Jul 2022 11:13:24 +0900</pubDate>
+      <pubDate>Sat, 06 Aug 2022 10:13:42 +0900</pubDate>
       
       <guid>https://kaztakata.github.io/celonis-hacks/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Transformation</title>
+      <link>https://kaztakata.github.io/celonis-hacks/tags/transformation/</link>
+      <pubDate>Sat, 06 Aug 2022 10:13:42 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/tags/transformation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Analysis</title>
+      <link>https://kaztakata.github.io/celonis-hacks/tags/analysis/</link>
+      <pubDate>Sat, 30 Jul 2022 11:13:24 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/tags/analysis/</guid>
       <description></description>
     </item>
     
@@ -93,15 +102,6 @@
       <pubDate>Sat, 30 Apr 2022 08:54:10 +0900</pubDate>
       
       <guid>https://kaztakata.github.io/celonis-hacks/tags/extraction/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Transformation</title>
-      <link>https://kaztakata.github.io/celonis-hacks/tags/transformation/</link>
-      <pubDate>Sat, 30 Apr 2022 08:54:10 +0900</pubDate>
-      
-      <guid>https://kaztakata.github.io/celonis-hacks/tags/transformation/</guid>
       <description></description>
     </item>
     

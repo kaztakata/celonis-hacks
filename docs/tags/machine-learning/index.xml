@@ -5,7 +5,16 @@
     <link>https://kaztakata.github.io/celonis-hacks/tags/machine-learning/</link>
     <description>Recent content in Machine Learning on Celonis hacks</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 30 Jul 2022 11:13:24 +0900</lastBuildDate><atom:link href="https://kaztakata.github.io/celonis-hacks/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 06 Aug 2022 10:13:42 +0900</lastBuildDate><atom:link href="https://kaztakata.github.io/celonis-hacks/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Manipulate Transformatoin Scripts Collectively</title>
+      <link>https://kaztakata.github.io/celonis-hacks/posts/2022-08-06-manipulate-transformation-scripts-collectively/</link>
+      <pubDate>Sat, 06 Aug 2022 10:13:42 +0900</pubDate>
+      
+      <guid>https://kaztakata.github.io/celonis-hacks/posts/2022-08-06-manipulate-transformation-scripts-collectively/</guid>
+      <description>At described in Start Deep Dive to Machine Learning and Action Flow it is possible to manipulate Celonis EMS function by Machine Learning Workbench. Function relevant to EMS data is already discussed at last post Store Time Series of Metrics to Table. Machine learning Workbench also enables to manipulate programs in EMS for developers. Today I would like to demonstrate some of functions to manipulate Transformation (SQL) script developed in Data Integration.</description>
+    </item>
+    
     <item>
       <title>Store Time Series of Metrics to Table</title>
       <link>https://kaztakata.github.io/celonis-hacks/posts/2022-07-30-store-time-series-of-metrics-to-table/</link>
