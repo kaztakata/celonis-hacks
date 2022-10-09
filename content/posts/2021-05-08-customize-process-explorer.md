@@ -17,7 +17,7 @@ If you want to add detail information to each activity, you can change activity 
 
 [![image](https://user-images.githubusercontent.com/67397583/117003132-7137b600-ad1f-11eb-8afb-66cd11b10f42.png)](https://user-images.githubusercontent.com/67397583/117003132-7137b600-ad1f-11eb-8afb-66cd11b10f42.png)
 
-As demonstrated in [Understand Difference between Dimension and KPI](../2021-05-01-understand-difference-between-dimension-and-kpi/), two (and more) tables in activity dimension PQL are inplicitly joined then concatenated string is set to activity dimension. You are careful to use additional column that may have NULL value. Concatenation with NULL returns NULL, and NULL activity is not displayed in Process Explorer. If I would like to prevent it, I will use `COALESCE(_CEL_AP_ACTIVITIES.USER_NAME,'')` instead, then NULL value will convert to zero byte string and activity name is displayed. Below screenshots are to test `COALESCE` funciton in OLAP table, and Process Explorer. Activity `Due Date passed` is displayed in Process Explorer, even it does not have user information.
+As demonstrated in [Understand Difference between Dimension and KPI](../2021-05-01-understand-difference-between-dimension-and-kpi/), two (and more) tables in activity dimension PQL are inplicitly joined then concatenated string is set to activity dimension. You are careful to use additional column that may have NULL value. Concatenation with NULL returns NULL, and NULL activity is not displayed in Process Explorer. If I would like to prevent it, I will use `COALESCE( _CEL_AP_ACTIVITIES.USER_NAME, '')` instead, then NULL value will convert to zero byte string and activity name is displayed. Below screenshots are to test `COALESCE` funciton in OLAP table, and Process Explorer. Activity `Due Date passed` is displayed in Process Explorer, even it does not have user information.
 
 [![image](https://user-images.githubusercontent.com/67397583/117004211-c88a5600-ad20-11eb-8eea-6a4a3e199a69.png)](https://user-images.githubusercontent.com/67397583/117004211-c88a5600-ad20-11eb-8eea-6a4a3e199a69.png)
 
@@ -47,7 +47,7 @@ AVG(
 )
 ```
 
-This PQL, especially `SOURCE(_CEL_AP_ACTIVITIES.EVENTTIME)` and `TARGET(_CEL_AP_ACTIVITIES.EVENTTIME)` combination, will implicitly create temporary table grouped by neighboring two activities, like below OLAP table (Temporary table can be joined with case table to add another dimensions).
+This PQL, especially `SOURCE( _CEL_AP_ACTIVITIES.EVENTTIME )` and `TARGET( _CEL_AP_ACTIVITIES.EVENTTIME )` combination, will implicitly create temporary table grouped by neighboring two activities, like below OLAP table (Temporary table can be joined with case table to add another dimensions).
 
 For example, in both OLAP table and Process Explorer you can see same day ratio `3.41%` at connection between `Record Goods Receipt` and `Record Invoice Receipt`,
 
